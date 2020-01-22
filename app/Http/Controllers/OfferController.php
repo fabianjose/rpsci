@@ -8,50 +8,7 @@ use Illuminate\Http\Request;
 use App\Offer;
 
 class OfferController extends Controller{
-
-  public function newOffer(Request $request){
-    $data = $request->all();
-    $validation = Validator::make($data, [
-      'company' => ['required', 'string', 'min:6', 'max:128', 'exist:services'],
-      'fields' => ['required', 'json'],
-    ]);
-    if ($validation->fails()){
-      return response()->json($validation->errors(), 400);
-    }
-
-    $service = Service::create($data);
-    if (!$service) return response()->json('Database Error', 500);
-    return response()->json('Service successfully created', 201);
-  }
-
-  public function editService($id, Request $request){
-    $data = $request->all();
-    $validation = Validator::make($data, [
-      'name' => ['string', 'min:6', 'max:128'],
-      'fields' => ['json'],
-    ]);
-    if ($validation->fails()){
-      return response()->json($validation->errors(), 400);
-    }
-    $service = Service::find($id);
-    if (!$service) return response()->json('Service not found',404);
-
-    $keysAllow = [
-      'name',
-      'fields'
-    ];
-
-    foreach ($keysAllow as $key){
-      if (isset($data[$key])){
-        $service->{$key} = $data[$key];
-      }
-    }
-    if (!$service->save()){
-      return response()->json('Database Error', 500);
-    }
-
-    return response()->json('Service successfully edited', 200);
-  }
+  
 
   public function getAll(){
 		$offers = DB::table('offers')->where('offers.trash',0)
@@ -72,8 +29,8 @@ class OfferController extends Controller{
 	}
 
 	public function getOffer($id){
-		$offer = Service::find($id);
-		if (!$offer) return response()->json('Service not found',404);
+		$offer = Offer::find($id);
+		if (!$offer) return response()->json('Offer not found',404);
 		$offer = DB::table('offers')->where('offers.id',$id)->where('offers.trash',0)
     ->join('companies','companies.id','offers.company')
     ->join('services', 'services.id','offers.service')
@@ -87,16 +44,16 @@ class OfferController extends Controller{
     'municipalitiess.name as municipality_name'
     )
     ->first();
-		if (!$offer) return response()->json('Service not found',404);
+		if (!$offer) return response()->json('Offer not found',404);
 		return response()->json($offer, 200);
 	}
 
-	public function deleteService($id){
-		$service = Service::find($id);
-		if (!$service) return response()->json('Service not found',404);
-		$service->trash = 1;
-		if (!$service->save()) return response()->json('Database Error',500);
-		return response()->json('Service successfully deleted', 200);
+	public function deleteOffer($id){
+		$offer = Offer::find($id);
+		if (!$offer) return response()->json('Offer not found',404);
+		$offer->trash = 1;
+		if (!$offer->save()) return response()->json('Database Error',500);
+		return response()->json('Offer successfully deleted', 200);
 	}
 
 }
