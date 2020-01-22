@@ -30,7 +30,7 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
+    'logo' => '<b>Eduardo</b>LTE',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image-xl',
     'logo_img_xl' => null,
@@ -92,7 +92,7 @@ return [
 
     'sidebar_mini' => true,
     'sidebar_collapse' => false,
-    'sidebar_collapse_auto_size' => false,
+    'sidebar_collapse_auto_size' => false,//keep false
     'sidebar_collapse_remember' => false,
     'sidebar_collapse_remember_no_transition' => true,
     'sidebar_scrollbar_theme' => 'os-theme-light',
@@ -185,6 +185,13 @@ return [
         ],
         [
             'text'        => 'pages',
+            'url'         => 'admin/pages',
+            'icon'        => 'far fa-fw fa-file',
+            'label'       => 4,
+            'label_color' => 'success',
+        ],
+        [
+            'text'        => 'eduardoz',
             'url'         => 'admin/pages',
             'icon'        => 'far fa-fw fa-file',
             'label'       => 4,

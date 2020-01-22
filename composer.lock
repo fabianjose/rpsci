@@ -4,11 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
-    "content-hash": "2376e718bc0f34d336bdaac5000bafee",
-=======
-    "content-hash": "3a00766566161e8a75d25f0c8b6cc0aa",
->>>>>>> a4712ca03fdcb2e9e8d5c919fcfa9e04c919837c
+    "content-hash": "49b6127c4a399eb9f16e2df8ed52d092",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -730,7 +726,6 @@
             "time": "2020-01-14T16:58:39+00:00"
         },
         {
-<<<<<<< HEAD
             "name": "laravel/ui",
             "version": "v1.1.2",
             "source": {
@@ -753,7 +748,41 @@
             "require-dev": {
                 "mockery/mockery": "^1.0",
                 "phpunit/phpunit": "^8.0"
-=======
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.x-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Laravel\\Ui\\UiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Laravel\\Ui\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                }
+            ],
+            "description": "Laravel UI utilities and presets.",
+            "keywords": [
+                "laravel",
+                "ui"
+            ],
+            "time": "2019-12-20T15:09:01+00:00"
+        },
+        {
             "name": "lcobucci/jwt",
             "version": "3.3.1",
             "source": {
@@ -778,50 +807,20 @@
                 "phpunit/php-invoker": "~1.1",
                 "phpunit/phpunit": "^5.7 || ^7.3",
                 "squizlabs/php_codesniffer": "~2.3"
->>>>>>> a4712ca03fdcb2e9e8d5c919fcfa9e04c919837c
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-<<<<<<< HEAD
-                    "dev-master": "2.x-dev"
-                },
-                "laravel": {
-                    "providers": [
-                        "Laravel\\Ui\\UiServiceProvider"
-                    ]
-=======
                     "dev-master": "3.1-dev"
->>>>>>> a4712ca03fdcb2e9e8d5c919fcfa9e04c919837c
                 }
             },
             "autoload": {
                 "psr-4": {
-<<<<<<< HEAD
-                    "Laravel\\Ui\\": "src/"
-=======
                     "Lcobucci\\JWT\\": "src"
->>>>>>> a4712ca03fdcb2e9e8d5c919fcfa9e04c919837c
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-<<<<<<< HEAD
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Taylor Otwell",
-                    "email": "taylor@laravel.com"
-                }
-            ],
-            "description": "Laravel UI utilities and presets.",
-            "keywords": [
-                "laravel",
-                "ui"
-            ],
-            "time": "2019-12-20T15:09:01+00:00"
-=======
                 "BSD-3-Clause"
             ],
             "authors": [
@@ -837,7 +836,6 @@
                 "jwt"
             ],
             "time": "2019-05-24T18:30:49+00:00"
->>>>>>> a4712ca03fdcb2e9e8d5c919fcfa9e04c919837c
         },
         {
             "name": "league/commonmark",
