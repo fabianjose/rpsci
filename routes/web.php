@@ -25,3 +25,18 @@ return view('home');
 })->name('home')->middleware('auth');
 Route::get('/home', function() {
 */
+
+Route::get('avatar/{filename}', function ($filename){
+
+    $path = storage_path('app/uploads/logos/' . $filename);
+
+    if (!File::exists($path)) { abort(404); }
+
+    $file = File::get($path);
+    $type = File::mimeType($path);
+
+    $response = Response::make($file, 200);
+    $response->header("Content-Type", $type);
+
+    return $response;
+});

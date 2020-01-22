@@ -13,7 +13,11 @@
         "jeroennoten/laravel-adminlte": "^3.0",
         "laravel/framework": "^6.2",
         "laravel/tinker": "^2.0",
+<<<<<<< HEAD
         "laravel/ui": "^1.1"
+=======
+        "tymon/jwt-auth": "^1.0.0"
+>>>>>>> a4712ca03fdcb2e9e8d5c919fcfa9e04c919837c
     },
     "require-dev": {
         "facade/ignition": "^1.4",
