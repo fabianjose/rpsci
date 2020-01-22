@@ -54,7 +54,7 @@ class ServiceController extends Controller{
   }
 
   public function getAll(){
-		$services = DB::table('services')->get();
+		$services = DB::table('services')->where('trash',0)->get();
 		if (!$services) return response()->json('Database Error',500);
 		return response()->json($services, 200);
 	}

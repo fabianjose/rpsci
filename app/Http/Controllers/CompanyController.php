@@ -84,13 +84,13 @@ class CompanyController extends Controller{
   }
 
 	public function getAll(){
-		$companies = DB::table('companies')->get();
+		$companies = DB::table('companies')->where('trash',0)->get();
 		if (!$companies) return response()->json('Database Error',500);
 		return response()->json($companies, 200);
 	}
 
   public function getNames(){
-		$companies = DB::table('companies')->get();
+		$companies = DB::table('companies')->where('trash',0)->get();
 		if (!$companies) return response()->json('Database Error',500);
     $names = array();
     foreach ($companies as $key) {
