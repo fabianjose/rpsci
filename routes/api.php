@@ -12,7 +12,7 @@ Route::get('/municipalities/{departmentId}','MunicipalityController@getByDepartm
 Route::post('/company','CompanyController@newCompany');
 Route::put('/company/{id}','CompanyController@editCompany');
 Route::get('/company','CompanyController@getAll');
-Route::get('/company/names','CompanyController@getNames');
+// Route::get('/company/names','CompanyController@getNames');
 Route::get('/company/{id}','CompanyController@getCompany');
 Route::delete('/company/{id}','CompanyController@deleteCompany');
 

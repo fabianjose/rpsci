@@ -89,15 +89,15 @@ class CompanyController extends Controller{
 		return response()->json($companies, 200);
 	}
 
-  public function getNames(){
-		$companies = DB::table('companies')->where('trash',0)->get();
-		if (!$companies) return response()->json('Database Error',500);
-    $names = array();
-    foreach ($companies as $key) {
-      array_push($names,$key->name);
-    }
-		return response()->json($names, 200);
-	}
+  // public function getNames(){
+	// 	$companies = DB::table('companies')->where('trash',0)->get();
+	// 	if (!$companies) return response()->json('Database Error',500);
+  //   $names = array();
+  //   foreach ($companies as $key) {
+  //     array_push($names,$key->name);
+  //   }
+	// 	return response()->json($names, 200);
+	// }
 
 	public function getCompany($id){
 		$company = Company::find($id);
