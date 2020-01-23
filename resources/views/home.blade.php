@@ -1,75 +1,40 @@
 @extends('layouts.content')
 
-@section('title-adminlte', 'Dashboard')
+@section('title-adminlte', 'Bienvenido al Panel Administrativo!')
 
 @section('content-adminlte')
+<div class="container-fluid">
     <div class="row">
-          <div class="col-lg-3 col-6">
-            <!-- small card -->
-            <div class="small-box bg-info">
-              <div class="inner">
-                  <h3>1</h3>
-                  <p>Empresas</p>
-              </div>
-              <div class="icon">
-                <i class="fas fa-suitcase"></i>
-              </div>
-              <a href="/companies" class="small-box-footer">
-                Gestión  <i class="fas fa-arrow-circle-right"></i>
-              </a>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small card -->
-            <div class="small-box bg-success">
-              <div class="inner">
-                <h3>53<sup style="font-size: 20px">%</sup></h3>
+  
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="info-box">
+              <span class="info-box-icon bg-info"><i class="fas fa-suitcase"></i></span>
 
-                <p>Bounce Rate</p>
+              <div class="info-box-content">
+                <h5 class="info-box-text">Empresas</h5>
+                <a href="/companies" class="btn btn-block btn-outline-info">
+                  Gestión  <i class="fas fa-arrow-circle-right"></i>
+                </a>
               </div>
-              <div class="icon">
-                <i class="ion ion-stats-bars"></i>
-              </div>
-              <a href="#" class="small-box-footer">
-                More info <i class="fas fa-arrow-circle-right"></i>
-              </a>
+              <!-- /.info-box-content -->
             </div>
+            <!-- /.info-box -->
           </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small card -->
-            <div class="small-box bg-warning">
-              <div class="inner">
-                <h3>44</h3>
 
-                <p>User Registrations</p>
-              </div>
-              <div class="icon">
-                <i class="fas fa-user-plus"></i>
-              </div>
-              <a href="#" class="small-box-footer">
-                More info <i class="fas fa-arrow-circle-right"></i>
-              </a>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small card -->
-            <div class="small-box bg-danger">
-              <div class="inner">
-                <h3>65</h3>
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="info-box">
+              <span class="info-box-icon bg-success"><i class="fas fa-box"></i></span>
 
-                <p>Unique Visitors</p>
+              <div class="info-box-content">
+                <h5 class="info-box-text">Servicios</h5>
+                <a href="/companies" class="btn btn-block btn-outline-success">
+                  Gestión  <i class="fas fa-arrow-circle-right"></i>
+                </a>
               </div>
-              <div class="icon">
-                <i class="fas fa-chart-pie"></i>
-              </div>
-              <a href="#" class="small-box-footer">
-                More info <i class="fas fa-arrow-circle-right"></i>
-              </a>
+              <!-- /.info-box-content -->
             </div>
+            <!-- /.info-box -->
           </div>
-          <!-- ./col -->
     </div>
+</div>     
 @stop

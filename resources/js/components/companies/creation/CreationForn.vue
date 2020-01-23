@@ -16,7 +16,7 @@
             <label for="exampleInputFile">Logo de la Empresa</label>
             <div class="input-group">
               <div class="custom-file">
-                <input type="file" @change="uploadFile" class="custom-file-input" ref="SelectFile" id="InputFile">
+                <input type="file" v-on:change="uploadFile" class="custom-file-input" ref="SelectFile" id="InputFile">
                 <label class="custom-file-label" for="InputFile">Seleccionar Archivo</label>
               </div>
             </div>
@@ -40,7 +40,7 @@
         </div>
 
         <div class="card-footer">
-            <button type="button" class="btn btn-outline-success" @click="submitNewCompany">Agregar</button>
+            <button type="button" class="btn btn-outline-success" v-on:click="submitNewCompany()">Agregar</button>
         </div>
       </div>
     </div>    

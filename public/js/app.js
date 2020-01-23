@@ -1978,8 +1978,48 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'companyCreation'
+  name: 'companyCreation',
+  data: function data() {
+    return {
+      name: "",
+      logo: null,
+      nit: "",
+      phone: "",
+      web: ""
+    };
+  },
+  mounted: function mounted() {
+    console.log("mounted");
+  },
+  methods: {
+    uploadFile: function uploadFile() {
+      console.log("changing file");
+      var uploadFile = this.$refs.SelectFile.files[0];
+
+      if (!uploadFile) {
+        console.log("there is no file to attach");
+        return;
+      }
+
+      this.logo = uploadFile;
+    },
+    submitNewCompany: function submitNewCompany() {
+      var fd = new FormData();
+      fd.append("name", this.name);
+      fd.append("logo", this.logo);
+      fd.append("nit", this.nit);
+      fd.append("phone", this.phone);
+      fd.append("web", this.web);
+      axios.post('http://127.0.0.1:8000/api/company', fd).then(function (res) {
+        console.log("RESPONSE FROM SERVER ", res);
+      })["catch"](function (err) {
+        console.log("ERROR FROM SERVER ", err);
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -1993,6 +2033,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
 //
 //
 //
@@ -32844,104 +32886,184 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "card card-primary" }, [
-    _vm._m(0),
-    _vm._v(" "),
-    _c("div", { staticClass: "card-body" }, [
-      _vm._m(1),
+  return _c(
+    "div",
+    {
+      staticClass: "card card-success",
+      attrs: { id: "createCompanyAccordion" }
+    },
+    [
+      _vm._m(0),
       _vm._v(" "),
-      _c("div", { staticClass: "form-group" }, [
-        _c("label", { attrs: { for: "exampleInputFile" } }, [
-          _vm._v("Logo de la Empresa")
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "input-group" }, [
-          _c("div", { staticClass: "custom-file" }, [
-            _c("input", {
-              ref: "SelectFile",
-              staticClass: "custom-file-input",
-              attrs: { type: "file", id: "InputFile" }
-            }),
+      _c(
+        "div",
+        {
+          staticClass: "panel-collapse in collapse",
+          attrs: { id: "collapseOne" }
+        },
+        [
+          _c("div", { staticClass: "card-body" }, [
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", [_vm._v("Nombre de la Empresa")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.name,
+                    expression: "name"
+                  }
+                ],
+                staticClass: "form-control",
+                domProps: { value: _vm.name },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.name = $event.target.value
+                  }
+                }
+              })
+            ]),
             _vm._v(" "),
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", { attrs: { for: "exampleInputFile" } }, [
+                _vm._v("Logo de la Empresa")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "input-group" }, [
+                _c("div", { staticClass: "custom-file" }, [
+                  _c("input", {
+                    ref: "SelectFile",
+                    staticClass: "custom-file-input",
+                    attrs: { type: "file", id: "InputFile" },
+                    on: { change: _vm.uploadFile }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "label",
+                    {
+                      staticClass: "custom-file-label",
+                      attrs: { for: "InputFile" }
+                    },
+                    [_vm._v("Seleccionar Archivo")]
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", [_vm._v("NIT de la Empresa")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.nit,
+                    expression: "nit"
+                  }
+                ],
+                staticClass: "form-control",
+                domProps: { value: _vm.nit },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.nit = $event.target.value
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", [_vm._v("Teléfono de la Empresa")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.phone,
+                    expression: "phone"
+                  }
+                ],
+                staticClass: "form-control",
+                domProps: { value: _vm.phone },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.phone = $event.target.value
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", [_vm._v("Web de la Empresa")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.web,
+                    expression: "web"
+                  }
+                ],
+                staticClass: "form-control",
+                domProps: { value: _vm.web },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.web = $event.target.value
+                  }
+                }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card-footer" }, [
             _c(
-              "label",
-              { staticClass: "custom-file-label", attrs: { for: "InputFile" } },
-              [_vm._v("Seleccionar Archivo")]
+              "button",
+              {
+                staticClass: "btn btn-outline-success",
+                attrs: { type: "button" },
+                on: { click: _vm.submitNewCompany }
+              },
+              [_vm._v("Agregar")]
             )
           ])
-        ])
-      ]),
-      _vm._v(" "),
-      _vm._m(2),
-      _vm._v(" "),
-      _vm._m(3),
-      _vm._v(" "),
-      _vm._m(4)
-    ]),
-    _vm._v(" "),
-    _vm._m(5)
-  ])
+        ]
+      )
+    ]
+  )
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-header" }, [
-      _c("h3", { staticClass: "card-title" }, [_vm._v("Nueva Empresa")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", [_vm._v("Nombre de la Empresa")]),
-      _vm._v(" "),
-      _c("input", { staticClass: "form-control" })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", [_vm._v("NIT de la Empresa")]),
-      _vm._v(" "),
-      _c("input", { staticClass: "form-control" })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", [_vm._v("Teléfono de la Empresa")]),
-      _vm._v(" "),
-      _c("input", { staticClass: "form-control" })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", [_vm._v("Web de la Empresa")]),
-      _vm._v(" "),
-      _c("input", { staticClass: "form-control" })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-footer" }, [
-      _c(
-        "button",
-        { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-        [_vm._v("Agregar")]
-      )
-    ])
+    return _c(
+      "a",
+      {
+        staticClass: "card-header collapsed",
+        attrs: {
+          "data-parent": "#createCompanyAccordion",
+          href: "#collapseOne",
+          "aria-expanded": "false",
+          "data-toggle": "collapse"
+        }
+      },
+      [_c("h3", { staticClass: "card-title" }, [_vm._v("Nueva Empresa")])]
+    )
   }
 ]
 render._withStripped = true
@@ -32965,8 +33087,15 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "row" }, [
-    _c("div", { staticClass: "col-md-6" }, [_c("company-creation")], 1)
+  return _c("div", { staticClass: "container-fluid" }, [
+    _c("div", { staticClass: "row justify-content-center" }, [
+      _c(
+        "div",
+        { staticClass: "col-md-8 col-lg-12 col-sm-6" },
+        [_c("company-creation")],
+        1
+      )
+    ])
   ])
 }
 var staticRenderFns = []
@@ -45375,8 +45504,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\z-projects\colombia_internet\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\z-projects\colombia_internet\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\web 03\Music\colombia_internet\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\web 03\Music\colombia_internet\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

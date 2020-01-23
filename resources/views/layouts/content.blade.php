@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="wrapper">
         <nav class="main-header navbar navbar-expand-md navbar-white navbar-light">
             
@@ -26,7 +27,7 @@
 
         </nav>
 
-        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+        <aside class="sidebar main-sidebar sidebar-dark-primary elevation-4">
                 <a href="/" class="brand-link ">
                     <img src="http://localhost:8000/vendor/adminlte/dist/img/AdminLTELogo.png" alt="AdminLTE" class="brand-image img-circle elevation-3" style="opacity: .8">
                     <span class="brand-text font-weight-light ">
@@ -64,18 +65,15 @@
                 <section class="content-header">
                 <div class="container-fluid">
                         <div class="row mb-2">
-                                <div class="col-sm-6">
-                                        <h1 class="m-0 text-dark">@yield('title-adminlte')</h1>
-                                </div>
+                                <h1 class="px-4 m-0 text-dark">@yield('title-adminlte')</h1>
                         </div>
                 </div>
                 </section>
                 <section class="content" >
-                  <div class="container-fluid">
-                        @yield('content-adminlte')
-                  </div>                        
+                        @yield('content-adminlte')                   
                 </section>
         </div>
+
   </div>
 
 @stop
