@@ -115,4 +115,44 @@ class CompanyController extends Controller{
 		return response()->json('Company successfully deleted', 200);
 	}
 
+  public function highlightCompany($id,Request $request){
+    $data = $request->all();
+    $validation = Validator::make($data, [
+      'highlighted_expiration' => ['required', 'date_format:Y-m-d H:i:s'],
+    ]);
+    if ($validation->fails()){
+      return response()->json($validation->errors(), 400);
+    }
+
+    $company = Company::find($id);
+		if (!$company) return response()->json('Company not found',404);
+
+    $company->highlighted = 1;
+    $company->highlighted_expiration = $data['highlighted_expiration'];
+		if (!$company->save()) return response()->json('Database Error',500);
+
+		return response()->json('Company successfully highlighted', 200);
+  }
+
+  public function deHighlightCompany($id){
+    $company = Company::find($id);
+		if (!$company) return response()->json('Company not found',404);
+
+    $company->highlighted = 0;
+    $company->highlighted_expiration = null;
+		if (!$company->save()) return response()->json('Database Error',500);
+
+		return response()->json('Company highlight disabled', 200);
+  }
+
+  public function getAllHighlighted(){
+		$companies = DB::table('companies')
+    ->where('trash',0)
+    ->where('highlighted',1)
+    ->where('highlighted_expiration','<=',date('Y-m-d h:i:s'))
+    ->get();
+		if (!$companies) return response()->json('Database Error',500);
+		return response()->json($companies, 200);
+	}
+
 }

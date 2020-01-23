@@ -20,6 +20,8 @@ class CreateCompaniesTable extends Migration
             $table->string('nit',16);
             $table->string('phone',16);
             $table->string('web',128);
+            $table->boolean('highlighted')->default(0);
+            $table->timestamp('highlighted_expiration')->nullable();
             $table->boolean('trash')->default(0);
             $table->timestamps();
         });

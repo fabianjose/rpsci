@@ -11,7 +11,10 @@ Route::get('/municipalities/{departmentId}','MunicipalityController@getByDepartm
 
 Route::post('/company','CompanyController@newCompany');
 Route::put('/company/{id}','CompanyController@editCompany');
+Route::put('/company/{id}/highlight','CompanyController@highlightCompany');
+Route::put('/company/{id}/dehighlight','CompanyController@deHighlightCompany');
 Route::get('/companies','CompanyController@getAll');
+Route::get('/companies/highlighted','CompanyController@getAllHighlighted');
 // Route::get('/company/names','CompanyController@getNames');
 Route::get('/company/{id}','CompanyController@getCompany');
 Route::delete('/company/{id}','CompanyController@deleteCompany');
@@ -47,7 +50,7 @@ Route::group(['middleware' => ['JwtMiddleware']], function () {
   // Route::get('/services','ServiceController@getAll');
   // Route::get('/service/{id}','ServiceController@getService');
   // Route::delete('/service/{id}','ServiceController@deleteService');
-  // 
+  //
   // Route::post('/offer','OfferController@newOffer');
   // Route::put('/offer/{id}','OfferController@editOffer');
   // Route::get('/offers','OfferController@getAll');
