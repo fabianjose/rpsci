@@ -10,7 +10,7 @@ class Offer extends Model{
     'company',
     'service',
     'benefits',
-    'fields',
+    'fields_value',
     'tariff',
     'points',
     'type',

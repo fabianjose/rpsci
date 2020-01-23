@@ -15,7 +15,7 @@ class OfferController extends Controller{
       'company' => ['required', 'exists:companies,id'],
       'service' => ['required', 'exists:services,id'],
       'benefits' => ['required', 'string'],
-      'fields' => ['required', 'json'],
+      'fields_value' => ['required', 'json'],
       'tariff' => ['required', 'string'],
       'points' => ['numeric'],
       'municipality' => ['required', 'in:private,company'],
