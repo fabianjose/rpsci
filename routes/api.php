@@ -40,8 +40,11 @@ Route::group(['middleware' => ['JwtMiddleware']], function () {
   //
   // Route::post('/company','CompanyController@newCompany');
   // Route::put('/company/{id}','CompanyController@editCompany');
+  // Route::put('/company/{id}/highlight','CompanyController@highlightCompany');
+  // Route::put('/company/{id}/dehighlight','CompanyController@deHighlightCompany');
   // Route::get('/companies','CompanyController@getAll');
-  // Route::get('/company/names','CompanyController@getNames');
+  // Route::get('/companies/highlighted','CompanyController@getAllHighlighted');
+  // // Route::get('/company/names','CompanyController@getNames');
   // Route::get('/company/{id}','CompanyController@getCompany');
   // Route::delete('/company/{id}','CompanyController@deleteCompany');
   //
