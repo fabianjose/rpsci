@@ -8,7 +8,28 @@ use Illuminate\Http\Request;
 use App\Offer;
 
 class OfferController extends Controller{
-  
+
+  public function newOffer(Request $request){
+    $data = $request->all();
+    $validation = Validator::make($data, [
+      'company' => ['required', 'exists:companies,id'],
+      'service' => ['required', 'exists:services,id'],
+      'benefits' => ['required', 'string'],
+      'fields' => ['required', 'json'],
+      'tariff' => ['required', 'string'],
+      'points' => ['numeric'],
+      'municipality' => ['required', 'in:private,company'],
+      'department' => ['required', 'exists:departments,id'],
+      'municipality' => ['required', 'exists:municipalities,id'],
+    ]);
+    if ($validation->fails()){
+      return response()->json($validation->errors(), 400);
+    }
+
+    $offer = Offer::create($data);
+    if (!$offer) return response()->json('Database Error', 500);
+    return response()->json('Offer successfully created', 201);
+  }
 
   public function getAll(){
 		$offers = DB::table('offers')->where('offers.trash',0)
@@ -21,7 +42,7 @@ class OfferController extends Controller{
     'services.name as service_name',
     'services.fields as service_fields',
     'departments.name as department_name',
-    'municipalitiess.name as municipality_name'
+    'municipalities.name as municipality_name'
     )
     ->get();
 		if (!$offers) return response()->json('Database Error',500);
@@ -41,7 +62,7 @@ class OfferController extends Controller{
     'services.name as service_name',
     'services.fields as service_fields',
     'departments.name as department_name',
-    'municipalitiess.name as municipality_name'
+    'municipalities.name as municipality_name'
     )
     ->first();
 		if (!$offer) return response()->json('Offer not found',404);

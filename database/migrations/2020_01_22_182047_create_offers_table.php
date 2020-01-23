@@ -21,7 +21,7 @@ class CreateOffersTable extends Migration
             $table->foreign('service')->references('id')->on('services');
 
             $table->string('benefits');
-            $table->string('fields');
+            $table->string('fields_value');
             $table->string('tariff');
             $table->integer('points')->default(0);
             $table->enum('type',['private','company']);
@@ -30,6 +30,7 @@ class CreateOffersTable extends Migration
             $table->foreign('department')->references('id')->on('departments');
             $table->bigInteger('municipality')->unsigned();
             $table->foreign('municipality')->references('id')->on('municipalities');
+            $table->boolean('trash')->default(0);
             $table->timestamps();
         });
     }
