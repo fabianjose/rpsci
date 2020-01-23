@@ -66,7 +66,7 @@ export default {
 
     methods:{
 
-      uploadFile(){
+      uploadFile: function(){
 
         console.log("changing file")
         let uploadFile=this.$refs.SelectFile.files[0]
@@ -80,7 +80,10 @@ export default {
 
       },
 
-      submitNewCompany(){
+      submitNewCompany: function(){
+
+          console.log("consologazo")
+
 
         let fd= new FormData();
 
@@ -101,7 +104,7 @@ export default {
         .catch(err=>{
           
           
-          console.log("ERROR FROM SERVER ",err);
+          console.log("ERROR FROM SERVER ",err.response);
 
 
           }
