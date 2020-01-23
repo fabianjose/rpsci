@@ -31,6 +31,49 @@ class OfferController extends Controller{
     return response()->json('Offer successfully created', 201);
   }
 
+  public function editOffer($id, Request $request){
+    $data = $request->all();
+    $validation = Validator::make($data, [
+      'company' => ['exists:companies,id'],
+      'service' => ['exists:services,id'],
+      'benefits' => ['string'],
+      'fields_value' => ['json'],
+      'tariff' => ['string'],
+      'points' => ['numeric'],
+      'municipality' => ['in:private,company'],
+      'department' => ['exists:departments,id'],
+      'municipality' => ['exists:municipalities,id'],
+    ]);
+    if ($validation->fails()){
+      return response()->json($validation->errors(), 400);
+    }
+    $offer = Offer::find($id);
+    if (!$offer) return response()->json('Offer not found',404);
+
+    $keysAllow = [
+      'company',
+      'service',
+      'benefits',
+      'fields_value',
+      'tariff',
+      'points',
+      'type',
+      'department',
+      'municipality'
+    ];
+
+    foreach ($keysAllow as $key){
+      if (isset($data[$key])){
+        $offer->{$key} = $data[$key];
+      }
+    }
+    if (!$offer->save()){
+      return response()->json('Database Error', 500);
+    }
+
+    return response()->json('Offer successfully edited', 200);
+  }
+
   public function getAll(){
 		$offers = DB::table('offers')->where('offers.trash',0)
     ->join('companies','companies.id','offers.company')
