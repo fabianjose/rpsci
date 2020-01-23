@@ -11,16 +11,25 @@ Route::get('/municipalities/{departmentId}','MunicipalityController@getByDepartm
 
 Route::post('/company','CompanyController@newCompany');
 Route::put('/company/{id}','CompanyController@editCompany');
-Route::get('/company','CompanyController@getAll');
+Route::put('/company/{id}/highlight','CompanyController@highlightCompany');
+Route::put('/company/{id}/dehighlight','CompanyController@deHighlightCompany');
+Route::get('/companies','CompanyController@getAll');
+Route::get('/companies/highlighted','CompanyController@getAllHighlighted');
 // Route::get('/company/names','CompanyController@getNames');
 Route::get('/company/{id}','CompanyController@getCompany');
 Route::delete('/company/{id}','CompanyController@deleteCompany');
 
 Route::post('/service','ServiceController@newService');
 Route::put('/service/{id}','ServiceController@editService');
-Route::get('/service','ServiceController@getAll');
+Route::get('/services','ServiceController@getAll');
 Route::get('/service/{id}','ServiceController@getService');
 Route::delete('/service/{id}','ServiceController@deleteService');
+
+Route::post('/offer','OfferController@newOffer');
+Route::put('/offer/{id}','OfferController@editOffer');
+Route::get('/offers','OfferController@getAll');
+Route::get('/offer/{id}','OfferController@getOffer');
+Route::delete('/offer/{id}','OfferController@deleteOffer');
 //////////////////////////////////////////////////////////////////////////
 
 Route::group(['middleware' => ['JwtMiddleware']], function () {
@@ -31,15 +40,24 @@ Route::group(['middleware' => ['JwtMiddleware']], function () {
   //
   // Route::post('/company','CompanyController@newCompany');
   // Route::put('/company/{id}','CompanyController@editCompany');
-  // Route::get('/company','CompanyController@getAll');
-  // Route::get('/company/names','CompanyController@getNames');
+  // Route::put('/company/{id}/highlight','CompanyController@highlightCompany');
+  // Route::put('/company/{id}/dehighlight','CompanyController@deHighlightCompany');
+  // Route::get('/companies','CompanyController@getAll');
+  // Route::get('/companies/highlighted','CompanyController@getAllHighlighted');
+  // // Route::get('/company/names','CompanyController@getNames');
   // Route::get('/company/{id}','CompanyController@getCompany');
   // Route::delete('/company/{id}','CompanyController@deleteCompany');
   //
   // Route::post('/service','ServiceController@newService');
   // Route::put('/service/{id}','ServiceController@editService');
-  // Route::get('/service','ServiceController@getAll');
+  // Route::get('/services','ServiceController@getAll');
   // Route::get('/service/{id}','ServiceController@getService');
   // Route::delete('/service/{id}','ServiceController@deleteService');
+  //
+  // Route::post('/offer','OfferController@newOffer');
+  // Route::put('/offer/{id}','OfferController@editOffer');
+  // Route::get('/offers','OfferController@getAll');
+  // Route::get('/offer/{id}','OfferController@getOffer');
+  // Route::delete('/offer/{id}','OfferController@deleteOffer');
 
 });

@@ -10,12 +10,14 @@ class Offer extends Model{
     'company',
     'service',
     'benefits',
-    'fields',
+    'fields_value',
     'tariff',
     'points',
     'type',
     'department',
     'municipality',
+    'highlighted',
+    'highlighted_expiration',
     'trash'
   ];
 
