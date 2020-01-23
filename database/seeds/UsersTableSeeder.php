@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Seeder;
 
 class UsersTableSeeder extends Seeder
 {
@@ -13,7 +13,7 @@ class UsersTableSeeder extends Seeder
       "username" => 'nextscale',
       'password'  =>  Hash::make('nextscale'),
     ]);
-    
+
   }
 
 }

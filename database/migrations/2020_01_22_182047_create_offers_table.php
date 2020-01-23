@@ -30,6 +30,10 @@ class CreateOffersTable extends Migration
             $table->foreign('department')->references('id')->on('departments');
             $table->bigInteger('municipality')->unsigned();
             $table->foreign('municipality')->references('id')->on('municipalities');
+
+            $table->boolean('highlighted')->default(0);
+            $table->timestamp('highlighted_expiration')->nullable();
+            
             $table->boolean('trash')->default(0);
             $table->timestamps();
         });

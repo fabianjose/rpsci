@@ -16,6 +16,8 @@ class Offer extends Model{
     'type',
     'department',
     'municipality',
+    'highlighted',
+    'highlighted_expiration',
     'trash'
   ];
 

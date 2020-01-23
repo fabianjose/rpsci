@@ -112,6 +112,63 @@ class OfferController extends Controller{
 		return response()->json($offer, 200);
 	}
 
+  public function getByLocation(Request $request){
+    $data = $request->all();
+    $validation = Validator::make($data, [
+      'company' => ['required', 'exists:companies,id'],
+      'department' => ['required', 'exists:departments,id'],
+      'municipality' => ['required', 'exists:municipalities,id'],
+    ]);
+    if ($validation->fails()){
+      return response()->json($validation->errors(), 400);
+    }
+    $offers = DB::table('offers')
+    ->where('trash',0)
+    ->where('company',$data['company'])
+    ->where('department',$data['department'])
+    ->where('municipality',$data['municipality'])
+    ->get();
+
+    if (!$offers) return response()->json('Database Error',500);
+		return response()->json($offers, 200);
+  }
+
+  public function HighlightOffer($id, Request $request){
+    $data = $request->all();
+    $validation = Validator::make($data, [
+      'highlighted_expiration' => ['required', 'date_format:Y-m-d H:i:s'],
+    ]);
+    if ($validation->fails()){
+      return response()->json($validation->errors(), 400);
+    }
+
+    $offer = Offer::find($id);
+		if (!$offer) return response()->json('Offer not found',404);
+
+    if ($offer->highlighted){
+      $offer->highlighted = 0;
+      $offer->highlighted_expiration = null;
+      if (!$offer->save()) return response()->json('Database Error',500);
+      return response()->json('Offer highlight disabled', 200);
+    }else{
+      $offer->highlighted = 1;
+      $offer->highlighted_expiration = $data['highlighted_expiration'];
+      if (!$offer->save()) return response()->json('Database Error',500);
+      return response()->json('Offer successfully highlighted', 200);
+    }
+
+  }
+
+  public function getAllHighlighted(){
+		$offers = DB::table('offers')
+    ->where('trash',0)
+    ->where('highlighted',1)
+    ->where('highlighted_expiration','<=',date('Y-m-d h:i:s'))
+    ->get();
+		if (!$offers) return response()->json('Database Error',500);
+		return response()->json($offers, 200);
+	}
+
 	public function deleteOffer($id){
 		$offer = Offer::find($id);
 		if (!$offer) return response()->json('Offer not found',404);
