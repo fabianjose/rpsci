@@ -54,7 +54,7 @@ class LoginController extends Controller{
     if($request->ajax()){
       return response()->json(['user'=>$user,'token'=>$token],200);
     }else{
-      return redirect('home');
+      return redirect('/');
     }
 
   }

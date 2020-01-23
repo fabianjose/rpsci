@@ -18,11 +18,27 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    
+    @extends('adminlte::master')
+
+    @section('adminlte_css_pre')
+        <link rel="stylesheet" href="{{ asset('vendor/icheck-bootstrap/icheck-bootstrap.min.css') }}">
+    @stop
+
+    @section('adminlte_css')
+        @stack('css')
+        @yield('css')
+    @stop
 
 </head>
 <body>
     <div id="app">
-        
+    
+      @yield('content')
+
+      @yield('javascript-layout')
+      <!-- View Javascript -->
+      @yield('javascript')
         
     </div>
 </body>

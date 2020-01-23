@@ -197,6 +197,7 @@ return [
             'label'       => 4,
             'label_color' => 'success',
         ],
+        /*
         ['header' => 'account_settings'],
         [
             'text' => 'profile',
@@ -258,7 +259,7 @@ return [
         [
             'text'       => 'information',
             'icon_color' => 'aqua',
-        ],
+        ],*/
     ],
 
     /*
