@@ -1,7 +1,12 @@
 <template>
-    <div class="card card-success" id="createCompanyAccordion">
-      <a class="card-header collapsed" data-parent="#createCompanyAccordion" href="#collapseOne" aria-expanded="false" data-toggle="collapse">
+    <div class="card card-info" id="createCompanyAccordion">
+      <a class="card-header collapsed" @click="active=!active" data-parent="#createCompanyAccordion" href="#collapseOne" aria-expanded="false" data-toggle="collapse">
         <h3 class="card-title">Nueva Empresa</h3>
+        <div class="card-tools">
+          <button type="button" class="btn btn-tool ml-auto " >
+            <personal-fab :active="active" />
+          </button>
+        </div>
       </a>
         
       <div id="collapseOne" class="panel-collapse in collapse" >
@@ -52,6 +57,7 @@ export default {
 
     data(){
       return {
+        active:false,
         name:"",
         logo:null,
         nit:"",
@@ -61,18 +67,18 @@ export default {
     },
 
     mounted(){
-      console.log("mounted");
+      console.log(baseUrl);
     },
 
     methods:{
 
       uploadFile: function(){
 
-        console.log("changing file")
+        console.log("[File] Change")
         let uploadFile=this.$refs.SelectFile.files[0]
         
         if(!uploadFile){
-          console.log("there is no file to attach")
+          console.log("[File] None")
           return;
         }
 
@@ -82,8 +88,7 @@ export default {
 
       submitNewCompany: function(){
 
-          console.log("consologazo")
-
+        console.log("[Companies] Create")
 
         let fd= new FormData();
 
@@ -93,18 +98,23 @@ export default {
         fd.append("phone", this.phone);
         fd.append("web", this.web);
 
-        axios.post('http://127.0.0.1:8000/api/company',fd)
+        axios.post(baseUrl+'/api/company',fd)
         .then(res=>{
 
           
           console.log("RESPONSE FROM SERVER ",res);
           
+          toastr.success("Compañía creada con éxito");
+          
+
           }
         )
         .catch(err=>{
           
           
-          console.log("ERROR FROM SERVER ",err.response);
+          console.log("ERROR FROM SERVER ",err,err.response);
+
+          toastr.error("Error al crear la compañía")
 
 
           }

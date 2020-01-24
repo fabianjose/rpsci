@@ -8,6 +8,8 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+window.baseUrl+ 'http://127.0.0.1:8000';
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -21,7 +23,15 @@ window.Vue = require('vue');
 
 Vue.component('companies-gestion', require('./components/companies/gestion/CompaniesGestion.vue').default);
 
+Vue.component('personal-fab', require('./components/items/personalFab.vue').default);
+
 Vue.component('company-creation', require('./components/companies/creation/CreationForm.vue').default);
+
+Vue.component('company', require('./components/items/companies/company.vue').default);
+
+Vue.component('detailed-company', require('./components/items/companies/detailedCompany.vue').default);
+
+Vue.component('c-modal', require('./components/companies/modal/modal.vue').default);
 
 /**
 
