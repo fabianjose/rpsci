@@ -7,7 +7,11 @@
     </div>
     <h5 class="mt-4 mb-2 text-center">Ofertas Disponibles</h5>
     <div class="row justify-content-space-between py-4">
-
+      <offer v-for="(offer,k) in offers" :key="k"
+      :title="offer.company_name+'-'+offer.service_name"
+      :logo="offer.company_logo" :index="offer.id"
+      @delete="trash"
+      ></offer>
     </div>
 </div>
 </template>
@@ -34,7 +38,17 @@ export default {
         console.log(err.response);
       });
     },
-    
+    trash(id){
+      axios.delete(baseUrl+'/api/offer/'+id)
+      .then(res=>{
+        console.log(res);
+        toastr.success("Oferta eliminada con éxito");
+        this.refreshData();
+      }).catch(err=>{
+        console.log(err.response);
+      });
+    },
+
   }
 }
 

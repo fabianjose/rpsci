@@ -33,13 +33,11 @@ Vue.component('detailed-company', require('./components/items/companies/detailed
 
 Vue.component('c-modal', require('./components/companies/modal/modal.vue').default);
 
-Vue.component('test-page', require('./components/companies/gestion/TestAutocomplete.vue').default);
-
-Vue.component('autocomplete-test', require('./components/companies/creation/AutoCompleteTest1.vue').default);
 
 // Ofertas
 Vue.component('offers-gestion', require('./components/offers/gestion/OffersGestion.vue').default);
 Vue.component('offer-creation', require('./components/offers/creation/CreationForm.vue').default);
+Vue.component('offer', require('./components/items/offers/offer.vue').default);
 
 import AutocompleteVue from 'autocomplete-vue';
 Vue.component('autocomplete-vue', AutocompleteVue);

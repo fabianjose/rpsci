@@ -94,7 +94,7 @@
         </div>
 
         <div class="card-footer">
-          <button type="button" class="btn btn-outline-success">Agregar</button>
+          <button type="button" class="btn btn-outline-success" @click="createOffer">Agregar</button>
         </div>
       </div>
     </div>
@@ -113,7 +113,8 @@ export default {
       benefits: "",
       services: [],
       service: null,
-      points: null
+      points: null,
+      fields_value: "json vergatario"
     }
   },
 
@@ -130,6 +131,33 @@ export default {
     selectCosa(value){
       console.log('here we go');
       console.log(value);
+    },
+    createOffer(){
+      let fd= new FormData();
+      fd.append("company", this.company);
+      fd.append("department", this.department);
+      fd.append("municipality", this.municipality);
+      fd.append("type", this.type);
+      fd.append("tariff", this.tariff);
+      fd.append("benefits", this.benefits);
+      fd.append("service", this.service);
+      fd.append("points", this.points);
+      fd.append("fields_value", JSON.stringify(this.fields_value));
+
+      axios.post(baseUrl+'/api/offer',fd)
+      .then(res=>{
+        console.log("RESPONSE FROM SERVER ",res);
+        toastr.success("Oferta creada con éxito");
+      })
+      .catch(err=>{
+        console.log("ERROR FROM SERVER ",err,err.response);
+        for (var error in err.response.data) {
+          toastr.error(error);
+          // for (var message in error) {
+          // }
+        }
+        toastr.error("Error al crear la oferta");
+      });
     }
   }
 }
