@@ -32,8 +32,8 @@ Route::group(["middleware" => ["isAuth"]], function(){
         return view('pages.offers');
     });
 
-    Route::get("/test1", function(){
-        return view('pages.test1');
+    Route::get("/banners", function(){
+        return view('pages.banners');
     });
 
 

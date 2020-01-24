@@ -46,10 +46,10 @@
                     </div>
                     <div class="row">
                         <div class="col-8">
-                            <div class="icheck-primary">
+                            <!-- <div class="icheck-primary">
                                 <input type="checkbox" name="remember" id="remember">
                                 <label for="remember">{{ __('adminlte::adminlte.remember_me') }}</label>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="col-4">
                             <button type="submit" class="btn btn-primary btn-block btn-flat">
@@ -58,11 +58,11 @@
                         </div>
                     </div>
                 </form>
-                <p class="mt-2 mb-1">
-                    <a href="/">
-                        {{ __('adminlte::adminlte.i_forgot_my_password') }}
-                    </a>
-                </p>
+                <!-- <p class="mt-2 mb-1">
+                  <a href="/">
+                    {{ __('adminlte::adminlte.i_forgot_my_password') }}
+                  </a>
+                </p> -->
                 @if($errors->any())
                 <h6>{{$errors->first()}}</h6>
                 @endif

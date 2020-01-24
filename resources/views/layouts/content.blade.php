@@ -56,6 +56,12 @@
               <p>Ofertas</p>
             </a>
           </li>
+          <li class="nav-item ">
+            <a class="nav-link " href="/banners">
+              <i class="far fa-fw fa-file"></i>
+              <p>Banners Publicitarios</p>
+            </a>
+          </li>
 
         </ul>
       </nav>

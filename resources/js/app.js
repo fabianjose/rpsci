@@ -35,6 +35,8 @@ Vue.component('detailed-company', require('./components/items/companies/detailed
 
 Vue.component('c-modal', require('./components/items/modal/modal.vue').default);
 
+Vue.component('banners-gestion', require('./components/companies/gestion/BannersGestion.vue').default);
+
 
 // Ofertas
 Vue.component('offers-gestion', require('./components/offers/gestion/OffersGestion.vue').default);

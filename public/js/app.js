@@ -2042,6 +2042,141 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/companies/gestion/BannersGestion.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/companies/gestion/BannersGestion.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      baseUrl: baseUrl,
+      companies: [],
+      currentCompany: null,
+      viewMode: false
+    };
+  },
+  mounted: function mounted() {
+    this.refreshData();
+  },
+  methods: {
+    refreshData: function refreshData() {
+      var _this = this;
+
+      axios.get(baseUrl + '/api/companies/highlighted').then(function (res) {
+        console.log(res);
+        _this.companies = res.data;
+      })["catch"](function (err) {
+        console.log(err.response);
+      });
+    },
+    setCompany: function () {
+      var _setCompany = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(id) {
+        var currentCompany;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return this.companies.find(function (company) {
+                  return company.id === id;
+                });
+
+              case 2:
+                currentCompany = _context.sent;
+                this.currentCompany = currentCompany;
+
+              case 4:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function setCompany(_x) {
+        return _setCompany.apply(this, arguments);
+      }
+
+      return setCompany;
+    }(),
+    trash: function trash(id) {
+      var _this2 = this;
+
+      axios.put(baseUrl + '/api/company/' + id + '/dehighlight').then(function (res) {
+        console.log(res);
+        toastr.success("Compañía sacada de destacadas");
+
+        _this2.refreshData();
+      })["catch"](function (err) {
+        console.log(err.response);
+      });
+    },
+    viewModal: function () {
+      var _viewModal = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(id) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.next = 2;
+                return this.setCompany(id);
+
+              case 2:
+                this.viewMode = true;
+
+              case 3:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, this);
+      }));
+
+      function viewModal(_x2) {
+        return _viewModal.apply(this, arguments);
+      }
+
+      return viewModal;
+    }()
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/companies/gestion/CompaniesGestion.vue?vue&type=script&lang=js&":
 /*!*********************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/companies/gestion/CompaniesGestion.vue?vue&type=script&lang=js& ***!
@@ -2327,7 +2462,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ["title", "logo", "index"],
+  props: ["title", "logo", "index", 'noEdit'],
   data: function data() {
     return {
       baseUrl: baseUrl
@@ -35456,6 +35591,72 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/companies/gestion/BannersGestion.vue?vue&type=template&id=54c251b2&":
+/*!***********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/companies/gestion/BannersGestion.vue?vue&type=template&id=54c251b2& ***!
+  \***********************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "container-fluid" },
+    [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("h5", { staticClass: "mt-4 mb-2 text-center" }, [
+        _vm._v("Empresas Destacadas")
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "row justify-content-space-between py-4" },
+        _vm._l(_vm.companies, function(company, k) {
+          return _c("company", {
+            key: k,
+            attrs: {
+              title: company.name,
+              logo: company.logo,
+              index: company.id,
+              noEdit: true
+            },
+            on: { view: _vm.viewModal, delete: _vm.trash }
+          })
+        }),
+        1
+      ),
+      _vm._v(" "),
+      _vm.currentCompany && _vm.viewMode
+        ? _c("detailed-company", { attrs: { company: _vm.currentCompany } })
+        : _vm._e()
+    ],
+    1
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row justify-content-center py-4" }, [
+      _c("div", { staticClass: "col-10 col-lg-12" })
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/companies/gestion/CompaniesGestion.vue?vue&type=template&id=4802ff5a&":
 /*!*************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/companies/gestion/CompaniesGestion.vue?vue&type=template&id=4802ff5a& ***!
@@ -35779,18 +35980,21 @@ var render = function() {
             [_c("i", { staticClass: "fas fa-eye" })]
           ),
           _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "btn btn-success rounded-circle text-lg icon-btn-sm",
-              attrs: {
-                "data-toggle": "modal",
-                "data-target": "#modalEditCompany"
-              },
-              on: { click: _vm.emitEdition }
-            },
-            [_c("i", { staticClass: "fas fa-edit" })]
-          ),
+          !_vm.noEdit
+            ? _c(
+                "div",
+                {
+                  staticClass:
+                    "btn btn-success rounded-circle text-lg icon-btn-sm",
+                  attrs: {
+                    "data-toggle": "modal",
+                    "data-target": "#modalEditCompany"
+                  },
+                  on: { click: _vm.emitEdition }
+                },
+                [_c("i", { staticClass: "fas fa-edit" })]
+              )
+            : _vm._e(),
           _vm._v(" "),
           _c(
             "div",
@@ -50819,7 +51023,8 @@ Vue.component('company-creation', __webpack_require__(/*! ./components/companies
 Vue.component('company-update', __webpack_require__(/*! ./components/companies/update/updateForm.vue */ "./resources/js/components/companies/update/updateForm.vue")["default"]);
 Vue.component('company', __webpack_require__(/*! ./components/items/companies/company.vue */ "./resources/js/components/items/companies/company.vue")["default"]);
 Vue.component('detailed-company', __webpack_require__(/*! ./components/items/companies/detailedCompany.vue */ "./resources/js/components/items/companies/detailedCompany.vue")["default"]);
-Vue.component('c-modal', __webpack_require__(/*! ./components/items/modal/modal.vue */ "./resources/js/components/items/modal/modal.vue")["default"]); // Ofertas
+Vue.component('c-modal', __webpack_require__(/*! ./components/items/modal/modal.vue */ "./resources/js/components/items/modal/modal.vue")["default"]);
+Vue.component('banners-gestion', __webpack_require__(/*! ./components/companies/gestion/BannersGestion.vue */ "./resources/js/components/companies/gestion/BannersGestion.vue")["default"]); // Ofertas
 
 Vue.component('offers-gestion', __webpack_require__(/*! ./components/offers/gestion/OffersGestion.vue */ "./resources/js/components/offers/gestion/OffersGestion.vue")["default"]);
 Vue.component('offer-creation', __webpack_require__(/*! ./components/offers/creation/CreationForm.vue */ "./resources/js/components/offers/creation/CreationForm.vue")["default"]);
@@ -50962,6 +51167,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CreationForm_vue_vue_type_template_id_600c3938___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CreationForm_vue_vue_type_template_id_600c3938___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/companies/gestion/BannersGestion.vue":
+/*!**********************************************************************!*\
+  !*** ./resources/js/components/companies/gestion/BannersGestion.vue ***!
+  \**********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _BannersGestion_vue_vue_type_template_id_54c251b2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./BannersGestion.vue?vue&type=template&id=54c251b2& */ "./resources/js/components/companies/gestion/BannersGestion.vue?vue&type=template&id=54c251b2&");
+/* harmony import */ var _BannersGestion_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./BannersGestion.vue?vue&type=script&lang=js& */ "./resources/js/components/companies/gestion/BannersGestion.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _BannersGestion_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _BannersGestion_vue_vue_type_template_id_54c251b2___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _BannersGestion_vue_vue_type_template_id_54c251b2___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/companies/gestion/BannersGestion.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/companies/gestion/BannersGestion.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************!*\
+  !*** ./resources/js/components/companies/gestion/BannersGestion.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_BannersGestion_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./BannersGestion.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/companies/gestion/BannersGestion.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_BannersGestion_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/companies/gestion/BannersGestion.vue?vue&type=template&id=54c251b2&":
+/*!*****************************************************************************************************!*\
+  !*** ./resources/js/components/companies/gestion/BannersGestion.vue?vue&type=template&id=54c251b2& ***!
+  \*****************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BannersGestion_vue_vue_type_template_id_54c251b2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./BannersGestion.vue?vue&type=template&id=54c251b2& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/companies/gestion/BannersGestion.vue?vue&type=template&id=54c251b2&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BannersGestion_vue_vue_type_template_id_54c251b2___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BannersGestion_vue_vue_type_template_id_54c251b2___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
