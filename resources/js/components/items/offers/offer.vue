@@ -3,14 +3,15 @@
     <div class="card card-primary">
       <div class="card-body d-flex flex-column align-items-center">
         <img class="image-logo-banner" :src="baseUrl+'/storage/'+logo" alt="">
-        <h4 class="px-2 mt-3 text-dark card-text">{{title}}</h4>
+        <h4 class="px-2 mt-3 text-dark card-text text-capitalize">{{title}}</h4>
+        <h6 class="px-2 mt-1 text-dark card-text text-capitalize">{{company}}</h6>
       </div>
       <div class="card-footer">
         <div class="card-tools row justify-content-around">
-          <div class="btn btn-info rounded-circle text-lg icon-btn-sm" @click="emitView">
+          <div class="btn btn-info rounded-circle text-lg icon-btn-sm" @click="emitView" data-toggle="modal" data-target="#modalViewOffer">
             <i class="fas fa-eye"></i>
           </div>
-          <div class="btn btn-success rounded-circle text-lg icon-btn-sm" @click="emitEdition">
+          <div class="btn btn-success rounded-circle text-lg icon-btn-sm" @click="emitEdition" data-toggle="modal" data-target="#modalEditOffer">
             <i class="fas fa-edit"></i>
           </div>
           <div class="btn btn-danger rounded-circle text-lg icon-btn-sm" @click="emitRemove">
@@ -24,7 +25,7 @@
 
 <script>
 export default {
-    props:["title", "logo", "index"],
+    props:["title", "logo", "index", "company"],
 
     data(){
         return {

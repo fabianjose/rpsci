@@ -40,6 +40,8 @@ Vue.component('c-modal', require('./components/items/modal/modal.vue').default);
 Vue.component('offers-gestion', require('./components/offers/gestion/OffersGestion.vue').default);
 Vue.component('offer-creation', require('./components/offers/creation/CreationForm.vue').default);
 Vue.component('offer', require('./components/items/offers/offer.vue').default);
+Vue.component('offer-details', require('./components/items/offers/detailedOffer.vue').default);
+Vue.component('offer-update', require('./components/offers/update/updateForm.vue').default);
 
 import AutocompleteVue from 'autocomplete-vue';
 Vue.component('autocomplete-vue', AutocompleteVue);
