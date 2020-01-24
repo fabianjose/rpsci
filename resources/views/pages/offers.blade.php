@@ -1,9 +1,9 @@
 @extends('layouts.content')
 
-@section('title-adminlte', 'Empresas')
+@section('title-adminlte', 'Ofertas')
 
 @section('content-adminlte')
 
-<test-page/>
+<offers-gestion/>
 
 @stop

@@ -23,7 +23,7 @@ class CreateOffersTable extends Migration
             $table->string('benefits');
             $table->string('fields_value');
             $table->string('tariff');
-            $table->integer('points')->default(0);
+            $table->integer('points')->nullable();
             $table->enum('type',['private','company']);
 
             $table->bigInteger('department')->unsigned();
@@ -33,7 +33,7 @@ class CreateOffersTable extends Migration
 
             $table->boolean('highlighted')->default(0);
             $table->timestamp('highlighted_expiration')->nullable();
-            
+
             $table->boolean('trash')->default(0);
             $table->timestamps();
         });

@@ -8,7 +8,7 @@
           </button>
         </div>
       </a>
-        
+
       <div id="collapseOne" class="panel-collapse in collapse" >
         <div class="card-body">
 
@@ -26,7 +26,7 @@
               </div>
             </div>
           </div>
-          
+
           <div class="form-group">
             <label>NIT de la Empresa</label>
             <input v-model="nit" class="form-control">
@@ -48,7 +48,7 @@
             <button type="button" class="btn btn-outline-success" @click="submitNewCompany">Agregar</button>
         </div>
       </div>
-    </div>    
+    </div>
 </template>
 
 <script>
@@ -76,7 +76,7 @@ export default {
 
         console.log("[File] Change")
         let uploadFile=this.$refs.SelectFile.files[0]
-        
+
         if(!uploadFile){
           console.log("[File] None")
           return;
@@ -87,11 +87,7 @@ export default {
       },
 
       submitNewCompany: function(){
-
-        console.log("[Companies] Create")
-
         let fd= new FormData();
-
         fd.append("name", this.name);
         fd.append("logo", this.logo);
         fd.append("nit", this.nit);
@@ -100,25 +96,13 @@ export default {
 
         axios.post(baseUrl+'/api/company',fd)
         .then(res=>{
-
-          
           console.log("RESPONSE FROM SERVER ",res);
-          
           toastr.success("Compañía creada con éxito");
-          
-
-          }
-        )
+        })
         .catch(err=>{
-          
-          
           console.log("ERROR FROM SERVER ",err,err.response);
-
           toastr.error("Error al crear la compañía")
-
-
-          }
-        );
+        });
 
       },
     }
@@ -126,5 +110,3 @@ export default {
 }
 
 </script>
-
-
