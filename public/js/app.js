@@ -2007,6 +2007,7 @@ __webpack_require__.r(__webpack_exports__);
       this.logo = uploadFile;
     },
     submitNewCompany: function submitNewCompany() {
+      console.log("consologazo");
       var fd = new FormData();
       fd.append("name", this.name);
       fd.append("logo", this.logo);
@@ -2016,7 +2017,7 @@ __webpack_require__.r(__webpack_exports__);
       axios.post('http://127.0.0.1:8000/api/company', fd).then(function (res) {
         console.log("RESPONSE FROM SERVER ", res);
       })["catch"](function (err) {
-        console.log("ERROR FROM SERVER ", err);
+        console.log("ERROR FROM SERVER ", err.response);
       });
     }
   }
