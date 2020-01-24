@@ -27,11 +27,11 @@ class CompanyController extends Controller{
       $filename = uniqid(time()).'.'.$data['logo']->getClientOriginalExtension();
       $uploadedFile = $data['logo'];
       $result = Storage::disk('local')->putFileAs(
-        'uploads/logos',
+        'public/uploads/logos',
         $uploadedFile,
         $filename
       );
-      $data['logo'] = $result;
+      $data['logo'] = 'uploads/logos/'.$filename;
     }
 
     $company = Company::create($data);

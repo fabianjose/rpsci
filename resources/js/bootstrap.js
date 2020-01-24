@@ -39,3 +39,10 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     encrypted: true
 // });
+let baseUrl = document.head.querySelector('meta[name="base-url"]');
+if (baseUrl){
+    window.baseUrl = baseUrl.content;
+}else{
+    window.baseUrl="http://127.0.0.1:8000"
+    console.error('Base URL is not defined...')
+}

@@ -1,2 +1,16 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);
+@import url(https://fonts.googleapis.com/css?family=Nunito);.image-logo-banner {
+  width: 14rem;
+  height: 9rem;
+}
+
+.icon-btn-sm {
+  height: 47px;
+  width: 47px;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+          justify-content: center;
+}
 
