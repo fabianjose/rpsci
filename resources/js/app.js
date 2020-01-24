@@ -23,6 +23,14 @@ Vue.component('companies-gestion', require('./components/companies/gestion/Compa
 
 Vue.component('company-creation', require('./components/companies/creation/CreationForm.vue').default);
 
+Vue.component('test-page', require('./components/companies/gestion/TestAutocomplete.vue').default);
+Vue.component('autocomplete-test', require('./components/companies/creation/AutoCompleteTest1.vue').default);
+
+import AutocompleteVue from 'autocomplete-vue';
+Vue.component('autocomplete-vue', AutocompleteVue);
+
+import VueResource from 'vue-resource';
+Vue.use(VueResource);
 /**
 
  * Next, we will create a fresh Vue application instance and attach it to
