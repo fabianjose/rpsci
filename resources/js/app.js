@@ -33,6 +33,15 @@ Vue.component('detailed-company', require('./components/items/companies/detailed
 
 Vue.component('c-modal', require('./components/companies/modal/modal.vue').default);
 
+Vue.component('test-page', require('./components/companies/gestion/TestAutocomplete.vue').default);
+
+Vue.component('autocomplete-test', require('./components/companies/creation/AutoCompleteTest1.vue').default);
+
+import AutocompleteVue from 'autocomplete-vue';
+Vue.component('autocomplete-vue', AutocompleteVue);
+
+import VueResource from 'vue-resource';
+Vue.use(VueResource);
 /**
 
  * Next, we will create a fresh Vue application instance and attach it to
