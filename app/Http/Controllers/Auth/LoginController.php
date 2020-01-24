@@ -25,23 +25,23 @@ class LoginController extends Controller{
   public function enter(Request $request){
 
     $user = null;
-    
+
     $validator = Validator::make($request->all(), [
       'username' => ['required', 'string', 'max:255'],
       'password' => ['required', 'string', 'min:8'],
       ]);
-      
+
       if($validator->fails()){
-        return response()->json($validator->errors(), 400);
+        return redirect()->back()->withErrors($validator->errors());
       }
-      
+
       $_request = $request->all();
       $username = $_request['username'];
       $password = $_request['password'];
-      
+
       $credentials = ['username' => $username, 'password' => $password];
       Auth::attempt($credentials);
-      
+
     if ( Auth::check() ) $user = Auth::user();
     try {
       if (! $token = JWTAuth::attempt($credentials)) {
