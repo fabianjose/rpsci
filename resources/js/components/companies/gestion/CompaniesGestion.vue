@@ -37,13 +37,13 @@ export default {
 
     methods:{
         refreshData(){
-            axios.get(baseUrl+'/api/companies')
-            .then(res=>{
-                console.log(res);
-                this.companies=res.data;
-            }).catch(err=>{
-                console.log(err.response);
-            });
+          axios.get(baseUrl+'/api/companies')
+          .then(res=>{
+            console.log(res);
+            this.companies=res.data;
+          }).catch(err=>{
+            console.log(err.response);
+          });
         },
 
         update(id){

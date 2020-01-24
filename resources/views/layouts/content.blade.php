@@ -45,6 +45,13 @@
             </a>
           </li>
 
+          <li class="nav-item ">
+            <a class="nav-link " href="http://localhost:8000/offers">
+              <i class="far fa-fw fa-file"></i>
+              <p>Ofertas </p>
+            </a>
+          </li>
+
         </ul>
       </nav>
     </div>

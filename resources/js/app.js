@@ -37,6 +37,10 @@ Vue.component('test-page', require('./components/companies/gestion/TestAutocompl
 
 Vue.component('autocomplete-test', require('./components/companies/creation/AutoCompleteTest1.vue').default);
 
+// Ofertas
+Vue.component('offers-gestion', require('./components/offers/gestion/OffersGestion.vue').default);
+Vue.component('offer-creation', require('./components/offers/creation/CreationForm.vue').default);
+
 import AutocompleteVue from 'autocomplete-vue';
 Vue.component('autocomplete-vue', AutocompleteVue);
 

@@ -28,6 +28,10 @@ Route::group(["middleware" => ["isAuth"]], function(){
         return view('pages.companies');
     });
 
+    Route::get("/offers", function(){
+        return view('pages.offers');
+    });
+
     Route::get("/test1", function(){
         return view('pages.test1');
     });
