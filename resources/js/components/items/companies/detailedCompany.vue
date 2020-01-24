@@ -10,13 +10,13 @@
               </button>
           </div>
           <div class="card-body d-flex flex-column box-profile">
-            
+
             <img class="img-fluid" :src="baseUrl+'/storage/'+company.logo" alt="User profile picture">
-        
+
             <h2 class="profile-username text-center">{{company.name}}</h2>
-        
+
             <p class="text-muted text-center">Esta empresa está destacada</p>
-        
+
             <ul class="list-group list-group-unbordered mb-3">
               <li class="list-group-item">
                 <b>NIT de la Empresa</b> <a class="float-right">{{company.nit}}</a>
@@ -28,8 +28,8 @@
                 <b>Web de la Empresa</b> <a class="float-right">{{company.web}}</a>
               </li>
             </ul>
-        
-            <button href="#" class="btn btn-primary btn-block" data-dismiss="modal"><b>Follow</b></button>
+
+            <button href="#" class="btn btn-outlined-danger btn-block" data-dismiss="modal"><b>Cerrar</b></button>
           </div>
           <!-- /.card-body -->
     </div>
