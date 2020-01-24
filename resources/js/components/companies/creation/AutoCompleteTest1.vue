@@ -12,6 +12,7 @@
         property="name"
         :required="true"
         :threshold="1"
+        value="id"
         ></autocomplete-vue>
       </div>
       <div class="card-footer">
