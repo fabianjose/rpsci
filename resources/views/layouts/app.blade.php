@@ -6,6 +6,8 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <!-- Base URL -->
+    <meta name="base-url" content="{{ URL::to('/') }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
@@ -29,13 +31,13 @@
 </head>
 <body>
     <div id="app">
-    
+
       @yield('content')
 
       @yield('javascript-layout')
       <!-- View Javascript -->
       @yield('javascript')
-        
+
     </div>
 
     <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
@@ -43,7 +45,7 @@
     <script src="{{ asset('vendor/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
     <script src="{{ asset('vendor/adminlte/dist/js/adminlte.min.js') }}"></script>
     <script src="{{ asset('vendor/toastr/toastr.min.js') }}"></script>
-    
+
 
 </body>
 </html>

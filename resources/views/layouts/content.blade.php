@@ -39,26 +39,17 @@
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu">
           <li class="nav-item ">
-            <a class="nav-link "
-            href="http://localhost:8000/admin/pages">
+            <a class="nav-link " href="http://localhost:8000/companies">
 
-            <i class="far fa-fw fa-file "></i>
-            <p>Pages <span class="badge badge-success right">4</span></p>
-          </a>
-        </li>
+              <i class="far fa-fw fa-file"></i>
+              <p>Empresas </p>
+            </a>
+          </li>
 
-        <li class="nav-item ">
-          <a class="nav-link "
-          href="http://localhost:8000/admin/pages">
-
-          <i class="far fa-fw fa-file "></i>
-          <p>eduardoz<span class="badge badge-success right">4</span></p>
-        </a>
-      </li>
-    </ul>
-  </nav>
-</div>
-</aside>
+        </ul>
+      </nav>
+    </div>
+  </aside>
 
 <div class="content-wrapper" style="min-height: 1071.31px;">
   <!-- Content Header (Page header) -->
