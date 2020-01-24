@@ -18,7 +18,7 @@ Route::get('/login', function () {
 });
 
 Route::post('/login','Auth\LoginController@enter');
-
+Route::get('logout', 'Auth\LoginController@logout');
 Route::group(["middleware" => ["isAuth"]], function(){
 
 
@@ -32,11 +32,9 @@ Route::group(["middleware" => ["isAuth"]], function(){
         return view('pages.offers');
     });
 
-    /*
-    Route::get("/test1", function(){
-        return view('pages.test1');
+    Route::get("/banners", function(){
+        return view('pages.banners');
     });
-    */
 
     Route::get('/services', function () {
         return view('pages.services');

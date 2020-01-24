@@ -19,7 +19,7 @@
         <a class="nav-link" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
           <i class="fa fa-fw fa-power-off"></i> Salir
         </a>
-        <form id="logout-form" action="/logout" method="POST" style="display: none;">
+        <form id="logout-form" action="/logout" method="GET" style="display: none;">
           <input type="hidden" name="_token" value="fvSEdai2bWbgQegBVXLAvni4D50kwAc2700uZZOE">
         </form>
       </li>
@@ -39,16 +39,27 @@
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu">
           <li class="nav-item ">
-            <a class="nav-link " href="http://localhost:8000/companies">
+            <a class="nav-link " href="/companies">
               <i class="far fa-fw fa-file"></i>
-              <p>Empresas </p>
+              <p>Empresas</p>
             </a>
           </li>
-
-          <li class="nav-item ">
-            <a class="nav-link " href="http://localhost:8000/offers">
+          <!-- <li class="nav-item ">
+            <a class="nav-link " href="/services">
               <i class="far fa-fw fa-file"></i>
-              <p>Ofertas </p>
+              <p>Servicios</p>
+            </a>
+          </li> -->
+          <li class="nav-item ">
+            <a class="nav-link " href="/offers">
+              <i class="far fa-fw fa-file"></i>
+              <p>Ofertas</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link " href="/banners">
+              <i class="far fa-fw fa-file"></i>
+              <p>Banners Publicitarios</p>
             </a>
           </li>
 

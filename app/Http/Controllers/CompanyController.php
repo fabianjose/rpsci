@@ -149,7 +149,7 @@ class CompanyController extends Controller{
 		$companies = DB::table('companies')
     ->where('trash',0)
     ->where('highlighted',1)
-    ->where('highlighted_expiration','<=',date('Y-m-d h:i:s'))
+    ->where('highlighted_expiration','>',date('Y-m-d h:i:s'))
     ->get();
 		if (!$companies) return response()->json('Error en la base de datos',500);
 		return response()->json($companies, 200);

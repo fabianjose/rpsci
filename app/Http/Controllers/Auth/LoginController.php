@@ -25,30 +25,32 @@ class LoginController extends Controller{
   public function enter(Request $request){
 
     $user = null;
-    
+
     $validator = Validator::make($request->all(), [
       'username' => ['required', 'string', 'max:255'],
       'password' => ['required', 'string', 'min:8'],
       ]);
-      
+
       if($validator->fails()){
-        return response()->json($validator->errors(), 400);
+        return redirect()->back()->withErrors($validator->errors());
       }
-      
+
       $_request = $request->all();
       $username = $_request['username'];
       $password = $_request['password'];
-      
+
       $credentials = ['username' => $username, 'password' => $password];
       Auth::attempt($credentials);
-      
+
     if ( Auth::check() ) $user = Auth::user();
     try {
       if (! $token = JWTAuth::attempt($credentials)) {
-        return response()->json('Invalid Credentials', 400);
+        // return response()->json('Invalid Credentials', 400);
+        return redirect()->back()->withErrors('Credenciales Invalidas');
       }
     } catch (JWTException $e) {
-      return response()->json('Database Error', 500);
+      // return response()->json('Database Error', 500);
+      return redirect()->back()->withErrors('Database Error');
     }
 
     if($request->ajax()){
@@ -56,7 +58,11 @@ class LoginController extends Controller{
     }else{
       return redirect('/');
     }
+  }
 
+  public function logout() {
+    Auth::logout();
+    return redirect('/login');
   }
 
 }

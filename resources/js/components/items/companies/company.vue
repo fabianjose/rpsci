@@ -9,13 +9,13 @@
                 <div class="card-tools row justify-content-around">
                     <div class="btn btn-info rounded-circle text-lg icon-btn-sm" data-toggle="modal" data-target="#modalViewCompany" @click="emitView">
                         <i class="fas fa-eye"></i>
-                    </div> 
-                    <div class="btn btn-success rounded-circle text-lg icon-btn-sm" data-toggle="modal" data-target="#modalEditCompany" @click="emitEdition">
+                    </div>
+                    <div class="btn btn-success rounded-circle text-lg icon-btn-sm" data-toggle="modal" data-target="#modalEditCompany" @click="emitEdition" v-if="!noEdit">
                         <i class="fas fa-edit"></i>
                     </div>
                     <div class="btn btn-danger rounded-circle text-lg icon-btn-sm" @click="emitRemove">
                         <i class="fas fa-trash"></i>
-                    </div> 
+                    </div>
                 </div>
             </div>
         </div>
@@ -24,7 +24,7 @@
 
 <script>
 export default {
-    props:["title", "logo", "index"],
+    props:["title", "logo", "index", 'noEdit'],
 
     data(){
         return {

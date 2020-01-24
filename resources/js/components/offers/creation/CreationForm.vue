@@ -102,6 +102,7 @@
 
 <script>
 export default {
+  props: ['services'],
   data(){
     return {
       active:false,
@@ -111,7 +112,6 @@ export default {
       type: "private",
       tariff: "",
       benefits: "",
-      services: [],
       service: null,
       points: null,
       fields_value: "json vergatario"
@@ -119,13 +119,7 @@ export default {
   },
 
   mounted(){
-    axios.get(baseUrl+'/api/services')
-    .then(res=>{
-      // console.log(res);
-      this.services = res.data;
-    }).catch(err=>{
-      console.log(err.response);
-    });
+
   },
   methods:{
     selectCosa(value){
