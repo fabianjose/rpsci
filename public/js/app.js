@@ -35629,7 +35629,7 @@ var staticRenderFns = [
     return _c(
       "button",
       {
-        staticClass: "btn btn-outlined-danger btn-block",
+        staticClass: "btn btn-outline-danger btn-block",
         attrs: { href: "#", "data-dismiss": "modal" }
       },
       [_c("b", [_vm._v("Cerrar")])]

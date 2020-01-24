@@ -29,7 +29,7 @@
               </li>
             </ul>
 
-            <button href="#" class="btn btn-outlined-danger btn-block" data-dismiss="modal"><b>Cerrar</b></button>
+            <button href="#" class="btn btn-outline-danger btn-block" data-dismiss="modal"><b>Cerrar</b></button>
           </div>
           <!-- /.card-body -->
     </div>
