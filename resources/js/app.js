@@ -27,11 +27,13 @@ Vue.component('personal-fab', require('./components/items/personalFab.vue').defa
 
 Vue.component('company-creation', require('./components/companies/creation/CreationForm.vue').default);
 
+Vue.component('company-update', require('./components/companies/update/updateForm.vue').default);
+
 Vue.component('company', require('./components/items/companies/company.vue').default);
 
 Vue.component('detailed-company', require('./components/items/companies/detailedCompany.vue').default);
 
-Vue.component('c-modal', require('./components/companies/modal/modal.vue').default);
+Vue.component('c-modal', require('./components/items/modal/modal.vue').default);
 
 Vue.component('test-page', require('./components/companies/gestion/TestAutocomplete.vue').default);
 

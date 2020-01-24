@@ -11,11 +11,10 @@
             :title="company.name" :logo="company.logo" :index="company.id"
             @view="viewModal" @edit="update" @delete="trash" ></company>
     </div>
-    <c-modal v-if="currentCompany">
-        <company 
-            :title="currentCompany.name" :logo="currentCompany.logo" :index="currentCompany.id"
-            @view="viewModal" @edit="update" @delete="trash" ></company>
-    </c-modal>
+    <company-update v-if="currentCompany&&updateMode" :company="currentCompany">
+    </company-update>
+    <detailed-company v-if="currentCompany&&viewMode" :company="currentCompany">
+    </detailed-company>
 </div>
 </template>
 
@@ -28,6 +27,8 @@ export default {
             baseUrl: baseUrl,
             companies:[],
             currentCompany:null,
+            updateMode:false,
+            viewMode:false,
         }
     },
 
@@ -46,8 +47,16 @@ export default {
             });
         },
 
-        update(id){
+        async setCompany(id){
+            
+            let currentCompany = await this.companies.find(company=>company.id===id);
+            this.currentCompany= currentCompany;
 
+        },
+
+        async update(id){
+            await this.setCompany(id)
+            this.updateMode=true
         },
 
         trash(id){
@@ -61,8 +70,8 @@ export default {
         },
 
         async viewModal(id){
-            let currentCompany = await this.companies.find(company=>company.id===id);
-            this.currentCompany= currentCompany;
+            await this.setCompany(id)
+            this.viewMode=true;
         }
 
     }
