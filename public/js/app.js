@@ -2155,6 +2155,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
       axios["delete"](baseUrl + '/api/company/' + id).then(function (res) {
         console.log(res);
+        toastr.success("Compañía eliminada con éxito");
 
         _this2.refreshData();
       })["catch"](function (err) {

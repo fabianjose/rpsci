@@ -40,7 +40,6 @@
         <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu">
           <li class="nav-item ">
             <a class="nav-link " href="http://localhost:8000/companies">
-
               <i class="far fa-fw fa-file"></i>
               <p>Empresas </p>
             </a>

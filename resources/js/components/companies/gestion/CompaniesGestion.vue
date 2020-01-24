@@ -5,14 +5,14 @@
             <company-creation></company-creation>
         </div>
     </div>
-    <h5 class="mt-4 mb-2 text-center">Empresas Disponibles</h5>    
+    <h5 class="mt-4 mb-2 text-center">Empresas Disponibles</h5>
     <div class="row justify-content-space-between py-4">
-        <company v-for="(company,k) in companies" :key="k" 
+        <company v-for="(company,k) in companies" :key="k"
             :title="company.name" :logo="company.logo" :index="company.id"
             @view="viewModal" @edit="update" @delete="trash" ></company>
     </div>
     <c-modal v-if="currentCompany">
-        <company 
+        <company
             :title="currentCompany.name" :logo="currentCompany.logo" :index="currentCompany.id"
             @view="viewModal" @edit="update" @delete="trash" ></company>
     </c-modal>
@@ -22,7 +22,7 @@
 <script>
 
 export default {
-    
+
     data(){
         return{
             baseUrl: baseUrl,
@@ -54,6 +54,7 @@ export default {
             axios.delete(baseUrl+'/api/company/'+id)
             .then(res=>{
                 console.log(res);
+                toastr.success("Compañía eliminada con éxito");
                 this.refreshData();
             }).catch(err=>{
                 console.log(err.response);
