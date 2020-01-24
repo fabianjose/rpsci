@@ -18,11 +18,11 @@ Route::get('/login', function () {
 });
 
 Route::post('/login','Auth\LoginController@enter');
-
+Route::get('logout', 'Auth\LoginController@logout');
 Route::group(["middleware" => ["isAuth"]], function(){
 
 
-    Route::get('/', 'HomeController@index')->name('home');
+    Route::get('/', 'HomeController@index');
 
     Route::get("/companies", function(){
         return view('pages.companies');

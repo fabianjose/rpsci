@@ -45,10 +45,12 @@ class LoginController extends Controller{
     if ( Auth::check() ) $user = Auth::user();
     try {
       if (! $token = JWTAuth::attempt($credentials)) {
-        return response()->json('Invalid Credentials', 400);
+        // return response()->json('Invalid Credentials', 400);
+        return redirect()->back()->withErrors('Credenciales Invalidas');
       }
     } catch (JWTException $e) {
-      return response()->json('Database Error', 500);
+      // return response()->json('Database Error', 500);
+      return redirect()->back()->withErrors('Database Error');
     }
 
     if($request->ajax()){
@@ -56,7 +58,11 @@ class LoginController extends Controller{
     }else{
       return redirect('/');
     }
+  }
 
+  public function logout() {
+    Auth::logout();
+    return redirect('/login');
   }
 
 }

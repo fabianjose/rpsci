@@ -19,7 +19,7 @@
         <a class="nav-link" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
           <i class="fa fa-fw fa-power-off"></i> Salir
         </a>
-        <form id="logout-form" action="/logout" method="POST" style="display: none;">
+        <form id="logout-form" action="/logout" method="GET" style="display: none;">
           <input type="hidden" name="_token" value="fvSEdai2bWbgQegBVXLAvni4D50kwAc2700uZZOE">
         </form>
       </li>

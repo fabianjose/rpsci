@@ -63,6 +63,9 @@
                         {{ __('adminlte::adminlte.i_forgot_my_password') }}
                     </a>
                 </p>
+                @if($errors->any())
+                <h6>{{$errors->first()}}</h6>
+                @endif
             </div>
         </div>
     </div>
