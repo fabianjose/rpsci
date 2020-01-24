@@ -27,8 +27,8 @@ class OfferController extends Controller{
     }
 
     $offer = Offer::create($data);
-    if (!$offer) return response()->json('Database Error', 500);
-    return response()->json('Offer successfully created', 201);
+    if (!$offer) return response()->json('Error en la base de datos', 500);
+    return response()->json('Oferta creada satisfactoriamente', 201);
   }
 
   public function editOffer($id, Request $request){
@@ -48,7 +48,7 @@ class OfferController extends Controller{
       return response()->json($validation->errors(), 400);
     }
     $offer = Offer::find($id);
-    if (!$offer) return response()->json('Offer not found',404);
+    if (!$offer) return response()->json('Oferta no encontrada',404);
 
     $keysAllow = [
       'company',
@@ -68,10 +68,10 @@ class OfferController extends Controller{
       }
     }
     if (!$offer->save()){
-      return response()->json('Database Error', 500);
+      return response()->json('Error en la base de datos', 500);
     }
 
-    return response()->json('Offer successfully edited', 200);
+    return response()->json('Oferta editada satisfactoriamente', 200);
   }
 
   public function getAll(){
@@ -88,13 +88,13 @@ class OfferController extends Controller{
     'municipalities.name as municipality_name'
     )
     ->get();
-		if (!$offers) return response()->json('Database Error',500);
+		if (!$offers) return response()->json('Error en la base de datos',500);
 		return response()->json($offers, 200);
 	}
 
 	public function getOffer($id){
 		$offer = Offer::find($id);
-		if (!$offer) return response()->json('Offer not found',404);
+		if (!$offer) return response()->json('Oferta no encontrada',404);
 		$offer = DB::table('offers')->where('offers.id',$id)->where('offers.trash',0)
     ->join('companies','companies.id','offers.company')
     ->join('services', 'services.id','offers.service')
@@ -108,7 +108,7 @@ class OfferController extends Controller{
     'municipalities.name as municipality_name'
     )
     ->first();
-		if (!$offer) return response()->json('Offer not found',404);
+		if (!$offer) return response()->json('Oferta no encontrada',404);
 		return response()->json($offer, 200);
 	}
 
@@ -129,7 +129,7 @@ class OfferController extends Controller{
     ->where('municipality',$data['municipality'])
     ->get();
 
-    if (!$offers) return response()->json('Database Error',500);
+    if (!$offers) return response()->json('Error en la base de datos',500);
 		return response()->json($offers, 200);
   }
 
@@ -143,17 +143,17 @@ class OfferController extends Controller{
     }
 
     $offer = Offer::find($id);
-		if (!$offer) return response()->json('Offer not found',404);
+		if (!$offer) return response()->json('Oferta no encontrada',404);
 
     if ($offer->highlighted){
       $offer->highlighted = 0;
       $offer->highlighted_expiration = null;
-      if (!$offer->save()) return response()->json('Database Error',500);
+      if (!$offer->save()) return response()->json('Error en la base de datos',500);
       return response()->json('Offer highlight disabled', 200);
     }else{
       $offer->highlighted = 1;
       $offer->highlighted_expiration = $data['highlighted_expiration'];
-      if (!$offer->save()) return response()->json('Database Error',500);
+      if (!$offer->save()) return response()->json('Error en la base de datos',500);
       return response()->json('Offer successfully highlighted', 200);
     }
 
@@ -165,16 +165,16 @@ class OfferController extends Controller{
     ->where('highlighted',1)
     ->where('highlighted_expiration','<=',date('Y-m-d h:i:s'))
     ->get();
-		if (!$offers) return response()->json('Database Error',500);
+		if (!$offers) return response()->json('Error en la base de datos',500);
 		return response()->json($offers, 200);
 	}
 
 	public function deleteOffer($id){
 		$offer = Offer::find($id);
-		if (!$offer) return response()->json('Offer not found',404);
+		if (!$offer) return response()->json('Oferta no encontrada',404);
 		$offer->trash = 1;
-		if (!$offer->save()) return response()->json('Database Error',500);
-		return response()->json('Offer successfully deleted', 200);
+		if (!$offer->save()) return response()->json('Error en la base de datos',500);
+		return response()->json('Oferta eliminada satisfactoriamente', 200);
 	}
 
 }

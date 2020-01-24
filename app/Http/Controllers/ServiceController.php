@@ -20,8 +20,8 @@ class ServiceController extends Controller{
     }
 
     $service = Service::create($data);
-    if (!$service) return response()->json('Database Error', 500);
-    return response()->json('Service successfully created', 201);
+    if (!$service) return response()->json('Error en la base de datos', 500);
+    return response()->json('Servicio creado satisfactoriamente', 201);
   }
 
   public function editService($id, Request $request){
@@ -34,7 +34,7 @@ class ServiceController extends Controller{
       return response()->json($validation->errors(), 400);
     }
     $service = Service::find($id);
-    if (!$service) return response()->json('Service not found',404);
+    if (!$service) return response()->json('Servicio no encontrado',404);
 
     $keysAllow = [
       'name',
@@ -47,32 +47,32 @@ class ServiceController extends Controller{
       }
     }
     if (!$service->save()){
-      return response()->json('Database Error', 500);
+      return response()->json('Error en la base de datos', 500);
     }
 
-    return response()->json('Service successfully edited', 200);
+    return response()->json('Servicio editado satisfactoriamente', 200);
   }
 
   public function getAll(){
 		$services = DB::table('services')->where('trash',0)->get();
-		if (!$services) return response()->json('Database Error',500);
+		if (!$services) return response()->json('Error en la base de datos',500);
 		return response()->json($services, 200);
 	}
 
 	public function getService($id){
 		$service = Service::find($id);
-		if (!$service) return response()->json('Service not found',404);
+		if (!$service) return response()->json('Servicio no encontrado',404);
 		$service = DB::table('services')->where('id',$id)->where('trash',0)->first();
-		if (!$service) return response()->json('Service not found',404);
+		if (!$service) return response()->json('Servicio no encontrado',404);
 		return response()->json($service, 200);
 	}
 
 	public function deleteService($id){
 		$service = Service::find($id);
-		if (!$service) return response()->json('Service not found',404);
+		if (!$service) return response()->json('Servicio no encontrado',404);
 		$service->trash = 1;
-		if (!$service->save()) return response()->json('Database Error',500);
-		return response()->json('Service successfully deleted', 200);
+		if (!$service->save()) return response()->json('Error en la base de datos',500);
+		return response()->json('Servicio eliminado satisfactoriamente', 200);
 	}
 
 }

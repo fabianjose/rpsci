@@ -35,7 +35,7 @@ class CompanyController extends Controller{
     }
 
     $company = Company::create($data);
-    if (!$company) return response()->json('Database Error', 500);
+    if (!$company) return response()->json('Error en la base de datos', 500);
     return response()->json('Company successfully created', 201);
   }
 
@@ -52,7 +52,7 @@ class CompanyController extends Controller{
       return response()->json($validation->errors(), 400);
     }
     $company = Company::find($id);
-    if (!$company) return response()->json('Company not found',404);
+    if (!$company) return response()->json('Compañia no encontrada',404);
 
     $keysAllow = [
       'name',
@@ -77,21 +77,21 @@ class CompanyController extends Controller{
       $company->logo = $result;
     }
     if (!$company->save()){
-      return response()->json('Database Error', 500);
+      return response()->json('Error en la base de datos', 500);
     }
 
-    return response()->json('Company successfully edited', 200);
+    return response()->json('Compañia editada exitosamente', 200);
   }
 
 	public function getAll(){
 		$companies = DB::table('companies')->where('trash',0)->get();
-		if (!$companies) return response()->json('Database Error',500);
+		if (!$companies) return response()->json('Error en la base de datos',500);
 		return response()->json($companies, 200);
 	}
 
   // public function getNames(){
 	// 	$companies = DB::table('companies')->where('trash',0)->get();
-	// 	if (!$companies) return response()->json('Database Error',500);
+	// 	if (!$companies) return response()->json('Error en la base de datos',500);
   //   $names = array();
   //   foreach ($companies as $key) {
   //     array_push($names,$key->name);
@@ -101,18 +101,18 @@ class CompanyController extends Controller{
 
 	public function getCompany($id){
 		$company = Company::find($id);
-		if (!$company) return response()->json('Company not found',404);
+		if (!$company) return response()->json('Compañia no encontrada',404);
 		$company = DB::table('companies')->where('id',$id)->where('trash',0)->first();
-		if (!$company) return response()->json('Company not found',404);
+		if (!$company) return response()->json('Compañia no encontrada',404);
 		return response()->json($company, 200);
 	}
 
 	public function deleteCompany($id){
 		$company = Company::find($id);
-		if (!$company) return response()->json('Company not found',404);
+		if (!$company) return response()->json('Compañia no encontrada',404);
 		$company->trash = 1;
-		if (!$company->save()) return response()->json('Database Error',500);
-		return response()->json('Company successfully deleted', 200);
+		if (!$company->save()) return response()->json('Error en la base de datos',500);
+		return response()->json('Compañia eliminada satisfactoriamente', 200);
 	}
 
   public function highlightCompany($id,Request $request){
@@ -125,22 +125,22 @@ class CompanyController extends Controller{
     }
 
     $company = Company::find($id);
-		if (!$company) return response()->json('Company not found',404);
+		if (!$company) return response()->json('Compañia no encontrada',404);
 
     $company->highlighted = 1;
     $company->highlighted_expiration = $data['highlighted_expiration'];
-		if (!$company->save()) return response()->json('Database Error',500);
+		if (!$company->save()) return response()->json('Error en la base de datos',500);
 
-		return response()->json('Company successfully highlighted', 200);
+		return response()->json('Compañia resaltada exitosamente', 200);
   }
 
   public function deHighlightCompany($id){
     $company = Company::find($id);
-		if (!$company) return response()->json('Company not found',404);
+		if (!$company) return response()->json('Compañia no encontrada',404);
 
     $company->highlighted = 0;
     $company->highlighted_expiration = null;
-		if (!$company->save()) return response()->json('Database Error',500);
+		if (!$company->save()) return response()->json('Error en la base de datos',500);
 
 		return response()->json('Company highlight disabled', 200);
   }
@@ -151,7 +151,7 @@ class CompanyController extends Controller{
     ->where('highlighted',1)
     ->where('highlighted_expiration','<=',date('Y-m-d h:i:s'))
     ->get();
-		if (!$companies) return response()->json('Database Error',500);
+		if (!$companies) return response()->json('Error en la base de datos',500);
 		return response()->json($companies, 200);
 	}
 
