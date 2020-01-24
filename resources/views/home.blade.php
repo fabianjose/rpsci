@@ -27,7 +27,7 @@
 
               <div class="info-box-content">
                 <h5 class="info-box-text">Servicios</h5>
-                <a href="/companies" class="btn btn-block btn-outline-success">
+                <a href="/services" class="btn btn-block btn-outline-success">
                   Gestión  <i class="fas fa-arrow-circle-right"></i>
                 </a>
               </div>

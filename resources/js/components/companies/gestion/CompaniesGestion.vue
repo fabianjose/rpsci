@@ -2,7 +2,7 @@
 <div class="container-fluid">
     <div class="row justify-content-center py-4">
         <div class="col-10 col-lg-12">
-            <company-creation></company-creation>
+            <company-creation @creatingDone="refreshData"></company-creation>
         </div>
     </div>
     <h5 class="mt-4 mb-2 text-center">Empresas Disponibles</h5>
@@ -11,7 +11,7 @@
             :title="company.name" :logo="company.logo" :index="company.id"
             @view="viewModal" @edit="update" @delete="trash" ></company>
     </div>
-    <company-update v-if="currentCompany&&updateMode" :company="currentCompany">
+    <company-update v-if="currentCompany&&updateMode" @updateDone="refreshData" :company="currentCompany">
     </company-update>
     <detailed-company v-if="currentCompany&&viewMode" :company="currentCompany">
     </detailed-company>

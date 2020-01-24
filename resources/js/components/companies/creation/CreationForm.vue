@@ -1,6 +1,7 @@
 <template>
     <div class="card card-info" id="createCompanyAccordion">
-      <a class="card-header collapsed" @click="active=!active" data-parent="#createCompanyAccordion" href="#collapseOne" aria-expanded="false" data-toggle="collapse">
+      <a class="card-header collapsed" @click="active=!active" data-parent="#createCompanyAccordion" 
+      href="#collapseOne" aria-expanded="false" data-toggle="collapse">
         <h3 class="card-title">Nueva Empresa</h3>
         <div class="card-tools">
           <button type="button" class="btn btn-tool ml-auto " >
@@ -11,6 +12,11 @@
 
       <div id="collapseOne" class="panel-collapse in collapse" >
         <div class="card-body">
+
+          <div v-if="logo" class="d-flex flex-column align-items-center py-4">
+                <h4 class="px-2 my-3 text-dark card-text">Logo de la Empresa</h4>
+                <img class="img-fluid" style="max-height:150px;" :src="onPreview?onPreview:(baseUrl+'/storage/'+company.logo)" alt="">
+          </div>
 
           <div class="form-group">
             <label>Nombre de la Empresa</label>
@@ -63,6 +69,8 @@ export default {
         nit:"",
         phone:"",
         web:"",
+        baseUrl:baseUrl,
+        onPreview:null
       }
     },
 
@@ -84,6 +92,8 @@ export default {
 
         this.logo=uploadFile;
 
+        this.onPreview=URL.createObjectURL(uploadFile);
+
       },
 
       submitNewCompany: function(){
@@ -98,6 +108,7 @@ export default {
         .then(res=>{
           console.log("RESPONSE FROM SERVER ",res);
           toastr.success("Compañía creada con éxito");
+          this.$emit("creatingDone")
         })
         .catch(err=>{
           console.log("ERROR FROM SERVER ",err,err.response);

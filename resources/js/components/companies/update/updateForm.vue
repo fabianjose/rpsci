@@ -10,16 +10,20 @@
         </button>
       </div>
       <div class="modal-body">
+          <div class="d-flex flex-column align-items-center py-4">
+                <h4 class="px-2 my-3 text-dark card-text">Logo de la Empresa</h4>
+                <img class="img-fluid" style="max-height:150px;" :src="onPreview?onPreview:(baseUrl+'/storage/'+company.logo)" alt="">
+          </div>
           <div class="form-group">
               <label>Nombre de la Empresa</label>
               <input v-model="company.name" class="form-control">
           </div>
           
           <div class="form-group">
-              <label for="exampleInputFile">Logo de la Empresa</label>
+              <label for="exampleInputFile">Subir Imagen</label>
               <div class="input-group">
               <div class="custom-file">
-                  <input type="file" class="custom-file-input" ref="SelectFile" id="InputFile">
+                  <input type="file" class="custom-file-input" @change="uploadFile" ref="SelectFileForUpdate" id="InputFile">
                   <label class="custom-file-label" for="InputFile">Seleccionar Archivo</label>
               </div>
               </div>
@@ -53,10 +57,35 @@
 
 <script>
 export default {
+
+    data(){
+        return{
+            onPreview:null,
+            baseUrl:baseUrl
+        }
+    },
+
     props:[
         "company"
     ],
     methods:{
+      
+          uploadFile: function(){
+
+            console.log("[File] Change")
+            let uploadFile=this.$refs.SelectFileForUpdate.files[0]
+    
+            if(!uploadFile){
+              console.log("[File] None")
+              return;
+            }
+    
+            this.logo=uploadFile;
+
+            this.onPreview=URL.createObjectURL(uploadFile);
+
+        },
+
         editCompany(){
             let fd= new FormData();
             fd.append("name", this.company.name);
@@ -69,6 +98,7 @@ export default {
                 console.log("RESPONSE FROM SERVER ",res);
                 
                 toastr.success("Empresa editada con éxito");
+                this.$emit("updateDone")
             })
             .catch(err=>{
                 console.log("ERROR FROM SERVER ",err,err.response);

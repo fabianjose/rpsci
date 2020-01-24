@@ -41,6 +41,11 @@ Vue.component('offers-gestion', require('./components/offers/gestion/OffersGesti
 Vue.component('offer-creation', require('./components/offers/creation/CreationForm.vue').default);
 Vue.component('offer', require('./components/items/offers/offer.vue').default);
 
+Vue.component('service-creation', require("./components/services/creation/creationForm.vue").default);
+
+Vue.component('service-gestion', require("./components/services/gestion/gestion.vue").default);
+
+
 import AutocompleteVue from 'autocomplete-vue';
 Vue.component('autocomplete-vue', AutocompleteVue);
 

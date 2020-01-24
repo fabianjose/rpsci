@@ -22,7 +22,7 @@ Route::post('/login','Auth\LoginController@enter');
 Route::group(["middleware" => ["isAuth"]], function(){
 
 
-    Route::get('/', 'HomeController@index')->name('home');
+    Route::get('/', 'HomeController@index');
 
     Route::get("/companies", function(){
         return view('pages.companies');
@@ -32,8 +32,14 @@ Route::group(["middleware" => ["isAuth"]], function(){
         return view('pages.offers');
     });
 
+    /*
     Route::get("/test1", function(){
         return view('pages.test1');
+    });
+    */
+
+    Route::get('/services', function () {
+        return view('pages.services');
     });
 
 
