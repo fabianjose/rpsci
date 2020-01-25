@@ -8,7 +8,7 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
-window.baseUrl+ 'http://127.0.0.1:8000';
+// window.baseUrl+ 'http://127.0.0.1:8000';
 
 /**
  * The following block of code may be used to automatically register your
@@ -57,6 +57,9 @@ Vue.component('service-update', require('./components/services/update/updateForm
 
 import AutocompleteVue from 'autocomplete-vue';
 Vue.component('autocomplete-vue', AutocompleteVue);
+
+import DateTimePicker from 'vuejs-datetimepicker';
+Vue.component('datetimepicker', DateTimePicker)
 
 import VueResource from 'vue-resource';
 Vue.use(VueResource);

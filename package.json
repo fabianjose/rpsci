@@ -25,6 +25,7 @@
     },
     "dependencies": {
         "autocomplete-vue": "^1.1.0",
-        "vue-resource": "^1.5.1"
+        "vue-resource": "^1.5.1",
+        "vuejs-datetimepicker": "^1.1.13"
     }
 }
