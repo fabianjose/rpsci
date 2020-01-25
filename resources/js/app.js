@@ -45,9 +45,13 @@ Vue.component('offer', require('./components/items/offers/offer.vue').default);
 Vue.component('offer-details', require('./components/items/offers/detailedOffer.vue').default);
 Vue.component('offer-update', require('./components/offers/update/updateForm.vue').default);
 
+// Servicios
 Vue.component('service-creation', require("./components/services/creation/creationForm.vue").default);
-
 Vue.component('service-gestion', require("./components/services/gestion/gestion.vue").default);
+Vue.component('service', require('./components/items/services/service.vue').default);
+Vue.component('service-details', require('./components/items/services/detailedService.vue').default);
+Vue.component('service-update', require('./components/services/update/updateForm.vue').default);
+
 
 
 import AutocompleteVue from 'autocomplete-vue';

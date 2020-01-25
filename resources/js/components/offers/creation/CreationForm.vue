@@ -24,7 +24,6 @@
               :threshold="1"
               inputClass="form-control"
               value="id"
-              @selected="selectCosa"
               ></autocomplete-vue>
             </div>
             <div class="form-group col-xl-6 col-lg-6 col-md-6 col-6">
@@ -32,6 +31,13 @@
               <select class="custom-select" v-model="service">
                 <option :value="service.id" v-for="service in services"  :key="service.id">{{service.name}}</option>
               </select>
+            </div>
+          </div>
+          <span>{{fields_value}}</span>
+          <div class="d-flex w-100 flex-wrap" v-if="service">
+            <div class="form-group col-xl-4 col-lg-4 col-md-6 col-6" v-for="(field,index) in services[service-1].fields" >
+              <label>{{field.label}}</label>
+              <input v-model="fields_value[index]" class="form-control">
             </div>
           </div>
           <div class="d-flex w-100 flex-wrap">
@@ -114,7 +120,7 @@ export default {
       benefits: "",
       service: null,
       points: null,
-      fields_value: "json vergatario"
+      fields_value: []
     }
   },
 
@@ -122,11 +128,15 @@ export default {
 
   },
   methods:{
-    selectCosa(value){
-      console.log('here we go');
-      console.log(value);
-    },
     createOffer(){
+      // console.log(this.fields_value[this.services[this.service-1].length]);
+      for (var i = 0; i < this.services[this.service-1].fields.length; i++) {
+        if (!this.fields_value[i]){
+          toastr.error('Debe llenar los campos referentes al servicio seleccionado');
+          return false;
+        }
+      }
+      
       let fd= new FormData();
       fd.append("company", this.company);
       fd.append("department", this.department);
@@ -142,14 +152,15 @@ export default {
       .then(res=>{
         console.log("RESPONSE FROM SERVER ",res);
         toastr.success("Oferta creada con éxito");
+        this.$emit('refresh');
       })
       .catch(err=>{
-        console.log("ERROR FROM SERVER ",err,err.response);
-        for (var error in err.response.data) {
-          toastr.error(error);
-          // for (var message in error) {
-          // }
-        }
+        console.log("ERROR FROM SERVER ",err.response);
+        // for (var error in err.response.data) {
+        //   toastr.error(error);
+        //   // for (var message in error) {
+        //   // }
+        // }
         toastr.error("Error al crear la oferta");
       });
     }

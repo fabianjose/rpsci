@@ -1,21 +1,18 @@
 <template>
-    <div class="card card-info" id="createServiceAccordion">
-      <a class="card-header collapsed" @click="active=!active" data-parent="#createServiceAccordion" 
-      href="#collapseCreateService" aria-expanded="false" data-toggle="collapse">
-        <h3 class="card-title">Nuevo Servicio</h3>
-        <div class="card-tools">
-          <button type="button" class="btn btn-tool ml-auto " >
-            <personal-fab :active="active" />
-          </button>
-        </div>
-      </a>
+<div class="modal fade" id="modalEditService" aria-modal="true" style="padding-right: 15px; display: block;">
 
-      <div id="collapseCreateService" class="panel-collapse in collapse" >
-        <div class="card-body">
-
-          <div class="form-group">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header bg-success text-white">
+        <h4 class="modal-title">Editar Servicio</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
             <label>Nombre del Servicio</label>
-            <input v-model="name" class="form-control">
+            <input v-model="service.name" class="form-control">
           </div>
 
           <div class="form-group">
@@ -76,75 +73,58 @@
                 <div class="card-body">
 
                     <ul class="list-group list-group-unbordered mb-3">
-                        <li v-for="(field,k) in fields" :key="k" class="list-group-item">
-                            <b>{{field.label}}</b> <a class="float-right">{{getFieldType(field.type)}}</a>
+                        <li v-for="(field,index) in service.fields" :key="index" class="list-group-item">
+                            <b>{{field.label}}</b> 
+                            <a class="float-right">{{getFieldType(field.type)}} 
+                              <button type="button" class="btn btn-tool p-1" @click="deleteField(field.label)">
+                                <i class="float-button fas fa-plus-circle active text-danger" style=""></i>
+                              </button>
+                            </a>
                         </li>
                     </ul>
 
                 </div>
             </div>
         </div>
-
-        </div>
-
-        <div class="card-footer">
-            <button type="button" class="btn btn-outline-success" @click="submitNewService">Agregar</button>
-        </div>
+      </div>
+      <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-outline-info" @click="editService">Editar</button>
       </div>
     </div>
+  </div>
+
+</div>
 </template>
 
 <script>
 export default {
-    name: 'companyCreation',
-
+    props:["service"],
     data(){
-      return {
+      return{
         active:false,
         active2:false,
         active3:false,
-        name:"",
-        logo:null,
-        nit:"",
-        phone:"",
-        web:"",
-        fields:[],
         newFieldLabel:"",
         newFieldType:"",
       }
     },
-
-    mounted(){
-      console.log(baseUrl);
-    },
-
     methods:{
-
-      uploadFile: function(){
-
-        console.log("[File] Change")
-        let uploadFile=this.$refs.SelectFile.files[0]
-
-        if(!uploadFile){
-          console.log("[File] None")
-          return;
-        }
-
-        this.logo=uploadFile;
-
+      deleteField(label){
+        console.log('label ', label);
+        this.service.fields = this.service.fields.filter((el)=> el.label != label);
+        // console.log(webo);
       },
-
       submitNewField(){
-        if (this.fields.length >= 3){
+        if (this.service.fields.length >= 3){
           toastr.error('Solo puedes añadir hasta 3 campos');
         }else{
-          this.fields.push({
+          this.service.fields.push({
               label:this.newFieldLabel,
               type:this.newFieldType,
           })
         }
       },
-
       getFieldType(label=string){
           switch (label) {
               case "string":
@@ -161,26 +141,26 @@ export default {
                   break;
           }
       },
-
-      submitNewService: function(){
+      editService(){
         let fd= new FormData();
-        fd.append("name", this.name);
-        fd.append("fields", this.fields.length?JSON.stringify(this.fields):"");
-
-        axios.post(baseUrl+'/api/service',fd)
+        fd.append("name", this.service.name);
+        fd.append("fields", this.service.fields.length?JSON.stringify(this.service.fields):"");
+        fd.append("_method","put");
+        axios.post(baseUrl+"/api/service/"+this.service.id, fd)
         .then(res=>{
           console.log("RESPONSE FROM SERVER ",res);
-          toastr.success(res.data);
-          this.$emit("creatingDone")
+
+          toastr.success("Servicio editado con éxito");
+          setTimeout(function(){
+            window.location.reload();
+          }, 2000);
         })
         .catch(err=>{
           console.log("ERROR FROM SERVER ",err,err.response);
-          toastr.error(err.response.data);
+
+          toastr.error("Error al editar el servicio")
         });
-
-      },
+      }
     }
-
 }
-
 </script>

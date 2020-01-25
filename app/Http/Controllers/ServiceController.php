@@ -56,6 +56,9 @@ class ServiceController extends Controller{
   public function getAll(){
 		$services = DB::table('services')->where('trash',0)->get();
 		if (!$services) return response()->json('Error en la base de datos',500);
+    foreach ($services as $key) {
+      $key->fields = json_decode($key->fields);
+    }
 		return response()->json($services, 200);
 	}
 

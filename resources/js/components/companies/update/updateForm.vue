@@ -98,7 +98,10 @@ export default {
                 console.log("RESPONSE FROM SERVER ",res);
                 
                 toastr.success("Empresa editada con éxito");
-                this.$emit("updateDone")
+                // this.$emit("updateDone")
+                setTimeout(function(){
+                  window.location.reload();
+                }, 2000);
             })
             .catch(err=>{
                 console.log("ERROR FROM SERVER ",err,err.response);

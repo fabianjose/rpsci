@@ -120,6 +120,9 @@ export default {
           console.log("RESPONSE FROM SERVER ",res);
 
           toastr.success("Oferta editada con éxito");
+          setTimeout(function(){
+            window.location.reload();
+          }, 2000);
         })
         .catch(err=>{
           console.log("ERROR FROM SERVER ",err,err.response);

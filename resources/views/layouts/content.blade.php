@@ -44,12 +44,12 @@
               <p>Empresas</p>
             </a>
           </li>
-          <!-- <li class="nav-item ">
+          <li class="nav-item ">
             <a class="nav-link " href="/services">
               <i class="far fa-fw fa-file"></i>
               <p>Servicios</p>
             </a>
-          </li> -->
+          </li>
           <li class="nav-item ">
             <a class="nav-link " href="/offers">
               <i class="far fa-fw fa-file"></i>

@@ -10,7 +10,7 @@
         </div>
         <div class="card-body d-flex flex-column box-profile">
 
-          <img class="img-fluid" :src="baseUrl+'/storage/'+offer.company_logo" alt="Offer picture">
+          <img :src="baseUrl+'/storage/'+offer.company_logo" alt="Offer picture" style="max-width: 300px; max-height: 300px;">
 
           <h2 class="profile-username text-center">{{offer.service_name}}</h2>
 
