@@ -11,11 +11,11 @@
           </div>
           <div class="card-body d-flex flex-column box-profile">
 
-            <img class="img-fluid" :src="baseUrl+'/storage/'+company.logo" alt="User profile picture">
+            <img class="align-self-center" :src="baseUrl+'/storage/'+company.logo" style="width: 500px; max-height: 300px;">
 
             <h2 class="profile-username text-center">{{company.name}}</h2>
 
-            <p class="text-muted text-center">Esta empresa está destacada</p>
+            <p class="text-muted text-center" v-if="company.highlighted">Esta empresa está destacada</p>
 
             <ul class="list-group list-group-unbordered mb-3">
               <li class="list-group-item">

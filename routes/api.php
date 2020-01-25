@@ -11,7 +11,7 @@ Route::get('/municipalities/{departmentId}','MunicipalityController@getByDepartm
 
 Route::post('/company','CompanyController@newCompany');
 Route::put('/company/{id}','CompanyController@editCompany');
-Route::put('/company/{id}/highlight','CompanyController@highlightCompany');
+Route::put('/company/{name}/highlight','CompanyController@highlightCompany');
 Route::put('/company/{id}/dehighlight','CompanyController@deHighlightCompany');
 Route::get('/companies','CompanyController@getAll');
 Route::get('/companies/highlighted','CompanyController@getAllHighlighted');

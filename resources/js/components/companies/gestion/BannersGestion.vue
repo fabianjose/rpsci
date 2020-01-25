@@ -2,7 +2,7 @@
 <div class="container-fluid">
     <div class="row justify-content-center py-4">
         <div class="col-10 col-lg-12">
-            <!-- <company-creation></company-creation> -->
+            <company-highlight @refresh="refreshData"></company-highlight>
         </div>
     </div>
     <h5 class="mt-4 mb-2 text-center">Empresas Destacadas</h5>

@@ -36,6 +36,7 @@ Vue.component('detailed-company', require('./components/items/companies/detailed
 Vue.component('c-modal', require('./components/items/modal/modal.vue').default);
 
 Vue.component('banners-gestion', require('./components/companies/gestion/BannersGestion.vue').default);
+Vue.component('company-highlight', require('./components/companies/creation/HighlightForm.vue').default);
 
 
 // Ofertas

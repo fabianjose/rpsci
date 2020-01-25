@@ -115,17 +115,21 @@ class CompanyController extends Controller{
 		return response()->json('Compañia eliminada satisfactoriamente', 200);
 	}
 
-  public function highlightCompany($id,Request $request){
+  public function highlightCompany($name,Request $request){
     $data = $request->all();
     $validation = Validator::make($data, [
-      'highlighted_expiration' => ['required', 'date_format:Y-m-d H:i:s'],
+      'highlighted_expiration' => ['required', 'date'],
     ]);
     if ($validation->fails()){
       return response()->json($validation->errors(), 400);
     }
 
-    $company = Company::find($id);
-		if (!$company) return response()->json('Compañia no encontrada',404);
+    $company = Company::where('name',$name)->first();
+    if (!$company) return response()->json('Empresa no encontrada',404);
+
+    if ($company->highlighted){
+      return response()->json('Empresa ya destacada', 400);
+    }
 
     $company->highlighted = 1;
     $company->highlighted_expiration = $data['highlighted_expiration'];

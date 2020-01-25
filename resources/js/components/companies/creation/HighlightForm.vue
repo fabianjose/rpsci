@@ -1,6 +1,6 @@
 <template>
-    <div class="card card-info" id="createCompanyAccordion">
-      <a class="card-header collapsed" @click="active=!active" data-parent="#createCompanyAccordion" href="#collapseOne" aria-expanded="false" data-toggle="collapse">
+    <div class="card card-info" id="highlightCompanyAccordion">
+      <a class="card-header collapsed" @click="active=!active" data-parent="#highlightCompanyAccordion" href="#collapseOne" aria-expanded="false" data-toggle="collapse">
         <h3 class="card-title">Destacar Empresa</h3>
         <div class="card-tools">
           <button type="button" class="btn btn-tool ml-auto " >
@@ -11,25 +11,27 @@
 
       <div id="collapseOne" class="panel-collapse in collapse" >
         <div class="card-body">
-
           <div class="form-group">
-            <label>Nombre de la Empresa</label>
-            <input v-model="name" class="form-control">
+              <label>Empresa</label>
+              <autocomplete-vue
+              v-model="company"
+              url="/api/companies"
+              requestType="get"
+              placeholder="Empresa"
+              property="name"
+              :required="true"
+              :threshold="1"
+              inputClass="form-control"
+              ></autocomplete-vue>
           </div>
-
           <div class="form-group">
-            <label for="exampleInputFile">Logo de la Empresa</label>
-            <div class="input-group">
-              <div class="custom-file">
-                <input type="file" @change="uploadFile" class="custom-file-input" ref="SelectFile" id="InputFile">
-                <label class="custom-file-label" for="InputFile">Seleccionar Archivo</label>
-              </div>
-            </div>
-          </div>
+              <label>Fecha de expiracion</label>
+              <input type="text" class="form-control" placeholder="YYYY/MM/DD" v-model="expiration">
+          </div>      
         </div>
 
         <div class="card-footer">
-          <button type="button" class="btn btn-outline-success" @click="submitNewCompany">Agregar</button>
+          <button type="button" class="btn btn-outline-success" @click="highlightCompany">Destacar</button>
         </div>
       </div>
     </div>
@@ -40,8 +42,8 @@ export default {
     data(){
       return {
         active:false,
-        name:"",
-        logo:null,
+        company:"",
+        expiration:null,
       }
     },
 
@@ -49,18 +51,19 @@ export default {
     },
     methods:{
 
-      submitNewCompany: function(){
+      highlightCompany(){
         let fd= new FormData();
-        fd.append("name", this.name);
-
-        axios.post(baseUrl+'/api/company',fd)
+        fd.append("highlighted_expiration", this.expiration);
+        fd.append("_method", 'put');
+        axios.post(baseUrl+'/api/company/'+this.company+'/highlight',fd)
         .then(res=>{
           console.log("RESPONSE FROM SERVER ",res);
-          toastr.success("Compañía creada con éxito");
+          toastr.success("Empresa destacada con éxito");
+          this.$emit('refresh');
         })
         .catch(err=>{
-          console.log("ERROR FROM SERVER ",err,err.response);
-          toastr.error("Error al crear la compañía")
+          console.log("ERROR FROM SERVER ",err.response);
+          toastr.error("Error al destacar la empresa")
         });
       },
     }
