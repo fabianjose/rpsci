@@ -38775,17 +38775,6 @@ var render = function() {
                                 }
                               },
                               [_vm._v("Numero")]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "option",
-                              {
-                                attrs: {
-                                  value: "select",
-                                  "data-select2-id": "3"
-                                }
-                              },
-                              [_vm._v("Seleccionable")]
                             )
                           ]
                         )
@@ -39174,17 +39163,6 @@ var render = function() {
                                 }
                               },
                               [_vm._v("Numero")]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "option",
-                              {
-                                attrs: {
-                                  value: "select",
-                                  "data-select2-id": "3"
-                                }
-                              },
-                              [_vm._v("Seleccionable")]
                             )
                           ]
                         )

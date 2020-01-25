@@ -48,7 +48,7 @@
                     <select v-model="newFieldType" class="form-control select2 select2-hidden-accessible" style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
                         <option selected value="string" data-select2-id="1">Texto</option>
                         <option value="number" data-select2-id="2">Numero</option>
-                        <option value="select" data-select2-id="3">Seleccionable</option>
+                        <!-- <option value="select" data-select2-id="3">Seleccionable</option> -->
                     </select>
                 
                 </div>
