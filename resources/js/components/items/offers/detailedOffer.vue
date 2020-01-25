@@ -10,7 +10,7 @@
         </div>
         <div class="card-body d-flex flex-column box-profile">
 
-          <img :src="baseUrl+'/storage/'+offer.company_logo" alt="Offer picture" style="max-width: 300px; max-height: 300px;">
+          <img class="align-self-center" :src="baseUrl+'/storage/'+offer.company_logo" alt="Offer picture" style="width: 500px; max-height: 300px;">
 
           <h2 class="profile-username text-center">{{offer.service_name}}</h2>
 
@@ -27,6 +27,12 @@
             </li>
             <li class="list-group-item">
               <b>Municipio</b> <a class="float-right">{{offer.municipality_name}}</a>
+            </li>
+          </ul>
+          <br>
+          <ul class="list-group list-group-unbordered mb-3 mt-3">
+            <li class="list-group-item" v-for="(field,index) in offer.service_fields">
+              <b class="text-capitalize">{{field.label}}</b> <a class="float-right">{{offer.fields_value[index]}}</a>
             </li>
           </ul>
 

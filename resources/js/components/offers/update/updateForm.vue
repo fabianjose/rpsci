@@ -31,6 +31,12 @@
             </select>
           </div>
         </div>
+        <div class="d-flex w-100 flex-wrap" v-if="offer.service">
+          <div class="form-group col-xl-4 col-lg-4 col-md-6 col-6" v-for="(field,index) in offer.service_fields" >
+            <label>{{field.label}}</label>
+            <input v-model="offer.fields_value[index]" class="form-control">
+          </div>
+        </div>
         <div class="d-flex w-100 flex-wrap">
           <div class="form-group col-12">
             <label>Beneficios</label>
@@ -105,6 +111,12 @@ export default {
     props:["offer","services"],
     methods:{
       editOffer(){
+        for (var i = 0; i < this.offer.service_fields.length; i++) {
+          if (!this.offer.fields_value[i]){
+            toastr.error('Debe llenar los campos referentes al servicio seleccionado');
+            return false;
+          }
+        }
         let fd= new FormData();
         fd.append("company", this.offer.company_name);
         fd.append("service", this.offer.service);
@@ -114,6 +126,7 @@ export default {
         fd.append("tariff", this.offer.tariff);
         fd.append("type", this.offer.type);
         fd.append("points", this.offer.points);
+        fd.append("fields_value", JSON.stringify(this.offer.fields_value));
         fd.append("_method","put");
         axios.post(baseUrl+"/api/offer/"+this.offer.id, fd)
         .then(res=>{

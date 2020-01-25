@@ -33,7 +33,6 @@
               </select>
             </div>
           </div>
-          <span>{{fields_value}}</span>
           <div class="d-flex w-100 flex-wrap" v-if="service">
             <div class="form-group col-xl-4 col-lg-4 col-md-6 col-6" v-for="(field,index) in services[service-1].fields" >
               <label>{{field.label}}</label>

@@ -2652,6 +2652,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["offer"],
   data: function data() {
@@ -2871,7 +2877,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
 //
 //
 //
@@ -3324,10 +3329,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["offer", "services"],
   methods: {
     editOffer: function editOffer() {
+      for (var i = 0; i < this.offer.service_fields.length; i++) {
+        if (!this.offer.fields_value[i]) {
+          toastr.error('Debe llenar los campos referentes al servicio seleccionado');
+          return false;
+        }
+      }
+
       var fd = new FormData();
       fd.append("company", this.offer.company_name);
       fd.append("service", this.offer.service);
@@ -3337,6 +3355,7 @@ __webpack_require__.r(__webpack_exports__);
       fd.append("tariff", this.offer.tariff);
       fd.append("type", this.offer.type);
       fd.append("points", this.offer.points);
+      fd.append("fields_value", JSON.stringify(this.offer.fields_value));
       fd.append("_method", "put");
       axios.post(baseUrl + "/api/offer/" + this.offer.id, fd).then(function (res) {
         console.log("RESPONSE FROM SERVER ", res);
@@ -36969,7 +36988,8 @@ var render = function() {
             { staticClass: "card-body d-flex flex-column box-profile" },
             [
               _c("img", {
-                staticStyle: { "max-width": "300px", "max-height": "300px" },
+                staticClass: "align-self-center",
+                staticStyle: { width: "500px", "max-height": "300px" },
                 attrs: {
                   src: _vm.baseUrl + "/storage/" + _vm.offer.company_logo,
                   alt: "Offer picture"
@@ -37016,6 +37036,25 @@ var render = function() {
                     ])
                   ])
                 ]
+              ),
+              _vm._v(" "),
+              _c("br"),
+              _vm._v(" "),
+              _c(
+                "ul",
+                { staticClass: "list-group list-group-unbordered mb-3 mt-3" },
+                _vm._l(_vm.offer.service_fields, function(field, index) {
+                  return _c("li", { staticClass: "list-group-item" }, [
+                    _c("b", { staticClass: "text-capitalize" }, [
+                      _vm._v(_vm._s(field.label))
+                    ]),
+                    _vm._v(" "),
+                    _c("a", { staticClass: "float-right" }, [
+                      _vm._v(_vm._s(_vm.offer.fields_value[index]))
+                    ])
+                  ])
+                }),
+                0
               ),
               _vm._v(" "),
               _vm._m(1)
@@ -37503,8 +37542,6 @@ var render = function() {
               )
             ]),
             _vm._v(" "),
-            _c("span", [_vm._v(_vm._s(_vm.fields_value))]),
-            _vm._v(" "),
             _vm.service
               ? _c(
                   "div",
@@ -37973,6 +38010,51 @@ var render = function() {
                 ]
               )
             ]),
+            _vm._v(" "),
+            _vm.offer.service
+              ? _c(
+                  "div",
+                  { staticClass: "d-flex w-100 flex-wrap" },
+                  _vm._l(_vm.offer.service_fields, function(field, index) {
+                    return _c(
+                      "div",
+                      {
+                        staticClass:
+                          "form-group col-xl-4 col-lg-4 col-md-6 col-6"
+                      },
+                      [
+                        _c("label", [_vm._v(_vm._s(field.label))]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.offer.fields_value[index],
+                              expression: "offer.fields_value[index]"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          domProps: { value: _vm.offer.fields_value[index] },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.offer.fields_value,
+                                index,
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ]
+                    )
+                  }),
+                  0
+                )
+              : _vm._e(),
             _vm._v(" "),
             _c("div", { staticClass: "d-flex w-100 flex-wrap" }, [
               _c("div", { staticClass: "form-group col-12" }, [

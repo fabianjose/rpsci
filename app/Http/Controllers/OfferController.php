@@ -112,6 +112,10 @@ class OfferController extends Controller{
     'municipalities.name as municipality_name'
     )
     ->get();
+    foreach ($offers as $key) {
+      $key->fields_value = json_decode($key->fields_value);
+      $key->service_fields = json_decode($key->service_fields);
+    }
 		if (!$offers) return response()->json('Error en la base de datos',500);
 		return response()->json($offers, 200);
 	}
