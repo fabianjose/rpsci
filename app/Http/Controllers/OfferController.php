@@ -144,26 +144,87 @@ class OfferController extends Controller{
   public function getByLocation(Request $request){
     $data = $request->all();
     $validation = Validator::make($data, [
-      'company' => ['required', 'exists:companies,id'],
-      'department' => ['required', 'exists:departments,id'],
-      'municipality' => ['required', 'exists:municipalities,id'],
+      'company' => ['required', 'exists:companies,name'],
+      'department' => ['required', 'exists:departments,name'],
+      'municipality' => ['required', 'exists:municipalities,name'],
     ]);
     if ($validation->fails()){
       return response()->json($validation->errors(), 400);
     }
+
+    
+    $company = Company::where('name',$data['company'])->first();
+    $department = Department::where('name',$data['department'])->first();
+    $municipality = Municipality::where('name',$data['municipality'])->first();
+    if (!$company) return response()->json('Empresa no encontrada',404);
+    if (!$department) return response()->json('Departamento no encontrada',404);
+    if (!$municipality) return response()->json('Municipio no encontrada',404);
+    
     $offers = DB::table('offers')
-    ->where('trash',0)
-    ->where('company',$data['company'])
-    ->where('department',$data['department'])
-    ->where('municipality',$data['municipality'])
+    ->where('offers.trash',0)
+    ->where('company',$company->id)
+    ->where('department',$department->id)
+    ->where('municipality',$municipality->id)
+    ->join('companies','companies.id','offers.company')
+    ->join('services', 'services.id','offers.service')
+    ->join('departments', 'departments.id','offers.department')
+    ->join('municipalities', 'municipalities.id','offers.municipality')
+    ->select('offers.*',
+    'companies.name as company_name',
+    'companies.logo as company_logo',
+    'services.name as service_name',
+    'services.fields as service_fields',
+    'departments.name as department_name',
+    'municipalities.name as municipality_name'
+    )
     ->get();
 
     if (!$offers) return response()->json('Error en la base de datos',500);
 		return response()->json($offers, 200);
   }
 
+  public function getHighlightByLocation(Request $request){
+    $data = $request->all();
+    $validation = Validator::make($data, [
+      'department' => ['required', 'exists:departments,name'],
+      'municipality' => ['required', 'exists:municipalities,name'],
+    ]);
+    if ($validation->fails()){
+      return response()->json($validation->errors(), 400);
+    }
+
+    
+    $department = Department::where('name',$data['department'])->first();
+    $municipality = Municipality::where('name',$data['municipality'])->first();
+    if (!$department) return response()->json('Departamento no encontrada',404);
+    if (!$municipality) return response()->json('Municipio no encontrada',404);
+    
+    $offers = DB::table('offers')
+    ->where('offers.trash',0)
+    ->where("offers.highlighted",1)
+    ->where("offers.highlighted_expiration", '>=', date('Y-m-d H:i:s'))
+    ->where('department',$department->id)
+    ->where('municipality',$municipality->id)
+    ->join('companies','companies.id','offers.company')
+    ->join('services', 'services.id','offers.service')
+    ->join('departments', 'departments.id','offers.department')
+    ->join('municipalities', 'municipalities.id','offers.municipality')
+    ->select('offers.*',
+    'companies.name as company_name',
+    'companies.logo as company_logo',
+    'services.name as service_name',
+    'services.fields as service_fields',
+    'departments.name as department_name',
+    'municipalities.name as municipality_name'
+    )->get();
+    
+    if (!$offers) return response()->json('Error en la base de datos',500);
+    return response()->json($offers, 200);
+  }
+
   public function HighlightOffer($id, Request $request){
     $data = $request->all();
+    //var_dump($data["highlighted_expiration"]); exit();
     $validation = Validator::make($data, [
       'highlighted_expiration' => ['required', 'date_format:Y-m-d H:i:s'],
     ]);
@@ -190,9 +251,21 @@ class OfferController extends Controller{
 
   public function getAllHighlighted(){
 		$offers = DB::table('offers')
-    ->where('trash',0)
-    ->where('highlighted',1)
-    ->where('highlighted_expiration','<=',date('Y-m-d h:i:s'))
+    ->where('offers.trash',0)
+    ->where('offers.highlighted',1)
+    ->where('offers.highlighted_expiration','<=',date('Y-m-d h:i:s'))
+    ->join('companies','companies.id','offers.company')
+    ->join('services', 'services.id','offers.service')
+    ->join('departments', 'departments.id','offers.department')
+    ->join('municipalities', 'municipalities.id','offers.municipality')
+    ->select('offers.*',
+    'companies.name as company_name',
+    'companies.logo as company_logo',
+    'services.name as service_name',
+    'services.fields as service_fields',
+    'departments.name as department_name',
+    'municipalities.name as municipality_name'
+    )
     ->get();
 		if (!$offers) return response()->json('Error en la base de datos',500);
 		return response()->json($offers, 200);

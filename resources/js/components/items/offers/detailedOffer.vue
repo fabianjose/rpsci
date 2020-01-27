@@ -19,6 +19,10 @@
           <p class="text-muted text-center">{{offer.benefits}}</p>
 
           <ul class="list-group list-group-unbordered mb-3">
+            <li v-if="offer.highlighted&&offer.highlighted_expiration" class="list-group-item">
+              <b>Expiración en "Destacadas"</b> <a class="float-right">{{offer.highlighted_expiration}}</a>
+            </li>
+
             <li class="list-group-item">
               <b>Tarifa</b> <a class="float-right">{{offer.tariff}}</a>
             </li>

@@ -30,6 +30,11 @@ Route::put('/offer/{id}','OfferController@editOffer');
 Route::get('/offers','OfferController@getAll');
 Route::get('/offer/{id}','OfferController@getOffer');
 Route::delete('/offer/{id}','OfferController@deleteOffer');
+
+Route::post('offers/area', 'OfferController@getByLocation');
+Route::get('offers/highlighted', 'OfferController@getAllHighlighted');
+Route::post('offers/highlight/{id}', "OfferController@HighlightOffer");
+Route::post('offers/area/highlight', "OfferController@getHighlightByLocation");
 //////////////////////////////////////////////////////////////////////////
 
 Route::group(['middleware' => ['JwtMiddleware']], function () {

@@ -54,7 +54,7 @@ export default {
 
       highlightCompany(){
         let fd= new FormData();
-        fd.append("highlighted_expiration", this.expiration);
+        fd.append("highlighted_expiration", this.expiration.split('/').join('-'));
         fd.append("_method", 'put');
         axios.post(baseUrl+'/api/company/'+this.company+'/highlight',fd)
         .then(res=>{
