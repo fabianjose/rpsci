@@ -111,8 +111,9 @@
 
                     <label>Fecha de expiracion</label>
                     <!-- <input type="text" class="form-control" placeholder="YYYY/MM/DD" v-model="expiration"> -->
-                    <datetimepicker format="YYYY/MM/DD H:i:s" v-model="expiration"></datetimepicker>
                   
+                    <datetimepicker format="YYYY-MM-DD H:i:s" v-model="expiration"></datetimepicker>
+
                   </div>
                   
 
@@ -162,7 +163,7 @@ export default {
       // console.log(this.fields_value[this.services[this.service-1].length]);
       let fd= new FormData();
 
-      if(this.expiration) fd.append("highlighted_expiration", this.expiration.split('/').join('-'));
+      if(this.expiration) fd.append("highlighted_expiration", this.expiration.split);
       else return toastr.error("Debe introducir una fecha de expiración");
       
       axios.post(baseUrl+'/api/offers/highlight/'+this.selectedOffer.id,fd)

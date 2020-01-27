@@ -27,7 +27,7 @@
           <div class="form-group">
               <label>Fecha de expiracion</label>
               <!-- <input type="text" class="form-control" placeholder="YYYY/MM/DD" v-model="expiration"> -->
-              <datetimepicker format="YYYY/MM/DD H:i:s" v-model="expiration"></datetimepicker>
+              <datetimepicker format="YYYY-MM-DD H:i:s" v-model="expiration"></datetimepicker>
           </div>      
         </div>
 
@@ -54,7 +54,7 @@ export default {
 
       highlightCompany(){
         let fd= new FormData();
-        fd.append("highlighted_expiration", this.expiration.split('/').join('-'));
+        fd.append("highlighted_expiration", this.expiration);
         fd.append("_method", 'put');
         axios.post(baseUrl+'/api/company/'+this.company+'/highlight',fd)
         .then(res=>{

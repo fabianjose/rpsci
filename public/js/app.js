@@ -2118,7 +2118,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       var fd = new FormData();
-      fd.append("highlighted_expiration", this.expiration.split('/').join('-'));
+      fd.append("highlighted_expiration", this.expiration);
       fd.append("_method", 'put');
       axios.post(baseUrl + '/api/company/' + this.company + '/highlight', fd).then(function (res) {
         console.log("RESPONSE FROM SERVER ", res);
@@ -3633,6 +3633,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['services'],
   data: function data() {
@@ -3660,7 +3661,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
       // console.log(this.fields_value[this.services[this.service-1].length]);
       var fd = new FormData();
-      if (this.expiration) fd.append("highlighted_expiration", this.expiration.split('/').join('-'));else return toastr.error("Debe introducir una fecha de expiración");
+      if (this.expiration) fd.append("highlighted_expiration", this.expiration.split);else return toastr.error("Debe introducir una fecha de expiración");
       axios.post(baseUrl + '/api/offers/highlight/' + this.selectedOffer.id, fd).then(function (res) {
         console.log("RESPONSE FROM SERVER ", res);
         toastr.success("Oferta Destacada con éxito");
@@ -39587,7 +39588,7 @@ var render = function() {
                 _c("label", [_vm._v("Fecha de expiracion")]),
                 _vm._v(" "),
                 _c("datetimepicker", {
-                  attrs: { format: "YYYY/MM/DD H:i:s" },
+                  attrs: { format: "YYYY-MM-DD H:i:s" },
                   model: {
                     value: _vm.expiration,
                     callback: function($$v) {
@@ -41981,7 +41982,7 @@ var render = function() {
                               _c("label", [_vm._v("Fecha de expiracion")]),
                               _vm._v(" "),
                               _c("datetimepicker", {
-                                attrs: { format: "YYYY/MM/DD H:i:s" },
+                                attrs: { format: "YYYY-MM-DD H:i:s" },
                                 model: {
                                   value: _vm.expiration,
                                   callback: function($$v) {
@@ -56802,7 +56803,7 @@ module.exports = function(module) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var autocomplete_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! autocomplete-vue */ "./node_modules/autocomplete-vue/dist/js/autocomplete-vue.js");
 /* harmony import */ var autocomplete_vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(autocomplete_vue__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var vuejs_datetimepicker__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vuejs-datetimepicker */ "./node_modules/vuejs-datetimepicker/src/datetime_picker.vue");
+/* harmony import */ var vuejs_datetimepicker__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuejs-datetimepicker */ "./node_modules/vuejs-datetimepicker/src/datetime_picker.vue");
 /* harmony import */ var vue_resource__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-resource */ "./node_modules/vue-resource/dist/vue-resource.esm.js");
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -56852,7 +56853,7 @@ Vue.component('plans-gestion', __webpack_require__(/*! ./components/plans/gestio
 
 Vue.component('autocomplete-vue', autocomplete_vue__WEBPACK_IMPORTED_MODULE_0___default.a);
 
-Vue.component('datetimepicker', vuejs_datetimepicker__WEBPACK_IMPORTED_MODULE_3__["default"]);
+Vue.component('datetimepicker', vuejs_datetimepicker__WEBPACK_IMPORTED_MODULE_1__["default"]);
 
 Vue.use(vue_resource__WEBPACK_IMPORTED_MODULE_2__["default"]);
 /**
@@ -58408,8 +58409,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\ConsultingMe\colombia_internet\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\ConsultingMe\colombia_internet\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\web 03\Music\colombia_internet\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\web 03\Music\colombia_internet\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),
