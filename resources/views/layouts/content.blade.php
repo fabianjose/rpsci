@@ -29,7 +29,7 @@
 
   <aside class="sidebar main-sidebar sidebar-dark-primary elevation-4">
     <a href="/" class="brand-link ">
-      <img src="http://localhost:8000/vendor/adminlte/dist/img/AdminLTELogo.png" alt="AdminLTE" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <img src="{{url('/vendor/adminlte/dist/img/AdminLTELogo.png')}}" alt="AdminLTE" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light ">
         <b>Inter</b>Colombia
       </span>
