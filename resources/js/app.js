@@ -53,6 +53,11 @@ Vue.component('service', require('./components/items/services/service.vue').defa
 Vue.component('service-details', require('./components/items/services/detailedService.vue').default);
 Vue.component('service-update', require('./components/services/update/updateForm.vue').default);
 
+Vue.component('plans-creation', require("./components/plans/creation/creationForm.vue").default);
+Vue.component('plans-gestion', require("./components/plans/gestion/plansGestion.vue").default);
+//Vue.component('plans', require('./components/items/plans/plans.vue').default);
+//Vue.component('plans-details', require('./components/items/services/detailedService.vue').default);
+//Vue.component('plans-update', require('./components/services/update/updateForm.vue').default);
 
 
 import AutocompleteVue from 'autocomplete-vue';

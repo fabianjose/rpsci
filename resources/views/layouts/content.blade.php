@@ -40,26 +40,33 @@
         <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu">
           <li class="nav-item ">
             <a class="nav-link " href="/companies">
-              <i class="far fa-fw fa-file"></i>
+              <i class="fa fa-suitcase"></i>
               <p>Empresas</p>
             </a>
           </li>
           <li class="nav-item ">
             <a class="nav-link " href="/services">
-              <i class="far fa-fw fa-file"></i>
+              <i class="fa fa-box"></i>
               <p>Servicios</p>
             </a>
           </li>
           <li class="nav-item ">
             <a class="nav-link " href="/offers">
-              <i class="far fa-fw fa-file"></i>
+              <i class="fa fa-percent"></i>
               <p>Ofertas</p>
             </a>
           </li>
           <li class="nav-item ">
             <a class="nav-link " href="/banners">
-              <i class="far fa-fw fa-file"></i>
+              <i class="fa fa-tag"></i>
               <p>Banners Publicitarios</p>
+            </a>
+          </li>
+
+          <li class="nav-item ">
+            <a class="nav-link " href="/plans">
+              <i class="fa fa-tags"></i>
+              <p>Planes Destacados</p>
             </a>
           </li>
 

@@ -24,6 +24,7 @@
               :threshold="1"
               inputClass="form-control"
               value="id"
+              @selected="printie(company);"
               ></autocomplete-vue>
             </div>
             <div class="form-group col-xl-6 col-lg-6 col-md-6 col-6">
@@ -127,6 +128,9 @@ export default {
 
   },
   methods:{
+    printie(msg){
+      console.log(msg)
+    },
     createOffer(){
       // console.log(this.fields_value[this.services[this.service-1].length]);
       for (var i = 0; i < this.services[this.service-1].fields.length; i++) {
