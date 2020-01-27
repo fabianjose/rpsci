@@ -36,6 +36,7 @@
           <div class="form-group">
             <label>NIT de la Empresa</label>
             <input v-model="nit" class="form-control">
+            <p class="text-muted text-sm" > <span class="text-danger">*</span> Este campo es opcional</p>
           </div>
 
           <div class="form-group">

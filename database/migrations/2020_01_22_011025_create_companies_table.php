@@ -17,7 +17,7 @@ class CreateCompaniesTable extends Migration
             $table->bigIncrements('id');
             $table->string('name',128);
             $table->string('logo');
-            $table->string('nit',16);
+            $table->string('nit',16)->nullable();
             $table->string('phone',16);
             $table->string('web',128);
             $table->boolean('highlighted')->default(0);

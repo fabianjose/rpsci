@@ -2001,6 +2001,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'companyCreation',
   data: function data() {
@@ -39491,7 +39492,9 @@ var render = function() {
                     _vm.nit = $event.target.value
                   }
                 }
-              })
+              }),
+              _vm._v(" "),
+              _vm._m(0)
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group" }, [
@@ -39561,7 +39564,17 @@ var render = function() {
     ]
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", { staticClass: "text-muted text-sm" }, [
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")]),
+      _vm._v(" Este campo es opcional")
+    ])
+  }
+]
 render._withStripped = true
 
 

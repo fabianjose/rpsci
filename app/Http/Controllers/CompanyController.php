@@ -15,7 +15,7 @@ class CompanyController extends Controller{
     $validation = Validator::make($data, [
       'name' => ['required', 'string', 'min:8', 'max:128', 'unique:companies'],
       'logo' => ['required', 'image'],
-      'nit' => ['required', 'string', 'max:16'],
+      'nit' => ["nullable", 'string', 'max:16'],
       'phone' => ['required', 'string', 'max:16'],
       'web' => ['required', 'string', 'min:8','max:128'],
     ]);
@@ -44,7 +44,7 @@ class CompanyController extends Controller{
     $validation = Validator::make($data, [
       'name' => ['string', 'min:8', 'max:128'],
       'logo' => ['image'],
-      'nit' => ['string', 'max:16'],
+      'nit' => ["nullable", 'string', 'max:16'],
       'phone' => ['string', 'max:16'],
       'web' => ['string', 'min:8','max:128'],
     ]);
