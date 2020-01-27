@@ -126,7 +126,8 @@ export default {
               }
             }
           }
-        }).finally(()=>loader.hide());
+        })
+        .finally(()=>loader.hide());
 
       },
     }

@@ -2167,6 +2167,7 @@ __webpack_require__.r(__webpack_exports__);
       var fd = new FormData();
       fd.append("highlighted_expiration", this.expiration);
       fd.append("_method", 'put');
+      var loader = this.$loading.show();
       axios.post(baseUrl + '/api/company/' + this.company + '/highlight', fd).then(function (res) {
         console.log("RESPONSE FROM SERVER ", res);
         toastr.success("Empresa destacada con éxito");
@@ -2210,6 +2211,8 @@ __webpack_require__.r(__webpack_exports__);
             }
           }
         }
+      })["finally"](function () {
+        return loader.hide();
       });
     }
   }
@@ -2268,6 +2271,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     refreshData: function refreshData() {
       var _this = this;
 
+      var loader = this.$loading.show();
       axios.get(baseUrl + '/api/companies/highlighted').then(function (res) {
         console.log(res);
         _this.companies = res.data;
@@ -2279,6 +2283,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         } else {
           toastr.error('Error al obtener las empresas destacadas');
         }
+      })["finally"](function () {
+        return loader.hide();
       });
     },
     setCompany: function () {
@@ -2316,6 +2322,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     trash: function trash(id) {
       var _this2 = this;
 
+      var loader = this.$loading.show();
       axios.put(baseUrl + '/api/company/' + id + '/dehighlight').then(function (res) {
         console.log(res);
         toastr.success("Compañía sacada de destacadas");
@@ -2327,6 +2334,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         if (err.response.data.errorMessage) {
           toastr.error(err.response.data.errorMessage);
         }
+      })["finally"](function () {
+        return loader.hide();
       });
     },
     viewModal: function () {
@@ -2416,6 +2425,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     refreshData: function refreshData() {
       var _this = this;
 
+      var loader = this.$loading.show();
       axios.get(baseUrl + '/api/companies').then(function (res) {
         console.log(res);
         _this.companies = res.data;
@@ -2425,6 +2435,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         if (err.response.data.errorMessage) {
           toastr.error(err.response.data.errorMessage);
         }
+      })["finally"](function () {
+        return loader.hide();
       });
     },
     setCompany: function () {
@@ -2490,6 +2502,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     trash: function trash(id) {
       var _this2 = this;
 
+      var loader = this.$loading.show();
       axios["delete"](baseUrl + '/api/company/' + id).then(function (res) {
         console.log(res);
         toastr.success("Compañía eliminada con éxito");
@@ -2499,6 +2512,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         if (err.response.data.errorMessage) {
           toastr.error(err.response.data.errorMessage);
         }
+      })["finally"](function () {
+        return loader.hide();
       });
     },
     viewModal: function () {
@@ -2628,6 +2643,7 @@ __webpack_require__.r(__webpack_exports__);
       fd.append("phone", this.company.phone);
       fd.append("web", this.company.web);
       fd.append("_method", "put");
+      var loader = this.$loading.show();
       axios.post(baseUrl + "/api/company/" + this.company.id, fd).then(function (res) {
         console.log("RESPONSE FROM SERVER ", res);
         toastr.success("Empresa editada con éxito");
@@ -2670,6 +2686,8 @@ __webpack_require__.r(__webpack_exports__);
             }
           }
         }
+      })["finally"](function () {
+        return loader.hide();
       });
     }
   }
@@ -3269,6 +3287,7 @@ __webpack_require__.r(__webpack_exports__);
       fd.append("service", this.service);
       fd.append("points", this.points);
       fd.append("fields_value", JSON.stringify(this.fields_value));
+      var loader = this.$loading.show();
       axios.post(baseUrl + '/api/offer', fd).then(function (res) {
         console.log("RESPONSE FROM SERVER ", res);
         toastr.success("Oferta creada con éxito");
@@ -3319,6 +3338,8 @@ __webpack_require__.r(__webpack_exports__);
             }
           }
         }
+      })["finally"](function () {
+        return loader.hide();
       });
     }
   }
@@ -3383,6 +3404,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     refreshData: function refreshData() {
       var _this = this;
 
+      var loader = this.$loading.show();
       axios.get(baseUrl + '/api/services').then(function (res) {
         // console.log(res);
         _this.services = res.data;
@@ -3392,6 +3414,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         if (err.response.data.errorMessage) {
           toastr.error(err.response.data.errorMessage);
         }
+      })["finally"](function () {
+        return loader.hide();
       });
       axios.get(baseUrl + '/api/offers').then(function (res) {
         console.log(res.data);
@@ -3402,11 +3426,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         if (err.response.data.errorMessage) {
           toastr.error(err.response.data.errorMessage);
         }
+      })["finally"](function () {
+        return loader.hide();
       });
     },
     trash: function trash(id) {
       var _this2 = this;
 
+      var loader = this.$loading.show();
       axios["delete"](baseUrl + '/api/offer/' + id).then(function (res) {
         console.log(res);
         toastr.success("Oferta eliminada con éxito");
@@ -3416,6 +3443,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         if (err.response.data.errorMessage) {
           toastr.error(err.response.data.errorMessage);
         }
+      })["finally"](function () {
+        return loader.hide();
       });
     },
     setOffer: function () {
@@ -3843,6 +3872,12 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['services'],
   data: function data() {
@@ -3870,6 +3905,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
       var fd = new FormData();
       if (this.expiration) fd.append("highlighted_expiration", this.expiration.split);else return toastr.error("Debe introducir una fecha de expiración");
+      var loader = this.$loading.show();
       axios.post(baseUrl + '/api/offers/highlight/' + this.selectedOffer.id, fd).then(function (res) {
         console.log("RESPONSE FROM SERVER ", res);
         toastr.success("Oferta Destacada con éxito");
@@ -3911,6 +3947,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
             }
           }
         }
+      })["finally"](function () {
+        return loader.hide();
       });
     },
     selectOffer: function selectOffer(index) {
@@ -3934,6 +3972,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       if (this.company) fd.append("company", this.company);else return;
       if (this.department) fd.append("department", this.department);else return;
       if (this.municipality) fd.append("municipality", this.municipality);else return;
+      var loader = this.$loading.show();
       axios.post(baseUrl + '/api/offers/area', fd).then(function (res) {
         console.log("RESPONSE FROM SERVER ", res);
         _this2.offersByArea = res.data;
@@ -3975,6 +4014,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         }
 
         toastr.error("Error al cargar las ofertas del área");
+      })["finally"](function () {
+        return loader.hide();
       });
     }
   }
@@ -4083,6 +4124,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var fd = new FormData();
       if (this.department) fd.append("department", this.department);else return;
       if (this.municipality) fd.append("municipality", this.municipality);else return;
+      var loader = this.$loading.show();
       axios.post(baseUrl + '/api/offers/area/highlight', fd).then(function (res) {
         console.log(res);
         _this.offers = res.data;
@@ -4092,6 +4134,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         if (err.response.data.errorMessage) {
           toastr.error(err.response.data.errorMessage);
         }
+      })["finally"](function () {
+        return loader.hide();
       });
     },
     trash: function () {
@@ -4100,7 +4144,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(id) {
         var _this2 = this;
 
-        var offer, fd;
+        var offer, fd, loader;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
@@ -4114,6 +4158,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 offer = _context.sent;
                 fd = new FormData();
                 fd.append("highlighted_expiration", offer.highlighted_expiration);
+                loader = this.$loading.show();
                 axios.post(baseUrl + '/api/offers/highlight/' + id, fd).then(function (res) {
                   console.log(res);
                   toastr.success("Oferta Descartada con éxito");
@@ -4123,9 +4168,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   if (err.response.data.errorMessage) {
                     toastr.error(err.response.data.errorMessage);
                   }
+                })["finally"](function () {
+                  return loader.hide();
                 });
 
-              case 6:
+              case 7:
               case "end":
                 return _context.stop();
             }
@@ -4319,6 +4366,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'companyCreation',
   data: function data() {
@@ -4396,6 +4452,7 @@ __webpack_require__.r(__webpack_exports__);
       var fd = new FormData();
       fd.append("name", this.name);
       fd.append("fields", this.fields.length ? JSON.stringify(this.fields) : "");
+      var loader = this.$loading.show();
       axios.post(baseUrl + '/api/service', fd).then(function (res) {
         console.log("RESPONSE FROM SERVER ", res);
         toastr.success(res.data);
@@ -4439,6 +4496,8 @@ __webpack_require__.r(__webpack_exports__);
             }
           }
         }
+      })["finally"](function () {
+        return loader.hide();
       });
     },
     deleteField: function deleteField(label) {
@@ -4524,6 +4583,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     trash: function trash(id) {
       var _this2 = this;
 
+      var loader = this.$loading.show();
       axios["delete"](baseUrl + '/api/service/' + id).then(function (res) {
         console.log(res);
         toastr.success("Servicio eliminado con éxito");
@@ -4533,6 +4593,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         if (err.response.data.errorMessage) {
           toastr.error(err.response.data.errorMessage);
         }
+      })["finally"](function () {
+        return loader.hide();
       });
     },
     setService: function () {
@@ -4789,6 +4851,7 @@ __webpack_require__.r(__webpack_exports__);
       fd.append("name", this.service.name);
       fd.append("fields", this.service.fields.length ? JSON.stringify(this.service.fields) : "");
       fd.append("_method", "put");
+      var loader = this.$loading.show();
       axios.post(baseUrl + "/api/service/" + this.service.id, fd).then(function (res) {
         console.log("RESPONSE FROM SERVER ", res);
         toastr.success("Servicio editado con éxito");
@@ -4831,6 +4894,8 @@ __webpack_require__.r(__webpack_exports__);
             }
           }
         }
+      })["finally"](function () {
+        return loader.hide();
       });
     }
   }
@@ -40503,8 +40568,8 @@ var render = function() {
             { staticClass: "card-body d-flex flex-column box-profile" },
             [
               _c("img", {
-                staticClass: "align-self-center",
-                staticStyle: { width: "500px", "max-height": "300px" },
+                staticClass: "align-self-center img-fluid",
+                staticStyle: { "max-height": "300px" },
                 attrs: { src: _vm.baseUrl + "/storage/" + _vm.company.logo }
               }),
               _vm._v(" "),
@@ -40665,8 +40730,8 @@ var render = function() {
             { staticClass: "card-body d-flex flex-column box-profile" },
             [
               _c("img", {
-                staticClass: "align-self-center",
-                staticStyle: { width: "500px", "max-height": "300px" },
+                staticClass: "align-self-center img-fluid",
+                staticStyle: { "max-height": "300px" },
                 attrs: {
                   src: _vm.baseUrl + "/storage/" + _vm.offer.company_logo,
                   alt: "Offer picture"
@@ -40832,9 +40897,11 @@ var render = function() {
             [_vm._v(_vm._s(_vm.company))]
           ),
           _vm._v(" "),
-          _c("p", { class: "px-2 mt-1 card-text" + _vm.getDaysClass() }, [
-            _vm._v("Expira en: " + _vm._s(_vm.getExpiration()))
-          ])
+          this.highlighted
+            ? _c("p", { class: "px-2 mt-1 card-text" + _vm.getDaysClass() }, [
+                _vm._v("Expira en: " + _vm._s(_vm.getExpiration()))
+              ])
+            : _vm._e()
         ]
       ),
       _vm._v(" "),
@@ -42212,188 +42279,226 @@ var render = function() {
             _vm._v(" "),
             _c(
               "div",
-              {
-                staticClass: "card card-primary",
-                attrs: { id: "OffersAccordion" }
-              },
+              { staticClass: "row w-100 flex-wrap justify-content-around" },
               [
                 _c(
-                  "a",
-                  {
-                    staticClass: "card-header collapsed",
-                    attrs: {
-                      "data-parent": "#OffersAccordion",
-                      href: "#OffersList",
-                      "aria-expanded": "false",
-                      "data-toggle": "collapse"
-                    },
-                    on: {
-                      click: function($event) {
-                        _vm.active2 = !_vm.active2
-                      }
-                    }
-                  },
-                  [
-                    _c("h3", { staticClass: "card-title" }, [
-                      _vm._v("Seleccione una oferta")
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "card-tools" }, [
-                      _c(
-                        "button",
-                        {
-                          staticClass: "btn btn-tool ml-auto ",
-                          attrs: { type: "button" }
-                        },
-                        [
-                          _c("personal-fab", { attrs: { active: _vm.active2 } })
-                        ],
-                        1
-                      )
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
                   "div",
-                  {
-                    staticClass: "panel-collapse in collapse",
-                    attrs: { id: "OffersList" }
-                  },
+                  { staticClass: "col-md-6 col-sm-10 col-10 col-lg-12" },
                   [
-                    _c("div", { staticClass: "card-body" }, [
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "d-flex flex-row justify-content-around w-100 flex-wrap"
-                        },
-                        _vm._l(_vm.offersByArea, function(offer, k) {
-                          return _c("offer", {
-                            key: k,
-                            staticClass: "col-md-6 col-lg-4 col-sm-8",
+                    _c(
+                      "div",
+                      {
+                        staticClass: "card card-primary",
+                        attrs: { id: "OffersAccordion" }
+                      },
+                      [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "card-header collapsed",
                             attrs: {
-                              title: offer.service_name,
-                              logo: offer.company_logo,
-                              index: k,
-                              company: offer.company_name,
-                              pick: true
+                              "data-parent": "#OffersAccordion",
+                              href: "#OffersList",
+                              "aria-expanded": "false",
+                              "data-toggle": "collapse"
                             },
-                            on: { pick: _vm.selectOffer, view: _vm.viewModal }
-                          })
-                        }),
-                        1
-                      )
-                    ])
-                  ]
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass: "card card-success",
-                attrs: { id: "SelectedOfferAccordion" }
-              },
-              [
-                _c(
-                  "a",
-                  {
-                    staticClass: "card-header collapsed",
-                    attrs: {
-                      "data-parent": "#SelectedOfferAccordion",
-                      href: "#SelectedOffer",
-                      "aria-expanded": "false",
-                      "data-toggle": "collapse"
-                    },
-                    on: {
-                      click: function($event) {
-                        _vm.active3 = !_vm.active3
-                      }
-                    }
-                  },
-                  [
-                    _c("h3", { staticClass: "card-title" }, [
-                      _vm._v("Oferta Seleccionada")
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "card-tools" }, [
-                      _c(
-                        "button",
-                        {
-                          staticClass: "btn btn-tool ml-auto ",
-                          attrs: { type: "button" }
-                        },
-                        [
-                          _c("personal-fab", { attrs: { active: _vm.active3 } })
-                        ],
-                        1
-                      )
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "panel-collapse in collapse",
-                    attrs: { id: "SelectedOffer" }
-                  },
-                  [
-                    _c("div", { staticClass: "card-body" }, [
-                      _vm.selectedOffer
-                        ? _c(
-                            "div",
-                            {
-                              staticClass:
-                                "d-flex flex-row justify-content-around w-100 wlex-wrap"
-                            },
-                            [
-                              _vm.selectedOffer
-                                ? _c("offer", {
+                            on: {
+                              click: function($event) {
+                                _vm.active2 = !_vm.active2
+                              }
+                            }
+                          },
+                          [
+                            _c("h3", { staticClass: "card-title" }, [
+                              _vm._v("Seleccione una oferta")
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "card-tools" }, [
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-tool ml-auto ",
+                                  attrs: { type: "button" }
+                                },
+                                [
+                                  _c("personal-fab", {
+                                    attrs: { active: _vm.active2 }
+                                  })
+                                ],
+                                1
+                              )
+                            ])
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass: "panel-collapse in collapse",
+                            attrs: { id: "OffersList" }
+                          },
+                          [
+                            _c("div", { staticClass: "card-body" }, [
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "d-flex flex-row justify-content-around w-100 flex-wrap"
+                                },
+                                _vm._l(_vm.offersByArea, function(offer, k) {
+                                  return _c("offer", {
+                                    key: k,
                                     staticClass: "col-md-6 col-lg-4 col-sm-8",
                                     attrs: {
-                                      title: _vm.selectedOffer.service_name,
-                                      logo: _vm.selectedOffer.company_logo,
-                                      company: _vm.selectedOffer.company_name,
-                                      remove: true
+                                      title: offer.service_name,
+                                      logo: offer.company_logo,
+                                      index: k,
+                                      company: offer.company_name,
+                                      pick: true
                                     },
                                     on: {
-                                      delete: function($event) {
-                                        _vm.selectedOffer = null
-                                      },
-                                      view: _vm.viewSelected
+                                      pick: _vm.selectOffer,
+                                      view: _vm.viewModal
                                     }
                                   })
-                                : _vm._e()
-                            ],
-                            1
-                          )
-                        : _vm._e(),
-                      _vm._v(" "),
-                      _vm.selectedOffer
-                        ? _c(
-                            "div",
-                            { staticClass: "col-8 form-group px-4" },
-                            [
-                              _c("label", [_vm._v("Fecha de expiracion")]),
-                              _vm._v(" "),
-                              _c("datetimepicker", {
-                                attrs: { format: "YYYY-MM-DD H:i:s" },
-                                model: {
-                                  value: _vm.expiration,
-                                  callback: function($$v) {
-                                    _vm.expiration = $$v
-                                  },
-                                  expression: "expiration"
-                                }
-                              })
-                            ],
-                            1
-                          )
-                        : _vm._e()
-                    ])
+                                }),
+                                1
+                              )
+                            ])
+                          ]
+                        )
+                      ]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "col-md-6 col-sm-10 col-10 col-lg-6" },
+                  [
+                    _c(
+                      "div",
+                      {
+                        staticClass: "card card-success",
+                        attrs: { id: "SelectedOfferAccordion" }
+                      },
+                      [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "card-header collapsed",
+                            attrs: {
+                              "data-parent": "#SelectedOfferAccordion",
+                              href: "#SelectedOffer",
+                              "aria-expanded": "false",
+                              "data-toggle": "collapse"
+                            },
+                            on: {
+                              click: function($event) {
+                                _vm.active3 = !_vm.active3
+                              }
+                            }
+                          },
+                          [
+                            _c("h3", { staticClass: "card-title" }, [
+                              _vm._v("Oferta Seleccionada")
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "card-tools" }, [
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-tool ml-auto ",
+                                  attrs: { type: "button" }
+                                },
+                                [
+                                  _c("personal-fab", {
+                                    attrs: { active: _vm.active3 }
+                                  })
+                                ],
+                                1
+                              )
+                            ])
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass: "panel-collapse in collapse",
+                            attrs: { id: "SelectedOffer" }
+                          },
+                          [
+                            _c(
+                              "div",
+                              { staticClass: "card-body" },
+                              [
+                                _vm.selectedOffer
+                                  ? _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "d-flex flex-row justify-content-around w-100 wlex-wrap"
+                                      },
+                                      [
+                                        _vm.selectedOffer
+                                          ? _c("offer", {
+                                              staticClass:
+                                                "col-md-6 col-lg-4 col-sm-8",
+                                              attrs: {
+                                                title:
+                                                  _vm.selectedOffer
+                                                    .service_name,
+                                                logo:
+                                                  _vm.selectedOffer
+                                                    .company_logo,
+                                                company:
+                                                  _vm.selectedOffer
+                                                    .company_name,
+                                                remove: true
+                                              },
+                                              on: {
+                                                delete: function($event) {
+                                                  _vm.selectedOffer = null
+                                                },
+                                                view: _vm.viewSelected
+                                              }
+                                            })
+                                          : _vm._e()
+                                      ],
+                                      1
+                                    )
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                _vm.selectedOffer
+                                  ? _c(
+                                      "div",
+                                      { staticClass: "col-8 form-group px-4" },
+                                      [
+                                        _c("label", [
+                                          _vm._v("Fecha de expiracion")
+                                        ])
+                                      ]
+                                    )
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                _c("datetimepicker", {
+                                  attrs: { format: "YYYY-MM-DD H:i:s" },
+                                  model: {
+                                    value: _vm.expiration,
+                                    callback: function($$v) {
+                                      _vm.expiration = $$v
+                                    },
+                                    expression: "expiration"
+                                  }
+                                })
+                              ],
+                              1
+                            )
+                          ]
+                        )
+                      ]
+                    )
                   ]
                 )
               ]
@@ -42667,257 +42772,286 @@ var render = function() {
             _vm._v(" "),
             _c(
               "div",
-              {
-                staticClass: "card card-success",
-                attrs: { id: "createServiceFieldAccordion" }
-              },
+              { staticClass: "row w-100 flex-wrap justify-content-around" },
               [
                 _c(
-                  "a",
-                  {
-                    staticClass: "card-header collapsed",
-                    attrs: {
-                      "data-parent": "#createServiceFieldAccordion",
-                      href: "#collapseCreateServiceField",
-                      "aria-expanded": "false",
-                      "data-toggle": "collapse"
-                    },
-                    on: {
-                      click: function($event) {
-                        _vm.active2 = !_vm.active2
-                      }
-                    }
-                  },
-                  [
-                    _c("h3", { staticClass: "card-title" }, [
-                      _vm._v("Nuevo Campo")
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "card-tools" }, [
-                      _c(
-                        "button",
-                        {
-                          staticClass: "btn btn-tool ml-auto ",
-                          attrs: { type: "button" }
-                        },
-                        [
-                          _c("personal-fab", { attrs: { active: _vm.active2 } })
-                        ],
-                        1
-                      )
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
                   "div",
-                  {
-                    staticClass: "panel-collapse in collapse",
-                    attrs: { id: "collapseCreateServiceField" }
-                  },
+                  { staticClass: "col-md-6 col-sm-10 col-10 col-lg-6" },
                   [
-                    _c("div", { staticClass: "card-body" }, [
-                      _c("div", { staticClass: "form-group" }, [
-                        _c("label", [_vm._v("Nombre del Campo")]),
-                        _vm._v(" "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.newFieldLabel,
-                              expression: "newFieldLabel"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          domProps: { value: _vm.newFieldLabel },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.newFieldLabel = $event.target.value
-                            }
-                          }
-                        })
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "form-group" }, [
-                        _c("label", [_vm._v("Tipo de Campo")]),
-                        _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "card card-success",
+                        attrs: { id: "createServiceFieldAccordion" }
+                      },
+                      [
                         _c(
-                          "select",
+                          "a",
                           {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.newFieldType,
-                                expression: "newFieldType"
-                              }
-                            ],
-                            staticClass:
-                              "form-control select2 select2-hidden-accessible",
-                            staticStyle: { width: "100%" },
+                            staticClass: "card-header collapsed",
                             attrs: {
-                              "data-select2-id": "1",
-                              tabindex: "-1",
-                              "aria-hidden": "true"
+                              "data-parent": "#createServiceFieldAccordion",
+                              href: "#collapseCreateServiceField",
+                              "aria-expanded": "false",
+                              "data-toggle": "collapse"
                             },
                             on: {
-                              change: function($event) {
-                                var $$selectedVal = Array.prototype.filter
-                                  .call($event.target.options, function(o) {
-                                    return o.selected
-                                  })
-                                  .map(function(o) {
-                                    var val = "_value" in o ? o._value : o.value
-                                    return val
-                                  })
-                                _vm.newFieldType = $event.target.multiple
-                                  ? $$selectedVal
-                                  : $$selectedVal[0]
+                              click: function($event) {
+                                _vm.active2 = !_vm.active2
                               }
                             }
                           },
                           [
-                            _c(
-                              "option",
-                              {
-                                attrs: {
-                                  selected: "",
-                                  value: "string",
-                                  "data-select2-id": "1"
-                                }
-                              },
-                              [_vm._v("Texto")]
-                            ),
+                            _c("h3", { staticClass: "card-title" }, [
+                              _vm._v("Nuevo Campo")
+                            ]),
                             _vm._v(" "),
-                            _c(
-                              "option",
-                              {
-                                attrs: {
-                                  value: "number",
-                                  "data-select2-id": "2"
-                                }
-                              },
-                              [_vm._v("Numero")]
-                            )
+                            _c("div", { staticClass: "card-tools" }, [
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-tool ml-auto ",
+                                  attrs: { type: "button" }
+                                },
+                                [
+                                  _c("personal-fab", {
+                                    attrs: { active: _vm.active2 }
+                                  })
+                                ],
+                                1
+                              )
+                            ])
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass: "panel-collapse in collapse",
+                            attrs: { id: "collapseCreateServiceField" }
+                          },
+                          [
+                            _c("div", { staticClass: "card-body" }, [
+                              _c("div", { staticClass: "form-group" }, [
+                                _c("label", [_vm._v("Nombre del Campo")]),
+                                _vm._v(" "),
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.newFieldLabel,
+                                      expression: "newFieldLabel"
+                                    }
+                                  ],
+                                  staticClass: "form-control",
+                                  domProps: { value: _vm.newFieldLabel },
+                                  on: {
+                                    input: function($event) {
+                                      if ($event.target.composing) {
+                                        return
+                                      }
+                                      _vm.newFieldLabel = $event.target.value
+                                    }
+                                  }
+                                })
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "form-group" }, [
+                                _c("label", [_vm._v("Tipo de Campo")]),
+                                _vm._v(" "),
+                                _c(
+                                  "select",
+                                  {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.newFieldType,
+                                        expression: "newFieldType"
+                                      }
+                                    ],
+                                    staticClass:
+                                      "form-control select2 select2-hidden-accessible",
+                                    staticStyle: { width: "100%" },
+                                    attrs: {
+                                      "data-select2-id": "1",
+                                      tabindex: "-1",
+                                      "aria-hidden": "true"
+                                    },
+                                    on: {
+                                      change: function($event) {
+                                        var $$selectedVal = Array.prototype.filter
+                                          .call($event.target.options, function(
+                                            o
+                                          ) {
+                                            return o.selected
+                                          })
+                                          .map(function(o) {
+                                            var val =
+                                              "_value" in o ? o._value : o.value
+                                            return val
+                                          })
+                                        _vm.newFieldType = $event.target
+                                          .multiple
+                                          ? $$selectedVal
+                                          : $$selectedVal[0]
+                                      }
+                                    }
+                                  },
+                                  [
+                                    _c(
+                                      "option",
+                                      {
+                                        attrs: {
+                                          selected: "",
+                                          value: "string",
+                                          "data-select2-id": "1"
+                                        }
+                                      },
+                                      [_vm._v("Texto")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "option",
+                                      {
+                                        attrs: {
+                                          value: "number",
+                                          "data-select2-id": "2"
+                                        }
+                                      },
+                                      [_vm._v("Numero")]
+                                    )
+                                  ]
+                                )
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "card-footer" }, [
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-outline-success",
+                                  attrs: { type: "button" },
+                                  on: { click: _vm.submitNewField }
+                                },
+                                [_vm._v("Agregar Campo")]
+                              )
+                            ])
                           ]
                         )
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "card-footer" }, [
-                      _c(
-                        "button",
-                        {
-                          staticClass: "btn btn-outline-success",
-                          attrs: { type: "button" },
-                          on: { click: _vm.submitNewField }
-                        },
-                        [_vm._v("Agregar Campo")]
-                      )
-                    ])
-                  ]
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass: "card card-primary",
-                attrs: { id: "ServicesFieldsAccordion" }
-              },
-              [
-                _c(
-                  "a",
-                  {
-                    staticClass: "card-header collapsed",
-                    attrs: {
-                      "data-parent": "#ServicesFieldsAccordion",
-                      href: "#collapseServicesFields",
-                      "aria-expanded": "false",
-                      "data-toggle": "collapse"
-                    },
-                    on: {
-                      click: function($event) {
-                        _vm.active3 = !_vm.active3
-                      }
-                    }
-                  },
-                  [
-                    _c("h3", { staticClass: "card-title" }, [
-                      _vm._v("Lista de Campos")
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "card-tools" }, [
-                      _c(
-                        "button",
-                        {
-                          staticClass: "btn btn-tool ml-auto ",
-                          attrs: { type: "button" }
-                        },
-                        [
-                          _c("personal-fab", { attrs: { active: _vm.active3 } })
-                        ],
-                        1
-                      )
-                    ])
+                      ]
+                    )
                   ]
                 ),
                 _vm._v(" "),
                 _c(
                   "div",
-                  {
-                    staticClass: "panel-collapse in collapse",
-                    attrs: { id: "collapseServicesFields" }
-                  },
+                  { staticClass: "col-md-6 col-sm-10 col-10 col-lg-6" },
                   [
-                    _c("div", { staticClass: "card-body" }, [
-                      _c(
-                        "ul",
-                        {
-                          staticClass: "list-group list-group-unbordered mb-3"
-                        },
-                        _vm._l(_vm.fields, function(field, k) {
-                          return _c(
-                            "li",
-                            { key: k, staticClass: "list-group-item" },
-                            [
-                              _c("b", [_vm._v(_vm._s(field.label))]),
-                              _vm._v(" "),
-                              _c("a", { staticClass: "float-right" }, [
-                                _vm._v(
-                                  _vm._s(_vm.getFieldType(field.type)) +
-                                    "\n                          "
-                                ),
-                                _c(
-                                  "button",
-                                  {
-                                    staticClass: "btn btn-tool p-1",
-                                    attrs: { type: "button" },
-                                    on: {
-                                      click: function($event) {
-                                        return _vm.deleteField(field.label)
-                                      }
-                                    }
-                                  },
-                                  [
-                                    _c("i", {
-                                      staticClass:
-                                        "float-button fas fa-plus-circle active text-danger"
-                                    })
-                                  ]
-                                )
-                              ])
-                            ]
-                          )
-                        }),
-                        0
-                      )
-                    ])
+                    _c(
+                      "div",
+                      {
+                        staticClass: "card card-primary",
+                        attrs: { id: "ServicesFieldsAccordion" }
+                      },
+                      [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "card-header collapsed",
+                            attrs: {
+                              "data-parent": "#ServicesFieldsAccordion",
+                              href: "#collapseServicesFields",
+                              "aria-expanded": "false",
+                              "data-toggle": "collapse"
+                            },
+                            on: {
+                              click: function($event) {
+                                _vm.active3 = !_vm.active3
+                              }
+                            }
+                          },
+                          [
+                            _c("h3", { staticClass: "card-title" }, [
+                              _vm._v("Lista de Campos")
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "card-tools" }, [
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-tool ml-auto ",
+                                  attrs: { type: "button" }
+                                },
+                                [
+                                  _c("personal-fab", {
+                                    attrs: { active: _vm.active3 }
+                                  })
+                                ],
+                                1
+                              )
+                            ])
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass: "panel-collapse in collapse",
+                            attrs: { id: "collapseServicesFields" }
+                          },
+                          [
+                            _c("div", { staticClass: "card-body" }, [
+                              _c(
+                                "ul",
+                                {
+                                  staticClass:
+                                    "list-group list-group-unbordered mb-3"
+                                },
+                                _vm._l(_vm.fields, function(field, k) {
+                                  return _c(
+                                    "li",
+                                    { key: k, staticClass: "list-group-item" },
+                                    [
+                                      _c("b", [_vm._v(_vm._s(field.label))]),
+                                      _vm._v(" "),
+                                      _c("a", { staticClass: "float-right" }, [
+                                        _vm._v(
+                                          _vm._s(_vm.getFieldType(field.type)) +
+                                            "\n                                "
+                                        ),
+                                        _c(
+                                          "button",
+                                          {
+                                            staticClass: "btn btn-tool p-1",
+                                            attrs: { type: "button" },
+                                            on: {
+                                              click: function($event) {
+                                                return _vm.deleteField(
+                                                  field.label
+                                                )
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _c("i", {
+                                              staticClass:
+                                                "float-button fas fa-plus-circle active text-danger"
+                                            })
+                                          ]
+                                        )
+                                      ])
+                                    ]
+                                  )
+                                }),
+                                0
+                              )
+                            ])
+                          ]
+                        )
+                      ]
+                    )
                   ]
                 )
               ]

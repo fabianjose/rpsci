@@ -30,7 +30,8 @@ export default {
     this.refreshData();
   },
   methods:{
-    refreshData(){
+    refreshData(){  
+      let loader = this.$loading.show();
       axios.get(baseUrl+'/api/companies/highlighted')
       .then(res=>{
         console.log(res);
@@ -42,13 +43,14 @@ export default {
         }else{
           toastr.error('Error al obtener las empresas destacadas');
         }
-      });
+      }).finally(()=>loader.hide());
     },
     async setCompany(id){
       let currentCompany = await this.companies.find(company=>company.id===id);
       this.currentCompany= currentCompany;
     },
     trash(id){
+      let loader = this.$loading.show();
       axios.put(baseUrl+'/api/company/'+id+'/dehighlight')
       .then(res=>{
         console.log(res);
@@ -60,7 +62,7 @@ export default {
           toastr.error(err.response.data.errorMessage);
         }
 
-      });
+      }).finally(()=>loader.hide());
     },
     async viewModal(id){
       await this.setCompany(id)

@@ -46,6 +46,9 @@ export default {
       });
     },
     trash(id){
+
+      let loader = this.$loading.show();
+
       axios.delete(baseUrl+'/api/service/'+id)
       .then(res=>{
         console.log(res);
@@ -55,7 +58,7 @@ export default {
         if (err.response.data.errorMessage){
           toastr.error(err.response.data.errorMessage);
         }
-      });
+      }).finally(()=>loader.hide());
     },
     async setService(id){
       let currentService = await this.services.find(service=>service.id===id);

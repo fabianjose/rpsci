@@ -59,6 +59,9 @@ export default {
         let fd= new FormData();
         fd.append("highlighted_expiration", this.expiration);
         fd.append("_method", 'put');
+
+        let loader = this.$loading.show();
+        
         axios.post(baseUrl+'/api/company/'+this.company+'/highlight',fd)
         .then(res=>{
           console.log("RESPONSE FROM SERVER ",res);
@@ -72,16 +75,17 @@ export default {
             toastr.error(err.response.data.errorMessage);
           }else {
             let allErrors = err.response.data;
-            for (var errorkey in allErrors) {
+            for (let errorkey in allErrors) {
               if (allErrors[errorkey]){
-                for (var error of allErrors[errorkey]) {
+                for (let error of allErrors[errorkey]) {
                   toastr.error(error);
                 }
               }
             }
           }
 
-        });
+        }).finally(()=>loader.hide());
+
       },
     }
 

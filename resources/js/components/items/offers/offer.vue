@@ -5,7 +5,7 @@
         <img class="image-logo-banner" :src="baseUrl+'/storage/'+logo" alt="">
         <h4 class="px-2 mt-3 text-dark card-text text-capitalize">{{title}}</h4>
         <h6 class="px-2 mt-1 text-dark card-text text-capitalize">{{company}}</h6>
-        <p :class="'px-2 mt-1 card-text'+getDaysClass()">Expira en: {{getExpiration()}}</p>
+        <p v-if="this.highlighted" :class="'px-2 mt-1 card-text'+getDaysClass()">Expira en: {{getExpiration()}}</p>
       </div>
       <div class="card-footer">
         <div class="card-tools row justify-content-around">

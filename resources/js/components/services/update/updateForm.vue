@@ -145,6 +145,9 @@ export default {
       fd.append("name", this.service.name);
       fd.append("fields", this.service.fields.length?JSON.stringify(this.service.fields):"");
       fd.append("_method","put");
+
+      let loader = this.$loading.show();
+
       axios.post(baseUrl+"/api/service/"+this.service.id, fd)
       .then(res=>{
         console.log("RESPONSE FROM SERVER ",res);
@@ -167,7 +170,7 @@ export default {
             }
           }
         }
-      });
+      }).finally(()=>loader.hide());
     }
   }
 }

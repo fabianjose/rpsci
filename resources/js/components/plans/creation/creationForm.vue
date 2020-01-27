@@ -60,65 +60,71 @@
             <button type="button" class="btn btn-outline-success" @click="highlightedOffers">Buscar ofertas</button>
           </div>
 
-        <div class="card card-primary" id="OffersAccordion">
-            <a class="card-header collapsed" @click="active2=!active2" data-parent="#OffersAccordion"
-                href="#OffersList" aria-expanded="false" data-toggle="collapse">
-                <h3 class="card-title">Seleccione una oferta</h3>
-                <div class="card-tools">
-                <button type="button" class="btn btn-tool ml-auto " >
-                    <personal-fab :active="active2" />
-                </button>
+          <div class="row w-100 flex-wrap justify-content-around">
+            <div class="col-md-6 col-sm-10 col-10 col-lg-12">
+
+              <div class="card card-primary" id="OffersAccordion">
+                <a class="card-header collapsed" @click="active2=!active2" data-parent="#OffersAccordion"
+                    href="#OffersList" aria-expanded="false" data-toggle="collapse">
+                    <h3 class="card-title">Seleccione una oferta</h3>
+                    <div class="card-tools">
+                    <button type="button" class="btn btn-tool ml-auto " >
+                        <personal-fab :active="active2" />
+                    </button>
+                    </div>
+                </a>
+
+                <div id="OffersList" class="panel-collapse in collapse" >
+                  <div class="card-body">
+                  
+                      <div class="d-flex flex-row justify-content-around w-100 flex-wrap">
+                        <offer class="col-md-6 col-lg-4 col-sm-8" v-for="(offer,k) in offersByArea" :key="k"
+                          :title="offer.service_name" :logo="offer.company_logo" :index="k"
+                          :company="offer.company_name" :pick="true"
+                          @pick="selectOffer" @view="viewModal"
+                        ></offer>
+                      </div>
+
+                  </div>
                 </div>
-            </a>
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-10 col-10 col-lg-6">
 
-            <div id="OffersList" class="panel-collapse in collapse" >
-                <div class="card-body">
+              <div class="card card-success" id="SelectedOfferAccordion">
+                <a class="card-header collapsed" @click="active3=!active3" data-parent="#SelectedOfferAccordion"
+                    href="#SelectedOffer" aria-expanded="false" data-toggle="collapse">
+                    <h3 class="card-title">Oferta Seleccionada</h3>
+                    <div class="card-tools">
+                    <button type="button" class="btn btn-tool ml-auto " >
+                        <personal-fab :active="active3" />
+                    </button>
+                    </div>
+                </a>
 
-                    <div class="d-flex flex-row justify-content-around w-100 flex-wrap">
-                      <offer class="col-md-6 col-lg-4 col-sm-8" v-for="(offer,k) in offersByArea" :key="k"
-                        :title="offer.service_name" :logo="offer.company_logo" :index="k"
-                        :company="offer.company_name" :pick="true"
-                        @pick="selectOffer" @view="viewModal"
+                <div id="SelectedOffer" class="panel-collapse in collapse" >
+                  <div class="card-body">
+
+                    <div v-if="selectedOffer" class="d-flex flex-row justify-content-around w-100 wlex-wrap">
+                      <offer class="col-md-6 col-lg-4 col-sm-8" v-if="selectedOffer" :title="selectedOffer.service_name"
+                        :logo="selectedOffer.company_logo" :company="selectedOffer.company_name" :remove="true"
+                        @delete="selectedOffer=null;" @view="viewSelected"
                       ></offer>
                     </div>
 
-                </div>
-              </div>
-          </div>
+                    <div v-if="selectedOffer" class="col-8 form-group px-4">
 
-          <div class="card card-success" id="SelectedOfferAccordion">
-            <a class="card-header collapsed" @click="active3=!active3" data-parent="#SelectedOfferAccordion"
-                href="#SelectedOffer" aria-expanded="false" data-toggle="collapse">
-                <h3 class="card-title">Oferta Seleccionada</h3>
-                <div class="card-tools">
-                <button type="button" class="btn btn-tool ml-auto " >
-                    <personal-fab :active="active3" />
-                </button>
-                </div>
-            </a>
+                      <label>Fecha de expiracion</label>
+                      <!-- <input type="text" class="form-control" placeholder="YYYY/MM/DD" v-model="expiration"> -->
+                    </div>
 
-            <div id="SelectedOffer" class="panel-collapse in collapse" >
-                <div class="card-body">
-
-                  <div v-if="selectedOffer" class="d-flex flex-row justify-content-around w-100 wlex-wrap">
-                    <offer class="col-md-6 col-lg-4 col-sm-8" v-if="selectedOffer" :title="selectedOffer.service_name"
-                      :logo="selectedOffer.company_logo" :company="selectedOffer.company_name" :remove="true"
-                      @delete="selectedOffer=null;" @view="viewSelected"
-                    ></offer>
-                  </div>
-
-                  <div v-if="selectedOffer" class="col-8 form-group px-4">
-
-                    <label>Fecha de expiracion</label>
-                    <!-- <input type="text" class="form-control" placeholder="YYYY/MM/DD" v-model="expiration"> -->
-
-                    <datetimepicker format="YYYY-MM-DD H:i:s" v-model="expiration"></datetimepicker>
+                      <datetimepicker format="YYYY-MM-DD H:i:s" v-model="expiration"></datetimepicker>
 
                   </div>
 
-
                 </div>
               </div>
+            </div>
           </div>
 
         </div>
@@ -159,8 +165,11 @@ export default {
     },
     highlightOffer(){
       let fd= new FormData();
+      
       if(this.expiration) fd.append("highlighted_expiration", this.expiration.split);
       else return toastr.error("Debe introducir una fecha de expiración");
+        
+      let loader = this.$loading.show();
 
       axios.post(baseUrl+'/api/offers/highlight/'+this.selectedOffer.id,fd)
       .then(res=>{
@@ -173,15 +182,15 @@ export default {
           toastr.error(err.response.data.errorMessage);
         }else {
           let allErrors = err.response.data;
-          for (var errorkey in allErrors) {
+          for (let errorkey in allErrors) {
             if (allErrors[errorkey]){
-              for (var error of allErrors[errorkey]) {
+              for (let error of allErrors[errorkey]) {
                 toastr.error(error);
               }
             }
           }
         }
-      });
+      }).finally(()=>loader.hide());
     },
     selectOffer(index){
       this.selectedOffer=this.offersByArea[index];
@@ -209,6 +218,8 @@ export default {
       if(this.municipality) fd.append("municipality", this.municipality);
       else return;
 
+      let loader = this.$loading.show();
+
       axios.post(baseUrl+'/api/offers/area',fd)
       .then(res=>{
         console.log("RESPONSE FROM SERVER ",res);
@@ -228,7 +239,7 @@ export default {
           }
         }
         toastr.error("Error al cargar las ofertas del área");
-      });
+      }).finally(()=>loader.hide());
     }
   }
 }
