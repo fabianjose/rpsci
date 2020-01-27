@@ -3714,6 +3714,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['services'],
   data: function data() {
@@ -3741,7 +3742,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
       // console.log(this.fields_value[this.services[this.service-1].length]);
       var fd = new FormData();
-      if (this.expiration) fd.append("highlighted_expiration", this.expiration.split('/').join('-'));else return toastr.error("Debe introducir una fecha de expiración");
+      if (this.expiration) fd.append("highlighted_expiration", this.expiration.split);else return toastr.error("Debe introducir una fecha de expiración");
       axios.post(baseUrl + '/api/offers/highlight/' + this.selectedOffer.id, fd).then(function (res) {
         console.log("RESPONSE FROM SERVER ", res);
         toastr.success("Oferta Destacada con éxito");
@@ -42062,7 +42063,7 @@ var render = function() {
                               _c("label", [_vm._v("Fecha de expiracion")]),
                               _vm._v(" "),
                               _c("datetimepicker", {
-                                attrs: { format: "YYYY/MM/DD H:i:s" },
+                                attrs: { format: "YYYY-MM-DD H:i:s" },
                                 model: {
                                   value: _vm.expiration,
                                   callback: function($$v) {

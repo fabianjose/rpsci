@@ -28,7 +28,7 @@
               <label>Fecha de expiracion</label>
               <!-- <input type="text" class="form-control" placeholder="YYYY/MM/DD" v-model="expiration"> -->
               <datetimepicker format="YYYY-MM-DD H:i:s" v-model="expiration"></datetimepicker>
-          </div>
+          </div>      
         </div>
 
         <div class="card-footer">
