@@ -27,8 +27,8 @@
           <div class="form-group">
               <label>Fecha de expiracion</label>
               <!-- <input type="text" class="form-control" placeholder="YYYY/MM/DD" v-model="expiration"> -->
-              <datetimepicker format="YYYY/MM/DD H:i:s" v-model="expiration"></datetimepicker>
-          </div>      
+              <datetimepicker format="YYYY-MM-DD H:i:s" v-model="expiration"></datetimepicker>
+          </div>
         </div>
 
         <div class="card-footer">
@@ -51,21 +51,41 @@ export default {
     mounted(){
     },
     methods:{
-
       highlightCompany(){
+        if (!this.company){
+          toastr.error('Debe ingresar una empresa');
+          return false;
+        }
         let fd= new FormData();
-        fd.append("highlighted_expiration", this.expiration.split('/').join('-'));
+        fd.append("highlighted_expiration", this.expiration);
         fd.append("_method", 'put');
+
+        let loader = this.$loading.show();
+        
         axios.post(baseUrl+'/api/company/'+this.company+'/highlight',fd)
         .then(res=>{
           console.log("RESPONSE FROM SERVER ",res);
           toastr.success("Empresa destacada con éxito");
+          this.company = "";
+          this.expiration = null;
           this.$emit('refresh');
-        })
-        .catch(err=>{
+        }).catch(err=>{
           console.log("ERROR FROM SERVER ",err.response);
-          toastr.error("Error al destacar la empresa")
-        });
+          if (err.response.data.errorMessage){
+            toastr.error(err.response.data.errorMessage);
+          }else {
+            let allErrors = err.response.data;
+            for (let errorkey in allErrors) {
+              if (allErrors[errorkey]){
+                for (let error of allErrors[errorkey]) {
+                  toastr.error(error);
+                }
+              }
+            }
+          }
+
+        }).finally(()=>loader.hide());
+
       },
     }
 

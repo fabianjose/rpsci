@@ -12,7 +12,7 @@
         </div>
         <div class="card-body">
           <div class="d-flex w-100 flex-wrap">
-            
+
             <div class="form-group col-xl-6 col-lg-6 col-md-6 col-12">
               <label>Departamento</label>
               <autocomplete-vue
@@ -23,10 +23,10 @@
               property="name"
               :required="true"
               :threshold="1"
-              inputClass="form-control"         
+              inputClass="form-control"
               ></autocomplete-vue>
             </div>
-            
+
             <div class="form-group col-xl-6 col-lg-6 col-md-6 col-12">
               <label>Municipio</label>
               <autocomplete-vue
@@ -41,9 +41,9 @@
               ></autocomplete-vue>
             </div>
           </div>
-          
+
           <div class="row my-3 px-4">
-            <button type="button" class="btn btn-lg btn-outline-success" @click="refreshData">Buscar ofertas por municipio</button>          
+            <button type="button" class="btn btn-lg btn-outline-success" @click="refreshData">Buscar ofertas por municipio</button>
           </div>
         </div>
       </div>
@@ -83,32 +83,41 @@ export default {
 
       if(this.department) fd.append("department", this.department);
       else return;
-      
+
       if(this.municipality) fd.append("municipality", this.municipality);
       else return;
-
+      let loader = this.$loading.show();
       axios.post(baseUrl+'/api/offers/area/highlight', fd)
       .then(res=>{
         console.log(res);
         this.offers = res.data;
       }).catch(err=>{
-        console.log(err.response);
-      });
+        console.log("ERROR FROM SERVER ",err.response);
+        if (err.response.data.errorMessage){
+          toastr.error(err.response.data.errorMessage);
+        }
+      }).finally(()=>loader.hide());
     },
     async trash(id){
       let offer= await this.offers.find(offerItem=>offerItem.id===id)
       let fd = new FormData();
       fd.append("highlighted_expiration", offer.highlighted_expiration);
-
+        
+      let loader = this.$loading.show();
+      
       axios.post(baseUrl+'/api/offers/highlight/'+id,fd)
       .then(res=>{
+        
         console.log(res);
         toastr.success("Oferta Descartada con éxito");
         this.refreshData();
       }).catch(err=>{
-        console.log(err.response);
-        return toastr.error("Error al Descartar la oferta");
-      });
+        
+        if (err.response.data.errorMessage){
+          toastr.error(err.response.data.errorMessage);
+        }
+      }).finally(()=>loader.hide());
+
     },
     async setOffer(id){
       let currentOffer = await this.offers.find(offer=>offer.id===id);

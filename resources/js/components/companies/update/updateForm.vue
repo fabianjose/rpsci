@@ -18,7 +18,7 @@
               <label>Nombre de la Empresa</label>
               <input v-model="company.name" class="form-control">
           </div>
-          
+
           <div class="form-group">
               <label for="exampleInputFile">Subir Imagen</label>
               <div class="input-group">
@@ -28,17 +28,17 @@
               </div>
               </div>
           </div>
-          
+
           <div class="form-group">
               <label>NIT de la Empresa</label>
               <input v-model="company.nit" class="form-control">
           </div>
-          
+
           <div class="form-group">
               <label>Teléfono de la Empresa</label>
               <input v-model="company.phone" class="form-control">
           </div>
-          
+
           <div class="form-group">
               <label>Web de la Empresa</label>
               <input v-model="company.web" class="form-control">
@@ -57,58 +57,56 @@
 
 <script>
 export default {
-
-    data(){
-        return{
-            onPreview:null,
-            baseUrl:baseUrl
-        }
-    },
-
-    props:[
-        "company"
-    ],
-    methods:{
-      
-          uploadFile: function(){
-
-            console.log("[File] Change")
-            let uploadFile=this.$refs.SelectFileForUpdate.files[0]
-    
-            if(!uploadFile){
-              console.log("[File] None")
-              return;
-            }
-    
-            this.logo=uploadFile;
-
-            this.onPreview=URL.createObjectURL(uploadFile);
-
-        },
-
-        editCompany(){
-            let fd= new FormData();
-            fd.append("name", this.company.name);
-            fd.append("nit", this.company.nit);
-            fd.append("phone", this.company.phone);
-            fd.append("web", this.company.web);
-            fd.append("_method","put")
-            axios.post(baseUrl+"/api/company/"+this.company.id, fd)
-            .then(res=>{
-                console.log("RESPONSE FROM SERVER ",res);
-                
-                toastr.success("Empresa editada con éxito");
-                // this.$emit("updateDone")
-                setTimeout(function(){
-                  window.location.reload();
-                }, 2000);
-            })
-            .catch(err=>{
-                console.log("ERROR FROM SERVER ",err,err.response);
-
-                toastr.error("Error al editar la empresa")
-            });
-        }
+  props:["company"],
+  data(){
+    return{
+      onPreview:null,
+      baseUrl:baseUrl
     }
+  },
+  methods:{
+    uploadFile: function(){
+      console.log("[File] Change")
+      let uploadFile=this.$refs.SelectFileForUpdate.files[0]
+      if(!uploadFile){
+        console.log("[File] None")
+        return;
+      }
+      this.logo=uploadFile;
+      this.onPreview=URL.createObjectURL(uploadFile);
+    },
+    editCompany(){
+      let fd= new FormData();
+      fd.append("name", this.company.name);
+      fd.append("nit", this.company.nit);
+      fd.append("phone", this.company.phone);
+      fd.append("web", this.company.web);
+      fd.append("_method","put")
+
+      let loader = this.$loading.show();
+      axios.post(baseUrl+"/api/company/"+this.company.id, fd)
+      .then(res=>{
+        console.log("RESPONSE FROM SERVER ",res);
+        toastr.success("Empresa editada con éxito");
+        setTimeout(function(){
+          window.location.reload();
+        }, 2000);
+      }).catch(err=>{
+        console.log("ERROR FROM SERVER ",err.response);
+        if (err.response.data.errorMessage){
+          toastr.error(err.response.data.errorMessage);
+        }else {
+          let allErrors = err.response.data;
+          for (var errorkey in allErrors) {
+            if (allErrors[errorkey]){
+              for (var error of allErrors[errorkey]) {
+                toastr.error(error);
+              }
+            }
+          }
+        }
+      }).finally(()=>loader.hide());
+    }
+  }
 }
 </script>

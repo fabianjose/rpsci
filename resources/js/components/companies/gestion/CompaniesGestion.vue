@@ -19,64 +19,61 @@
 </template>
 
 <script>
-
 export default {
-
-    data(){
-        return{
-            baseUrl: baseUrl,
-            companies:[],
-            currentCompany:null,
-            updateMode:false,
-            viewMode:false,
-        }
-    },
-
-    mounted(){
-        this.refreshData();
-    },
-
-    methods:{
-        refreshData(){
-          axios.get(baseUrl+'/api/companies')
-          .then(res=>{
-            console.log(res);
-            this.companies=res.data;
-          }).catch(err=>{
-            console.log(err.response);
-          });
-        },
-
-        async setCompany(id){
-            
-            let currentCompany = await this.companies.find(company=>company.id===id);
-            this.currentCompany= currentCompany;
-
-        },
-
-        async update(id){
-            await this.setCompany(id)
-            this.updateMode=true
-        },
-
-        trash(id){
-            axios.delete(baseUrl+'/api/company/'+id)
-            .then(res=>{
-                console.log(res);
-                toastr.success("Compañía eliminada con éxito");
-                this.refreshData();
-            }).catch(err=>{
-                console.log(err.response);
-            });
-        },
-
-        async viewModal(id){
-            await this.setCompany(id)
-            this.viewMode=true;
-        }
-
+  data(){
+    return{
+      baseUrl: baseUrl,
+      companies:[],
+      currentCompany:null,
+      updateMode:false,
+      viewMode:false,
     }
+  },
+  mounted(){
+    this.refreshData();
+  },
 
+  methods:{
+    refreshData(){
+      let loader = this.$loading.show();
+      axios.get(baseUrl+'/api/companies')
+      .then(res=>{
+        console.log(res);
+        this.companies=res.data;
+      }).catch(err=>{
+        console.log("ERROR FROM SERVER ",err.response);
+        if (err.response.data.errorMessage){
+          toastr.error(err.response.data.errorMessage);
+        }
+      }).finally(()=>loader.hide());
+    },
+    async setCompany(id){
+      let currentCompany = await this.companies.find(company=>company.id===id);
+      this.currentCompany= currentCompany;
+    },
+    async update(id){
+      await this.setCompany(id)
+      this.updateMode=true
+    },
+    trash(id){
+      let loader = this.$loading.show();
+      axios.delete(baseUrl+'/api/company/'+id)
+      .then(res=>{
+        console.log(res);
+        toastr.success("Compañía eliminada con éxito");
+        this.refreshData();
+      }).catch(err=>{
+        if (err.response.data.errorMessage){
+          toastr.error(err.response.data.errorMessage);
+        }
+      }).finally(()=>loader.hide());
+    },
+    async viewModal(id){
+      await this.setCompany(id)
+      this.viewMode=true;
+    }
+  }
 }
+
 
 </script>

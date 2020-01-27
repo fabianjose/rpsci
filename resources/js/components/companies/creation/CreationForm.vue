@@ -1,6 +1,6 @@
 <template>
     <div class="card card-info" id="createCompanyAccordion">
-      <a class="card-header collapsed" @click="active=!active" data-parent="#createCompanyAccordion" 
+      <a class="card-header collapsed" @click="active=!active" data-parent="#createCompanyAccordion"
       href="#collapseOne" aria-expanded="false" data-toggle="collapse">
         <h3 class="card-title">Nueva Empresa</h3>
         <div class="card-tools">
@@ -36,6 +36,7 @@
           <div class="form-group">
             <label>NIT de la Empresa</label>
             <input v-model="nit" class="form-control">
+            <p class="text-muted text-sm" > <span class="text-danger">*</span> Este campo es opcional</p>
           </div>
 
           <div class="form-group">
@@ -79,24 +80,19 @@ export default {
     },
 
     methods:{
-
       uploadFile: function(){
-
         console.log("[File] Change")
         let uploadFile=this.$refs.SelectFile.files[0]
-
         if(!uploadFile){
           console.log("[File] None")
           return;
         }
-
         this.logo=uploadFile;
-
         this.onPreview=URL.createObjectURL(uploadFile);
-
       },
 
       submitNewCompany: function(){
+
         let fd= new FormData();
         fd.append("name", this.name);
         fd.append("logo", this.logo);
@@ -104,16 +100,34 @@ export default {
         fd.append("phone", this.phone);
         fd.append("web", this.web);
 
+        let loader = this.$loading.show();
+
         axios.post(baseUrl+'/api/company',fd)
         .then(res=>{
           console.log("RESPONSE FROM SERVER ",res);
           toastr.success("Compañía creada con éxito");
+          this.name = "";
+          this.logo = null;
+          this.nit = "";
+          this.phone = "";
+          this.web = "";
           this.$emit("creatingDone")
+        }).catch(err=>{
+          console.log("ERROR FROM SERVER ",err.response);
+          if (err.response.data.errorMessage){
+            toastr.error(err.response.data.errorMessage);
+          }else {
+            let allErrors = err.response.data;
+            for (var errorkey in allErrors) {
+              if (allErrors[errorkey]){
+                for (var error of allErrors[errorkey]) {
+                  toastr.error(error);
+                }
+              }
+            }
+          }
         })
-        .catch(err=>{
-          console.log("ERROR FROM SERVER ",err,err.response);
-          toastr.error("Error al crear la compañía")
-        });
+        .finally(()=>loader.hide());
 
       },
     }

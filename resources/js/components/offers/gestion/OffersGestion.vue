@@ -21,7 +21,6 @@
 </template>
 
 <script>
-
 export default {
   data(){
     return{
@@ -38,30 +37,42 @@ export default {
   },
   methods:{
     refreshData(){
+      let loader = this.$loading.show();
       axios.get(baseUrl+'/api/services')
       .then(res=>{
         // console.log(res);
         this.services = res.data;
       }).catch(err=>{
-        console.log(err.response);
-      });
+        console.log("ERROR FROM SERVER ",err.response);
+        if (err.response.data.errorMessage){
+          toastr.error(err.response.data.errorMessage);
+        }
+      }).finally(()=>loader.hide());
+
       axios.get(baseUrl+'/api/offers')
       .then(res=>{
         console.log(res.data);
         this.offers=res.data;
       }).catch(err=>{
-        console.log(err.response);
-      });
+        console.log("ERROR FROM SERVER ",err.response);
+        if (err.response.data.errorMessage){
+          toastr.error(err.response.data.errorMessage);
+        }
+      }).finally(()=>loader.hide());
+
     },
-    trash(id){
+    trash(id){        
+      let loader = this.$loading.show();
       axios.delete(baseUrl+'/api/offer/'+id)
       .then(res=>{
         console.log(res);
         toastr.success("Oferta eliminada con éxito");
         this.refreshData();
       }).catch(err=>{
-        console.log(err.response);
-      });
+        if (err.response.data.errorMessage){
+          toastr.error(err.response.data.errorMessage);
+        }
+      }).finally(()=>loader.hide());
     },
     async setOffer(id){
       let currentOffer = await this.offers.find(offer=>offer.id===id);
@@ -77,5 +88,4 @@ export default {
     }
   }
 }
-
 </script>
