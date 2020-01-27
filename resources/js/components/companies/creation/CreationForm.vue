@@ -115,10 +115,12 @@ export default {
           }else if (err.response.status == 404) {
             toastr.error(err.response.data);
           }else {
-            var allErrors = err.response.data;
+            let allErrors = err.response.data;
+            
             console.log(allErrors);
-            var errorkeys = ['name','logo','nit','phone','web'];
-            for (var errorkey of errorkeys) {
+            
+
+            for (var errorkey in allErrors) {
               if (allErrors[errorkey]){
                 for (var error of allErrors[errorkey]) {
                   toastr.error(error);
