@@ -6,12 +6,16 @@
         </div>
     </div>
     <h5 class="mt-4 mb-2 text-center">Servicios Disponibles</h5>
-    <div class="row justify-content-space-between py-4">
-      <service v-for="(service,k) in services" :key="k"
-      :title="service.name" :index="service.id"
-      @delete="trash" @view="viewModal" @edit="update"
-      ></service>
+    <div class="d-flex w-100 justify-content-center">
+      <ul class="list-group col-lg-8 col-md-8 col-12">
+        <service v-for="(service,k) in services" :key="k"
+        :title="service.name" :index="service.id"
+        @delete="trash" @view="viewModal" @edit="update"
+        ></service>
+      </ul>
     </div>
+    <!-- <div class="row justify-content-space-between py-4">
+    </div> -->
     <service-details v-if="currentService&&viewMode" :service="currentService">
     </service-details>
     <service-update v-if="currentService&&updateMode" :service="currentService">

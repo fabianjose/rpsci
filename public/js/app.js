@@ -3089,6 +3089,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["title", "index"],
   data: function data() {
@@ -4473,6 +4477,10 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
+//
+//
+//
 //
 //
 //
@@ -41056,60 +41064,60 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "col-sm-6 col-md-4 col-lg-3" }, [
-    _c("div", { staticClass: "card card-primary" }, [
+  return _c(
+    "li",
+    {
+      staticClass:
+        "list-group-item d-flex justify-content-between align-items-center"
+    },
+    [
       _c(
-        "div",
-        { staticClass: "card-body d-flex flex-column align-items-center" },
-        [
-          _c(
-            "h4",
-            { staticClass: "px-2 mt-3 text-dark card-text text-capitalize" },
-            [_vm._v(_vm._s(_vm.title))]
-          )
-        ]
+        "h5",
+        { staticClass: "px-2 mt-2 text-dark card-text text-capitalize" },
+        [_vm._v(_vm._s(_vm.title))]
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "card-footer" }, [
-        _c("div", { staticClass: "card-tools row justify-content-around" }, [
-          _c(
-            "div",
-            {
-              staticClass: "btn btn-info rounded-circle text-lg icon-btn-sm",
-              attrs: {
-                "data-toggle": "modal",
-                "data-target": "#modalViewService"
-              },
-              on: { click: _vm.emitView }
+      _c("div", { staticClass: "btn-group" }, [
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-app rounded mx-1 text-sm btn-sm",
+            attrs: {
+              type: "button",
+              "data-toggle": "modal",
+              "data-target": "#modalViewService"
             },
-            [_c("i", { staticClass: "fas fa-eye" })]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "btn btn-success rounded-circle text-lg icon-btn-sm",
-              attrs: {
-                "data-toggle": "modal",
-                "data-target": "#modalEditService"
-              },
-              on: { click: _vm.emitEdition }
+            on: { click: _vm.emitView }
+          },
+          [_c("i", { staticClass: "fas fa-eye" })]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-app rounded mx-1 text-sm btn-sm",
+            attrs: {
+              type: "button",
+              "data-toggle": "modal",
+              "data-target": "#modalEditService"
             },
-            [_c("i", { staticClass: "fas fa-edit" })]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "btn btn-danger rounded-circle text-lg icon-btn-sm",
-              on: { click: _vm.emitRemove }
-            },
-            [_c("i", { staticClass: "fas fa-trash" })]
-          )
-        ])
+            on: { click: _vm.emitEdition }
+          },
+          [_c("i", { staticClass: "fas fa-edit" })]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-app rounded mx-1 text-sm btn-sm",
+            attrs: { type: "button" },
+            on: { click: _vm.emitRemove }
+          },
+          [_c("i", { staticClass: "fas fa-trash" })]
+        )
       ])
-    ])
-  ])
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -42988,18 +42996,20 @@ var render = function() {
         _vm._v("Servicios Disponibles")
       ]),
       _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "row justify-content-space-between py-4" },
-        _vm._l(_vm.services, function(service, k) {
-          return _c("service", {
-            key: k,
-            attrs: { title: service.name, index: service.id },
-            on: { delete: _vm.trash, view: _vm.viewModal, edit: _vm.update }
-          })
-        }),
-        1
-      ),
+      _c("div", { staticClass: "d-flex w-100 justify-content-center" }, [
+        _c(
+          "ul",
+          { staticClass: "list-group col-lg-8 col-md-8 col-12" },
+          _vm._l(_vm.services, function(service, k) {
+            return _c("service", {
+              key: k,
+              attrs: { title: service.name, index: service.id },
+              on: { delete: _vm.trash, view: _vm.viewModal, edit: _vm.update }
+            })
+          }),
+          1
+        )
+      ]),
       _vm._v(" "),
       _vm.currentService && _vm.viewMode
         ? _c("service-details", { attrs: { service: _vm.currentService } })
@@ -58886,8 +58896,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\web 03\Music\colombia_internet\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\web 03\Music\colombia_internet\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\ConsultingMe\colombia_internet\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\ConsultingMe\colombia_internet\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),
