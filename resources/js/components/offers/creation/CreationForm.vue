@@ -132,14 +132,13 @@ export default {
       console.log(msg)
     },
     createOffer(){
-      // console.log(this.fields_value[this.services[this.service-1].length]);
       for (var i = 0; i < this.services[this.service-1].fields.length; i++) {
         if (!this.fields_value[i]){
           toastr.error('Debe llenar los campos referentes al servicio seleccionado');
           return false;
         }
       }
-      
+
       let fd= new FormData();
       fd.append("company", this.company);
       fd.append("department", this.department);
@@ -155,16 +154,30 @@ export default {
       .then(res=>{
         console.log("RESPONSE FROM SERVER ",res);
         toastr.success("Oferta creada con éxito");
+        this.company = "";
+        this.department = "";
+        this.municipality = "";
+        this.type = "private";
+        this.tariff = "";
+        this.benefits = "";
+        this.service = null;
+        this.points = null;
+        this.fields_value = [];
         this.$emit('refresh');
-      })
-      .catch(err=>{
+      }).catch(err=>{
         console.log("ERROR FROM SERVER ",err.response);
-        // for (var error in err.response.data) {
-        //   toastr.error(error);
-        //   // for (var message in error) {
-        //   // }
-        // }
-        toastr.error("Error al crear la oferta");
+        if (err.response.data.errorMessage){
+          toastr.error(err.response.data.errorMessage);
+        }else {
+          let allErrors = err.response.data;
+          for (var errorkey in allErrors) {
+            if (allErrors[errorkey]){
+              for (var error of allErrors[errorkey]) {
+                toastr.error(error);
+              }
+            }
+          }
+        }
       });
     }
   }

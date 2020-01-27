@@ -21,7 +21,6 @@
 </template>
 
 <script>
-
 export default {
   data(){
     return{
@@ -43,14 +42,20 @@ export default {
         // console.log(res);
         this.services = res.data;
       }).catch(err=>{
-        console.log(err.response);
+        console.log("ERROR FROM SERVER ",err.response);
+        if (err.response.data.errorMessage){
+          toastr.error(err.response.data.errorMessage);
+        }
       });
       axios.get(baseUrl+'/api/offers')
       .then(res=>{
         console.log(res.data);
         this.offers=res.data;
       }).catch(err=>{
-        console.log(err.response);
+        console.log("ERROR FROM SERVER ",err.response);
+        if (err.response.data.errorMessage){
+          toastr.error(err.response.data.errorMessage);
+        }
       });
     },
     trash(id){
@@ -60,7 +65,9 @@ export default {
         toastr.success("Oferta eliminada con éxito");
         this.refreshData();
       }).catch(err=>{
-        console.log(err.response);
+        if (err.response.data.errorMessage){
+          toastr.error(err.response.data.errorMessage);
+        }
       });
     },
     async setOffer(id){
@@ -77,5 +84,4 @@ export default {
     }
   }
 }
-
 </script>

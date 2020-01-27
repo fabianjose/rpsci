@@ -13,11 +13,11 @@ class CompanyController extends Controller{
   public function newCompany(Request $request){
     $data = $request->all();
     $validation = Validator::make($data, [
-      'name' => ['required', 'string', 'min:8', 'max:128', 'unique:companies'],
+      'name' => ['required', 'string', 'min:3', 'max:128', 'unique:companies'],
       'logo' => ['required', 'image'],
-      'nit' => ["nullable", 'string', 'max:16'],
+      'nit' => ['string', 'max:16'],
       'phone' => ['required', 'string', 'max:16'],
-      'web' => ['required', 'string', 'min:8','max:128'],
+      'web' => ['required', 'string', 'min:3','max:128'],
     ]);
     if ($validation->fails()){
       return response()->json($validation->errors(), 400);
@@ -35,24 +35,24 @@ class CompanyController extends Controller{
     }
 
     $company = Company::create($data);
-    if (!$company) return response()->json('Error en la base de datos', 500);
-    return response()->json('Company successfully created', 201);
+    if (!$company) return response()->json(['errorMessage' =>  'Error en la base de datos'],500);
+    return response()->json(201);
   }
 
   public function editCompany($id, Request $request){
     $data = $request->all();
     $validation = Validator::make($data, [
-      'name' => ['string', 'min:8', 'max:128'],
+      'name' => ['string', 'min:3', 'max:128'],
       'logo' => ['image'],
       'nit' => ["nullable", 'string', 'max:16'],
       'phone' => ['string', 'max:16'],
-      'web' => ['string', 'min:8','max:128'],
+      'web' => ['string', 'min:3','max:128'],
     ]);
     if ($validation->fails()){
       return response()->json($validation->errors(), 400);
     }
     $company = Company::find($id);
-    if (!$company) return response()->json('Compañia no encontrada',404);
+    if (!$company) return response()->json(['errorMessage' => 'Empresa no encontrada'],404);
 
     $keysAllow = [
       'name',
@@ -77,42 +77,32 @@ class CompanyController extends Controller{
       $company->logo = $result;
     }
     if (!$company->save()){
-      return response()->json('Error en la base de datos', 500);
+      return response()->json(['errorMessage' =>  'Error en la base de datos'],500);
     }
 
-    return response()->json('Compañia editada exitosamente', 200);
+    return response()->json(200);
   }
 
 	public function getAll(){
 		$companies = DB::table('companies')->where('trash',0)->get();
-		if (!$companies) return response()->json('Error en la base de datos',500);
+		if (!$companies) return response()->json(['errorMessage' =>  'Error en la base de datos'],500);
 		return response()->json($companies, 200);
 	}
 
-  // public function getNames(){
-	// 	$companies = DB::table('companies')->where('trash',0)->get();
-	// 	if (!$companies) return response()->json('Error en la base de datos',500);
-  //   $names = array();
-  //   foreach ($companies as $key) {
-  //     array_push($names,$key->name);
-  //   }
-	// 	return response()->json($names, 200);
-	// }
-
 	public function getCompany($id){
 		$company = Company::find($id);
-		if (!$company) return response()->json('Compañia no encontrada',404);
+		if (!$company) return response()->json(['errorMessage' => 'Empresa no encontrada'],404);
 		$company = DB::table('companies')->where('id',$id)->where('trash',0)->first();
-		if (!$company) return response()->json('Compañia no encontrada',404);
+		if (!$company) return response()->json(['errorMessage' => 'Empresa no encontrada'],404);
 		return response()->json($company, 200);
 	}
 
 	public function deleteCompany($id){
 		$company = Company::find($id);
-		if (!$company) return response()->json('Compañia no encontrada',404);
+		if (!$company) return response()->json(['errorMessage' => 'Empresa no encontrada'],404);
 		$company->trash = 1;
-		if (!$company->save()) return response()->json('Error en la base de datos',500);
-		return response()->json('Compañia eliminada satisfactoriamente', 200);
+		if (!$company->save()) return response()->json(['errorMessage' =>  'Error en la base de datos'],500);
+		return response()->json(200);
 	}
 
   public function highlightCompany($name,Request $request){
@@ -125,28 +115,28 @@ class CompanyController extends Controller{
     }
 
     $company = Company::where('name',$name)->first();
-    if (!$company) return response()->json('Empresa no encontrada',404);
+    if (!$company) return response()->json(['errorMessage' => 'Empresa no encontrada'],404);
 
     if ($company->highlighted){
-      return response()->json('Empresa ya destacada', 400);
+      return response()->json(['errorMessage' => 'Empresa ya destacada'], 400);
     }
 
     $company->highlighted = 1;
     $company->highlighted_expiration = $data['highlighted_expiration'];
-		if (!$company->save()) return response()->json('Error en la base de datos',500);
+		if (!$company->save()) return response()->json(['errorMessage' =>  'Error en la base de datos'],500);
 
-		return response()->json('Compañia resaltada exitosamente', 200);
+		return response()->json(200);
   }
 
   public function deHighlightCompany($id){
     $company = Company::find($id);
-		if (!$company) return response()->json('Compañia no encontrada',404);
+		if (!$company) return response()->json(['errorMessage' => 'Empresa no encontrada'],404);
 
     $company->highlighted = 0;
     $company->highlighted_expiration = null;
-		if (!$company->save()) return response()->json('Error en la base de datos',500);
+		if (!$company->save()) return response()->json(['errorMessage' =>  'Error en la base de datos'],500);
 
-		return response()->json('Company highlight disabled', 200);
+		return response()->json(200);
   }
 
   public function getAllHighlighted(){
@@ -155,7 +145,7 @@ class CompanyController extends Controller{
     ->where('highlighted',1)
     ->where('highlighted_expiration','>',date('Y-m-d h:i:s'))
     ->get();
-		if (!$companies) return response()->json('Error en la base de datos',500);
+		if (!$companies) return response()->json(['errorMessage' =>  'Error en la base de datos'],500);
 		return response()->json($companies, 200);
 	}
 

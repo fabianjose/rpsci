@@ -68,6 +68,21 @@ Vue.component('datetimepicker', DateTimePicker)
 
 import VueResource from 'vue-resource';
 Vue.use(VueResource);
+
+import Loading from 'vue-loading-overlay';
+// Import stylesheet
+import 'vue-loading-overlay/dist/vue-loading.css';
+// Init plugin
+Vue.use(Loading,{
+    loader:"spinner",
+    color:"#20adf4",
+    isFullPage:true,
+    height:170,
+    width:170,
+    backgroundColor:"#13293d",
+    opacity: 0.08,
+});
+
 /**
 
  * Next, we will create a fresh Vue application instance and attach it to

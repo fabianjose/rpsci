@@ -28,7 +28,7 @@
               <label>Fecha de expiracion</label>
               <!-- <input type="text" class="form-control" placeholder="YYYY/MM/DD" v-model="expiration"> -->
               <datetimepicker format="YYYY-MM-DD H:i:s" v-model="expiration"></datetimepicker>
-          </div>      
+          </div>
         </div>
 
         <div class="card-footer">
@@ -52,6 +52,10 @@ export default {
     },
     methods:{
       highlightCompany(){
+        if (!this.company){
+          toastr.error('Debe ingresar una empresa');
+          return false;
+        }
         let fd= new FormData();
         fd.append("highlighted_expiration", this.expiration);
         fd.append("_method", 'put');
@@ -59,19 +63,16 @@ export default {
         .then(res=>{
           console.log("RESPONSE FROM SERVER ",res);
           toastr.success("Empresa destacada con éxito");
+          this.company = "";
+          this.expiration = null;
           this.$emit('refresh');
-        })
-        .catch(err=>{
+        }).catch(err=>{
           console.log("ERROR FROM SERVER ",err.response);
-          if (err.response.status == 500){
-            toastr.error('Error interno del servidor');
-          }else if (err.response.status == 404) {
-            toastr.error(err.response.statusText);
+          if (err.response.data.errorMessage){
+            toastr.error(err.response.data.errorMessage);
           }else {
-            var allErrors = err.response.data;
-            console.log(allErrors);
-            var errorkeys = ['highlighted_expiration'];
-            for (var errorkey of errorkeys) {
+            let allErrors = err.response.data;
+            for (var errorkey in allErrors) {
               if (allErrors[errorkey]){
                 for (var error of allErrors[errorkey]) {
                   toastr.error(error);

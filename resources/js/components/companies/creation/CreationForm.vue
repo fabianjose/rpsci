@@ -92,12 +92,15 @@ export default {
       },
 
       submitNewCompany: function(){
+
         let fd= new FormData();
         fd.append("name", this.name);
         fd.append("logo", this.logo);
         fd.append("nit", this.nit);
         fd.append("phone", this.phone);
         fd.append("web", this.web);
+
+        let loader = this.$loading.show();
 
         axios.post(baseUrl+'/api/company',fd)
         .then(res=>{
@@ -109,18 +112,12 @@ export default {
           this.phone = "";
           this.web = "";
           this.$emit("creatingDone")
-        })
-        .catch(err=>{
-          if (err.response.status == 500){
-            toastr.error('Error interno del servidor');
-          }else if (err.response.status == 404) {
-            toastr.error(err.response.data);
+        }).catch(err=>{
+          console.log("ERROR FROM SERVER ",err.response);
+          if (err.response.data.errorMessage){
+            toastr.error(err.response.data.errorMessage);
           }else {
             let allErrors = err.response.data;
-            
-            console.log(allErrors);
-            
-
             for (var errorkey in allErrors) {
               if (allErrors[errorkey]){
                 for (var error of allErrors[errorkey]) {
@@ -129,8 +126,7 @@ export default {
               }
             }
           }
-
-        });
+        }).finally(()=>loader.hide());
 
       },
     }
