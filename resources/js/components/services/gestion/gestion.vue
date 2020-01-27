@@ -20,57 +20,55 @@
 </template>
 
 <script>
-
 export default {
-
-    data(){
-        return{
-          services:[],
-          currentService:null,
-          viewMode:false,
-          updateMode: false,
-        }
-    },
-
-    mounted(){
-        this.refreshData();
-    },
-
-    methods:{
-        refreshData(){
-          axios.get(baseUrl+'/api/services')
-          .then(res=>{
-            console.log(res);
-            this.services=res.data;
-          }).catch(err=>{
-            console.log(err.response);
-          });
-        },
-        trash(id){
-          axios.delete(baseUrl+'/api/service/'+id)
-          .then(res=>{
-            console.log(res);
-            toastr.success("Servicio eliminado con éxito");
-            this.refreshData();
-          }).catch(err=>{
-            toastr.error(err.response);
-            console.log(err.response);
-          });
-        },
-        async setService(id){
-          let currentService = await this.services.find(service=>service.id===id);
-          this.currentService= currentService;
-        },
-        async viewModal(id){
-          await this.setService(id)
-          this.viewMode=true;
-        },
-        async update(id){
-          await this.setService(id);
-          this.updateMode=true;
-        }
+  data(){
+    return{
+      services:[],
+      currentService:null,
+      viewMode:false,
+      updateMode: false,
     }
-
+  },
+  mounted(){
+    this.refreshData();
+  },
+  methods:{
+    refreshData(){
+      axios.get(baseUrl+'/api/services')
+      .then(res=>{
+        console.log(res);
+        this.services=res.data;
+      }).catch(err=>{
+        console.log("ERROR FROM SERVER ",err.response);
+        if (err.response.data.errorMessage){
+          toastr.error(err.response.data.errorMessage);
+        }
+      });
+    },
+    trash(id){
+      axios.delete(baseUrl+'/api/service/'+id)
+      .then(res=>{
+        console.log(res);
+        toastr.success("Servicio eliminado con éxito");
+        this.refreshData();
+      }).catch(err=>{
+        if (err.response.data.errorMessage){
+          toastr.error(err.response.data.errorMessage);
+        }
+      });
+    },
+    async setService(id){
+      let currentService = await this.services.find(service=>service.id===id);
+      this.currentService= currentService;
+    },
+    async viewModal(id){
+      await this.setService(id)
+      this.viewMode=true;
+    },
+    async update(id){
+      await this.setService(id);
+      this.updateMode=true;
+    }
+  }
 }
-
 </script>

@@ -1,6 +1,6 @@
 <template>
     <div class="card card-info" id="createServiceAccordion">
-      <a class="card-header collapsed" @click="active=!active" data-parent="#createServiceAccordion" 
+      <a class="card-header collapsed" @click="active=!active" data-parent="#createServiceAccordion"
       href="#collapseCreateService" aria-expanded="false" data-toggle="collapse">
         <h3 class="card-title">Nuevo Servicio</h3>
         <div class="card-tools">
@@ -23,7 +23,7 @@
           </div>
 
         <div class="card card-success" id="createServiceFieldAccordion">
-            <a class="card-header collapsed" @click="active2=!active2" data-parent="#createServiceFieldAccordion" 
+            <a class="card-header collapsed" @click="active2=!active2" data-parent="#createServiceFieldAccordion"
                 href="#collapseCreateServiceField" aria-expanded="false" data-toggle="collapse">
                 <h3 class="card-title">Nuevo Campo</h3>
                 <div class="card-tools">
@@ -44,13 +44,13 @@
                 <div class="form-group">
 
                     <label>Tipo de Campo</label>
-                    
+
                     <select v-model="newFieldType" class="form-control select2 select2-hidden-accessible" style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
                         <option selected value="string" data-select2-id="1">Texto</option>
                         <option value="number" data-select2-id="2">Numero</option>
                         <!-- <option value="select" data-select2-id="3">Seleccionable</option> -->
                     </select>
-                
+
                 </div>
 
                 </div>
@@ -62,7 +62,7 @@
         </div>
 
         <div class="card card-primary" id="ServicesFieldsAccordion">
-            <a class="card-header collapsed" @click="active3=!active3" data-parent="#ServicesFieldsAccordion" 
+            <a class="card-header collapsed" @click="active3=!active3" data-parent="#ServicesFieldsAccordion"
                 href="#collapseServicesFields" aria-expanded="false" data-toggle="collapse">
                 <h3 class="card-title">Lista de Campos</h3>
                 <div class="card-tools">
@@ -96,91 +96,89 @@
 
 <script>
 export default {
-    name: 'companyCreation',
-
-    data(){
-      return {
-        active:false,
-        active2:false,
-        active3:false,
-        name:"",
-        logo:null,
-        nit:"",
-        phone:"",
-        web:"",
-        fields:[],
-        newFieldLabel:"",
-        newFieldType:"",
+  name: 'companyCreation',
+  data(){
+    return {
+      active:false,
+      active2:false,
+      active3:false,
+      name:"",
+      logo:null,
+      nit:"",
+      phone:"",
+      web:"",
+      fields:[],
+      newFieldLabel:"",
+      newFieldType:"",
+    }
+  },
+  mounted(){
+    console.log(baseUrl);
+  },
+  methods:{
+    uploadFile: function(){
+      console.log("[File] Change")
+      let uploadFile=this.$refs.SelectFile.files[0]
+      if(!uploadFile){
+        console.log("[File] None")
+        return;
+      }
+      this.logo=uploadFile;
+    },
+    submitNewField(){
+      if (this.fields.length >= 3){
+        toastr.error('Solo puedes añadir hasta 3 campos');
+      }else{
+        this.fields.push({
+          label:this.newFieldLabel,
+          type:this.newFieldType,
+        })
       }
     },
+    getFieldType(label=string){
+      switch (label) {
+        case "string":
+        return "Texto"
+        break;
+        case "number":
+        return "Numero"
+        break;
+        case "select":
+        return "Seleccionable"
+        break;
 
-    mounted(){
-      console.log(baseUrl);
+        default:
+        break;
+      }
     },
-
-    methods:{
-
-      uploadFile: function(){
-
-        console.log("[File] Change")
-        let uploadFile=this.$refs.SelectFile.files[0]
-
-        if(!uploadFile){
-          console.log("[File] None")
-          return;
-        }
-
-        this.logo=uploadFile;
-
-      },
-
-      submitNewField(){
-        if (this.fields.length >= 3){
-          toastr.error('Solo puedes añadir hasta 3 campos');
-        }else{
-          this.fields.push({
-              label:this.newFieldLabel,
-              type:this.newFieldType,
-          })
-        }
-      },
-
-      getFieldType(label=string){
-          switch (label) {
-              case "string":
-                    return "Texto"
-                  break;
-              case "number":
-                    return "Numero"
-                  break;
-              case "select":
-                    return "Seleccionable"
-                  break;
-          
-              default:
-                  break;
+    submitNewService: function(){
+      let fd= new FormData();
+      fd.append("name", this.name);
+      fd.append("fields", this.fields.length?JSON.stringify(this.fields):"");
+      axios.post(baseUrl+'/api/service',fd)
+      .then(res=>{
+        console.log("RESPONSE FROM SERVER ",res);
+        toastr.success(res.data);
+        this.name = "";
+        this.fields = [];
+        this.$emit("creatingDone")
+      }).catch(err=>{
+        console.log("ERROR FROM SERVER ",err.response);
+        if (err.response.data.errorMessage){
+          toastr.error(err.response.data.errorMessage);
+        }else {
+          let allErrors = err.response.data;
+          for (var errorkey in allErrors) {
+            if (allErrors[errorkey]){
+              for (var error of allErrors[errorkey]) {
+                toastr.error(error);
+              }
+            }
           }
-      },
+        }
+      });
 
-      submitNewService: function(){
-        let fd= new FormData();
-        fd.append("name", this.name);
-        fd.append("fields", this.fields.length?JSON.stringify(this.fields):"");
-
-        axios.post(baseUrl+'/api/service',fd)
-        .then(res=>{
-          console.log("RESPONSE FROM SERVER ",res);
-          toastr.success(res.data);
-          this.$emit("creatingDone")
-        })
-        .catch(err=>{
-          console.log("ERROR FROM SERVER ",err,err.response);
-          toastr.error(err.response.data);
-        });
-
-      },
-    }
-
+    },
+  }
 }
-
 </script>

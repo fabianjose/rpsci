@@ -36,7 +36,12 @@ export default {
         console.log(res);
         this.companies=res.data;
       }).catch(err=>{
-        console.log(err.response);
+        console.log("ERROR FROM SERVER ",err.response);
+        if (err.response.data.errorMessage){
+          toastr.error(err.response.data.errorMessage);
+        }else{
+          toastr.error('Error al obtener las empresas destacadas');
+        }
       });
     },
     async setCompany(id){
@@ -50,7 +55,11 @@ export default {
         toastr.success("Compañía sacada de destacadas");
         this.refreshData();
       }).catch(err=>{
-        console.log(err.response);
+        console.log("ERROR FROM SERVER ",err.response);
+        if (err.response.data.errorMessage){
+          toastr.error(err.response.data.errorMessage);
+        }
+
       });
     },
     async viewModal(id){

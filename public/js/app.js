@@ -2051,13 +2051,12 @@ __webpack_require__.r(__webpack_exports__);
 
         _this.$emit("creatingDone");
       })["catch"](function (err) {
-        if (err.response.status == 500) {
-          toastr.error('Error interno del servidor');
-        } else if (err.response.status == 404) {
-          toastr.error(err.response.data);
+        console.log("ERROR FROM SERVER ", err.response);
+
+        if (err.response.data.errorMessage) {
+          toastr.error(err.response.data.errorMessage);
         } else {
           var allErrors = err.response.data;
-          console.log(allErrors);
 
           for (var errorkey in allErrors) {
             if (allErrors[errorkey]) {
@@ -2156,29 +2155,30 @@ __webpack_require__.r(__webpack_exports__);
     highlightCompany: function highlightCompany() {
       var _this = this;
 
+      if (!this.company) {
+        toastr.error('Debe ingresar una empresa');
+        return false;
+      }
+
       var fd = new FormData();
       fd.append("highlighted_expiration", this.expiration);
       fd.append("_method", 'put');
       axios.post(baseUrl + '/api/company/' + this.company + '/highlight', fd).then(function (res) {
         console.log("RESPONSE FROM SERVER ", res);
         toastr.success("Empresa destacada con éxito");
+        _this.company = "";
+        _this.expiration = null;
 
         _this.$emit('refresh');
       })["catch"](function (err) {
         console.log("ERROR FROM SERVER ", err.response);
 
-        if (err.response.status == 500) {
-          toastr.error('Error interno del servidor');
-        } else if (err.response.status == 404) {
-          toastr.error(err.response.statusText);
+        if (err.response.data.errorMessage) {
+          toastr.error(err.response.data.errorMessage);
         } else {
           var allErrors = err.response.data;
-          console.log(allErrors);
-          var errorkeys = ['highlighted_expiration'];
 
-          for (var _i = 0, _errorkeys = errorkeys; _i < _errorkeys.length; _i++) {
-            var errorkey = _errorkeys[_i];
-
+          for (var errorkey in allErrors) {
             if (allErrors[errorkey]) {
               var _iteratorNormalCompletion = true;
               var _didIteratorError = false;
@@ -2268,7 +2268,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         console.log(res);
         _this.companies = res.data;
       })["catch"](function (err) {
-        console.log(err.response);
+        console.log("ERROR FROM SERVER ", err.response);
+
+        if (err.response.data.errorMessage) {
+          toastr.error(err.response.data.errorMessage);
+        } else {
+          toastr.error('Error al obtener las empresas destacadas');
+        }
       });
     },
     setCompany: function () {
@@ -2312,7 +2318,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
         _this2.refreshData();
       })["catch"](function (err) {
-        console.log(err.response);
+        console.log("ERROR FROM SERVER ", err.response);
+
+        if (err.response.data.errorMessage) {
+          toastr.error(err.response.data.errorMessage);
+        }
       });
     },
     viewModal: function () {
@@ -2406,7 +2416,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         console.log(res);
         _this.companies = res.data;
       })["catch"](function (err) {
-        console.log(err.response);
+        console.log("ERROR FROM SERVER ", err.response);
+
+        if (err.response.data.errorMessage) {
+          toastr.error(err.response.data.errorMessage);
+        }
       });
     },
     setCompany: function () {
@@ -2478,7 +2492,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
         _this2.refreshData();
       })["catch"](function (err) {
-        console.log(err.response);
+        if (err.response.data.errorMessage) {
+          toastr.error(err.response.data.errorMessage);
+        }
       });
     },
     viewModal: function () {
@@ -2581,13 +2597,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: ["company"],
   data: function data() {
     return {
       onPreview: null,
       baseUrl: baseUrl
     };
   },
-  props: ["company"],
   methods: {
     uploadFile: function uploadFile() {
       console.log("[File] Change");
@@ -2610,14 +2626,46 @@ __webpack_require__.r(__webpack_exports__);
       fd.append("_method", "put");
       axios.post(baseUrl + "/api/company/" + this.company.id, fd).then(function (res) {
         console.log("RESPONSE FROM SERVER ", res);
-        toastr.success("Empresa editada con éxito"); // this.$emit("updateDone")
-
+        toastr.success("Empresa editada con éxito");
         setTimeout(function () {
           window.location.reload();
         }, 2000);
       })["catch"](function (err) {
-        console.log("ERROR FROM SERVER ", err, err.response);
-        toastr.error("Error al editar la empresa");
+        console.log("ERROR FROM SERVER ", err.response);
+
+        if (err.response.data.errorMessage) {
+          toastr.error(err.response.data.errorMessage);
+        } else {
+          var allErrors = err.response.data;
+
+          for (var errorkey in allErrors) {
+            if (allErrors[errorkey]) {
+              var _iteratorNormalCompletion = true;
+              var _didIteratorError = false;
+              var _iteratorError = undefined;
+
+              try {
+                for (var _iterator = allErrors[errorkey][Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                  var error = _step.value;
+                  toastr.error(error);
+                }
+              } catch (err) {
+                _didIteratorError = true;
+                _iteratorError = err;
+              } finally {
+                try {
+                  if (!_iteratorNormalCompletion && _iterator["return"] != null) {
+                    _iterator["return"]();
+                  }
+                } finally {
+                  if (_didIteratorError) {
+                    throw _iteratorError;
+                  }
+                }
+              }
+            }
+          }
+        }
       });
     }
   }
@@ -3200,7 +3248,6 @@ __webpack_require__.r(__webpack_exports__);
     createOffer: function createOffer() {
       var _this = this;
 
-      // console.log(this.fields_value[this.services[this.service-1].length]);
       for (var i = 0; i < this.services[this.service - 1].fields.length; i++) {
         if (!this.fields_value[i]) {
           toastr.error('Debe llenar los campos referentes al servicio seleccionado');
@@ -3221,16 +3268,53 @@ __webpack_require__.r(__webpack_exports__);
       axios.post(baseUrl + '/api/offer', fd).then(function (res) {
         console.log("RESPONSE FROM SERVER ", res);
         toastr.success("Oferta creada con éxito");
+        _this.company = "";
+        _this.department = "";
+        _this.municipality = "";
+        _this.type = "private";
+        _this.tariff = "";
+        _this.benefits = "";
+        _this.service = null;
+        _this.points = null;
+        _this.fields_value = [];
 
         _this.$emit('refresh');
       })["catch"](function (err) {
-        console.log("ERROR FROM SERVER ", err.response); // for (var error in err.response.data) {
-        //   toastr.error(error);
-        //   // for (var message in error) {
-        //   // }
-        // }
+        console.log("ERROR FROM SERVER ", err.response);
 
-        toastr.error("Error al crear la oferta");
+        if (err.response.data.errorMessage) {
+          toastr.error(err.response.data.errorMessage);
+        } else {
+          var allErrors = err.response.data;
+
+          for (var errorkey in allErrors) {
+            if (allErrors[errorkey]) {
+              var _iteratorNormalCompletion = true;
+              var _didIteratorError = false;
+              var _iteratorError = undefined;
+
+              try {
+                for (var _iterator = allErrors[errorkey][Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                  var error = _step.value;
+                  toastr.error(error);
+                }
+              } catch (err) {
+                _didIteratorError = true;
+                _iteratorError = err;
+              } finally {
+                try {
+                  if (!_iteratorNormalCompletion && _iterator["return"] != null) {
+                    _iterator["return"]();
+                  }
+                } finally {
+                  if (_didIteratorError) {
+                    throw _iteratorError;
+                  }
+                }
+              }
+            }
+          }
+        }
       });
     }
   }
@@ -3299,13 +3383,21 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         // console.log(res);
         _this.services = res.data;
       })["catch"](function (err) {
-        console.log(err.response);
+        console.log("ERROR FROM SERVER ", err.response);
+
+        if (err.response.data.errorMessage) {
+          toastr.error(err.response.data.errorMessage);
+        }
       });
       axios.get(baseUrl + '/api/offers').then(function (res) {
         console.log(res.data);
         _this.offers = res.data;
       })["catch"](function (err) {
-        console.log(err.response);
+        console.log("ERROR FROM SERVER ", err.response);
+
+        if (err.response.data.errorMessage) {
+          toastr.error(err.response.data.errorMessage);
+        }
       });
     },
     trash: function trash(id) {
@@ -3317,7 +3409,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
         _this2.refreshData();
       })["catch"](function (err) {
-        console.log(err.response);
+        if (err.response.data.errorMessage) {
+          toastr.error(err.response.data.errorMessage);
+        }
       });
     },
     setOffer: function () {
@@ -3559,8 +3653,41 @@ __webpack_require__.r(__webpack_exports__);
           window.location.reload();
         }, 2000);
       })["catch"](function (err) {
-        console.log("ERROR FROM SERVER ", err, err.response);
-        toastr.error("Error al editar la oferta");
+        console.log("ERROR FROM SERVER ", err.response);
+
+        if (err.response.data.errorMessage) {
+          toastr.error(err.response.data.errorMessage);
+        } else {
+          var allErrors = err.response.data;
+
+          for (var errorkey in allErrors) {
+            if (allErrors[errorkey]) {
+              var _iteratorNormalCompletion = true;
+              var _didIteratorError = false;
+              var _iteratorError = undefined;
+
+              try {
+                for (var _iterator = allErrors[errorkey][Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                  var error = _step.value;
+                  toastr.error(error);
+                }
+              } catch (err) {
+                _didIteratorError = true;
+                _iteratorError = err;
+              } finally {
+                try {
+                  if (!_iteratorNormalCompletion && _iterator["return"] != null) {
+                    _iterator["return"]();
+                  }
+                } finally {
+                  if (_didIteratorError) {
+                    throw _iteratorError;
+                  }
+                }
+              }
+            }
+          }
+        }
       });
     }
   }
@@ -3737,7 +3864,6 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     highlightOffer: function highlightOffer() {
       var _this = this;
 
-      // console.log(this.fields_value[this.services[this.service-1].length]);
       var fd = new FormData();
       if (this.expiration) fd.append("highlighted_expiration", this.expiration.split);else return toastr.error("Debe introducir una fecha de expiración");
       axios.post(baseUrl + '/api/offers/highlight/' + this.selectedOffer.id, fd).then(function (res) {
@@ -3746,13 +3872,41 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
         _this.$emit('refresh');
       })["catch"](function (err) {
-        console.log("ERROR FROM SERVER ", err.response); // for (var error in err.response.data) {
-        //   toastr.error(error);
-        //   // for (var message in error) {
-        //   // }
-        // }
+        console.log("ERROR FROM SERVER ", err.response);
 
-        toastr.error("Error al Destacar la Oferta");
+        if (err.response.data.errorMessage) {
+          toastr.error(err.response.data.errorMessage);
+        } else {
+          var allErrors = err.response.data;
+
+          for (var errorkey in allErrors) {
+            if (allErrors[errorkey]) {
+              var _iteratorNormalCompletion = true;
+              var _didIteratorError = false;
+              var _iteratorError = undefined;
+
+              try {
+                for (var _iterator = allErrors[errorkey][Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                  var error = _step.value;
+                  toastr.error(error);
+                }
+              } catch (err) {
+                _didIteratorError = true;
+                _iteratorError = err;
+              } finally {
+                try {
+                  if (!_iteratorNormalCompletion && _iterator["return"] != null) {
+                    _iterator["return"]();
+                  }
+                } finally {
+                  if (_didIteratorError) {
+                    throw _iteratorError;
+                  }
+                }
+              }
+            }
+          }
+        }
       });
     },
     selectOffer: function selectOffer(index) {
@@ -3768,8 +3922,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     highlightedOffers: function highlightedOffers() {
       var _this2 = this;
 
-      this.OpenAccordion("#OffersAccordion", "#OffersList", "active2"); // console.log(this.fields_value[this.services[this.service-1].length]);
-
+      this.OpenAccordion("#OffersAccordion", "#OffersList", "active2");
       var fd = new FormData();
       console.log("items:");
       console.log(this.company, this.municipality, this.department);
@@ -3781,11 +3934,41 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         console.log("RESPONSE FROM SERVER ", res);
         _this2.offersByArea = res.data;
       })["catch"](function (err) {
-        console.log("ERROR FROM SERVER ", err.response); // for (var error in err.response.data) {
-        //   toastr.error(error);
-        //   // for (var message in error) {
-        //   // }
-        // }
+        console.log("ERROR FROM SERVER ", err.response);
+
+        if (err.response.data.errorMessage) {
+          toastr.error(err.response.data.errorMessage);
+        } else {
+          var allErrors = err.response.data;
+
+          for (var errorkey in allErrors) {
+            if (allErrors[errorkey]) {
+              var _iteratorNormalCompletion2 = true;
+              var _didIteratorError2 = false;
+              var _iteratorError2 = undefined;
+
+              try {
+                for (var _iterator2 = allErrors[errorkey][Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+                  var error = _step2.value;
+                  toastr.error(error);
+                }
+              } catch (err) {
+                _didIteratorError2 = true;
+                _iteratorError2 = err;
+              } finally {
+                try {
+                  if (!_iteratorNormalCompletion2 && _iterator2["return"] != null) {
+                    _iterator2["return"]();
+                  }
+                } finally {
+                  if (_didIteratorError2) {
+                    throw _iteratorError2;
+                  }
+                }
+              }
+            }
+          }
+        }
 
         toastr.error("Error al cargar las ofertas del área");
       });
@@ -3900,7 +4083,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         console.log(res);
         _this.offers = res.data;
       })["catch"](function (err) {
-        console.log(err.response);
+        console.log("ERROR FROM SERVER ", err.response);
+
+        if (err.response.data.errorMessage) {
+          toastr.error(err.response.data.errorMessage);
+        }
       });
     },
     trash: function () {
@@ -3929,8 +4116,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                   _this2.refreshData();
                 })["catch"](function (err) {
-                  console.log(err.response);
-                  return toastr.error("Error al Descartar la oferta");
+                  if (err.response.data.errorMessage) {
+                    toastr.error(err.response.data.errorMessage);
+                  }
                 });
 
               case 6:
@@ -4193,11 +4381,46 @@ __webpack_require__.r(__webpack_exports__);
       axios.post(baseUrl + '/api/service', fd).then(function (res) {
         console.log("RESPONSE FROM SERVER ", res);
         toastr.success(res.data);
+        _this.name = "";
+        _this.fields = [];
 
         _this.$emit("creatingDone");
       })["catch"](function (err) {
-        console.log("ERROR FROM SERVER ", err, err.response);
-        toastr.error(err.response.data);
+        console.log("ERROR FROM SERVER ", err.response);
+
+        if (err.response.data.errorMessage) {
+          toastr.error(err.response.data.errorMessage);
+        } else {
+          var allErrors = err.response.data;
+
+          for (var errorkey in allErrors) {
+            if (allErrors[errorkey]) {
+              var _iteratorNormalCompletion = true;
+              var _didIteratorError = false;
+              var _iteratorError = undefined;
+
+              try {
+                for (var _iterator = allErrors[errorkey][Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                  var error = _step.value;
+                  toastr.error(error);
+                }
+              } catch (err) {
+                _didIteratorError = true;
+                _iteratorError = err;
+              } finally {
+                try {
+                  if (!_iteratorNormalCompletion && _iterator["return"] != null) {
+                    _iterator["return"]();
+                  }
+                } finally {
+                  if (_didIteratorError) {
+                    throw _iteratorError;
+                  }
+                }
+              }
+            }
+          }
+        }
       });
     }
   }
@@ -4263,7 +4486,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         console.log(res);
         _this.services = res.data;
       })["catch"](function (err) {
-        console.log(err.response);
+        console.log("ERROR FROM SERVER ", err.response);
+
+        if (err.response.data.errorMessage) {
+          toastr.error(err.response.data.errorMessage);
+        }
       });
     },
     trash: function trash(id) {
@@ -4275,8 +4502,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
         _this2.refreshData();
       })["catch"](function (err) {
-        toastr.error(err.response);
-        console.log(err.response);
+        if (err.response.data.errorMessage) {
+          toastr.error(err.response.data.errorMessage);
+        }
       });
     },
     setService: function () {
@@ -4496,7 +4724,7 @@ __webpack_require__.r(__webpack_exports__);
       console.log('label ', label);
       this.service.fields = this.service.fields.filter(function (el) {
         return el.label != label;
-      }); // console.log(webo);
+      });
     },
     submitNewField: function submitNewField() {
       if (this.service.fields.length >= 3) {
@@ -4540,8 +4768,41 @@ __webpack_require__.r(__webpack_exports__);
           window.location.reload();
         }, 2000);
       })["catch"](function (err) {
-        console.log("ERROR FROM SERVER ", err, err.response);
-        toastr.error("Error al editar el servicio");
+        cconsole.log("ERROR FROM SERVER ", err.response);
+
+        if (err.response.data.errorMessage) {
+          toastr.error(err.response.data.errorMessage);
+        } else {
+          var allErrors = err.response.data;
+
+          for (var errorkey in allErrors) {
+            if (allErrors[errorkey]) {
+              var _iteratorNormalCompletion = true;
+              var _didIteratorError = false;
+              var _iteratorError = undefined;
+
+              try {
+                for (var _iterator = allErrors[errorkey][Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                  var error = _step.value;
+                  toastr.error(error);
+                }
+              } catch (err) {
+                _didIteratorError = true;
+                _iteratorError = err;
+              } finally {
+                try {
+                  if (!_iteratorNormalCompletion && _iterator["return"] != null) {
+                    _iterator["return"]();
+                  }
+                } finally {
+                  if (_didIteratorError) {
+                    throw _iteratorError;
+                  }
+                }
+              }
+            }
+          }
+        }
       });
     }
   }
@@ -41767,7 +42028,7 @@ var render = function() {
           }
         },
         [
-          _c("h3", { staticClass: "card-title" }, [_vm._v("Nueva Oferta")]),
+          _c("h3", { staticClass: "card-title" }, [_vm._v("Destacar Oferta")]),
           _vm._v(" "),
           _c("div", { staticClass: "card-tools" }, [
             _c(
@@ -42959,7 +43220,7 @@ var render = function() {
                               _c("a", { staticClass: "float-right" }, [
                                 _vm._v(
                                   _vm._s(_vm.getFieldType(field.type)) +
-                                    " \r\n                              "
+                                    "\r\n                              "
                                 ),
                                 _c(
                                   "button",
@@ -58487,8 +58748,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\web 03\Music\colombia_internet\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\web 03\Music\colombia_internet\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\ConsultingMe\colombia_internet\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\ConsultingMe\colombia_internet\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),

@@ -108,41 +108,51 @@
 
 <script>
 export default {
-    props:["offer","services"],
-    methods:{
-      editOffer(){
-        for (var i = 0; i < this.offer.service_fields.length; i++) {
-          if (!this.offer.fields_value[i]){
-            toastr.error('Debe llenar los campos referentes al servicio seleccionado');
-            return false;
+  props:["offer","services"],
+  methods:{
+    editOffer(){
+      for (var i = 0; i < this.offer.service_fields.length; i++) {
+        if (!this.offer.fields_value[i]){
+          toastr.error('Debe llenar los campos referentes al servicio seleccionado');
+          return false;
+        }
+      }
+      let fd= new FormData();
+      fd.append("company", this.offer.company_name);
+      fd.append("service", this.offer.service);
+      fd.append("benefits", this.offer.benefits);
+      fd.append("department", this.offer.department_name);
+      fd.append("municipality", this.offer.municipality_name);
+      fd.append("tariff", this.offer.tariff);
+      fd.append("type", this.offer.type);
+      fd.append("points", this.offer.points);
+      fd.append("fields_value", JSON.stringify(this.offer.fields_value));
+      fd.append("_method","put");
+      axios.post(baseUrl+"/api/offer/"+this.offer.id, fd)
+      .then(res=>{
+        console.log("RESPONSE FROM SERVER ",res);
+
+        toastr.success("Oferta editada con éxito");
+        setTimeout(function(){
+          window.location.reload();
+        }, 2000);
+      })
+      .catch(err=>{
+        console.log("ERROR FROM SERVER ",err.response);
+        if (err.response.data.errorMessage){
+          toastr.error(err.response.data.errorMessage);
+        }else {
+          let allErrors = err.response.data;
+          for (var errorkey in allErrors) {
+            if (allErrors[errorkey]){
+              for (var error of allErrors[errorkey]) {
+                toastr.error(error);
+              }
+            }
           }
         }
-        let fd= new FormData();
-        fd.append("company", this.offer.company_name);
-        fd.append("service", this.offer.service);
-        fd.append("benefits", this.offer.benefits);
-        fd.append("department", this.offer.department_name);
-        fd.append("municipality", this.offer.municipality_name);
-        fd.append("tariff", this.offer.tariff);
-        fd.append("type", this.offer.type);
-        fd.append("points", this.offer.points);
-        fd.append("fields_value", JSON.stringify(this.offer.fields_value));
-        fd.append("_method","put");
-        axios.post(baseUrl+"/api/offer/"+this.offer.id, fd)
-        .then(res=>{
-          console.log("RESPONSE FROM SERVER ",res);
-
-          toastr.success("Oferta editada con éxito");
-          setTimeout(function(){
-            window.location.reload();
-          }, 2000);
-        })
-        .catch(err=>{
-          console.log("ERROR FROM SERVER ",err,err.response);
-
-          toastr.error("Error al editar la oferta")
-        });
-      }
+      });
     }
+  }
 }
 </script>
