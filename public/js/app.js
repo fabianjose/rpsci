@@ -4314,6 +4314,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'companyCreation',
   data: function data() {
@@ -4347,13 +4352,22 @@ __webpack_require__.r(__webpack_exports__);
       this.logo = uploadFile;
     },
     submitNewField: function submitNewField() {
+      this.OpenAccordion("#ServicesFieldsAccordion", "#collapseServicesFields", "active3");
+
       if (this.fields.length >= 3) {
         toastr.error('Solo puedes añadir hasta 3 campos');
       } else {
+        if (!this.newFieldLabel || !this.newFieldType) {
+          return toastr.error('Debe llenar ambos campos');
+        }
+
         this.fields.push({
           label: this.newFieldLabel,
           type: this.newFieldType
         });
+        toastr.success('Campo ' + this.newFieldLabel + ' añadido');
+        this.newFieldLabel = "";
+        this.newFieldType = "";
       }
     },
     getFieldType: function getFieldType() {
@@ -4426,6 +4440,16 @@ __webpack_require__.r(__webpack_exports__);
           }
         }
       });
+    },
+    deleteField: function deleteField(label) {
+      this.fields = this.fields.filter(function (el) {
+        return el.label != label;
+      });
+    },
+    OpenAccordion: function OpenAccordion(parentId, childId, activeIndex) {
+      if (!$(parentId).hasClass("collapsed")) $(parentId).addClass("collapsed");else return;
+      if (!$(childId).hasClass("show")) $(childId).addClass("show");else return;
+      this[activeIndex] = !this[activeIndex];
     }
   }
 });
@@ -42865,7 +42889,28 @@ var render = function() {
                               _c("b", [_vm._v(_vm._s(field.label))]),
                               _vm._v(" "),
                               _c("a", { staticClass: "float-right" }, [
-                                _vm._v(_vm._s(_vm.getFieldType(field.type)))
+                                _vm._v(
+                                  _vm._s(_vm.getFieldType(field.type)) +
+                                    "\n                          "
+                                ),
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass: "btn btn-tool p-1",
+                                    attrs: { type: "button" },
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.deleteField(field.label)
+                                      }
+                                    }
+                                  },
+                                  [
+                                    _c("i", {
+                                      staticClass:
+                                        "float-button fas fa-plus-circle active text-danger"
+                                    })
+                                  ]
+                                )
                               ])
                             ]
                           )

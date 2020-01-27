@@ -77,7 +77,12 @@
 
                     <ul class="list-group list-group-unbordered mb-3">
                         <li v-for="(field,k) in fields" :key="k" class="list-group-item">
-                            <b>{{field.label}}</b> <a class="float-right">{{getFieldType(field.type)}}</a>
+                            <b>{{field.label}}</b>
+                            <a class="float-right">{{getFieldType(field.type)}}
+                              <button type="button" class="btn btn-tool p-1" @click="deleteField(field.label)">
+                                <i class="float-button fas fa-plus-circle active text-danger"></i>
+                              </button>
+                            </a>
                         </li>
                     </ul>
 
@@ -126,13 +131,20 @@ export default {
       this.logo=uploadFile;
     },
     submitNewField(){
+      this.OpenAccordion("#ServicesFieldsAccordion","#collapseServicesFields", "active3");
       if (this.fields.length >= 3){
         toastr.error('Solo puedes añadir hasta 3 campos');
       }else{
+        if (!this.newFieldLabel || !this.newFieldType) {
+          return toastr.error('Debe llenar ambos campos');
+        }
         this.fields.push({
           label:this.newFieldLabel,
           type:this.newFieldType,
-        })
+        });
+        toastr.success('Campo '+ this.newFieldLabel +' añadido');
+        this.newFieldLabel = "";
+        this.newFieldType = "";
       }
     },
     getFieldType(label=string){
@@ -178,6 +190,16 @@ export default {
         }
       });
 
+    },
+    deleteField(label){
+      this.fields = this.fields.filter((el)=> el.label != label);
+    },
+    OpenAccordion(parentId,childId,activeIndex){
+      if(!$(parentId).hasClass("collapsed")) $(parentId).addClass("collapsed");
+      else return;
+      if(!$(childId).hasClass("show")) $(childId).addClass("show");
+      else return;
+      this[activeIndex]= !this[activeIndex];
     },
   }
 }
