@@ -24,7 +24,7 @@
                 <form action="/login" method="post">
                     {{ csrf_field() }}
                     <div class="input-group mb-3">
-                        <input type="text" name="username" class="form-control" value="" placeholder="{{ __('adminlte::adminlte.email') }}" autofocus>
+                        <input type="text" name="username" class="form-control" value="" placeholder="Usuario" autofocus>
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-envelope"></span>
@@ -37,7 +37,7 @@
                         @endif
                     </div>
                     <div class="input-group mb-3">
-                        <input type="password" name="password" class="form-control" placeholder="{{ __('adminlte::adminlte.password') }}">
+                        <input type="password" name="password" class="form-control" placeholder="Contraseña">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>

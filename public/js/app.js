@@ -2043,11 +2043,53 @@ __webpack_require__.r(__webpack_exports__);
       axios.post(baseUrl + '/api/company', fd).then(function (res) {
         console.log("RESPONSE FROM SERVER ", res);
         toastr.success("Compañía creada con éxito");
+        _this.name = "";
+        _this.logo = null;
+        _this.nit = "";
+        _this.phone = "";
+        _this.web = "";
 
         _this.$emit("creatingDone");
       })["catch"](function (err) {
-        console.log("ERROR FROM SERVER ", err, err.response);
-        toastr.error("Error al crear la compañía");
+        if (err.response.status == 500) {
+          toastr.error('Error interno del servidor');
+        } else if (err.response.status == 404) {
+          toastr.error(err.response.data);
+        } else {
+          var allErrors = err.response.data;
+          console.log(allErrors);
+          var errorkeys = ['name', 'logo', 'nit', 'phone', 'web'];
+
+          for (var _i = 0, _errorkeys = errorkeys; _i < _errorkeys.length; _i++) {
+            var errorkey = _errorkeys[_i];
+
+            if (allErrors[errorkey]) {
+              var _iteratorNormalCompletion = true;
+              var _didIteratorError = false;
+              var _iteratorError = undefined;
+
+              try {
+                for (var _iterator = allErrors[errorkey][Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                  var error = _step.value;
+                  toastr.error(error);
+                }
+              } catch (err) {
+                _didIteratorError = true;
+                _iteratorError = err;
+              } finally {
+                try {
+                  if (!_iteratorNormalCompletion && _iterator["return"] != null) {
+                    _iterator["return"]();
+                  }
+                } finally {
+                  if (_didIteratorError) {
+                    throw _iteratorError;
+                  }
+                }
+              }
+            }
+          }
+        }
       });
     }
   }
@@ -2118,7 +2160,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       var fd = new FormData();
-      fd.append("highlighted_expiration", this.expiration.split('/').join('-'));
+      fd.append("highlighted_expiration", this.expiration);
       fd.append("_method", 'put');
       axios.post(baseUrl + '/api/company/' + this.company + '/highlight', fd).then(function (res) {
         console.log("RESPONSE FROM SERVER ", res);
@@ -2127,7 +2169,46 @@ __webpack_require__.r(__webpack_exports__);
         _this.$emit('refresh');
       })["catch"](function (err) {
         console.log("ERROR FROM SERVER ", err.response);
-        toastr.error("Error al destacar la empresa");
+
+        if (err.response.status == 500) {
+          toastr.error('Error interno del servidor');
+        } else if (err.response.status == 404) {
+          toastr.error(err.response.statusText);
+        } else {
+          var allErrors = err.response.data;
+          console.log(allErrors);
+          var errorkeys = ['highlighted_expiration'];
+
+          for (var _i = 0, _errorkeys = errorkeys; _i < _errorkeys.length; _i++) {
+            var errorkey = _errorkeys[_i];
+
+            if (allErrors[errorkey]) {
+              var _iteratorNormalCompletion = true;
+              var _didIteratorError = false;
+              var _iteratorError = undefined;
+
+              try {
+                for (var _iterator = allErrors[errorkey][Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                  var error = _step.value;
+                  toastr.error(error);
+                }
+              } catch (err) {
+                _didIteratorError = true;
+                _iteratorError = err;
+              } finally {
+                try {
+                  if (!_iteratorNormalCompletion && _iterator["return"] != null) {
+                    _iterator["return"]();
+                  }
+                } finally {
+                  if (_didIteratorError) {
+                    throw _iteratorError;
+                  }
+                }
+              }
+            }
+          }
+        }
       });
     }
   }
@@ -39587,7 +39668,7 @@ var render = function() {
                 _c("label", [_vm._v("Fecha de expiracion")]),
                 _vm._v(" "),
                 _c("datetimepicker", {
-                  attrs: { format: "YYYY/MM/DD H:i:s" },
+                  attrs: { format: "YYYY-MM-DD H:i:s" },
                   model: {
                     value: _vm.expiration,
                     callback: function($$v) {

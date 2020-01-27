@@ -1,6 +1,6 @@
 <template>
     <div class="card card-info" id="createCompanyAccordion">
-      <a class="card-header collapsed" @click="active=!active" data-parent="#createCompanyAccordion" 
+      <a class="card-header collapsed" @click="active=!active" data-parent="#createCompanyAccordion"
       href="#collapseOne" aria-expanded="false" data-toggle="collapse">
         <h3 class="card-title">Nueva Empresa</h3>
         <div class="card-tools">
@@ -79,21 +79,15 @@ export default {
     },
 
     methods:{
-
       uploadFile: function(){
-
         console.log("[File] Change")
         let uploadFile=this.$refs.SelectFile.files[0]
-
         if(!uploadFile){
           console.log("[File] None")
           return;
         }
-
         this.logo=uploadFile;
-
         this.onPreview=URL.createObjectURL(uploadFile);
-
       },
 
       submitNewCompany: function(){
@@ -108,11 +102,31 @@ export default {
         .then(res=>{
           console.log("RESPONSE FROM SERVER ",res);
           toastr.success("Compañía creada con éxito");
+          this.name = "";
+          this.logo = null;
+          this.nit = "";
+          this.phone = "";
+          this.web = "";
           this.$emit("creatingDone")
         })
         .catch(err=>{
-          console.log("ERROR FROM SERVER ",err,err.response);
-          toastr.error("Error al crear la compañía")
+          if (err.response.status == 500){
+            toastr.error('Error interno del servidor');
+          }else if (err.response.status == 404) {
+            toastr.error(err.response.data);
+          }else {
+            var allErrors = err.response.data;
+            console.log(allErrors);
+            var errorkeys = ['name','logo','nit','phone','web'];
+            for (var errorkey of errorkeys) {
+              if (allErrors[errorkey]){
+                for (var error of allErrors[errorkey]) {
+                  toastr.error(error);
+                }
+              }
+            }
+          }
+
         });
 
       },

@@ -27,8 +27,8 @@
           <div class="form-group">
               <label>Fecha de expiracion</label>
               <!-- <input type="text" class="form-control" placeholder="YYYY/MM/DD" v-model="expiration"> -->
-              <datetimepicker format="YYYY/MM/DD H:i:s" v-model="expiration"></datetimepicker>
-          </div>      
+              <datetimepicker format="YYYY-MM-DD H:i:s" v-model="expiration"></datetimepicker>
+          </div>
         </div>
 
         <div class="card-footer">
@@ -51,10 +51,9 @@ export default {
     mounted(){
     },
     methods:{
-
       highlightCompany(){
         let fd= new FormData();
-        fd.append("highlighted_expiration", this.expiration.split('/').join('-'));
+        fd.append("highlighted_expiration", this.expiration);
         fd.append("_method", 'put');
         axios.post(baseUrl+'/api/company/'+this.company+'/highlight',fd)
         .then(res=>{
@@ -64,7 +63,23 @@ export default {
         })
         .catch(err=>{
           console.log("ERROR FROM SERVER ",err.response);
-          toastr.error("Error al destacar la empresa")
+          if (err.response.status == 500){
+            toastr.error('Error interno del servidor');
+          }else if (err.response.status == 404) {
+            toastr.error(err.response.statusText);
+          }else {
+            var allErrors = err.response.data;
+            console.log(allErrors);
+            var errorkeys = ['highlighted_expiration'];
+            for (var errorkey of errorkeys) {
+              if (allErrors[errorkey]){
+                for (var error of allErrors[errorkey]) {
+                  toastr.error(error);
+                }
+              }
+            }
+          }
+
         });
       },
     }
