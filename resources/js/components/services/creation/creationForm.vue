@@ -22,73 +22,82 @@
             <label>Campos del servicio</label>
           </div>
 
-        <div class="card card-success" id="createServiceFieldAccordion">
-            <a class="card-header collapsed" @click="active2=!active2" data-parent="#createServiceFieldAccordion"
-                href="#collapseCreateServiceField" aria-expanded="false" data-toggle="collapse">
-                <h3 class="card-title">Nuevo Campo</h3>
-                <div class="card-tools">
-                <button type="button" class="btn btn-tool ml-auto " >
-                    <personal-fab :active="active2" />
-                </button>
+        
+
+            <div class="row w-100 flex-wrap justify-content-around">
+              <div class="col-md-6 col-sm-10 col-10 col-lg-6">
+                <div class="card card-success" id="createServiceFieldAccordion">
+                  <a class="card-header collapsed" @click="active2=!active2" data-parent="#createServiceFieldAccordion"
+                      href="#collapseCreateServiceField" aria-expanded="false" data-toggle="collapse">
+                      <h3 class="card-title">Nuevo Campo</h3>
+                      <div class="card-tools">
+                      <button type="button" class="btn btn-tool ml-auto " >
+                          <personal-fab :active="active2" />
+                      </button>
+                      </div>
+                  </a>
+                  <div id="collapseCreateServiceField" class="panel-collapse in collapse" >
+                    <div class="card-body">
+                    
+                    <div class="form-group">
+                        <label>Nombre del Campo</label>
+                        <input v-model="newFieldLabel" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                    
+                        <label>Tipo de Campo</label>
+
+                        <select v-model="newFieldType" class="form-control select2 select2-hidden-accessible" style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                            <option selected value="string" data-select2-id="1">Texto</option>
+                            <option value="number" data-select2-id="2">Numero</option>
+                            <!-- <option value="select" data-select2-id="3">Seleccionable</option> -->
+                        </select>
+
+                    </div>
+
+                    </div>
+
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-outline-success" @click="submitNewField">Agregar Campo</button>
+                    </div>
+                  </div>
                 </div>
-            </a>
+              </div>
+              
+              <div class="col-md-6 col-sm-10 col-10 col-lg-6">
+                <div class="card card-primary" id="ServicesFieldsAccordion">
+                  <a class="card-header collapsed" @click="active3=!active3" data-parent="#ServicesFieldsAccordion"
+                      href="#collapseServicesFields" aria-expanded="false" data-toggle="collapse">
+                      <h3 class="card-title">Lista de Campos</h3>
+                      <div class="card-tools">
+                      <button type="button" class="btn btn-tool ml-auto " >
+                          <personal-fab :active="active3" />
+                      </button>
+                      </div>
+                  </a>
 
-            <div id="collapseCreateServiceField" class="panel-collapse in collapse" >
-                <div class="card-body">
+                  <div id="collapseServicesFields" class="panel-collapse in collapse" >
+                      <div class="card-body">
 
-                <div class="form-group">
-                    <label>Nombre del Campo</label>
-                    <input v-model="newFieldLabel" class="form-control">
+                          <ul class="list-group list-group-unbordered mb-3">
+                              <li v-for="(field,k) in fields" :key="k" class="list-group-item">
+                                  <b>{{field.label}}</b>
+                                  <a class="float-right">{{getFieldType(field.type)}}
+                                    <button type="button" class="btn btn-tool p-1" @click="deleteField(field.label)">
+                                      <i class="float-button fas fa-plus-circle active text-danger"></i>
+                                    </button>
+                                  </a>
+                              </li>
+                          </ul>
+
+                      </div>
+                  </div>
                 </div>
-
-                <div class="form-group">
-
-                    <label>Tipo de Campo</label>
-
-                    <select v-model="newFieldType" class="form-control select2 select2-hidden-accessible" style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
-                        <option selected value="string" data-select2-id="1">Texto</option>
-                        <option value="number" data-select2-id="2">Numero</option>
-                        <!-- <option value="select" data-select2-id="3">Seleccionable</option> -->
-                    </select>
-
-                </div>
-
-                </div>
-
-                <div class="card-footer">
-                    <button type="button" class="btn btn-outline-success" @click="submitNewField">Agregar Campo</button>
-                </div>
-            </div>
+              </div>
         </div>
 
-        <div class="card card-primary" id="ServicesFieldsAccordion">
-            <a class="card-header collapsed" @click="active3=!active3" data-parent="#ServicesFieldsAccordion"
-                href="#collapseServicesFields" aria-expanded="false" data-toggle="collapse">
-                <h3 class="card-title">Lista de Campos</h3>
-                <div class="card-tools">
-                <button type="button" class="btn btn-tool ml-auto " >
-                    <personal-fab :active="active3" />
-                </button>
-                </div>
-            </a>
-
-            <div id="collapseServicesFields" class="panel-collapse in collapse" >
-                <div class="card-body">
-
-                    <ul class="list-group list-group-unbordered mb-3">
-                        <li v-for="(field,k) in fields" :key="k" class="list-group-item">
-                            <b>{{field.label}}</b>
-                            <a class="float-right">{{getFieldType(field.type)}}
-                              <button type="button" class="btn btn-tool p-1" @click="deleteField(field.label)">
-                                <i class="float-button fas fa-plus-circle active text-danger"></i>
-                              </button>
-                            </a>
-                        </li>
-                    </ul>
-
-                </div>
-            </div>
-        </div>
+        
 
         </div>
 
@@ -167,6 +176,8 @@ export default {
       let fd= new FormData();
       fd.append("name", this.name);
       fd.append("fields", this.fields.length?JSON.stringify(this.fields):"");
+
+      let loader = this.$loading.show();
       axios.post(baseUrl+'/api/service',fd)
       .then(res=>{
         console.log("RESPONSE FROM SERVER ",res);
@@ -188,7 +199,7 @@ export default {
             }
           }
         }
-      });
+      }).finally(()=>loader.hide());
 
     },
     deleteField(label){

@@ -82,6 +82,8 @@ export default {
       fd.append("phone", this.company.phone);
       fd.append("web", this.company.web);
       fd.append("_method","put")
+
+      let loader = this.$loading.show();
       axios.post(baseUrl+"/api/company/"+this.company.id, fd)
       .then(res=>{
         console.log("RESPONSE FROM SERVER ",res);
@@ -103,7 +105,7 @@ export default {
             }
           }
         }
-      });
+      }).finally(()=>loader.hide());
     }
   }
 }

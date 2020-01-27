@@ -150,6 +150,8 @@ export default {
       fd.append("points", this.points);
       fd.append("fields_value", JSON.stringify(this.fields_value));
 
+      let loader = this.$loading.show();
+
       axios.post(baseUrl+'/api/offer',fd)
       .then(res=>{
         console.log("RESPONSE FROM SERVER ",res);
@@ -178,7 +180,7 @@ export default {
             }
           }
         }
-      });
+      }).finally(()=>loader.hide());
     }
   }
 }

@@ -37,6 +37,7 @@ export default {
   },
   methods:{
     refreshData(){
+      let loader = this.$loading.show();
       axios.get(baseUrl+'/api/services')
       .then(res=>{
         // console.log(res);
@@ -46,7 +47,8 @@ export default {
         if (err.response.data.errorMessage){
           toastr.error(err.response.data.errorMessage);
         }
-      });
+      }).finally(()=>loader.hide());
+
       axios.get(baseUrl+'/api/offers')
       .then(res=>{
         console.log(res.data);
@@ -56,9 +58,11 @@ export default {
         if (err.response.data.errorMessage){
           toastr.error(err.response.data.errorMessage);
         }
-      });
+      }).finally(()=>loader.hide());
+
     },
-    trash(id){
+    trash(id){        
+      let loader = this.$loading.show();
       axios.delete(baseUrl+'/api/offer/'+id)
       .then(res=>{
         console.log(res);
@@ -68,7 +72,7 @@ export default {
         if (err.response.data.errorMessage){
           toastr.error(err.response.data.errorMessage);
         }
-      });
+      }).finally(()=>loader.hide());
     },
     async setOffer(id){
       let currentOffer = await this.offers.find(offer=>offer.id===id);

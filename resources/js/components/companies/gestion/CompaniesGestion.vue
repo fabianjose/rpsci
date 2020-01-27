@@ -35,6 +35,7 @@ export default {
 
   methods:{
     refreshData(){
+      let loader = this.$loading.show();
       axios.get(baseUrl+'/api/companies')
       .then(res=>{
         console.log(res);
@@ -44,7 +45,7 @@ export default {
         if (err.response.data.errorMessage){
           toastr.error(err.response.data.errorMessage);
         }
-      });
+      }).finally(()=>loader.hide());
     },
     async setCompany(id){
       let currentCompany = await this.companies.find(company=>company.id===id);
@@ -55,6 +56,7 @@ export default {
       this.updateMode=true
     },
     trash(id){
+      let loader = this.$loading.show();
       axios.delete(baseUrl+'/api/company/'+id)
       .then(res=>{
         console.log(res);
@@ -64,7 +66,7 @@ export default {
         if (err.response.data.errorMessage){
           toastr.error(err.response.data.errorMessage);
         }
-      });
+      }).finally(()=>loader.hide());
     },
     async viewModal(id){
       await this.setCompany(id)
