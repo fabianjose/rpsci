@@ -21,6 +21,7 @@
               requestType="get"
               placeholder="Departamento"
               property="name"
+              @selected="setDepartment"
               :required="true"
               :threshold="1"
               inputClass="form-control"
@@ -30,9 +31,8 @@
             <div class="form-group col-xl-6 col-lg-6 col-md-6 col-12">
               <label>Municipio</label>
               <autocomplete-vue
+              ref="municipalitiesList"
               v-model="municipality"
-              url="/api/municipalities"
-              requestType="get"
               placeholder="Municipio"
               property="name"
               :required="true"
@@ -78,7 +78,28 @@ export default {
     toastr.info('Puedes buscar las ofertas activas por su municipio');
   },
   methods:{
+
+    setDepartment(val){
+      console.log("new val ",val);
+      this.department=val;
+
+      this.getMunicipalities();
+    },
+
+    getMunicipalities(){
+      axios.get(baseUrl+'/api/municipalities/'+this.department)
+      .then(res=>{
+        console.log(res);
+        console.log(this.$refs);
+        this.$refs.municipalitiesList.setEntries(res.data)
+      }).catch(err=>{
+        console.log("ERROR FROM SERVER ", err,err.response);
+          toastr.error("error al cargar los municipios");
+      });
+    },
+
     refreshData(){
+
       let fd = new FormData();
 
       if(this.department) fd.append("department", this.department);

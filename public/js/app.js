@@ -4122,8 +4122,26 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     toastr.info('Puedes buscar las ofertas activas por su municipio');
   },
   methods: {
-    refreshData: function refreshData() {
+    setDepartment: function setDepartment(val) {
+      console.log("new val ", val);
+      this.department = val;
+      this.getMunicipalities();
+    },
+    getMunicipalities: function getMunicipalities() {
       var _this = this;
+
+      axios.get(baseUrl + '/api/municipalities/' + this.department).then(function (res) {
+        console.log(res);
+        console.log(_this.$refs);
+
+        _this.$refs.municipalitiesList.setEntries(res.data);
+      })["catch"](function (err) {
+        console.log("ERROR FROM SERVER ", err, err.response);
+        toastr.error("error al cargar los municipios");
+      });
+    },
+    refreshData: function refreshData() {
+      var _this2 = this;
 
       var fd = new FormData();
       if (this.department) fd.append("department", this.department);else return;
@@ -4131,7 +4149,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var loader = this.$loading.show();
       axios.post(baseUrl + '/api/offers/area/highlight', fd).then(function (res) {
         console.log(res);
-        _this.offers = res.data;
+        _this2.offers = res.data;
       })["catch"](function (err) {
         console.log("ERROR FROM SERVER ", err.response);
 
@@ -4146,7 +4164,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _trash = _asyncToGenerator(
       /*#__PURE__*/
       _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(id) {
-        var _this2 = this;
+        var _this3 = this;
 
         var offer, fd, loader;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
@@ -4167,7 +4185,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   console.log(res);
                   toastr.success("Oferta Descartada con éxito");
 
-                  _this2.refreshData();
+                  _this3.refreshData();
                 })["catch"](function (err) {
                   if (err.response.data.errorMessage) {
                     toastr.error(err.response.data.errorMessage);
@@ -42593,6 +42611,7 @@ var render = function() {
                     threshold: 1,
                     inputClass: "form-control"
                   },
+                  on: { selected: _vm.setDepartment },
                   model: {
                     value: _vm.department,
                     callback: function($$v) {
@@ -42612,9 +42631,8 @@ var render = function() {
                 _c("label", [_vm._v("Municipio")]),
                 _vm._v(" "),
                 _c("autocomplete-vue", {
+                  ref: "municipalitiesList",
                   attrs: {
-                    url: "/api/municipalities",
-                    requestType: "get",
                     placeholder: "Municipio",
                     property: "name",
                     required: true,
@@ -59030,8 +59048,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\ConsultingMe\colombia_internet\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\ConsultingMe\colombia_internet\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\z-projects\colombia_internet\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\z-projects\colombia_internet\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),
