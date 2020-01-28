@@ -62,7 +62,7 @@ export default {
       axios.delete(baseUrl+'/api/'+data.zone+'/'+data.id)
       .then(res=>{
         console.log(res);
-        toastr.success("Departamento eliminado con éxito");
+        toastr.success("Eliminado con éxito");
         this.refreshData();
       }).catch(err=>{
         if (err.response.data.errorMessage){

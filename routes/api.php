@@ -9,6 +9,7 @@ Route::get('/municipalities/{departmentName}','MunicipalityController@getByDepar
 
 Route::group(['middleware' => ['JwtMiddleware']], function () {
   Route::post('/department','DepartmentController@newDepartment');
+  Route::delete('/department/{id}','DepartmentController@deleteDepartment');
 
   Route::post('/company','CompanyController@newCompany');
   Route::put('/company/{id}','CompanyController@editCompany');

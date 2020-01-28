@@ -3552,7 +3552,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var loader = this.$loading.show();
       axios["delete"](baseUrl + '/api/' + data.zone + '/' + data.id).then(function (res) {
         console.log(res);
-        toastr.success("Departamento eliminado con éxito");
+        toastr.success("Eliminado con éxito");
 
         _this2.refreshData();
       })["catch"](function (err) {
