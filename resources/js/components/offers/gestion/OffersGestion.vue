@@ -1,11 +1,11 @@
 <template>
 <div class="container-fluid">
-    <div class="row justify-content-center py-4">
+    <div class="row justify-content-center py-1">
         <div class="col-8 col-sm-10">
             <offer-creation :services="services" @refresh="refreshData"></offer-creation>
         </div>
     </div>
-    <div class="row justify-content-center py-4">
+    <div class="row justify-content-center py-1">
       <div class="col-8 col-sm-10">
         <div class="card card-info" id="offerListAccordion">
           <a class="card-header collapsed" @click="active=!active" data-parent="#offerListAccordion" href="#collapseOffers" aria-expanded="false" data-toggle="collapse">

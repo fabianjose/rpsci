@@ -39470,7 +39470,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container-fluid" }, [
-    _c("div", { staticClass: "row justify-content-center py-4" }, [
+    _c("div", { staticClass: "row justify-content-center py-1" }, [
       _c(
         "div",
         { staticClass: "col-8 col-sm-10" },
@@ -39479,7 +39479,7 @@ var render = function() {
       )
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "row justify-content-center py-4" }, [
+    _c("div", { staticClass: "row justify-content-center py-1" }, [
       _c("div", { staticClass: "col-8 col-sm-10" }, [
         _c(
           "div",
@@ -40052,7 +40052,7 @@ var render = function() {
     "div",
     { staticClass: "container-fluid" },
     [
-      _c("div", { staticClass: "row justify-content-center py-4" }, [
+      _c("div", { staticClass: "row justify-content-center py-1" }, [
         _c(
           "div",
           { staticClass: "col-8 col-sm-10" },
@@ -40066,7 +40066,7 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "row justify-content-center py-4" }, [
+      _c("div", { staticClass: "row justify-content-center py-1" }, [
         _c("div", { staticClass: "col-8 col-sm-10" }, [
           _c(
             "div",
@@ -41475,7 +41475,7 @@ var render = function() {
     "div",
     { staticClass: "container-fluid" },
     [
-      _c("div", { staticClass: "row justify-content-center py-4" }, [
+      _c("div", { staticClass: "row justify-content-center py-1" }, [
         _c(
           "div",
           { staticClass: "col-12 col-md-10 col-lg-10" },
@@ -41484,7 +41484,7 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "row justify-content-center py-4" }, [
+      _c("div", { staticClass: "row justify-content-center py-1" }, [
         _c("div", { staticClass: "col-12 col-lg-10" }, [
           _c(
             "div",

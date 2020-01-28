@@ -1,11 +1,11 @@
 <template>
 <div class="container-fluid">
-    <div class="row justify-content-center py-4">
+    <div class="row justify-content-center py-1">
         <div class="col-12 col-md-10 col-lg-10">
             <service-creation @creatingDone="refreshData"></service-creation>
         </div>
     </div>
-    <div class="row justify-content-center py-4">
+    <div class="row justify-content-center py-1">
       <div class="col-12 col-lg-10">
         <div class="card card-info" id="serviceListAccordion">
           <a class="card-header collapsed" @click="active=!active" data-parent="#serviceListAccordion" href="#collapseOne" aria-expanded="false" data-toggle="collapse">
