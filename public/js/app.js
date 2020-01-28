@@ -4526,6 +4526,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -39931,7 +39935,7 @@ var render = function() {
       _c("div", { staticClass: "row justify-content-center py-4" }, [
         _c(
           "div",
-          { staticClass: "col-12 col-lg-10" },
+          { staticClass: "col-8 col-sm-10" },
           [
             _c("offer-creation", {
               attrs: { services: _vm.services },
@@ -39943,7 +39947,7 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "row justify-content-center py-4" }, [
-        _c("div", { staticClass: "col-12 col-lg-10" }, [
+        _c("div", { staticClass: "col-8 col-sm-10" }, [
           _c(
             "div",
             {
@@ -40834,7 +40838,7 @@ var render = function() {
       _c("div", { staticClass: "row justify-content-center py-4" }, [
         _c(
           "div",
-          { staticClass: "col-10 col-lg-12" },
+          { staticClass: "col-8 col-sm-10" },
           [
             _c("plans-creation", {
               on: { viewOffer: _vm.viewSelected, refresh: _vm.refreshData }
@@ -40848,34 +40852,38 @@ var render = function() {
         _vm._v("Ofertas Disponibles")
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "card card-primary" }, [
-        _vm._m(0),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "card-body" },
-          [
-            _c("zone-select", {
-              on: {
-                newDepartment: _vm.newDepartment,
-                newMunicipality: _vm.newMunicipality
-              }
-            }),
+      _c("div", { staticClass: "row justify-content-center py-4" }, [
+        _c("div", { staticClass: "col-8 col-sm-10" }, [
+          _c("div", { staticClass: "card card-primary " }, [
+            _vm._m(0),
             _vm._v(" "),
-            _c("div", { staticClass: "row my-3 px-4" }, [
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-lg btn-outline-success",
-                  attrs: { type: "button" },
-                  on: { click: _vm.refreshData }
-                },
-                [_vm._v("Buscar ofertas por municipio")]
-              )
-            ])
-          ],
-          1
-        )
+            _c(
+              "div",
+              { staticClass: "card-body" },
+              [
+                _c("zone-select", {
+                  on: {
+                    newDepartment: _vm.newDepartment,
+                    newMunicipality: _vm.newMunicipality
+                  }
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "row my-3 px-4" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-lg btn-outline-success",
+                      attrs: { type: "button" },
+                      on: { click: _vm.refreshData }
+                    },
+                    [_vm._v("Buscar ofertas por municipio")]
+                  )
+                ])
+              ],
+              1
+            )
+          ])
+        ])
       ]),
       _vm._v(" "),
       _c(
@@ -76869,14 +76877,14 @@ module.exports = function(module) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var autocomplete_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! autocomplete-vue */ "./node_modules/autocomplete-vue/dist/js/autocomplete-vue.js");
 /* harmony import */ var autocomplete_vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(autocomplete_vue__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var vue2_datepicker__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue2-datepicker */ "./node_modules/vue2-datepicker/index.esm.js");
-/* harmony import */ var vue2_datepicker_index_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vue2-datepicker/index.css */ "./node_modules/vue2-datepicker/index.css");
-/* harmony import */ var vue2_datepicker_index_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(vue2_datepicker_index_css__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var vue_resource__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-resource */ "./node_modules/vue-resource/dist/vue-resource.esm.js");
-/* harmony import */ var vue_loading_overlay__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-loading-overlay */ "./node_modules/vue-loading-overlay/dist/vue-loading.min.js");
-/* harmony import */ var vue_loading_overlay__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(vue_loading_overlay__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var vue_loading_overlay_dist_vue_loading_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue-loading-overlay/dist/vue-loading.css */ "./node_modules/vue-loading-overlay/dist/vue-loading.css");
-/* harmony import */ var vue_loading_overlay_dist_vue_loading_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(vue_loading_overlay_dist_vue_loading_css__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var vue2_datepicker__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue2-datepicker */ "./node_modules/vue2-datepicker/index.esm.js");
+/* harmony import */ var vue2_datepicker_index_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue2-datepicker/index.css */ "./node_modules/vue2-datepicker/index.css");
+/* harmony import */ var vue2_datepicker_index_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vue2_datepicker_index_css__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var vue_resource__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-resource */ "./node_modules/vue-resource/dist/vue-resource.esm.js");
+/* harmony import */ var vue_loading_overlay__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue-loading-overlay */ "./node_modules/vue-loading-overlay/dist/vue-loading.min.js");
+/* harmony import */ var vue_loading_overlay__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(vue_loading_overlay__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var vue_loading_overlay_dist_vue_loading_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue-loading-overlay/dist/vue-loading.css */ "./node_modules/vue-loading-overlay/dist/vue-loading.css");
+/* harmony import */ var vue_loading_overlay_dist_vue_loading_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(vue_loading_overlay_dist_vue_loading_css__WEBPACK_IMPORTED_MODULE_5__);
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -76934,12 +76942,12 @@ Vue.component('autocomplete-vue', autocomplete_vue__WEBPACK_IMPORTED_MODULE_0___
 
 
 
-Vue.component('datetimepicker', vue2_datepicker__WEBPACK_IMPORTED_MODULE_5__["default"]);
+Vue.component('datetimepicker', vue2_datepicker__WEBPACK_IMPORTED_MODULE_1__["default"]);
 
-Vue.use(vue_resource__WEBPACK_IMPORTED_MODULE_2__["default"]);
+Vue.use(vue_resource__WEBPACK_IMPORTED_MODULE_3__["default"]);
 
 
-Vue.use(vue_loading_overlay__WEBPACK_IMPORTED_MODULE_3___default.a, {
+Vue.use(vue_loading_overlay__WEBPACK_IMPORTED_MODULE_4___default.a, {
   loader: "spinner",
   color: "#20adf4",
   isFullPage: true,

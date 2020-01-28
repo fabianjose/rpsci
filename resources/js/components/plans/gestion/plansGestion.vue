@@ -1,24 +1,28 @@
 <template>
 <div class="container-fluid">
     <div class="row justify-content-center py-4">
-        <div class="col-10 col-lg-12">
+        <div class="col-8 col-sm-10">
             <plans-creation @viewOffer="viewSelected" @refresh="refreshData"></plans-creation>
         </div>
     </div>
     <h5 class="mt-4 mb-2 text-center">Ofertas Disponibles</h5>
-    <div class="card card-primary">
-        <div class="card-header">
-          <h3 class="card-title">Busqueda Avanzada</h3>
-        </div>
-        <div class="card-body">
-          
-          <zone-select @newDepartment="newDepartment" @newMunicipality="newMunicipality"  ></zone-select>
+    <div class="row justify-content-center py-4">
+      <div class="col-8 col-sm-10">
+        <div class="card card-primary ">
+          <div class="card-header">
+            <h3 class="card-title">Busqueda Avanzada</h3>
+          </div>
+          <div class="card-body">
+            
+            <zone-select @newDepartment="newDepartment" @newMunicipality="newMunicipality"  ></zone-select>
 
-          <div class="row my-3 px-4">
-            <button type="button" class="btn btn-lg btn-outline-success" @click="refreshData">Buscar ofertas por municipio</button>
+            <div class="row my-3 px-4">
+              <button type="button" class="btn btn-lg btn-outline-success" @click="refreshData">Buscar ofertas por municipio</button>
+            </div>
           </div>
         </div>
       </div>
+    </div>
     <div class="row justify-content-space-around py-4">
       <offer v-for="(offer,k) in offers" :key="k"
       :title="offer.service_name" :logo="offer.company_logo" :index="offer.id"
