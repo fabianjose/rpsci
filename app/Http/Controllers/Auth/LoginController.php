@@ -9,6 +9,7 @@ use App\Providers\RouteServiceProvider;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User;
+use Session;
 use JWTAuth;
 use Auth;
 
@@ -53,6 +54,8 @@ class LoginController extends Controller{
       return redirect()->back()->withErrors('Database Error');
     }
 
+    Session::put('JWT', $token);
+
     if($request->ajax()){
       return response()->json(['user'=>$user,'token'=>$token],200);
     }else{
@@ -61,6 +64,7 @@ class LoginController extends Controller{
   }
 
   public function logout() {
+    Session::put('JWT', null);
     Auth::logout();
     return redirect('/login');
   }

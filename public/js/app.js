@@ -76978,6 +76978,14 @@ try {
 
 window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+var jwtToken = document.head.querySelector('meta[name="jwt-token"]');
+
+if (jwtToken) {
+  console.log("header setting", 'Bearer ' + jwtToken.content);
+  window.axios.defaults.headers.common['Authorization'] = 'Bearer ' + jwtToken.content;
+} else {
+  console.error('JWT token not found');
+}
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
  * for events that are broadcast by Laravel. Echo and event broadcasting
@@ -76991,6 +76999,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     encrypted: true
 // });
+
 
 var baseUrl = document.head.querySelector('meta[name="base-url"]');
 
