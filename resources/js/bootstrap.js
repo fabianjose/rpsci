@@ -23,6 +23,15 @@ window.axios = require('axios');
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
+let jwtToken = document.head.querySelector('meta[name="jwt-token"]');
+
+if (jwtToken) {
+    console.log("header setting")
+    window.axios.defaults.headers.common['Authorization'] = 'Bearer '+_jwt.content;
+} else {
+    console.error('JWT token not found');
+}
+
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
  * for events that are broadcast by Laravel. Echo and event broadcasting
