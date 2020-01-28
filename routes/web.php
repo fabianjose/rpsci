@@ -45,6 +45,9 @@ Route::group(["middleware" => ["isAuth"]], function(){
         return view('pages.plans');
     });
 
+    Route::get("/locations", function(){
+        return view('pages.locations');
+    });
 
 });
 

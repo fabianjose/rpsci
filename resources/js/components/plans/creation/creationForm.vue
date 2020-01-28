@@ -92,8 +92,7 @@
             <div class="col-md-6 col-sm-10 col-10 col-lg-12">
 
               <div class="card card-success" id="SelectedOfferAccordion">
-                <a class="card-header collapsed" @click="active3=!active3" data-parent="#SelectedOfferAccordion"
-                    href="#SelectedOffer" aria-expanded="false" data-toggle="collapse">
+                <a class="card-header collapsed" @click="active3=!active3" data-parent="#SelectedOfferAccordion" href="#SelectedOffer" aria-expanded="false" data-toggle="collapse">
                     <h3 class="card-title">Oferta Seleccionada</h3>
                     <div class="card-tools">
                     <button type="button" class="btn btn-tool ml-auto " >
@@ -113,12 +112,10 @@
                     </div>
 
                     <div v-if="selectedOffer" class="col-8 form-group px-4">
-
                       <label>Fecha de expiracion</label>
-                      <!-- <input type="text" class="form-control" placeholder="YYYY/MM/DD" v-model="expiration"> -->
                     </div>
 
-                      <datetimepicker format="YYYY-MM-DD H:i:s" v-model="expiration"></datetimepicker>
+                      <datetimepicker value-type="YYYY-MM-DD HH:mm:ss" v-model="expiration" type="datetime"></datetimepicker>
 
                   </div>
 
@@ -128,7 +125,6 @@
           </div>
 
         </div>
-
 
         <div class="card-footer">
           <button type="button" class="btn btn-outline-success" @click="highlightOffer">Destacar</button>
