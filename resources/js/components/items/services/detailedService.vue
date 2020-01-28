@@ -9,16 +9,13 @@
           </button>
         </div>
         <div class="card-body d-flex flex-column box-profile">
-
           <h2 class="text-center">{{service.name}}</h2>
-
           <h5 class="">Campos</h5>
           <ul class="list-group list-group-unbordered mb-3 mt-3">
             <li class="list-group-item" v-for="field in service.fields">
               <b class="text-capitalize">{{field.label}}</b> <a class="float-right">{{getFieldType(field.type)}}</a>
             </li>
           </ul>
-
           <button href="#" class="btn btn-outline-danger btn-block" data-dismiss="modal"><b>Cerrar</b></button>
         </div>
       </div>
@@ -46,7 +43,7 @@ export default {
               case "select":
                     return "Seleccionable"
                   break;
-          
+
               default:
                   break;
           }

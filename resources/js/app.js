@@ -43,6 +43,7 @@ Vue.component('company-highlight', require('./components/companies/creation/High
 Vue.component('offers-gestion', require('./components/offers/gestion/OffersGestion.vue').default);
 Vue.component('offer-creation', require('./components/offers/creation/CreationForm.vue').default);
 Vue.component('offer', require('./components/items/offers/offer.vue').default);
+Vue.component('offerItem', require('./components/items/offers/offerItem.vue').default);
 Vue.component('offer-details', require('./components/items/offers/detailedOffer.vue').default);
 Vue.component('offer-update', require('./components/offers/update/updateForm.vue').default);
 
@@ -73,9 +74,7 @@ import VueResource from 'vue-resource';
 Vue.use(VueResource);
 
 import Loading from 'vue-loading-overlay';
-// Import stylesheet
 import 'vue-loading-overlay/dist/vue-loading.css';
-// Init plugin
 Vue.use(Loading,{
     loader:"spinner",
     color:"#20adf4",

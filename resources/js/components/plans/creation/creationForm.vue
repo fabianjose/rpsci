@@ -50,7 +50,7 @@
 
                 <div id="OffersList" class="panel-collapse in collapse" >
                   <div class="card-body">
-                  
+
                       <div class="d-flex flex-row justify-content-around w-100 flex-wrap">
                         <offer class="col-md-6 col-lg-4 col-sm-8" v-for="(offer,k) in offersByArea" :key="k"
                           :title="offer.service_name" :logo="offer.company_logo" :index="k"
@@ -63,7 +63,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-6 col-sm-10 col-10 col-lg-6">
+            <div class="col-md-6 col-sm-10 col-10 col-lg-12">
 
               <div class="card card-success" id="SelectedOfferAccordion">
                 <a class="card-header collapsed" @click="active3=!active3" data-parent="#SelectedOfferAccordion"
@@ -148,10 +148,10 @@ export default {
 
     highlightOffer(){
       let fd= new FormData();
-      
-      if(this.expiration) fd.append("highlighted_expiration", this.expiration.split);
+
+      if(this.expiration) fd.append("highlighted_expiration", this.expiration);
       else return toastr.error("Debe introducir una fecha de expiración");
-        
+
       let loader = this.$loading.show();
 
       axios.post(baseUrl+'/api/offers/highlight/'+this.selectedOffer.id,fd)
