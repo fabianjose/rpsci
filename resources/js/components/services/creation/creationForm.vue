@@ -130,6 +130,7 @@ export default {
     console.log(baseUrl);
   },
   methods:{
+    
     uploadFile: function(){
       console.log("[File] Change")
       let uploadFile=this.$refs.SelectFile.files[0]

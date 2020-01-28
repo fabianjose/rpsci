@@ -11,7 +11,8 @@
 
       <div id="collapseOne" class="panel-collapse in collapse" >
         <div class="card-body">
-          <div class="d-flex w-100 flex-wrap">
+
+          <zone-select @newDepartment="newDepartment" @newMunicipality="newMunicipality"  >
             <div class="form-group col-xl-6 col-lg-6 col-md-6 col-6">
               <label>Empresa</label>
               <autocomplete-vue
@@ -26,35 +27,8 @@
               value="id"
               ></autocomplete-vue>
             </div>
+          </zone-select>
 
-            <div class="form-group col-xl-6 col-lg-6 col-md-6 col-12">
-              <label>Departamento</label>
-              <autocomplete-vue
-              v-model="department"
-              url="/api/departments"
-              requestType="get"
-              placeholder="Departamento"
-              property="name"
-              :required="true"
-              :threshold="1"
-              inputClass="form-control"
-              ></autocomplete-vue>
-            </div>
-
-            <div class="form-group col-xl-6 col-lg-6 col-md-6 col-12">
-              <label>Municipio</label>
-              <autocomplete-vue
-              v-model="municipality"
-              url="/api/municipalities"
-              requestType="get"
-              placeholder="Municipio"
-              property="name"
-              :required="true"
-              :threshold="1"
-              inputClass="form-control"
-              ></autocomplete-vue>
-            </div>
-          </div>
 
           <div class="row my-3 px-4">
             <button type="button" class="btn btn-outline-success" @click="highlightedOffers">Buscar ofertas</button>
@@ -123,7 +97,6 @@
               </div>
             </div>
           </div>
-
         </div>
 
         <div class="card-footer">
@@ -152,6 +125,15 @@ export default {
   mounted(){
   },
   methods:{
+
+    newDepartment(department){
+      this.department=department;
+    },
+
+    newMunicipality(municipality){
+      this.municipality=municipality;
+    },
+
     OpenAccordion(parentId,childId,activeIndex){
       if(!$(parentId).hasClass("collapsed")) $(parentId).addClass("collapsed");
       else return;
@@ -159,6 +141,7 @@ export default {
       else return;
       this[activeIndex]= !this[activeIndex];
     },
+
     highlightOffer(){
       let fd= new FormData();
 
@@ -206,13 +189,10 @@ export default {
       console.log(typeof this.company, typeof this.municipality, typeof this.department);
 
       if(this.company) fd.append("company", this.company);
-      else return;
 
       if(this.department) fd.append("department", this.department);
-      else return;
 
       if(this.municipality) fd.append("municipality", this.municipality);
-      else return;
 
       let loader = this.$loading.show();
 

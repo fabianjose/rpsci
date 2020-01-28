@@ -11,36 +11,8 @@
           <h3 class="card-title">Busqueda Avanzada</h3>
         </div>
         <div class="card-body">
-          <div class="d-flex w-100 flex-wrap">
-
-            <div class="form-group col-xl-6 col-lg-6 col-md-6 col-12">
-              <label>Departamento</label>
-              <autocomplete-vue
-              v-model="department"
-              url="/api/departments"
-              requestType="get"
-              placeholder="Departamento"
-              property="name"
-              :required="true"
-              :threshold="1"
-              inputClass="form-control"
-              ></autocomplete-vue>
-            </div>
-
-            <div class="form-group col-xl-6 col-lg-6 col-md-6 col-12">
-              <label>Municipio</label>
-              <autocomplete-vue
-              v-model="municipality"
-              url="/api/municipalities"
-              requestType="get"
-              placeholder="Municipio"
-              property="name"
-              :required="true"
-              :threshold="1"
-              inputClass="form-control"
-              ></autocomplete-vue>
-            </div>
-          </div>
+          
+          <zone-select @newDepartment="newDepartment" @newMunicipality="newMunicipality"  ></zone-select>
 
           <div class="row my-3 px-4">
             <button type="button" class="btn btn-lg btn-outline-success" @click="refreshData">Buscar ofertas por municipio</button>
@@ -78,7 +50,17 @@ export default {
     toastr.info('Puedes buscar las ofertas activas por su municipio');
   },
   methods:{
+
+    newDepartment(department){
+      this.department=department;
+    },
+
+    newMunicipality(municipality){
+      this.municipality=municipality;
+    },
+
     refreshData(){
+
       let fd = new FormData();
 
       if(this.department) fd.append("department", this.department);
