@@ -43,34 +43,10 @@
             <textarea class="form-control" rows="3" placeholder="Beneficios..." v-model="offer.benefits" style="resize: none;"></textarea>
           </div>
         </div>
-        <div class="d-flex w-100 flex-wrap">
-          <div class="form-group col-xl-6 col-lg-6 col-md-6 col-12">
-            <label>Departamento</label>
-            <autocomplete-vue
-            v-model="offer.department_name"
-            url="/api/departments"
-            requestType="get"
-            placeholder="Departamento"
-            property="name"
-            :required="true"
-            :threshold="1"
-            inputClass="form-control"
-            ></autocomplete-vue>
-          </div>
-          <div class="form-group col-xl-6 col-lg-6 col-md-6 col-12">
-            <label>Municipio</label>
-            <autocomplete-vue
-            v-model="offer.municipality_name"
-            url="/api/municipalities"
-            requestType="get"
-            placeholder="Municipio"
-            property="name"
-            :required="true"
-            :threshold="1"
-            inputClass="form-control"
-            ></autocomplete-vue>
-          </div>
-        </div>
+        
+        <zone-select @newDepartment="newDepartment" @newMunicipality="newMunicipality"  ></zone-select>
+
+
         <div class="d-flex w-100 flex-wrap">
           <div class="form-group col-xl-4 col-lg-4 col-md-6 col-6">
             <label>Tarifa</label>
@@ -110,6 +86,13 @@
 export default {
   props:["offer","services"],
   methods:{
+    newDepartment(department){
+      this.offer.department_name=department;
+    },
+
+    newMunicipality(municipality){
+      this.offer.municipality_name=municipality;
+    },
     editOffer(){
       for (var i = 0; i < this.offer.service_fields.length; i++) {
         if (!this.offer.fields_value[i]){
