@@ -3553,7 +3553,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var loader = this.$loading.show();
       axios["delete"](baseUrl + '/api/' + data.zone + '/' + data.id).then(function (res) {
         console.log(res);
-        toastr.success("Departamento eliminado con éxito");
+        toastr.success("Eliminado con éxito");
 
         _this2.refreshData();
       })["catch"](function (err) {
@@ -39324,15 +39324,18 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "card card-info", attrs: { id: "createLocationAccordion" } },
+    {
+      staticClass: "card card-info",
+      attrs: { id: "createDepartmentAccordion" }
+    },
     [
       _c(
         "a",
         {
           staticClass: "card-header collapsed",
           attrs: {
-            "data-parent": "#createLocationAccordion",
-            href: "#collapseCreateLocation",
+            "data-parent": "#createDepartmentAccordion",
+            href: "#collapseCreateDepartment",
             "aria-expanded": "false",
             "data-toggle": "collapse"
           },
@@ -39365,7 +39368,7 @@ var render = function() {
         "div",
         {
           staticClass: "panel-collapse in collapse",
-          attrs: { id: "collapseCreateLocation" }
+          attrs: { id: "collapseCreateDepartment" }
         },
         [
           _c("div", { staticClass: "card-body" }, [
@@ -39395,26 +39398,23 @@ var render = function() {
             ])
           ]),
           _vm._v(" "),
-          _vm._m(0)
+          _c("div", { staticClass: "card-footer" }, [
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-outline-success",
+                attrs: { type: "button" },
+                on: { click: _vm.submitNewDepartment }
+              },
+              [_vm._v("Agregar")]
+            )
+          ])
         ]
       )
     ]
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-footer" }, [
-      _c(
-        "button",
-        { staticClass: "btn btn-outline-success", attrs: { type: "button" } },
-        [_vm._v("Agregar")]
-      )
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -78863,8 +78863,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\web 03\Music\colombia_internet\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\web 03\Music\colombia_internet\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\ConsultingMe\colombia_internet\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\ConsultingMe\colombia_internet\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),

@@ -3,11 +3,13 @@
 use Illuminate\Http\Request;
 
 Route::post('/login','Auth\LoginController@enter');
+Route::get('/departments','DepartmentController@getAll');
+Route::get('/municipalities','MunicipalityController@getAll');
+Route::get('/municipalities/{departmentName}','MunicipalityController@getByDepartment');
 
 Route::group(['middleware' => ['JwtMiddleware']], function () {
-  Route::get('/departments','DepartmentController@getAll');
-  Route::get('/municipalities','MunicipalityController@getAll');
-  Route::get('/municipalities/{departmentName}','MunicipalityController@getByDepartment');
+  Route::post('/department','DepartmentController@newDepartment');
+  Route::delete('/department/{id}','DepartmentController@deleteDepartment');
 
   Route::post('/company','CompanyController@newCompany');
   Route::put('/company/{id}','CompanyController@editCompany');

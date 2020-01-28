@@ -29,7 +29,7 @@
             <div class="form-group col-xl-6 col-lg-6 col-md-6 col-6">
               <label>Servicio</label>
               <select class="custom-select" v-model="service">
-                <option :value="service.id" v-for="service in services"  :key="service.id">{{service.name}}</option>
+                <option :value="service.id" v-for="service in services" :key="service.id">{{service.name}}</option>
               </select>
             </div>
           </div>
@@ -45,7 +45,7 @@
               <textarea class="form-control" rows="3" placeholder="Beneficios..." v-model="benefits" style="resize: none;"></textarea>
             </div>
           </div>
-          
+
           <zone-select @newDepartment="newDepartment" @newMunicipality="newMunicipality"  ></zone-select>
 
 

@@ -1,6 +1,6 @@
 <template>
-  <div class="card card-info" id="createLocationAccordion">
-    <a class="card-header collapsed" @click="active=!active" data-parent="#createLocationAccordion" href="#collapseCreateLocation" aria-expanded="false" data-toggle="collapse">
+  <div class="card card-info" id="createDepartmentAccordion">
+    <a class="card-header collapsed" @click="active=!active" data-parent="#createDepartmentAccordion" href="#collapseCreateDepartment" aria-expanded="false" data-toggle="collapse">
       <h3 class="card-title">Nuevo Departamento</h3>
       <div class="card-tools">
         <button type="button" class="btn btn-tool ml-auto " >
@@ -8,7 +8,7 @@
         </button>
       </div>
     </a>
-    <div id="collapseCreateLocation" class="panel-collapse in collapse" >
+    <div id="collapseCreateDepartment" class="panel-collapse in collapse" >
       <div class="card-body">
         <div class="form-group">
           <label>Nombre del Departamento</label>
@@ -16,7 +16,7 @@
         </div>
       </div>
       <div class="card-footer">
-        <button type="button" class="btn btn-outline-success">Agregar</button>
+        <button type="button" class="btn btn-outline-success" @click="submitNewDepartment">Agregar</button>
       </div>
     </div>
   </div>
