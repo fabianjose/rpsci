@@ -33,7 +33,7 @@ export default {
   mounted(){
   },
   methods:{
-    submitNewService: function(){
+    submitNewDepartment: function(){
       let fd= new FormData();
       fd.append("name", this.name);
       let loader = this.$loading.show();
@@ -43,7 +43,7 @@ export default {
         console.log("RESPONSE FROM SERVER ",res);
         toastr.success('Departamento creado exitosamente');
         this.name = "";
-        this.$emit("creatingDone")
+        this.$emit("creatingDone");
       }).catch(err=>{
         console.log("ERROR FROM SERVER ",err.response);
         if (err.response.data.errorMessage){

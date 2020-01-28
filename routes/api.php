@@ -5,8 +5,6 @@ use Illuminate\Http\Request;
 Route::post('/login','Auth\LoginController@enter');
 
 Route::group(['middleware' => ['JwtMiddleware']], function () {
-
-// IDEA: ESTO DEBE SER BORRADO DESPUES, ES SOLO PARA FACILITAR EL TESTEO, atte: eduardo
   Route::get('/departments','DepartmentController@getAll');
   Route::get('/municipalities','MunicipalityController@getAll');
   Route::get('/municipalities/{departmentName}','MunicipalityController@getByDepartment');
@@ -37,6 +35,6 @@ Route::group(['middleware' => ['JwtMiddleware']], function () {
   Route::get('offers/highlighted', 'OfferController@getAllHighlighted');
   Route::post('offers/highlight/{id}', "OfferController@HighlightOffer");
   Route::post('offers/area/highlight', "OfferController@getHighlightByLocation");
-//////////////////////////////////////////////////////////////////////////
+
 
 });

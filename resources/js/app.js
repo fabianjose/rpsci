@@ -56,7 +56,7 @@ Vue.component('service-update', require('./components/services/update/updateForm
 
 Vue.component('location-creation', require("./components/locations/creation/creationForm.vue").default);
 Vue.component('locations-gestion', require("./components/locations/gestion/gestion.vue").default);
-// Vue.component('location', require('./components/items/locations/location.vue').default);
+Vue.component('department', require('./components/items/zone/department.vue').default);
 // Vue.component('location-details', require('./components/items/locations/detailedLocation.vue').default);
 // Vue.component('location-update', require('./components/locations/update/updateForm.vue').default);
 
