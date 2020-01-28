@@ -3246,6 +3246,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: ["middle", "hideDepartment", "hideMunicipality"],
   data: function data() {
     return {
       municipality: "",
@@ -39069,62 +39070,74 @@ var render = function() {
     [
       _vm._t("default"),
       _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "form-group col-xl-6 col-lg-6 col-md-6 col-6" },
-        [
-          _c("label", [_vm._v("Departamento")]),
-          _vm._v(" "),
-          _c("autocomplete-vue", {
-            attrs: {
-              url: "/api/departments",
-              requestType: "get",
-              placeholder: "Departamento",
-              property: "name",
-              required: true,
-              threshold: 1,
-              inputClass: "form-control"
+      !_vm.hideDepartment
+        ? _c(
+            "div",
+            {
+              class: _vm.middle
+                ? "col-10"
+                : "form-group col-xl-6 col-lg-6 col-md-6 col-6"
             },
-            on: { selected: _vm.setDepartment },
-            model: {
-              value: _vm.department,
-              callback: function($$v) {
-                _vm.department = $$v
-              },
-              expression: "department"
-            }
-          })
-        ],
-        1
-      ),
+            [
+              _c("label", [_vm._v("Departamento")]),
+              _vm._v(" "),
+              _c("autocomplete-vue", {
+                attrs: {
+                  url: "/api/departments",
+                  requestType: "get",
+                  placeholder: "Departamento",
+                  property: "name",
+                  required: true,
+                  threshold: 1,
+                  inputClass: "form-control"
+                },
+                on: { selected: _vm.setDepartment },
+                model: {
+                  value: _vm.department,
+                  callback: function($$v) {
+                    _vm.department = $$v
+                  },
+                  expression: "department"
+                }
+              })
+            ],
+            1
+          )
+        : _vm._e(),
       _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "form-group col-xl-6 col-lg-6 col-md-6 col-6" },
-        [
-          _c("label", [_vm._v("Municipio")]),
-          _vm._v(" "),
-          _c("autocomplete-vue", {
-            ref: "municipalitiesList",
-            attrs: {
-              placeholder: "Municipio",
-              property: "name",
-              required: true,
-              threshold: 1,
-              inputClass: "form-control"
+      !_vm.hideMunicipality
+        ? _c(
+            "div",
+            {
+              class: _vm.middle
+                ? "col-10"
+                : "form-group col-xl-6 col-lg-6 col-md-6 col-6"
             },
-            on: { selected: _vm.setMunicipality },
-            model: {
-              value: _vm.municipality,
-              callback: function($$v) {
-                _vm.municipality = $$v
-              },
-              expression: "municipality"
-            }
-          })
-        ],
-        1
-      )
+            [
+              _c("label", [_vm._v("Municipio")]),
+              _vm._v(" "),
+              _c("autocomplete-vue", {
+                ref: "municipalitiesList",
+                attrs: {
+                  placeholder: "Municipio",
+                  property: "name",
+                  required: true,
+                  threshold: 1,
+                  inputClass: "form-control"
+                },
+                on: { selected: _vm.setMunicipality },
+                model: {
+                  value: _vm.municipality,
+                  callback: function($$v) {
+                    _vm.municipality = $$v
+                  },
+                  expression: "municipality"
+                }
+              })
+            ],
+            1
+          )
+        : _vm._e()
     ],
     2
   )
