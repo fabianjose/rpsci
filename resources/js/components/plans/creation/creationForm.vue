@@ -11,7 +11,8 @@
 
       <div id="collapseOne" class="panel-collapse in collapse" >
         <div class="card-body">
-          <div class="d-flex w-100 flex-wrap">
+
+          <zone-select @newDepartment="newDepartment" @newMunicipality="newMunicipality"  >
             <div class="form-group col-xl-6 col-lg-6 col-md-6 col-6">
               <label>Empresa</label>
               <autocomplete-vue
@@ -26,35 +27,8 @@
               value="id"
               ></autocomplete-vue>
             </div>
+          </zone-select>
 
-            <div class="form-group col-xl-6 col-lg-6 col-md-6 col-12">
-              <label>Departamento</label>
-              <autocomplete-vue
-              v-model="department"
-              url="/api/departments"
-              requestType="get"
-              placeholder="Departamento"
-              property="name"
-              :required="true"
-              :threshold="1"
-              inputClass="form-control"
-              ></autocomplete-vue>
-            </div>
-
-            <div class="form-group col-xl-6 col-lg-6 col-md-6 col-12">
-              <label>Municipio</label>
-              <autocomplete-vue
-              v-model="municipality"
-              url="/api/municipalities"
-              requestType="get"
-              placeholder="Municipio"
-              property="name"
-              :required="true"
-              :threshold="1"
-              inputClass="form-control"
-              ></autocomplete-vue>
-            </div>
-          </div>
 
           <div class="row my-3 px-4">
             <button type="button" class="btn btn-outline-success" @click="highlightedOffers">Buscar ofertas</button>
@@ -76,7 +50,7 @@
 
                 <div id="OffersList" class="panel-collapse in collapse" >
                   <div class="card-body">
-                  
+
                       <div class="d-flex flex-row justify-content-around w-100 flex-wrap">
                         <offer class="col-md-6 col-lg-4 col-sm-8" v-for="(offer,k) in offersByArea" :key="k"
                           :title="offer.service_name" :logo="offer.company_logo" :index="k"
@@ -89,11 +63,10 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-6 col-sm-10 col-10 col-lg-6">
+            <div class="col-md-6 col-sm-10 col-10 col-lg-12">
 
               <div class="card card-success" id="SelectedOfferAccordion">
-                <a class="card-header collapsed" @click="active3=!active3" data-parent="#SelectedOfferAccordion"
-                    href="#SelectedOffer" aria-expanded="false" data-toggle="collapse">
+                <a class="card-header collapsed" @click="active3=!active3" data-parent="#SelectedOfferAccordion" href="#SelectedOffer" aria-expanded="false" data-toggle="collapse">
                     <h3 class="card-title">Oferta Seleccionada</h3>
                     <div class="card-tools">
                     <button type="button" class="btn btn-tool ml-auto " >
@@ -113,12 +86,10 @@
                     </div>
 
                     <div v-if="selectedOffer" class="col-8 form-group px-4">
-
                       <label>Fecha de expiracion</label>
-                      <!-- <input type="text" class="form-control" placeholder="YYYY/MM/DD" v-model="expiration"> -->
                     </div>
 
-                      <datetimepicker format="YYYY-MM-DD H:i:s" v-model="expiration"></datetimepicker>
+                      <datetimepicker value-type="YYYY-MM-DD HH:mm:ss" v-model="expiration" type="datetime"></datetimepicker>
 
                   </div>
 
@@ -126,9 +97,7 @@
               </div>
             </div>
           </div>
-
         </div>
-
 
         <div class="card-footer">
           <button type="button" class="btn btn-outline-success" @click="highlightOffer">Destacar</button>
@@ -156,6 +125,15 @@ export default {
   mounted(){
   },
   methods:{
+
+    newDepartment(department){
+      this.department=department;
+    },
+
+    newMunicipality(municipality){
+      this.municipality=municipality;
+    },
+
     OpenAccordion(parentId,childId,activeIndex){
       if(!$(parentId).hasClass("collapsed")) $(parentId).addClass("collapsed");
       else return;
@@ -163,12 +141,13 @@ export default {
       else return;
       this[activeIndex]= !this[activeIndex];
     },
+
     highlightOffer(){
       let fd= new FormData();
-      
-      if(this.expiration) fd.append("highlighted_expiration", this.expiration.split);
+
+      if(this.expiration) fd.append("highlighted_expiration", this.expiration);
       else return toastr.error("Debe introducir una fecha de expiración");
-        
+
       let loader = this.$loading.show();
 
       axios.post(baseUrl+'/api/offers/highlight/'+this.selectedOffer.id,fd)
@@ -210,13 +189,10 @@ export default {
       console.log(typeof this.company, typeof this.municipality, typeof this.department);
 
       if(this.company) fd.append("company", this.company);
-      else return;
 
       if(this.department) fd.append("department", this.department);
-      else return;
 
       if(this.municipality) fd.append("municipality", this.municipality);
-      else return;
 
       let loader = this.$loading.show();
 

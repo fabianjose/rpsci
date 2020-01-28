@@ -1,17 +1,34 @@
 <template>
 <div class="container-fluid">
     <div class="row justify-content-center py-4">
-        <div class="col-10 col-lg-12">
+        <div class="col-12 col-lg-10">
             <offer-creation :services="services" @refresh="refreshData"></offer-creation>
         </div>
     </div>
-    <h5 class="mt-4 mb-2 text-center">Ofertas Disponibles</h5>
-    <div class="row justify-content-space-between py-4">
-      <offer v-for="(offer,k) in offers" :key="k"
-      :title="offer.service_name" :logo="offer.company_logo" :index="offer.id"
-      :company="offer.company_name"
-      @delete="trash" @view="viewModal" @edit="update"
-      ></offer>
+    <div class="row justify-content-center py-4">
+      <div class="col-12 col-lg-10">
+        <div class="card card-info" id="offerListAccordion">
+          <a class="card-header collapsed" @click="active=!active" data-parent="#offerListAccordion" href="#collapseOffers" aria-expanded="false" data-toggle="collapse">
+            <h3 class="card-title">Ofertas Disponibles</h3>
+            <div class="card-tools">
+              <button type="button" class="btn btn-tool ml-auto" >
+                <personal-fab :active="active" />
+              </button>
+            </div>
+          </a>
+          <div id="collapseOffers" class="panel-collapse in collapse">
+            <div class="card-body p-0">
+              <ul class="list-group p-0">
+                <offerItem v-for="(offer,k) in offers" :key="k"
+                :title="offer.service_name" :logo="offer.company_logo" :index="offer.id"
+                :company="offer.company_name"
+                @delete="trash" @view="viewModal" @edit="update"
+                />
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <offer-details v-if="currentOffer&&viewMode" :offer="currentOffer">
     </offer-details>
@@ -29,7 +46,8 @@ export default {
       currentOffer:null,
       viewMode:false,
       updateMode: false,
-      services: null
+      services: null,
+      active: false
     }
   },
   mounted(){
@@ -61,7 +79,7 @@ export default {
       }).finally(()=>loader.hide());
 
     },
-    trash(id){        
+    trash(id){
       let loader = this.$loading.show();
       axios.delete(baseUrl+'/api/offer/'+id)
       .then(res=>{

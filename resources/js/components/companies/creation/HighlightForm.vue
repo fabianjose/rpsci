@@ -24,10 +24,9 @@
               inputClass="form-control"
               ></autocomplete-vue>
           </div>
-          <div class="form-group">
+          <div class="form-group d-flex flex-column">
               <label>Fecha de expiracion</label>
-              <!-- <input type="text" class="form-control" placeholder="YYYY/MM/DD" v-model="expiration"> -->
-              <datetimepicker format="YYYY-MM-DD H:i:s" v-model="expiration"></datetimepicker>
+              <datetimepicker value-type="YYYY-MM-DD HH:mm:ss" v-model="expiration" type="datetime"></datetimepicker>
           </div>
         </div>
 
@@ -61,7 +60,7 @@ export default {
         fd.append("_method", 'put');
 
         let loader = this.$loading.show();
-        
+
         axios.post(baseUrl+'/api/company/'+this.company+'/highlight',fd)
         .then(res=>{
           console.log("RESPONSE FROM SERVER ",res);

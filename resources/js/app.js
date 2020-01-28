@@ -43,6 +43,7 @@ Vue.component('company-highlight', require('./components/companies/creation/High
 Vue.component('offers-gestion', require('./components/offers/gestion/OffersGestion.vue').default);
 Vue.component('offer-creation', require('./components/offers/creation/CreationForm.vue').default);
 Vue.component('offer', require('./components/items/offers/offer.vue').default);
+Vue.component('offerItem', require('./components/items/offers/offerItem.vue').default);
 Vue.component('offer-details', require('./components/items/offers/detailedOffer.vue').default);
 Vue.component('offer-update', require('./components/offers/update/updateForm.vue').default);
 
@@ -53,8 +54,17 @@ Vue.component('service', require('./components/items/services/service.vue').defa
 Vue.component('service-details', require('./components/items/services/detailedService.vue').default);
 Vue.component('service-update', require('./components/services/update/updateForm.vue').default);
 
+Vue.component('location-creation', require("./components/locations/creation/creationForm.vue").default);
+Vue.component('locations-gestion', require("./components/locations/gestion/gestion.vue").default);
+// Vue.component('location', require('./components/items/locations/location.vue').default);
+// Vue.component('location-details', require('./components/items/locations/detailedLocation.vue').default);
+// Vue.component('location-update', require('./components/locations/update/updateForm.vue').default);
+
 Vue.component('plans-creation', require("./components/plans/creation/creationForm.vue").default);
 Vue.component('plans-gestion', require("./components/plans/gestion/plansGestion.vue").default);
+
+Vue.component('zone-select', require('./components/items/zone/zoneSelect.vue').default);
+
 //Vue.component('plans', require('./components/items/plans/plans.vue').default);
 //Vue.component('plans-details', require('./components/items/services/detailedService.vue').default);
 //Vue.component('plans-update', require('./components/services/update/updateForm.vue').default);
@@ -63,16 +73,16 @@ Vue.component('plans-gestion', require("./components/plans/gestion/plansGestion.
 import AutocompleteVue from 'autocomplete-vue';
 Vue.component('autocomplete-vue', AutocompleteVue);
 
-import DateTimePicker from 'vuejs-datetimepicker';
-Vue.component('datetimepicker', DateTimePicker)
+// import DateTimePicker from 'vuejs-datetimepicker';
+import DatePicker from 'vue2-datepicker';
+import 'vue2-datepicker/index.css';
+Vue.component('datetimepicker', DatePicker);
 
 import VueResource from 'vue-resource';
 Vue.use(VueResource);
 
 import Loading from 'vue-loading-overlay';
-// Import stylesheet
 import 'vue-loading-overlay/dist/vue-loading.css';
-// Init plugin
 Vue.use(Loading,{
     loader:"spinner",
     color:"#20adf4",

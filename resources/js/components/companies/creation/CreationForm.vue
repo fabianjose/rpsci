@@ -1,61 +1,60 @@
 <template>
-    <div class="card card-info" id="createCompanyAccordion">
-      <a class="card-header collapsed" @click="active=!active" data-parent="#createCompanyAccordion"
-      href="#collapseOne" aria-expanded="false" data-toggle="collapse">
-        <h3 class="card-title">Nueva Empresa</h3>
-        <div class="card-tools">
-          <button type="button" class="btn btn-tool ml-auto " >
-            <personal-fab :active="active" />
-          </button>
+  <div class="card card-info" id="createCompanyAccordion">
+    <a class="card-header collapsed" @click="active=!active" data-parent="#createCompanyAccordion" href="#collapseOne" aria-expanded="false" data-toggle="collapse">
+      <h3 class="card-title">Nueva Empresa</h3>
+      <div class="card-tools">
+        <button type="button" class="btn btn-tool ml-auto " >
+          <personal-fab :active="active" />
+        </button>
+      </div>
+    </a>
+
+    <div id="collapseOne" class="panel-collapse in collapse" >
+      <div class="card-body">
+
+        <div v-if="logo" class="d-flex flex-column align-items-center py-4">
+          <h4 class="px-2 my-3 text-dark card-text">Logo de la Empresa</h4>
+          <img class="img-fluid" style="max-height:150px;" :src="onPreview?onPreview:(baseUrl+'/storage/'+company.logo)" alt="">
         </div>
-      </a>
 
-      <div id="collapseOne" class="panel-collapse in collapse" >
-        <div class="card-body">
+        <div class="form-group">
+          <label>Nombre de la Empresa</label>
+          <input v-model="name" class="form-control">
+        </div>
 
-          <div v-if="logo" class="d-flex flex-column align-items-center py-4">
-                <h4 class="px-2 my-3 text-dark card-text">Logo de la Empresa</h4>
-                <img class="img-fluid" style="max-height:150px;" :src="onPreview?onPreview:(baseUrl+'/storage/'+company.logo)" alt="">
-          </div>
-
-          <div class="form-group">
-            <label>Nombre de la Empresa</label>
-            <input v-model="name" class="form-control">
-          </div>
-
-          <div class="form-group">
-            <label for="exampleInputFile">Logo de la Empresa</label>
-            <div class="input-group">
-              <div class="custom-file">
-                <input type="file" @change="uploadFile" class="custom-file-input" ref="SelectFile" id="InputFile">
-                <label class="custom-file-label" for="InputFile">Seleccionar Archivo</label>
-              </div>
+        <div class="form-group">
+          <label for="exampleInputFile">Logo de la Empresa</label>
+          <div class="input-group">
+            <div class="custom-file">
+              <input type="file" @change="uploadFile" class="custom-file-input" ref="SelectFile" id="InputFile">
+              <label class="custom-file-label" for="InputFile">Seleccionar Archivo</label>
             </div>
           </div>
-
-          <div class="form-group">
-            <label>NIT de la Empresa</label>
-            <input v-model="nit" class="form-control">
-            <p class="text-muted text-sm" > <span class="text-danger">*</span> Este campo es opcional</p>
-          </div>
-
-          <div class="form-group">
-            <label>Teléfono de la Empresa</label>
-            <input v-model="phone" class="form-control">
-          </div>
-
-          <div class="form-group">
-            <label>Web de la Empresa</label>
-            <input v-model="web" class="form-control">
-          </div>
-
         </div>
 
-        <div class="card-footer">
-            <button type="button" class="btn btn-outline-success" @click="submitNewCompany">Agregar</button>
+        <div class="form-group">
+          <label>NIT de la Empresa</label>
+          <input v-model="nit" class="form-control">
+          <p class="text-muted text-sm" > <span class="text-danger">*</span> Este campo es opcional</p>
         </div>
+
+        <div class="form-group">
+          <label>Teléfono de la Empresa</label>
+          <input v-model="phone" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label>Web de la Empresa</label>
+          <input v-model="web" class="form-control">
+        </div>
+
+      </div>
+
+      <div class="card-footer">
+        <button type="button" class="btn btn-outline-success" @click="submitNewCompany">Agregar</button>
       </div>
     </div>
+  </div>
 </template>
 
 <script>

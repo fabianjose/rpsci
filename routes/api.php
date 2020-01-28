@@ -7,7 +7,7 @@ Route::post('/login','Auth\LoginController@enter');
 // IDEA: ESTO DEBE SER BORRADO DESPUES, ES SOLO PARA FACILITAR EL TESTEO, atte: eduardo
 Route::get('/departments','DepartmentController@getAll');
 Route::get('/municipalities','MunicipalityController@getAll');
-Route::get('/municipalities/{departmentId}','MunicipalityController@getByDepartment');
+Route::get('/municipalities/{departmentName}','MunicipalityController@getByDepartment');
 
 Route::post('/company','CompanyController@newCompany');
 Route::put('/company/{id}','CompanyController@editCompany');

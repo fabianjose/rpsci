@@ -70,6 +70,13 @@
             </a>
           </li>
 
+          <li class="nav-item ">
+            <a class="nav-link " href="/locations">
+              <i class="fas fa-map-marker-alt"></i>
+              <p>Zonas</p>
+            </a>
+          </li>
+
         </ul>
       </nav>
     </div>
