@@ -26,8 +26,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 let jwtToken = document.head.querySelector('meta[name="jwt-token"]');
 
 if (jwtToken) {
-    console.log("header setting")
-    window.axios.defaults.headers.common['Authorization'] = 'Bearer '+_jwt.content;
+    console.log("header setting", 'Bearer '+jwtToken.content)
+    window.axios.defaults.headers.common['Authorization'] = 'Bearer '+jwtToken.content;
 } else {
     console.error('JWT token not found');
 }
