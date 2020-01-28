@@ -39437,7 +39437,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container-fluid" }, [
-    _c("div", { staticClass: "row justify-content-center py-4" }, [
+    _c("div", { staticClass: "row justify-content-center py-1" }, [
       _c(
         "div",
         { staticClass: "col-12 col-md-10 col-lg-10" },
@@ -39446,7 +39446,7 @@ var render = function() {
       )
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "row justify-content-center py-4" }, [
+    _c("div", { staticClass: "row justify-content-center py-1" }, [
       _c("div", { staticClass: "col-12 col-lg-10" }, [
         _c(
           "div",
@@ -39932,7 +39932,7 @@ var render = function() {
     "div",
     { staticClass: "container-fluid" },
     [
-      _c("div", { staticClass: "row justify-content-center py-4" }, [
+      _c("div", { staticClass: "row justify-content-center py-1" }, [
         _c(
           "div",
           { staticClass: "col-8 col-sm-10" },
@@ -39946,7 +39946,7 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "row justify-content-center py-4" }, [
+      _c("div", { staticClass: "row justify-content-center py-1" }, [
         _c("div", { staticClass: "col-8 col-sm-10" }, [
           _c(
             "div",
@@ -41355,7 +41355,7 @@ var render = function() {
     "div",
     { staticClass: "container-fluid" },
     [
-      _c("div", { staticClass: "row justify-content-center py-4" }, [
+      _c("div", { staticClass: "row justify-content-center py-1" }, [
         _c(
           "div",
           { staticClass: "col-12 col-md-10 col-lg-10" },
@@ -41364,7 +41364,7 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "row justify-content-center py-4" }, [
+      _c("div", { staticClass: "row justify-content-center py-1" }, [
         _c("div", { staticClass: "col-12 col-lg-10" }, [
           _c(
             "div",
@@ -78863,8 +78863,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\web 03\Music\colombia_internet\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\web 03\Music\colombia_internet\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\ConsultingMe\colombia_internet\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\ConsultingMe\colombia_internet\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),

@@ -16,7 +16,6 @@ class DepartmentController extends Controller{
 		if ($validation->fails()){
 			return response()->json($validation->errors(), 400);
 		}
-
 		$department = Department::create($data);
 		if (!$department) return response()->json('Error en la base de datos', 500);
 		return response()->json('Departamento creado satisfactoriamente', 201);
