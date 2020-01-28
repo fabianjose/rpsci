@@ -17,7 +17,7 @@
             <zone-select @newDepartment="newDepartment" @newMunicipality="newMunicipality"  ></zone-select>
 
             <div class="row my-3 px-4">
-              <button type="button" class="btn btn-lg btn-outline-success" @click="refreshData">Buscar ofertas por municipio</button>
+              <button type="button" class="btn btn-outline-success" @click="refreshData">Buscar ofertas por municipio</button>
             </div>
           </div>
         </div>

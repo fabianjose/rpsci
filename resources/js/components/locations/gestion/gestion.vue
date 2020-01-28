@@ -1,12 +1,12 @@
 <template>
   <div class="container-fluid">
     <div class="row justify-content-center py-4">
-      <div class="col-12 col-md-10 col-lg-10">
+      <div class="col-8 col-sm-10">
         <location-creation @creatingDone="refreshData" />
       </div>
     </div>
     <div class="row justify-content-center py-4">
-      <div class="col-12 col-lg-10">
+      <div class="col-8 col-sm-10">
         <div class="card card-info" id="departmentsListAccordion">
           <a class="card-header collapsed" @click="active=!active" data-parent="#departmentsListAccordion" href="#collapseDepartments" aria-expanded="false" data-toggle="collapse">
             <h3 class="card-title">Departamentos Disponibles</h3>
@@ -26,6 +26,35 @@
         </div>
       </div>
     </div>
+    <div class="row justify-content-center py-4">
+      <div class="col-8 col-sm-10">
+        <div class="card card-primary ">
+          <div class="card-header">
+            <h3 class="card-title">Busqueda por Departamento</h3>
+          </div>
+          <div class="card-body">
+            
+            <zone-select @newMunicipalities="setMunicipalities" :middle="true" :hideMunicipality="true" ></zone-select>
+
+            <div class="row my-3 px-4">
+              <button type="button" class="btn btn-outline-success" @click="refreshData">Buscar municipios por departamento</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card card-info" id="municipalitiesListAccordion">
+          <a class="card-header collapsed" @click="active2=!active2" data-parent="#departmentsListAccordion" href="#collapseDepartments" aria-expanded="false" data-toggle="collapse">
+            <h3 class="card-title">Departamentos Disponibles</h3>
+            <div class="card-tools">
+              <button type="button" class="btn btn-tool ml-auto" >
+                <personal-fab :active="active" />
+              </button>
+            </div>
+          </a>
+          
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -37,6 +66,7 @@ export default {
       currentLocation:null,
       viewMode:false,
       updateMode: false,
+      municipalities:[],
       active:false,
     }
   },
@@ -44,6 +74,12 @@ export default {
     this.refreshData();
   },
   methods:{
+
+    setMunicipalities(items){
+      this.municipalities=items;
+      console.log("setting current municipalities",this.municipalities)
+    },
+
     refreshData(){
       axios.get(baseUrl+'/api/departments')
       .then(res=>{

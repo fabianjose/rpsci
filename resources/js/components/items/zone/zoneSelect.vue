@@ -60,7 +60,8 @@ export default {
             .then(res=>{
                 console.log(res);
                 console.log(this.$refs);
-                this.$refs.municipalitiesList.setEntries(res.data)
+                if(!this.hideMunicipality) this.$refs.municipalitiesList.setEntries(res.data)
+                else this.$emit("newMunicipalities", res.data);
             }).catch(err=>{
                 console.log("ERROR FROM SERVER ", err,err.response);
                 toastr.error("error al cargar los municipios");

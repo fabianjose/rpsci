@@ -3360,8 +3360,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       axios.get(baseUrl + '/api/municipalities/' + this.department).then(function (res) {
         console.log(res);
         console.log(_this.$refs);
-
-        _this.$refs.municipalitiesList.setEntries(res.data);
+        if (!_this.hideMunicipality) _this.$refs.municipalitiesList.setEntries(res.data);else _this.$emit("newMunicipalities", res.data);
       })["catch"](function (err) {
         console.log("ERROR FROM SERVER ", err, err.response);
         toastr.error("error al cargar los municipios");
@@ -3519,6 +3518,35 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3526,6 +3554,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       currentLocation: null,
       viewMode: false,
       updateMode: false,
+      municipalities: [],
       active: false
     };
   },
@@ -3533,6 +3562,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     this.refreshData();
   },
   methods: {
+    setMunicipalities: function setMunicipalities(items) {
+      this.municipalities = items;
+      console.log("setting current municipalities", this.municipalities);
+    },
     refreshData: function refreshData() {
       var _this = this;
 
@@ -39440,14 +39473,14 @@ var render = function() {
     _c("div", { staticClass: "row justify-content-center py-4" }, [
       _c(
         "div",
-        { staticClass: "col-12 col-md-10 col-lg-10" },
+        { staticClass: "col-8 col-sm-10" },
         [_c("location-creation", { on: { creatingDone: _vm.refreshData } })],
         1
       )
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "row justify-content-center py-4" }, [
-      _c("div", { staticClass: "col-12 col-lg-10" }, [
+      _c("div", { staticClass: "col-8 col-sm-10" }, [
         _c(
           "div",
           {
@@ -39516,10 +39549,97 @@ var render = function() {
           ]
         )
       ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "row justify-content-center py-4" }, [
+      _c("div", { staticClass: "col-8 col-sm-10" }, [
+        _c("div", { staticClass: "card card-primary " }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "card-body" },
+            [
+              _c("zone-select", {
+                attrs: { middle: true, hideMunicipality: true },
+                on: { newMunicipalities: _vm.setMunicipalities }
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "row my-3 px-4" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-outline-success",
+                    attrs: { type: "button" },
+                    on: { click: _vm.refreshData }
+                  },
+                  [_vm._v("Buscar municipios por departamento")]
+                )
+              ])
+            ],
+            1
+          )
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "card card-info",
+            attrs: { id: "municipalitiesListAccordion" }
+          },
+          [
+            _c(
+              "a",
+              {
+                staticClass: "card-header collapsed",
+                attrs: {
+                  "data-parent": "#departmentsListAccordion",
+                  href: "#collapseDepartments",
+                  "aria-expanded": "false",
+                  "data-toggle": "collapse"
+                },
+                on: {
+                  click: function($event) {
+                    _vm.active2 = !_vm.active2
+                  }
+                }
+              },
+              [
+                _c("h3", { staticClass: "card-title" }, [
+                  _vm._v("Departamentos Disponibles")
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "card-tools" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-tool ml-auto",
+                      attrs: { type: "button" }
+                    },
+                    [_c("personal-fab", { attrs: { active: _vm.active } })],
+                    1
+                  )
+                ])
+              ]
+            )
+          ]
+        )
+      ])
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header" }, [
+      _c("h3", { staticClass: "card-title" }, [
+        _vm._v("Busqueda por Departamento")
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -40872,7 +40992,7 @@ var render = function() {
                   _c(
                     "button",
                     {
-                      staticClass: "btn btn-lg btn-outline-success",
+                      staticClass: "btn btn-outline-success",
                       attrs: { type: "button" },
                       on: { click: _vm.refreshData }
                     },
