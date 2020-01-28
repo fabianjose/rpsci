@@ -7,19 +7,19 @@
     </div>
     <div class="row justify-content-center py-4">
       <div class="col-12 col-lg-10">
-        <div class="card card-info" id="locationsListAccordion">
-          <a class="card-header collapsed" @click="active=!active" data-parent="#locationsListAccordion" href="#collapseLocations" aria-expanded="false" data-toggle="collapse">
-            <h3 class="card-title">Locaciones Disponibles</h3>
+        <div class="card card-info" id="departmentsListAccordion">
+          <a class="card-header collapsed" @click="active=!active" data-parent="#departmentsListAccordion" href="#collapseDepartments" aria-expanded="false" data-toggle="collapse">
+            <h3 class="card-title">Departamentos Disponibles</h3>
             <div class="card-tools">
               <button type="button" class="btn btn-tool ml-auto" >
                 <personal-fab :active="active" />
               </button>
             </div>
           </a>
-          <div id="collapseLocations" class="panel-collapse in collapse">
+          <div id="collapseDepartments" class="panel-collapse in collapse">
             <div class="card-body p-0">
               <ul class="list-group p-0">
-                <!-- <service v-for="(service,k) in services" :key="k" :title="service.name" :index="service.id" @delete="trash" @view="viewModal" @edit="update" /> -->
+                <department v-for="(department,k) in departments" :key="k" :title="department.name" :index="department.id" @delete="trash" @edit="update" />
               </ul>
             </div>
           </div>
@@ -56,32 +56,28 @@ export default {
         }
       });
     },
-    // trash(id){
-    //   let loader = this.$loading.show();
-    //
-    //   axios.delete(baseUrl+'/api/service/'+id)
-    //   .then(res=>{
-    //     console.log(res);
-    //     toastr.success("Servicio eliminado con éxito");
-    //     this.refreshData();
-    //   }).catch(err=>{
-    //     if (err.response.data.errorMessage){
-    //       toastr.error(err.response.data.errorMessage);
-    //     }
-    //   }).finally(()=>loader.hide());
-    // },
-    // async setService(id){
-    //   let currentService = await this.services.find(service=>service.id===id);
-    //   this.currentService= currentService;
-    // },
-    // async viewModal(id){
-    //   await this.setService(id)
-    //   this.viewMode=true;
-    // },
-    // async update(id){
-    //   await this.setService(id);
-    //   this.updateMode=true;
-    // }
+    trash(data){
+      let loader = this.$loading.show();
+
+      axios.delete(baseUrl+'/api/'+data.zone+'/'+data.id)
+      .then(res=>{
+        console.log(res);
+        toastr.success("Departamento eliminado con éxito");
+        this.refreshData();
+      }).catch(err=>{
+        if (err.response.data.errorMessage){
+          toastr.error(err.response.data.errorMessage);
+        }
+      }).finally(()=>loader.hide());
+    },
+    async setService(id){
+      let currentService = await this.services.find(service=>service.id===id);
+      this.currentService= currentService;
+    },
+    async update(data){
+      await this.setService(data.id);
+      this.updateMode=true;
+    }
   }
 }
 </script>
