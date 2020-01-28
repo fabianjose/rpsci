@@ -152,14 +152,14 @@ class OfferController extends Controller{
       return response()->json($validation->errors(), 400);
     }
 
-    
+
     $company = Company::where('name',$data['company'])->first();
     $department = Department::where('name',$data['department'])->first();
     $municipality = Municipality::where('name',$data['municipality'])->first();
     if (!$company) return response()->json('Empresa no encontrada',404);
     if (!$department) return response()->json('Departamento no encontrada',404);
     if (!$municipality) return response()->json('Municipio no encontrada',404);
-    
+
     $offers = DB::table('offers')
     ->where('offers.trash',0)
     ->where('company',$company->id)
@@ -193,12 +193,12 @@ class OfferController extends Controller{
       return response()->json($validation->errors(), 400);
     }
 
-    
+
     $department = Department::where('name',$data['department'])->first();
     $municipality = Municipality::where('name',$data['municipality'])->first();
     if (!$department) return response()->json('Departamento no encontrada',404);
     if (!$municipality) return response()->json('Municipio no encontrada',404);
-    
+
     $offers = DB::table('offers')
     ->where('offers.trash',0)
     ->where("offers.highlighted",1)
@@ -217,7 +217,7 @@ class OfferController extends Controller{
     'departments.name as department_name',
     'municipalities.name as municipality_name'
     )->get();
-    
+
     if (!$offers) return response()->json('Error en la base de datos',500);
     return response()->json($offers, 200);
   }
@@ -226,7 +226,7 @@ class OfferController extends Controller{
     $data = $request->all();
     //var_dump($data["highlighted_expiration"]); exit();
     $validation = Validator::make($data, [
-      'highlighted_expiration' => ['required', 'date_format:Y-m-d H:i:s'],
+      'highlighted_expiration' => ['required', 'date'],
     ]);
     if ($validation->fails()){
       return response()->json($validation->errors(), 400);
