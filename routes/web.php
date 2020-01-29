@@ -16,7 +16,7 @@
 Route::get('/login', function () {
     return view('auth.login');
 });
-// Route::get('/blog', function(){
+// Route::get('/cosos', function(){
 //     return view('blog');
 // });
 Route::post('/login','Auth\LoginController@enter');
