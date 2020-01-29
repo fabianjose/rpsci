@@ -1,0 +1,21 @@
+@import "variables";
+
+.bg-ic{
+    background: 
+    linear-gradient(to bottom, rgba($dark-blue,80%),rgba($dark-blue,80%)),url("./../assets/images/aerial-15669_1280.jpg");
+    background-repeat:  no-repeat;
+    background-size: 100%;
+    background-position: center center;
+    background-size: cover;
+	-webkit-background-size: cover;
+    -moz-background-size: cover;
+    height: 40%;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.main-section-bg{
+    height: 70vh;
+}

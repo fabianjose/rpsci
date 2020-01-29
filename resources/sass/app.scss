@@ -5,6 +5,11 @@
 @import 'variables';
 @import 'images';
 @import 'btns';
-
+@import 'headers';
+@import "backgrounds";
 // Bootstrap
 //@import '~bootstrap/scss/bootstrap';
+
+body{
+    scroll-behavior: smooth;
+}
