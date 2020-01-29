@@ -16,9 +16,9 @@
 Route::get('/login', function () {
     return view('auth.login');
 });
-Route::get('/blog', function(){
-    return view('blog');
-});
+// Route::get('/blog', function(){
+//     return view('blog');
+// });
 Route::post('/login','Auth\LoginController@enter');
 Route::get('logout', 'Auth\LoginController@logout');
 Route::group(["middleware" => ["isAuth"]], function(){
