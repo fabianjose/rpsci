@@ -1,9 +1,7 @@
 <?php
-define('WP_USE_THEMES', false);
-require(asset('blogData/wp-blog-header.php'));
-?>
-<?php
 
+define('WP_USE_THEMES', false);
+// require('blogData/wp-blog-header.php');
 $number_of_posts = 5;
 $args = array( 'numberposts' => $number_of_posts );
 $recent_posts = wp_get_recent_posts( $args );
