@@ -13,7 +13,7 @@
         <div class="card-body">
 
           <zone-select @newDepartment="newDepartment" @newMunicipality="newMunicipality"  >
-            <div class="form-group col-xl-6 col-lg-6 col-md-6 col-6">
+            <div class="form-group col-6">
               <label>Empresa</label>
               <autocomplete-vue
               v-model="company"

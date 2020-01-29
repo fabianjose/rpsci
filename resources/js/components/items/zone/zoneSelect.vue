@@ -3,7 +3,7 @@
 
       <slot></slot>
 
-      <div class="form-group col-xl-6 col-lg-6 col-md-6 col-6">
+      <div v-if="!hideDepartment" :class="'form-group'+(middle?' col-10':' col-6')">
         <label>Departamento</label>
         <autocomplete-vue
         v-model="department"
@@ -18,7 +18,7 @@
         ></autocomplete-vue>
       </div>
 
-      <div class="form-group col-xl-6 col-lg-6 col-md-6 col-6">
+      <div v-if="!hideMunicipality" :class="'form-group'+(middle?' col-10':' col-6')">
         <label>Municipio</label>
         <autocomplete-vue
         ref="municipalitiesList"
@@ -37,6 +37,7 @@
 
 <script>
 export default {
+    props:["middle", "hideDepartment", "hideMunicipality", "noRequest"],
     data(){
         return {
             municipality:"",
@@ -47,7 +48,7 @@ export default {
         async setDepartment(val){
             console.log("new val ",val);
             await this.$emit("newDepartment",val);
-            this.getMunicipalities();
+            if(!this.noRequest)this.getMunicipalities();
         },
 
         async setMunicipality(val){
@@ -59,7 +60,8 @@ export default {
             .then(res=>{
                 console.log(res);
                 console.log(this.$refs);
-                this.$refs.municipalitiesList.setEntries(res.data)
+                if(!this.hideMunicipality) this.$refs.municipalitiesList.setEntries(res.data)
+                else this.$emit("newMunicipalities", res.data);
             }).catch(err=>{
                 console.log("ERROR FROM SERVER ", err,err.response);
                 toastr.error("error al cargar los municipios");
