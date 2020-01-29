@@ -14,17 +14,16 @@
 
 <script>
 export default {
-  props:["title", "index"],
-  data(){
-    return {
-    }
-  },
+  props:["title", "index", "zone"],
+
   methods:{
     emitEdition(){
-      this.$emit('edit', {id: this.index, zone:'department'})
+      let {index,zone}=this;
+      this.$emit('edit', {id:index, zone})
     },
     emitRemove(){
-      this.$emit('delete', {id: this.index, zone:'department'})
+      let {index,zone}=this;      
+      this.$emit('delete', {id: index, zone})
     },
   }
 }

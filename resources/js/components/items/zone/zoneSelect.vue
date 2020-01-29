@@ -3,7 +3,7 @@
 
       <slot></slot>
 
-      <div v-if="!hideDepartment" :class="middle?'col-10':'form-group col-xl-6 col-lg-6 col-md-6 col-6'">
+      <div v-if="!hideDepartment" :class="'form-group'+(middle?' col-10':' col-6')">
         <label>Departamento</label>
         <autocomplete-vue
         v-model="department"
@@ -18,7 +18,7 @@
         ></autocomplete-vue>
       </div>
 
-      <div v-if="!hideMunicipality" :class="middle?'col-10':'form-group col-xl-6 col-lg-6 col-md-6 col-6'">
+      <div v-if="!hideMunicipality" :class="'form-group'+(middle?' col-10':' col-6')">
         <label>Municipio</label>
         <autocomplete-vue
         ref="municipalitiesList"
@@ -37,7 +37,7 @@
 
 <script>
 export default {
-    props:["middle", "hideDepartment", "hideMunicipality"],
+    props:["middle", "hideDepartment", "hideMunicipality", "noRequest"],
     data(){
         return {
             municipality:"",
@@ -48,7 +48,7 @@ export default {
         async setDepartment(val){
             console.log("new val ",val);
             await this.$emit("newDepartment",val);
-            this.getMunicipalities();
+            if(!this.noRequest)this.getMunicipalities();
         },
 
         async setMunicipality(val){
