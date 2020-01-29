@@ -79351,8 +79351,13 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 __webpack_require__(/*! C:\Users\web 03\Music\colombia_internet\resources\js\app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! C:\Users\web 03\Music\colombia_internet\resources\sass\app.scss */"./resources/sass/app.scss");
+=======
+__webpack_require__(/*! C:\ConsultingMe\colombia_internet\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\ConsultingMe\colombia_internet\resources\sass\app.scss */"./resources/sass/app.scss");
+>>>>>>> b72fb07fd763161bb5c5badfa02e86746dff3042
 
 
 /***/ }),
