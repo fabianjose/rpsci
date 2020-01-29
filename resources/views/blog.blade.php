@@ -1,6 +1,6 @@
 <?php
 define('WP_USE_THEMES', false);
-require(asset('blog/wp-blog-header.php'));
+require(asset('blogData/wp-blog-header.php'));
 ?>
 <?php
 
