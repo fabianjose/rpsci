@@ -1,6 +1,6 @@
 
 .bg-ic{
-    background: 
+    background:
     linear-gradient(to bottom, rgba($dark-blue,80%),rgba($dark-blue,80%)),url("./../assets/images/aerial-15669_1280.jpg");
     background-repeat:  no-repeat;
     background-size: 100%;
@@ -17,4 +17,13 @@
 
 .main-section-bg{
     height: 90vh;
+}
+.footer-bg{
+  min-height: 35vh;
+  background-color: rgba(62, 62, 62, 1);
+  padding: 20px 100px;
+}
+.footer-footer{
+  min-height: 5vh;
+  background-color: rgba(33, 33, 33, 1);
 }

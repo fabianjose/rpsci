@@ -16,7 +16,7 @@
                         <img class="ic-logo" src="{{ asset('images/logo.png') }}" alt="">
                     </li>
                 </ul>
-                    
+
                 <ul class="navbar-nav ml-auto mr-3 ">
                     <li class="nav-item">
                         <a class="nav-link nav-item-border active" href="#">
@@ -46,18 +46,18 @@
                             </h6>
                         </a>
                     </li>
-                </ul>            
+                </ul>
         </nav>
         <div class="main-section-bg" style="position:relative;">
 
             <div class="bg-ic">
-                
+
             </div>
             <div style="height:55%; width:100%; background:white;">
 
             </div>
 
-            <div class="main-middle" >
+            <div style="position:absolute;top: 13%;margin: 1.2rem auto;left: 0;right: 0; height:33%;width:250px;" >
                 <img class="ic-logo-grey" src="{{ asset('images/logo.png') }}" alt="">
                 <div class="main-search-form p-3" >
                     <div class="main-form-title-container text-center justify-content-center pt-2 py-1 px-3">
@@ -83,6 +83,43 @@
                 </div>
             </div>
 
+        </div>
+        <div class="footer-bg">
+          <div class="d-flex flex-column align-items-center">
+            <div class="mt-3">
+              <img src="{{asset('images/logo-gris.png')}}" class="footer-img">
+            </div>
+            <div class="d-flex w-100 footer-links flex-wrap justify-content-center">
+              <div class="col-xl-4 col-lg-4 col-md-6 col-12">
+                <h5 class="footer-title-color font-weight-bold">SERVICIOS DISPONIBLES</h5>
+                <ul class="footer-list p-2">
+                  <li>-Item 1</li>
+                  <li>-Item 2</li>
+                  <li>-Item 3</li>
+                  <li>-Item 4</li>
+                </ul>
+              </div>
+              <div class="col-xl-4 col-lg-4 col-md-6 col-12 footer-link-border">
+                <h5 class="footer-title-color font-weight-bold">CATEGORÍAS DEL BLOG</h5>
+                <ul class="footer-list p-2">
+                  <li>-Item 1</li>
+                  <li>-Item 2</li>
+                  <li>-Item 3</li>
+                  <li>-Item 4</li>
+                </ul>
+              </div>
+              <div class="col-xl-4 col-lg-4 col-md-6 col-12 footer-link-border">
+                <h5 class="footer-title-color font-weight-bold">PONTE EN CONTACTO</h5>
+                <ul class="footer-list p-2">
+                  <li>-Correo Electronico</li>
+                  <li>-Números de teléfono</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex w-100 justify-content-center align-items-center footer-footer">
+          <span class="footer-title-color">Derechos Reservados 2020 - Desarrollado por NextScale®</span>
         </div>
   </div>
 
