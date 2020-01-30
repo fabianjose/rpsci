@@ -28,6 +28,7 @@
         "vue-loading-overlay": "^3.2.0",
         "vue-resource": "^1.5.1",
         "vue2-datepicker": "^3.3.0",
-        "vuejs-datetimepicker": "^1.1.13"
+        "vuejs-datetimepicker": "^1.1.13",
+        "vueperslides": "^2.8.2"
     }
 }

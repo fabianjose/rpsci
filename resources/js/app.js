@@ -70,11 +70,11 @@ Vue.component('zone-select', require('./components/items/zone/zoneSelect.vue').d
 //Vue.component('plans-details', require('./components/items/services/detailedService.vue').default);
 //Vue.component('plans-update', require('./components/services/update/updateForm.vue').default);
 
-
+// Libreria de autocompletado
 import AutocompleteVue from 'autocomplete-vue';
 Vue.component('autocomplete-vue', AutocompleteVue);
 
-// import DateTimePicker from 'vuejs-datetimepicker';
+// Datepicker para las fechas;
 import DatePicker from 'vue2-datepicker';
 import 'vue2-datepicker/index.css';
 Vue.component('datetimepicker', DatePicker);
@@ -82,8 +82,10 @@ Vue.component('datetimepicker', DatePicker);
 import VueResource from 'vue-resource';
 Vue.use(VueResource);
 
+//Loader usado
 import Loading from 'vue-loading-overlay';
 import 'vue-loading-overlay/dist/vue-loading.css';
+
 Vue.use(Loading,{
     loader:"spinner",
     color:"#20adf4",
@@ -93,6 +95,11 @@ Vue.use(Loading,{
     backgroundColor:"#13293d",
     opacity: 0.08,
 });
+// Carrusel usado
+import { VueperSlides, VueperSlide } from 'vueperslides'
+import 'vueperslides/dist/vueperslides.css'
+Vue.component('vueper-slides', VueperSlides);
+Vue.component('vueper-slide', VueperSlide);
 
 /**
 
