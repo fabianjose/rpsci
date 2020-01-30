@@ -5,64 +5,61 @@
     <div class="content">
         <div class="ic-bg-main w-100 py-1 px-4" >
             <div class="container d-flex justify-content-end">
-                <i class="fab fa-facebook-f i-c-main mx-2 text-white"></i>
-                <i class="fab fa-twitter i-c-main mx-2 text-white"></i>
-                <i class="fab fa-instagram i-c-main mx-2 text-white"></i>
+                <i class="fab fa-facebook-f i-c-main mx-2 text-white text-lg"></i>
+                <i class="fab fa-twitter i-c-main mx-2 text-white text-lg"></i>
+                <i class="fab fa-instagram i-c-main mx-2 text-white text-lg"></i>
             </div>
         </div>
-        <nav class="main-header navbar-light navbar navbar-expand-md pt-3 px-4">
-            <div class="container">
-
+        <nav class="main-header navbar-light navbar navbar-expand-md navbar-expand-sm mx-auto py-3 px-4">
                 <ul class="navbar-nav ml-3">
                     <li class="nav-item">
-                        
+                        <img class="ic-logo" src="{{ asset('images/logo.png') }}" alt="">
                     </li>
                 </ul>
                     
                 <ul class="navbar-nav ml-auto mr-3 ">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link nav-item-border active" href="#">
                             <h6 class="ic-main font-weight-bold">
                                 Inicio
                             </h6>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link nav-item-border" href="#">
                             <h6 class="ic-main font-weight-bold">
                                 Nosotros
                             </h6>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link nav-item-border" href="#">
                             <h6 class="ic-main font-weight-bold">
                                 Blog
                             </h6>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link nav-item-border" href="#">
                             <h6 class="ic-main font-weight-bold">
                                 Contacto
                             </h6>
                         </a>
                     </li>
-                </ul>
-            </div>
-            
+                </ul>            
         </nav>
         <div class="main-section-bg" style="position:relative;">
 
             <div class="bg-ic">
                 
             </div>
-            <div style="height:60%; width:100%; background:white;">
+            <div style="height:55%; width:100%; background:white;">
 
             </div>
 
-            <div style="position:absolute;top: 15%;margin: 1.2rem auto;left: 0;right: 0;; height:200px;width:250px;" >
-                
+            <div style="position:absolute;top: 13%;margin: 1.2rem auto;left: 0;right: 0; height:33%;width:250px;" >
+                <img class="ic-logo-grey" src="{{ asset('images/logo.png') }}" alt="">
+                <div style="width:200px;height:200px;border-radius:35%;background-color:gray;" ></div>
             </div>
 
         </div>
