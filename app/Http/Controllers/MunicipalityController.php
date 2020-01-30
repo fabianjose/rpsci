@@ -17,13 +17,13 @@ class MunicipalityController extends Controller
 		return response()->json($municipalities, 200);
 	}
 
-	public function getByDepartment($departmentName){
-	    $department = Department::where('name',$departmentName)->first();
-		if (!$department) return response()->json('Departamento no encontrado',404);
-		$municipalities = DB::table('municipalities')->where('department_id',$department->id)->where("trash",0)->get();
-		if (!$municipalities) return response()->json('Error en la base de datos',500);
-		return response()->json($municipalities, 200);
-	}
+  public function getByDepartment($departmentName){
+    $department = Department::where('name',$departmentName)->first();
+    if (!$department) return response()->json('Departamento no encontrado',404);
+    $municipalities = DB::table('municipalities')->where('department_id',$department->id)->where("trash",0)->get();
+    if (!$municipalities) return response()->json('Error en la base de datos',500);
+    return response()->json($municipalities, 200);
+  }
 
 	public function newMunicipality(Request $request){
 		$req=$request->all();
@@ -36,12 +36,12 @@ class MunicipalityController extends Controller
 			return response()->json($validator->errors(),400);
 		}
 
-	    $department = Department::where('name',$req["department"])->first();		
+	    $department = Department::where('name',$req["department"])->first();
 
 		$municipality=Municipality::create([
 			"name"=>$req["name"],
 			"department_id"=>$department->id,
-		]);	
+		]);
 
 		if(!$municipality){
 			return response()->json('Error en la base de datos', 500);
@@ -59,4 +59,4 @@ class MunicipalityController extends Controller
 		return response()->json('Municipio eliminado satisfactoriamente', 200);
 	}
 
-}				
+}
