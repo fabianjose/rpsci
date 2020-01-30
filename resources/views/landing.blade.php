@@ -51,7 +51,7 @@
         <div class="main-section-bg" style="position:relative;">
 
             <div class="bg-ic">
-                
+
             </div>
             <div style="height:55%; width:100%; background:white;">
 
@@ -84,6 +84,13 @@
             </div>
 
         </div>
+
+        <div class="high-companies py-5 px-4">
+          <div class="d-flex w-100 justify-content-center">
+            <h4 class="high-companies-color high-companies-title">Prestadores de Servicio</h4>
+          </div>
+        </div>
+
         <div class="footer-bg">
           <div class="d-flex flex-column align-items-center">
             <div class="mt-3">

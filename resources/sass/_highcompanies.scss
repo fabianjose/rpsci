@@ -1,0 +1,11 @@
+.high-companies-color{
+  color: rgba(230,230,230,1);
+}
+.high-companies-title:after {
+    display: block;
+    content: '';
+    border-bottom: solid 3.5px rgba(230,230,230,0.8);
+    border-radius: 5px;
+    transform: scaleX(0.20);
+    transition: transform 250ms ease-in-out;
+}
