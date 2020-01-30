@@ -91,6 +91,25 @@
           </div>
         </div>
 
+        <div class="high-plans py-5 px-4">
+          <div class="d-flex w-100 justify-content-center mt-3">
+            <h4 class="high-plans-color high-plans-title">Planes destacados</h4>
+          </div>
+          <div class="d-flex w-100 justify-content-center mt-3">
+            <vueper-slides
+              class="no-shadow"
+              :visible-slides="3"
+              :slide-ratio="1 / 4"
+              :dragging-distance="70">
+              <vueper-slide v-for="i in 9" :key="i" :title="i.toString()">
+                <template v-slot:content>
+                  <span>prueba </span>
+                </template>
+              </vueper-slide>
+            </vueper-slides>
+          </div>
+        </div>
+
         <div class="footer-bg">
           <div class="d-flex flex-column align-items-center">
             <div class="mt-3">

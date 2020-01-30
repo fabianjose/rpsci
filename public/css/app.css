@@ -78,6 +78,10 @@
   background-color: #00adef;
 }
 
+.high-plans {
+  min-height: 65vh;
+}
+
 .footer-bg {
   min-height: 35vh;
   background-color: #3e3e3e;
@@ -165,11 +169,30 @@
 
 .high-companies-title:after {
   display: block;
+  padding-top: 5px;
   content: "";
   border-bottom: solid 3.5px rgba(230, 230, 230, 0.8);
   border-radius: 5px;
-  -webkit-transform: scaleX(0.2);
-          transform: scaleX(0.2);
+  -webkit-transform: scaleX(0.25);
+          transform: scaleX(0.25);
+  -webkit-transition: -webkit-transform 250ms ease-in-out;
+  transition: -webkit-transform 250ms ease-in-out;
+  transition: transform 250ms ease-in-out;
+  transition: transform 250ms ease-in-out, -webkit-transform 250ms ease-in-out;
+}
+
+.high-plans-color {
+  color: #535353;
+}
+
+.high-plans-title:after {
+  display: block;
+  padding-top: 5px;
+  content: "";
+  border-bottom: solid 3.5px #cdcdcd;
+  border-radius: 5px;
+  -webkit-transform: scaleX(0.25);
+          transform: scaleX(0.25);
   -webkit-transition: -webkit-transform 250ms ease-in-out;
   transition: -webkit-transform 250ms ease-in-out;
   transition: transform 250ms ease-in-out;

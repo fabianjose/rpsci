@@ -1,11 +1,11 @@
-.high-companies-color{
-  color: rgba(230,230,230,1);
+.high-plans-color{
+  color: rgba(83,83,83,1);
 }
-.high-companies-title:after {
+.high-plans-title:after {
     display: block;
     padding-top: 5px;
     content: '';
-    border-bottom: solid 3.5px rgba(230,230,230,0.8);
+    border-bottom: solid 3.5px rgba(205,205,205,1);
     border-radius: 5px;
     transform: scaleX(0.25);
     transition: transform 250ms ease-in-out;
