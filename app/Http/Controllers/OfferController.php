@@ -192,10 +192,10 @@ class OfferController extends Controller{
     if ($validation->fails()){
       return response()->json($validation->errors(), 400);
     }
-    $services = Service::where('name',$data['services'])->first();
+    $service = Service::where('name',$data['service'])->first();
     $department = Department::where('name',$data['department'])->first();
     $municipality = Municipality::where('name',$data['municipality'])->first();
-    if (!$company) return response()->json('Empresa no encontrada',404);
+    if (!$service) return response()->json('Servicio no encontrado',404);
     if (!$department) return response()->json('Departamento no encontrada',404);
     if (!$municipality) return response()->json('Municipio no encontrada',404);
 

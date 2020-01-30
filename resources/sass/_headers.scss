@@ -1,9 +1,29 @@
 @import "variables";
 
 .ic-main{
+    font-size: 1.2rem;
     color: $dark-blue;
 }
 
 .ic-bg-main{
     background-color: $main-blue;
 }
+
+.ic-logo{
+    max-height: 40px;
+}
+
+.nav-item-border:after {
+    display:block;
+    content: '';
+    border-bottom: solid 3.5px $dark-blue;  
+    border-radius: 25%;
+    transform: scaleX(0);  
+    transition: transform 250ms ease-in-out;
+}
+
+.nav-item-border.active:after{
+    transform: scaleX(0.45);
+}
+
+.nav-item-border:hover:after { transform: scaleX(1); }
