@@ -16,7 +16,7 @@
                         <img class="ic-logo" src="{{ asset('images/logo.png') }}" alt="">
                     </li>
                 </ul>
-                    
+
                 <ul class="navbar-nav ml-auto mr-3 ">
                     <li class="nav-item">
                         <a class="nav-link nav-item-border active" href="#">
@@ -46,12 +46,12 @@
                             </h6>
                         </a>
                     </li>
-                </ul>            
+                </ul>
         </nav>
         <div class="main-section-bg" style="position:relative;">
 
             <div class="bg-ic">
-                
+
             </div>
             <div style="height:55%; width:100%; background:white;">
 
@@ -62,6 +62,30 @@
                 <div style="width:200px;height:200px;border-radius:35%;background-color:gray;" ></div>
             </div>
 
+        </div>
+        <div class="footer-bg">
+          <div class="d-flex flex-column align-items-center">
+            <div class="mt-3">
+              <img src="{{asset('images/logo.png')}}" class="footer-img">
+            </div>
+            <div class="d-flex w-100 footer-links flex-wrap justify-content-center">
+              <div class="col-xl-4 col-lg-4 col-md-6 col-12">
+                <h5 class="footer-title-color font-weight-bold">SERVICIOS DISPONIBLES</h5>
+                <ul class="footer-list p-2">
+                  <li>-Item 1</li>
+                  <li>-Item 2</li>
+                  <li>-Item 3</li>
+                  <li>-Item 4</li>
+                </ul>
+              </div>
+              <div class="col-xl-4 col-lg-4 col-md-6 col-12">
+                <h5 class="footer-title-color font-weight-bold">CATEGORÍAS DEL BLOG</h5>
+              </div>
+              <div class="col-xl-4 col-lg-4 col-md-6 col-12">
+                <h5 class="footer-title-color font-weight-bold">PONTE EN CONTACTO</h5>
+              </div>
+            </div>
+          </div>
         </div>
   </div>
 
