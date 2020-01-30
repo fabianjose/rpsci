@@ -11,6 +11,12 @@
 // Bootstrap
 //@import '~bootstrap/scss/bootstrap';
 
+@font-face{
+    font-family: montserrat-bold;
+    src: url("./../assets/fonts/Montserrat-Bold.otf");
+}
+
 body{
     scroll-behavior: smooth;
+    font-family: montserrat-bold;
 }

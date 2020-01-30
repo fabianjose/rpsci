@@ -15,7 +15,7 @@
 }
 
 .ic-main {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: #13293d;
 }
 
@@ -31,7 +31,7 @@
   display: block;
   content: "";
   border-bottom: solid 3.5px #13293d;
-  border-radius: 25%;
+  border-radius: 15px;
   -webkit-transform: scaleX(0);
           transform: scaleX(0);
   -webkit-transition: -webkit-transform 250ms ease-in-out;
@@ -103,13 +103,62 @@
 }
 
 .ic-logo-grey {
-  max-height: 50%;
+  max-height: 25%;
   background-color: white;
   padding: 5px 10px;
   border-radius: 35px;
 }
 
+.main-search-form {
+  width: 65%;
+  height: 50%;
+  border-radius: 60px;
+  background-color: #e6e6e6;
+}
+
+.main-middle {
+  position: absolute;
+  top: 13%;
+  margin: 1.2rem auto;
+  left: 0;
+  right: 0;
+  height: 45%;
+  width: auto;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  justify-content: space-around;
+  -webkit-box-align: center;
+          align-items: center;
+}
+
+.main-form-title-container:after {
+  display: block;
+  content: "";
+  border-bottom: solid 3.5px #cdcdcd;
+  border-radius: 5px;
+  -webkit-transform: scaleX(0.15);
+          transform: scaleX(0.15);
+  -webkit-transition: -webkit-transform 250ms ease-in-out;
+  transition: -webkit-transform 250ms ease-in-out;
+  transition: transform 250ms ease-in-out;
+  transition: transform 250ms ease-in-out, -webkit-transform 250ms ease-in-out;
+}
+
+.main-form-title {
+  color: #20adf4;
+  font-size: 1.3rem;
+}
+
+@font-face {
+  font-family: montserrat-bold;
+  src: url(/fonts/Montserrat-Bold.otf?9c71d42b6a840ecfda8fc555040a1c76);
+}
+
 body {
   scroll-behavior: smooth;
+  font-family: montserrat-bold;
 }
 
