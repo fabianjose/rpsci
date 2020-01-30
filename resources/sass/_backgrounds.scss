@@ -19,25 +19,11 @@
     height: 90vh;
 }
 .footer-bg{
-  min-height: 40vh;
+  min-height: 35vh;
   background-color: rgba(62, 62, 62, 1);
   padding: 20px 100px;
 }
-.footer-img{
-  max-height: 130px;
-  max-width: 180px;
-}
-.footer-links{
-  margin-top: 30px;
-}
-.footer-title-color{
-  color: rgb(126, 126, 126);
-}
-.footer-list{
-  list-style: none;
-}
-.footer-list li{
-  font-size: 14px;
-  font-weight: bold;
-  color: rgba(255, 255, 255, 0.7);
+.footer-footer{
+  min-height: 5vh;
+  background-color: rgba(33, 33, 33, 1);
 }

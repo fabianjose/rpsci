@@ -57,20 +57,16 @@
 
             </div>
 
-            <div class="main-middle" >
+            <div style="position:absolute;top: 13%;margin: 1.2rem auto;left: 0;right: 0; height:33%;width:250px;" >
                 <img class="ic-logo-grey" src="{{ asset('images/logo.png') }}" alt="">
-                <div class="main-search-form p-3" >
-                    <div class="main-form-title-container text-center justify-content-center py-1 px-2">
-                        <h6 class="main-form-title font-weight-bold">Encuentra el servicio que deseas</h6>
-                    </div>
-                </div>
+                <div style="width:200px;height:200px;border-radius:35%;background-color:gray;" ></div>
             </div>
 
         </div>
         <div class="footer-bg">
           <div class="d-flex flex-column align-items-center">
             <div class="mt-3">
-              <img src="{{asset('images/logo.png')}}" class="footer-img">
+              <img src="{{asset('images/logo-gris.png')}}" class="footer-img">
             </div>
             <div class="d-flex w-100 footer-links flex-wrap justify-content-center">
               <div class="col-xl-4 col-lg-4 col-md-6 col-12">
@@ -82,14 +78,27 @@
                   <li>-Item 4</li>
                 </ul>
               </div>
-              <div class="col-xl-4 col-lg-4 col-md-6 col-12">
+              <div class="col-xl-4 col-lg-4 col-md-6 col-12 footer-link-border">
                 <h5 class="footer-title-color font-weight-bold">CATEGORÍAS DEL BLOG</h5>
+                <ul class="footer-list p-2">
+                  <li>-Item 1</li>
+                  <li>-Item 2</li>
+                  <li>-Item 3</li>
+                  <li>-Item 4</li>
+                </ul>
               </div>
-              <div class="col-xl-4 col-lg-4 col-md-6 col-12">
+              <div class="col-xl-4 col-lg-4 col-md-6 col-12 footer-link-border">
                 <h5 class="footer-title-color font-weight-bold">PONTE EN CONTACTO</h5>
+                <ul class="footer-list p-2">
+                  <li>-Correo Electronico</li>
+                  <li>-Números de teléfono</li>
+                </ul>
               </div>
             </div>
           </div>
+        </div>
+        <div class="d-flex w-100 justify-content-center align-items-center footer-footer">
+          <span class="footer-title-color">Derechos Reservados 2020 - Desarrollado por NextScale®</span>
         </div>
   </div>
 
