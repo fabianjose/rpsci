@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Municipality;
 use App\Department;
 use App\Company;
+use App\Service;
 use App\Offer;
 
 class OfferController extends Controller{
@@ -152,7 +153,6 @@ class OfferController extends Controller{
       return response()->json($validation->errors(), 400);
     }
 
-
     $company = Company::where('name',$data['company'])->first();
     $department = Department::where('name',$data['department'])->first();
     $municipality = Municipality::where('name',$data['municipality'])->first();
@@ -181,6 +181,24 @@ class OfferController extends Controller{
 
     if (!$offers) return response()->json('Error en la base de datos',500);
 		return response()->json($offers, 200);
+  }
+  public function searchOffers(Request $request){
+    $data = $request->all();
+    $validation = Validator::make($data, [
+      'service' => ['required', 'exists:services,name'],
+      'department' => ['required', 'exists:departments,name'],
+      'municipality' => ['required', 'exists:municipalities,name'],
+    ]);
+    if ($validation->fails()){
+      return response()->json($validation->errors(), 400);
+    }
+    $service = Service::where('name',$data['service'])->first();
+    $department = Department::where('name',$data['department'])->first();
+    $municipality = Municipality::where('name',$data['municipality'])->first();
+    if (!$service) return response()->json('Servicio no encontrado',404);
+    if (!$department) return response()->json('Departamento no encontrada',404);
+    if (!$municipality) return response()->json('Municipio no encontrada',404);
+
   }
 
   public function getHighlightByLocation(Request $request){
