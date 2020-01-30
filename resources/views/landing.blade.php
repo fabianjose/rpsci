@@ -53,8 +53,10 @@
             <div class="bg-ic">
 
             </div>
-            <div style="height:55%; width:100%; background:white;">
+            <div style="height: 55%;width: 100%;display: flex;align-items: flex-end;background: white;">
+                <div class="pt-auto bg-danger" style="width: 100%;height: 65%;">
 
+                </div>
             </div>
 
             <div class="main-middle" >
@@ -63,21 +65,24 @@
                     <div class="main-form-title-container text-center justify-content-center pt-2 py-1 px-3">
                         <h6 class="main-form-title font-weight-bold">Encuentra el servicio que deseas</h6>
                     </div>
-                    <div class="d-flex flex-row flex-wrap justify-content-between p-3">
-                        <div class="form-group has-search col-6 col-lg-4">
-                            <span class="fa fa-search form-control-feedback "></span>
-                            <input type="text" class="form-control rounded-pill" placeholder="Search">
+                    <div class="d-flex flex-row flex-wrap justify-content-around p-3">
+                        <div class="form-group has-search col-md-6 col-sm-10 col-lg-4">
+                            <span class="fas fa-map-marker-alt form-control-feedback "></span>
+                            <input type="text" class="form-control rounded-pill" placeholder="Departamento">
                         </div>
-                        <div class="form-group has-search col-6 col-lg-4">
-                            <span class="fa fa-search form-control-feedback "></span>
-                            <input type="text" class="form-control rounded-pill" placeholder="Search">
+                        <div class="form-group has-search col-md-6 col-sm-10 col-lg-4">
+                            <span class="fa fa-city form-control-feedback "></span>
+                            <input type="text" class="form-control rounded-pill" placeholder="Municipio">
                         </div>
-                        <div class="form-group has-search col-6 col-lg-4">
-                            <span class="fa fa-search form-control-feedback "></span>
-                            <input type="text" class="form-control rounded-pill" placeholder="Search">
+                        <div class="form-group has-search col-md-6 col-sm-10 col-lg-4">
+                            <span class="fa fa-tv form-control-feedback "></span>
+                            <input type="text" class="form-control rounded-pill" placeholder="Servicio">
                         </div>
-                        <div class="col-6">
-                            <button class="btn btn-block btn-dark-blue  rounded-pill"> hola</button>
+                        <div class="col-md-6 col-sm-10">
+                            <i class="fa fa-search icon-btn"></i>
+                            <button class="btn btn-block btn-dark-blue rounded-pill">
+                                Buscar
+                            </button>
                         </div>
                     </div>
                 </div>
