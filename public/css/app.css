@@ -171,6 +171,10 @@
   color: white;
 }
 
+.btn-dark-blue:hover {
+  color: lightgray;
+}
+
 .high-companies-color {
   color: #e6e6e6;
 }
