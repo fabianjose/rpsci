@@ -54,7 +54,9 @@
                 
             </div>
             <div style="height:55%; width:100%; background:white;">
+                <div class="pt-auto bg-dark">
 
+                </div>
             </div>
 
             <div class="main-middle" >
@@ -65,19 +67,22 @@
                     </div>
                     <div class="d-flex flex-row flex-wrap justify-content-between p-3">
                         <div class="form-group has-search col-6 col-lg-4">
-                            <span class="fa fa-search form-control-feedback "></span>
-                            <input type="text" class="form-control rounded-pill" placeholder="Search">
+                            <span class="fas fa-map-marker-alt form-control-feedback "></span>
+                            <input type="text" class="form-control rounded-pill" placeholder="Departamento">
                         </div>
                         <div class="form-group has-search col-6 col-lg-4">
-                            <span class="fa fa-search form-control-feedback "></span>
-                            <input type="text" class="form-control rounded-pill" placeholder="Search">
+                            <span class="fa fa-city form-control-feedback "></span>
+                            <input type="text" class="form-control rounded-pill" placeholder="Municipio">
                         </div>
                         <div class="form-group has-search col-6 col-lg-4">
-                            <span class="fa fa-search form-control-feedback "></span>
-                            <input type="text" class="form-control rounded-pill" placeholder="Search">
+                            <span class="fa fa-tv form-control-feedback "></span>
+                            <input type="text" class="form-control rounded-pill" placeholder="Servicio">
                         </div>
                         <div class="col-6">
-                            <button class="btn btn-block btn-dark-blue  rounded-pill"> hola</button>
+                            <i class="fa fa-search icon-btn"></i>
+                            <button class="btn btn-block btn-dark-blue rounded-pill">
+                                Buscar
+                            </button>
                         </div>
                     </div>
                 </div>
