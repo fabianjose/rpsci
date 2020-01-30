@@ -60,8 +60,25 @@
             <div class="main-middle" >
                 <img class="ic-logo-grey" src="{{ asset('images/logo.png') }}" alt="">
                 <div class="main-search-form p-3" >
-                    <div class="main-form-title-container text-center justify-content-center py-1 px-2">
+                    <div class="main-form-title-container text-center justify-content-center pt-2 py-1 px-3">
                         <h6 class="main-form-title font-weight-bold">Encuentra el servicio que deseas</h6>
+                    </div>
+                    <div class="d-flex flex-row flex-wrap justify-content-between p-3">
+                        <div class="form-group has-search col-6 col-lg-4">
+                            <span class="fa fa-search form-control-feedback "></span>
+                            <input type="text" class="form-control rounded-pill" placeholder="Search">
+                        </div>
+                        <div class="form-group has-search col-6 col-lg-4">
+                            <span class="fa fa-search form-control-feedback "></span>
+                            <input type="text" class="form-control rounded-pill" placeholder="Search">
+                        </div>
+                        <div class="form-group has-search col-6 col-lg-4">
+                            <span class="fa fa-search form-control-feedback "></span>
+                            <input type="text" class="form-control rounded-pill" placeholder="Search">
+                        </div>
+                        <div class="col-6">
+                            <button class="btn btn-block btn-dark-blue  rounded-pill"> hola</button>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -75,14 +75,13 @@
 
 .ic-logo-grey {
   max-height: 25%;
-  background-color: white;
   padding: 5px 10px;
   border-radius: 35px;
 }
 
 .main-search-form {
   width: 65%;
-  height: 50%;
+  height: auto;
   border-radius: 60px;
   background-color: #e6e6e6;
 }
@@ -121,6 +120,27 @@
 .main-form-title {
   color: #20adf4;
   font-size: 1.3rem;
+}
+
+.has-search .form-control {
+  padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  width: 2.375rem;
+  height: 2.375rem;
+  line-height: 2.375rem;
+  text-align: center;
+  pointer-events: none;
+  color: #aaa;
+}
+
+.btn-dark-blue {
+  background-color: #13293d;
+  color: lightgray;
 }
 
 @font-face {

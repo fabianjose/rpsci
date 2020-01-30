@@ -2,7 +2,6 @@
 
 .ic-logo-grey{
     max-height: 25%;
-    background-color: rgba(#ffffff, 1);
     padding:5px 10px;
     border-radius:35px;
 
@@ -12,7 +11,7 @@
 
 .main-search-form{
     width:65%;
-    height:50%;
+    height:auto;
     border-radius:60px;
     background-color: $main-gray;
 }
