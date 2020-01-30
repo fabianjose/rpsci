@@ -100,15 +100,18 @@
           <div class="d-flex w-100 justify-content-center mt-3">
             <h4 class="high-plans-color high-plans-title">Planes destacados</h4>
           </div>
-          <div class="d-flex w-100 justify-content-center mt-3">
+          <div class="d-flex w-100 justify-content-center mt-5">
             <vueper-slides
-              class="no-shadow"
+              class="no-shadow high-plans-carousel"
+              :bullets="false"
               :visible-slides="3"
               :slide-ratio="1 / 4"
               :dragging-distance="70">
               <vueper-slide v-for="i in 9" :key="i" :title="i.toString()">
                 <template v-slot:content>
-                  <span>prueba </span>
+                  <div class="h-100 bg-dark mx-2">
+
+                  </div>
                 </template>
               </vueper-slide>
             </vueper-slides>
