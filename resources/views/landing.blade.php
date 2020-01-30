@@ -57,9 +57,13 @@
 
             </div>
 
-            <div style="position:absolute;top: 13%;margin: 1.2rem auto;left: 0;right: 0; height:33%;width:250px;" >
+            <div class="main-middle" >
                 <img class="ic-logo-grey" src="{{ asset('images/logo.png') }}" alt="">
-                <div style="width:200px;height:200px;border-radius:35%;background-color:gray;" ></div>
+                <div class="main-search-form p-3" >
+                    <div class="main-form-title-container text-center justify-content-center py-1 px-2">
+                        <h6 class="main-form-title font-weight-bold">Encuentra el servicio que deseas</h6>
+                    </div>
+                </div>
             </div>
 
         </div>

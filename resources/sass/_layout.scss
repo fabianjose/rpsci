@@ -1,11 +1,46 @@
-@import "variables";
+
 
 .ic-logo-grey{
-    max-height: 50%;
+    max-height: 25%;
     background-color: rgba(#ffffff, 1);
     padding:5px 10px;
     border-radius:35px;
 
     //-webkit-filter: grayscale(100%);
     //filter: grayscale(100%);
+}
+
+.main-search-form{
+    width:65%;
+    height:50%;
+    border-radius:60px;
+    background-color: $main-gray;
+}
+
+.main-middle{
+    position:absolute;
+    top: 13%;
+    margin: 1.2rem auto;
+    left: 0;
+    right: 0; 
+    height:45%;
+    width:auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.main-form-title-container:after {
+    display: block;
+    content: '';
+    border-bottom: solid 3.5px $mid-gray;  
+    border-radius: 5px;
+    transform: scaleX(0.15);  
+    transition: transform 250ms ease-in-out;
+}
+
+.main-form-title{
+    color: $main-blue;
+    font-size: 1.3rem;
 }
