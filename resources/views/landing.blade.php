@@ -51,14 +51,14 @@
         <div class="main-section-bg" style="position:relative;">
 
             <div class="bg-ic">
-
+                
             </div>
             <div style="height:55%; width:100%; background:white;">
 
             </div>
 
-            <div style="position:absolute;top: 13%;margin: 1.2rem auto;left: 0;right: 0; height:33%;width:250px;" >
-                <img class="ic-logo-grey" src="{{ asset('images/logo.png') }}" alt="">
+            <div class="main-middle" >
+                <img class="ic-logo-grey" src="{{ asset('images/logo-blanco.png') }}" alt="">
                 <div class="main-search-form p-3" >
                     <div class="main-form-title-container text-center justify-content-center pt-2 py-1 px-3">
                         <h6 class="main-form-title font-weight-bold">Encuentra el servicio que deseas</h6>
