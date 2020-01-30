@@ -73,6 +73,11 @@
   height: 90vh;
 }
 
+.high-companies {
+  min-height: 30vh;
+  background-color: #00adef;
+}
+
 .footer-bg {
   min-height: 35vh;
   background-color: #3e3e3e;
@@ -164,6 +169,23 @@
 .btn-dark-blue {
   background-color: #13293d;
   color: white;
+}
+
+.high-companies-color {
+  color: #e6e6e6;
+}
+
+.high-companies-title:after {
+  display: block;
+  content: "";
+  border-bottom: solid 3.5px rgba(230, 230, 230, 0.8);
+  border-radius: 5px;
+  -webkit-transform: scaleX(0.2);
+          transform: scaleX(0.2);
+  -webkit-transition: -webkit-transform 250ms ease-in-out;
+  transition: -webkit-transform 250ms ease-in-out;
+  transition: transform 250ms ease-in-out;
+  transition: transform 250ms ease-in-out, -webkit-transform 250ms ease-in-out;
 }
 
 .footer-img {
