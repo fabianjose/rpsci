@@ -93,6 +93,9 @@
         <div class="high-companies py-5 px-4">
           <div class="d-flex w-100 justify-content-center">
             <h4 class="high-companies-color high-companies-title">Prestadores de Servicio</h4>
+            <div class="d-flex flex-wrap">
+              <img src="{{ asset('images/logo.png') }}" class="high-companies-img">
+            </div>
           </div>
         </div>
 
