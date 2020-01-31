@@ -97,11 +97,21 @@ Vue.use(Loading,{
     backgroundColor:"#13293d",
     opacity: 0.08,
 });
+
 // Carrusel usado
 import { VueperSlides, VueperSlide } from 'vueperslides'
 import 'vueperslides/dist/vueperslides.css'
 Vue.component('vueper-slides', VueperSlides);
 Vue.component('vueper-slide', VueperSlide);
+
+let jwtToken = document.head.querySelector('meta[name="jwt-token"]');
+
+if (jwtToken) {
+    console.log("header setting", 'Bearer '+jwtToken.content)
+    Vue.http.headers.common['Authorization'] = 'Bearer '+jwtToken.content;
+} else {
+    console.error('JWT token not found');
+}
 
 /**
 

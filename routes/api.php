@@ -8,6 +8,8 @@ Route::get('/departments','DepartmentController@getAll');
 Route::get('/municipalities','MunicipalityController@getAll');
 Route::get('/services','ServiceController@getAll');
 
+Route::get('/offers/search', "OfferController@searchOffers");
+
 Route::get('/municipalities/{departmentName}','MunicipalityController@getByDepartment');
 
 Route::group(['middleware' => ['JwtMiddleware']], function () {

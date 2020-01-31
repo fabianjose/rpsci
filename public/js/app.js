@@ -2702,14 +2702,9 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
+//
+//
+//
 //
 //
 //
@@ -2773,87 +2768,36 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       municipality: "",
       department: "",
       service: "",
-      baseUrl: baseUrl
+      baseUrl: baseUrl,
+      offerType: "private"
     };
   },
   methods: {
-    setDepartment: function () {
-      var _setDepartment = _asyncToGenerator(
-      /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(val) {
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                console.log("new val ", val);
-                this.department = val;
-                this.getMunicipalities();
+    displayType: function displayType(offerType) {
+      switch (offerType) {
+        case "company":
+          return "Soy una empresa";
+          break;
 
-              case 3:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee, this);
-      }));
-
-      function setDepartment(_x) {
-        return _setDepartment.apply(this, arguments);
+        default:
+          return "Soy un particular";
+          break;
       }
-
-      return setDepartment;
-    }(),
-    setMunicipality: function () {
-      var _setMunicipality = _asyncToGenerator(
-      /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(val) {
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
-          while (1) {
-            switch (_context2.prev = _context2.next) {
-              case 0:
-                console.log("new val ", val);
-                this.municipality = val;
-
-              case 2:
-              case "end":
-                return _context2.stop();
-            }
-          }
-        }, _callee2, this);
-      }));
-
-      function setMunicipality(_x2) {
-        return _setMunicipality.apply(this, arguments);
-      }
-
-      return setMunicipality;
-    }(),
-    setService: function () {
-      var _setService = _asyncToGenerator(
-      /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(val) {
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
-          while (1) {
-            switch (_context3.prev = _context3.next) {
-              case 0:
-                console.log("new val ", val);
-                this.service = val;
-                if (!this.noRequest) this.getMunicipalities();
-
-              case 3:
-              case "end":
-                return _context3.stop();
-            }
-          }
-        }, _callee3, this);
-      }));
-
-      function setService(_x3) {
-        return _setService.apply(this, arguments);
-      }
-
-      return setService;
-    }(),
+    },
+    setDepartment: function setDepartment(val) {
+      console.log("new val ", val);
+      this.department = val;
+      this.getMunicipalities();
+    },
+    setMunicipality: function setMunicipality(val) {
+      console.log("new val ", val);
+      this.municipality = val;
+    },
+    setService: function setService(val) {
+      console.log("new val ", val);
+      this.service = val;
+      if (!this.noRequest) this.getMunicipalities();
+    },
     getMunicipalities: function getMunicipalities() {
       var _this = this;
 
@@ -2864,6 +2808,24 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       })["catch"](function (err) {
         console.log("ERROR FROM SERVER ", err, err.response);
         toastr.error("error al cargar los municipios");
+      });
+    },
+    getExtras: function getExtras() {
+      var query = "?";
+      query += "department=" + this.department;
+      query += "&municipality=" + this.municipality;
+      query += "&service=" + this.service;
+      query += "&offer_type" + this.offerType;
+      return query;
+    },
+    search: function search() {
+      var loader = this.$loading.show();
+      axios.get(baseUrl + "/api/offers/search" + this.getExtras()).then(function (res) {
+        console.log("response", res);
+      })["catch"](function (err) {
+        console.log("ERROR", err.response);
+      })["finally"](function () {
+        return loader.hide();
       });
     }
   }
@@ -3981,8 +3943,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
 //
 //
 //
@@ -38807,7 +38767,21 @@ var render = function() {
             1
           ),
           _vm._v(" "),
-          _vm._m(1)
+          _c(
+            "div",
+            { staticClass: "col-md-6 col-sm-10", on: { click: _vm.search } },
+            [
+              _c("i", { staticClass: "fa fa-search icon-btn" }),
+              _vm._v(" "),
+              _c(
+                "button",
+                { staticClass: "btn btn-block btn-dark-blue rounded-pill" },
+                [_vm._v("\n                    Buscar\n                ")]
+              )
+            ]
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-10" })
         ]
       )
     ])
@@ -38832,20 +38806,6 @@ var staticRenderFns = [
         )
       ]
     )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-6 col-sm-10" }, [
-      _c("i", { staticClass: "fa fa-search icon-btn" }),
-      _vm._v(" "),
-      _c(
-        "button",
-        { staticClass: "btn btn-block btn-dark-blue rounded-pill" },
-        [_vm._v("\n                    Buscar\n                ")]
-      )
-    ])
   }
 ]
 render._withStripped = true
@@ -40373,9 +40333,7 @@ var render = function() {
                         placeholder: "Empresa",
                         property: "name",
                         required: true,
-                        threshold: 1,
-                        inputClass: "form-control",
-                        value: "id"
+                        inputClass: "form-control"
                       },
                       model: {
                         value: _vm.company,
@@ -83629,12 +83587,21 @@ Vue.use(vue_loading_overlay__WEBPACK_IMPORTED_MODULE_4___default.a, {
 
 Vue.component('vueper-slides', vueperslides__WEBPACK_IMPORTED_MODULE_6__["VueperSlides"]);
 Vue.component('vueper-slide', vueperslides__WEBPACK_IMPORTED_MODULE_6__["VueperSlide"]);
+var jwtToken = document.head.querySelector('meta[name="jwt-token"]');
+
+if (jwtToken) {
+  console.log("header setting", 'Bearer ' + jwtToken.content);
+  Vue.http.headers.common['Authorization'] = 'Bearer ' + jwtToken.content;
+} else {
+  console.error('JWT token not found');
+}
 /**
 
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+
 
 var app = new Vue({
   el: '#app',
@@ -85674,8 +85641,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\ConsultingMe\colombia_internet\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\ConsultingMe\colombia_internet\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\web 03\Music\colombia_internet\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\web 03\Music\colombia_internet\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),
