@@ -118,6 +118,7 @@
 }
 
 .planComparator-bg {
+  width: 100vw;
   min-height: 50vh;
   background-color: #e6e6e6;
 }
@@ -252,6 +253,10 @@
   color: #fff;
 }
 
+.offers-pagination-item {
+  border-bottom: solid 0.2rem #cdcdcd;
+}
+
 .btn-dark-blue {
   background-color: #13293d;
   color: white;
@@ -316,7 +321,6 @@
 
 .high-plans-carousel {
   width: 80vw;
-  height: auto;
 }
 
 .offer-card {
@@ -352,16 +356,21 @@
           align-items: center;
   text-align: center;
   padding: 2rem 1rem;
-  padding-top: 3rem;
+  padding-top: 1rem;
 }
 
 .offer-card-title {
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.offer-card-benefits {
+  margin-bottom: 1.5rem;
   font-size: 1rem;
 }
 
 .offer-card-price {
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 .offer-card-footer {
@@ -431,6 +440,11 @@
 
 .filter-card-label {
   font-size: 14px;
+}
+
+.offer-company {
+  max-width: 100px;
+  max-height: 100px;
 }
 
 @media (max-width: 368px) {

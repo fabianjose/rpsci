@@ -18,7 +18,7 @@ class OfferController extends Controller{
     $validation = Validator::make($data, [
       'company' => ['required', 'exists:companies,name', 'string'],
       'service' => ['required', 'exists:services,id'],
-      'benefits' => ['required', 'string'],
+      'benefits' => ['required', 'string', 'min:16'],
       'fields_value' => ['required', 'json'],
       'tariff' => ['required', 'string'],
       'points' => ['string'],
@@ -279,7 +279,7 @@ class OfferController extends Controller{
 		$offers = DB::table('offers')
     ->where('offers.trash',0)
     ->where('offers.highlighted',1)
-    ->where('offers.highlighted_expiration','<=',date('Y-m-d h:i:s'))
+    ->where('offers.highlighted_expiration','>=',date('Y-m-d h:i:s'))
     ->join('companies','companies.id','offers.company')
     ->join('services', 'services.id','offers.service')
     ->join('departments', 'departments.id','offers.department')
