@@ -2835,6 +2835,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
@@ -38927,7 +38933,10 @@ var staticRenderFns = [
               _vm._v(" "),
               _c(
                 "select",
-                { staticClass: " custom-select", attrs: { id: "orderBy" } },
+                {
+                  staticClass: "custom-select rounded-pill",
+                  attrs: { id: "orderBy" }
+                },
                 [_c("option")]
               )
             ]),
@@ -38937,11 +38946,58 @@ var staticRenderFns = [
                 _vm._v("Rango de precios")
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "d-flex w-100" }, [
-                _c("div", { staticClass: "col-6" }),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-6" })
-              ])
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "d-flex w-100 py-3 flex-wrap justify-content-center"
+                },
+                [
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "col-md-6 col-sm-6 col-12 d-flex align-items-center justify-content-center"
+                    },
+                    [
+                      _c("span", { staticClass: "text-muted text-sm" }, [
+                        _vm._v("Desde")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "select",
+                        {
+                          staticClass: "custom-select rounded-pill ml-3",
+                          staticStyle: { "max-width": "100px" }
+                        },
+                        [_c("option")]
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "col-md-6 col-sm-6 col-12 d-flex align-items-center justify-content-center"
+                    },
+                    [
+                      _c("span", { staticClass: "text-muted text-sm" }, [
+                        _vm._v("Hasta")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "select",
+                        {
+                          staticClass: "custom-select rounded-pill ml-3",
+                          staticStyle: { "max-width": "100px" }
+                        },
+                        [_c("option")]
+                      )
+                    ]
+                  )
+                ]
+              )
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group my-2" }, [
@@ -38956,7 +39012,10 @@ var staticRenderFns = [
               _vm._v(" "),
               _c(
                 "select",
-                { staticClass: " custom-select", attrs: { id: "otherValues" } },
+                {
+                  staticClass: "custom-select rounded-pill",
+                  attrs: { id: "otherValues" }
+                },
                 [_c("option")]
               )
             ])
@@ -38968,7 +39027,7 @@ var staticRenderFns = [
         "div",
         { staticClass: "card-footer d-flex justify-content-center pt-2 pb-5" },
         [
-          _c("div", { staticClass: "col-md-10 col-sm-10" }, [
+          _c("div", { staticClass: "col-lg-8 col-md-10 col-sm-10" }, [
             _c("i", { staticClass: "fa fa-search icon-btn" }),
             _vm._v(" "),
             _c(
