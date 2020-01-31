@@ -5,6 +5,26 @@
 @import 'variables';
 @import 'images';
 @import 'btns';
-
+@import 'headers';
+@import "backgrounds";
+@import "layout";
+@import "items";
+@import "buttons";
+@import "highcompanies";
+@import "highplans";
+@import "footer";
+@import "planComparator";
+@import "responsive";
+@import "forms";
 // Bootstrap
 //@import '~bootstrap/scss/bootstrap';
+
+@font-face{
+    font-family: montserrat-bold;
+    src: url("./../assets/fonts/Montserrat-Bold.otf");
+}
+
+body{
+    scroll-behavior: smooth;
+    font-family: montserrat-bold;
+}

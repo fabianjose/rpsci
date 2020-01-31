@@ -1,0 +1,19 @@
+.high-companies-color{
+  color: rgba(230,230,230,1);
+}
+.high-companies-title:after {
+    display: block;
+    padding-top: 5px;
+    content: '';
+    border-bottom: solid 3.5px rgba(230,230,230,0.8);
+    border-radius: 5px;
+    transform: scaleX(0.25);
+    transition: transform 250ms ease-in-out;
+}
+.high-companies-carousel{
+  width: 80vw;
+}
+.high-companies-img{
+  max-width: 200px;
+  max-height: 200px;
+}

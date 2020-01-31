@@ -21,9 +21,7 @@
               placeholder="Empresa"
               property="name"
               :required="true"
-              :threshold="1"
               inputClass="form-control"
-              value="id"
               ></autocomplete-vue>
             </div>
             <div class="form-group col-xl-6 col-lg-6 col-md-6 col-6">
