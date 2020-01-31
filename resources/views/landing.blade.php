@@ -34,7 +34,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link nav-item-border" href="#">
+                        <a class="nav-link nav-item-border" href="/blog">
                             <h6 class="ic-main font-weight-bold">
                                 Blog
                             </h6>
@@ -124,7 +124,7 @@
           <div class="d-flex w-100 align-items-center flex-column">
             <h4 class="high-companies-color high-companies-title text-center">Prestadores de Servicio</h4>
             <vueper-slides
-              class="no-shadow high-companies-carousel mt-3 text-center"
+              class="no-shadow high-companies-carousel mt-4 text-center"
               :bullets="false"
               :visible-slides="4"
               :slide-ratio="0.1"
@@ -158,8 +158,8 @@
                 }}">
               <vueper-slide v-for="i in 9" :key="i">
                 <template v-slot:content>
-                  <div class="h-100">
-                    <img src="{{ asset('images/google.jpg') }}" class="high-companies-img">
+                  <div class="h-100 d-flex text-center justify-content-center">
+                    <img src="{{ asset('images/google.jpg') }}" class="high-companies-img align-self-center">
                   </div>
                 </template>
               </vueper-slide>
