@@ -121,11 +121,49 @@
         </div>
 
         <div class="high-companies py-5 px-4">
-          <div class="d-flex w-100 justify-content-center">
+          <div class="d-flex w-100 align-items-center flex-column">
             <h4 class="high-companies-color high-companies-title text-center">Prestadores de Servicio</h4>
-            <div class="d-flex flex-wrap">
-              <img src="{{ asset('images/logo.png') }}" class="high-companies-img">
-            </div>
+            <vueper-slides
+              class="no-shadow high-companies-carousel mt-3 text-center"
+              :bullets="false"
+              :visible-slides="4"
+              :slide-ratio="0.1"
+              :dragging-distance="70"
+              :breakpoints="{
+                1200: {
+                  visibleSlides:3,
+                  slideRatio:0.15
+                },
+                900: {
+                  visibleSlides:2,
+                  slideRatio:0.15
+                },
+                750: {
+                  visibleSlides:2,
+                  slideRatio:0.2,
+                },
+                600: {
+                  visibleSlides:1,
+                  slideRatio:0.2
+                },
+                520: {
+                  visibleSlides:1,
+                  slideRatio:0.3,
+                  arrows: false
+                },
+                380: {
+                  visibleSlides:1,
+                  slideRatio:0.35,
+                  arrows: false
+                }}">
+              <vueper-slide v-for="i in 9" :key="i">
+                <template v-slot:content>
+                  <div class="h-100">
+                    <img src="{{ asset('images/google.jpg') }}" class="high-companies-img">
+                  </div>
+                </template>
+              </vueper-slide>
+            </vueper-slides>
           </div>
         </div>
 
@@ -138,8 +176,34 @@
               class="no-shadow high-plans-carousel"
               :bullets="false"
               :visible-slides="3"
-              :slide-ratio="1 / 4"
-              :dragging-distance="70">
+              :slide-ratio="1 / 3"
+              :dragging-distance="70"
+              :breakpoints="{
+                1200: {
+                  visibleSlides:3,
+                  slideRatio:1 / 3
+                },
+                900: {
+                  visibleSlides:2,
+                  slideRatio:1 / 2.5
+                },
+                750: {
+                  visibleSlides:2,
+                  slideRatio:1 / 2,
+                },
+                600: {
+                  visibleSlides: 2,
+                  slideRatio:1 / 1.5
+                },
+                520: {
+                  visibleSlides: 1,
+                  slideRatio:1,
+                },
+                380: {
+                  visibleSlides:1,
+                  slideRatio:1,
+                  arrows: false
+                }}">
               <vueper-slide v-for="i in 9" :key="i" :title="i.toString()">
                 <template v-slot:content>
                   <div class="h-100 bg-dark mx-2">
