@@ -16,7 +16,7 @@
                     <img class="ic-logo" src="{{ asset('images/logo.png') }}" alt="">
                 </li>
             </ul>
-            <a class="nav-link hidden-md nav-btn" data-toggle="collapse" data-target="#responsive-menu"><i class="fas fa-bars"></i></a>
+            <a class="nav-link hidden-md nav-btn hidden-xl hidden-lg" data-toggle="collapse" data-target="#responsive-menu"><i class="fas fa-bars"></i></a>
             <div id="responsive-menu" class="navbar-collapse collapse">
                 <ul class="navbar-nav ml-auto mr-x3 ">
                     <li class="nav-item">
