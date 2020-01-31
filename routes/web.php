@@ -13,7 +13,9 @@
 
 //Auth::routes();
 Route::get('/', 'HomeController@landing');
-
+Route::get('/planComparator', function () {
+    return view('pages.planComparator');
+});
 Route::get('/login', function () {
     return view('auth.login');
 });
