@@ -15,7 +15,7 @@
                     <div class="d-flex flex-row flex-wrap justify-content-center py-3 pb-5">
                         <div class="col-8 col-sm-3 col-md-3 col-lg-3 p-2 my-2">
                             <div class="row align-items-start justify-content-around text-white">
-                                <div class="rounded-circle about-number p-1 mb-2 text-center bg-dark-blue">1</div> 
+                                <div class="rounded-circle about-number p-1 mb-2 text-center bg-dark-blue">1</div>
                                 <p class="col-12 col-md-8 col-lg-8 about-text mb-2 mt-1">
                                     Usa nuestro buscador para encontrar el servicio que necesitas
                                 </p>
@@ -23,7 +23,7 @@
                         </div>
                         <div class="col-8 col-sm-3 col-md-3 col-lg-3 p-2 my-2">
                             <div class="row align-items-start justify-content-around text-white">
-                                <div class="rounded-circle about-number p-1 mb-2 text-center bg-dark-blue">2</div> 
+                                <div class="rounded-circle about-number p-1 mb-2 text-center bg-dark-blue">2</div>
                                 <p class="col-12 col-md-8 col-lg-8 about-text mb-2 mt-1">
                                     Selecciona entre todas las opciones del mercado de forma sencilla
                                 </p>
@@ -31,7 +31,7 @@
                         </div>
                         <div class="col-8 col-sm-3 col-md-3 col-lg-3 p-2 my-2">
                             <div class="row align-items-start justify-content-around text-white">
-                                <div class="rounded-circle about-number p-1 mb-2 text-center bg-dark-blue">3</div> 
+                                <div class="rounded-circle about-number p-1 mb-2 text-center bg-dark-blue">3</div>
                                 <p class="col-12 col-md-8 col-lg-8 about-text mb-2 mt-1">
                                     Solicita los mejores servicios de manera rápida y sencilla
                                 </p>
@@ -49,7 +49,7 @@
           <div class="d-flex w-100 align-items-center flex-column">
             <h4 class="high-companies-color high-companies-title text-center">Prestadores de Servicio</h4>
             <vueper-slides
-              class="no-shadow high-companies-carousel mt-3 text-center"
+              class="no-shadow high-companies-carousel mt-4 text-center"
               :bullets="false"
               :visible-slides="4"
               :slide-ratio="0.1"
@@ -83,8 +83,8 @@
                 }}">
               <vueper-slide v-for="i in 9" :key="i">
                 <template v-slot:content>
-                  <div class="h-100">
-                    <img src="{{ asset('images/google.jpg') }}" class="high-companies-img">
+                  <div class="h-100 d-flex text-center justify-content-center">
+                    <img src="{{ asset('images/google.jpg') }}" class="high-companies-img align-self-center">
                   </div>
                 </template>
               </vueper-slide>

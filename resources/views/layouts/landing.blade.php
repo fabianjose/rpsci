@@ -34,7 +34,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link nav-item-border" href="#">
+                        <a class="nav-link nav-item-border" href="/blog">
                             <h6 class="ic-main font-weight-bold">
                                 Blog
                             </h6>
@@ -50,7 +50,7 @@
                 </ul>
             </div>
         </nav>
-        
+
         @yield('content-page')
 
         <div class="footer-bg">
