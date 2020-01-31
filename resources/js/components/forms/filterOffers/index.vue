@@ -12,16 +12,14 @@
         <div class="my-3">
           <span class="filter-card-label">Rango de precios</span>
           <div class="d-flex w-100 py-3 flex-wrap justify-content-center">
-            <div class="col-md-6 col-sm-6 col-12 d-flex align-items-center justify-content-center">
-              <span class="text-muted text-sm">Desde</span>
-              <select class="custom-select rounded-pill ml-3" style="max-width:100px;">
-                <option></option>
+            <div class="col-md-6 col-sm-6 col-12 d-flex align-items-center justify-content-center my-sm-1">
+              <select class="custom-select rounded-pill" style="max-width:200px;">
+                <option disabled selected>Desde</option>
               </select>
             </div>
-            <div class="col-md-6 col-sm-6 col-12 d-flex align-items-center justify-content-center">
-              <span class="text-muted text-sm">Hasta</span>
-              <select class="custom-select rounded-pill ml-3" style="max-width:100px;">
-                <option></option>
+            <div class="col-md-6 col-sm-6 col-12 d-flex align-items-center justify-content-center my-sm-1">
+              <select class="custom-select rounded-pill" style="max-width:200px;">
+                <option disabled selected>Hasta</option>
               </select>
             </div>
           </div>

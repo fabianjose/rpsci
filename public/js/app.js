@@ -2722,7 +2722,7 @@ __webpack_require__.r(__webpack_exports__);
         return;
       }
 
-      this.logo = uploadFile;
+      this.company.logo = uploadFile;
       this.onPreview = URL.createObjectURL(uploadFile);
     },
     editCompany: function editCompany() {
@@ -2730,6 +2730,7 @@ __webpack_require__.r(__webpack_exports__);
       fd.append("name", this.company.name);
       fd.append("nit", this.company.nit);
       fd.append("phone", this.company.phone);
+      fd.append("logo", this.company.logo);
       fd.append("web", this.company.web);
       fd.append("_method", "put");
       var loader = this.$loading.show();
@@ -2793,8 +2794,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
 //
 //
 //
@@ -2918,9 +2917,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2928,10 +2924,24 @@ __webpack_require__.r(__webpack_exports__);
       department: "",
       service: "",
       baseUrl: baseUrl,
-      offerType: "private"
+      offerType: "private",
+      services: []
     };
   },
+  mounted: function mounted() {
+    this.getServices();
+  },
   methods: {
+    getServices: function getServices() {
+      var _this = this;
+
+      axios.get(baseUrl + "/api/services").then(function (res) {
+        _this.services = res.data;
+      })["catch"](function (err) {
+        console.log("ERROR FROM SERVER ", err, err.response);
+        toastr.error("error al cargar los servicios");
+      });
+    },
     setDepartment: function setDepartment(val) {
       console.log("new val ", val);
       this.department = val;
@@ -2947,12 +2957,12 @@ __webpack_require__.r(__webpack_exports__);
       if (!this.noRequest) this.getMunicipalities();
     },
     getMunicipalities: function getMunicipalities() {
-      var _this = this;
+      var _this2 = this;
 
       axios.get(baseUrl + '/api/municipalities/' + this.department).then(function (res) {
         console.log(res);
-        console.log(_this.$refs);
-        if (!_this.hideMunicipality) _this.$refs.municipalitiesList.setEntries(res.data);else _this.$emit("newMunicipalities", res.data);
+        console.log(_this2.$refs);
+        if (!_this2.hideMunicipality) _this2.$refs.municipalitiesList.setEntries(res.data);else _this2.$emit("newMunicipalities", res.data);
       })["catch"](function (err) {
         console.log("ERROR FROM SERVER ", err, err.response);
         toastr.error("error al cargar los municipios");
@@ -2969,13 +2979,7 @@ __webpack_require__.r(__webpack_exports__);
     search: function search() {
       console.log("type ", this.offerType);
       var loader = this.$loading.show();
-      axios.get(baseUrl + "/api/offers/search" + this.getExtras()).then(function (res) {
-        console.log("response", res);
-      })["catch"](function (err) {
-        console.log("ERROR", err.response);
-      })["finally"](function () {
-        return loader.hide();
-      });
+      window.location.replace(baseUrl + "/api/offers/search" + this.getExtras());
     }
   }
 });
@@ -5438,8 +5442,8 @@ __webpack_require__.r(__webpack_exports__);
     submitNewField: function submitNewField() {
       this.OpenAccordion("#ServicesFieldsAccordion", "#collapseServicesFields", "active3");
 
-      if (this.fields.length >= 3) {
-        toastr.error('Solo puedes añadir hasta 3 campos');
+      if (this.fields.length >= 2) {
+        toastr.error('Solo puedes añadir hasta 2 campos');
       } else {
         if (!this.newFieldLabel || !this.newFieldType) {
           return toastr.error('Debe llenar ambos campos');
@@ -5860,8 +5864,8 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     submitNewField: function submitNewField() {
-      if (this.service.fields.length >= 3) {
-        toastr.error('Solo puedes añadir hasta 3 campos');
+      if (this.service.fields.length >= 2) {
+        toastr.error('Solo puedes añadir hasta 2 campos');
       } else {
         this.service.fields.push({
           label: this.newFieldLabel,
@@ -39095,20 +39099,22 @@ var staticRenderFns = [
                     "div",
                     {
                       staticClass:
-                        "col-md-6 col-sm-6 col-12 d-flex align-items-center justify-content-center"
+                        "col-md-6 col-sm-6 col-12 d-flex align-items-center justify-content-center my-sm-1"
                     },
                     [
-                      _c("span", { staticClass: "text-muted text-sm" }, [
-                        _vm._v("Desde")
-                      ]),
-                      _vm._v(" "),
                       _c(
                         "select",
                         {
-                          staticClass: "custom-select rounded-pill ml-3",
-                          staticStyle: { "max-width": "100px" }
+                          staticClass: "custom-select rounded-pill",
+                          staticStyle: { "max-width": "200px" }
                         },
-                        [_c("option")]
+                        [
+                          _c(
+                            "option",
+                            { attrs: { disabled: "", selected: "" } },
+                            [_vm._v("Desde")]
+                          )
+                        ]
                       )
                     ]
                   ),
@@ -39117,20 +39123,22 @@ var staticRenderFns = [
                     "div",
                     {
                       staticClass:
-                        "col-md-6 col-sm-6 col-12 d-flex align-items-center justify-content-center"
+                        "col-md-6 col-sm-6 col-12 d-flex align-items-center justify-content-center my-sm-1"
                     },
                     [
-                      _c("span", { staticClass: "text-muted text-sm" }, [
-                        _vm._v("Hasta")
-                      ]),
-                      _vm._v(" "),
                       _c(
                         "select",
                         {
-                          staticClass: "custom-select rounded-pill ml-3",
-                          staticStyle: { "max-width": "100px" }
+                          staticClass: "custom-select rounded-pill",
+                          staticStyle: { "max-width": "200px" }
                         },
-                        [_c("option")]
+                        [
+                          _c(
+                            "option",
+                            { attrs: { disabled: "", selected: "" } },
+                            [_vm._v("Hasta")]
+                          )
+                        ]
                       )
                     ]
                   )
@@ -39254,6 +39262,7 @@ var render = function() {
                   property: "name",
                   required: true,
                   threshold: 1,
+                  prefixClass: "form-group",
                   inputClass: "form-control rounded-pill rounded-input"
                 },
                 on: { selected: _vm.setMunicipality }
@@ -39265,25 +39274,61 @@ var render = function() {
           _c(
             "div",
             {
-              staticClass: "form-group has-search col-md-6 col-sm-10 col-lg-4"
+              staticClass:
+                "has-search ci-select-container col-md-6 col-sm-10 col-lg-4"
             },
             [
               _c("span", { staticClass: "fa fa-tv form-control-feedback " }),
               _vm._v(" "),
-              _c("autocomplete-vue", {
-                attrs: {
-                  url: "/api/services",
-                  requestType: "get",
-                  placeholder: "Servicio",
-                  property: "name",
-                  required: true,
-                  threshold: 1,
-                  inputClass: "form-control rounded-pill rounded-input"
+              _c(
+                "select",
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.service,
+                      expression: "service"
+                    }
+                  ],
+                  staticClass: "custom-select ci-select rounded-pill",
+                  on: {
+                    change: function($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function(o) {
+                          return o.selected
+                        })
+                        .map(function(o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.service = $event.target.multiple
+                        ? $$selectedVal
+                        : $$selectedVal[0]
+                    }
+                  }
                 },
-                on: { selected: _vm.setService }
-              })
-            ],
-            1
+                [
+                  _c(
+                    "option",
+                    {
+                      staticClass: "d-none",
+                      attrs: { value: "", selected: "" }
+                    },
+                    [_vm._v("Servicio")]
+                  ),
+                  _vm._v(" "),
+                  _vm._l(_vm.services, function(service, index) {
+                    return _c(
+                      "option",
+                      { key: index, domProps: { value: service.name } },
+                      [_vm._v(_vm._s(service.name) + "\n                    ")]
+                    )
+                  })
+                ],
+                2
+              )
+            ]
           ),
           _vm._v(" "),
           _c(
@@ -39304,7 +39349,7 @@ var render = function() {
             "div",
             {
               staticClass:
-                "d-flex row col-10 pt-3 mx-auto justify-content-center"
+                "d-flex row col-10 pt-4 mx-auto justify-content-center"
             },
             [
               _c(

@@ -28,21 +28,18 @@
                         property="name"
                         :required="true"
                         :threshold="1"
+                        prefixClass="form-group"
                         inputClass="form-control rounded-pill rounded-input"
                     ></autocomplete-vue>
                 </div>
-                <div class="form-group has-search col-md-6 col-sm-10 col-lg-4">
+                <div class="has-search ci-select-container col-md-6 col-sm-10 col-lg-4">
                     <span class="fa fa-tv form-control-feedback "></span>
-                    <autocomplete-vue
-                        @selected="setService"
-                        url="/api/services"
-                        requestType="get"
-                        placeholder="Servicio"
-                        property="name"
-                        :required="true"
-                        :threshold="1"
-                        inputClass="form-control rounded-pill rounded-input"
-                    ></autocomplete-vue>
+                    <select class="custom-select ci-select rounded-pill" v-model="service">
+                        <option value="" class="d-none" selected>Servicio</option>
+                        <option v-for="(service,index) in services" :key="index" 
+                            :value="service.name">{{service.name}}
+                        </option>
+                    </select>
                 </div>
                 <div class="col-md-6 col-sm-10" @click="search" >
                     <i class="fa fa-search icon-btn"></i>
@@ -50,7 +47,7 @@
                         Buscar
                     </button>
                 </div>
-                <div class="d-flex row col-10 pt-3 mx-auto justify-content-center">
+                <div class="d-flex row col-10 pt-4 mx-auto justify-content-center">
                     <div class="custom-control custom-radio col-10 col-sm-10 col-md-6 col-lg-6 col-xl-6" @click="offerType='private';" >
                         <input type="radio" class="custom-control-input" :checked="offerType=='private'" id="privateOffer" >
                         <label class="custom-control-label" for="privateOffer">Soy un particular</label>
@@ -73,11 +70,27 @@ export default {
             department:"",
             service:"",
             baseUrl:baseUrl,
-            offerType:"private"
+            offerType:"private",
+            services:[],
         }
     },
 
+    mounted(){
+        this.getServices()
+    },
+
     methods:{
+
+        getServices(){
+            axios.get(baseUrl+"/api/services")
+            .then(res=>{
+                this.services=res.data;
+            })
+            .catch(err=>{
+                console.log("ERROR FROM SERVER ", err,err.response);
+                toastr.error("error al cargar los servicios");
+            });
+        },
 
         setDepartment(val){
             console.log("new val ",val);
@@ -125,17 +138,7 @@ export default {
         search(){      
             console.log("type ", this.offerType)
             let loader = this.$loading.show();
-            
-            axios.get(baseUrl+"/api/offers/search"+this.getExtras())
-            .then(res=>{
-                
-                console.log("response", res);
-
-            }).catch(err=>{
-            
-                console.log("ERROR",err.response);
-            
-            }).finally(()=>loader.hide());
+            window.location.replace(baseUrl+"/api/offers/search"+this.getExtras())
         },
     },
 }

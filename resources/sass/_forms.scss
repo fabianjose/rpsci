@@ -10,6 +10,7 @@
     border-radius:60px;
     background-color: $main-gray;
 }
+
 .main-form-title-container:after {
     display: block;
     content: '';
@@ -22,4 +23,21 @@
 .main-form-title{
     color: $main-blue;
     font-size: 1.3rem;
+}
+
+.ci-select {
+    padding-left: 2.375rem!important;
+    color: gray;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
 }

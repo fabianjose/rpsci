@@ -10,3 +10,12 @@
 .filter-card-label{
   font-size: 14px;
 }
+.offer-company{
+  max-width: 150px;
+  max-height: 150px;
+}
+@media (max-width:980px) {
+  .offer-benefits{
+    display: none!important;
+  }
+}

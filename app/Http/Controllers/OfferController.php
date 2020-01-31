@@ -18,7 +18,7 @@ class OfferController extends Controller{
     $validation = Validator::make($data, [
       'company' => ['required', 'exists:companies,name', 'string'],
       'service' => ['required', 'exists:services,id'],
-      'benefits' => ['required', 'string'],
+      'benefits' => ['required', 'string', 'min:16'],
       'fields_value' => ['required', 'json'],
       'tariff' => ['required', 'string'],
       'points' => ['string'],
@@ -199,7 +199,13 @@ class OfferController extends Controller{
     if (!$department) return response()->json('Departamento no encontrada',404);
     if (!$municipality) return response()->json('Municipio no encontrada',404);
 
-    return Offer::where("type","=",$data["offer_type"])->paginate(10);
+    $offers=Offer::where("type","=",$data["offer_type"])->paginate(10);
+
+    if(!$request->ajax()){
+      return view("pages.planComparator")->with("pagination", $offers);
+    }
+
+    return response()->json($offers, 200);
 
   }
 
