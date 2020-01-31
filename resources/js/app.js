@@ -68,6 +68,8 @@ Vue.component('zone-select', require('./components/items/zone/zoneSelect.vue').d
 
 Vue.component("search-form", require("./components/forms/search").default);
 
+Vue.component("companiesSlider", require("./components/companies/listSlider").default);
+
 //Vue.component('plans', require('./components/items/plans/plans.vue').default);
 //Vue.component('plans-details', require('./components/items/services/detailedService.vue').default);
 //Vue.component('plans-update', require('./components/services/update/updateForm.vue').default);

@@ -2547,6 +2547,96 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/companies/listSlider.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/companies/listSlider.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      baseUrl: baseUrl,
+      companies: [],
+      breakpoints: {
+        1200: {
+          visibleSlides: 3,
+          slideRatio: 0.15
+        },
+        900: {
+          visibleSlides: 2,
+          slideRatio: 0.15
+        },
+        750: {
+          visibleSlides: 2,
+          slideRatio: 0.2
+        },
+        600: {
+          visibleSlides: 1,
+          slideRatio: 0.2
+        },
+        520: {
+          visibleSlides: 1,
+          slideRatio: 0.3,
+          arrows: false
+        },
+        380: {
+          visibleSlides: 1,
+          slideRatio: 0.35,
+          arrows: false
+        }
+      }
+    };
+  },
+  mounted: function mounted() {
+    this.refreshData();
+  },
+  methods: {
+    refreshData: function refreshData() {
+      var _this = this;
+
+      var loader = this.$loading.show();
+      axios.get(baseUrl + '/api/companies/highlighted').then(function (res) {
+        console.log(res);
+        _this.companies = res.data;
+      })["catch"](function (err) {
+        console.log("ERROR FROM SERVER ", err.response);
+
+        if (err.response.data.errorMessage) {
+          toastr.error(err.response.data.errorMessage);
+        } else {
+          toastr.error('Error al obtener las empresas destacadas');
+        }
+      })["finally"](function () {
+        return loader.hide();
+      });
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/companies/update/updateForm.vue?vue&type=script&lang=js&":
 /*!**************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/companies/update/updateForm.vue?vue&type=script&lang=js& ***!
@@ -38466,6 +38556,75 @@ var render = function() {
         ? _c("detailed-company", { attrs: { company: _vm.currentCompany } })
         : _vm._e()
     ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/companies/listSlider.vue?vue&type=template&id=e0f8c9c4&":
+/*!***********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/companies/listSlider.vue?vue&type=template&id=e0f8c9c4& ***!
+  \***********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "vueper-slides",
+    {
+      staticClass: "no-shadow high-companies-carousel mt-4 text-center",
+      attrs: {
+        bullets: false,
+        "visible-slides": 4,
+        "slide-ratio": 0.1,
+        "dragging-distance": 70,
+        breakpoints: _vm.breakpoints
+      }
+    },
+    _vm._l(_vm.companies, function(company) {
+      return _c("vueper-slide", {
+        key: company.id,
+        scopedSlots: _vm._u(
+          [
+            {
+              key: "content",
+              fn: function() {
+                return [
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "h-100 d-flex text-center justify-content-center"
+                    },
+                    [
+                      _c("img", {
+                        staticClass: "high-companies-img align-self-center",
+                        attrs: { src: _vm.baseUrl + "/storage/" + company.logo }
+                      })
+                    ]
+                  )
+                ]
+              },
+              proxy: true
+            }
+          ],
+          null,
+          true
+        )
+      })
+    }),
     1
   )
 }
@@ -83599,7 +83758,8 @@ Vue.component('zone-item', __webpack_require__(/*! ./components/items/zone/zoneI
 Vue.component('plans-creation', __webpack_require__(/*! ./components/plans/creation/creationForm.vue */ "./resources/js/components/plans/creation/creationForm.vue")["default"]);
 Vue.component('plans-gestion', __webpack_require__(/*! ./components/plans/gestion/plansGestion.vue */ "./resources/js/components/plans/gestion/plansGestion.vue")["default"]);
 Vue.component('zone-select', __webpack_require__(/*! ./components/items/zone/zoneSelect.vue */ "./resources/js/components/items/zone/zoneSelect.vue")["default"]);
-Vue.component("search-form", __webpack_require__(/*! ./components/forms/search */ "./resources/js/components/forms/search/index.vue")["default"]); //Vue.component('plans', require('./components/items/plans/plans.vue').default);
+Vue.component("search-form", __webpack_require__(/*! ./components/forms/search */ "./resources/js/components/forms/search/index.vue")["default"]);
+Vue.component("companiesSlider", __webpack_require__(/*! ./components/companies/listSlider */ "./resources/js/components/companies/listSlider.vue")["default"]); //Vue.component('plans', require('./components/items/plans/plans.vue').default);
 //Vue.component('plans-details', require('./components/items/services/detailedService.vue').default);
 //Vue.component('plans-update', require('./components/services/update/updateForm.vue').default);
 // Libreria de autocompletado
@@ -83977,6 +84137,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CompaniesGestion_vue_vue_type_template_id_4802ff5a___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CompaniesGestion_vue_vue_type_template_id_4802ff5a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/companies/listSlider.vue":
+/*!**********************************************************!*\
+  !*** ./resources/js/components/companies/listSlider.vue ***!
+  \**********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _listSlider_vue_vue_type_template_id_e0f8c9c4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./listSlider.vue?vue&type=template&id=e0f8c9c4& */ "./resources/js/components/companies/listSlider.vue?vue&type=template&id=e0f8c9c4&");
+/* harmony import */ var _listSlider_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./listSlider.vue?vue&type=script&lang=js& */ "./resources/js/components/companies/listSlider.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _listSlider_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _listSlider_vue_vue_type_template_id_e0f8c9c4___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _listSlider_vue_vue_type_template_id_e0f8c9c4___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/companies/listSlider.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/companies/listSlider.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/components/companies/listSlider.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_listSlider_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./listSlider.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/companies/listSlider.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_listSlider_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/companies/listSlider.vue?vue&type=template&id=e0f8c9c4&":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/components/companies/listSlider.vue?vue&type=template&id=e0f8c9c4& ***!
+  \*****************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_listSlider_vue_vue_type_template_id_e0f8c9c4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./listSlider.vue?vue&type=template&id=e0f8c9c4& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/companies/listSlider.vue?vue&type=template&id=e0f8c9c4&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_listSlider_vue_vue_type_template_id_e0f8c9c4___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_listSlider_vue_vue_type_template_id_e0f8c9c4___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
