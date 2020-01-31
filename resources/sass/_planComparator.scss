@@ -10,3 +10,15 @@
 .filter-card-label{
   font-size: 14px;
 }
+.offer{
+
+}
+.offer:after {
+    display: block;
+    padding-top: 5px;
+    content: '';
+    border-bottom: solid 4px #000;
+    border-radius: 5px;
+    transform: scaleX(1);
+    transition: transform 250ms ease-in-out;
+}

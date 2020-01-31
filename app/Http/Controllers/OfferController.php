@@ -18,7 +18,7 @@ class OfferController extends Controller{
     $validation = Validator::make($data, [
       'company' => ['required', 'exists:companies,name', 'string'],
       'service' => ['required', 'exists:services,id'],
-      'benefits' => ['required', 'string'],
+      'benefits' => ['required', 'string', 'min:16'],
       'fields_value' => ['required', 'json'],
       'tariff' => ['required', 'string'],
       'points' => ['string'],

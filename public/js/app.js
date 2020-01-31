@@ -2839,8 +2839,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
@@ -39095,20 +39093,22 @@ var staticRenderFns = [
                     "div",
                     {
                       staticClass:
-                        "col-md-6 col-sm-6 col-12 d-flex align-items-center justify-content-center"
+                        "col-md-6 col-sm-6 col-12 d-flex align-items-center justify-content-center my-sm-1"
                     },
                     [
-                      _c("span", { staticClass: "text-muted text-sm" }, [
-                        _vm._v("Desde")
-                      ]),
-                      _vm._v(" "),
                       _c(
                         "select",
                         {
-                          staticClass: "custom-select rounded-pill ml-3",
-                          staticStyle: { "max-width": "100px" }
+                          staticClass: "custom-select rounded-pill",
+                          staticStyle: { "max-width": "200px" }
                         },
-                        [_c("option")]
+                        [
+                          _c(
+                            "option",
+                            { attrs: { disabled: "", selected: "" } },
+                            [_vm._v("Desde")]
+                          )
+                        ]
                       )
                     ]
                   ),
@@ -39117,20 +39117,22 @@ var staticRenderFns = [
                     "div",
                     {
                       staticClass:
-                        "col-md-6 col-sm-6 col-12 d-flex align-items-center justify-content-center"
+                        "col-md-6 col-sm-6 col-12 d-flex align-items-center justify-content-center my-sm-1"
                     },
                     [
-                      _c("span", { staticClass: "text-muted text-sm" }, [
-                        _vm._v("Hasta")
-                      ]),
-                      _vm._v(" "),
                       _c(
                         "select",
                         {
-                          staticClass: "custom-select rounded-pill ml-3",
-                          staticStyle: { "max-width": "100px" }
+                          staticClass: "custom-select rounded-pill",
+                          staticStyle: { "max-width": "200px" }
                         },
-                        [_c("option")]
+                        [
+                          _c(
+                            "option",
+                            { attrs: { disabled: "", selected: "" } },
+                            [_vm._v("Hasta")]
+                          )
+                        ]
                       )
                     ]
                   )
