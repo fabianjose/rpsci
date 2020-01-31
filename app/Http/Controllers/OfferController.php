@@ -199,6 +199,8 @@ class OfferController extends Controller{
     if (!$department) return response()->json('Departamento no encontrada',404);
     if (!$municipality) return response()->json('Municipio no encontrada',404);
 
+    return Offer::where("type","=",$data["offer_type"])->paginate(10);
+
   }
 
   public function getHighlightByLocation(Request $request){

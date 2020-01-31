@@ -100,7 +100,21 @@
           </div>
 
           <div class="offer-card rounded-pill">
-
+              <div class="offer-card-header">
+                  <img src="{{asset('images/logo.png')}}" alt="logo" class="offer-card-logo">
+              </div>
+              <div class="offer-card-separator"></div>
+              <div class="offer-card-content">
+                  <h6 class="offer-card-title">Nombre del Plan Super Especial Promocionado</h6>
+                  <h5 class="offer-card-price">8.000 $</h5>
+              </div>
+              <div class="offer-card-footer">
+                  <div class="col-10">
+                    <button class="btn btn-block btn-dark-blue rounded-pill">
+                        Buscar
+                    </button>
+                  </div>
+              </div>
           </div>
 
         </div>

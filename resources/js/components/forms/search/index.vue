@@ -44,11 +44,14 @@
                         inputClass="form-control rounded-pill rounded-input"
                     ></autocomplete-vue>
                 </div>
-                <div class="col-md-6 col-sm-10">
+                <div class="col-md-6 col-sm-10" @click="search" >
                     <i class="fa fa-search icon-btn"></i>
                     <button class="btn btn-block btn-dark-blue rounded-pill">
                         Buscar
                     </button>
+                </div>
+                <div class="col-10">
+                    
                 </div>
             </div>
         </div>
@@ -63,22 +66,36 @@ export default {
             department:"",
             service:"",
             baseUrl:baseUrl,
+            offerType:"private"
         }
     },
 
     methods:{
-        async setDepartment(val){
+
+        displayType(offerType){
+            switch (offerType) {
+                case "company":
+                    return "Soy una empresa"
+                    break;
+            
+                default:
+                    return "Soy un particular"
+                    break;
+            }
+        },
+
+        setDepartment(val){
             console.log("new val ",val);
             this.department=val;
             this.getMunicipalities();
         },
 
-        async setMunicipality(val){
+        setMunicipality(val){
             console.log("new val ",val);
             this.municipality=val;
         },
 
-        async setService(val){
+        setService(val){
             console.log("new val ",val);
             this.service=val;
             if(!this.noRequest)this.getMunicipalities();
@@ -95,6 +112,34 @@ export default {
                 console.log("ERROR FROM SERVER ", err,err.response);
                 toastr.error("error al cargar los municipios");
             });
+        },
+
+        getExtras(){
+            
+            let query="?";
+
+            query+="department="+this.department;
+            query+="&municipality="+this.municipality;
+            query+="&service="+this.service;
+            query+="&offer_type"+this.offerType;
+
+            return query;
+
+        },
+
+        search(){      
+            let loader = this.$loading.show();
+            
+            axios.get(baseUrl+"/api/offers/search"+this.getExtras())
+            .then(res=>{
+                
+                console.log("response", res);
+
+            }).catch(err=>{
+            
+                console.log("ERROR",err.response);
+            
+            }).finally(()=>loader.hide());
         },
     },
 }
