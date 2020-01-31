@@ -3223,29 +3223,31 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
+      offers: [],
       breakpoints: {
         1200: {
           visibleSlides: 3,
-          slideRatio: 1
+          slideRatio: 0.5
         },
         900: {
           visibleSlides: 2,
-          slideRatio: 1
+          slideRatio: 0.6
         },
         750: {
           visibleSlides: 2,
-          slideRatio: 1
+          slideRatio: 0.7
         },
         600: {
-          visibleSlides: 2,
-          slideRatio: 1
+          visibleSlides: 1,
+          slideRatio: 0.8
         },
         520: {
           visibleSlides: 1,
-          slideRatio: 1
+          slideRatio: 0.9
         },
         380: {
           visibleSlides: 1,
@@ -3254,6 +3256,27 @@ __webpack_require__.r(__webpack_exports__);
         }
       }
     };
+  },
+  mounted: function mounted() {
+    this.refreshData();
+  },
+  methods: {
+    refreshData: function refreshData() {
+      var _this = this;
+
+      axios.get(baseUrl + '/api/offers/highlighted').then(function (res) {
+        console.log('Offers: ', res);
+        _this.offers = res.data;
+      })["catch"](function (err) {
+        console.log("ERROR FROM SERVER ", err.response);
+
+        if (err.response.data.errorMessage) {
+          toastr.error(err.response.data.errorMessage);
+        } else {
+          toastr.error('Error al obtener las ofertas destacadas');
+        }
+      });
+    }
   }
 });
 
@@ -3450,7 +3473,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['offer'],
   data: function data() {
     return {
       baseUrl: baseUrl
@@ -39793,51 +39820,61 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "high-plans py-5 px-4" }, [
-    _vm._m(0),
-    _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "d-flex w-100 justify-content-center mt-5" },
-      [
-        _c(
-          "vueper-slides",
-          {
-            staticClass: "no-shadow high-plans-carousel",
-            attrs: {
-              bullets: false,
-              "visible-slides": 3,
-              "slide-ratio": 1,
-              "dragging-distance": 70,
-              arrows: false,
-              breakpoints: _vm.breakpoints
-            }
-          },
-          _vm._l(9, function(i) {
-            return _c("vueper-slide", {
-              key: i,
-              attrs: { title: i.toString() },
-              scopedSlots: _vm._u(
-                [
-                  {
-                    key: "content",
-                    fn: function() {
-                      return [_c("offer-card")]
-                    },
-                    proxy: true
-                  }
-                ],
-                null,
-                true
-              )
-            })
-          }),
-          1
-        )
-      ],
-      1
-    )
-  ])
+  return _c(
+    "div",
+    { staticClass: "high-plans py-5 px-4" },
+    [
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "vueper-slides",
+        {
+          staticClass: "no-shadow high-plans-carousel text-center w-100",
+          attrs: {
+            bullets: false,
+            autoplay: _vm.offers.length < 3 ? false : true,
+            duration: 3000,
+            "visible-slides": _vm.offers.length < 3 ? _vm.offers.length : 3,
+            "slide-ratio": 0.4,
+            "dragging-distance": 70,
+            arrows: false,
+            breakpoints: _vm.breakpoints
+          }
+        },
+        _vm._l(_vm.offers, function(offer, index) {
+          return _c("vueper-slide", {
+            key: index,
+            staticClass: "align-self-center",
+            scopedSlots: _vm._u(
+              [
+                {
+                  key: "content",
+                  fn: function() {
+                    return [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "d-flex text-center justify-content-center"
+                        },
+                        [_c("offer-card", { attrs: { offer: offer } })],
+                        1
+                      )
+                    ]
+                  },
+                  proxy: true
+                }
+              ],
+              null,
+              true
+            )
+          })
+        }),
+        1
+      )
+    ],
+    1
+  )
 }
 var staticRenderFns = [
   function() {
@@ -40077,36 +40114,39 @@ var render = function() {
     _c("div", { staticClass: "offer-card-header" }, [
       _c("img", {
         staticClass: "col-10",
-        attrs: { src: _vm.baseUrl + "/images/logo.png", alt: "logo" }
+        attrs: {
+          src: _vm.baseUrl + "/storage/" + _vm.offer.company_logo,
+          alt: "logo"
+        }
       })
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "offer-card-separator bg-main-pink" }),
     _vm._v(" "),
-    _vm._m(0),
-    _vm._v(" "),
-    _vm._m(1)
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "offer-card-content" }, [
+    _c("div", { staticClass: "offer-card-content" }, [
       _c("div", { staticClass: "row" }, [
         _c("h6", { staticClass: "col-12 offer-card-title" }, [
-          _vm._v("Nombre del Plan Super Especial Promocionado")
+          _vm._v(_vm._s(_vm.offer.company_name))
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "row" }, [
+        _c("h6", { staticClass: "col-12 offer-card-benefits" }, [
+          _vm._v(_vm._s(_vm.offer.benefits))
         ])
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "row" }, [
         _c("h5", { staticClass: "col-12 offer-card-price" }, [
-          _vm._v("8.000 $")
+          _vm._v(_vm._s(_vm.offer.tariff) + " $")
         ])
       ])
-    ])
-  },
+    ]),
+    _vm._v(" "),
+    _vm._m(0)
+  ])
+}
+var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -40119,7 +40159,7 @@ var staticRenderFns = [
             staticClass:
               "btn btn-block bg-main-pink text-white offer-card-btn rounded-pill"
           },
-          [_vm._v("\n              CONTACTAR\n          ")]
+          [_vm._v("\n        CONTACTAR\n      ")]
         )
       ])
     ])
