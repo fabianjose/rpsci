@@ -3220,22 +3220,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      breakpoints: [{
+      breakpoints: {
         1200: {
           visibleSlides: 3,
-          slideRatio: 1 / 3
+          slideRatio: 1
         },
         900: {
           visibleSlides: 2,
-          slideRatio: 1 / 2.5
+          slideRatio: 1
         },
         750: {
           visibleSlides: 2,
-          slideRatio: 1 / 2
+          slideRatio: 1
         },
         600: {
           visibleSlides: 2,
-          slideRatio: 1 / 1.5
+          slideRatio: 1
         },
         520: {
           visibleSlides: 1,
@@ -3246,7 +3246,7 @@ __webpack_require__.r(__webpack_exports__);
           slideRatio: 1,
           arrows: false
         }
-      }]
+      }
     };
   }
 });
@@ -39748,8 +39748,9 @@ var render = function() {
             attrs: {
               bullets: false,
               "visible-slides": 3,
-              "slide-ratio": 1 / 3,
+              "slide-ratio": 1,
               "dragging-distance": 70,
+              arrows: false,
               breakpoints: _vm.breakpoints
             }
           },
@@ -39762,7 +39763,7 @@ var render = function() {
                   {
                     key: "content",
                     fn: function() {
-                      return [_c("div", { staticClass: "h-100 bg-dark mx-2" })]
+                      return [_c("offer-card")]
                     },
                     proxy: true
                   }

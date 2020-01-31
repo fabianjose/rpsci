@@ -8,14 +8,14 @@
           class="no-shadow high-plans-carousel"
           :bullets="false"
           :visible-slides="3"
-          :slide-ratio="1 / 3"
+          :slide-ratio="1"
           :dragging-distance="70"
-          :breakpoints="breakpoints">
+          :arrows="false"
+          :breakpoints="breakpoints"
+          >
           <vueper-slide v-for="i in 9" :key="i" :title="i.toString()">
             <template v-slot:content>
-              <div class="h-100 bg-dark mx-2">
-
-              </div>
+              <offer-card></offer-card>
             </template>
           </vueper-slide>
         </vueper-slides>
@@ -28,23 +28,23 @@
 export default {
     data(){
         return{
-            breakpoints:[
+            breakpoints:
             {
             1200: {
               visibleSlides:3,
-              slideRatio:1 / 3
+              slideRatio:1
             },
             900: {
               visibleSlides:2,
-              slideRatio:1 / 2.5
+              slideRatio:1
             },
             750: {
               visibleSlides:2,
-              slideRatio:1 / 2,
+              slideRatio:1,
             },
             600: {
               visibleSlides: 2,
-              slideRatio:1 / 1.5
+              slideRatio:1,
             },
             520: {
               visibleSlides: 1,
@@ -56,7 +56,6 @@ export default {
               arrows: false
             }
             }
-        ]
         };
     }
 }
