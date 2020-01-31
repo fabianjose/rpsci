@@ -13,12 +13,7 @@
 .offer{
 
 }
-.offer:after {
-    display: block;
-    padding-top: 5px;
-    content: '';
-    border-bottom: solid 4px #000;
-    border-radius: 5px;
-    transform: scaleX(1);
-    transition: transform 250ms ease-in-out;
+.offer-company{
+  max-width: 100px;
+  max-height: 100px;
 }

@@ -438,18 +438,9 @@
   font-size: 14px;
 }
 
-.offer:after {
-  display: block;
-  padding-top: 5px;
-  content: "";
-  border-bottom: solid 4px #000;
-  border-radius: 5px;
-  -webkit-transform: scaleX(1);
-          transform: scaleX(1);
-  -webkit-transition: -webkit-transform 250ms ease-in-out;
-  transition: -webkit-transform 250ms ease-in-out;
-  transition: transform 250ms ease-in-out;
-  transition: transform 250ms ease-in-out, -webkit-transform 250ms ease-in-out;
+.offer-company {
+  max-width: 100px;
+  max-height: 100px;
 }
 
 @media (max-width: 368px) {

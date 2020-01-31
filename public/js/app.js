@@ -5436,8 +5436,8 @@ __webpack_require__.r(__webpack_exports__);
     submitNewField: function submitNewField() {
       this.OpenAccordion("#ServicesFieldsAccordion", "#collapseServicesFields", "active3");
 
-      if (this.fields.length >= 3) {
-        toastr.error('Solo puedes añadir hasta 3 campos');
+      if (this.fields.length >= 2) {
+        toastr.error('Solo puedes añadir hasta 2 campos');
       } else {
         if (!this.newFieldLabel || !this.newFieldType) {
           return toastr.error('Debe llenar ambos campos');
@@ -5858,8 +5858,8 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     submitNewField: function submitNewField() {
-      if (this.service.fields.length >= 3) {
-        toastr.error('Solo puedes añadir hasta 3 campos');
+      if (this.service.fields.length >= 2) {
+        toastr.error('Solo puedes añadir hasta 2 campos');
       } else {
         this.service.fields.push({
           label: this.newFieldLabel,
