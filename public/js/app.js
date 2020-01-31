@@ -2722,7 +2722,7 @@ __webpack_require__.r(__webpack_exports__);
         return;
       }
 
-      this.logo = uploadFile;
+      this.company.logo = uploadFile;
       this.onPreview = URL.createObjectURL(uploadFile);
     },
     editCompany: function editCompany() {
@@ -2730,6 +2730,7 @@ __webpack_require__.r(__webpack_exports__);
       fd.append("name", this.company.name);
       fd.append("nit", this.company.nit);
       fd.append("phone", this.company.phone);
+      fd.append("logo", this.company.logo);
       fd.append("web", this.company.web);
       fd.append("_method", "put");
       var loader = this.$loading.show();
@@ -86718,8 +86719,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\web 03\Music\colombia_internet\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\web 03\Music\colombia_internet\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\ConsultingMe\colombia_internet\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\ConsultingMe\colombia_internet\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),

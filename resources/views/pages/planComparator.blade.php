@@ -8,7 +8,7 @@
     </div>
     <div class="col-12">
       <div class="d-flex flex-column w-100">
-        <div class="d-flex w-100 justify-content-center">
+        <div class="d-flex w-100 justify-content-between mx-4">
           <div class="btn btn-dark-blue rounded-pill col-xl-2 col-lg-2 col-md-3 mx-1">
             <span class="text-sm">PROVEEDOR</span>
           </div>
@@ -25,13 +25,13 @@
             <span class="text-sm">DETALLES</span>
           </div>
         </div>
-        <?php for ($i=0; $i < 4; $i++) { ?>
-          <div class="d-flex w-100 justify-content-center my-4 offer offers-pagination-item">
+        <?php foreach ($pagination as $key) { ?>
+          <div class="d-flex w-100 justify-content-between m-4 offer px-0 offers-pagination-item pb-5">
             <div class="col-xl-2 col-lg-2 col-md-3 mx-1 text-center d-flex align-items-center justify-content-center">
               <img src="{{asset('images/logo.png')}}" class="offer-company">
             </div>
             <div class="col-xl-2 col-lg-2 mx-1 text-center d-flex align-items-center justify-content-center offer-benefits">
-              <span class="text-sm">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+              <span class="text-sm">{{$key['benefits']}}</span>
             </div>
             <div class="col-xl-2 col-lg-2 col-md-3 mx-1 text-center d-flex align-items-center justify-content-center">
               <span class="">VALOR</span>
