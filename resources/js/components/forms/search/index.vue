@@ -50,8 +50,15 @@
                         Buscar
                     </button>
                 </div>
-                <div class="col-10">
-                    
+                <div class="d-flex row col-10 pt-3 mx-auto justify-content-center">
+                    <div class="custom-control custom-radio col-10 col-sm-10 col-md-6 col-lg-6 col-xl-6" @click="offerType='private';" >
+                        <input type="radio" class="custom-control-input" :checked="offerType=='private'" id="privateOffer" >
+                        <label class="custom-control-label" for="privateOffer">Soy un particular</label>
+                    </div>
+                    <div class="custom-control custom-radio col-10 col-sm-10 col-md-6 col-lg-6 col-xl-6" @click="offerType='company';" >
+                        <input type="radio" class="custom-control-input" :checked="offerType=='company'" id="companyOffer">
+                        <label class="custom-control-label" for="companyOffer">Soy una empresa</label>
+                    </div>
                 </div>
             </div>
         </div>
@@ -71,18 +78,6 @@ export default {
     },
 
     methods:{
-
-        displayType(offerType){
-            switch (offerType) {
-                case "company":
-                    return "Soy una empresa"
-                    break;
-            
-                default:
-                    return "Soy un particular"
-                    break;
-            }
-        },
 
         setDepartment(val){
             console.log("new val ",val);
@@ -121,13 +116,14 @@ export default {
             query+="department="+this.department;
             query+="&municipality="+this.municipality;
             query+="&service="+this.service;
-            query+="&offer_type"+this.offerType;
+            query+="&offer_type="+this.offerType;
 
             return query;
 
         },
 
         search(){      
+            console.log("type ", this.offerType)
             let loader = this.$loading.show();
             
             axios.get(baseUrl+"/api/offers/search"+this.getExtras())
