@@ -20,7 +20,7 @@
             <div id="responsive-menu" class="navbar-collapse collapse">
                 <ul class="navbar-nav ml-auto mr-x3 ">
                     <li class="nav-item">
-                        <a class="nav-link nav-item-border active" href="#">
+                        <a class="nav-link nav-item-border active" href="/">
                             <h6 class="ic-main font-weight-bold">
                                 Inicio
                             </h6>

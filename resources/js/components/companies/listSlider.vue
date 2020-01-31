@@ -1,8 +1,10 @@
 <template>
   <vueper-slides
     class="no-shadow high-companies-carousel mt-4 text-center"
+    :autoplay="(companies.length < 4)?false:true"
+    :duration="autoplayDuration"
     :bullets="false"
-    :visible-slides="4"
+    :visible-slides="(companies.length < 4)?companies.length:4"
     :slide-ratio="0.1"
     :dragging-distance="70"
     :breakpoints="breakpoints">
@@ -22,6 +24,7 @@ export default {
     return{
       baseUrl:baseUrl,
       companies:[],
+      autoplayDuration: 3000,
       breakpoints:{
         1200: {
           visibleSlides:3,
@@ -49,15 +52,15 @@ export default {
           slideRatio:0.35,
           arrows: false
         }
-      },
+      }
     }
   },
   mounted(){
     this.refreshData();
+
   },
   methods:{
     refreshData(){
-      let loader = this.$loading.show();
       axios.get(baseUrl+'/api/companies/highlighted')
       .then(res=>{
         console.log(res);
@@ -69,7 +72,7 @@ export default {
         }else{
           toastr.error('Error al obtener las empresas destacadas');
         }
-      }).finally(()=>loader.hide());
+      });
     },
   }
 }

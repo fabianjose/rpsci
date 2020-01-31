@@ -109,6 +109,11 @@
   background-color: #212121;
 }
 
+.planComparator-bg {
+  min-height: 50vh;
+  background-color: #e6e6e6;
+}
+
 .ic-logo-grey {
   max-height: 25%;
   padding: 5px 10px;
@@ -365,6 +370,18 @@
 .footer-footer span {
   color: rgba(126, 126, 126, 0.7);
   font-size: 12px;
+}
+
+.filter-card {
+  border-radius: 60px;
+}
+
+.filter-card-title {
+  color: #525973;
+}
+
+.filter-card-label {
+  font-size: 14px;
 }
 
 @media (max-width: 368px) {

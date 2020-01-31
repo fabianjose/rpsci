@@ -48,7 +48,7 @@
         <div class="high-companies py-5 px-4">
           <div class="d-flex w-100 align-items-center flex-column">
             <h4 class="high-companies-color high-companies-title text-center">Prestadores de Servicio</h4>
-              <companiesSlider />  
+            <companies-slider />  
           </div>
         </div>
 
