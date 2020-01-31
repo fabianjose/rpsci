@@ -1,0 +1,25 @@
+.custom-control-input:checked~.custom-control-label::before {
+    color: #fff;
+    border-color: $dark-blue;
+    background-color: $dark-blue;
+}
+
+.main-search-form{
+    width:65%;
+    height:auto;
+    border-radius:60px;
+    background-color: $main-gray;
+}
+.main-form-title-container:after {
+    display: block;
+    content: '';
+    border-bottom: solid 3.5px $mid-gray;  
+    border-radius: 5px;
+    transform: scaleX(0.35);  
+    transition: transform 250ms ease-in-out;
+}
+
+.main-form-title{
+    color: $main-blue;
+    font-size: 1.3rem;
+}
