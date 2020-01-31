@@ -13,7 +13,7 @@
 
 //Auth::routes();
 Route::get('/', 'HomeController@landing');
-Route::get('/planComparator', function () {
+Route::get('/search', function () {
     return view('pages.planComparator');
 });
 Route::get('/login', function () {
@@ -27,7 +27,7 @@ Route::group(["middleware" => ["isAuth"]], function(){
 
 
 
-    Route::get('/home', 'HomeController@index');
+    Route::get('/dashboard', 'HomeController@index');
 
     Route::get("/companies", function(){
         return view('pages.companies');
