@@ -14,7 +14,7 @@
 
 .main-middle{
     position:absolute;
-    top: 12vh;
+    top: 11vh;
     margin: 1.2rem auto;
     left: 0;
     right: 0; 
@@ -31,7 +31,7 @@
     content: '';
     border-bottom: solid 3.5px $mid-gray;  
     border-radius: 5px;
-    transform: scaleX(0.15);  
+    transform: scaleX(0.35);  
     transition: transform 250ms ease-in-out;
 }
 
@@ -47,7 +47,7 @@
 }
 
 .about-sub{
-    margin-top: 28vh;
+    margin-top: 23vh;
 }
 
 .about-number{
@@ -57,7 +57,7 @@
 }
 
 .about-text{
-    font-size: .7rem;
+    font-size: .85rem;
     color: $dark-blue;
 }
 
@@ -82,24 +82,30 @@
 
 @media(max-width:768px){
     .main-middle{
-        top:5%;
+        top:10%;
     }
     .about-sub{
-        margin-top: 40vh;
+        margin-top: 25vh;
     }
     .ic-logo-grey{
         max-height: 18%;
     }
 }
 
-@media (max-width:480px){
-    .about-sub{
-        margin-top: 45vh;
+@media (max-width:575px){
+    .main-middle{
+        top:6%;
     }
 }
-@media (max-width:361px){
+
+@media (max-width:480px){}
+
+@media (max-width:304px){
+    .ic-logo-grey{
+        max-height: 15%;
+    }
     .main-middle{
-        height: 35%;
+        height: 34%;
     }
 }
 

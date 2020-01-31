@@ -56,7 +56,7 @@
           transform: scaleX(1);
 }
 
-@media (max-width: 780px) {
+@media (max-width: 767px) {
   .nav-item-border:after {
     display: none;
   }
@@ -123,7 +123,7 @@
 
 .main-middle {
   position: absolute;
-  top: 12vh;
+  top: 11vh;
   margin: 1.2rem auto;
   left: 0;
   right: 0;
@@ -144,8 +144,8 @@
   content: "";
   border-bottom: solid 3.5px #cdcdcd;
   border-radius: 5px;
-  -webkit-transform: scaleX(0.15);
-          transform: scaleX(0.15);
+  -webkit-transform: scaleX(0.35);
+          transform: scaleX(0.35);
   -webkit-transition: -webkit-transform 250ms ease-in-out;
   transition: -webkit-transform 250ms ease-in-out;
   transition: transform 250ms ease-in-out;
@@ -164,7 +164,7 @@
 }
 
 .about-sub {
-  margin-top: 28vh;
+  margin-top: 23vh;
 }
 
 .about-number {
@@ -174,7 +174,7 @@
 }
 
 .about-text {
-  font-size: 0.7rem;
+  font-size: 0.85rem;
   color: #13293d;
 }
 
@@ -204,11 +204,11 @@
 
 @media (max-width: 768px) {
   .main-middle {
-    top: 5%;
+    top: 10%;
   }
 
   .about-sub {
-    margin-top: 40vh;
+    margin-top: 25vh;
   }
 
   .ic-logo-grey {
@@ -216,15 +216,19 @@
   }
 }
 
-@media (max-width: 480px) {
-  .about-sub {
-    margin-top: 45vh;
+@media (max-width: 575px) {
+  .main-middle {
+    top: 6%;
   }
 }
 
-@media (max-width: 361px) {
+@media (max-width: 304px) {
+  .ic-logo-grey {
+    max-height: 15%;
+  }
+
   .main-middle {
-    height: 35%;
+    height: 34%;
   }
 }
 
@@ -263,6 +267,14 @@
 
 .btn-dark-blue:hover {
   color: lightgray;
+}
+
+.autocomplete__suggestions {
+  z-index: 3 !important;
+}
+
+.rounded-input + .autocomplete__suggestions {
+  box-shadow: 0px 0px 3px 0.3px rgba(0, 0, 0, 0.75);
 }
 
 .high-companies-color {

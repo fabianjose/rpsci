@@ -33,7 +33,7 @@
 
 .nav-item-border:hover:after { transform: scaleX(1); }
 
-@media(max-width:780px){
+@media (max-width: 767px){
     
     .nav-item-border:after {
         display: none;
