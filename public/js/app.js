@@ -2576,12 +2576,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       baseUrl: baseUrl,
       companies: [],
-      autoplayDuration: 3000,
+      autoplayDuration: 4000,
       breakpoints: {
         1200: {
           visibleSlides: 3,
@@ -38604,6 +38605,7 @@ var render = function() {
         autoplay: _vm.companies.length < 4 ? false : true,
         duration: _vm.autoplayDuration,
         bullets: false,
+        arrows: false,
         "visible-slides": _vm.companies.length < 4 ? _vm.companies.length : 4,
         "slide-ratio": 0.1,
         "dragging-distance": 70,
@@ -38907,7 +38909,7 @@ var staticRenderFns = [
     return _c("div", { staticClass: "card card-primary filter-card" }, [
       _c(
         "div",
-        { staticClass: "card-body d-flex flex-column align-items-center" },
+        { staticClass: "card-body d-flex flex-column align-items-center pt-4" },
         [
           _c(
             "h5",
@@ -38915,7 +38917,7 @@ var staticRenderFns = [
             [_vm._v("Filtra tu búsqueda")]
           ),
           _vm._v(" "),
-          _c("div", { staticClass: "d-flex flex-column w-100 p-2" }, [
+          _c("div", { staticClass: "d-flex flex-column w-100 py-3 px-1" }, [
             _c("div", { staticClass: "form-group my-2" }, [
               _c(
                 "label",
@@ -38962,17 +38964,21 @@ var staticRenderFns = [
         ]
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "card-footer d-flex justify-content-center" }, [
-        _c("div", { staticClass: "col-md-10 col-sm-10" }, [
-          _c("i", { staticClass: "fa fa-search icon-btn" }),
-          _vm._v(" "),
-          _c(
-            "button",
-            { staticClass: "btn btn-block btn-dark-blue rounded-pill" },
-            [_vm._v("\n        Buscar\n      ")]
-          )
-        ])
-      ])
+      _c(
+        "div",
+        { staticClass: "card-footer d-flex justify-content-center pt-2 pb-5" },
+        [
+          _c("div", { staticClass: "col-md-10 col-sm-10" }, [
+            _c("i", { staticClass: "fa fa-search icon-btn" }),
+            _vm._v(" "),
+            _c(
+              "button",
+              { staticClass: "btn btn-block btn-dark-blue rounded-pill" },
+              [_vm._v("\n        Buscar\n      ")]
+            )
+          ])
+        ]
+      )
     ])
   }
 ]

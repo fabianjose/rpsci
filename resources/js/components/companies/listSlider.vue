@@ -4,6 +4,7 @@
     :autoplay="(companies.length < 4)?false:true"
     :duration="autoplayDuration"
     :bullets="false"
+    :arrows="false"
     :visible-slides="(companies.length < 4)?companies.length:4"
     :slide-ratio="0.1"
     :dragging-distance="70"
@@ -24,7 +25,7 @@ export default {
     return{
       baseUrl:baseUrl,
       companies:[],
-      autoplayDuration: 3000,
+      autoplayDuration: 4000,
       breakpoints:{
         1200: {
           visibleSlides:3,

@@ -12,10 +12,13 @@ Route::get('/offers/search', "OfferController@searchOffers");
 
 Route::get('/municipalities/{departmentName}','MunicipalityController@getByDepartment');
 
+Route::get('/companies/highlighted','CompanyController@getAllHighlighted');
+Route::get('offers/highlighted', 'OfferController@getAllHighlighted');
+
 Route::group(['middleware' => ['JwtMiddleware']], function () {
   Route::post('/department','DepartmentController@newDepartment');
   Route::delete('/department/{id}','DepartmentController@deleteDepartment');
-  
+
   Route::post("/municipalities", "MunicipalityController@newMunicipality");
   Route::delete("/municipalities/{id}", "MunicipalityController@remove");
 
@@ -24,7 +27,6 @@ Route::group(['middleware' => ['JwtMiddleware']], function () {
   Route::put('/company/{name}/highlight','CompanyController@highlightCompany');
   Route::put('/company/{id}/dehighlight','CompanyController@deHighlightCompany');
   Route::get('/companies','CompanyController@getAll');
-  Route::get('/companies/highlighted','CompanyController@getAllHighlighted');
   // Route::get('/company/names','CompanyController@getNames');
   Route::get('/company/{id}','CompanyController@getCompany');
   Route::delete('/company/{id}','CompanyController@deleteCompany');
@@ -41,7 +43,6 @@ Route::group(['middleware' => ['JwtMiddleware']], function () {
   Route::delete('/offer/{id}','OfferController@deleteOffer');
 
   Route::post('offers/area', 'OfferController@getByLocation');
-  Route::get('offers/highlighted', 'OfferController@getAllHighlighted');
   Route::post('offers/highlight/{id}', "OfferController@HighlightOffer");
   Route::post('offers/area/highlight', "OfferController@getHighlightByLocation");
 
