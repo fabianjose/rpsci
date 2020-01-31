@@ -518,6 +518,27 @@
   font-size: 1.3rem;
 }
 
+.ci-select {
+  padding-left: 2.375rem !important;
+  color: gray;
+}
+
+.has-search .form-control-feedback {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  width: 2.375rem;
+  height: 2.375rem;
+  line-height: 2.375rem;
+  text-align: center;
+  pointer-events: none;
+  color: #aaa;
+}
+
+.text-main-blue {
+  color: #20adf4;
+}
+
 @font-face {
   font-family: montserrat-bold;
   src: url(/fonts/Montserrat-Bold.otf?9c71d42b6a840ecfda8fc555040a1c76);

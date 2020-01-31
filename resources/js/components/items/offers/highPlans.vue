@@ -35,15 +35,15 @@ export default {
               slideRatio:1
             },
             900: {
-              visibleSlides:2,
+              visibleSlides:1,
               slideRatio:1
             },
             750: {
-              visibleSlides:2,
+              visibleSlides:1,
               slideRatio:1,
             },
             600: {
-              visibleSlides: 2,
+              visibleSlides: 1,
               slideRatio:1,
             },
             520: {

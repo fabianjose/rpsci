@@ -2918,9 +2918,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2928,10 +2925,24 @@ __webpack_require__.r(__webpack_exports__);
       department: "",
       service: "",
       baseUrl: baseUrl,
-      offerType: "private"
+      offerType: "private",
+      services: []
     };
   },
+  mounted: function mounted() {
+    this.getServices();
+  },
   methods: {
+    getServices: function getServices() {
+      var _this = this;
+
+      axios.get(baseUrl + "/api/services").then(function (res) {
+        _this.services = res.data;
+      })["catch"](function (err) {
+        console.log("ERROR FROM SERVER ", err, err.response);
+        toastr.error("error al cargar los servicios");
+      });
+    },
     setDepartment: function setDepartment(val) {
       console.log("new val ", val);
       this.department = val;
@@ -2947,12 +2958,12 @@ __webpack_require__.r(__webpack_exports__);
       if (!this.noRequest) this.getMunicipalities();
     },
     getMunicipalities: function getMunicipalities() {
-      var _this = this;
+      var _this2 = this;
 
       axios.get(baseUrl + '/api/municipalities/' + this.department).then(function (res) {
         console.log(res);
-        console.log(_this.$refs);
-        if (!_this.hideMunicipality) _this.$refs.municipalitiesList.setEntries(res.data);else _this.$emit("newMunicipalities", res.data);
+        console.log(_this2.$refs);
+        if (!_this2.hideMunicipality) _this2.$refs.municipalitiesList.setEntries(res.data);else _this2.$emit("newMunicipalities", res.data);
       })["catch"](function (err) {
         console.log("ERROR FROM SERVER ", err, err.response);
         toastr.error("error al cargar los municipios");
@@ -2969,13 +2980,7 @@ __webpack_require__.r(__webpack_exports__);
     search: function search() {
       console.log("type ", this.offerType);
       var loader = this.$loading.show();
-      axios.get(baseUrl + "/api/offers/search" + this.getExtras()).then(function (res) {
-        console.log("response", res);
-      })["catch"](function (err) {
-        console.log("ERROR", err.response);
-      })["finally"](function () {
-        return loader.hide();
-      });
+      window.location.replace(baseUrl + "/api/offers/search" + this.getExtras());
     }
   }
 });
@@ -3232,15 +3237,15 @@ __webpack_require__.r(__webpack_exports__);
           slideRatio: 1
         },
         900: {
-          visibleSlides: 2,
+          visibleSlides: 1,
           slideRatio: 1
         },
         750: {
-          visibleSlides: 2,
+          visibleSlides: 1,
           slideRatio: 1
         },
         600: {
-          visibleSlides: 2,
+          visibleSlides: 1,
           slideRatio: 1
         },
         520: {
@@ -39227,6 +39232,7 @@ var render = function() {
                   property: "name",
                   required: true,
                   threshold: 1,
+                  prefixClass: "form-group",
                   inputClass: "form-control rounded-pill rounded-input"
                 },
                 on: { selected: _vm.setMunicipality }
@@ -39238,25 +39244,61 @@ var render = function() {
           _c(
             "div",
             {
-              staticClass: "form-group has-search col-md-6 col-sm-10 col-lg-4"
+              staticClass:
+                "has-search ci-select-container col-md-6 col-sm-10 col-lg-4"
             },
             [
               _c("span", { staticClass: "fa fa-tv form-control-feedback " }),
               _vm._v(" "),
-              _c("autocomplete-vue", {
-                attrs: {
-                  url: "/api/services",
-                  requestType: "get",
-                  placeholder: "Servicio",
-                  property: "name",
-                  required: true,
-                  threshold: 1,
-                  inputClass: "form-control rounded-pill rounded-input"
+              _c(
+                "select",
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.service,
+                      expression: "service"
+                    }
+                  ],
+                  staticClass: "custom-select ci-select rounded-pill",
+                  on: {
+                    change: function($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function(o) {
+                          return o.selected
+                        })
+                        .map(function(o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.service = $event.target.multiple
+                        ? $$selectedVal
+                        : $$selectedVal[0]
+                    }
+                  }
                 },
-                on: { selected: _vm.setService }
-              })
-            ],
-            1
+                [
+                  _c(
+                    "option",
+                    {
+                      staticClass: "d-none",
+                      attrs: { value: "", selected: "" }
+                    },
+                    [_vm._v("Servicio")]
+                  ),
+                  _vm._v(" "),
+                  _vm._l(_vm.services, function(service, index) {
+                    return _c(
+                      "option",
+                      { key: index, domProps: { value: service.name } },
+                      [_vm._v(_vm._s(service.name) + "\n                    ")]
+                    )
+                  })
+                ],
+                2
+              )
+            ]
           ),
           _vm._v(" "),
           _c(
@@ -39277,7 +39319,7 @@ var render = function() {
             "div",
             {
               staticClass:
-                "d-flex row col-10 pt-3 mx-auto justify-content-center"
+                "d-flex row col-10 pt-4 mx-auto justify-content-center"
             },
             [
               _c(
@@ -86634,8 +86676,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\ConsultingMe\colombia_internet\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\ConsultingMe\colombia_internet\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\web 03\Music\colombia_internet\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\web 03\Music\colombia_internet\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),
