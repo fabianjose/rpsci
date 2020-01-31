@@ -8,16 +8,21 @@
     background-size: cover;
 	-webkit-background-size: cover;
     -moz-background-size: cover;
-    height: 45%;
+    height: 45vh;
     padding: 0;
     align-items: center;
     justify-content: center;
     display: flex;
 }
 
-.main-section-bg{
-    height: 90vh;
+.bg-dark-blue{
+  background-color: $dark-blue;
 }
+
+.main-section-bg{
+    min-height: 100vh;
+}
+
 .high-companies{
   min-height: 30vh;
   background-color: rgba(0, 173, 239, 1);

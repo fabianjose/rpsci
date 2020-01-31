@@ -2,6 +2,7 @@
 .ic-main{
     font-size: 1.1rem;
     color: $dark-blue;
+    text-align: center;
 }
 
 .ic-bg-main{
@@ -10,6 +11,11 @@
 
 .ic-logo{
     max-height: 40px;
+}
+
+.nav-btn{
+    font-size: 20px;
+    color: $dark-blue;
 }
 
 .nav-item-border:after {
@@ -26,3 +32,12 @@
 }
 
 .nav-item-border:hover:after { transform: scaleX(1); }
+
+@media(max-width:780px){
+    
+    .nav-item-border:after {
+        display: none;
+    }
+
+    
+}

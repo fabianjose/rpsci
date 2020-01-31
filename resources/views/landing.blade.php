@@ -3,7 +3,7 @@
 @section('content')
 
     <div class="content">
-        <div class="ic-bg-main w-100 py-1 px-4" >
+        <div class="ic-bg-main w-100 py-2 px-4" >
             <div class="container d-flex justify-content-end">
                 <i class="fab fa-facebook-f i-c-main mx-2 text-white text-lg"></i>
                 <i class="fab fa-twitter i-c-main mx-2 text-white text-lg"></i>
@@ -11,13 +11,14 @@
             </div>
         </div>
         <nav class="main-header navbar-light navbar navbar-expand-md navbar-expand-sm mx-auto py-3 px-4">
-                <ul class="navbar-nav ml-3">
-                    <li class="nav-item">
-                        <img class="ic-logo" src="{{ asset('images/logo.png') }}" alt="">
-                    </li>
-                </ul>
-
-                <ul class="navbar-nav ml-auto mr-3 ">
+            <ul class="navbar-nav ml-3">
+                <li class="nav-item">
+                    <img class="ic-logo" src="{{ asset('images/logo.png') }}" alt="">
+                </li>
+            </ul>
+            <a class="nav-link hidden-sm nav-btn" data-toggle="collapse" data-target="#responsive-menu"><i class="fas fa-bars"></i></a>
+            <div id="responsive-menu" class="navbar-collapse collapse">
+                <ul class="navbar-nav ml-auto mr-x3 ">
                     <li class="nav-item">
                         <a class="nav-link nav-item-border active" href="#">
                             <h6 class="ic-main font-weight-bold">
@@ -47,23 +48,52 @@
                         </a>
                     </li>
                 </ul>
+            </div>
         </nav>
         <div class="main-section-bg" style="position:relative;">
 
             <div class="bg-ic">
 
             </div>
-            <div style="height: 55%;width: 100%;display: flex;align-items: flex-end;background: white;">
-                <div class="pt-auto bg-danger" style="width: 100%;height: 65%;">
-
+            <div class=about-section>
+                <div class="d-flex flex-column about-sub">
+                    <div class="about-title-container mx-auto mb-1">
+                        <h6 class="about-title">¿En qué consiste?</h6>
+                    </div>
+                    <div class="d-flex flex-row flex-wrap justify-content-center py-3 pb-5">
+                        <div class="col-8 col-sm-3 col-md-3 col-lg-3 p-2 my-2">
+                            <div class="row align-items-start justify-content-around text-white">
+                                <div class="rounded-circle about-number p-1 mb-2 text-center bg-dark-blue">1</div> 
+                                <p class="col-8 about-text mb-2 mt-1">
+                                    Usa nuestro buscador para encontrar el servicio que necesitas
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-8 col-sm-3 col-md-3 col-lg-3 p-2 my-2">
+                            <div class="row align-items-start justify-content-around text-white">
+                                <div class="rounded-circle about-number p-1 mb-2 text-center bg-dark-blue">2</div> 
+                                <p class="col-8 about-text mb-2 mt-1">
+                                    Selecciona entre todas las opciones del mercado de forma sencilla
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-8 col-sm-3 col-md-3 col-lg-3 p-2 my-2">
+                            <div class="row align-items-start justify-content-around text-white">
+                                <div class="rounded-circle about-number p-1 mb-2 text-center bg-dark-blue">3</div> 
+                                <p class="col-8 about-text mb-2 mt-1">
+                                    Solicita los mejores servicios de manera rápida y sencilla
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <div class="main-middle" >
-                <img class="ic-logo-grey" src="{{ asset('images/logo-blanco.png') }}" alt="">
+                <img class="ic-logo-grey my-2" src="{{ asset('images/logo-blanco.png') }}" alt="">
                 <div class="main-search-form p-3" >
                     <div class="main-form-title-container text-center justify-content-center pt-2 py-1 px-3">
-                        <h6 class="main-form-title font-weight-bold">Encuentra el servicio que deseas</h6>
+                        <h6 class="main-form-title font-weight-bold text-center">Encuentra el servicio que deseas</h6>
                     </div>
                     <div class="d-flex flex-row flex-wrap justify-content-around p-3">
                         <div class="form-group has-search col-md-6 col-sm-10 col-lg-4">
@@ -92,7 +122,7 @@
 
         <div class="high-companies py-5 px-4">
           <div class="d-flex w-100 justify-content-center">
-            <h4 class="high-companies-color high-companies-title">Prestadores de Servicio</h4>
+            <h4 class="high-companies-color high-companies-title text-center">Prestadores de Servicio</h4>
           </div>
         </div>
 
@@ -116,6 +146,11 @@
               </vueper-slide>
             </vueper-slides>
           </div>
+
+          <div class="offer-card rounded-pill">
+              
+          </div>
+
         </div>
 
         <div class="footer-bg">

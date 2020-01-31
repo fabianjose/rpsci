@@ -17,6 +17,7 @@
 .ic-main {
   font-size: 1.1rem;
   color: #13293d;
+  text-align: center;
 }
 
 .ic-bg-main {
@@ -25,6 +26,11 @@
 
 .ic-logo {
   max-height: 40px;
+}
+
+.nav-btn {
+  font-size: 20px;
+  color: #13293d;
 }
 
 .nav-item-border:after {
@@ -50,6 +56,12 @@
           transform: scaleX(1);
 }
 
+@media (max-width: 780px) {
+  .nav-item-border:after {
+    display: none;
+  }
+}
+
 .bg-ic {
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(19, 41, 61, 0.8)), to(rgba(19, 41, 61, 0.8))), url(/images/aerial-15669_1280.jpg?6f5ad98341ec9b61da68265ec3aff73d);
   background: linear-gradient(to bottom, rgba(19, 41, 61, 0.8), rgba(19, 41, 61, 0.8)), url(/images/aerial-15669_1280.jpg?6f5ad98341ec9b61da68265ec3aff73d);
@@ -59,7 +71,7 @@
   background-size: cover;
   -webkit-background-size: cover;
   -moz-background-size: cover;
-  height: 45%;
+  height: 45vh;
   padding: 0;
   -webkit-box-align: center;
           align-items: center;
@@ -69,8 +81,12 @@
   display: flex;
 }
 
+.bg-dark-blue {
+  background-color: #13293d;
+}
+
 .main-section-bg {
-  height: 90vh;
+  min-height: 100vh;
 }
 
 .high-companies {
@@ -96,7 +112,6 @@
 .ic-logo-grey {
   max-height: 25%;
   padding: 5px 10px;
-  border-radius: 35px;
 }
 
 .main-search-form {
@@ -108,7 +123,7 @@
 
 .main-middle {
   position: absolute;
-  top: 13%;
+  top: 12vh;
   margin: 1.2rem auto;
   left: 0;
   right: 0;
@@ -140,6 +155,77 @@
 .main-form-title {
   color: #20adf4;
   font-size: 1.3rem;
+}
+
+.about-section {
+  width: 100%;
+  height: auto;
+  background: white;
+}
+
+.about-sub {
+  margin-top: 28vh;
+}
+
+.about-number {
+  width: 4rem;
+  height: 4rem;
+  font-size: 2.5rem;
+}
+
+.about-text {
+  font-size: 0.7rem;
+  color: #13293d;
+}
+
+.about-title {
+  font-weight: bold;
+  font-size: 1.6rem;
+  text-align: center;
+}
+
+.about-title-container:after {
+  display: block;
+  content: "";
+  border-bottom: solid 3.5px #cdcdcd;
+  border-radius: 15px;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transition: -webkit-transform 250ms ease-in-out;
+  transition: -webkit-transform 250ms ease-in-out;
+  transition: transform 250ms ease-in-out;
+  transition: transform 250ms ease-in-out, -webkit-transform 250ms ease-in-out;
+}
+
+.about-title-container:after {
+  -webkit-transform: scaleX(0.45);
+          transform: scaleX(0.45);
+}
+
+@media (max-width: 768px) {
+  .main-middle {
+    top: 5%;
+  }
+
+  .about-sub {
+    margin-top: 40vh;
+  }
+
+  .ic-logo-grey {
+    max-height: 18%;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-sub {
+    margin-top: 45vh;
+  }
+}
+
+@media (max-width: 361px) {
+  .main-middle {
+    height: 35%;
+  }
 }
 
 .has-search .form-control {
@@ -258,6 +344,60 @@
 .footer-footer span {
   color: rgba(126, 126, 126, 0.7);
   font-size: 12px;
+}
+
+@media (max-width: 368px) {
+  .hidden-xs-xs {
+    display: none;
+  }
+}
+
+/* Extra Small devices (tablets, 576px and down) */
+
+@media (max-width: 576px) {
+  .hidden-xs {
+    display: none;
+  }
+}
+
+/* Small devices (tablets, 576px and up to 768px and down) */
+
+@media (min-width: 576px) and (max-width: 768px) {
+  .hidden-sm {
+    display: none;
+  }
+}
+
+/* Medium devices (desktops, 768px and up to 992px and down) */
+
+@media (min-width: 768px) and (max-width: 992px) {
+  .hidden-md {
+    display: none;
+  }
+}
+
+/* Large devices (large desktops, 1200px and up to 1200px and down) */
+
+@media (min-width: 992px) and (max-width: 1200px) {
+  .hidden-lg {
+    display: none;
+  }
+}
+
+/* Large devices (large desktops, 1200px and up to 1320px and down) */
+
+@media (min-width: 1200px) and (max-width: 1320px) {
+  .hidden-xl {
+    display: none;
+  }
+}
+
+/* Large devices (large desktops, 1200px and up) */
+
+@media (min-width: 1400px) {
+  .hidden-xl-xl {
+    display: none;
+  }
 }
 
 @font-face {
