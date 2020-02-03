@@ -199,7 +199,28 @@ class OfferController extends Controller{
     if (!$department) return response()->json('Departamento no encontrada',404);
     if (!$municipality) return response()->json('Municipio no encontrada',404);
 
-    $offers=Offer::where("type","=",$data["offer_type"])->paginate(10);
+    $offers = DB::table('offers')
+    ->where('offers.trash',0)
+    ->where("offers.type", $data["offer_type"])
+    ->where('service',$service->id)
+    ->where('department',$department->id)
+    ->where('municipality',$municipality->id)
+    ->join('companies','companies.id','offers.company')
+    ->join('services', 'services.id','offers.service')
+    ->join('departments', 'departments.id','offers.department')
+    ->join('municipalities', 'municipalities.id','offers.municipality')
+    ->select('offers.*',
+    'companies.name as company_name',
+    'companies.logo as company_logo',
+    'services.name as service_name',
+    'services.fields as service_fields',
+    'departments.name as department_name',
+    'municipalities.name as municipality_name'
+    );
+
+    if($request->input("sortByCustomField")){}
+
+    $offers->paginate(10);
 
     if(!$request->ajax()){
       return view("pages.planComparator")->with("pagination", $offers);

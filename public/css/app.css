@@ -118,7 +118,7 @@
 }
 
 .planComparator-bg {
-  width: 100vw;
+  width: 100%;
   min-height: 50vh;
   background-color: #e6e6e6;
 }
@@ -257,13 +257,39 @@
   border-bottom: solid 0.2rem #cdcdcd;
 }
 
+.stars-container {
+  color: #20adf4;
+  font-size: 13px;
+}
+
 .btn-dark-blue {
   background-color: #13293d;
   color: white;
 }
 
+.btn-main-pink {
+  background-color: #ec008c;
+  color: white;
+}
+
+.btn-main-blue {
+  background-color: #20adf4;
+  color: white;
+}
+
+.btn-main-pink:hover {
+  background-color: #de007c;
+  color: #cdcdcd;
+}
+
 .btn-dark-blue:hover {
+  background-color: #16415f;
   color: lightgray;
+}
+
+.btn-main-blue:hover {
+  background-color: #109de4;
+  color: #cdcdcd;
 }
 
 .autocomplete__suggestions {
@@ -443,8 +469,7 @@
 }
 
 .offer-company {
-  max-width: 150px;
-  max-height: 150px;
+  max-height: 3rem;
 }
 
 @media (max-width: 980px) {
@@ -469,7 +494,7 @@
 
 /* Small devices (tablets, 576px and up to 768px and down) */
 
-@media (min-width: 576px) and (max-width: 768px) {
+@media (min-width: 576px) and (max-width: 767px) {
   .hidden-sm {
     display: none;
   }
@@ -477,7 +502,7 @@
 
 /* Medium devices (desktops, 768px and up to 992px and down) */
 
-@media (min-width: 768px) and (max-width: 992px) {
+@media (min-width: 767px) and (max-width: 991px) {
   .hidden-md {
     display: none;
   }
@@ -485,7 +510,7 @@
 
 /* Large devices (large desktops, 1200px and up to 1200px and down) */
 
-@media (min-width: 992px) and (max-width: 1200px) {
+@media (min-width: 991px) and (max-width: 1199px) {
   .hidden-lg {
     display: none;
   }
@@ -493,7 +518,7 @@
 
 /* Large devices (large desktops, 1200px and up to 1320px and down) */
 
-@media (min-width: 1200px) and (max-width: 1320px) {
+@media (min-width: 1199px) and (max-width: 1320px) {
   .hidden-xl {
     display: none;
   }
@@ -559,6 +584,16 @@
   color: #20adf4;
 }
 
+.text-dark-blue {
+  color: #13293d;
+}
+
+@media (min-width: 1000px) {
+  .offers-label {
+    font-size: 0.8rem !important;
+  }
+}
+
 @font-face {
   font-family: montserrat-bold;
   src: url(/fonts/Montserrat-Bold.otf?9c71d42b6a840ecfda8fc555040a1c76);
@@ -567,5 +602,6 @@
 body {
   scroll-behavior: smooth;
   font-family: montserrat-bold;
+  box-sizing: content-box;
 }
 

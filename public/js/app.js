@@ -2979,7 +2979,7 @@ __webpack_require__.r(__webpack_exports__);
     search: function search() {
       console.log("type ", this.offerType);
       var loader = this.$loading.show();
-      window.location.replace(baseUrl + "/api/offers/search" + this.getExtras());
+      window.location.replace(baseUrl + "/offers/search" + this.getExtras());
     }
   }
 });
@@ -39224,56 +39224,6 @@ var render = function() {
           _c(
             "div",
             {
-              staticClass: "form-group has-search col-md-6 col-sm-10 col-lg-4"
-            },
-            [
-              _c("span", {
-                staticClass: "fas fa-map-marker-alt form-control-feedback "
-              }),
-              _vm._v(" "),
-              _c("autocomplete-vue", {
-                attrs: {
-                  url: "/api/departments",
-                  requestType: "get",
-                  placeholder: "Departamento",
-                  property: "name",
-                  required: true,
-                  threshold: 1,
-                  inputClass: "form-control rounded-pill rounded-input"
-                },
-                on: { selected: _vm.setDepartment }
-              })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "form-group has-search col-md-6 col-sm-10 col-lg-4"
-            },
-            [
-              _c("span", { staticClass: "fa fa-city form-control-feedback " }),
-              _vm._v(" "),
-              _c("autocomplete-vue", {
-                ref: "municipalitiesList",
-                attrs: {
-                  placeholder: "Municipio",
-                  property: "name",
-                  required: true,
-                  threshold: 1,
-                  prefixClass: "form-group",
-                  inputClass: "form-control rounded-pill rounded-input"
-                },
-                on: { selected: _vm.setMunicipality }
-              })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
               staticClass:
                 "has-search ci-select-container col-md-6 col-sm-10 col-lg-4"
             },
@@ -39329,6 +39279,56 @@ var render = function() {
                 2
               )
             ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "form-group has-search col-md-6 col-sm-10 col-lg-4"
+            },
+            [
+              _c("span", {
+                staticClass: "fas fa-map-marker-alt form-control-feedback "
+              }),
+              _vm._v(" "),
+              _c("autocomplete-vue", {
+                attrs: {
+                  url: "/api/departments",
+                  requestType: "get",
+                  placeholder: "Departamento",
+                  property: "name",
+                  required: true,
+                  threshold: 1,
+                  inputClass: "form-control rounded-pill rounded-input"
+                },
+                on: { selected: _vm.setDepartment }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "form-group has-search col-md-6 col-sm-10 col-lg-4"
+            },
+            [
+              _c("span", { staticClass: "fa fa-city form-control-feedback " }),
+              _vm._v(" "),
+              _c("autocomplete-vue", {
+                ref: "municipalitiesList",
+                attrs: {
+                  placeholder: "Municipio",
+                  property: "name",
+                  required: true,
+                  threshold: 1,
+                  prefixClass: "form-group",
+                  inputClass: "form-control rounded-pill rounded-input"
+                },
+                on: { selected: _vm.setMunicipality }
+              })
+            ],
+            1
           ),
           _vm._v(" "),
           _c(
@@ -86719,8 +86719,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\ConsultingMe\colombia_internet\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\ConsultingMe\colombia_internet\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\web 03\Music\colombia_internet\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\web 03\Music\colombia_internet\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),

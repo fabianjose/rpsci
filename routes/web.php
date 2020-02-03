@@ -23,6 +23,8 @@ Route::post('/login','Auth\LoginController@enter');
 
 Route::get('logout', 'Auth\LoginController@logout');
 
+Route::get('/offers/search', "OfferController@searchOffers");
+
 Route::group(["middleware" => ["isAuth"]], function(){
 
 

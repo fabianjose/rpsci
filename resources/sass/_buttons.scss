@@ -3,8 +3,29 @@
     color: white;
 }
 
+.btn-main-pink{
+    background-color: $main-pink;
+    color: white;
+}
+
+.btn-main-blue{
+    background-color: $main-blue;
+    color: white;
+}
+
+.btn-main-pink:hover{
+    background-color: #de007c;
+    color: $mid-gray;
+}
+
 .btn-dark-blue:hover{
+    background-color: #16415f;
     color: lightgray;
+}
+
+.btn-main-blue:hover{
+    background-color: #109de4;
+    color: $mid-gray;
 }
 
 .autocomplete__suggestions{

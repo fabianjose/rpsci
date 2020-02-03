@@ -6,6 +6,15 @@
                 <h6 class="main-form-title font-weight-bold text-center">Encuentra el servicio que deseas</h6>
             </div>
             <div class="d-flex flex-row flex-wrap justify-content-around p-3">
+                <div class="has-search ci-select-container col-md-6 col-sm-10 col-lg-4">
+                    <span class="fa fa-tv form-control-feedback "></span>
+                    <select class="custom-select ci-select rounded-pill" v-model="service">
+                        <option value="" class="d-none" selected>Servicio</option>
+                        <option v-for="(service,index) in services" :key="index" 
+                            :value="service.name">{{service.name}}
+                        </option>
+                    </select>
+                </div>
                 <div class="form-group has-search col-md-6 col-sm-10 col-lg-4">
                     <span class="fas fa-map-marker-alt form-control-feedback "></span>
                     <autocomplete-vue
@@ -31,15 +40,6 @@
                         prefixClass="form-group"
                         inputClass="form-control rounded-pill rounded-input"
                     ></autocomplete-vue>
-                </div>
-                <div class="has-search ci-select-container col-md-6 col-sm-10 col-lg-4">
-                    <span class="fa fa-tv form-control-feedback "></span>
-                    <select class="custom-select ci-select rounded-pill" v-model="service">
-                        <option value="" class="d-none" selected>Servicio</option>
-                        <option v-for="(service,index) in services" :key="index" 
-                            :value="service.name">{{service.name}}
-                        </option>
-                    </select>
                 </div>
                 <div class="col-md-6 col-sm-10" @click="search" >
                     <i class="fa fa-search icon-btn"></i>
@@ -138,7 +138,7 @@ export default {
         search(){      
             console.log("type ", this.offerType)
             let loader = this.$loading.show();
-            window.location.replace(baseUrl+"/api/offers/search"+this.getExtras())
+            window.location.replace(baseUrl+"/offers/search"+this.getExtras())
         },
     },
 }
