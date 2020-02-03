@@ -1,3 +1,15 @@
 .text-main-blue{
     color:$main-blue;
 }
+
+.text-dark-blue{
+    color: $dark-blue;
+}
+
+@media(min-width:1000px){
+
+    .offers-label{
+        font-size: .8rem!important;
+    }
+    
+}
