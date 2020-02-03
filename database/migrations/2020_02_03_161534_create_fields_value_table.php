@@ -24,7 +24,6 @@ class CreateFieldsValueTable extends Migration
 
             $table->string("value");
             $table->timestamps();
-            $table->timestamps();
         });
     }
 
