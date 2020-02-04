@@ -23,7 +23,7 @@ class CreateFieldsValuesTable extends Migration
             $table->foreign("field_id")->references("id")->on("fields");
 
             $table->string("value");
-
+            
             $table->timestamps();
         });
     }
