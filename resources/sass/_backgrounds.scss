@@ -1,23 +1,36 @@
 
 .bg-ic{
     background:
-    linear-gradient(to bottom, rgba($dark-blue,80%),rgba($dark-blue,80%)),url("./../assets/images/aerial-15669_1280.jpg");
+    linear-gradient(to bottom, rgba($dark-blue,80%),rgba($dark-blue,80%)),url("./../assets/images/main-bg.jpg");
     background-repeat:  no-repeat;
     background-size: 100%;
     background-position: center center;
     background-size: cover;
 	-webkit-background-size: cover;
     -moz-background-size: cover;
-    height: 45%;
+    height: 45vh;
     padding: 0;
     align-items: center;
     justify-content: center;
     display: flex;
 }
 
-.main-section-bg{
-    height: 90vh;
+.bg-dark-blue{
+  background-color: $dark-blue;
 }
+
+.bg-main-blue{
+  background-color: $main-blue;
+}
+
+.bg-main-pink{
+  background-color: $main-pink;
+}
+
+.main-section-bg{
+    min-height: 100vh;
+}
+
 .high-companies{
   min-height: 30vh;
   background-color: rgba(0, 173, 239, 1);
@@ -33,4 +46,9 @@
 .footer-footer{
   min-height: 5vh;
   background-color: rgba(33, 33, 33, 1);
+}
+.planComparator-bg{
+  width: 100%;
+  min-height: 50vh;
+  background-color: rgba(230, 230, 230, 1);
 }

@@ -22,7 +22,7 @@
             <label>Campos del servicio</label>
           </div>
 
-        
+
 
             <div class="row w-100 flex-wrap justify-content-around">
               <div class="col-md-6 col-sm-10 col-10 col-lg-6">
@@ -38,17 +38,17 @@
                   </a>
                   <div id="collapseCreateServiceField" class="panel-collapse in collapse" >
                     <div class="card-body">
-                    
+
                     <div class="form-group">
                         <label>Nombre del Campo</label>
                         <input v-model="newFieldLabel" class="form-control">
                     </div>
 
                     <div class="form-group">
-                    
+
                         <label>Tipo de Campo</label>
 
-                        <select v-model="newFieldType" class="form-control select2 select2-hidden-accessible" style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                        <select v-model="newFieldType" class="form-control select2 " style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
                             <option selected value="string" data-select2-id="1">Texto</option>
                             <option value="number" data-select2-id="2">Numero</option>
                             <!-- <option value="select" data-select2-id="3">Seleccionable</option> -->
@@ -64,7 +64,7 @@
                   </div>
                 </div>
               </div>
-              
+
               <div class="col-md-6 col-sm-10 col-10 col-lg-6">
                 <div class="card card-primary" id="ServicesFieldsAccordion">
                   <a class="card-header collapsed" @click="active3=!active3" data-parent="#ServicesFieldsAccordion"
@@ -97,7 +97,7 @@
               </div>
         </div>
 
-        
+
 
         </div>
 
@@ -130,7 +130,7 @@ export default {
     console.log(baseUrl);
   },
   methods:{
-    
+
     uploadFile: function(){
       console.log("[File] Change")
       let uploadFile=this.$refs.SelectFile.files[0]
@@ -142,8 +142,8 @@ export default {
     },
     submitNewField(){
       this.OpenAccordion("#ServicesFieldsAccordion","#collapseServicesFields", "active3");
-      if (this.fields.length >= 3){
-        toastr.error('Solo puedes añadir hasta 3 campos');
+      if (this.fields.length >= 2){
+        toastr.error('Solo puedes añadir hasta 2 campos');
       }else{
         if (!this.newFieldLabel || !this.newFieldType) {
           return toastr.error('Debe llenar ambos campos');

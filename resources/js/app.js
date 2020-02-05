@@ -46,6 +46,7 @@ Vue.component('offer', require('./components/items/offers/offer.vue').default);
 Vue.component('offerItem', require('./components/items/offers/offerItem.vue').default);
 Vue.component('offer-details', require('./components/items/offers/detailedOffer.vue').default);
 Vue.component('offer-update', require('./components/offers/update/updateForm.vue').default);
+Vue.component("offer-card", require("./components/items/offers/offercard.vue").default);
 
 // Servicios
 Vue.component('service-creation', require("./components/services/creation/creationForm.vue").default);
@@ -63,8 +64,13 @@ Vue.component('zone-item', require('./components/items/zone/zoneItem.vue').defau
 
 Vue.component('plans-creation', require("./components/plans/creation/creationForm.vue").default);
 Vue.component('plans-gestion', require("./components/plans/gestion/plansGestion.vue").default);
+Vue.component("high-plans", require("./components/items/offers/highPlans.vue").default);
 
 Vue.component('zone-select', require('./components/items/zone/zoneSelect.vue').default);
+
+Vue.component("search-form", require("./components/forms/search").default);
+Vue.component("filter-card", require("./components/forms/filterOffers").default);
+Vue.component("companies-slider", require("./components/companies/listSlider").default);
 
 //Vue.component('plans', require('./components/items/plans/plans.vue').default);
 //Vue.component('plans-details', require('./components/items/services/detailedService.vue').default);
@@ -95,11 +101,21 @@ Vue.use(Loading,{
     backgroundColor:"#13293d",
     opacity: 0.08,
 });
+
 // Carrusel usado
 import { VueperSlides, VueperSlide } from 'vueperslides'
 import 'vueperslides/dist/vueperslides.css'
 Vue.component('vueper-slides', VueperSlides);
 Vue.component('vueper-slide', VueperSlide);
+
+let jwtToken = document.head.querySelector('meta[name="jwt-token"]');
+
+if (jwtToken) {
+    console.log("header setting", 'Bearer '+jwtToken.content)
+    Vue.http.headers.common['Authorization'] = 'Bearer '+jwtToken.content;
+} else {
+    console.error('JWT token not found');
+}
 
 /**
 

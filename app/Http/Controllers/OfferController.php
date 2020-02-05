@@ -18,7 +18,7 @@ class OfferController extends Controller{
     $validation = Validator::make($data, [
       'company' => ['required', 'exists:companies,name', 'string'],
       'service' => ['required', 'exists:services,id'],
-      'benefits' => ['required', 'string'],
+      'benefits' => ['required', 'string', 'min:16'],
       'fields_value' => ['required', 'json'],
       'tariff' => ['required', 'string'],
       'points' => ['string'],
@@ -199,6 +199,35 @@ class OfferController extends Controller{
     if (!$department) return response()->json('Departamento no encontrada',404);
     if (!$municipality) return response()->json('Municipio no encontrada',404);
 
+    $offers = DB::table('offers')
+    ->where('offers.trash',0)
+    ->where("offers.type", $data["offer_type"])
+    ->where('service',$service->id)
+    ->where('department',$department->id)
+    ->where('municipality',$municipality->id)
+    ->join('companies','companies.id','offers.company')
+    ->join('services', 'services.id','offers.service')
+    ->join('departments', 'departments.id','offers.department')
+    ->join('municipalities', 'municipalities.id','offers.municipality')
+    ->select('offers.*',
+    'companies.name as company_name',
+    'companies.logo as company_logo',
+    'services.name as service_name',
+    'services.fields as service_fields',
+    'departments.name as department_name',
+    'municipalities.name as municipality_name'
+    );
+
+    if($request->input("sortByCustomField")){}
+
+    $offers->paginate(10);
+
+    if(!$request->ajax()){
+      return view("pages.planComparator")->with("pagination", $offers);
+    }
+
+    return response()->json($offers, 200);
+
   }
 
   public function getHighlightByLocation(Request $request){
@@ -271,7 +300,7 @@ class OfferController extends Controller{
 		$offers = DB::table('offers')
     ->where('offers.trash',0)
     ->where('offers.highlighted',1)
-    ->where('offers.highlighted_expiration','<=',date('Y-m-d h:i:s'))
+    ->where('offers.highlighted_expiration','>=',date('Y-m-d h:i:s'))
     ->join('companies','companies.id','offers.company')
     ->join('services', 'services.id','offers.service')
     ->join('departments', 'departments.id','offers.department')

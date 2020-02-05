@@ -3,6 +3,37 @@
     color: white;
 }
 
+.btn-main-pink{
+    background-color: $main-pink;
+    color: white;
+}
+
+.btn-main-blue{
+    background-color: $main-blue;
+    color: white;
+}
+
+.btn-main-pink:hover{
+    background-color: #de007c;
+    color: $mid-gray;
+}
+
 .btn-dark-blue:hover{
+    background-color: #16415f;
     color: lightgray;
+}
+
+.btn-main-blue:hover{
+    background-color: #109de4;
+    color: $mid-gray;
+}
+
+.autocomplete__suggestions{
+    z-index: 3!important;
+}
+
+.rounded-input+.autocomplete__suggestions{
+    -webkit-box-shadow: 0px 0px 3px 0.3px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 3px 0.3px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 3px 0.3px rgba(0,0,0,0.75);
 }

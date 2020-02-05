@@ -72,7 +72,7 @@ export default {
         console.log("[File] None")
         return;
       }
-      this.logo=uploadFile;
+      this.company.logo=uploadFile;
       this.onPreview=URL.createObjectURL(uploadFile);
     },
     editCompany(){
@@ -80,6 +80,7 @@ export default {
       fd.append("name", this.company.name);
       fd.append("nit", this.company.nit);
       fd.append("phone", this.company.phone);
+      fd.append("logo", this.company.logo);
       fd.append("web", this.company.web);
       fd.append("_method","put")
 

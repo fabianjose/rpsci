@@ -115,8 +115,8 @@ export default {
       this.service.fields = this.service.fields.filter((el)=> el.label != label);
     },
     submitNewField(){
-      if (this.service.fields.length >= 3){
-        toastr.error('Solo puedes añadir hasta 3 campos');
+      if (this.service.fields.length >= 2){
+        toastr.error('Solo puedes añadir hasta 2 campos');
       }else{
         this.service.fields.push({
           label:this.newFieldLabel,

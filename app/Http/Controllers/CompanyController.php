@@ -70,10 +70,12 @@ class CompanyController extends Controller{
       $filename = uniqid(time()).'.'.$data['logo']->getClientOriginalExtension();
       $uploadedFile = $data['logo'];
       $result = Storage::disk('local')->putFileAs(
-        'uploads/logos',
+        'public/uploads/logos',
         $uploadedFile,
         $filename
       );
+      $result = 'uploads/logos/'.$filename;
+
       $company->logo = $result;
     }
     if (!$company->save()){
