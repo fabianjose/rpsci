@@ -415,6 +415,153 @@
   font-size: 1rem;
 }
 
+.nosotros-main {
+  min-height: 100vh;
+}
+
+.nosotros-title {
+  min-height: 50vh;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(19, 41, 61, 0.8)), to(rgba(19, 41, 61, 0.8))), url(/images/nosotros-bg.jpg?19b0dcc137c7a27ad415d163b4f13c04);
+  background: linear-gradient(to bottom, rgba(19, 41, 61, 0.8), rgba(19, 41, 61, 0.8)), url(/images/nosotros-bg.jpg?19b0dcc137c7a27ad415d163b4f13c04);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center center;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+}
+
+.nosotros-title-text {
+  font-size: 48px;
+}
+
+.nosotros-main-content {
+  min-height: 50vh;
+}
+
+.mision-title::after {
+  display: block;
+  content: "";
+  padding-top: 5px;
+  border-bottom: solid 3.5px #20adf4;
+  border-radius: 5px;
+  -webkit-transform: scaleX(0.25);
+          transform: scaleX(0.25);
+  -webkit-transition: -webkit-transform 250ms ease-in-out;
+  transition: -webkit-transform 250ms ease-in-out;
+  transition: transform 250ms ease-in-out;
+  transition: transform 250ms ease-in-out, -webkit-transform 250ms ease-in-out;
+}
+
+.mision-title {
+  color: #20adf4;
+  font-size: 1.3rem;
+}
+
+.nosotros-services-bg {
+  min-height: 40vh;
+  background-color: #273050;
+}
+
+.nosotros-services-title {
+  color: #e6e6e6;
+  font-size: 1.3rem;
+}
+
+.nosotros-services-title::after {
+  display: block;
+  content: "";
+  padding-top: 5px;
+  border-bottom: solid 3.5px #e6e6e6;
+  border-radius: 5px;
+  -webkit-transform: scaleX(0.25);
+          transform: scaleX(0.25);
+  -webkit-transition: -webkit-transform 250ms ease-in-out;
+  transition: -webkit-transform 250ms ease-in-out;
+  transition: transform 250ms ease-in-out;
+  transition: transform 250ms ease-in-out, -webkit-transform 250ms ease-in-out;
+}
+
+.img-nosotros-services {
+  width: 100px;
+  height: 100px;
+}
+
+.nosotros-service-text {
+  color: #00adef;
+}
+
+.nosotros-service-btn {
+  border: 2px solid #00adef;
+}
+
+.nosotros-service-btn:hover {
+  color: #fff;
+}
+
+.contacto-main {
+  min-height: 100vh;
+}
+
+.contacto-title {
+  min-height: 40vh;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(19, 41, 61, 0.8)), to(rgba(19, 41, 61, 0.8))), url(/images/contacta-bg.jpg?348012bed6dbf0b129a4cbd40fb39392);
+  background: linear-gradient(to bottom, rgba(19, 41, 61, 0.8), rgba(19, 41, 61, 0.8)), url(/images/contacta-bg.jpg?348012bed6dbf0b129a4cbd40fb39392);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center center;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+}
+
+.contacto-title-text {
+  font-size: 48px;
+}
+
+.contacto-main-content {
+  min-height: 110vh;
+}
+
+.contacto-card {
+  position: absolute;
+  margin-top: -40px;
+  border-radius: 50px;
+  box-shadow: 0px 0px 5px 4px rgba(0, 0, 0, 0.25);
+}
+
+.contacto-card-title {
+  color: #20adf4;
+}
+
+.contacto-card-title::after {
+  display: block;
+  content: "";
+  padding-top: 5px;
+  border-bottom: solid 3.5px #20adf4;
+  border-radius: 5px;
+  -webkit-transform: scaleX(0.25);
+          transform: scaleX(0.25);
+  -webkit-transition: -webkit-transform 250ms ease-in-out;
+  transition: -webkit-transform 250ms ease-in-out;
+  transition: transform 250ms ease-in-out;
+  transition: transform 250ms ease-in-out, -webkit-transform 250ms ease-in-out;
+}
+
+.contacto-card-label {
+  font-size: 14px;
+}
+
+.contacto-footer {
+  background-color: #00adef;
+  min-height: 40vh;
+}
+
+.contacto-footer-title {
+  color: #e6e6e6;
+  font-size: 36px;
+}
+
 .footer-img {
   max-height: 130px;
   max-width: 180px;
