@@ -151,4 +151,14 @@ class CompanyController extends Controller{
 		return response()->json($companies, 200);
 	}
 
+  public function getAllNotHighlighted(){
+		$companies = DB::table('companies')
+    ->where('trash',0)
+    ->where('highlighted',0)
+    ->orWhere('highlighted_expiration','<',date('Y-m-d h:i:s'))
+    ->get();
+		if (!$companies) return response()->json(['errorMessage' =>  'Error en la base de datos'],500);
+		return response()->json($companies, 200);
+	}
+
 }

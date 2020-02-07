@@ -30,6 +30,7 @@ Route::group(['middleware' => ['JwtMiddleware']], function () {
   Route::put('/company/{id}','CompanyController@editCompany');
   Route::put('/company/{name}/highlight','CompanyController@highlightCompany');
   Route::put('/company/{id}/dehighlight','CompanyController@deHighlightCompany');
+  Route::get('/companies/notHighlighted','CompanyController@getAllNotHighlighted');
   Route::get('/companies','CompanyController@getAll');
   // Route::get('/company/names','CompanyController@getNames');
   Route::get('/company/{id}','CompanyController@getCompany');

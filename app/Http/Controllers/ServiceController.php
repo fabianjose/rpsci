@@ -66,7 +66,7 @@ class ServiceController extends Controller{
       }
     }
     if (!$service->save()){
-      
+
       return response()->json('Error en la base de datos', 500);
     }
 
@@ -80,7 +80,13 @@ class ServiceController extends Controller{
   public function getAll(){
 		$services = DB::table('services')->where('trash',0)->get();
     if (!$services) return response()->json('Error en la base de datos',500);
-    
+    foreach ($services as $service) {
+      $service->fields=DB::table('fields')
+      ->where("fields.service_id", $service->id)
+      ->where("fields.trash", 0)
+      ->limit(2)
+      ->get();
+    }
 		return response()->json($services, 200);
 	}
 

@@ -2,7 +2,7 @@
 <div class="container-fluid">
     <div class="row justify-content-center py-4">
         <div class="col-10 col-lg-12">
-            <company-highlight @refresh="refreshData"></company-highlight>
+            <company-highlight @refresh="refreshData" :companies="companies"></company-highlight>
         </div>
     </div>
     <h5 class="mt-4 mb-2 text-center">Empresas Destacadas</h5>
@@ -30,7 +30,7 @@ export default {
     this.refreshData();
   },
   methods:{
-    refreshData(){  
+    refreshData(){
       let loader = this.$loading.show();
       axios.get(baseUrl+'/api/companies/highlighted')
       .then(res=>{

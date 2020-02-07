@@ -135,7 +135,7 @@ class OfferController extends Controller{
     'municipalities.name as municipality_name'
     )
     ->get();
-    
+
     if (!$offers) return response()->json('Error en la base de datos',500);
 
 		return response()->json($offers, 200);
@@ -209,7 +209,11 @@ class OfferController extends Controller{
       'municipality' => ['required', 'exists:municipalities,name'],
     ]);
     if ($validation->fails()){
-      return response()->json($validation->errors(), 400);
+      if($request->ajax()){
+        return response()->json($validation->errors(), 400);
+      }else {
+        return back()->withErrors($validation->errors());
+      }
     }
     $service = Service::where('name',$data['service'])->first();
     $department = Department::where('name',$data['department'])->first();
@@ -241,11 +245,11 @@ class OfferController extends Controller{
     if($request->input("from")&&is_numeric($request->input("from"))){
       $offers->where("offers.tariff", ">=", $request->input("from"));
     }
-    
+
     if($request->input("to")&&is_numeric($request->input("to"))){
       $offers->where("offers.tariff", "<=", $request->input("to"));
     }
-    
+
     $offers=$offers->get();
 
     foreach ($offers as $offer) {
@@ -270,7 +274,7 @@ class OfferController extends Controller{
       if($sortKey>2) return response()->json("No existe ese campo",200);
       if($request->input("sortByDesc")) $sorting="sortByDesc";
       $offers=$offers->{$sorting}(function ($offer, $key) use($sortKey) {
-        if(is_numeric($sortKey)) 
+        if(is_numeric($sortKey))
           return $offer->fields_values[$sortKey-1]->value;
         return $offer->{$sortKey};
       });
@@ -281,7 +285,7 @@ class OfferController extends Controller{
     foreach ($offers as $offer) {
       array_push($offersArray,$offer);
     }
-    
+
     $paginator = new Paginator($offersArray, 1, $request->input("page")?$request->input("page"):1);
 
     $last_page= max((int) ceil(count($offersArray) / 1), 1);
