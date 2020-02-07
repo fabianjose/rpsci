@@ -1,14 +1,19 @@
 <template>
     <div class="card card-info" id="createServiceAccordion">
       <a class="card-header collapsed" @click="active=!active" data-parent="#createServiceAccordion"
-      href="#collapseCreateService" aria-expanded="false" data-toggle="collapse">
-        <h3 class="card-title">Nuevo Servicio</h3>
-        <div class="card-tools">
-          <button type="button" class="btn btn-tool ml-auto " >
-            <personal-fab :active="active" />
-          </button>
-        </div>
-      </a>
+        href="#collapseCreateService" aria-expanded="false" data-toggle="collapse">
+          <h3 class="card-title">
+            Nuevo Servicio
+            <i class="fas fa-question-circle text-md"data-toggle="tooltip"
+            data-placement="top"
+            title="Aquí podrás definir campos adicionales de los servicios, ya hay definidos por defecto como lo son: Descripción, Tarifa y Puntuación"></i>
+          </h3>
+          <div class="card-tools">
+            <button type="button" class="btn btn-tool ml-auto " >
+              <personal-fab :active="active" />
+            </button>
+          </div>
+        </a>
 
       <div id="collapseCreateService" class="panel-collapse in collapse" >
         <div class="card-body">
@@ -60,7 +65,7 @@
                         <label>
                           Unidad del campo
                           <p class="text-muted text-sm mb-1" >
-                            <span class="text-danger">* </span> este campo es opcional 
+                            <span class="text-danger">* </span> este campo es opcional
                           </p>
                         </label>
                         <input v-model="newFieldUnit" class="form-control">
@@ -119,6 +124,8 @@
 </template>
 
 <script>
+import 'bootstrap/js/dist/tooltip.js';
+const $ = require('jquery');
 export default {
   name: 'companyCreation',
   data(){
@@ -138,6 +145,7 @@ export default {
     }
   },
   mounted(){
+    $('[data-toggle="tooltip"]').tooltip();
     console.log(baseUrl);
   },
   methods:{
@@ -152,7 +160,7 @@ export default {
       this.logo=uploadFile;
     },
     submitNewField(){
-      
+
       if(!this.newFieldName||this.newFieldName=="") return toastr.error("rellene todos los campos requeridos ");
       if(!this.newFieldType||this.newFieldType=="") return toastr.error("rellene todos los campos requeridos ");
 
@@ -190,6 +198,7 @@ export default {
     },
 
     submitNewService: function(){
+      console.log(this.fields);
       let fd= new FormData();
       fd.append("name", this.name);
       fd.append("fields", JSON.stringify(this.fields));

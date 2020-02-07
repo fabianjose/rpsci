@@ -14,7 +14,11 @@
           <div class="d-flex w-100 flex-wrap">
             <div class="form-group col-xl-6 col-lg-6 col-md-6 col-6">
               <label>Empresa</label>
-              <autocomplete-vue
+              <select class="custom-select" v-model="company">
+                <option value="" class="d-none" selected>Empresa</option>
+                <option v-for="(company,index) in companies" :key="index" :value="company.name">{{company.name}}</option>
+              </select>
+              <!-- <autocomplete-vue
               v-model="company"
               url="/api/companies"
               requestType="get"
@@ -22,7 +26,7 @@
               property="name"
               :required="true"
               inputClass="form-control"
-              ></autocomplete-vue>
+              ></autocomplete-vue> -->
             </div>
             <div class="form-group col-xl-6 col-lg-6 col-md-6 col-6">
               <label>Servicio</label>
@@ -63,7 +67,7 @@
               <label>
                 Puntuacion
               </label>
-              
+
               <select class="custom-select" v-model="points">
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -72,7 +76,7 @@
                 <option value="5">5</option>
               </select>
                 <p class="text-muted text-sm mb-1" >
-                  <span class="text-danger">* </span> este campo es opcional 
+                  <span class="text-danger">* </span> este campo es opcional
                 </p>
             </div>
           </div>
@@ -100,15 +104,30 @@ export default {
       service: null,
       points: null,
       fields: [],
-      fieldsValues: []
+      fieldsValues: [],
+      companies: [],
     }
   },
 
   mounted(){
-
+    this.refreshData();
   },
   methods:{
-
+    refreshData(){
+      let loader = this.$loading.show();
+      axios.get(baseUrl+'/api/companies')
+      .then(res=>{
+        console.log(res);
+        this.companies=res.data;
+      }).catch(err=>{
+        console.log("ERROR FROM SERVER ",err.response);
+        if (err.response.data.errorMessage){
+          toastr.error(err.response.data.errorMessage);
+        }else{
+          toastr.error('Error al obtener las empresas');
+        }
+      }).finally(()=>loader.hide());
+    },
     newDepartment(department){
       this.department=department;
     },
@@ -139,7 +158,7 @@ export default {
       });
 
       if(!continueCreation) {
-        return toastr.error('Debe llenar los campos referentes al servicio seleccionado');        
+        return toastr.error('Debe llenar los campos referentes al servicio seleccionado');
       }
 
       let fd= new FormData();

@@ -4,7 +4,7 @@
             <div class="consult-card p-0 flex-wrap modal-content">
                 <div class="col-lg-7 col-xl-7 col-md-7 col-12 d-flex flex-column p-3">
                     <div class="consult-card-content">
-                        <div class="consult-card-header py-3">
+                        <div class="consult-card-header pt-4 pb-3">
                             <img :src="baseUrl+'/storage/'+offer.company_logo" alt="logo" class="col-10">
                         </div>
                         <div class="consult-card-benefits py-3">
@@ -45,7 +45,7 @@
                         </div>  
                     </div>
                     <div class="col-10 p-3 mx-auto" >
-                        <button class="btn btn-block btn-dark-blue rounded-pill">
+                        <button @click="sendMail" class="btn btn-block btn-dark-blue rounded-pill">
                             CONSULTAR
                         </button>
                     </div>
@@ -63,6 +63,12 @@ export default {
     data(){
         return {
             baseUrl:baseUrl,
+        }
+    },
+
+    methods:{
+        sendMail(){
+            
         }
     }
     

@@ -32,6 +32,7 @@ export default {
   data(){
     return{
       currentOffer:null,
+      latLng:"",
       offers: [],
       breakpoints:{
         1200: {
@@ -59,15 +60,56 @@ export default {
           slideRatio:1,
           arrows: false
         }
-      }
+      },
+      locationDenied:false,
+      department:"bogota",
+      municipality:"bogota",
+      apiKey:"AIzaSyBL0ZT5AWyMHUGkuGVuSbqHwZx_3dr6MU0",
     };
   },
   mounted(){
-    this.refreshData();
+    this.initGeo();
   },
   methods:{
+    initGeo(){
+
+        navigator.geolocation.getCurrentPosition(location=>{
+          console.log("location ", location);
+          this.latLng="&latlng="+location.coords.latitude;
+          this.latLng+=","+location.coords.longitude;
+          this.callGmap();
+        },err=>{
+          console.log("error ", err)
+          this.locationDenied=true;
+          //this.department=""
+          this.refreshData();
+        },{timeout:10000})
+      
+    },
+
+    callGmap(){
+
+      fetch("https://maps.googleapis.com/maps/api/geocode/json?key="+this.apiKey+this.latLng,{_method:"get"})
+      .then(res=>{
+        return res.json();
+      })
+      .then(async res => {
+        console.log(res)
+
+        this.department= await res.results[0].address_components.find(ad=>ad.types.indexOf("administrative_area_level_1")!=-1).long_name;
+        
+        this.municipality= await res.results[0].address_components.find(ad=>ad.types.indexOf("locality")!=-1).long_name;
+
+        await this.refreshData()
+        
+      })
+    },
+
     refreshData(){
-      axios.get(baseUrl+'/api/offers/highlighted')
+      let fd= new FormData();
+      fd.append("department", this.department)
+      fd.append("municipality", this.municipality)
+      axios.post(baseUrl+'/api/offers/area/highlight', fd)
       .then(res=>{
         console.log('Offers: ',res);
         this.offers=res.data;

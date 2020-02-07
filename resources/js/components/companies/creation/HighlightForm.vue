@@ -13,7 +13,11 @@
         <div class="card-body">
           <div class="form-group">
               <label>Empresa</label>
-              <autocomplete-vue
+              <select class="custom-select" v-model="company">
+                <option value="" class="d-none" selected>Empresa</option>
+                <option v-for="(company,index) in companies" :key="index" :value="company.name">{{company.name}}</option>
+              </select>
+              <!-- <autocomplete-vue
               v-model="company"
               url="/api/companies"
               requestType="get"
@@ -22,7 +26,7 @@
               :required="true"
               :threshold="1"
               inputClass="form-control"
-              ></autocomplete-vue>
+              ></autocomplete-vue> -->
           </div>
           <div class="form-group d-flex flex-column">
               <label>Fecha de expiracion</label>
@@ -44,12 +48,29 @@ export default {
         active:false,
         company:"",
         expiration:null,
+        companies: []
       }
     },
 
     mounted(){
+      this.refreshData();
     },
     methods:{
+      refreshData(){
+        let loader = this.$loading.show();
+        axios.get(baseUrl+'/api/companies/notHighlighted')
+        .then(res=>{
+          console.log(res);
+          this.companies=res.data;
+        }).catch(err=>{
+          console.log("ERROR FROM SERVER ",err.response);
+          if (err.response.data.errorMessage){
+            toastr.error(err.response.data.errorMessage);
+          }else{
+            toastr.error('Error al obtener las empresas');
+          }
+        }).finally(()=>loader.hide());
+      },
       highlightCompany(){
         if (!this.company){
           toastr.error('Debe ingresar una empresa');

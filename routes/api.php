@@ -2,9 +2,9 @@
 
 use Illuminate\Http\Request;
 
-Route::get('/offers','OfferController@getAll');
-
 Route::post('/login','Auth\LoginController@enter');
+
+Route::post('offers/area/highlight', "OfferController@getHighlightByLocation");
 
 Route::get('/departments','DepartmentController@getAll');
 Route::get('/municipalities','MunicipalityController@getAll');
@@ -30,6 +30,7 @@ Route::group(['middleware' => ['JwtMiddleware']], function () {
   Route::put('/company/{id}','CompanyController@editCompany');
   Route::put('/company/{name}/highlight','CompanyController@highlightCompany');
   Route::put('/company/{id}/dehighlight','CompanyController@deHighlightCompany');
+  Route::get('/companies/notHighlighted','CompanyController@getAllNotHighlighted');
   Route::get('/companies','CompanyController@getAll');
   // Route::get('/company/names','CompanyController@getNames');
   Route::get('/company/{id}','CompanyController@getCompany');
@@ -43,10 +44,11 @@ Route::group(['middleware' => ['JwtMiddleware']], function () {
   Route::put('/offer/{id}','OfferController@editOffer');
   Route::get('/offer/{id}','OfferController@getOffer');
   Route::delete('/offer/{id}','OfferController@deleteOffer');
+  Route::get('/offers','OfferController@getAll');
+
 
   Route::post('offers/area', 'OfferController@getByLocation');
   Route::post('offers/highlight/{id}', "OfferController@HighlightOffer");
-  Route::post('offers/area/highlight', "OfferController@getHighlightByLocation");
 
 
 });

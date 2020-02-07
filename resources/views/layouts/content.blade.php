@@ -39,41 +39,41 @@
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu">
           <li class="nav-item ">
-            <a class="nav-link px-0" href="/companies">
-              <i class="fa fa-suitcase"></i>
-              <p>Empresas</p>
-            </a>
-          </li>
-          <li class="nav-item px-0">
-            <a class="nav-link px-0" href="/services">
-              <i class="fa fa-box"></i>
-              <p>Servicios</p>
+            <a class="nav-link d-flex flex-row align-items-center" href="/companies">
+              <i class="fa fa-suitcase"></i col-2>
+              <p class="col-10">Empresas</p>
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link px-0" href="/offers">
-              <i class="fa fa-percent"></i>
-              <p>Ofertas</p>
+            <a class="nav-link d-flex flex-row align-items-center" href="/services">
+              <i class="fa fa-box"></i col-2>
+              <p class="col-10">Servicios</p>
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link px-0" href="/banners">
-              <i class="fa fa-tag"></i>
-              <p>Banners Publicitarios</p>
+            <a class="nav-link d-flex flex-row align-items-center" href="/offers">
+              <i class="fa fa-percent"></i col-2>
+              <p class="col-10">Ofertas</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link d-flex flex-row align-items-center" href="/banners">
+              <i class="fa fa-tag"></i col-2>
+              <p class="col-10" class="text-wrap">Banners Publicitarios</p>
             </a>
           </li>
 
           <li class="nav-item ">
-            <a class="nav-link px-0" href="/plans">
-              <i class="fa fa-tags"></i>
-              <p>Planes Destacados</p>
+            <a class="nav-link d-flex flex-row align-items-center" href="/plans">
+              <i class="fa fa-tags"></i col-2>
+              <p class="col-10">Planes Destacados</p>
             </a>
           </li>
 
           <li class="nav-item ">
-            <a class="nav-link px-0" href="/locations">
-              <i class="fas fa-map-marker-alt"></i>
-              <p>Zonas</p>
+            <a class="nav-link d-flex flex-row align-items-center" href="/locations">
+              <i class="fas fa-map-marker-alt col-2"></i>
+              <p class="col-10">Zonas</p>
             </a>
           </li>
 

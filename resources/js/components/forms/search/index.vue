@@ -10,14 +10,18 @@
                     <span class="fa fa-tv form-control-feedback "></span>
                     <select class="custom-select ci-select rounded-pill" v-model="service">
                         <option value="" class="d-none" selected>Servicio</option>
-                        <option v-for="(service,index) in services" :key="index" 
+                        <option v-for="(service,index) in services" :key="index"
                             :value="service.name">{{service.name}}
                         </option>
                     </select>
                 </div>
                 <div class="form-group has-search col-md-6 col-sm-10 col-lg-4">
                     <span class="fas fa-map-marker-alt form-control-feedback "></span>
-                    <autocomplete-vue
+                    <select class="custom-select ci-select rounded-pill" v-model="department" @change="getMunicipalities">
+                      <option value="" class="d-none" selected>Departamento</option>
+                      <option v-for="(department,index) in departments" :key="index" :value="department.name">{{department.name}}</option>
+                    </select>
+                    <!-- <autocomplete-vue
                         @selected="setDepartment"
                         url="/api/departments"
                         requestType="get"
@@ -26,11 +30,15 @@
                         :required="true"
                         :threshold="1"
                         inputClass="form-control rounded-pill rounded-input"
-                    ></autocomplete-vue>
+                    ></autocomplete-vue> -->
                 </div>
                 <div class="form-group has-search col-md-6 col-sm-10 col-lg-4">
                     <span class="fa fa-city form-control-feedback "></span>
-                    <autocomplete-vue
+                    <select class="custom-select ci-select rounded-pill" v-model="municipality">
+                      <option value="" class="d-none" selected>Municipio</option>
+                      <option v-for="(municipality,index) in municipalities" :key="index" :value="municipality.name">{{municipality.name}}</option>
+                    </select>
+                    <!-- <autocomplete-vue
                         @selected="setMunicipality"
                         ref="municipalitiesList"
                         placeholder="Municipio"
@@ -39,7 +47,7 @@
                         :threshold="1"
                         prefixClass="form-group"
                         inputClass="form-control rounded-pill rounded-input"
-                    ></autocomplete-vue>
+                    ></autocomplete-vue> -->
                 </div>
                 <div class="col-md-6 col-sm-10" @click="search" >
                     <i class="fa fa-search icon-btn"></i>
@@ -64,82 +72,97 @@
 
 <script>
 export default {
-    data(){
-        return{
-            municipality:"",
-            department:"",
-            service:"",
-            baseUrl:baseUrl,
-            offerType:"private",
-            services:[],
+  props:['errors'],
+  data(){
+    return{
+      municipality:"",
+      department:"",
+      service:"",
+      baseUrl:baseUrl,
+      offerType:"private",
+      services:[],
+      departments:[],
+      municipalities:[],
+    }
+  },
+
+  mounted(){
+    if (this.errors){
+      let allErrors = this.errors;
+      for (var errorkey in allErrors) {
+        if (allErrors[errorkey]){
+          for (var error of allErrors[errorkey]) {
+            toastr.error(error);
+          }
         }
+      }
+    };
+    this.getServices();
+    this.getDepartments();
+  },
+  methods:{
+    getServices(){
+      axios.get(baseUrl+"/api/services")
+      .then(res=>{
+        this.services=res.data;
+      })
+      .catch(err=>{
+        console.log("ERROR FROM SERVER ", err,err.response);
+        toastr.error("error al cargar los servicios");
+      });
     },
-
-    mounted(){
-        this.getServices()
+    getDepartments(){
+      axios.get(baseUrl+"/api/departments")
+      .then(res=>{
+        this.departments = res.data;
+      })
+      .catch(err=>{
+        console.log("ERROR FROM SERVER ", err,err.response);
+        toastr.error("error al cargar los departamentos");
+      });
     },
-
-    methods:{
-
-        getServices(){
-            axios.get(baseUrl+"/api/services")
-            .then(res=>{
-                this.services=res.data;
-            })
-            .catch(err=>{
-                console.log("ERROR FROM SERVER ", err,err.response);
-                toastr.error("error al cargar los servicios");
-            });
-        },
-
-        setDepartment(val){
-            console.log("new val ",val);
-            this.department=val;
-            this.getMunicipalities();
-        },
-
-        setMunicipality(val){
-            console.log("new val ",val);
-            this.municipality=val;
-        },
-
-        setService(val){
-            console.log("new val ",val);
-            this.service=val;
-            if(!this.noRequest)this.getMunicipalities();
-        },
-
-        getMunicipalities(){
-            axios.get(baseUrl+'/api/municipalities/'+this.department)
-            .then(res=>{
-                console.log(res);
-                console.log(this.$refs);
-                if(!this.hideMunicipality) this.$refs.municipalitiesList.setEntries(res.data)
-                else this.$emit("newMunicipalities", res.data);
-            }).catch(err=>{
-                console.log("ERROR FROM SERVER ", err,err.response);
-                toastr.error("error al cargar los municipios");
-            });
-        },
-
-        getExtras(){
-            
-            let query="?";
-
-            query+="department="+this.department;
-            query+="&municipality="+this.municipality;
-            query+="&service="+this.service;
-            query+="&offer_type="+this.offerType;
-
-            return query;
-
-        },
-
-        search(){      
-            console.log("type ", this.offerType)
-            let loader = this.$loading.show();
-            window.location.replace(baseUrl+"/offers/search"+this.getExtras())
-        },
+    setDepartment(val){
+      this.getMunicipalities();
     },
+    setMunicipality(val){
+      console.log("new val ",val);
+      this.municipality=val;
+    },
+    setService(val){
+      console.log("new val ",val);
+      this.service=val;
+      if(!this.noRequest)this.getMunicipalities();
+    },
+    getMunicipalities(){
+      axios.get(baseUrl+'/api/municipalities/'+this.department)
+      .then(res=>{
+        console.log(res);
+        // console.log(this.$refs);
+        // if(!this.hideMunicipality) this.$refs.municipalitiesList.setEntries(res.data)
+        // else this.$emit("newMunicipalities", res.data);
+        this.municipalities = res.data;
+      }).catch(err=>{
+        console.log("ERROR FROM SERVER ", err,err.response);
+        toastr.error("Error al cargar los municipios");
+      });
+    },
+    getExtras(){
+
+      let query="?";
+
+      query+="department="+this.department;
+      query+="&municipality="+this.municipality;
+      query+="&service="+this.service;
+      query+="&offer_type="+this.offerType;
+
+      return query;
+
+    },
+    search(){
+      console.log("type ", this.offerType)
+      let loader = this.$loading.show();
+      window.location.replace(baseUrl+"/offers/search"+this.getExtras())
+    },
+  },
 }
 </script>

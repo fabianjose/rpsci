@@ -52,6 +52,8 @@
 }
 
 .consult-card-header{
+    display: flex;
+    justify-content: center;
     border-bottom: solid .22rem $mid-gray;
 }
 
