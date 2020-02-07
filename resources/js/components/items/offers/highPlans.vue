@@ -16,11 +16,13 @@
         <vueper-slide v-for="(offer,index) in offers" :key="index" class="align-self-center">
           <template v-slot:content>
             <div class="d-flex text-center justify-content-center">
-              <offer-card :offer="offer" />
+              <offer-card @contactOffer="contactOffer" :offer="offer" />
             </div>
           </template>
         </vueper-slide>
       </vueper-slides>
+
+        <offer-consult v-if="currentOffer" :offer="currentOffer"></offer-consult>
 
     </div>
 </template>
@@ -29,6 +31,7 @@
 export default {
   data(){
     return{
+      currentOffer:null,
       offers: [],
       breakpoints:{
         1200: {
@@ -77,6 +80,12 @@ export default {
         }
       });
     },
+    contactOffer(index){
+      this.currentOffer=offers[index];
+    }
   }
 }
 </script>
+
+<style>
+</style>

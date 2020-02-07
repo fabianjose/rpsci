@@ -22,9 +22,9 @@ class LoginController extends Controller{
   public function __construct(){
     $this->middleware('guest')->except('logout');
   }
-
+  
   public function enter(Request $request){
-
+    
     $user = null;
 
     $validator = Validator::make($request->all(), [

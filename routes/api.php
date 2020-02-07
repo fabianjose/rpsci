@@ -2,17 +2,22 @@
 
 use Illuminate\Http\Request;
 
+Route::get('/offers','OfferController@getAll');
+
 Route::post('/login','Auth\LoginController@enter');
 
 Route::get('/departments','DepartmentController@getAll');
 Route::get('/municipalities','MunicipalityController@getAll');
-Route::get('/services','ServiceController@getAll');
 
+Route::get('/services','ServiceController@getAll');
+Route::get('/service/{id}','ServiceController@getService');
+Route::get('/service/{id}/fields', "ServiceController@getFields");
 
 Route::get('/municipalities/{departmentName}','MunicipalityController@getByDepartment');
 
 Route::get('/companies/highlighted','CompanyController@getAllHighlighted');
 Route::get('offers/highlighted', 'OfferController@getAllHighlighted');
+
 
 Route::group(['middleware' => ['JwtMiddleware']], function () {
   Route::post('/department','DepartmentController@newDepartment');
@@ -32,12 +37,10 @@ Route::group(['middleware' => ['JwtMiddleware']], function () {
 
   Route::post('/service','ServiceController@newService');
   Route::put('/service/{id}','ServiceController@editService');
-  Route::get('/service/{id}','ServiceController@getService');
   Route::delete('/service/{id}','ServiceController@deleteService');
 
   Route::post('/offer','OfferController@newOffer');
   Route::put('/offer/{id}','OfferController@editOffer');
-  Route::get('/offers','OfferController@getAll');
   Route::get('/offer/{id}','OfferController@getOffer');
   Route::delete('/offer/{id}','OfferController@deleteOffer');
 

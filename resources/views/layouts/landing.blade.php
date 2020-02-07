@@ -12,11 +12,11 @@
         </div>
         <nav class="main-header navbar-light navbar navbar-expand-md mx-auto py-3 px-4">
             <ul class="navbar-nav ml-3">
-                <li class="nav-item">
+                <a class="nav-item" href="/">
                     <img class="ic-logo" src="{{ asset('images/logo.png') }}" alt="">
-                </li>
+                </a>
             </ul>
-            <a class="nav-link hidden-md nav-btn hidden-xl hidden-lg" data-toggle="collapse" data-target="#responsive-menu"><i class="fas fa-bars"></i></a>
+            <a class="nav-link hidden-md nav-btn hidden-xl-xl hidden-xl hidden-lg" data-toggle="collapse" data-target="#responsive-menu"><i class="fas fa-bars"></i></a>
             <div id="responsive-menu" class="navbar-collapse collapse">
                 <ul class="navbar-nav ml-auto mr-x3 ">
                     <li class="nav-item">

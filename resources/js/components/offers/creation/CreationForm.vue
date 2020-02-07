@@ -26,15 +26,15 @@
             </div>
             <div class="form-group col-xl-6 col-lg-6 col-md-6 col-6">
               <label>Servicio</label>
-              <select class="custom-select" v-model="service">
+              <select @change="getFields" class="custom-select" v-model="service">
                 <option :value="service.id" v-for="service in services" :key="service.id">{{service.name}}</option>
               </select>
             </div>
           </div>
-          <div class="d-flex w-100 flex-wrap" v-if="service">
-            <div class="form-group col-xl-4 col-lg-4 col-md-6 col-6" v-for="(field,index) in services[service-1].fields" >
-              <label>{{field.label}}</label>
-              <input v-model="fields_value[index]" class="form-control">
+          <div class="d-flex w-100 flex-wrap" v-if="fields.length">
+            <div class="form-group col-xl-4 col-lg-4 col-md-6 col-6" v-for="(field,index) in fields" >
+              <label>{{field.name}}</label>
+              <input v-model="fieldsValues[index]" class="form-control">
             </div>
           </div>
           <div class="d-flex w-100 flex-wrap">
@@ -60,7 +60,10 @@
               </select>
             </div>
             <div class="form-group col-xl-4 col-lg-4 col-md-6 col-6">
-              <label>Puntuacion (Opcional)</label>
+              <label>
+                Puntuacion
+              </label>
+              
               <select class="custom-select" v-model="points">
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -68,6 +71,9 @@
                 <option value="4">4</option>
                 <option value="5">5</option>
               </select>
+                <p class="text-muted text-sm mb-1" >
+                  <span class="text-danger">* </span> este campo es opcional 
+                </p>
             </div>
           </div>
         </div>
@@ -93,7 +99,8 @@ export default {
       benefits: "",
       service: null,
       points: null,
-      fields_value: []
+      fields: [],
+      fieldsValues: []
     }
   },
 
@@ -110,12 +117,29 @@ export default {
       this.municipality=municipality;
     },
 
-    createOffer(){
-      for (var i = 0; i < this.services[this.service-1].fields.length; i++) {
-        if (!this.fields_value[i]){
-          toastr.error('Debe llenar los campos referentes al servicio seleccionado');
-          return false;
+    getFields(){
+      axios.get(baseUrl+"/api/service/"+this.service+"/fields")
+      .then(res=>{
+        this.fields=res.data
+      }).catch(err=>toastr.error("error al obtener los campos del servicio"))
+    },
+
+    async createOffer(){
+      let continueCreation=true;
+      let valuesArray=[];
+
+      await this.fields.map((field, i)=>{
+        if (!this.fieldsValues[i]||this.fieldsValues[i]==""){
+           continueCreation=false;
         }
+        else valuesArray.push({
+          "field_id":field.id,
+          "value":this.fieldsValues[i]
+        });
+      });
+
+      if(!continueCreation) {
+        return toastr.error('Debe llenar los campos referentes al servicio seleccionado');        
       }
 
       let fd= new FormData();
@@ -127,7 +151,7 @@ export default {
       fd.append("benefits", this.benefits);
       fd.append("service", this.service);
       fd.append("points", this.points);
-      fd.append("fields_value", JSON.stringify(this.fields_value));
+      fd.append("fields_values", valuesArray.length?JSON.stringify(valuesArray):null);
 
       let loader = this.$loading.show();
 

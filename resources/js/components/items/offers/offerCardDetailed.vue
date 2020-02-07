@@ -27,17 +27,7 @@
 
 <script>
 export default {
-  props:['offer','index'],
-  data(){
-    return{
-      baseUrl:baseUrl,
-    }
-  },
-
-  methods:{
-    emitContact(){
-      this.$emit("contactOffer",this.index);
-    }
-  }
+    
 }
 </script>
+

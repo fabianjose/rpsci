@@ -19,7 +19,10 @@ class CreateFieldsTable extends Migration
             $table->foreign("service_id")->references("id")->on("services");
             $table->string("name",32);
             $table->enum("type", ["numeric", "string"]);
-            $table->string("unit",16);
+            $table->string("unit",16)->nullable();
+
+            $table->boolean("trash")->default(0);
+
             $table->timestamps();
         });
     }

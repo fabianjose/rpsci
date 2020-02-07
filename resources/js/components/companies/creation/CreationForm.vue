@@ -107,6 +107,7 @@ export default {
           toastr.success("Compañía creada con éxito");
           this.name = "";
           this.logo = null;
+          this.onPreview = null;
           this.nit = "";
           this.phone = "";
           this.web = "";

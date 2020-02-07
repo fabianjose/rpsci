@@ -21,4 +21,10 @@ class Offer extends Model{
     'trash'
   ];
 
+  public function fieldsValues(){
+
+    return $this->hasMany('App\FieldsValue', 'offer_id');
+
+  }
+
 }
