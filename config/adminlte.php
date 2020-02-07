@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'InterColombia',
+    'title' => 'Contrata Internet',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -30,7 +30,7 @@ return [
     |
     */
 
-    'logo' => '<b>Inter</b>Colombia',
+    'logo' => '<b>Contrata</b>Internet',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image-xl',
     'logo_img_xl' => null,

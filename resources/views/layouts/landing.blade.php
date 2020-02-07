@@ -88,7 +88,7 @@
           </div>
         </div>
         <div class="d-flex w-100 justify-content-center align-items-center footer-footer">
-          <span class="footer-title-color">Derechos Reservados 2020 - Desarrollado por NextScale®</span>
+          <span class="footer-title-color">Derechos Reservados 2020 - Desarrollado por <a href="https://portafolio.nextscale.net">NextScale®</a></span>
         </div>
   </div>
 

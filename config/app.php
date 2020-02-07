@@ -14,7 +14,7 @@ return [
     */
 
     // 'name' => env('APP_NAME', 'InterColombia'),
-    'name' => 'InterColombia',
+    'name' => 'Contrata Internet',
 
     /*
     |--------------------------------------------------------------------------

@@ -55,7 +55,7 @@
 
           <div class="col-md-4 col-sm-6 col-xs-12">
             <div class="info-box">
-              <span class="info-box-icon bg-warning"><i class="fas fa-tags"></i></span>
+              <span class="info-box-icon bg-warning"><i class="fas fa-tags text-white"></i></span>
               <div class="info-box-content">
                 <h5 class="info-box-text">Planes Destacados</h5>
                 <a href="/plans" class="btn btn-block btn-outline-warning text-dark">
