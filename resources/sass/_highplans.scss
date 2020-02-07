@@ -24,6 +24,24 @@
   box-shadow: 0px 0px 24px 0px rgba(30,30,30,0.35);
 }
 
+.offer-card-lg{
+  width: 60vw;
+  height:auto;
+  border-radius:40px;
+  background-color: white;
+  -webkit-box-shadow: 0px 0px 24px 0px rgba(30,30,30,0.35);
+  -moz-box-shadow: 0px 0px 24px 0px rgba(30,30,30,0.35);
+  box-shadow: 0px 0px 24px 0px rgba(30,30,30,0.35);
+}
+
+@media(max-width:768px){
+  
+  .offer-card-lg{
+    width: 80vw;
+  }
+
+}
+
 .offer-card-header{
   padding: 1.2rem;
   display: flex;

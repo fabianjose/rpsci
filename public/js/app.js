@@ -2858,6 +2858,9 @@ __webpack_require__.r(__webpack_exports__);
     return {
       baseUrl: baseUrl
     };
+  },
+  methods: {
+    sendMail: function sendMail() {}
   }
 });
 
@@ -3331,6 +3334,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     emitConsult: function emitConsult(index) {
       this.$emit("consultItem", index);
+    },
+    emitView: function emitView(index) {
+      this.$emit("viewItem", index);
     }
   }
 });
@@ -3415,6 +3421,14 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 //
 //
 //
@@ -3448,6 +3462,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       currentOffer: null,
+      latLng: "",
       offers: [],
       breakpoints: {
         1200: {
@@ -3475,19 +3490,92 @@ __webpack_require__.r(__webpack_exports__);
           slideRatio: 1,
           arrows: false
         }
-      }
+      },
+      locationDenied: false,
+      department: "bogota",
+      municipality: "bogota",
+      apiKey: "AIzaSyBL0ZT5AWyMHUGkuGVuSbqHwZx_3dr6MU0"
     };
   },
   mounted: function mounted() {
-    this.refreshData();
+    this.initGeo();
   },
   methods: {
-    refreshData: function refreshData() {
+    initGeo: function initGeo() {
       var _this = this;
 
-      axios.get(baseUrl + '/api/offers/highlighted').then(function (res) {
+      navigator.geolocation.getCurrentPosition(function (location) {
+        console.log("location ", location);
+        _this.latLng = "&latlng=" + location.coords.latitude;
+        _this.latLng += "," + location.coords.longitude;
+
+        _this.callGmap();
+      }, function (err) {
+        console.log("error ", err);
+        _this.locationDenied = true; //this.department=""
+
+        _this.refreshData();
+      }, {
+        timeout: 10000
+      });
+    },
+    callGmap: function callGmap() {
+      var _this2 = this;
+
+      fetch("https://maps.googleapis.com/maps/api/geocode/json?key=" + this.apiKey + this.latLng, {
+        _method: "get"
+      }).then(function (res) {
+        return res.json();
+      }).then(
+      /*#__PURE__*/
+      function () {
+        var _ref = _asyncToGenerator(
+        /*#__PURE__*/
+        _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(res) {
+          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+            while (1) {
+              switch (_context.prev = _context.next) {
+                case 0:
+                  console.log(res);
+                  _context.next = 3;
+                  return res.results[0].address_components.find(function (ad) {
+                    return ad.types.indexOf("administrative_area_level_1") != -1;
+                  }).long_name;
+
+                case 3:
+                  _this2.department = _context.sent;
+                  _context.next = 6;
+                  return res.results[0].address_components.find(function (ad) {
+                    return ad.types.indexOf("locality") != -1;
+                  }).long_name;
+
+                case 6:
+                  _this2.municipality = _context.sent;
+                  _context.next = 9;
+                  return _this2.refreshData();
+
+                case 9:
+                case "end":
+                  return _context.stop();
+              }
+            }
+          }, _callee);
+        }));
+
+        return function (_x) {
+          return _ref.apply(this, arguments);
+        };
+      }());
+    },
+    refreshData: function refreshData() {
+      var _this3 = this;
+
+      var fd = new FormData();
+      fd.append("department", this.department);
+      fd.append("municipality", this.municipality);
+      axios.post(baseUrl + '/api/offers/area/highlight', fd).then(function (res) {
         console.log('Offers: ', res);
-        _this.offers = res.data;
+        _this3.offers = res.data;
       })["catch"](function (err) {
         console.log("ERROR FROM SERVER ", err.response);
 
@@ -3587,6 +3675,58 @@ __webpack_require__.r(__webpack_exports__);
       this.$emit('pick', this.index);
     }
   }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/items/offers/offerCardDetailed.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/items/offers/offerCardDetailed.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ["offer", "index"],
+  data: function data() {
+    return {
+      baseUrl: baseUrl
+    };
+  },
+  methods: {}
 });
 
 /***/ }),
@@ -4728,6 +4868,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["pagination", "fields", "query", "lastpage"],
   data: function data() {
@@ -4735,6 +4876,7 @@ __webpack_require__.r(__webpack_exports__);
       customFilters: null,
       pageIndex: "&page=1",
       currentItem: null,
+      viewMode: false,
       consultMode: false
     };
   },
@@ -4745,6 +4887,12 @@ __webpack_require__.r(__webpack_exports__);
     consultItem: function consultItem(index) {
       this.currentItem = this.pagination.data[index];
       this.consultMode = true;
+      this.viewMode = false;
+    },
+    viewItem: function viewItem(index) {
+      this.currentItem = this.pagination.data[index];
+      this.viewMode = true;
+      this.consultMode = false;
     },
     changePage: function changePage() {
       var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
@@ -39428,7 +39576,7 @@ var render = function() {
             },
             [
               _c("div", { staticClass: "consult-card-content" }, [
-                _c("div", { staticClass: "consult-card-header py-3" }, [
+                _c("div", { staticClass: "consult-card-header pt-4 pb-3" }, [
                   _c("img", {
                     staticClass: "col-10",
                     attrs: {
@@ -39482,7 +39630,37 @@ var render = function() {
             ]
           ),
           _vm._v(" "),
-          _vm._m(0)
+          _c(
+            "div",
+            {
+              staticClass:
+                "col-lg-5 col-xl-5 col-md-5 col-12 bg-main-blue p-3 form-consulting-field"
+            },
+            [
+              _vm._m(0),
+              _vm._v(" "),
+              _vm._m(1),
+              _vm._v(" "),
+              _vm._m(2),
+              _vm._v(" "),
+              _vm._m(3),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-10 p-3 mx-auto" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-block btn-dark-blue rounded-pill",
+                    on: { click: _vm.sendMail }
+                  },
+                  [
+                    _vm._v(
+                      "\n                        CONSULTAR\n                    "
+                    )
+                  ]
+                )
+              ])
+            ]
+          )
         ])
       ])
     ]
@@ -39493,98 +39671,85 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass:
-          "col-lg-5 col-xl-5 col-md-5 col-12 bg-main-blue p-3 form-consulting-field"
-      },
-      [
-        _c("div", { staticClass: "form-consulting-header" }, [
-          _c("span", { staticClass: "form-consulting-title" }, [
-            _vm._v("Consulta sin compromiso")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "form-group col-12 my-2" }, [
-          _c("label", { staticClass: "text-white" }, [
-            _vm._v("Nombre y Apellido")
-          ]),
+    return _c("div", { staticClass: "form-consulting-header" }, [
+      _c("span", { staticClass: "form-consulting-title" }, [
+        _vm._v("Consulta sin compromiso")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group col-12 my-2" }, [
+      _c("label", { staticClass: "text-white" }, [_vm._v("Nombre y Apellido")]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "form-group has-search d-flex align-items-center" },
+        [
+          _c("span", {
+            staticClass: "fas fa-user form-control-feedback text-white"
+          }),
           _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "form-group has-search d-flex align-items-center" },
-            [
-              _c("span", {
-                staticClass: "fas fa-user form-control-feedback text-white"
-              }),
-              _vm._v(" "),
-              _c("input", {
-                staticClass:
-                  "form-control form-consulting-input rounded-pill rounded-input",
-                attrs: { type: "text" }
-              })
-            ]
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "form-group col-12 my-2" }, [
-          _c("label", { staticClass: "text-white" }, [
-            _vm._v("Correo electrónico")
-          ]),
+          _c("input", {
+            staticClass:
+              "form-control form-consulting-input rounded-pill rounded-input",
+            attrs: { type: "text" }
+          })
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group col-12 my-2" }, [
+      _c("label", { staticClass: "text-white" }, [
+        _vm._v("Correo electrónico")
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "form-group has-search d-flex align-items-center" },
+        [
+          _c("span", {
+            staticClass: "fas fa-mail-bulk form-control-feedback text-white"
+          }),
           _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "form-group has-search d-flex align-items-center" },
-            [
-              _c("span", {
-                staticClass: "fas fa-mail-bulk form-control-feedback text-white"
-              }),
-              _vm._v(" "),
-              _c("input", {
-                staticClass:
-                  "form-control form-consulting-input rounded-pill rounded-input",
-                attrs: { type: "text" }
-              })
-            ]
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "form-group col-12 my-2" }, [
-          _c("label", { staticClass: "text-white" }, [
-            _vm._v("Nro de Teléfono")
-          ]),
+          _c("input", {
+            staticClass:
+              "form-control form-consulting-input rounded-pill rounded-input",
+            attrs: { type: "text" }
+          })
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group col-12 my-2" }, [
+      _c("label", { staticClass: "text-white" }, [_vm._v("Nro de Teléfono")]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "form-group has-search d-flex align-items-center" },
+        [
+          _c("span", {
+            staticClass: "fas fa-phone form-control-feedback text-white"
+          }),
           _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "form-group has-search d-flex align-items-center" },
-            [
-              _c("span", {
-                staticClass: "fas fa-phone form-control-feedback text-white"
-              }),
-              _vm._v(" "),
-              _c("input", {
-                staticClass:
-                  "form-control form-consulting-input rounded-pill rounded-input",
-                attrs: { type: "text" }
-              })
-            ]
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-10 p-3 mx-auto" }, [
-          _c(
-            "button",
-            { staticClass: "btn btn-block btn-dark-blue rounded-pill" },
-            [
-              _vm._v(
-                "\n                        CONSULTAR\n                    "
-              )
-            ]
-          )
-        ])
-      ]
-    )
+          _c("input", {
+            staticClass:
+              "form-control form-consulting-input rounded-pill rounded-input",
+            attrs: { type: "text" }
+          })
+        ]
+      )
+    ])
   }
 ]
 render._withStripped = true
@@ -40603,7 +40768,24 @@ var render = function() {
                       [_vm._v("Consultar")]
                     ),
                     _vm._v(" "),
-                    _vm._m(3, true)
+                    _c(
+                      "button",
+                      {
+                        staticClass:
+                          "btn btn-sm btn-main-pink rounded-pill mx-1 hidden-xl hidden-xl-xl",
+                        attrs: {
+                          type: "button",
+                          "data-toggle": "modal",
+                          "data-target": "#offerView"
+                        },
+                        on: {
+                          click: function($event) {
+                            return _vm.emitView(k)
+                          }
+                        }
+                      },
+                      [_c("i", { staticClass: "fas fa-eye" })]
+                    )
                   ])
                 ]
               )
@@ -40738,24 +40920,6 @@ var staticRenderFns = [
         [_vm._v("DETALLES")]
       )
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "button",
-      {
-        staticClass:
-          "btn btn-sm btn-main-pink rounded-pill mx-1 hidden-xl hidden-xl-xl",
-        attrs: {
-          type: "button",
-          "data-toggle": "modal",
-          "data-target": "#offerView"
-        }
-      },
-      [_c("i", { staticClass: "fas fa-eye" })]
-    )
   }
 ]
 render._withStripped = true
@@ -41135,6 +41299,113 @@ var render = function() {
       ])
     ])
   ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/items/offers/offerCardDetailed.vue?vue&type=template&id=0981fe44&":
+/*!*********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/items/offers/offerCardDetailed.vue?vue&type=template&id=0981fe44& ***!
+  \*********************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    {
+      staticClass: "modal fade",
+      attrs: { id: "offerView", "aria-modal": "true" }
+    },
+    [
+      _c(
+        "div",
+        {
+          staticClass:
+            "modal-dialog modal-xl d-flex flex-row justify-content-center"
+        },
+        [
+          _c("div", { staticClass: "offer-card-lg modal-content" }, [
+            _c("div", { staticClass: "offer-card-header" }, [
+              _c("img", {
+                staticClass: "col-10",
+                attrs: {
+                  src: _vm.baseUrl + "/storage/" + _vm.offer.company_logo,
+                  alt: "logo"
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "offer-card-separator bg-main-pink" }),
+            _vm._v(" "),
+            _c("div", { staticClass: "consult-card-content p-3 pb-5" }, [
+              _c("div", { staticClass: "row text-center w-100" }, [
+                _c("h6", { staticClass: "col-12 offer-card-title" }, [
+                  _vm._v(_vm._s(_vm.offer.company_name))
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "row text-center w-100" }, [
+                _c("h5", { staticClass: "col-12 offer-card-price" }, [
+                  _vm._v(_vm._s(_vm.offer.tariff) + " $")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "consult-card-benefits py-3" }, [
+                _c(
+                  "h6",
+                  { staticClass: "col-12 consult-card-sub-title py-1 m-0" },
+                  [_vm._v("Beneficios:")]
+                ),
+                _vm._v(" "),
+                _c("h6", { staticClass: "col-12 benefits-content text-wrap" }, [
+                  _vm._v(_vm._s(_vm.offer.benefits))
+                ])
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "consult-card-fields" },
+                _vm._l(_vm.offer.fields_values, function(fieldValue, k) {
+                  return _c(
+                    "div",
+                    { key: k, staticClass: "consult-card-field col-6" },
+                    [
+                      _c(
+                        "h6",
+                        { staticClass: "consult-card-sub-title py-1 m-0" },
+                        [_vm._v(_vm._s(fieldValue.field_name) + ":")]
+                      ),
+                      _vm._v(" "),
+                      _c("h6", { staticClass: "field-content" }, [
+                        _vm._v(
+                          _vm._s(fieldValue.value) +
+                            " " +
+                            _vm._s(fieldValue.unit ? fieldValue.unit : "")
+                        )
+                      ])
+                    ]
+                  )
+                }),
+                0
+              )
+            ])
+          ])
+        ]
+      )
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -42581,7 +42852,11 @@ var render = function() {
               currentpage: _vm.pagination.current_page,
               lastpage: _vm.lastpage
             },
-            on: { consultItem: _vm.consultItem, pageSwitch: _vm.changePage }
+            on: {
+              consultItem: _vm.consultItem,
+              viewItem: _vm.viewItem,
+              pageSwitch: _vm.changePage
+            }
           })
         ],
         1
@@ -42589,6 +42864,10 @@ var render = function() {
       _vm._v(" "),
       _vm.currentItem && _vm.consultMode
         ? _c("offer-consult", { attrs: { offer: _vm.currentItem } })
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.currentItem && _vm.viewMode
+        ? _c("offer-modal", { attrs: { offer: _vm.currentItem } })
         : _vm._e()
     ],
     1
@@ -85552,7 +85831,8 @@ Vue.component('offer-details', __webpack_require__(/*! ./components/items/offers
 Vue.component('offer-update', __webpack_require__(/*! ./components/offers/update/updateForm.vue */ "./resources/js/components/offers/update/updateForm.vue")["default"]);
 Vue.component("offer-card", __webpack_require__(/*! ./components/items/offers/offercard.vue */ "./resources/js/components/items/offers/offercard.vue")["default"]);
 Vue.component("offers-filter", __webpack_require__(/*! ./components/offers/filter */ "./resources/js/components/offers/filter/index.vue")["default"]);
-Vue.component("offer-consult", __webpack_require__(/*! ./components/forms/contact-modal */ "./resources/js/components/forms/contact-modal/index.vue")["default"]); // Servicios
+Vue.component("offer-consult", __webpack_require__(/*! ./components/forms/contact-modal */ "./resources/js/components/forms/contact-modal/index.vue")["default"]);
+Vue.component("offer-modal", __webpack_require__(/*! ./components/items/offers/offerCardDetailed.vue */ "./resources/js/components/items/offers/offerCardDetailed.vue")["default"]); // Servicios
 
 Vue.component('service-creation', __webpack_require__(/*! ./components/services/creation/creationForm.vue */ "./resources/js/components/services/creation/creationForm.vue")["default"]);
 Vue.component('service-gestion', __webpack_require__(/*! ./components/services/gestion/gestion.vue */ "./resources/js/components/services/gestion/gestion.vue")["default"]);
@@ -85654,6 +85934,7 @@ try {
 
 window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+window.axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
 var jwtToken = document.head.querySelector('meta[name="jwt-token"]');
 
 if (jwtToken) {
@@ -86787,6 +87068,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_offer_vue_vue_type_template_id_b7df7c44___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_offer_vue_vue_type_template_id_b7df7c44___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/items/offers/offerCardDetailed.vue":
+/*!********************************************************************!*\
+  !*** ./resources/js/components/items/offers/offerCardDetailed.vue ***!
+  \********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _offerCardDetailed_vue_vue_type_template_id_0981fe44___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./offerCardDetailed.vue?vue&type=template&id=0981fe44& */ "./resources/js/components/items/offers/offerCardDetailed.vue?vue&type=template&id=0981fe44&");
+/* harmony import */ var _offerCardDetailed_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./offerCardDetailed.vue?vue&type=script&lang=js& */ "./resources/js/components/items/offers/offerCardDetailed.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _offerCardDetailed_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _offerCardDetailed_vue_vue_type_template_id_0981fe44___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _offerCardDetailed_vue_vue_type_template_id_0981fe44___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/items/offers/offerCardDetailed.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/items/offers/offerCardDetailed.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************!*\
+  !*** ./resources/js/components/items/offers/offerCardDetailed.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_offerCardDetailed_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./offerCardDetailed.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/items/offers/offerCardDetailed.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_offerCardDetailed_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/items/offers/offerCardDetailed.vue?vue&type=template&id=0981fe44&":
+/*!***************************************************************************************************!*\
+  !*** ./resources/js/components/items/offers/offerCardDetailed.vue?vue&type=template&id=0981fe44& ***!
+  \***************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_offerCardDetailed_vue_vue_type_template_id_0981fe44___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./offerCardDetailed.vue?vue&type=template&id=0981fe44& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/items/offers/offerCardDetailed.vue?vue&type=template&id=0981fe44&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_offerCardDetailed_vue_vue_type_template_id_0981fe44___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_offerCardDetailed_vue_vue_type_template_id_0981fe44___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -88139,13 +88489,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-<<<<<<< HEAD
-__webpack_require__(/*! C:\z-projects\colombia_internet\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\z-projects\colombia_internet\resources\sass\app.scss */"./resources/sass/app.scss");
-=======
-__webpack_require__(/*! C:\ConsultingME\colombia_internet\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\ConsultingME\colombia_internet\resources\sass\app.scss */"./resources/sass/app.scss");
->>>>>>> cdd288ae401c0704508b185a92a4c05c7a952ccb
+__webpack_require__(/*! C:\Users\web 03\Music\colombia_internet\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\web 03\Music\colombia_internet\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),

@@ -4,9 +4,10 @@
             <div class="col-10 col-lg-4 col-xl-4">
                 <filter-card @customFiltering="refreshData" :fields="fields" />
             </div>
-            <filter-table @consultItem="consultItem" @pageSwitch="changePage" :fields="fields" :items="pagination.data" :currentpage="pagination.current_page" :lastpage="lastpage" ></filter-table>
+            <filter-table @consultItem="consultItem" @viewItem="viewItem" @pageSwitch="changePage" :fields="fields" :items="pagination.data" :currentpage="pagination.current_page" :lastpage="lastpage" ></filter-table>
         </div>
         <offer-consult v-if="currentItem&&consultMode" :offer="currentItem"></offer-consult>
+        <offer-modal v-if="currentItem&&viewMode" :offer="currentItem" ></offer-modal>
     </div>
 </template>
 
@@ -19,6 +20,7 @@ export default {
             customFilters:null,
             pageIndex:"&page=1",
             currentItem:null,
+            viewMode:false,
             consultMode:false,
         };
     },
@@ -32,8 +34,18 @@ export default {
         consultItem(index){
 
             this.currentItem= this.pagination.data[index];
-
+            
             this.consultMode=true;
+            this.viewMode=false;
+
+        },
+
+        viewItem(index){
+
+            this.currentItem= this.pagination.data[index];
+
+            this.viewMode=true;
+            this.consultMode=false;
 
         },
 

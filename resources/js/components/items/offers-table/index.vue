@@ -51,7 +51,7 @@
             </div>
             <div class="d-flex flex-row">
               <button type="button" data-toggle="modal" @click="emitConsult(k)" data-target="#modalConsultOffer" class="btn btn-sm btn-main-blue rounded-pill mx-1">Consultar</button>
-              <button type="button" data-toggle="modal" data-target="#offerView" class="btn btn-sm btn-main-pink rounded-pill mx-1 hidden-xl hidden-xl-xl"><i class="fas fa-eye"></i></button>
+              <button type="button" data-toggle="modal" @click="emitView(k)" data-target="#offerView" class="btn btn-sm btn-main-pink rounded-pill mx-1 hidden-xl hidden-xl-xl"><i class="fas fa-eye"></i></button>
             </div>
           </div>
         </div>
@@ -92,8 +92,12 @@ export default {
       },
 
       emitConsult(index){
-        this.$emit("consultItem",index)
+        this.$emit("consultItem",index);
       },
+
+      emitView(index){
+        this.$emit("viewItem",index);
+      }
     }
 }
 </script>

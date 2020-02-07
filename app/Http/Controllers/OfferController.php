@@ -282,9 +282,9 @@ class OfferController extends Controller{
       array_push($offersArray,$offer);
     }
     
-    $paginator = new Paginator($offersArray, 1, $request->input("page")?$request->input("page"):1);
+    $paginator = new Paginator($offersArray, 10, $request->input("page")?$request->input("page"):1);
 
-    $last_page= max((int) ceil(count($offersArray) / 1), 1);
+    $last_page= max((int) ceil(count($offersArray) / 10), 1);
 
     if(!$request->ajax()){
       return view("pages.planComparator")->with(["pagination"=> $paginator,"fields"=>$fields, "query"=>$query, "last_page"=>$last_page]);
@@ -296,17 +296,17 @@ class OfferController extends Controller{
 
   public function getHighlightByLocation(Request $request){
     $data = $request->all();
+
     $validation = Validator::make($data, [
-      'department' => ['required', 'exists:departments,name'],
-      'municipality' => ['required', 'exists:municipalities,name'],
+      'department' => ['required', 'string'],
+      'municipality' => ['required', 'string'],
     ]);
     if ($validation->fails()){
       return response()->json($validation->errors(), 400);
     }
 
-
-    $department = Department::where('name',$data['department'])->first();
-    $municipality = Municipality::where('name',$data['municipality'])->first();
+    $department = Department::where('name', 'like', "%".$data['department']."%")->first();
+    $municipality = Municipality::where('name', 'like', "%".$data['municipality']."%")->first();
     if (!$department) return response()->json('Departamento no encontrado',404);
     if (!$municipality) return response()->json('Municipio no encontrado',404);
 
@@ -386,6 +386,21 @@ class OfferController extends Controller{
 		$offer->trash = 1;
 		if (!$offer->save()) return response()->json('Error en la base de datos',500);
 		return response()->json('Oferta eliminada satisfactoriamente', 200);
-	}
+  }
+  
+  public function sendMail(Request $request){
+    
+    $data = $request->all();
+    $validation = Validator::make($data, []);
+    if ($validation->fails()){
+      return response()->json($validation->errors(), 400);
+    }
+    
+
+    Mail::send(function ($m)
+    {
+        $m->to("alejandrozurita13@gmail.com", "Admin")->subject("offer Request");
+    });
+  }
 
 }
