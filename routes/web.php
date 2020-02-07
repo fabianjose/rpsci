@@ -17,6 +17,12 @@ Route::get('/', 'HomeController@landing');
 Route::get('/search', function () {
     return view('pages.planComparator');
 });
+Route::get('/nosotros', function () {
+    return view('pages.nosotros');
+});
+Route::get('/contacto', function () {
+    return view('pages.contacto');
+});
 Route::get('/login', function () {
     return view('auth.login');
 });

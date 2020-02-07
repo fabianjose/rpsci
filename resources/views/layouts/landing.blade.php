@@ -27,7 +27,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link nav-item-border" href="#">
+                        <a class="nav-link nav-item-border" href="/nosotros">
                             <h6 class="ic-main font-weight-bold">
                                 Nosotros
                             </h6>
@@ -41,7 +41,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link nav-item-border" href="#">
+                        <a class="nav-link nav-item-border" href="/contacto">
                             <h6 class="ic-main font-weight-bold">
                                 Contacto
                             </h6>
