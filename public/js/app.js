@@ -5382,6 +5382,10 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['services'],
   data: function data() {
@@ -5394,11 +5398,33 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       municipality: "",
       selectedOffer: null,
       offersByArea: [],
-      expiration: null
+      expiration: null,
+      companies: []
     };
   },
-  mounted: function mounted() {},
+  mounted: function mounted() {
+    this.refreshData();
+  },
   methods: {
+    refreshData: function refreshData() {
+      var _this = this;
+
+      var loader = this.$loading.show();
+      axios.get(baseUrl + '/api/companies').then(function (res) {
+        console.log(res);
+        _this.companies = res.data;
+      })["catch"](function (err) {
+        console.log("ERROR FROM SERVER ", err.response);
+
+        if (err.response.data.errorMessage) {
+          toastr.error(err.response.data.errorMessage);
+        } else {
+          toastr.error('Error al obtener las empresas');
+        }
+      })["finally"](function () {
+        return loader.hide();
+      });
+    },
     newDepartment: function newDepartment(department) {
       this.department = department;
     },
@@ -5411,7 +5437,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       this[activeIndex] = !this[activeIndex];
     },
     highlightOffer: function highlightOffer() {
-      var _this = this;
+      var _this2 = this;
 
       var fd = new FormData();
       if (this.expiration) fd.append("highlighted_expiration", this.expiration);else return toastr.error("Debe introducir una fecha de expiración");
@@ -5420,7 +5446,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         console.log("RESPONSE FROM SERVER ", res);
         toastr.success("Oferta Destacada con éxito");
 
-        _this.$emit('refresh');
+        _this2.$emit('refresh');
       })["catch"](function (err) {
         console.log("ERROR FROM SERVER ", err.response);
 
@@ -5472,7 +5498,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       this.$emit("viewOffer", this.selectedOffer);
     },
     highlightedOffers: function highlightedOffers() {
-      var _this2 = this;
+      var _this3 = this;
 
       this.OpenAccordion("#OffersAccordion", "#OffersList", "active2");
       var fd = new FormData();
@@ -5485,7 +5511,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       var loader = this.$loading.show();
       axios.post(baseUrl + '/api/offers/area', fd).then(function (res) {
         console.log("RESPONSE FROM SERVER ", res);
-        _this2.offersByArea = res.data;
+        _this3.offersByArea = res.data;
       })["catch"](function (err) {
         console.log("ERROR FROM SERVER ", err.response);
 
@@ -44625,34 +44651,58 @@ var render = function() {
                   }
                 },
                 [
-                  _c(
-                    "div",
-                    { staticClass: "form-group col-6" },
-                    [
-                      _c("label", [_vm._v("Empresa")]),
-                      _vm._v(" "),
-                      _c("autocomplete-vue", {
-                        attrs: {
-                          url: "/api/companies",
-                          requestType: "get",
-                          placeholder: "Empresa",
-                          property: "name",
-                          required: true,
-                          threshold: 1,
-                          inputClass: "form-control",
-                          value: "id"
-                        },
-                        model: {
-                          value: _vm.company,
-                          callback: function($$v) {
-                            _vm.company = $$v
-                          },
-                          expression: "company"
+                  _c("div", { staticClass: "form-group col-6" }, [
+                    _c("label", [_vm._v("Empresa")]),
+                    _vm._v(" "),
+                    _c(
+                      "select",
+                      {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.company,
+                            expression: "company"
+                          }
+                        ],
+                        staticClass: "custom-select",
+                        on: {
+                          change: function($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function(o) {
+                                return o.selected
+                              })
+                              .map(function(o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
+                            _vm.company = $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          }
                         }
-                      })
-                    ],
-                    1
-                  )
+                      },
+                      [
+                        _c(
+                          "option",
+                          {
+                            staticClass: "d-none",
+                            attrs: { value: "", selected: "" }
+                          },
+                          [_vm._v("Empresa")]
+                        ),
+                        _vm._v(" "),
+                        _vm._l(_vm.companies, function(company, index) {
+                          return _c(
+                            "option",
+                            { key: index, domProps: { value: company.name } },
+                            [_vm._v(_vm._s(company.name))]
+                          )
+                        })
+                      ],
+                      2
+                    )
+                  ])
                 ]
               ),
               _vm._v(" "),

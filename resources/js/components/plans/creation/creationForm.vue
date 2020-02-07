@@ -15,7 +15,11 @@
           <zone-select @newDepartment="newDepartment" @newMunicipality="newMunicipality"  >
             <div class="form-group col-6">
               <label>Empresa</label>
-              <autocomplete-vue
+              <select class="custom-select" v-model="company">
+                <option value="" class="d-none" selected>Empresa</option>
+                <option v-for="(company,index) in companies" :key="index" :value="company.name">{{company.name}}</option>
+              </select>
+              <!-- <autocomplete-vue
               v-model="company"
               url="/api/companies"
               requestType="get"
@@ -25,7 +29,7 @@
               :threshold="1"
               inputClass="form-control"
               value="id"
-              ></autocomplete-vue>
+              ></autocomplete-vue> -->
             </div>
           </zone-select>
 
@@ -120,20 +124,34 @@ export default {
       selectedOffer:null,
       offersByArea:[],
       expiration:null,
+      companies: []
     }
   },
   mounted(){
+    this.refreshData();
   },
   methods:{
-
+    refreshData(){
+      let loader = this.$loading.show();
+      axios.get(baseUrl+'/api/companies')
+      .then(res=>{
+        console.log(res);
+        this.companies=res.data;
+      }).catch(err=>{
+        console.log("ERROR FROM SERVER ",err.response);
+        if (err.response.data.errorMessage){
+          toastr.error(err.response.data.errorMessage);
+        }else{
+          toastr.error('Error al obtener las empresas');
+        }
+      }).finally(()=>loader.hide());
+    },
     newDepartment(department){
       this.department=department;
     },
-
     newMunicipality(municipality){
       this.municipality=municipality;
     },
-
     OpenAccordion(parentId,childId,activeIndex){
       if(!$(parentId).hasClass("collapsed")) $(parentId).addClass("collapsed");
       else return;
