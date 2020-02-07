@@ -4664,6 +4664,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['services'],
   data: function data() {
@@ -4678,11 +4682,33 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       service: null,
       points: null,
       fields: [],
-      fieldsValues: []
+      fieldsValues: [],
+      companies: []
     };
   },
-  mounted: function mounted() {},
+  mounted: function mounted() {
+    this.refreshData();
+  },
   methods: {
+    refreshData: function refreshData() {
+      var _this = this;
+
+      var loader = this.$loading.show();
+      axios.get(baseUrl + '/api/companies').then(function (res) {
+        console.log(res);
+        _this.companies = res.data;
+      })["catch"](function (err) {
+        console.log("ERROR FROM SERVER ", err.response);
+
+        if (err.response.data.errorMessage) {
+          toastr.error(err.response.data.errorMessage);
+        } else {
+          toastr.error('Error al obtener las empresas');
+        }
+      })["finally"](function () {
+        return loader.hide();
+      });
+    },
     newDepartment: function newDepartment(department) {
       this.department = department;
     },
@@ -4690,10 +4716,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.municipality = municipality;
     },
     getFields: function getFields() {
-      var _this = this;
+      var _this2 = this;
 
       axios.get(baseUrl + "/api/service/" + this.service + "/fields").then(function (res) {
-        _this.fields = res.data;
+        _this2.fields = res.data;
       })["catch"](function (err) {
         return toastr.error("error al obtener los campos del servicio");
       });
@@ -4702,7 +4728,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _createOffer = _asyncToGenerator(
       /*#__PURE__*/
       _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        var _this2 = this;
+        var _this3 = this;
 
         var continueCreation, valuesArray, fd, loader;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
@@ -4713,11 +4739,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 valuesArray = [];
                 _context.next = 4;
                 return this.fields.map(function (field, i) {
-                  if (!_this2.fieldsValues[i] || _this2.fieldsValues[i] == "") {
+                  if (!_this3.fieldsValues[i] || _this3.fieldsValues[i] == "") {
                     continueCreation = false;
                   } else valuesArray.push({
                     "field_id": field.id,
-                    "value": _this2.fieldsValues[i]
+                    "value": _this3.fieldsValues[i]
                   });
                 });
 
@@ -4744,17 +4770,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 axios.post(baseUrl + '/api/offer', fd).then(function (res) {
                   console.log("RESPONSE FROM SERVER ", res);
                   toastr.success("Oferta creada con éxito");
-                  _this2.company = "";
-                  _this2.department = "";
-                  _this2.municipality = "";
-                  _this2.type = "private";
-                  _this2.tariff = "";
-                  _this2.benefits = "";
-                  _this2.service = null;
-                  _this2.points = null;
-                  _this2.fields_value = [];
+                  _this3.company = "";
+                  _this3.department = "";
+                  _this3.municipality = "";
+                  _this3.type = "private";
+                  _this3.tariff = "";
+                  _this3.benefits = "";
+                  _this3.service = null;
+                  _this3.points = null;
+                  _this3.fields_value = [];
 
-                  _this2.$emit('refresh');
+                  _this3.$emit('refresh');
                 })["catch"](function (err) {
                   console.log("ERROR FROM SERVER ", err.response);
 
@@ -43659,25 +43685,55 @@ var render = function() {
                   [
                     _c("label", [_vm._v("Empresa")]),
                     _vm._v(" "),
-                    _c("autocomplete-vue", {
-                      attrs: {
-                        url: "/api/companies",
-                        requestType: "get",
-                        placeholder: "Empresa",
-                        property: "name",
-                        required: true,
-                        inputClass: "form-control"
+                    _c(
+                      "select",
+                      {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.company,
+                            expression: "company"
+                          }
+                        ],
+                        staticClass: "custom-select",
+                        on: {
+                          change: function($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function(o) {
+                                return o.selected
+                              })
+                              .map(function(o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
+                            _vm.company = $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          }
+                        }
                       },
-                      model: {
-                        value: _vm.company,
-                        callback: function($$v) {
-                          _vm.company = $$v
-                        },
-                        expression: "company"
-                      }
-                    })
-                  ],
-                  1
+                      [
+                        _c(
+                          "option",
+                          {
+                            staticClass: "d-none",
+                            attrs: { value: "", selected: "" }
+                          },
+                          [_vm._v("Empresa")]
+                        ),
+                        _vm._v(" "),
+                        _vm._l(_vm.companies, function(company, index) {
+                          return _c(
+                            "option",
+                            { key: index, domProps: { value: company.name } },
+                            [_vm._v(_vm._s(company.name))]
+                          )
+                        })
+                      ],
+                      2
+                    )
+                  ]
                 ),
                 _vm._v(" "),
                 _c(
@@ -43976,7 +44032,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("p", { staticClass: "text-muted text-sm mb-1" }, [
       _c("span", { staticClass: "text-danger" }, [_vm._v("* ")]),
-      _vm._v(" este campo es opcional \n            ")
+      _vm._v(" este campo es opcional\n            ")
     ])
   }
 ]
