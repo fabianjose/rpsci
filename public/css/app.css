@@ -566,6 +566,10 @@
   min-height: 50vh;
 }
 
+.nosotros-main-content span {
+  font-family: montserrat-regular;
+}
+
 .mision-title::after {
   display: block;
   content: "";
@@ -648,6 +652,10 @@
 
 .contacto-main-content {
   min-height: 110vh;
+}
+
+.contacto-main-content span {
+  font-family: montserrat-regular;
 }
 
 .contacto-card {
@@ -885,6 +893,11 @@
 @font-face {
   font-family: montserrat-bold;
   src: url(/fonts/Montserrat-Bold.otf?9c71d42b6a840ecfda8fc555040a1c76);
+}
+
+@font-face {
+  font-family: montserrat-regular;
+  src: url(/fonts/Montserrat-Regular.otf?92db9a0772b3732e6d686fec3711af42);
 }
 
 body {

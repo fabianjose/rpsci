@@ -39,39 +39,39 @@
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu">
           <li class="nav-item ">
-            <a class="nav-link " href="/companies">
+            <a class="nav-link px-0" href="/companies">
               <i class="fa fa-suitcase"></i>
               <p>Empresas</p>
             </a>
           </li>
-          <li class="nav-item ">
-            <a class="nav-link " href="/services">
+          <li class="nav-item px-0">
+            <a class="nav-link px-0" href="/services">
               <i class="fa fa-box"></i>
               <p>Servicios</p>
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link " href="/offers">
+            <a class="nav-link px-0" href="/offers">
               <i class="fa fa-percent"></i>
               <p>Ofertas</p>
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link " href="/banners">
+            <a class="nav-link px-0" href="/banners">
               <i class="fa fa-tag"></i>
               <p>Banners Publicitarios</p>
             </a>
           </li>
 
           <li class="nav-item ">
-            <a class="nav-link " href="/plans">
+            <a class="nav-link px-0" href="/plans">
               <i class="fa fa-tags"></i>
               <p>Planes Destacados</p>
             </a>
           </li>
 
           <li class="nav-item ">
-            <a class="nav-link " href="/locations">
+            <a class="nav-link px-0" href="/locations">
               <i class="fas fa-map-marker-alt"></i>
               <p>Zonas</p>
             </a>
