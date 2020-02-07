@@ -12,7 +12,7 @@
     <!-- Base URL -->
     <meta name="base-url" content="{{ URL::to('/') }}">
 
-    <title>{{ config('app.name', 'InterColombia') }}</title>
+    <title>{{ config('app.name', 'Contrata Internet') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>

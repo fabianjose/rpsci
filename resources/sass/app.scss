@@ -27,6 +27,11 @@
     src: url("./../assets/fonts/Montserrat-Bold.otf");
 }
 
+@font-face{
+    font-family: montserrat-regular;
+    src: url("./../assets/fonts/Montserrat-Regular.otf");
+}
+
 body{
     scroll-behavior: smooth;
     font-family: montserrat-bold;
