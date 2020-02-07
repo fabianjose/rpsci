@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFieldsValueTable extends Migration
+class CreateFieldsValuesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateFieldsValueTable extends Migration
      */
     public function up()
     {
-        Schema::create('fields_value', function (Blueprint $table) {
+        Schema::create('fields_values', function (Blueprint $table) {
             $table->bigIncrements('id');
 
             $table->bigInteger("offer_id")->unsigned();
@@ -23,6 +23,9 @@ class CreateFieldsValueTable extends Migration
             $table->foreign("field_id")->references("id")->on("fields");
 
             $table->string("value");
+
+            $table->boolean("trash")->default(0);
+
             $table->timestamps();
         });
     }
@@ -34,6 +37,6 @@ class CreateFieldsValueTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('fields_value');
+        Schema::dropIfExists('fields_values');
     }
 }

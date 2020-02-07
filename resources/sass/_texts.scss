@@ -6,6 +6,10 @@
     color: $dark-blue;
 }
 
+.text-wrap {
+    word-break: break-word;
+}
+
 @media(min-width:1000px){
 
     .offers-label{
@@ -13,3 +17,4 @@
     }
     
 }
+

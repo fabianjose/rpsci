@@ -27,8 +27,4 @@ class HomeController extends Controller
         return view('landing');
     }
 
-    public function index()
-    {
-        return view('home');
-    }
 }

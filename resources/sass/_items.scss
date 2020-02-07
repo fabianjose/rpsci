@@ -34,3 +34,96 @@
     color: $main-blue;
     font-size: 13px;
 }
+
+.consult-card{
+    background-color: #fff;
+    display: flex;
+    flex-direction: row;
+    border-radius: 50px;
+    max-width: 80vw!important;
+    border-width: 0!important
+}
+
+.consult-card-modal{
+    max-width: 80vw!important;
+    flex-direction: row;
+    display: flex;
+    justify-content: center;
+}
+
+.consult-card-header{
+    border-bottom: solid .22rem $mid-gray;
+}
+
+.consult-card-sub-title{
+    font-size: .8rem;
+    color: $dark-gray;
+}
+
+.benefits-content{
+    font-size: .85rem;
+    color: $dark-blue;
+}
+
+.field-content{
+    font-size: 1.75rem;
+    color: $dark-blue;
+}
+
+.consult-card-benefits{
+    padding: .3rem
+}
+
+.consult-card-fields{
+    display: flex;
+    flex-direction: row;
+}
+
+.form-consulting-field{
+    border-bottom-right-radius: 50px;
+    justify-content: center;
+
+}
+
+.form-consulting-input{
+    background-color: transparent!important;
+    border: 1px solid white!important;
+    color: white!important;
+}
+
+.form-consulting-header{
+    text-align: center;
+    padding: 1rem;
+}
+
+.form-consulting-header:after {
+    display:block;
+    content: '';
+    border-bottom: solid 3.5px $main-gray;  
+    border-radius: 15px;
+    transform: scaleX(0.25);  
+    transition: transform 250ms ease-in-out;
+}
+
+.form-consulting-title{
+    font-size: 1.7rem;    
+    color: #fff;
+}
+
+@media(min-width:768px){
+    .form-consulting-field{
+        border-top-right-radius: 50px;        
+    }
+}
+
+@media(max-width:768px){
+    .consult-card{
+        width: 80%;
+    }
+    .form-consulting-field{
+        border-bottom-left-radius: 50px;        
+    }
+}
+
+
+

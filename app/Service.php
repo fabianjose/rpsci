@@ -12,4 +12,8 @@ class Service extends Model{
     'trash'
   ];
 
+  public function fields(){
+    return $this->hasMany("App\Fields", "service_id","id");
+  }
+
 }

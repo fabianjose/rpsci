@@ -71,7 +71,7 @@
   background-size: cover;
   -webkit-background-size: cover;
   -moz-background-size: cover;
-  height: 45vh;
+  height: 46vh;
   padding: 0;
   -webkit-box-align: center;
           align-items: center;
@@ -118,6 +118,7 @@
 }
 
 .planComparator-bg {
+  padding-top: 8vh !important;
   width: 100%;
   min-height: 50vh;
   background-color: #e6e6e6;
@@ -153,7 +154,7 @@
 }
 
 .about-sub {
-  margin-top: 23vh;
+  margin-top: 29vh;
 }
 
 .about-number {
@@ -197,7 +198,7 @@
   }
 
   .about-sub {
-    margin-top: 25vh;
+    margin-top: 45vh;
   }
 
   .ic-logo-grey {
@@ -211,7 +212,17 @@
   }
 
   .about-sub {
-    margin-top: 38vh;
+    margin-top: 55vh;
+  }
+}
+
+@media (max-width: 480px) {
+  .ic-logo-grey {
+    max-height: 16%;
+  }
+
+  .about-sub {
+    margin-top: 62vh;
   }
 }
 
@@ -222,6 +233,10 @@
 
   .main-middle {
     height: 34%;
+  }
+
+  .about-sub {
+    margin-top: 56vh;
   }
 }
 
@@ -262,6 +277,111 @@
   font-size: 13px;
 }
 
+.consult-card {
+  background-color: #fff;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+          flex-direction: row;
+  border-radius: 50px;
+  max-width: 80vw !important;
+  border-width: 0 !important;
+}
+
+.consult-card-modal {
+  max-width: 80vw !important;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+          flex-direction: row;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+          justify-content: center;
+}
+
+.consult-card-header {
+  border-bottom: solid 0.22rem #cdcdcd;
+}
+
+.consult-card-sub-title {
+  font-size: 0.8rem;
+  color: #9b9b9b;
+}
+
+.benefits-content {
+  font-size: 0.85rem;
+  color: #13293d;
+}
+
+.field-content {
+  font-size: 1.75rem;
+  color: #13293d;
+}
+
+.consult-card-benefits {
+  padding: 0.3rem;
+}
+
+.consult-card-fields {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+          flex-direction: row;
+}
+
+.form-consulting-field {
+  border-bottom-right-radius: 50px;
+  -webkit-box-pack: center;
+          justify-content: center;
+}
+
+.form-consulting-input {
+  background-color: transparent !important;
+  border: 1px solid white !important;
+  color: white !important;
+}
+
+.form-consulting-header {
+  text-align: center;
+  padding: 1rem;
+}
+
+.form-consulting-header:after {
+  display: block;
+  content: "";
+  border-bottom: solid 3.5px #e6e6e6;
+  border-radius: 15px;
+  -webkit-transform: scaleX(0.25);
+          transform: scaleX(0.25);
+  -webkit-transition: -webkit-transform 250ms ease-in-out;
+  transition: -webkit-transform 250ms ease-in-out;
+  transition: transform 250ms ease-in-out;
+  transition: transform 250ms ease-in-out, -webkit-transform 250ms ease-in-out;
+}
+
+.form-consulting-title {
+  font-size: 1.7rem;
+  color: #fff;
+}
+
+@media (min-width: 768px) {
+  .form-consulting-field {
+    border-top-right-radius: 50px;
+  }
+}
+
+@media (max-width: 768px) {
+  .consult-card {
+    width: 80%;
+  }
+
+  .form-consulting-field {
+    border-bottom-left-radius: 50px;
+  }
+}
+
 .btn-dark-blue {
   background-color: #13293d;
   color: white;
@@ -298,6 +418,13 @@
 
 .rounded-input + .autocomplete__suggestions {
   box-shadow: 0px 0px 3px 0.3px rgba(0, 0, 0, 0.75);
+}
+
+.page-item {
+  width: 2.7rem;
+  height: 2.6rem;
+  font-size: 1.1rem;
+  text-align: center;
 }
 
 .high-companies-color {
@@ -381,8 +508,8 @@
   -webkit-box-align: center;
           align-items: center;
   text-align: center;
-  padding: 2rem 1rem;
-  padding-top: 1rem;
+  padding: 1rem;
+  padding-bottom: 1.5rem;
 }
 
 .offer-card-title {
@@ -396,7 +523,7 @@
 }
 
 .offer-card-price {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
 }
 
 .offer-card-footer {
@@ -615,6 +742,10 @@
   font-size: 14px;
 }
 
+.filter-card .card-footer {
+  border-radius: 50px;
+}
+
 .offer-company {
   max-height: 3rem;
 }
@@ -673,7 +804,7 @@
 
 /* Large devices (large desktops, 1200px and up) */
 
-@media (min-width: 1400px) {
+@media (min-width: 1320px) {
   .hidden-xl-xl {
     display: none;
   }
@@ -727,12 +858,22 @@
   color: #aaa;
 }
 
+@media (max-width: 767px) {
+  .main-search-form {
+    width: 80%;
+  }
+}
+
 .text-main-blue {
   color: #20adf4;
 }
 
 .text-dark-blue {
   color: #13293d;
+}
+
+.text-wrap {
+  word-break: break-word;
 }
 
 @media (min-width: 1000px) {

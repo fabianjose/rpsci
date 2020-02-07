@@ -20,8 +20,7 @@ class CreateOffersTable extends Migration
             $table->bigInteger('service')->unsigned();
             $table->foreign('service')->references('id')->on('services');
 
-            $table->string('benefits');
-            $table->string('fields_value');
+            $table->string('benefits',124);
             $table->string('tariff');
             $table->integer('points')->nullable();
             $table->enum('type',['private','company']);

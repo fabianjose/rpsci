@@ -41,7 +41,7 @@
 
                     <div class="form-group">
                         <label>Nombre del Campo</label>
-                        <input v-model="newFieldLabel" class="form-control">
+                        <input v-model="newFieldName" class="form-control">
                     </div>
 
                     <div class="form-group">
@@ -50,10 +50,20 @@
 
                         <select v-model="newFieldType" class="form-control select2 " style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
                             <option selected value="string" data-select2-id="1">Texto</option>
-                            <option value="number" data-select2-id="2">Numero</option>
+                            <option value="numeric" data-select2-id="2">Numero</option>
                             <!-- <option value="select" data-select2-id="3">Seleccionable</option> -->
                         </select>
 
+                    </div>
+
+                    <div v-if="newFieldType=='numeric'" class="form-group">
+                        <label>
+                          Unidad del campo
+                          <p class="text-muted text-sm mb-1" >
+                            <span class="text-danger">* </span> este campo es opcional 
+                          </p>
+                        </label>
+                        <input v-model="newFieldUnit" class="form-control">
                     </div>
 
                     </div>
@@ -82,9 +92,9 @@
 
                           <ul class="list-group list-group-unbordered mb-3">
                               <li v-for="(field,k) in fields" :key="k" class="list-group-item">
-                                  <b>{{field.label}}</b>
-                                  <a class="float-right">{{getFieldType(field.type)}}
-                                    <button type="button" class="btn btn-tool p-1" @click="deleteField(field.label)">
+                                  <b>{{JSON.parse(field).name}}</b>
+                                  <a class="float-right">{{getFieldType(JSON.parse(field).type, JSON.parse(field).unit)}}
+                                    <button type="button" class="btn btn-tool p-1" @click="deleteField(k)">
                                       <i class="float-button fas fa-plus-circle active text-danger"></i>
                                     </button>
                                   </a>
@@ -122,8 +132,9 @@ export default {
       phone:"",
       web:"",
       fields:[],
-      newFieldLabel:"",
+      newFieldName:"",
       newFieldType:"",
+      newFieldUnit:"",
     }
   },
   mounted(){
@@ -141,42 +152,47 @@ export default {
       this.logo=uploadFile;
     },
     submitNewField(){
+      
+      if(!this.newFieldName||this.newFieldName=="") return toastr.error("rellene todos los campos requeridos ");
+      if(!this.newFieldType||this.newFieldType=="") return toastr.error("rellene todos los campos requeridos ");
+
       this.OpenAccordion("#ServicesFieldsAccordion","#collapseServicesFields", "active3");
       if (this.fields.length >= 2){
         toastr.error('Solo puedes añadir hasta 2 campos');
       }else{
-        if (!this.newFieldLabel || !this.newFieldType) {
+        if (!this.newFieldName || !this.newFieldType) {
           return toastr.error('Debe llenar ambos campos');
         }
-        this.fields.push({
-          label:this.newFieldLabel,
+        this.fields.push(JSON.stringify({
+          name:this.newFieldName,
           type:this.newFieldType,
-        });
-        toastr.success('Campo '+ this.newFieldLabel +' añadido');
-        this.newFieldLabel = "";
+          unit:this.newFieldUnit?this.newFieldUnit:null,
+        }));
+        toastr.success('Campo '+ this.newFieldName +' añadido');
+        this.newFieldName = "";
         this.newFieldType = "";
+        this.newFieldUnit =""
       }
     },
-    getFieldType(label=string){
+
+    getFieldType(label="",unit=null){
       switch (label) {
         case "string":
         return "Texto"
         break;
-        case "number":
-        return "Numero"
-        break;
-        case "select":
-        return "Seleccionable"
+        case "numeric":
+        return "Numero"+(unit?" ("+unit+")":"")
         break;
 
         default:
         break;
       }
     },
+
     submitNewService: function(){
       let fd= new FormData();
       fd.append("name", this.name);
-      fd.append("fields", this.fields.length?JSON.stringify(this.fields):"");
+      fd.append("fields", JSON.stringify(this.fields));
 
       let loader = this.$loading.show();
       axios.post(baseUrl+'/api/service',fd)
@@ -203,8 +219,9 @@ export default {
       }).finally(()=>loader.hide());
 
     },
-    deleteField(label){
-      this.fields = this.fields.filter((el)=> el.label != label);
+    deleteField(index){
+      console.log("index ",index)
+      this.fields.splice(index,1);
     },
     OpenAccordion(parentId,childId,activeIndex){
       if(!$(parentId).hasClass("collapsed")) $(parentId).addClass("collapsed");

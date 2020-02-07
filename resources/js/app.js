@@ -47,6 +47,8 @@ Vue.component('offerItem', require('./components/items/offers/offerItem.vue').de
 Vue.component('offer-details', require('./components/items/offers/detailedOffer.vue').default);
 Vue.component('offer-update', require('./components/offers/update/updateForm.vue').default);
 Vue.component("offer-card", require("./components/items/offers/offercard.vue").default);
+Vue.component("offers-filter", require("./components/offers/filter").default);
+Vue.component("offer-consult", require("./components/forms/contact-modal").default);
 
 // Servicios
 Vue.component('service-creation', require("./components/services/creation/creationForm.vue").default);
@@ -71,6 +73,7 @@ Vue.component('zone-select', require('./components/items/zone/zoneSelect.vue').d
 Vue.component("search-form", require("./components/forms/search").default);
 Vue.component("filter-card", require("./components/forms/filterOffers").default);
 Vue.component("companies-slider", require("./components/companies/listSlider").default);
+Vue.component("filter-table", require("./components/items/offers-table").default);
 
 //Vue.component('plans', require('./components/items/plans/plans.vue').default);
 //Vue.component('plans-details', require('./components/items/services/detailedService.vue').default);
@@ -98,8 +101,8 @@ Vue.use(Loading,{
     isFullPage:true,
     height:170,
     width:170,
-    backgroundColor:"#13293d",
-    opacity: 0.08,
+    backgroundColor:"#050b0f",
+    opacity: 0.3,
 });
 
 // Carrusel usado

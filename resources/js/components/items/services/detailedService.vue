@@ -13,7 +13,7 @@
           <h5 class="">Campos</h5>
           <ul class="list-group list-group-unbordered mb-3 mt-3">
             <li class="list-group-item" v-for="field in service.fields">
-              <b class="text-capitalize">{{field.label}}</b> <a class="float-right">{{getFieldType(field.type)}}</a>
+              <b class="text-capitalize">{{field.name}}</b> <a class="float-right">{{getFieldType(field.type)}} <span v-if="field.unit">({{field.unit}})</span> </a>
             </li>
           </ul>
           <button href="#" class="btn btn-outline-danger btn-block" data-dismiss="modal"><b>Cerrar</b></button>
