@@ -2882,6 +2882,9 @@ __webpack_require__.r(__webpack_exports__);
   props: ["offer", "fields"],
   data: function data() {
     return {
+      fullName: "",
+      email: "",
+      phone: "",
       baseUrl: baseUrl
     };
   },
@@ -3549,27 +3552,42 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       breakpoints: {
         1200: {
           visibleSlides: 3,
-          slideRatio: 0.5
+          slideRatio: 0.55
         },
         900: {
           visibleSlides: 2,
-          slideRatio: 0.6
+          slideRatio: 0.65
         },
         750: {
           visibleSlides: 2,
-          slideRatio: 0.7
+          slideRatio: 0.75
         },
         600: {
           visibleSlides: 1,
-          slideRatio: 0.8
+          slideRatio: 0.9
         },
         520: {
           visibleSlides: 1,
-          slideRatio: 0.9
+          slideRatio: 1
         },
-        380: {
+        470: {
           visibleSlides: 1,
-          slideRatio: 1,
+          slideRatio: 1.2,
+          arrows: false
+        },
+        400: {
+          visibleSlides: 1,
+          slideRatio: 1.3,
+          arrows: false
+        },
+        370: {
+          visibleSlides: 1,
+          slideRatio: 1.45,
+          arrows: false
+        },
+        355: {
+          visibleSlides: 1,
+          slideRatio: 1.55,
           arrows: false
         }
       },
@@ -40930,103 +40948,248 @@ var render = function() {
       attrs: { id: "modalConsultOffer", "aria-modal": "true" }
     },
     [
-      _c("div", { staticClass: "modal-dialog modal-xl consult-card-modal" }, [
-        _c("div", { staticClass: "consult-card p-0 flex-wrap modal-content" }, [
+      _c(
+        "div",
+        {
+          staticClass:
+            "modal-dialog modal-xl modal-xl-xl d-flex flex-row justify-content-center"
+        },
+        [
           _c(
             "div",
-            {
-              staticClass:
-                "col-lg-7 col-xl-7 col-md-7 col-12 d-flex flex-column p-3"
-            },
+            { staticClass: "consult-card p-0 flex-wrap modal-content" },
             [
-              _c("div", { staticClass: "consult-card-content" }, [
-                _c("div", { staticClass: "consult-card-header pt-4 pb-3" }, [
-                  _c("img", {
-                    staticClass: "col-10",
-                    attrs: {
-                      src: _vm.baseUrl + "/storage/" + _vm.offer.company_logo,
-                      alt: "logo"
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "consult-card-benefits py-3" }, [
-                  _c(
-                    "h6",
-                    { staticClass: "col-12 consult-card-sub-title py-1 m-0" },
-                    [_vm._v("Beneficios:")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "h6",
-                    { staticClass: "col-12 benefits-content text-wrap" },
-                    [_vm._v(_vm._s(_vm.offer.benefits))]
-                  )
-                ]),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "consult-card-fields" },
-                  _vm._l(_vm.offer.fields_values, function(fieldValue, k) {
-                    return _c(
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "col-lg-7 col-xl-7 col-md-7 col-12 d-flex flex-column p-3"
+                },
+                [
+                  _c("div", { staticClass: "consult-card-content" }, [
+                    _c(
                       "div",
-                      { key: k, staticClass: "consult-card-field col-6" },
+                      { staticClass: "consult-card-header pt-4 pb-3" },
                       [
-                        _c(
-                          "h6",
-                          { staticClass: "consult-card-sub-title py-1 m-0" },
-                          [_vm._v(_vm._s(fieldValue.field_name) + ":")]
-                        ),
+                        _c("img", {
+                          staticClass: "col-10",
+                          attrs: {
+                            src:
+                              _vm.baseUrl +
+                              "/storage/" +
+                              _vm.offer.company_logo,
+                            alt: "logo"
+                          }
+                        })
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "consult-card-benefits py-3" }, [
+                      _c(
+                        "h6",
+                        {
+                          staticClass: "col-12 consult-card-sub-title py-1 m-0"
+                        },
+                        [_vm._v("Beneficios:")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "h6",
+                        { staticClass: "col-12 benefits-content text-wrap" },
+                        [_vm._v(_vm._s(_vm.offer.benefits))]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "consult-card-fields" },
+                      _vm._l(_vm.offer.fields_values, function(fieldValue, k) {
+                        return _c(
+                          "div",
+                          { key: k, staticClass: "consult-card-field col-6" },
+                          [
+                            _c(
+                              "h6",
+                              {
+                                staticClass: "consult-card-sub-title py-1 m-0"
+                              },
+                              [_vm._v(_vm._s(fieldValue.field_name) + ":")]
+                            ),
+                            _vm._v(" "),
+                            _c("h6", { staticClass: "field-content" }, [
+                              _vm._v(
+                                _vm._s(fieldValue.value) +
+                                  " " +
+                                  _vm._s(fieldValue.unit ? fieldValue.unit : "")
+                              )
+                            ])
+                          ]
+                        )
+                      }),
+                      0
+                    )
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "col-lg-5 col-xl-5 col-md-5 col-12 bg-main-blue p-3 form-consulting-field"
+                },
+                [
+                  _vm._m(0),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group col-12 my-2" }, [
+                    _c("label", { staticClass: "text-white" }, [
+                      _vm._v("Nombre y Apellido")
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "form-group has-search d-flex align-items-center"
+                      },
+                      [
+                        _c("span", {
+                          staticClass:
+                            "fas fa-user form-control-feedback text-white"
+                        }),
                         _vm._v(" "),
-                        _c("h6", { staticClass: "field-content" }, [
-                          _vm._v(
-                            _vm._s(fieldValue.value) +
-                              " " +
-                              _vm._s(fieldValue.unit ? fieldValue.unit : "")
-                          )
-                        ])
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.fullName,
+                              expression: "fullName"
+                            }
+                          ],
+                          staticClass:
+                            "form-control form-consulting-input rounded-pill rounded-input",
+                          attrs: { type: "text" },
+                          domProps: { value: _vm.fullName },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.fullName = $event.target.value
+                            }
+                          }
+                        })
                       ]
                     )
-                  }),
-                  0
-                )
-              ])
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass:
-                "col-lg-5 col-xl-5 col-md-5 col-12 bg-main-blue p-3 form-consulting-field"
-            },
-            [
-              _vm._m(0),
-              _vm._v(" "),
-              _vm._m(1),
-              _vm._v(" "),
-              _vm._m(2),
-              _vm._v(" "),
-              _vm._m(3),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-10 p-3 mx-auto" }, [
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-block btn-dark-blue rounded-pill",
-                    on: { click: _vm.sendMail }
-                  },
-                  [
-                    _vm._v(
-                      "\n                        CONSULTAR\n                    "
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group col-12 my-2" }, [
+                    _c("label", { staticClass: "text-white" }, [
+                      _vm._v("Correo electrónico")
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "form-group has-search d-flex align-items-center"
+                      },
+                      [
+                        _c("span", {
+                          staticClass:
+                            "fas fa-mail-bulk form-control-feedback text-white"
+                        }),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.email,
+                              expression: "email"
+                            }
+                          ],
+                          staticClass:
+                            "form-control form-consulting-input rounded-pill rounded-input",
+                          attrs: { type: "text" },
+                          domProps: { value: _vm.email },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.email = $event.target.value
+                            }
+                          }
+                        })
+                      ]
                     )
-                  ]
-                )
-              ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group col-12 my-2" }, [
+                    _c("label", { staticClass: "text-white" }, [
+                      _vm._v("Nro de Teléfono")
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "form-group has-search d-flex align-items-center"
+                      },
+                      [
+                        _c("span", {
+                          staticClass:
+                            "fas fa-phone form-control-feedback text-white"
+                        }),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.phone,
+                              expression: "phone"
+                            }
+                          ],
+                          staticClass:
+                            "form-control form-consulting-input rounded-pill rounded-input",
+                          attrs: { type: "text" },
+                          domProps: { value: _vm.phone },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.phone = $event.target.value
+                            }
+                          }
+                        })
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-12 my-2 p-3 mx-auto" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-block btn-dark-blue rounded-pill",
+                        on: { click: _vm.sendMail }
+                      },
+                      [
+                        _vm._v(
+                          "\n                        CONSULTAR\n                    "
+                        )
+                      ]
+                    )
+                  ])
+                ]
+              )
             ]
           )
-        ])
-      ])
+        ]
+      )
     ]
   )
 }
@@ -41036,83 +41199,9 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "form-consulting-header" }, [
-      _c("span", { staticClass: "form-consulting-title" }, [
+      _c("span", { staticClass: "form-consulting-title py-3 text-wrap" }, [
         _vm._v("Consulta sin compromiso")
       ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group col-12 my-2" }, [
-      _c("label", { staticClass: "text-white" }, [_vm._v("Nombre y Apellido")]),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "form-group has-search d-flex align-items-center" },
-        [
-          _c("span", {
-            staticClass: "fas fa-user form-control-feedback text-white"
-          }),
-          _vm._v(" "),
-          _c("input", {
-            staticClass:
-              "form-control form-consulting-input rounded-pill rounded-input",
-            attrs: { type: "text" }
-          })
-        ]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group col-12 my-2" }, [
-      _c("label", { staticClass: "text-white" }, [
-        _vm._v("Correo electrónico")
-      ]),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "form-group has-search d-flex align-items-center" },
-        [
-          _c("span", {
-            staticClass: "fas fa-mail-bulk form-control-feedback text-white"
-          }),
-          _vm._v(" "),
-          _c("input", {
-            staticClass:
-              "form-control form-consulting-input rounded-pill rounded-input",
-            attrs: { type: "text" }
-          })
-        ]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group col-12 my-2" }, [
-      _c("label", { staticClass: "text-white" }, [_vm._v("Nro de Teléfono")]),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "form-group has-search d-flex align-items-center" },
-        [
-          _c("span", {
-            staticClass: "fas fa-phone form-control-feedback text-white"
-          }),
-          _vm._v(" "),
-          _c("input", {
-            staticClass:
-              "form-control form-consulting-input rounded-pill rounded-input",
-            attrs: { type: "text" }
-          })
-        ]
-      )
     ])
   }
 ]
@@ -41607,20 +41696,6 @@ var render = function() {
                 2
               )
             ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "col-md-6 col-sm-10", on: { click: _vm.search } },
-            [
-              _c("i", { staticClass: "fa fa-search icon-btn" }),
-              _vm._v(" "),
-              _c(
-                "button",
-                { staticClass: "btn btn-block btn-dark-blue rounded-pill" },
-                [_vm._v("\n                    Buscar\n                ")]
-              )
-            ]
           )
         ]
       ),
@@ -41629,7 +41704,7 @@ var render = function() {
         "div",
         {
           staticClass:
-            "d-flex flex-row flex-wrap col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6 py-2 mx-auto justify-content-center"
+            "d-flex flex-row flex-wrap col-10 col-sm-10 py-3 mx-auto justify-content-center"
         },
         [
           _c(
@@ -41690,7 +41765,17 @@ var render = function() {
             ]
           )
         ]
-      )
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-10 mx-auto", on: { click: _vm.search } }, [
+        _c("i", { staticClass: "fa fa-search icon-btn" }),
+        _vm._v(" "),
+        _c(
+          "button",
+          { staticClass: "btn btn-block btn-dark-blue rounded-pill" },
+          [_vm._v("\n                Buscar\n            ")]
+        )
+      ])
     ])
   ])
 }

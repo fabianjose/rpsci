@@ -38,27 +38,42 @@ export default {
       breakpoints:{
         1200: {
           visibleSlides:3,
-          slideRatio:0.5
+          slideRatio:0.55
         },
         900: {
           visibleSlides:2,
-          slideRatio:0.6
+          slideRatio:0.65
         },
         750: {
           visibleSlides:2,
-          slideRatio:0.7,
+          slideRatio:0.75,
         },
         600: {
           visibleSlides: 1,
-          slideRatio:0.8,
+          slideRatio:0.9,
         },
         520: {
           visibleSlides: 1,
-          slideRatio:0.9,
-        },
-        380: {
-          visibleSlides:1,
           slideRatio:1,
+        },
+        470: {
+          visibleSlides:1,
+          slideRatio:1.2,
+          arrows: false
+        },
+        400: {
+          visibleSlides:1,
+          slideRatio:1.3,
+          arrows: false
+        },
+        370: {
+          visibleSlides:1,
+          slideRatio:1.45,
+          arrows: false
+        },
+        355: {
+          visibleSlides:1,
+          slideRatio:1.55,
           arrows: false
         }
       },
@@ -90,7 +105,7 @@ export default {
           //this.department=""
           this.refreshData();
         },{timeout:10000})
-      
+
     },
 
     callGmap(){
@@ -115,7 +130,7 @@ export default {
         }
 
         await this.refreshData()
-        
+
       })
     },
 

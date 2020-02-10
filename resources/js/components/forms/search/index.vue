@@ -49,14 +49,8 @@
                         inputClass="form-control rounded-pill rounded-input"
                     ></autocomplete-vue> -->
                 </div>
-                <div class="col-md-6 col-sm-10" @click="search" >
-                    <i class="fa fa-search icon-btn"></i>
-                    <button class="btn btn-block btn-dark-blue rounded-pill">
-                        Buscar
-                    </button>
-                </div>
             </div>
-            <div class="d-flex flex-row flex-wrap col-10 col-sm-10 col-md-8 col-lg-8 col-xl-6 py-2 mx-auto justify-content-center">
+            <div class="d-flex flex-row flex-wrap col-10 col-sm-10 py-3 mx-auto justify-content-center">
                 <div class=" text-center custom-control custom-radio col-10 col-sm-10 col-md-6 col-lg-6 col-xl-6" @click="offerType='private';" >
                     <input type="radio" class="custom-control-input" :checked="offerType=='private'" id="privateOffer" >
                     <label class="custom-control-label" for="privateOffer">Soy un particular</label>
@@ -65,6 +59,12 @@
                     <input type="radio" class="custom-control-input" :checked="offerType=='company'" id="companyOffer">
                     <label class="custom-control-label" for="companyOffer">Soy una empresa</label>
                 </div>
+            </div>
+            <div class="col-10 mx-auto" @click="search" >
+                <i class="fa fa-search icon-btn"></i>
+                <button class="btn btn-block btn-dark-blue rounded-pill">
+                    Buscar
+                </button>
             </div>
         </div>
     </div>
