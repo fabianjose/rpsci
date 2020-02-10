@@ -89,6 +89,9 @@ import DatePicker from 'vue2-datepicker';
 import 'vue2-datepicker/index.css';
 Vue.component('datetimepicker', DatePicker);
 
+import VueRecaptcha from "vue-recaptcha";
+Vue.component('vue-recaptcha', VueRecaptcha);
+
 import VueResource from 'vue-resource';
 Vue.use(VueResource);
 

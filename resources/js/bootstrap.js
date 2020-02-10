@@ -26,6 +26,10 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 window.axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
 
 
+let reCaptchaKey = document.head.querySelector('meta[name="re-captcha-key"]');
+
+window.reCaptchaKey= reCaptchaKey.content;
+
 let jwtToken = document.head.querySelector('meta[name="jwt-token"]');
 
 if (jwtToken) {
