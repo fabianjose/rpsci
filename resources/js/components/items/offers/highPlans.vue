@@ -16,13 +16,13 @@
         <vueper-slide v-for="(offer,index) in offers" :key="index" class="align-self-center">
           <template v-slot:content>
             <div class="d-flex text-center justify-content-center">
-              <offer-card @contactOffer="contactOffer" :offer="offer" />
+              <offer-card @contactOffer="contactOffer" :index="index" :offer="offer" />
             </div>
           </template>
         </vueper-slide>
       </vueper-slides>
 
-        <offer-consult v-if="currentOffer" :offer="currentOffer"></offer-consult>
+        <offer-consult v-if="currentOffer&&consultMode" :offer="currentOffer"></offer-consult>
 
     </div>
 </template>
@@ -34,6 +34,7 @@ export default {
       currentOffer:null,
       latLng:"",
       offers: [],
+      consultMode:false,
       breakpoints:{
         1200: {
           visibleSlides:3,
@@ -62,8 +63,13 @@ export default {
         }
       },
       locationDenied:false,
-      department:"bogota",
-      municipality:"bogota",
+      
+      department:null,
+      municipality:null,
+      
+      defaultDepartment:"bogota",
+      defaultMunicipality:"bogota",
+
       apiKey:"AIzaSyBL0ZT5AWyMHUGkuGVuSbqHwZx_3dr6MU0",
     };
   },
@@ -98,7 +104,15 @@ export default {
 
         this.department= await res.results[0].address_components.find(ad=>ad.types.indexOf("administrative_area_level_1")!=-1).long_name;
         
+        if(this.department?false:true){
+          this.refreshDefault()
+        }
+
         this.municipality= await res.results[0].address_components.find(ad=>ad.types.indexOf("locality")!=-1).long_name;
+
+        if(this.municipality?false:true){
+          this.municipality = this.department;
+        }
 
         await this.refreshData()
         
@@ -107,14 +121,17 @@ export default {
 
     refreshData(){
       let fd= new FormData();
-      fd.append("department", this.department)
-      fd.append("municipality", this.municipality)
+      fd.append("department", this.department?this.department:this.defaultDepartment)
+      fd.append("municipality", this.municipality?this.municipality:this.defaultMunicipality)
       axios.post(baseUrl+'/api/offers/area/highlight', fd)
       .then(res=>{
         console.log('Offers: ',res);
         this.offers=res.data;
       }).catch(err=>{
         console.log("ERROR FROM SERVER ",err.response);
+        if(err.response.status==404){
+          this.refreshDefault()
+        }
         if (err.response.data.errorMessage){
           toastr.error(err.response.data.errorMessage);
         }else{
@@ -123,7 +140,15 @@ export default {
       });
     },
     contactOffer(index){
-      this.currentOffer=offers[index];
+      this.consultMode=true;
+      this.currentOffer=this.offers[index];
+    },
+
+    refreshDefault(){
+      toastr.info("no se ha encontrado el departamento, mostrando planes destacados de la capital"); 
+      this.department=null;
+      this.municipality=null;
+      this.refreshData();
     }
   }
 }

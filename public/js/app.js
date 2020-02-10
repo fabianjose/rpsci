@@ -3545,6 +3545,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       currentOffer: null,
       latLng: "",
       offers: [],
+      consultMode: false,
       breakpoints: {
         1200: {
           visibleSlides: 3,
@@ -3573,8 +3574,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }
       },
       locationDenied: false,
-      department: "bogota",
-      municipality: "bogota",
+      department: null,
+      municipality: null,
+      defaultDepartment: "bogota",
+      defaultMunicipality: "bogota",
       apiKey: "AIzaSyBL0ZT5AWyMHUGkuGVuSbqHwZx_3dr6MU0"
     };
   },
@@ -3625,17 +3628,27 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                 case 3:
                   _this2.department = _context.sent;
-                  _context.next = 6;
+
+                  if (_this2.department ? false : true) {
+                    _this2.refreshDefault();
+                  }
+
+                  _context.next = 7;
                   return res.results[0].address_components.find(function (ad) {
                     return ad.types.indexOf("locality") != -1;
                   }).long_name;
 
-                case 6:
+                case 7:
                   _this2.municipality = _context.sent;
-                  _context.next = 9;
+
+                  if (_this2.municipality ? false : true) {
+                    _this2.municipality = _this2.department;
+                  }
+
+                  _context.next = 11;
                   return _this2.refreshData();
 
-                case 9:
+                case 11:
                 case "end":
                   return _context.stop();
               }
@@ -3652,13 +3665,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this3 = this;
 
       var fd = new FormData();
-      fd.append("department", this.department);
-      fd.append("municipality", this.municipality);
+      fd.append("department", this.department ? this.department : this.defaultDepartment);
+      fd.append("municipality", this.municipality ? this.municipality : this.defaultMunicipality);
       axios.post(baseUrl + '/api/offers/area/highlight', fd).then(function (res) {
         console.log('Offers: ', res);
         _this3.offers = res.data;
       })["catch"](function (err) {
         console.log("ERROR FROM SERVER ", err.response);
+
+        if (err.response.status == 404) {
+          _this3.refreshDefault();
+        }
 
         if (err.response.data.errorMessage) {
           toastr.error(err.response.data.errorMessage);
@@ -3668,7 +3685,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       });
     },
     contactOffer: function contactOffer(index) {
-      this.currentOffer = offers[index];
+      this.consultMode = true;
+      this.currentOffer = this.offers[index];
+    },
+    refreshDefault: function refreshDefault() {
+      toastr.info("no se ha encontrado el departamento, mostrando planes destacados de la capital");
+      this.department = null;
+      this.municipality = null;
+      this.refreshData();
     }
   }
 });
@@ -42556,7 +42580,7 @@ var render = function() {
                         },
                         [
                           _c("offer-card", {
-                            attrs: { offer: offer },
+                            attrs: { index: index, offer: offer },
                             on: { contactOffer: _vm.contactOffer }
                           })
                         ],
@@ -42575,7 +42599,7 @@ var render = function() {
         1
       ),
       _vm._v(" "),
-      _vm.currentOffer
+      _vm.currentOffer && _vm.consultMode
         ? _c("offer-consult", { attrs: { offer: _vm.currentOffer } })
         : _vm._e()
     ],
@@ -90036,13 +90060,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-<<<<<<< HEAD
 __webpack_require__(/*! C:\Users\web 03\Music\colombia_internet\resources\js\app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! C:\Users\web 03\Music\colombia_internet\resources\sass\app.scss */"./resources/sass/app.scss");
-=======
-__webpack_require__(/*! C:\ConsultingMe\colombia_internet\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\ConsultingMe\colombia_internet\resources\sass\app.scss */"./resources/sass/app.scss");
->>>>>>> 6e2f9640a70f59faa56e28222b46144eb4893075
 
 
 /***/ }),
