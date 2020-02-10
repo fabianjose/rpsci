@@ -3548,27 +3548,42 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       breakpoints: {
         1200: {
           visibleSlides: 3,
-          slideRatio: 0.5
+          slideRatio: 0.55
         },
         900: {
           visibleSlides: 2,
-          slideRatio: 0.6
+          slideRatio: 0.65
         },
         750: {
           visibleSlides: 2,
-          slideRatio: 0.7
+          slideRatio: 0.75
         },
         600: {
           visibleSlides: 1,
-          slideRatio: 0.8
+          slideRatio: 0.9
         },
         520: {
           visibleSlides: 1,
-          slideRatio: 0.9
+          slideRatio: 1
         },
-        380: {
+        470: {
           visibleSlides: 1,
-          slideRatio: 1,
+          slideRatio: 1.2,
+          arrows: false
+        },
+        400: {
+          visibleSlides: 1,
+          slideRatio: 1.3,
+          arrows: false
+        },
+        370: {
+          visibleSlides: 1,
+          slideRatio: 1.45,
+          arrows: false
+        },
+        355: {
+          visibleSlides: 1,
+          slideRatio: 1.55,
           arrows: false
         }
       },
@@ -90036,13 +90051,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-<<<<<<< HEAD
-__webpack_require__(/*! C:\Users\web 03\Music\colombia_internet\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\web 03\Music\colombia_internet\resources\sass\app.scss */"./resources/sass/app.scss");
-=======
 __webpack_require__(/*! C:\ConsultingMe\colombia_internet\resources\js\app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! C:\ConsultingMe\colombia_internet\resources\sass\app.scss */"./resources/sass/app.scss");
->>>>>>> 6e2f9640a70f59faa56e28222b46144eb4893075
 
 
 /***/ }),
