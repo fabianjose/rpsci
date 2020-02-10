@@ -55,7 +55,8 @@ class CompanyController extends Controller{
     }
     $company = Company::find($id);
     if (!$company) return response()->json(['errorMessage' => 'Empresa no encontrada'],404);
-
+    $name = Company::where('name',$data['name'])->where('trash',0)->where('id','<>',$id)->first();
+    if ($name) return response()->json(['errorMessage' =>'Nombre de compañia ya en uso'], 400);
     $keysAllow = [
       'name',
       'nit',
