@@ -13,7 +13,7 @@ class CompanyController extends Controller{
   public function newCompany(Request $request){
     $data = $request->all();
     $validation = Validator::make($data, [
-      'name' => ['required', 'string', 'min:3', 'max:128', 'unique:companies'],
+      'name' => ['required', 'string', 'min:3', 'max:128'],
       'logo' => ['required', 'image'],
       'nit' => ["nullable", 'string', 'max:16'],
       'phone' => ['required', 'string', 'max:16'],
@@ -22,6 +22,8 @@ class CompanyController extends Controller{
     if ($validation->fails()){
       return response()->json($validation->errors(), 400);
     }
+    $name = Company::where('name',$data['name'])->where('trash',0)->first();
+    if ($name) return response()->json(['errorMessage' =>'Nombre de compañia ya en uso'], 400);
 
     if ($data['logo']){
       $filename = uniqid(time()).'.'.$data['logo']->getClientOriginalExtension();
@@ -53,7 +55,8 @@ class CompanyController extends Controller{
     }
     $company = Company::find($id);
     if (!$company) return response()->json(['errorMessage' => 'Empresa no encontrada'],404);
-
+    $name = Company::where('name',$data['name'])->where('trash',0)->where('id','<>',$id)->first();
+    if ($name) return response()->json(['errorMessage' =>'Nombre de compañia ya en uso'], 400);
     $keysAllow = [
       'name',
       'nit',

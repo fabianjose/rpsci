@@ -67,8 +67,8 @@
               <label>
                 Puntuacion
               </label>
-
               <select class="custom-select" v-model="points">
+                <option value="0" selected>0</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -76,7 +76,7 @@
                 <option value="5">5</option>
               </select>
                 <p class="text-muted text-sm mb-1" >
-                  <span class="text-danger">* </span> este campo es opcional
+                  <span class="text-danger">*</span> Este campo es opcional.
                 </p>
             </div>
           </div>
@@ -102,7 +102,7 @@ export default {
       tariff: "",
       benefits: "",
       service: null,
-      points: null,
+      points: 0,
       fields: [],
       fieldsValues: [],
       companies: [],

@@ -46,7 +46,7 @@ Vue.component('offer', require('./components/items/offers/offer.vue').default);
 Vue.component('offerItem', require('./components/items/offers/offerItem.vue').default);
 Vue.component('offer-details', require('./components/items/offers/detailedOffer.vue').default);
 Vue.component('offer-update', require('./components/offers/update/updateForm.vue').default);
-Vue.component("offer-card", require("./components/items/offers/offercard.vue").default);
+Vue.component("offer-card", require("./components/items/offers/offerCard.vue").default);
 Vue.component("offers-filter", require("./components/offers/filter").default);
 Vue.component("offer-consult", require("./components/forms/contact-modal").default);
 Vue.component("offer-modal", require("./components/items/offers/offerCardDetailed.vue").default);
@@ -88,6 +88,9 @@ Vue.component('autocomplete-vue', AutocompleteVue);
 import DatePicker from 'vue2-datepicker';
 import 'vue2-datepicker/index.css';
 Vue.component('datetimepicker', DatePicker);
+
+import VueRecaptcha from "vue-recaptcha";
+Vue.component('vue-recaptcha', VueRecaptcha);
 
 import VueResource from 'vue-resource';
 Vue.use(VueResource);

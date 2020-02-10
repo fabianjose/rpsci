@@ -1,6 +1,6 @@
 <template>
     <div class="modal fade" id="modalConsultOffer" aria-modal="true">
-        <div class="modal-dialog modal-xl consult-card-modal">
+        <div class="modal-dialog modal-xl modal-xl-xl d-flex flex-row justify-content-center">
             <div class="consult-card p-0 flex-wrap modal-content">
                 <div class="col-lg-7 col-xl-7 col-md-7 col-12 d-flex flex-column p-3">
                     <div class="consult-card-content">
@@ -21,30 +21,31 @@
                 </div>
                 <div class="col-lg-5 col-xl-5 col-md-5 col-12 bg-main-blue p-3 form-consulting-field">
                     <div class="form-consulting-header">
-                        <span class="form-consulting-title">Consulta sin compromiso</span>
+                        <span class="form-consulting-title py-3 text-wrap">Consulta sin compromiso</span>
                     </div>
                     <div class="form-group col-12 my-2">
                         <label class="text-white">Nombre y Apellido</label>
                         <div class="form-group has-search d-flex align-items-center">
                             <span class="fas fa-user form-control-feedback text-white"></span>
-                            <input class="form-control form-consulting-input rounded-pill rounded-input" type="text">
+                            <input v-model="fullName" class="form-control form-consulting-input rounded-pill rounded-input" type="text">
                         </div>  
                     </div>
                     <div class="form-group col-12 my-2">
                         <label class="text-white">Correo electrónico</label>
                         <div class="form-group has-search d-flex align-items-center">
                             <span class="fas fa-mail-bulk form-control-feedback text-white"></span>
-                            <input class="form-control form-consulting-input rounded-pill rounded-input" type="text">
+                            <input v-model="email" class="form-control form-consulting-input rounded-pill rounded-input" type="text">
                         </div>  
                     </div>
                     <div class="form-group col-12 my-2">
                         <label class="text-white">Nro de Teléfono</label>
                         <div class="form-group has-search d-flex align-items-center">
                             <span class="fas fa-phone form-control-feedback text-white"></span>
-                            <input class="form-control form-consulting-input rounded-pill rounded-input" type="text">
+                            <input v-model="phone" class="form-control form-consulting-input rounded-pill rounded-input" type="text">
                         </div>  
                     </div>
-                    <div class="col-10 p-3 mx-auto" >
+                    <vue-recaptcha size="invisible" :sitekey="reCaptchaKey" :loadRecaptchaScript="true" ></vue-recaptcha>
+                    <div class="col-12 my-2 p-3 mx-auto" >
                         <button @click="sendMail" class="btn btn-block btn-dark-blue rounded-pill">
                             CONSULTAR
                         </button>
@@ -62,14 +63,31 @@ export default {
 
     data(){
         return {
+            fullName:"",
+            email:"",
+            phone:"",
             baseUrl:baseUrl,
         }
+    },
+
+    mounted(){
+        console.log(this.reCaptchaKey);
     },
 
     methods:{
         sendMail(){
             
         }
+    },
+
+    computed:{
+
+        reCaptchaKey: {
+            get(){
+                return window.reCaptchaKey;
+            }
+        },
+
     }
     
 }
