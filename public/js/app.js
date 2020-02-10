@@ -4835,7 +4835,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       tariff: "",
       benefits: "",
       service: null,
-      points: null,
+      points: 0,
       fields: [],
       fieldsValues: [],
       companies: []
@@ -44275,6 +44275,10 @@ var render = function() {
                         }
                       },
                       [
+                        _c("option", { attrs: { value: "0", selected: "" } }, [
+                          _vm._v("0")
+                        ]),
+                        _vm._v(" "),
                         _c("option", { attrs: { value: "1" } }, [_vm._v("1")]),
                         _vm._v(" "),
                         _c("option", { attrs: { value: "2" } }, [_vm._v("2")]),
@@ -44317,8 +44321,8 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("p", { staticClass: "text-muted text-sm mb-1" }, [
-      _c("span", { staticClass: "text-danger" }, [_vm._v("* ")]),
-      _vm._v(" este campo es opcional\n            ")
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")]),
+      _vm._v(" Este campo es opcional.\n            ")
     ])
   }
 ]
