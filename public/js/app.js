@@ -6632,7 +6632,7 @@ __webpack_require__.r(__webpack_exports__);
           window.location.reload();
         }, 2000);
       })["catch"](function (err) {
-        cconsole.log("ERROR FROM SERVER ", err.response);
+        console.log("ERROR FROM SERVER ", err.response);
 
         if (err.response.data.errorMessage) {
           toastr.error(err.response.data.errorMessage);
