@@ -41308,26 +41308,34 @@ var render = function() {
                     _c(
                       "option",
                       {
+                        staticClass: "text-capitalize",
                         attrs: { selected: "" },
                         domProps: { value: "tariff" }
                       },
-                      [_vm._v("precio")]
+                      [_vm._v("Precio")]
                     ),
                     _vm._v(" "),
                     _c(
                       "option",
                       {
+                        staticClass: "text-capitalize",
                         attrs: { selected: "" },
                         domProps: { value: "points" }
                       },
-                      [_vm._v("puntuación")]
+                      [_vm._v("Puntuación")]
                     ),
                     _vm._v(" "),
                     _vm._l(_vm.fields, function(field, k) {
                       return field.type == "numeric"
-                        ? _c("option", { key: k, domProps: { value: k + 1 } }, [
-                            _vm._v(_vm._s(field.name))
-                          ])
+                        ? _c(
+                            "option",
+                            {
+                              key: k,
+                              staticClass: "text-capitalize",
+                              domProps: { value: k + 1 }
+                            },
+                            [_vm._v(_vm._s(field.name))]
+                          )
                         : _vm._e()
                     })
                   ],
