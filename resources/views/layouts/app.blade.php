@@ -9,6 +9,8 @@
     @endif
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <meta name="re-captcha-key" content="{{ env('RECAPTCHA_SITE_KEY') }}" > 
     <!-- Base URL -->
     <meta name="base-url" content="{{ URL::to('/') }}">
 
@@ -49,6 +51,7 @@
     <script src="{{ asset('vendor/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
     <script src="{{ asset('vendor/adminlte/dist/js/adminlte.min.js') }}"></script>
     <script src="{{ asset('vendor/toastr/toastr.min.js') }}"></script>
+    
 
 </body>
 </html>
