@@ -3813,6 +3813,58 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/items/offers/offerCard.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/items/offers/offerCard.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['offer', 'index'],
+  data: function data() {
+    return {
+      baseUrl: baseUrl
+    };
+  },
+  methods: {
+    emitContact: function emitContact() {
+      this.$emit("contactOffer", this.index);
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/items/offers/offerCardDetailed.vue?vue&type=script&lang=js&":
 /*!*****************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/items/offers/offerCardDetailed.vue?vue&type=script&lang=js& ***!
@@ -3932,58 +3984,6 @@ __webpack_require__.r(__webpack_exports__);
     },
     emitPick: function emitPick() {
       this.$emit('pick', this.index);
-    }
-  }
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/items/offers/offercard.vue?vue&type=script&lang=js&":
-/*!*********************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/items/offers/offercard.vue?vue&type=script&lang=js& ***!
-  \*********************************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['offer', 'index'],
-  data: function data() {
-    return {
-      baseUrl: baseUrl
-    };
-  },
-  methods: {
-    emitContact: function emitContact() {
-      this.$emit("contactOffer", this.index);
     }
   }
 });
@@ -42849,6 +42849,80 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/items/offers/offerCard.vue?vue&type=template&id=347ff3e4&":
+/*!*************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/items/offers/offerCard.vue?vue&type=template&id=347ff3e4& ***!
+  \*************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "offer-card" }, [
+    _c("div", { staticClass: "offer-card-header" }, [
+      _c("img", {
+        staticClass: "col-10",
+        attrs: {
+          src: _vm.baseUrl + "/storage/" + _vm.offer.company_logo,
+          alt: "logo"
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "offer-card-separator bg-main-pink" }),
+    _vm._v(" "),
+    _c("div", { staticClass: "offer-card-content" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("h6", { staticClass: "col-12 offer-card-title" }, [
+          _vm._v(_vm._s(_vm.offer.company_name))
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "row" }, [
+        _c("h6", { staticClass: "col-12 offer-card-benefits text-wrap" }, [
+          _vm._v(_vm._s(_vm.offer.benefits))
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "row" }, [
+        _c("h5", { staticClass: "col-12 offer-card-price" }, [
+          _vm._v(_vm._s(_vm.offer.tariff) + " $")
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "offer-card-footer" }, [
+      _c("div", { staticClass: "col-10" }, [
+        _c(
+          "button",
+          {
+            staticClass:
+              "btn btn-block bg-main-pink text-white offer-card-btn rounded-pill",
+            attrs: {
+              "data-toggle": "modal",
+              "data-target": "#modalConsultOffer"
+            },
+            on: { click: _vm.emitContact }
+          },
+          [_vm._v("\n        CONTACTAR\n      ")]
+        )
+      ])
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/items/offers/offerCardDetailed.vue?vue&type=template&id=0981fe44&":
 /*!*********************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/items/offers/offerCardDetailed.vue?vue&type=template&id=0981fe44& ***!
@@ -43029,80 +43103,6 @@ var render = function() {
       ])
     ]
   )
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/items/offers/offercard.vue?vue&type=template&id=3c34bc24&":
-/*!*************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/items/offers/offercard.vue?vue&type=template&id=3c34bc24& ***!
-  \*************************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "offer-card" }, [
-    _c("div", { staticClass: "offer-card-header" }, [
-      _c("img", {
-        staticClass: "col-10",
-        attrs: {
-          src: _vm.baseUrl + "/storage/" + _vm.offer.company_logo,
-          alt: "logo"
-        }
-      })
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "offer-card-separator bg-main-pink" }),
-    _vm._v(" "),
-    _c("div", { staticClass: "offer-card-content" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("h6", { staticClass: "col-12 offer-card-title" }, [
-          _vm._v(_vm._s(_vm.offer.company_name))
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "row" }, [
-        _c("h6", { staticClass: "col-12 offer-card-benefits text-wrap" }, [
-          _vm._v(_vm._s(_vm.offer.benefits))
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "row" }, [
-        _c("h5", { staticClass: "col-12 offer-card-price" }, [
-          _vm._v(_vm._s(_vm.offer.tariff) + " $")
-        ])
-      ])
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "offer-card-footer" }, [
-      _c("div", { staticClass: "col-10" }, [
-        _c(
-          "button",
-          {
-            staticClass:
-              "btn btn-block bg-main-pink text-white offer-card-btn rounded-pill",
-            attrs: {
-              "data-toggle": "modal",
-              "data-target": "#modalConsultOffer"
-            },
-            on: { click: _vm.emitContact }
-          },
-          [_vm._v("\n        CONTACTAR\n      ")]
-        )
-      ])
-    ])
-  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -87725,7 +87725,7 @@ Vue.component('offer', __webpack_require__(/*! ./components/items/offers/offer.v
 Vue.component('offerItem', __webpack_require__(/*! ./components/items/offers/offerItem.vue */ "./resources/js/components/items/offers/offerItem.vue")["default"]);
 Vue.component('offer-details', __webpack_require__(/*! ./components/items/offers/detailedOffer.vue */ "./resources/js/components/items/offers/detailedOffer.vue")["default"]);
 Vue.component('offer-update', __webpack_require__(/*! ./components/offers/update/updateForm.vue */ "./resources/js/components/offers/update/updateForm.vue")["default"]);
-Vue.component("offer-card", __webpack_require__(/*! ./components/items/offers/offercard.vue */ "./resources/js/components/items/offers/offercard.vue")["default"]);
+Vue.component("offer-card", __webpack_require__(/*! ./components/items/offers/offerCard.vue */ "./resources/js/components/items/offers/offerCard.vue")["default"]);
 Vue.component("offers-filter", __webpack_require__(/*! ./components/offers/filter */ "./resources/js/components/offers/filter/index.vue")["default"]);
 Vue.component("offer-consult", __webpack_require__(/*! ./components/forms/contact-modal */ "./resources/js/components/forms/contact-modal/index.vue")["default"]);
 Vue.component("offer-modal", __webpack_require__(/*! ./components/items/offers/offerCardDetailed.vue */ "./resources/js/components/items/offers/offerCardDetailed.vue")["default"]); // Servicios
@@ -88973,6 +88973,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/items/offers/offerCard.vue":
+/*!************************************************************!*\
+  !*** ./resources/js/components/items/offers/offerCard.vue ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _offerCard_vue_vue_type_template_id_347ff3e4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./offerCard.vue?vue&type=template&id=347ff3e4& */ "./resources/js/components/items/offers/offerCard.vue?vue&type=template&id=347ff3e4&");
+/* harmony import */ var _offerCard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./offerCard.vue?vue&type=script&lang=js& */ "./resources/js/components/items/offers/offerCard.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _offerCard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _offerCard_vue_vue_type_template_id_347ff3e4___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _offerCard_vue_vue_type_template_id_347ff3e4___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/items/offers/offerCard.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/items/offers/offerCard.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/components/items/offers/offerCard.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_offerCard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./offerCard.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/items/offers/offerCard.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_offerCard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/items/offers/offerCard.vue?vue&type=template&id=347ff3e4&":
+/*!*******************************************************************************************!*\
+  !*** ./resources/js/components/items/offers/offerCard.vue?vue&type=template&id=347ff3e4& ***!
+  \*******************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_offerCard_vue_vue_type_template_id_347ff3e4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./offerCard.vue?vue&type=template&id=347ff3e4& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/items/offers/offerCard.vue?vue&type=template&id=347ff3e4&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_offerCard_vue_vue_type_template_id_347ff3e4___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_offerCard_vue_vue_type_template_id_347ff3e4___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/items/offers/offerCardDetailed.vue":
 /*!********************************************************************!*\
   !*** ./resources/js/components/items/offers/offerCardDetailed.vue ***!
@@ -89106,75 +89175,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_offerItem_vue_vue_type_template_id_2c6d4c91___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_offerItem_vue_vue_type_template_id_2c6d4c91___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
-
-/***/ }),
-
-/***/ "./resources/js/components/items/offers/offercard.vue":
-/*!************************************************************!*\
-  !*** ./resources/js/components/items/offers/offercard.vue ***!
-  \************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _offercard_vue_vue_type_template_id_3c34bc24___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./offercard.vue?vue&type=template&id=3c34bc24& */ "./resources/js/components/items/offers/offercard.vue?vue&type=template&id=3c34bc24&");
-/* harmony import */ var _offercard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./offercard.vue?vue&type=script&lang=js& */ "./resources/js/components/items/offers/offercard.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _offercard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _offercard_vue_vue_type_template_id_3c34bc24___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _offercard_vue_vue_type_template_id_3c34bc24___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/components/items/offers/offercard.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/components/items/offers/offercard.vue?vue&type=script&lang=js&":
-/*!*************************************************************************************!*\
-  !*** ./resources/js/components/items/offers/offercard.vue?vue&type=script&lang=js& ***!
-  \*************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_offercard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./offercard.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/items/offers/offercard.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_offercard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/components/items/offers/offercard.vue?vue&type=template&id=3c34bc24&":
-/*!*******************************************************************************************!*\
-  !*** ./resources/js/components/items/offers/offercard.vue?vue&type=template&id=3c34bc24& ***!
-  \*******************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_offercard_vue_vue_type_template_id_3c34bc24___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./offercard.vue?vue&type=template&id=3c34bc24& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/items/offers/offercard.vue?vue&type=template&id=3c34bc24&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_offercard_vue_vue_type_template_id_3c34bc24___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_offercard_vue_vue_type_template_id_3c34bc24___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
