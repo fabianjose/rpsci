@@ -21,13 +21,14 @@ class CreateOffersTable extends Migration
             $table->foreign('service')->references('id')->on('services');
 
             $table->string('benefits',124);
-            $table->string('tariff');
+            $table->decimal('tariff', 10, 2);
+            //$table->float('amount', 15,8);
             $table->integer('points')->default(0);
             $table->enum('type',['private','company']);
 
-            $table->bigInteger('department')->unsigned();
+            $table->bigInteger('department')->unsigned()->nullable();
             $table->foreign('department')->references('id')->on('departments');
-            $table->bigInteger('municipality')->unsigned();
+            $table->bigInteger('municipality')->unsigned()->nullable();
             $table->foreign('municipality')->references('id')->on('municipalities');
 
             $table->boolean('highlighted')->default(0);

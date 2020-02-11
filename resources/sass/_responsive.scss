@@ -45,3 +45,7 @@
       display: none;
     }
   }
+
+.vld-overlay.is-full-page {
+  z-index: 1051 !important;
+}

@@ -2886,14 +2886,38 @@ __webpack_require__.r(__webpack_exports__);
       fullName: "",
       email: "",
       phone: "",
-      baseUrl: baseUrl
+      baseUrl: baseUrl,
+      disableButton: false
     };
   },
   mounted: function mounted() {
     console.log(this.reCaptchaKey);
   },
   methods: {
-    sendMail: function sendMail() {}
+    getFullRound: function getFullRound() {
+      if (!this.offer) return "consult-card-full-rounded";else return "col-lg-5 col-xl-5 col-md-5 col-12";
+    },
+    sendMail: function sendMail() {
+      var _this = this;
+
+      var fd = new FormData();
+      if (this.fullName && this.fullName != "") fd.append("fullName", this.fullName);else return toastr.error("Rellene todos los campos");
+      if (this.email && this.email != "") fd.append("email", this.email);else return toastr.error("Rellene todos los campos");
+      if (this.phone && this.phone != "") fd.append("phone", this.phone);else return toastr.error("Rellene todos los campos");
+      fd.append("type", this.offer ? "offer" : "general");
+      this.disableButton = true;
+      var loader = this.$loading.show();
+      axios.post(baseUrl + "/api/mail/contact", fd).then(function (res) {
+        console.log("server response ", res);
+        toastr.success("Datos enviados exitosamente");
+      })["catch"](function (err) {
+        console.log("server error ", err.response);
+        toastr.error("Error al enviar los datos, intente nuevamente");
+      })["finally"](function () {
+        _this.disableButton = false;
+        loader.hide();
+      });
+    }
   },
   computed: {
     reCaptchaKey: {
@@ -2986,9 +3010,16 @@ __webpack_require__.r(__webpack_exports__);
         if (this.orderBySort == "desc") searchKey += "&sortByDesc=true";
       }
 
-      if (!isNaN(this.fromPrice)) searchKey += "&from=" + this.fromPrice;else return toastr.error("El campo 'Desde' es de valor numérico");
-      if (!isNaN(this.toPrice)) searchKey += "&to=" + this.toPrice;else return toastr.error("El campo 'Hasta' es de valor numérico");
+      if (!isNaN(this.fromPrice)) searchKey += "&from=" + parseFloat(this.fromPrice);else return toastr.error("El campo 'Desde' es de valor numérico");
+      if (!isNaN(this.toPrice)) searchKey += "&to=" + parseFloat(this.toPrice);else return toastr.error("El campo 'Hasta' es de valor numérico");
       this.$emit("customFiltering", searchKey);
+    }
+  },
+  computed: {
+    compFields: {
+      get: function get() {
+        return this.fields;
+      }
     }
   }
 });
@@ -3432,6 +3463,26 @@ __webpack_require__.r(__webpack_exports__);
     },
     emitView: function emitView(index) {
       this.$emit("viewItem", index);
+    }
+  },
+  computed: {
+    compFields: {
+      get: function get() {
+        console.log("new ", this.fields);
+        return this.fields;
+      }
+    },
+    compLastpage: {
+      get: function get() {
+        console.log("new ", this.lastpage);
+        return this.lastpage;
+      }
+    },
+    compItems: {
+      get: function get() {
+        console.log("new ", this.items);
+        return this.items;
+      }
     }
   }
 });
@@ -4080,12 +4131,8 @@ __webpack_require__.r(__webpack_exports__);
           return "Texto";
           break;
 
-        case "number":
+        case "numeric":
           return "Numero";
-          break;
-
-        case "select":
-          return "Seleccionable";
           break;
 
         default:
@@ -4254,6 +4301,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["middle", "hideDepartment", "hideMunicipality", "noRequest"],
   data: function data() {
@@ -4333,20 +4382,52 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
       return setMunicipality;
     }(),
-    getMunicipalities: function getMunicipalities() {
-      var _this2 = this;
+    getMunicipalities: function () {
+      var _getMunicipalities = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
+        var _this2 = this;
 
-      this.setDepartment();
-      axios.get(baseUrl + '/api/municipalities/' + this.department).then(function (res) {
-        // console.log(res);
-        // console.log(this.$refs);
-        // if(!this.hideMunicipality) this.$refs.municipalitiesList.setEntries(res.data)
-        if (!_this2.hideMunicipality) _this2.municipalities = res.data;else _this2.$emit("newMunicipalities", res.data);
-      })["catch"](function (err) {
-        console.log("ERROR FROM SERVER ", err, err.response);
-        toastr.error("error al cargar los municipios");
-      });
-    }
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.next = 2;
+                return this.setDepartment();
+
+              case 2:
+                if (this.department) {
+                  _context3.next = 4;
+                  break;
+                }
+
+                return _context3.abrupt("return");
+
+              case 4:
+                axios.get(baseUrl + '/api/municipalities/' + this.department).then(function (res) {
+                  // console.log(res);
+                  // console.log(this.$refs);
+                  // if(!this.hideMunicipality) this.$refs.municipalitiesList.setEntries(res.data)
+                  if (!_this2.hideMunicipality) _this2.municipalities = res.data;else _this2.$emit("newMunicipalities", res.data);
+                })["catch"](function (err) {
+                  console.log("ERROR FROM SERVER ", err, err.response);
+                  toastr.error("error al cargar los municipios");
+                });
+
+              case 5:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, this);
+      }));
+
+      function getMunicipalities() {
+        return _getMunicipalities.apply(this, arguments);
+      }
+
+      return getMunicipalities;
+    }()
   }
 });
 
@@ -4972,8 +5053,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 6:
                 fd = new FormData();
                 fd.append("company", this.company);
-                fd.append("department", this.department);
-                fd.append("municipality", this.municipality);
+                if (this.department) fd.append("department", this.department);
+                if (this.municipality) fd.append("municipality", this.municipality);
                 fd.append("type", this.type);
                 fd.append("tariff", this.tariff);
                 fd.append("benefits", this.benefits);
@@ -4985,8 +5066,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   console.log("RESPONSE FROM SERVER ", res);
                   toastr.success("Oferta creada con éxito");
                   _this3.company = "";
-                  _this3.department = "";
-                  _this3.municipality = "";
+                  _this3.department = null;
+                  _this3.municipality = null;
                   _this3.type = "private";
                   _this3.tariff = "";
                   _this3.benefits = "";
@@ -5080,6 +5161,9 @@ __webpack_require__.r(__webpack_exports__);
   props: ["pagination", "fields", "query", "lastpage"],
   data: function data() {
     return {
+      compPagination: this.pagination,
+      compFields: this.fields,
+      compLastpage: this.lastpage,
       customFilters: null,
       pageIndex: "&page=1",
       currentItem: null,
@@ -5107,23 +5191,23 @@ __webpack_require__.r(__webpack_exports__);
       this.refreshData();
     },
     refreshData: function refreshData() {
+      var _this = this;
+
       var filters = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.customFilters;
-      window.location.replace(baseUrl + "/offers/search" + this.query + (filters ? filters : "") + this.pageIndex);
-      /**
-       *  let loader = this.$loading.show();
-        this.loading=true;
-      
-      axios.get(baseUrl+"/offers/search"+this.query+filters+this.pageIndex)
-      .then(res=>{
-          this.pagination=res.data.pagination;
-          this.lastpage=res.data.lastpage;
-          this.fields=res.data.fields;
-          res.query=res.data.query;
-      }).catch(err=>{
-          toastr.error("ha ocurrido un error al cargar los datos, vuelva a intentarlo");
-      })
-      .finally(()=>{loader.hide()})
-       */
+      //window.location.replace(baseUrl+"/offers/search"+this.query+(filters?filters:"")+this.pageIndex)
+      var loader = this.$loading.show();
+      this.loading = true;
+      console.log(baseUrl + "/offers/search" + this.query + (filters ? filters : "") + this.pageIndex);
+      axios.get(baseUrl + "/offers/search" + this.query + (filters ? filters : "") + this.pageIndex).then(function (res) {
+        console.log("response ", res);
+        _this.compPagination = res.data.pagination;
+        _this.compLastpage = res.data.last_page;
+        _this.compFields = res.data.fields; //res.query=res.data.query;
+      })["catch"](function (err) {
+        toastr.error("ha ocurrido un error al cargar los datos, vuelva a intentarlo");
+      })["finally"](function () {
+        loader.hide();
+      });
     }
   }
 });
@@ -40992,13 +41076,29 @@ var render = function() {
         "div",
         {
           staticClass:
-            "modal-dialog modal-xl modal-xl-xl d-flex flex-row justify-content-center"
+            "modal-dialog modal-dialog-centered modal-xl modal-xl-xl d-flex flex-row justify-content-center align-items-center"
         },
         [
           _c(
             "div",
-            { staticClass: "consult-card p-0 flex-wrap modal-content" },
+            {
+              class:
+                "consult-card p-0 flex-wrap" +
+                (_vm.offer ? "modal-content" : "modal-adjust")
+            },
             [
+<<<<<<< HEAD
+              _vm.offer
+                ? _c(
+                    "div",
+                    {
+                      staticClass:
+                        "col-lg-7 col-xl-7 col-md-7 col-12 d-flex flex-column p-3"
+                    },
+                    [
+                      _c("div", { staticClass: "consult-card-content" }, [
+                        _c(
+=======
               _c(
                 "div",
                 {
@@ -41042,38 +41142,94 @@ var render = function() {
                       { staticClass: "consult-card-fields" },
                       _vm._l(_vm.offer.fields_values, function(fieldValue, k) {
                         return _c(
+>>>>>>> d1c486560311011fdcec90b62c5254d65aea8053
                           "div",
-                          { key: k, staticClass: "consult-card-field col-6" },
+                          { staticClass: "consult-card-header pt-4 pb-3" },
+                          [
+                            _c("img", {
+                              staticClass: "consult-card-logo col-10",
+                              attrs: {
+                                src:
+                                  _vm.baseUrl +
+                                  "/storage/" +
+                                  _vm.offer.company_logo,
+                                alt: "logo"
+                              }
+                            })
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "consult-card-benefits py-3" },
                           [
                             _c(
                               "h6",
                               {
-                                staticClass: "consult-card-sub-title py-1 m-0"
+                                staticClass:
+                                  "col-12 consult-card-sub-title py-1 m-0"
                               },
-                              [_vm._v(_vm._s(fieldValue.field_name) + ":")]
+                              [_vm._v("Beneficios:")]
                             ),
                             _vm._v(" "),
-                            _c("h6", { staticClass: "field-content" }, [
-                              _vm._v(
-                                _vm._s(fieldValue.value) +
-                                  " " +
-                                  _vm._s(fieldValue.unit ? fieldValue.unit : "")
-                              )
-                            ])
+                            _c(
+                              "h6",
+                              {
+                                staticClass: "col-12 benefits-content text-wrap"
+                              },
+                              [_vm._v(_vm._s(_vm.offer.benefits))]
+                            )
                           ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "consult-card-fields" },
+                          _vm._l(_vm.offer.fields_values, function(
+                            fieldValue,
+                            k
+                          ) {
+                            return _c(
+                              "div",
+                              {
+                                key: k,
+                                staticClass: "consult-card-field col-6"
+                              },
+                              [
+                                _c(
+                                  "h6",
+                                  {
+                                    staticClass:
+                                      "consult-card-sub-title py-1 m-0"
+                                  },
+                                  [_vm._v(_vm._s(fieldValue.field_name) + ":")]
+                                ),
+                                _vm._v(" "),
+                                _c("h6", { staticClass: "field-content" }, [
+                                  _vm._v(
+                                    _vm._s(fieldValue.value) +
+                                      " " +
+                                      _vm._s(
+                                        fieldValue.unit ? fieldValue.unit : ""
+                                      )
+                                  )
+                                ])
+                              ]
+                            )
+                          }),
+                          0
                         )
-                      }),
-                      0
-                    )
-                  ])
-                ]
-              ),
+                      ])
+                    ]
+                  )
+                : _vm._e(),
               _vm._v(" "),
               _c(
                 "div",
                 {
-                  staticClass:
-                    "col-lg-5 col-xl-5 col-md-5 col-12 bg-main-blue p-3 form-consulting-field"
+                  class:
+                    "bg-main-blue p-3 form-consulting-field " +
+                    _vm.getFullRound()
                 },
                 [
                   _vm._m(0),
@@ -41220,6 +41376,7 @@ var render = function() {
                       "button",
                       {
                         staticClass: "btn btn-block btn-dark-blue rounded-pill",
+                        attrs: { disabled: _vm.disableButton },
                         on: { click: _vm.sendMail }
                       },
                       [
@@ -41351,7 +41508,7 @@ var render = function() {
                       [_vm._v("Puntuación")]
                     ),
                     _vm._v(" "),
-                    _vm._l(_vm.fields, function(field, k) {
+                    _vm._l(_vm.compFields, function(field, k) {
                       return field.type == "numeric"
                         ? _c(
                             "option",
@@ -41562,12 +41719,15 @@ var render = function() {
       attrs: { src: _vm.baseUrl + "/images/logo-blanco.png", alt: "" }
     }),
     _vm._v(" "),
-    _c("div", { staticClass: "main-search-form p-3 mt-3" }, [
+    _c("div", { staticClass: "main-search-form py-3 px-1 mt-3" }, [
       _vm._m(0),
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "d-flex flex-row flex-wrap justify-content-around p-3" },
+        {
+          staticClass:
+            "d-flex flex-row flex-wrap justify-content-around py-3 px-1"
+        },
         [
           _c(
             "div",
@@ -41758,7 +41918,7 @@ var render = function() {
         "div",
         {
           staticClass:
-            "d-flex flex-row flex-wrap col-10 col-sm-10 py-3 mx-auto justify-content-center"
+            "d-flex flex-row flex-wrap col-10 col-sm-10 pb-4 mx-auto justify-content-center"
         },
         [
           _c(
@@ -41821,15 +41981,22 @@ var render = function() {
         ]
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "col-10 mx-auto", on: { click: _vm.search } }, [
-        _c("i", { staticClass: "fa fa-search icon-btn" }),
-        _vm._v(" "),
-        _c(
-          "button",
-          { staticClass: "btn btn-block btn-dark-blue rounded-pill" },
-          [_vm._v("\n                Buscar\n            ")]
-        )
-      ])
+      _c(
+        "div",
+        {
+          staticClass: "col-10 col-lg-8 col-xl-6 mx-auto pb-1",
+          on: { click: _vm.search }
+        },
+        [
+          _c("i", { staticClass: "fa fa-search icon-btn" }),
+          _vm._v(" "),
+          _c(
+            "button",
+            { staticClass: "btn btn-block btn-dark-blue rounded-pill" },
+            [_vm._v("\n                Buscar\n            ")]
+          )
+        ]
+      )
     ])
   ])
 }
@@ -42150,7 +42317,7 @@ var render = function() {
                 staticClass:
                   "d-flex flex-row justify-content-center col-8 col-lg-6 col-xl-6"
               },
-              _vm._l(_vm.lastpage, function(item, k1) {
+              _vm._l(_vm.compLastpage, function(item, k1) {
                 return _c(
                   "button",
                   {
@@ -42185,7 +42352,7 @@ var render = function() {
               {
                 staticClass:
                   "col-2 col-md-1 col-lg-1 col-xl-1 d-flex justify-content-center align-items-center page-item rounded-pill btn btn-light",
-                attrs: { disabled: _vm.currentpage == _vm.lastpage },
+                attrs: { disabled: _vm.currentpage == _vm.compLastpage },
                 on: {
                   click: function($event) {
                     return _vm.setPage(_vm.currentpage)
@@ -42205,13 +42372,13 @@ var render = function() {
             _vm._v(" "),
             _vm._m(1),
             _vm._v(" "),
-            _vm._l(_vm.fields, function(field, k2) {
+            _vm._l(_vm.compFields, function(field, k2) {
               return _c(
                 "div",
                 {
                   key: k2,
                   class:
-                    "col-xl-2 col-lg-3 col-md-4 col-sm-4 offer-benefits hidden-md hidden-xs hidden-sm " +
+                    "col-xl-2 px-1 col-lg-3 col-md-4 col-sm-4 offer-benefits hidden-md hidden-xs hidden-sm " +
                     (!k2 ? "d-lg-flex" : "hidden-lg")
                 },
                 [
@@ -42219,7 +42386,11 @@ var render = function() {
                     "div",
                     {
                       staticClass:
+<<<<<<< HEAD
+                        "text-center p-2 text-sm w-100 text-white mx-auto bg-dark-blue rounded-pill  p-1 text-wrap "
+=======
                         "btn btn-block text-sm offers-label mx-auto btn-dark-blue rounded-pill text-uppercase"
+>>>>>>> d1c486560311011fdcec90b62c5254d65aea8053
                     },
                     [_vm._v(_vm._s(field.name))]
                   )
@@ -42232,7 +42403,7 @@ var render = function() {
           2
         ),
         _vm._v(" "),
-        _vm._l(_vm.items, function(offer, k) {
+        _vm._l(_vm.compItems, function(offer, k) {
           return _c(
             "div",
             {
@@ -42392,7 +42563,7 @@ var render = function() {
                 staticClass:
                   "d-flex flex-row justify-content-center col-8 col-lg-6 col-xl-6"
               },
-              _vm._l(_vm.lastpage, function(item, k1) {
+              _vm._l(_vm.compLastpage, function(item, k1) {
                 return _c(
                   "button",
                   {
@@ -42427,7 +42598,7 @@ var render = function() {
               {
                 staticClass:
                   "col-2 col-md-1 col-lg-1 col-xl-1 d-flex justify-content-center align-items-center page-item rounded-pill btn btn-light",
-                attrs: { disabled: _vm.currentpage == _vm.lastpage },
+                attrs: { disabled: _vm.currentpage == _vm.compLastpage },
                 on: {
                   click: function($event) {
                     return _vm.setPage(_vm.currentpage)
@@ -42448,12 +42619,12 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-xl-2 col-lg-3 col-md-4" }, [
+    return _c("div", { staticClass: "col-xl-2 col-lg-3 col-md-4 px-1" }, [
       _c(
         "div",
         {
           staticClass:
-            "btn btn-block text-sm offers-label mx-auto btn-dark-blue rounded-pill "
+            "text-center p-2 text-sm w-100 text-white mx-auto bg-dark-blue rounded-pill  p-1 text-wrap "
         },
         [_vm._v("PROVEEDOR")]
       )
@@ -42466,16 +42637,21 @@ var staticRenderFns = [
     return _c(
       "div",
       {
-        staticClass: "col-xl-2 col-lg-3 col-md-4 col-sm-4 hidden-xs hidden-sm"
+        staticClass:
+          "col-xl-2 col-lg-3 col-md-4 co px-1 col-sm-4 hidden-xs hidden-sm"
       },
       [
         _c(
           "div",
           {
             staticClass:
-              "btn btn-block text-sm offers-label mx-auto btn-dark-blue rounded-pill "
+              "text-center p-2 text-sm w-100 text-white mx-auto bg-dark-blue rounded-pill  p-1 text-wrap "
           },
+<<<<<<< HEAD
+          [_vm._v("DESCRIPCION")]
+=======
           [_vm._v("DESCRIPCIÓN")]
+>>>>>>> d1c486560311011fdcec90b62c5254d65aea8053
         )
       ]
     )
@@ -42484,12 +42660,12 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-xl-2 col-lg-3 col-md-4" }, [
+    return _c("div", { staticClass: "col-xl-2 col-lg-3 col-md-4 px-1" }, [
       _c(
         "div",
         {
           staticClass:
-            "btn btn-block text-sm offers-label mx-auto btn-dark-blue rounded-pill"
+            "text-center p-2 text-sm w-100 text-white mx-auto bg-dark-blue rounded-pill p-1 text-wrap "
         },
         [_vm._v("PRECIO")]
       )
@@ -42580,7 +42756,13 @@ var render = function() {
                     _c("b", [_vm._v("Departamento")]),
                     _vm._v(" "),
                     _c("a", { staticClass: "float-right" }, [
-                      _vm._v(_vm._s(_vm.offer.department_name))
+                      _vm._v(
+                        _vm._s(
+                          _vm.offer.department_name
+                            ? _vm.offer.department_name
+                            : "Disponible para todos"
+                        )
+                      )
                     ])
                   ]),
                   _vm._v(" "),
@@ -42588,7 +42770,13 @@ var render = function() {
                     _c("b", [_vm._v("Municipio")]),
                     _vm._v(" "),
                     _c("a", { staticClass: "float-right" }, [
-                      _vm._v(_vm._s(_vm.offer.municipality_name))
+                      _vm._v(
+                        _vm._s(
+                          _vm.offer.municipality_name
+                            ? _vm.offer.municipality_name
+                            : "Disponible para todos"
+                        )
+                      )
                     ])
                   ])
                 ]
@@ -42814,16 +43002,12 @@ var render = function() {
       _vm._v(" "),
       _c("div", { staticClass: "card-footer" }, [
         _c("div", { staticClass: "card-tools row justify-content-around" }, [
-          _vm.pick && !_vm.notUpdate
+          _vm.pick
             ? _c(
                 "div",
                 {
                   staticClass:
                     "btn btn-success rounded-circle text-lg icon-btn-sm",
-                  attrs: {
-                    "data-toggle": "modal",
-                    "data-target": "#modalViewOffer"
-                  },
                   on: { click: _vm.emitPick }
                 },
                 [_c("i", { staticClass: "fas fa-plus" })]
@@ -43476,6 +43660,10 @@ var render = function() {
                     [_vm._v("Departamento")]
                   ),
                   _vm._v(" "),
+                  _c("option", { domProps: { value: null } }, [
+                    _vm._v("Todos")
+                  ]),
+                  _vm._v(" "),
                   _vm._l(_vm.departments, function(department, index) {
                     return _c(
                       "option",
@@ -43537,6 +43725,10 @@ var render = function() {
                     },
                     [_vm._v("Municipio")]
                   ),
+                  _vm._v(" "),
+                  _c("option", { domProps: { value: null } }, [
+                    _vm._v("Todos")
+                  ]),
                   _vm._v(" "),
                   _vm._l(_vm.municipalities, function(municipality, index) {
                     return _c(
@@ -44508,7 +44700,7 @@ var render = function() {
             { staticClass: "col-10 col-lg-4 col-xl-4" },
             [
               _c("filter-card", {
-                attrs: { fields: _vm.fields },
+                attrs: { fields: _vm.compFields },
                 on: { customFiltering: _vm.refreshData }
               })
             ],
@@ -44517,10 +44709,10 @@ var render = function() {
           _vm._v(" "),
           _c("filter-table", {
             attrs: {
-              fields: _vm.fields,
-              items: _vm.pagination.data,
-              currentpage: _vm.pagination.current_page,
-              lastpage: _vm.lastpage
+              fields: _vm.compFields,
+              items: _vm.compPagination.data,
+              currentpage: _vm.compPagination.current_page,
+              lastpage: _vm.compLastpage
             },
             on: {
               consultItem: _vm.consultItem,
@@ -90424,8 +90616,13 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
+__webpack_require__(/*! C:\Users\web 03\Music\colombia_internet\colombia_internet\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\web 03\Music\colombia_internet\colombia_internet\resources\sass\app.scss */"./resources/sass/app.scss");
+=======
 __webpack_require__(/*! C:\ConsultingMe\colombia_internet\resources\js\app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! C:\ConsultingMe\colombia_internet\resources\sass\app.scss */"./resources/sass/app.scss");
+>>>>>>> d1c486560311011fdcec90b62c5254d65aea8053
 
 
 /***/ }),

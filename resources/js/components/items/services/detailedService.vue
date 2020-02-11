@@ -37,11 +37,8 @@ export default {
               case "string":
                     return "Texto"
                   break;
-              case "number":
+              case "numeric":
                     return "Numero"
-                  break;
-              case "select":
-                    return "Seleccionable"
                   break;
 
               default:

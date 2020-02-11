@@ -18,6 +18,8 @@ Route::get('/municipalities/{departmentName}','MunicipalityController@getByDepar
 Route::get('/companies/highlighted','CompanyController@getAllHighlighted');
 Route::get('offers/highlighted', 'OfferController@getAllHighlighted');
 
+Route::post("/mail/contact", "MailController@sendMail");
+
 
 Route::group(['middleware' => ['JwtMiddleware']], function () {
   Route::post('/department','DepartmentController@newDepartment');
