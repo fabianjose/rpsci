@@ -13,7 +13,7 @@ class ServiceController extends Controller{
   public function newService(Request $request){
     $data = $request->all();
     $validation = Validator::make($data, [
-      'name' => ['required', 'string', 'min:6', 'max:128', 'unique:services'],
+      'name' => ['required', 'string', 'min:6', 'max:128'],
       'fields' => ['json', 'nullable'],
       "fields.*"=> "json",
       "fields.*.name"=> "string|max:32|min:3",
@@ -23,6 +23,9 @@ class ServiceController extends Controller{
     if ($validation->fails()){
       return response()->json($validation->errors(), 400);
     }
+
+    $name = Service::where('name',$data['name'])->where('trash',0)->first();
+    if ($name) return response()->json(['errorMessage' =>'Nombre de servicio ya en uso'], 400);
 
     $fields = $request->input("fields")?json_decode($data["fields"]):null;
 
@@ -53,6 +56,8 @@ class ServiceController extends Controller{
     if ($validation->fails()){
       return response()->json($validation->errors(), 400);
     }
+    $name = Service::where('name',$data['name'])->where('trash',0)->where('id','<>',$id)->first();
+    if ($name) return response()->json(['errorMessage' =>'Nombre de servicio ya en uso'], 400);
     $service = Service::find($id);
     if (!$service) return response()->json('Servicio no encontrado',404);
 

@@ -4,7 +4,7 @@
       <h5 class="filter-card-title font-weight-bold text-center">Filtra tu búsqueda</h5>
       <div class="d-flex flex-column w-100 py-3 px-1">
         <div class="d-flex flex-row w-100 justify-content-around flex-wrap">
-          
+
           <div class="form-group my-2 col-12 ">
             <label for="orderBy" class="filter-card-label">Ordenar por:</label>
             <select class="custom-select rounded-pill" id="orderBy" v-model="orderBy">
@@ -24,7 +24,7 @@
 
         </div>
         <div class="form-horizontal my-2 col-12">
-          <span class="filter-card-label mb-2">Rango de precios</span> 
+          <span class="filter-card-label mb-2">Rango de precios</span>
           <div class="form-group d-flex flex-row my-2 flex-wrap">
             <div class="form-group has-search col-12 col-sm-6 col-md-6 my-2 col-lg-6 col-xl-6 d-flex align-items-center">
               <span class="fas fa-dollar-sign form-control-feedback "></span>
@@ -79,7 +79,7 @@ export default {
         if(!isNaN(this.toPrice)) searchKey+="&to="+parseFloat(this.toPrice);
 
         else return toastr.error("El campo 'Hasta' es de valor numérico")
-        
+
       this.$emit("customFiltering", searchKey);
 
     },

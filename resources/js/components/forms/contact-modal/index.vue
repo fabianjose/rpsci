@@ -5,7 +5,11 @@
                 <div v-if="offer" class="col-lg-7 col-xl-7 col-md-7 col-12 d-flex flex-column p-3">
                     <div class="consult-card-content">
                         <div class="consult-card-header pt-4 pb-3">
+<<<<<<< HEAD
                             <img :src="baseUrl+'/storage/'+offer.company_logo" alt="logo" class="consult-card-logo col-10">
+=======
+                            <img :src="baseUrl+'/'+offer.company_logo" alt="logo" class="col-10">
+>>>>>>> d1c486560311011fdcec90b62c5254d65aea8053
                         </div>
                         <div class="consult-card-benefits py-3">
                             <h6 class="col-12 consult-card-sub-title py-1 m-0">Beneficios:</h6>
@@ -28,21 +32,21 @@
                         <div class="form-group has-search d-flex align-items-center">
                             <span class="fas fa-user form-control-feedback text-white"></span>
                             <input v-model="fullName" class="form-control form-consulting-input rounded-pill rounded-input" type="text">
-                        </div>  
+                        </div>
                     </div>
                     <div class="form-group col-12 my-2">
                         <label class="text-white">Correo electrónico</label>
                         <div class="form-group has-search d-flex align-items-center">
                             <span class="fas fa-mail-bulk form-control-feedback text-white"></span>
                             <input v-model="email" class="form-control form-consulting-input rounded-pill rounded-input" type="text">
-                        </div>  
+                        </div>
                     </div>
                     <div class="form-group col-12 my-2">
                         <label class="text-white">Nro de Teléfono</label>
                         <div class="form-group has-search d-flex align-items-center">
                             <span class="fas fa-phone form-control-feedback text-white"></span>
                             <input v-model="phone" class="form-control form-consulting-input rounded-pill rounded-input" type="text">
-                        </div>  
+                        </div>
                     </div>
                     <vue-recaptcha size="invisible" :sitekey="reCaptchaKey" :loadRecaptchaScript="true" ></vue-recaptcha>
                     <div class="col-12 my-2 p-3 mx-auto" >
@@ -82,6 +86,7 @@ export default {
         },
         sendMail(){
 
+<<<<<<< HEAD
             let fd= new FormData();
 
             if(this.fullName&&this.fullName!="") fd.append("fullName", this.fullName);
@@ -109,6 +114,8 @@ export default {
                 this.disableButton=false;
                 loader.hide()
             });
+=======
+>>>>>>> d1c486560311011fdcec90b62c5254d65aea8053
         }
     },
 
@@ -121,6 +128,6 @@ export default {
         },
 
     }
-    
+
 }
 </script>

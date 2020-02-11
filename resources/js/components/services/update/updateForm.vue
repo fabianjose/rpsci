@@ -157,7 +157,7 @@ export default {
         }, 2000);
       })
       .catch(err=>{
-        cconsole.log("ERROR FROM SERVER ",err.response);
+        console.log("ERROR FROM SERVER ",err.response);
         if (err.response.data.errorMessage){
           toastr.error(err.response.data.errorMessage);
         }else {

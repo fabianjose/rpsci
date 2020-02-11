@@ -73,17 +73,16 @@ return view('home');
 Route::get('/home', function() {
 */
 
-Route::get('avatar/{filename}', function ($filename){
+Route::get('avatars/{filename}', function ($filename){
+  $path = storage_path('app/public/uploads/logos/' . $filename);
 
-    $path = storage_path('app/uploads/logos/' . $filename);
+  if (!File::exists($path)) { abort(404); }
 
-    if (!File::exists($path)) { abort(404); }
+  $file = File::get($path);
+  $type = File::mimeType($path);
 
-    $file = File::get($path);
-    $type = File::mimeType($path);
+  $response = Response::make($file, 200);
+  $response->header("Content-Type", $type);
 
-    $response = Response::make($file, 200);
-    $response->header("Content-Type", $type);
-
-    return $response;
+  return $response;
 });
