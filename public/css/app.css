@@ -385,6 +385,10 @@
   border-width: 0 !important;
 }
 
+.modal-adjust {
+  width: auto !important;
+}
+
 .consult-card-modal {
   max-width: 80vw !important;
   -webkit-box-orient: horizontal;
@@ -402,6 +406,10 @@
   -webkit-box-pack: center;
           justify-content: center;
   border-bottom: solid 0.22rem #cdcdcd;
+}
+
+.consult-card-logo {
+  max-height: 200px;
 }
 
 .consult-card-sub-title {
@@ -463,6 +471,10 @@
 .form-consulting-title {
   font-size: 1.5rem;
   color: #fff;
+}
+
+.consult-card-full-rounded {
+  border-radius: 50px !important;
 }
 
 @media (min-width: 768px) {
@@ -934,6 +946,10 @@
   .hidden-xl-xl {
     display: none;
   }
+}
+
+.vld-overlay.is-full-page {
+  z-index: 1051 !important;
 }
 
 .custom-control-input:checked ~ .custom-control-label::before {

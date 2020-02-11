@@ -10,7 +10,7 @@
             <select class="custom-select rounded-pill" id="orderBy" v-model="orderBy">
               <option :value="'tariff'" selected >precio</option>
               <option :value="'points'" selected >puntuación</option>
-              <option v-for="(field, k) in fields" :key="k" :value="k+1" v-if="field.type=='numeric'">{{field.name}}</option>
+              <option v-for="(field, k) in compFields" :key="k" :value="k+1" v-if="field.type=='numeric'">{{field.name}}</option>
             </select>
           </div>
 
@@ -72,17 +72,25 @@ export default {
         if(this.orderBySort=="desc") searchKey+="&sortByDesc=true";
       }
 
-        if(!isNaN(this.fromPrice)) searchKey+="&from="+this.fromPrice;
+        if(!isNaN(this.fromPrice)) searchKey+="&from="+parseFloat(this.fromPrice);
 
         else return toastr.error("El campo 'Desde' es de valor numérico")
 
-        if(!isNaN(this.toPrice)) searchKey+="&to="+this.toPrice;
+        if(!isNaN(this.toPrice)) searchKey+="&to="+parseFloat(this.toPrice);
 
         else return toastr.error("El campo 'Hasta' es de valor numérico")
         
       this.$emit("customFiltering", searchKey);
 
     },
+  },
+
+  computed:{
+    compFields:{
+      get(){
+        return this.fields;
+      }
+    }
   }
 
 }

@@ -9,7 +9,7 @@
       </div>
       <div class="card-footer">
         <div class="card-tools row justify-content-around">
-          <div v-if="pick&&!notUpdate" class="btn btn-success rounded-circle text-lg icon-btn-sm" @click="emitPick" data-toggle="modal" data-target="#modalViewOffer">
+          <div v-if="pick" class="btn btn-success rounded-circle text-lg icon-btn-sm" @click="emitPick">
             <i class="fas fa-plus"></i>
           </div>
           <div class="btn btn-info rounded-circle text-lg icon-btn-sm" @click="emitView" data-toggle="modal" data-target="#modalViewOffer">

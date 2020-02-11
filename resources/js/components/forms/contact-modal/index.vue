@@ -1,11 +1,11 @@
 <template>
     <div class="modal fade" id="modalConsultOffer" aria-modal="true">
-        <div class="modal-dialog modal-xl modal-xl-xl d-flex flex-row justify-content-center">
-            <div class="consult-card p-0 flex-wrap modal-content">
-                <div class="col-lg-7 col-xl-7 col-md-7 col-12 d-flex flex-column p-3">
+        <div class="modal-dialog modal-dialog-centered modal-xl modal-xl-xl d-flex flex-row justify-content-center align-items-center">
+            <div :class="'consult-card p-0 flex-wrap'+(offer?'modal-content':'modal-adjust')">
+                <div v-if="offer" class="col-lg-7 col-xl-7 col-md-7 col-12 d-flex flex-column p-3">
                     <div class="consult-card-content">
                         <div class="consult-card-header pt-4 pb-3">
-                            <img :src="baseUrl+'/storage/'+offer.company_logo" alt="logo" class="col-10">
+                            <img :src="baseUrl+'/storage/'+offer.company_logo" alt="logo" class="consult-card-logo col-10">
                         </div>
                         <div class="consult-card-benefits py-3">
                             <h6 class="col-12 consult-card-sub-title py-1 m-0">Beneficios:</h6>
@@ -19,7 +19,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-5 col-xl-5 col-md-5 col-12 bg-main-blue p-3 form-consulting-field">
+                <div :class="'bg-main-blue p-3 form-consulting-field '+getFullRound()">
                     <div class="form-consulting-header">
                         <span class="form-consulting-title py-3 text-wrap">Consulta sin compromiso</span>
                     </div>
@@ -46,7 +46,7 @@
                     </div>
                     <vue-recaptcha size="invisible" :sitekey="reCaptchaKey" :loadRecaptchaScript="true" ></vue-recaptcha>
                     <div class="col-12 my-2 p-3 mx-auto" >
-                        <button @click="sendMail" class="btn btn-block btn-dark-blue rounded-pill">
+                        <button :disabled="disableButton" @click="sendMail" class="btn btn-block btn-dark-blue rounded-pill">
                             CONSULTAR
                         </button>
                     </div>
@@ -67,6 +67,7 @@ export default {
             email:"",
             phone:"",
             baseUrl:baseUrl,
+            disableButton:false,
         }
     },
 
@@ -75,8 +76,39 @@ export default {
     },
 
     methods:{
+        getFullRound(){
+            if(!this.offer) return "consult-card-full-rounded";
+            else return "col-lg-5 col-xl-5 col-md-5 col-12";
+        },
         sendMail(){
-            
+
+            let fd= new FormData();
+
+            if(this.fullName&&this.fullName!="") fd.append("fullName", this.fullName);
+            else return toastr.error("Rellene todos los campos");
+            if(this.email&&this.email!="") fd.append("email", this.email);
+            else return toastr.error("Rellene todos los campos");
+            if(this.phone&&this.phone!="") fd.append("phone", this.phone);
+            else return toastr.error("Rellene todos los campos");
+
+            fd.append("type", this.offer?"offer":"general");
+
+            this.disableButton= true;
+
+            let loader = this.$loading.show();
+
+            axios.post(baseUrl+"/api/mail/contact", fd)
+            .then(res=>{
+                console.log("server response ",res);
+                toastr.success("Datos enviados exitosamente");
+            }).catch(err=>{
+                console.log("server error ",err.response);
+                toastr.error("Error al enviar los datos, intente nuevamente");
+            })
+            .finally(()=>{
+                this.disableButton=false;
+                loader.hide()
+            });
         }
     },
 

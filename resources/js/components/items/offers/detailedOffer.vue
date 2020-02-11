@@ -27,10 +27,10 @@
               <b>Tarifa</b> <a class="float-right">{{offer.tariff}}</a>
             </li>
             <li class="list-group-item">
-              <b>Departamento</b> <a class="float-right">{{offer.department_name}}</a>
+              <b>Departamento</b> <a class="float-right">{{offer.department_name?offer.department_name:"Disponible para todos"}}</a>
             </li>
             <li class="list-group-item">
-              <b>Municipio</b> <a class="float-right">{{offer.municipality_name}}</a>
+              <b>Municipio</b> <a class="float-right">{{offer.municipality_name?offer.municipality_name:"Disponible para todos"}}</a>
             </li>
           </ul>
           <br>

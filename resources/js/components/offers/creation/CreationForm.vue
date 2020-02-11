@@ -163,8 +163,8 @@ export default {
 
       let fd= new FormData();
       fd.append("company", this.company);
-      fd.append("department", this.department);
-      fd.append("municipality", this.municipality);
+      if(this.department) fd.append("department", this.department);
+      if(this.municipality) fd.append("municipality", this.municipality);
       fd.append("type", this.type);
       fd.append("tariff", this.tariff);
       fd.append("benefits", this.benefits);
@@ -179,8 +179,8 @@ export default {
         console.log("RESPONSE FROM SERVER ",res);
         toastr.success("Oferta creada con éxito");
         this.company = "";
-        this.department = "";
-        this.municipality = "";
+        this.department = null;
+        this.municipality = null;
         this.type = "private";
         this.tariff = "";
         this.benefits = "";
