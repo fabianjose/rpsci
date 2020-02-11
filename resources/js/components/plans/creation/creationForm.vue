@@ -172,6 +172,11 @@ export default {
       .then(res=>{
         console.log("RESPONSE FROM SERVER ",res);
         toastr.success("Oferta Destacada con éxito");
+        this.selectedOffer = null;
+        this.offersByArea = [];
+        this.company = "";
+        this.OpenAccordion("#OffersAccordion","#OffersList", "active2");
+        this.OpenAccordion("#SelectedOfferAccordion","#SelectedOffer", "active3");
         this.$emit('refresh');
       }).catch(err=>{
         console.log("ERROR FROM SERVER ",err.response);

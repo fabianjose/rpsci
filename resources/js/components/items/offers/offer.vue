@@ -29,7 +29,7 @@
 
 <script>
 export default {
-    props:["title", "logo", "index", "company", "remove", "pick", "highlighted", "highlightExpiration"],
+    props:["title", "logo", "index", "company", "remove", "pick", "highlighted", "highlightExpiration","notUpdate"],
 
     data(){
         return {
