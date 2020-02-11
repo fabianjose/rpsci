@@ -39,8 +39,8 @@
         </div>
         <div class="d-flex w-100 flex-wrap">
           <div class="form-group col-12">
-            <label>Beneficios</label>
-            <textarea class="form-control" rows="3" placeholder="Beneficios..." v-model="offer.benefits" style="resize: none;"></textarea>
+            <label>Descripcion</label>
+            <textarea class="form-control" rows="3" placeholder="Descripcion..." v-model="offer.benefits" style="resize: none;"></textarea>
           </div>
         </div>
         
@@ -62,6 +62,7 @@
           <div class="form-group col-xl-4 col-lg-4 col-md-6 col-6">
             <label>Puntuacion (Opcional)</label>
             <select class="custom-select" v-model="offer.points">
+              <option value="0" selected>0</option>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>

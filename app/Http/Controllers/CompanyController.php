@@ -33,7 +33,7 @@ class CompanyController extends Controller{
         $uploadedFile,
         $filename
       );
-      $data['logo'] = 'uploads/logos/'.$filename;
+      $data['logo'] = 'public/uploads/logos/'.$filename;
     }
 
     $company = Company::create($data);
@@ -77,7 +77,7 @@ class CompanyController extends Controller{
         $uploadedFile,
         $filename
       );
-      $result = 'uploads/logos/'.$filename;
+      $result = 'public/uploads/logos/'.$filename;
 
       $company->logo = $result;
     }

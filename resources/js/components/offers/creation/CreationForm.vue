@@ -43,8 +43,8 @@
           </div>
           <div class="d-flex w-100 flex-wrap">
             <div class="form-group col-12">
-              <label>Beneficios</label>
-              <textarea class="form-control" rows="3" placeholder="Beneficios..." v-model="benefits" style="resize: none;"></textarea>
+              <label>Descripcion</label>
+              <textarea class="form-control" rows="3" placeholder="Descripcion..." v-model="benefits" style="resize: none;"></textarea>
             </div>
           </div>
 

@@ -16,18 +16,18 @@
 
         <div class="d-flex flex-row w-100 justify-content-around mb-2">
           <div class="col-xl-2 col-lg-3 col-md-4">
-            <button class="btn btn-block text-sm offers-label mx-auto btn-dark-blue rounded-pill ">PROVEEDOR</button>
+            <div class="btn btn-block text-sm offers-label mx-auto btn-dark-blue rounded-pill ">PROVEEDOR</div>
           </div>
           <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 hidden-xs hidden-sm">
-            <button class="btn btn-block text-sm offers-label mx-auto btn-dark-blue rounded-pill ">BENEFICIOS</button>
+            <div class="btn btn-block text-sm offers-label mx-auto btn-dark-blue rounded-pill ">DESCRIPCIÓN</div>
           </div>
 
           <div v-for="(field,k2) in fields" :key="k2" :class="'col-xl-2 col-lg-3 col-md-4 col-sm-4 offer-benefits hidden-md hidden-xs hidden-sm '+(!k2?'d-lg-flex':'hidden-lg')">
-            <button class="btn btn-block text-sm offers-label mx-auto btn-dark-blue rounded-pill ">{{field.name}}</button>
+            <div class="btn btn-block text-sm offers-label mx-auto btn-dark-blue rounded-pill text-uppercase">{{field.name}}</div>
           </div>
 
           <div class="col-xl-2 col-lg-3 col-md-4">
-            <button class="btn btn-block text-sm offers-label mx-auto btn-dark-blue rounded-pill">DETALLES</button>
+            <div class="btn btn-block text-sm offers-label mx-auto btn-dark-blue rounded-pill">PRECIO</div>
           </div> 
         </div>
         <div v-for="(offer,k) in items" :key="k" class="d-flex w-100 justify-content-around my-1 mb-3 offer offers-pagination-item pb-3">

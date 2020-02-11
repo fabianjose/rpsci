@@ -51,30 +51,36 @@ export default {
         600: {
           visibleSlides: 1,
           slideRatio:0.9,
+          autoplay: true
         },
         520: {
           visibleSlides: 1,
           slideRatio:1,
+          autoplay: true
         },
         470: {
           visibleSlides:1,
           slideRatio:1.2,
-          arrows: false
+          arrows: false,
+          autoplay: true
         },
         400: {
           visibleSlides:1,
           slideRatio:1.3,
-          arrows: false
+          arrows: false,
+          autoplay: true
         },
         370: {
           visibleSlides:1,
           slideRatio:1.45,
-          arrows: false
+          arrows: false,
+          autoplay: true
         },
         355: {
           visibleSlides:1,
           slideRatio:1.55,
-          arrows: false
+          arrows: false,
+          autoplay: true
         }
       },
       locationDenied:false,

@@ -3575,31 +3575,37 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         },
         600: {
           visibleSlides: 1,
-          slideRatio: 0.9
+          slideRatio: 0.9,
+          autoplay: true
         },
         520: {
           visibleSlides: 1,
-          slideRatio: 1
+          slideRatio: 1,
+          autoplay: true
         },
         470: {
           visibleSlides: 1,
           slideRatio: 1.2,
-          arrows: false
+          arrows: false,
+          autoplay: true
         },
         400: {
           visibleSlides: 1,
           slideRatio: 1.3,
-          arrows: false
+          arrows: false,
+          autoplay: true
         },
         370: {
           visibleSlides: 1,
           slideRatio: 1.45,
-          arrows: false
+          arrows: false,
+          autoplay: true
         },
         355: {
           visibleSlides: 1,
           slideRatio: 1.55,
-          arrows: false
+          arrows: false,
+          autoplay: true
         }
       },
       locationDenied: false,
@@ -3767,7 +3773,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ["title", "logo", "index", "company", "remove", "pick", "highlighted", "highlightExpiration"],
+  props: ["title", "logo", "index", "company", "remove", "pick", "highlighted", "highlightExpiration", "notUpdate"],
   data: function data() {
     return {
       baseUrl: baseUrl
@@ -5413,6 +5419,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["offer", "services"],
   methods: {
@@ -5672,6 +5679,13 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       axios.post(baseUrl + '/api/offers/highlight/' + this.selectedOffer.id, fd).then(function (res) {
         console.log("RESPONSE FROM SERVER ", res);
         toastr.success("Oferta Destacada con éxito");
+        _this2.selectedOffer = null;
+        _this2.offersByArea = [];
+        _this2.company = "";
+
+        _this2.OpenAccordion("#OffersAccordion", "#OffersList", "active2");
+
+        _this2.OpenAccordion("#SelectedOfferAccordion", "#SelectedOffer", "active3");
 
         _this2.$emit('refresh');
       })["catch"](function (err) {
@@ -42190,10 +42204,10 @@ var render = function() {
                 },
                 [
                   _c(
-                    "button",
+                    "div",
                     {
                       staticClass:
-                        "btn btn-block text-sm offers-label mx-auto btn-dark-blue rounded-pill "
+                        "btn btn-block text-sm offers-label mx-auto btn-dark-blue rounded-pill text-uppercase"
                     },
                     [_vm._v(_vm._s(field.name))]
                   )
@@ -42426,7 +42440,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-xl-2 col-lg-3 col-md-4" }, [
       _c(
-        "button",
+        "div",
         {
           staticClass:
             "btn btn-block text-sm offers-label mx-auto btn-dark-blue rounded-pill "
@@ -42446,12 +42460,12 @@ var staticRenderFns = [
       },
       [
         _c(
-          "button",
+          "div",
           {
             staticClass:
               "btn btn-block text-sm offers-label mx-auto btn-dark-blue rounded-pill "
           },
-          [_vm._v("BENEFICIOS")]
+          [_vm._v("DESCRIPCIÓN")]
         )
       ]
     )
@@ -42462,12 +42476,12 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-xl-2 col-lg-3 col-md-4" }, [
       _c(
-        "button",
+        "div",
         {
           staticClass:
             "btn btn-block text-sm offers-label mx-auto btn-dark-blue rounded-pill"
         },
-        [_vm._v("DETALLES")]
+        [_vm._v("PRECIO")]
       )
     ])
   }
@@ -42990,7 +43004,7 @@ var render = function() {
                 _c(
                   "h6",
                   { staticClass: "col-12 consult-card-sub-title py-1 m-0" },
-                  [_vm._v("Beneficios:")]
+                  [_vm._v("Descripcion:")]
                 ),
                 _vm._v(" "),
                 _c("h6", { staticClass: "col-12 benefits-content text-wrap" }, [
@@ -44243,7 +44257,7 @@ var render = function() {
               _vm._v(" "),
               _c("div", { staticClass: "d-flex w-100 flex-wrap" }, [
                 _c("div", { staticClass: "form-group col-12" }, [
-                  _c("label", [_vm._v("Beneficios")]),
+                  _c("label", [_vm._v("Descripcion")]),
                   _vm._v(" "),
                   _c("textarea", {
                     directives: [
@@ -44256,7 +44270,7 @@ var render = function() {
                     ],
                     staticClass: "form-control",
                     staticStyle: { resize: "none" },
-                    attrs: { rows: "3", placeholder: "Beneficios..." },
+                    attrs: { rows: "3", placeholder: "Descripcion..." },
                     domProps: { value: _vm.benefits },
                     on: {
                       input: function($event) {
@@ -44823,7 +44837,7 @@ var render = function() {
               _vm._v(" "),
               _c("div", { staticClass: "d-flex w-100 flex-wrap" }, [
                 _c("div", { staticClass: "form-group col-12" }, [
-                  _c("label", [_vm._v("Beneficios")]),
+                  _c("label", [_vm._v("Descripcion")]),
                   _vm._v(" "),
                   _c("textarea", {
                     directives: [
@@ -44836,7 +44850,7 @@ var render = function() {
                     ],
                     staticClass: "form-control",
                     staticStyle: { resize: "none" },
-                    attrs: { rows: "3", placeholder: "Beneficios..." },
+                    attrs: { rows: "3", placeholder: "Descripcion..." },
                     domProps: { value: _vm.offer.benefits },
                     on: {
                       input: function($event) {
@@ -44983,6 +44997,10 @@ var render = function() {
                         }
                       },
                       [
+                        _c("option", { attrs: { value: "0", selected: "" } }, [
+                          _vm._v("0")
+                        ]),
+                        _vm._v(" "),
                         _c("option", { attrs: { value: "1" } }, [_vm._v("1")]),
                         _vm._v(" "),
                         _c("option", { attrs: { value: "2" } }, [_vm._v("2")]),
@@ -90397,8 +90415,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\ConsultingMe\colombia_internet\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\ConsultingMe\colombia_internet\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\ConsultingME\colombia_internet\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\ConsultingME\colombia_internet\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),

@@ -14,7 +14,7 @@
                 <h5 class="col-12 offer-card-price">{{offer.tariff}} $</h5>
               </div>
               <div class="consult-card-benefits py-3">
-                  <h6 class="col-12 consult-card-sub-title py-1 m-0">Beneficios:</h6>
+                  <h6 class="col-12 consult-card-sub-title py-1 m-0">Descripcion:</h6>
                   <h6 class="col-12 benefits-content text-wrap">{{offer.benefits}}</h6>
               </div>
               <div class="consult-card-fields">
