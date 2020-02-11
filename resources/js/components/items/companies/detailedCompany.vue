@@ -11,7 +11,7 @@
           </div>
           <div class="card-body d-flex flex-column box-profile">
 
-            <img class="align-self-center img-fluid" :src="baseUrl+'/storage/'+company.logo" style="max-height: 300px;">
+            <img class="align-self-center img-fluid" :src="baseUrl+'/'+company.logo" style="max-height: 300px;">
 
             <h2 class="profile-username text-center">{{company.name}}</h2>
 

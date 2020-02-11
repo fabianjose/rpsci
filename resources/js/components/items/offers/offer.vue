@@ -2,7 +2,7 @@
   <div class="col-sm-6 col-md-4 col-lg-3">
     <div class="card card-primary">
       <div class="card-body d-flex flex-column align-items-center">
-        <img class="image-logo-banner" :src="baseUrl+'/storage/'+logo" alt="">
+        <img class="image-logo-banner" :src="baseUrl+'/'+logo" alt="">
         <h4 class="px-2 mt-3 text-dark card-text text-capitalize">{{title}}</h4>
         <h6 class="px-2 mt-1 text-dark card-text text-capitalize">{{company}}</h6>
         <p v-if="this.highlighted" :class="'px-2 mt-1 card-text'+getDaysClass()">Expira en: {{getExpiration()}}</p>
@@ -47,18 +47,18 @@ export default {
 
           console.log('expiration date : ', Expiration);
 
-          let date1 = new Date(Expiration[0], parseInt(Expiration[1])-1, Expiration[2]); 
+          let date1 = new Date(Expiration[0], parseInt(Expiration[1])-1, Expiration[2]);
           let date2 = new Date();
 
           console.log("dates : ",date1, " and ", date2 )
-            
-          // To calculate the time difference of two dates 
-          let TimeDifference = date1.getTime() - date2.getTime(); 
+
+          // To calculate the time difference of two dates
+          let TimeDifference = date1.getTime() - date2.getTime();
 
           console.log("time difference : ", TimeDifference )
-          
-            
-          // To calculate the no. of days between two dates 
+
+
+          // To calculate the no. of days between two dates
           let DaysDifference = TimeDifference / (1000 * 3600 * 24);
 
           console.log("days difference : ", DaysDifference);
@@ -66,8 +66,8 @@ export default {
           return parseInt(DaysDifference);
         },
         getExpiration(){
-          let daysRemaining=this.getDays();          
-          return daysRemaining+' '+(daysRemaining>1?'días':'día');          
+          let daysRemaining=this.getDays();
+          return daysRemaining+' '+(daysRemaining>1?'días':'día');
         },
         emitView(){
             this.$emit('view', this.index)
