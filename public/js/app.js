@@ -3553,6 +3553,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3560,6 +3561,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       latLng: "",
       offers: [],
       consultMode: false,
+      autoplay: false,
       breakpoints: {
         1200: {
           visibleSlides: 3,
@@ -3617,7 +3619,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     };
   },
   mounted: function mounted() {
-    this.initGeo();
+    this.initGeo(); // this.$refs.plansSlider.pauseAutoplay();
+    // this.$refs.plansSlider.resumeAutoplay();
+    // console.log($(document).height());
+    // console.log($(document).width());
   },
   methods: {
     initGeo: function initGeo() {
@@ -3705,6 +3710,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       axios.post(baseUrl + '/api/offers/area/highlight', fd).then(function (res) {
         console.log('Offers: ', res);
         _this3.offers = res.data;
+
+        if ($(document).width() <= 760) {
+          if (_this3.offers.length > 1) {
+            _this3.autoplay = true;
+          }
+        } else {
+          if (_this3.offers.length > 3) {
+            _this3.autoplay = true;
+          }
+        }
       })["catch"](function (err) {
         console.log("ERROR FROM SERVER ", err.response);
 
@@ -3789,10 +3804,10 @@ __webpack_require__.r(__webpack_exports__);
       console.log('expiration date : ', Expiration);
       var date1 = new Date(Expiration[0], parseInt(Expiration[1]) - 1, Expiration[2]);
       var date2 = new Date();
-      console.log("dates : ", date1, " and ", date2); // To calculate the time difference of two dates 
+      console.log("dates : ", date1, " and ", date2); // To calculate the time difference of two dates
 
       var TimeDifference = date1.getTime() - date2.getTime();
-      console.log("time difference : ", TimeDifference); // To calculate the no. of days between two dates 
+      console.log("time difference : ", TimeDifference); // To calculate the no. of days between two dates
 
       var DaysDifference = TimeDifference / (1000 * 3600 * 24);
       console.log("days difference : ", DaysDifference);
@@ -40177,7 +40192,7 @@ var render = function() {
                       attrs: {
                         src: _vm.onPreview
                           ? _vm.onPreview
-                          : _vm.baseUrl + "/storage/" + _vm.company.logo,
+                          : _vm.baseUrl + "/" + _vm.company.logo,
                         alt: ""
                       }
                     })
@@ -40697,7 +40712,7 @@ var render = function() {
                     [
                       _c("img", {
                         staticClass: "high-companies-img align-self-center",
-                        attrs: { src: _vm.baseUrl + "/storage/" + company.logo }
+                        attrs: { src: _vm.baseUrl + "/" + company.logo }
                       })
                     ]
                   )
@@ -40763,7 +40778,7 @@ var render = function() {
                   attrs: {
                     src: _vm.onPreview
                       ? _vm.onPreview
-                      : _vm.baseUrl + "/storage/" + _vm.company.logo,
+                      : _vm.baseUrl + "/" + _vm.company.logo,
                     alt: ""
                   }
                 })
@@ -40999,10 +41014,7 @@ var render = function() {
                         _c("img", {
                           staticClass: "col-10",
                           attrs: {
-                            src:
-                              _vm.baseUrl +
-                              "/storage/" +
-                              _vm.offer.company_logo,
+                            src: _vm.baseUrl + "/" + _vm.offer.company_logo,
                             alt: "logo"
                           }
                         })
@@ -41872,7 +41884,7 @@ var render = function() {
           _c("img", {
             staticClass: "img-fluid",
             staticStyle: { "max-height": "135px" },
-            attrs: { src: _vm.baseUrl + "/storage/" + _vm.logo, alt: "" }
+            attrs: { src: _vm.baseUrl + "/" + _vm.logo, alt: "" }
           }),
           _vm._v(" "),
           _c("h4", { staticClass: "px-2 mt-3 text-dark card-text" }, [
@@ -41966,7 +41978,7 @@ var render = function() {
               _c("img", {
                 staticClass: "align-self-center img-fluid",
                 staticStyle: { "max-height": "300px" },
-                attrs: { src: _vm.baseUrl + "/storage/" + _vm.company.logo }
+                attrs: { src: _vm.baseUrl + "/" + _vm.company.logo }
               }),
               _vm._v(" "),
               _c("h2", { staticClass: "profile-username text-center" }, [
@@ -42238,9 +42250,7 @@ var render = function() {
                 [
                   _c("img", {
                     staticClass: "w-100 p-2",
-                    attrs: {
-                      src: _vm.baseUrl + "/storage/" + offer.company_logo
-                    }
+                    attrs: { src: _vm.baseUrl + "/" + offer.company_logo }
                   })
                 ]
               ),
@@ -42527,7 +42537,7 @@ var render = function() {
                 staticClass: "align-self-center img-fluid",
                 staticStyle: { "max-height": "300px" },
                 attrs: {
-                  src: _vm.baseUrl + "/storage/" + _vm.offer.company_logo,
+                  src: _vm.baseUrl + "/" + _vm.offer.company_logo,
                   alt: "Offer picture"
                 }
               }),
@@ -42677,10 +42687,11 @@ var render = function() {
       _c(
         "vueper-slides",
         {
+          ref: "plansSlider",
           staticClass: "no-shadow high-plans-carousel text-center w-100",
           attrs: {
             bullets: false,
-            autoplay: _vm.offers.length < 3 ? false : true,
+            autoplay: _vm.autoplay,
             duration: 3000,
             "visible-slides": _vm.offers.length < 3 ? _vm.offers.length : 3,
             "slide-ratio": 0.4,
@@ -42778,7 +42789,7 @@ var render = function() {
         [
           _c("img", {
             staticClass: "image-logo-banner",
-            attrs: { src: _vm.baseUrl + "/storage/" + _vm.logo, alt: "" }
+            attrs: { src: _vm.baseUrl + "/" + _vm.logo, alt: "" }
           }),
           _vm._v(" "),
           _c(
@@ -42890,10 +42901,8 @@ var render = function() {
     _c("div", { staticClass: "offer-card-header" }, [
       _c("img", {
         staticClass: "col-10",
-        attrs: {
-          src: _vm.baseUrl + "/storage/" + _vm.offer.company_logo,
-          alt: "logo"
-        }
+        staticStyle: { "max-height": "100px" },
+        attrs: { src: _vm.baseUrl + "/" + _vm.offer.company_logo, alt: "logo" }
       })
     ]),
     _vm._v(" "),
@@ -42979,7 +42988,7 @@ var render = function() {
               _c("img", {
                 staticClass: "col-10",
                 attrs: {
-                  src: _vm.baseUrl + "/storage/" + _vm.offer.company_logo,
+                  src: _vm.baseUrl + "/" + _vm.offer.company_logo,
                   alt: "logo"
                 }
               })

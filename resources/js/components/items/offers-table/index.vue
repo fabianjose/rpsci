@@ -1,7 +1,7 @@
 <template>
 <div class="col-12 col-lg-8 col-xl-8">
       <div class="d-flex flex-column w-100">
-        
+
         <div class="d-flex flex-row w-100 justify-content-around py-3 pb-5 align-items-center p-2">
           <button :disabled="currentpage==1" @click="setPage" class="col-2 col-md-1 col-lg-1 col-xl-1 d-flex justify-content-center align-items-center page-item rounded-pill btn btn-light"><i class="fas fa-arrow-left"></i></button>
           <div class="d-flex flex-row justify-content-center col-8 col-lg-6 col-xl-6">
@@ -11,7 +11,7 @@
               </span>
             </button>
           </div>
-          <button :disabled="currentpage==lastpage" @click="setPage(currentpage)" class="col-2 col-md-1 col-lg-1 col-xl-1 d-flex justify-content-center align-items-center page-item rounded-pill btn btn-light"><i class="fas fa-arrow-right"></i></button>          
+          <button :disabled="currentpage==lastpage" @click="setPage(currentpage)" class="col-2 col-md-1 col-lg-1 col-xl-1 d-flex justify-content-center align-items-center page-item rounded-pill btn btn-light"><i class="fas fa-arrow-right"></i></button>
         </div>
 
         <div class="d-flex flex-row w-100 justify-content-around mb-2">
@@ -28,11 +28,11 @@
 
           <div class="col-xl-2 col-lg-3 col-md-4">
             <div class="btn btn-block text-sm offers-label mx-auto btn-dark-blue rounded-pill">PRECIO</div>
-          </div> 
+          </div>
         </div>
         <div v-for="(offer,k) in items" :key="k" class="d-flex w-100 justify-content-around my-1 mb-3 offer offers-pagination-item pb-3">
           <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 d-flex flex-column align-items-center justify-content-center">
-            <img :src="baseUrl+'/storage/'+offer.company_logo" class="w-100 p-2">
+            <img :src="baseUrl+'/'+offer.company_logo" class="w-100 p-2">
           </div>
           <div class="text-wrap col-xl-2 col-lg-3 col-md-4 col-sm-4 text-center flex-column align-items-center justify-content-center d-xl-flex d-lg-flex d-md-flex hidden-xs hidden-sm">
             <h6 class="text-sm">
@@ -65,7 +65,7 @@
               </span>
             </button>
           </div>
-          <button :disabled="currentpage==lastpage" @click="setPage(currentpage)" class="col-2 col-md-1 col-lg-1 col-xl-1 d-flex justify-content-center align-items-center page-item rounded-pill btn btn-light"><i class="fas fa-arrow-right"></i></button>          
+          <button :disabled="currentpage==lastpage" @click="setPage(currentpage)" class="col-2 col-md-1 col-lg-1 col-xl-1 d-flex justify-content-center align-items-center page-item rounded-pill btn btn-light"><i class="fas fa-arrow-right"></i></button>
         </div>
 
       </div>
