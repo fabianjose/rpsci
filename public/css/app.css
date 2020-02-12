@@ -1,6 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);.image-logo-banner {
-  width: 14rem;
-  height: 9rem;
+  max-width: 14rem;
+  max-height: 9rem;
 }
 
 .icon-btn-sm {

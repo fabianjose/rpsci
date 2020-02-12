@@ -43833,7 +43833,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "col-sm-6 col-md-4 col-lg-3" }, [
+  return _c("div", { staticClass: "col-md-6 col-lg-4 col-sm-8" }, [
     _c("div", { staticClass: "card card-primary" }, [
       _c(
         "div",
@@ -43841,7 +43841,7 @@ var render = function() {
         [
           _c("img", {
             staticClass: "image-logo-banner",
-            attrs: { src: _vm.baseUrl + "/" + _vm.logo, alt: "" }
+            attrs: { src: _vm.baseUrl + "/" + _vm.logo }
           }),
           _vm._v(" "),
           _c(
@@ -43954,7 +43954,7 @@ var render = function() {
           staticClass: "col-10",
           staticStyle: { "max-height": "100px" },
           attrs: {
-            src: _vm.baseUrl + "/storage/" + _vm.offer.company_logo,
+            src: _vm.baseUrl + "/" + _vm.offer.company_logo,
             alt: "logo"
           }
         })
@@ -44053,7 +44053,7 @@ var render = function() {
               _c("img", {
                 staticClass: "col-10",
                 attrs: {
-                  src: _vm.baseUrl + "/storage/" + _vm.offer.company_logo,
+                  src: _vm.baseUrl + "/" + _vm.offer.company_logo,
                   alt: "logo"
                 }
               })
@@ -46480,101 +46480,96 @@ var render = function() {
                 "div",
                 { staticClass: "row w-100 flex-wrap justify-content-around" },
                 [
-                  _c(
-                    "div",
-                    { staticClass: "col-xl-6 col-lg-6 col-md-6 col-12" },
-                    [
-                      _c(
-                        "div",
-                        {
-                          staticClass: "card card-primary",
-                          attrs: { id: "OffersAccordion" }
-                        },
-                        [
-                          _c(
-                            "a",
-                            {
-                              staticClass:
-                                "card-header d-flex flex-row justify-cotent space-between align-items-center d-flex flex-row align-items-center d-flex collapsed",
-                              attrs: {
-                                "data-parent": "#OffersAccordion",
-                                href: "#OffersList",
-                                "aria-expanded": "false",
-                                "data-toggle": "collapse"
-                              },
-                              on: {
-                                click: function($event) {
-                                  _vm.active2 = !_vm.active2
-                                }
+                  _c("div", { staticClass: "col-12" }, [
+                    _c(
+                      "div",
+                      {
+                        staticClass: "card card-primary",
+                        attrs: { id: "OffersAccordion" }
+                      },
+                      [
+                        _c(
+                          "a",
+                          {
+                            staticClass:
+                              "card-header d-flex flex-row justify-cotent space-between align-items-center d-flex flex-row align-items-center d-flex collapsed",
+                            attrs: {
+                              "data-parent": "#OffersAccordion",
+                              href: "#OffersList",
+                              "aria-expanded": "false",
+                              "data-toggle": "collapse"
+                            },
+                            on: {
+                              click: function($event) {
+                                _vm.active2 = !_vm.active2
                               }
-                            },
-                            [
-                              _c("h3", { staticClass: "card-title col-10" }, [
-                                _vm._v("Seleccione una oferta")
-                              ]),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "card-tools" }, [
-                                _c(
-                                  "button",
-                                  {
-                                    staticClass: "btn btn-tool ml-auto ",
-                                    attrs: { type: "button" }
-                                  },
-                                  [
-                                    _c("personal-fab", {
-                                      attrs: { active: _vm.active2 }
-                                    })
-                                  ],
-                                  1
-                                )
-                              ])
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "div",
-                            {
-                              staticClass: "panel-collapse in collapse",
-                              attrs: { id: "OffersList" }
-                            },
-                            [
-                              _c("div", { staticClass: "card-body" }, [
-                                _c(
-                                  "div",
-                                  {
-                                    staticClass:
-                                      "d-flex flex-row justify-content-around w-100 flex-wrap"
-                                  },
-                                  _vm._l(_vm.offersByArea, function(offer, k) {
-                                    return _c("offer", {
-                                      key: k,
-                                      staticClass: "col-md-6 col-lg-4 col-sm-8",
-                                      attrs: {
-                                        title: offer.service_name,
-                                        logo: offer.company_logo,
-                                        index: k,
-                                        company: offer.company_name,
-                                        pick: true
-                                      },
-                                      on: {
-                                        pick: _vm.selectOffer,
-                                        view: _vm.viewModal
-                                      }
-                                    })
-                                  }),
-                                  1
-                                )
-                              ])
-                            ]
-                          )
-                        ]
-                      )
-                    ]
-                  ),
+                            }
+                          },
+                          [
+                            _c("h3", { staticClass: "card-title col-10" }, [
+                              _vm._v("Seleccione una oferta")
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "card-tools" }, [
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-tool ml-auto ",
+                                  attrs: { type: "button" }
+                                },
+                                [
+                                  _c("personal-fab", {
+                                    attrs: { active: _vm.active2 }
+                                  })
+                                ],
+                                1
+                              )
+                            ])
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass: "panel-collapse in collapse",
+                            attrs: { id: "OffersList" }
+                          },
+                          [
+                            _c("div", { staticClass: "card-body w-100" }, [
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "d-flex justify-content-around w-100 flex-wrap"
+                                },
+                                _vm._l(_vm.offersByArea, function(offer, k) {
+                                  return _c("offer", {
+                                    key: k,
+                                    attrs: {
+                                      title: offer.service_name,
+                                      logo: offer.company_logo,
+                                      index: k,
+                                      company: offer.company_name,
+                                      pick: true
+                                    },
+                                    on: {
+                                      pick: _vm.selectOffer,
+                                      view: _vm.viewModal
+                                    }
+                                  })
+                                }),
+                                1
+                              )
+                            ])
+                          ]
+                        )
+                      ]
+                    )
+                  ]),
                   _vm._v(" "),
                   _c(
                     "div",
-                    { staticClass: "col-xl-6 col-lg-6 col-md-6 col-12" },
+                    { staticClass: "col-xl-12 col-lg-12 col-md-12 col-12" },
                     [
                       _c(
                         "div",
@@ -94442,8 +94437,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\z-projects\colombia_internet\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\z-projects\colombia_internet\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\ConsultingME\colombia_internet\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\ConsultingME\colombia_internet\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),

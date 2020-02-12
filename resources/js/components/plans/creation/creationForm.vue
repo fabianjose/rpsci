@@ -39,7 +39,7 @@
           </div>
 
           <div class="row w-100 flex-wrap justify-content-around">
-            <div class="col-xl-6 col-lg-6 col-md-6 col-12">
+            <div class="col-12">
 
               <div class="card card-primary" id="OffersAccordion">
                 <a class="card-header d-flex flex-row justify-cotent space-between align-items-center d-flex flex-row align-items-center d-flex collapsed" @click="active2=!active2" data-parent="#OffersAccordion"
@@ -53,10 +53,10 @@
                 </a>
 
                 <div id="OffersList" class="panel-collapse in collapse" >
-                  <div class="card-body">
+                  <div class="card-body w-100">
 
-                      <div class="d-flex flex-row justify-content-around w-100 flex-wrap">
-                        <offer class="col-md-6 col-lg-4 col-sm-8" v-for="(offer,k) in offersByArea" :key="k"
+                      <div class="d-flex justify-content-around w-100 flex-wrap">
+                        <offer  v-for="(offer,k) in offersByArea" :key="k"
                           :title="offer.service_name" :logo="offer.company_logo" :index="k"
                           :company="offer.company_name" :pick="true"
                           @pick="selectOffer" @view="viewModal"
@@ -67,7 +67,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-xl-6 col-lg-6 col-md-6 col-12">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-12">
 
               <div class="card card-success" id="SelectedOfferAccordion">
                 <a class="card-header d-flex flex-row justify-cotent space-between align-items-center d-flex flex-row align-items-center d-flex collapsed" @click="active3=!active3" data-parent="#SelectedOfferAccordion" href="#SelectedOffer" aria-expanded="false" data-toggle="collapse">
