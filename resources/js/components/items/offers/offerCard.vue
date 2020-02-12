@@ -1,7 +1,7 @@
 <template>
   <div class="offer-card d-flex flex-column justify-content-between">
     <div class="offer-card-header">
-      <img :src="baseUrl+'/'+offer.company_logo" alt="logo" class="col-10" style="max-height:100px;">
+      <img :src="baseUrl+'/'+offer.company_logo" alt="logo" style="max-height:160px; max-width: 160px;">
     </div>
     <div :class="'offer-card-separator '+(index%2?'bg-main-blue':'bg-main-pink')"></div>
     <div class="offer-card-content">

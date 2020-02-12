@@ -43951,8 +43951,7 @@ var render = function() {
     [
       _c("div", { staticClass: "offer-card-header" }, [
         _c("img", {
-          staticClass: "col-10",
-          staticStyle: { "max-height": "100px" },
+          staticStyle: { "max-height": "160px", "max-width": "160px" },
           attrs: {
             src: _vm.baseUrl + "/" + _vm.offer.company_logo,
             alt: "logo"
