@@ -1,5 +1,5 @@
 <template>
-    <div class="high-plans py-5 px-4">
+    <div class="high-plans py-4 px-4">
       <div class="d-flex w-100 justify-content-center mt-3">
         <h4 class="high-plans-color high-plans-title">Planes destacados</h4>
       </div>

@@ -43730,7 +43730,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "high-plans py-5 px-4" },
+    { staticClass: "high-plans py-4 px-4" },
     [
       _vm._m(0),
       _vm._v(" "),
