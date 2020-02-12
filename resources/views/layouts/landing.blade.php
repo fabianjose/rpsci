@@ -76,26 +76,37 @@
               <div class="col-xl-4 col-lg-4 col-md-6 col-12">
                 <h5 class="footer-title-color font-weight-bold">SERVICIOS DISPONIBLES</h5>
                 <ul class="footer-list p-2">
-                  <li>-Item 1</li>
-                  <li>-Item 2</li>
-                  <li>-Item 3</li>
-                  <li>-Item 4</li>
+                  <li>-internet satelital
+                  </li>
+
+                  <li>-Internet
+                  </li>
+
+                  <li>-Telefonia ip
+                  </li>
+
+                  <li>-MPLS
+                  </li>
+
+                  <li>-Television
+                  </li>
+
                 </ul>
               </div>
               <div class="col-xl-4 col-lg-4 col-md-6 col-12 footer-link-border">
                 <h5 class="footer-title-color font-weight-bold">CATEGORÍAS DEL BLOG</h5>
                 <ul class="footer-list p-2">
-                  <li>-Item 1</li>
-                  <li>-Item 2</li>
-                  <li>-Item 3</li>
-                  <li>-Item 4</li>
+                  <li>-Entrada 1</li>
+                  <li>-Entrada 2</li>
+                  <li>-Entrada 3</li>
+                  <li>-Entrada 4</li>
                 </ul>
               </div>
               <div class="col-xl-4 col-lg-4 col-md-6 col-12 footer-link-border">
                 <h5 class="footer-title-color font-weight-bold">PONTE EN CONTACTO</h5>
                 <ul class="footer-list p-2">
-                  <li>-Correo Electronico</li>
-                  <li>-Números de teléfono</li>
+                  <li>-Correo Electrónico: contacto@contratainternet.com.co</li>
+                  <li>-Números de teléfono: pbx 7868510</li>
                 </ul>
               </div>
             </div>
