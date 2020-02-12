@@ -17,68 +17,56 @@
 
       <div id="collapseCreateService" class="panel-collapse in collapse" >
         <div class="card-body">
-
           <div class="form-group">
             <label>Nombre del Servicio</label>
             <input v-model="name" class="form-control">
           </div>
-
           <div class="form-group">
             <label>Campos del servicio</label>
           </div>
-
-
-
             <div class="row w-100 flex-wrap justify-content-around">
               <div class="col-md-6 col-sm-10 col-10 col-lg-6">
                 <div class="card card-success" id="createServiceFieldAccordion">
                   <a class="card-header collapsed" @click="active2=!active2" data-parent="#createServiceFieldAccordion"
-                      href="#collapseCreateServiceField" aria-expanded="false" data-toggle="collapse">
-                      <h3 class="card-title">Nuevo Campo</h3>
-                      <div class="card-tools">
-                      <button type="button" class="btn btn-tool ml-auto " >
-                          <personal-fab :active="active2" />
-                      </button>
-                      </div>
-                  </a>
-                  <div id="collapseCreateServiceField" class="panel-collapse in collapse" >
-                    <div class="card-body">
-
+                  href="#collapseCreateServiceField" aria-expanded="false" data-toggle="collapse">
+                  <h3 class="card-title">Nuevo Campo</h3>
+                  <div class="card-tools">
+                    <button type="button" class="btn btn-tool ml-auto " >
+                      <personal-fab :active="active2" />
+                    </button>
+                  </div>
+                </a>
+                <div id="collapseCreateServiceField" class="panel-collapse in collapse" >
+                  <div class="card-body">
                     <div class="form-group">
-                        <label>Nombre del Campo</label>
-                        <input v-model="newFieldName" class="form-control">
+                      <label>Nombre del Campo</label>
+                      <input v-model="newFieldName" class="form-control">
                     </div>
-
                     <div class="form-group">
-
-                        <label>Tipo de Campo</label>
-
-                        <select v-model="newFieldType" class="form-control select2 " style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
-                            <option selected value="string" data-select2-id="1">Texto</option>
-                            <option value="numeric" data-select2-id="2">Numero</option>
-                            <!-- <option value="select" data-select2-id="3">Seleccionable</option> -->
-                        </select>
+                      <label>Tipo de Campo</label>
+                      <select v-model="newFieldType" class="form-control select2 " style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                        <option selected value="string" data-select2-id="1">Texto</option>
+                        <option value="numeric" data-select2-id="2">Numero</option>
+                        <!-- <option value="select" data-select2-id="3">Seleccionable</option> -->
+                      </select>
 
                     </div>
-
                     <div v-if="newFieldType=='numeric'" class="form-group">
-                        <label>
-                          Unidad del campo
-                          <p class="text-muted text-sm mb-1" >
-                            <span class="text-danger">* </span> este campo es opcional
-                          </p>
-                        </label>
-                        <input v-model="newFieldUnit" class="form-control">
+                      <label>
+                        Unidad del campo
+                        <p class="text-muted text-sm mb-1" >
+                          <span class="text-danger">* </span> este campo es opcional
+                        </p>
+                      </label>
+                      <input v-model="newFieldUnit" class="form-control">
                     </div>
-
-                    </div>
-
-                    <div class="card-footer">
-                        <button type="button" class="btn btn-outline-success" @click="submitNewField">Agregar Campo</button>
-                    </div>
+                  </div>
+                  <div class="card-footer">
+                    <button type="button" class="btn btn-outline-success" @click="submitNewField">Agregar Campo</button>
                   </div>
                 </div>
               </div>
+            </div>
 
               <div class="col-md-6 col-sm-10 col-10 col-lg-6">
                 <div class="card card-primary" id="ServicesFieldsAccordion">
