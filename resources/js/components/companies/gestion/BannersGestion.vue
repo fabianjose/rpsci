@@ -1,7 +1,7 @@
 <template>
 <div class="container-fluid">
     <div class="row justify-content-center py-4">
-        <div class="col-10 col-lg-12">
+        <div class="col-12 col-sm-10">
             <company-highlight @refresh="refreshData" :companies="companies"></company-highlight>
         </div>
     </div>
@@ -37,6 +37,9 @@ export default {
         console.log(res);
         this.companies=res.data;
       }).catch(err=>{
+        if(err.response.status===403){
+          window.location.replace(baseUrl+"/login");
+        }
         console.log("ERROR FROM SERVER ",err.response);
         if (err.response.data.errorMessage){
           toastr.error(err.response.data.errorMessage);
@@ -57,6 +60,9 @@ export default {
         toastr.success("Compañía sacada de destacadas");
         this.refreshData();
       }).catch(err=>{
+        if(err.response.status===403){
+          window.location.replace(baseUrl+"/login");
+        }
         console.log("ERROR FROM SERVER ",err.response);
         if (err.response.data.errorMessage){
           toastr.error(err.response.data.errorMessage);

@@ -1,8 +1,8 @@
 <template>
   <vueper-slides
     class="no-shadow high-companies-carousel mt-4 text-center"
-    :autoplay="(companies.length < 4)?false:true"
-    :duration="autoplayDuration"
+    :autoplay="true"
+    :duration="3000"
     :bullets="false"
     :arrows="false"
     :visible-slides="(companies.length < 4)?companies.length:4"
@@ -25,7 +25,6 @@ export default {
     return{
       baseUrl:baseUrl,
       companies:[],
-      autoplayDuration: 1000,
       breakpoints:{
         1200: {
           visibleSlides:3,

@@ -4,14 +4,16 @@
         <h4 class="high-plans-color high-plans-title">Planes destacados</h4>
       </div>
       <vueper-slides
+        id="offer-cards"
         class="no-shadow high-plans-carousel text-center w-100"
         ref="plansSlider"
         :bullets="false"
-        :autoplay="autoplay"
-        :duration="1000"
+        :autoplay="true"
+        :duration="3000"
         :visible-slides="(offers.length < 3)?offers.length:3"
         :slide-ratio="0.4"
-        :dragging-distance="70"
+        slide-multiple
+        :dragging-distance="20"
         :arrows="false"
         :breakpoints="breakpoints" >
         <vueper-slide v-for="(offer,index) in offers" :key="index" class="align-self-center">
@@ -36,7 +38,6 @@ export default {
       latLng:"",
       offers: [],
       consultMode:false,
-      autoplay: false,
       breakpoints:{
         1200: {
           visibleSlides:3,
@@ -154,15 +155,6 @@ export default {
       .then(res=>{
         console.log('Offers: ',res);
         this.offers=res.data;
-        if ($(document).width() <= 760) {
-          if (this.offers.length > 1) {
-            this.autoplay = true;
-          }
-        }else {
-          if (this.offers.length > 3) {
-            this.autoplay = true;
-          }
-        }
       }).catch(err=>{
         console.log("ERROR FROM SERVER ",err.response);
         if(err.response.status==404){
@@ -171,7 +163,7 @@ export default {
         if (err.response.data.errorMessage){
           toastr.error(err.response.data.errorMessage);
         }else{
-          toastr.error('Error al obtener las ofertas destacadas');
+          toastr.error('Error al obtener los planes destacados');
         }
       });
     },

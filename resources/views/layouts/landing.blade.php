@@ -16,8 +16,14 @@
                     <img class="ic-logo" src="{{ asset('images/logo.png') }}" alt="">
                 </a>
             </ul>
-            <a class="nav-link hidden-md nav-btn hidden-xl-xl hidden-xl hidden-lg" data-toggle="collapse" data-target="#responsive-menu"><i class="fas fa-bars"></i></a>
-            <div id="responsive-menu" class="navbar-collapse collapse">
+            <a class="nav-link hidden-md nav-btn ml-auto mx-1 hidden-xl-xl hidden-xl hidden-lg"  href="https://contratainternet.speedtestcustom.com/">
+                <i class="fas fa-tachometer-alt"></i>
+            </a>
+            <a class="nav-link hidden-md nav-btn mx-1 hidden-xl-xl hidden-xl hidden-lg" data-toggle="collapse" 
+              data-target="#responsive-menu">
+                <i class="fas fa-bars"></i>
+            </a>
+            <div id="responsive-menu" class="navbar-collapse collapse ml-auto mr-0">
                 <ul class="navbar-nav ml-auto mr-x3 ">
                     <li class="nav-item">
                         <a class="nav-link nav-item-border {{Route::current()->uri=='/'?'active':''}}" href="/">
@@ -47,8 +53,16 @@
                             </h6>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-item-border" href="https://contratainternet.speedtestcustom.com/">
+                            <h6 class="ic-main font-weight-bold">
+                                Prueba de Velocidad
+                            </h6>
+                        </a>
+                    </li>
                 </ul>
-            </div>
+              </div>
+
         </nav>
 
         @yield('content-page')

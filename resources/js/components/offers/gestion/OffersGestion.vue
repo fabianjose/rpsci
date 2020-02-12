@@ -1,12 +1,12 @@
 <template>
 <div class="container-fluid">
     <div class="row justify-content-center py-1">
-        <div class="col-12 col-sm-10 col-lg-8 col-xl-8">
+        <div class="col-12 col-sm-10">
             <offer-creation :services="services" @refresh="refreshData"></offer-creation>
         </div>
     </div>
     <div class="row justify-content-center py-1">
-      <div class="col-12 col-sm-10 col-lg-8 col-xl-8">
+      <div class="col-12 col-sm-10">
         <div class="card card-info" id="offerListAccordion">
           <a class="card-header collapsed" @click="active=!active" data-parent="#offerListAccordion" href="#collapseOffers" aria-expanded="false" data-toggle="collapse">
             <h3 class="card-title">Ofertas Disponibles</h3>
@@ -61,6 +61,9 @@ export default {
         console.log("response from server", res);
         this.services = res.data;
       }).catch(err=>{
+        if(err.response.status===403){
+          window.location.replace(baseUrl+"/login");
+        }
         console.log("ERROR FROM SERVER ",err.response);
         if (err.response.data.errorMessage){
           toastr.error(err.response.data.errorMessage);
@@ -72,6 +75,9 @@ export default {
         console.log(res.data);
         this.offers=res.data;
       }).catch(err=>{
+        if(err.response.status===403){
+          window.location.replace(baseUrl+"/login");
+        }
         console.log("ERROR FROM SERVER ",err.response);
         if (err.response.data.errorMessage){
           toastr.error(err.response.data.errorMessage);
@@ -87,6 +93,9 @@ export default {
         toastr.success("Oferta eliminada con éxito");
         this.refreshData();
       }).catch(err=>{
+        if(err.response.status===403){
+          window.location.replace(baseUrl+"/login");
+        }
         if (err.response.data.errorMessage){
           toastr.error(err.response.data.errorMessage);
         }
@@ -97,10 +106,12 @@ export default {
       this.currentOffer= currentOffer;
     },
     async viewModal(id){
+      this.viewMode=false;
       await this.setOffer(id)
       this.viewMode=true;
     },
     async update(id){
+      this.updateMode=false;
       await this.setOffer(id);
       this.updateMode=true;
     }

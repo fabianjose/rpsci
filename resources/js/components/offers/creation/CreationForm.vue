@@ -37,7 +37,7 @@
           </div>
           <div class="d-flex flex-row w-100 justify-content-around flex-wrap" v-if="fields.length">
             <div class="form-group col-xl-4 col-lg-4 col-md-6 col-12" v-for="(field,index) in fields" >
-              <label>{{field.name}}</label>
+              <label>{{field.name+(field.unit?" ("+field.unit+")":"")}}</label>
               <input v-model="fieldsValues[index]" class="form-control">
             </div>
           </div>
@@ -120,6 +120,9 @@ export default {
         console.log(res);
         this.companies=res.data;
       }).catch(err=>{
+        if(err.response.status===403){
+          window.location.replace(baseUrl+"/login");
+        }
         console.log("ERROR FROM SERVER ",err.response);
         if (err.response.data.errorMessage){
           toastr.error(err.response.data.errorMessage);
@@ -189,6 +192,9 @@ export default {
         this.fields_value = [];
         this.$emit('refresh');
       }).catch(err=>{
+        if(err.response.status===403){
+          window.location.replace(baseUrl+"/login");
+        }
         console.log("ERROR FROM SERVER ",err.response);
         if (err.response.data.errorMessage){
           toastr.error(err.response.data.errorMessage);

@@ -26,15 +26,21 @@
           </div>
           <div class="form-group col-xl-6 col-lg-6 col-md-6 col-12">
             <label>Servicio</label>
-            <select class="custom-select" v-model="offer.service">
+            <select class="custom-select" @change="getFields" v-model="offer.service">
               <option :value="service.id" v-for="service in services"  :key="service.id">{{service.name}}</option>
             </select>
           </div>
         </div>
-        <div class="d-flex flex-row w-100 justify-content-around flex-wrap" v-if="offer.service">
-          <div class="form-group col-xl-4 col-lg-4 col-md-6 col-12" v-for="(field,index) in offer.service_fields" >
-            <label>{{field.label}}</label>
-            <input v-model="offer.fields_value[index]" class="form-control">
+        <div class="d-flex flex-row w-100 justify-content-around flex-wrap" v-if="!offer.fields_values&&fields.length">
+          <div class="form-group col-xl-4 col-lg-4 col-md-6 col-12" v-for="(field,index) in fields" >
+            <label>{{field.name+(field.unit?" ("+field.unit+")":"")}}</label>
+            <input v-model="fields_values[index]" class="form-control">
+          </div>
+        </div>
+        <div class="d-flex flex-row w-100 justify-content-around flex-wrap" v-else>
+          <div class="form-group col-xl-4 col-lg-4 col-md-6 col-12" v-for="(field,index) in offer.fields_values" >
+            <label>{{field.field_name+(field.unit?" ("+field.unit+")":"")}}</label>
+            <input v-model="offer.fields_values[index].value" class="form-control">
           </div>
         </div>
         <div class="d-flex flex-row w-100 justify-content-around flex-wrap">
@@ -44,7 +50,8 @@
           </div>
         </div>
         
-        <zone-select middle="col-xl-6 col-lg-6 col-md-6 col-12" @newDepartment="newDepartment" @newMunicipality="newMunicipality"  ></zone-select>
+        <zone-select middle="col-xl-6 col-lg-6 col-md-6 col-12 py-3" :defaultDepartment="offer.department?offer.department_name:null" :defaultMunicipality="offer.municipality?offer.municipality_name:null" 
+          @newDepartment="newDepartment" @newMunicipality="newMunicipality"  ></zone-select>
 
 
         <div class="d-flex flex-row w-100 justify-content-around flex-wrap">
@@ -86,6 +93,18 @@
 <script>
 export default {
   props:["offer","services"],
+
+  data(){
+    return{
+      fields_values:[],
+      fields:[],
+    }
+  },
+
+  mounted(){
+    if(!this.offer.fields_values) this.getFields()
+  },
+
   methods:{
     newDepartment(department){
       this.offer.department_name=department;
@@ -94,13 +113,57 @@ export default {
     newMunicipality(municipality){
       this.offer.municipality_name=municipality;
     },
-    editOffer(){
-      for (var i = 0; i < this.offer.service_fields.length; i++) {
-        if (!this.offer.fields_value[i]){
-          toastr.error('Debe llenar los campos referentes al servicio seleccionado');
-          return false;
+
+    getFields(){
+      console.log("ser-vice",this.offer.service)
+      axios.get(baseUrl+"/api/service/"+this.offer.service+"/fields")
+      .then(res=>{
+        console.log("campos  ", res)
+        this.fields=res.data;
+        this.offer.fields_values=null;
+      }).catch(err=>{console.error(err);toastr.error("error al obtener los campos del servicio")})
+    },
+
+    async editOffer(){
+
+      let valuesArray=[];
+
+      if(this.fields.length){
+        let continueCreation=true;
+
+        await this.fields.map((field, i)=>{
+          if (!this.fieldsValues[i]||this.fieldsValues[i]==""){
+            continueCreation=false;
+          }
+          else valuesArray.push({
+            "field_id":field.id,
+            "value":this.fieldsValues[i]
+          });
+        });
+
+        if(!continueCreation) {
+          return toastr.error('Debe llenar los campos referentes al servicio seleccionado');
         }
+
+      }else if(this.offer.fields_values){
+        if(this.offer.fields_values.length){
+          for(let i=0; i< this.offer.fields_values.length; i++){
+            if(!this.offer.fields_values[i].value){
+              toastr.error('Debe llenar los campos referentes al servicio seleccionado');
+              return false;
+            }
+            else {
+              let {field_id,value}=this.offer.fields_values[i];
+              valuesArray.push({
+                field_id,
+                value
+              });
+            }
+          }
+        }
+        else return toastr.error('Debe llenar los campos referentes al servicio seleccionado');
       }
+
       let fd= new FormData();
       fd.append("company", this.offer.company_name);
       fd.append("service", this.offer.service);
@@ -110,7 +173,7 @@ export default {
       fd.append("tariff", this.offer.tariff);
       fd.append("type", this.offer.type);
       fd.append("points", this.offer.points);
-      fd.append("fields_value", JSON.stringify(this.offer.fields_value));
+      fd.append("fields_values", valuesArray.length?JSON.stringify(valuesArray):null);
       fd.append("_method","put");
       axios.post(baseUrl+"/api/offer/"+this.offer.id, fd)
       .then(res=>{
@@ -122,6 +185,9 @@ export default {
         }, 2000);
       })
       .catch(err=>{
+        if(err.response.status===403){
+          window.location.replace(baseUrl+"/login");
+        }
         console.log("ERROR FROM SERVER ",err.response);
         if (err.response.data.errorMessage){
           toastr.error(err.response.data.errorMessage);

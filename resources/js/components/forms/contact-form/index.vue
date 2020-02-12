@@ -49,7 +49,6 @@ export default {
 
     methods:{
         getFullRound(){
-            console.log("is real ",this.offer)
             if(!this.offer) return "consult-card-full-rounded";
             else return "col-lg-5 col-xl-5 col-md-5 col-12";
         },
@@ -63,6 +62,14 @@ export default {
             else return toastr.error("Rellene todos los campos");
             if(this.phone&&this.phone!="") fd.append("phone", this.phone);
             else return toastr.error("Rellene todos los campos");
+
+            if(this.offer){
+                fd.append("offer", this.offer.id)
+                fd.append("company_name", this.offer.company_name)
+                fd.append("service_name", this.offer.service_name)
+                if(this.offer.department) fd.append("department", this.offer.department_name)
+                if(this.offer.municipality) fd.append("municipality", this.offer.municipality_name)
+            }
 
             fd.append("type", this.offer?"offer":"general");
 

@@ -2053,6 +2053,10 @@ __webpack_require__.r(__webpack_exports__);
 
         _this.$emit("creatingDone");
       })["catch"](function (err) {
+        if (err.response.status === 403) {
+          window.location.replace(baseUrl + "/login");
+        }
+
         console.log("ERROR FROM SERVER ", err.response);
 
         if (err.response.data.errorMessage) {
@@ -2170,6 +2174,10 @@ __webpack_require__.r(__webpack_exports__);
         console.log(res);
         _this.companies = res.data;
       })["catch"](function (err) {
+        if (err.response.status === 403) {
+          window.location.replace(baseUrl + "/login");
+        }
+
         console.log("ERROR FROM SERVER ", err.response);
 
         if (err.response.data.errorMessage) {
@@ -2201,6 +2209,10 @@ __webpack_require__.r(__webpack_exports__);
 
         _this2.$emit('refresh');
       })["catch"](function (err) {
+        if (err.response.status === 403) {
+          window.location.replace(baseUrl + "/login");
+        }
+
         console.log("ERROR FROM SERVER ", err.response);
 
         if (err.response.data.errorMessage) {
@@ -2301,6 +2313,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         console.log(res);
         _this.companies = res.data;
       })["catch"](function (err) {
+        if (err.response.status === 403) {
+          window.location.replace(baseUrl + "/login");
+        }
+
         console.log("ERROR FROM SERVER ", err.response);
 
         if (err.response.data.errorMessage) {
@@ -2354,6 +2370,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
         _this2.refreshData();
       })["catch"](function (err) {
+        if (err.response.status === 403) {
+          window.location.replace(baseUrl + "/login");
+        }
+
         console.log("ERROR FROM SERVER ", err.response);
 
         if (err.response.data.errorMessage) {
@@ -2455,6 +2475,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         console.log(res);
         _this.companies = res.data;
       })["catch"](function (err) {
+        if (err.response.status === 403) {
+          window.location.replace(baseUrl + "/login");
+        }
+
         console.log("ERROR FROM SERVER ", err.response);
 
         if (err.response.data.errorMessage) {
@@ -2534,6 +2558,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
         _this2.refreshData();
       })["catch"](function (err) {
+        if (err.response.status === 403) {
+          window.location.replace(baseUrl + "/login");
+        }
+
         if (err.response.data.errorMessage) {
           toastr.error(err.response.data.errorMessage);
         }
@@ -2609,7 +2637,6 @@ __webpack_require__.r(__webpack_exports__);
     return {
       baseUrl: baseUrl,
       companies: [],
-      autoplayDuration: 1000,
       breakpoints: {
         1200: {
           visibleSlides: 3,
@@ -2768,6 +2795,10 @@ __webpack_require__.r(__webpack_exports__);
           window.location.reload();
         }, 2000);
       })["catch"](function (err) {
+        if (err.response.status === 403) {
+          window.location.replace(baseUrl + "/login");
+        }
+
         console.log("ERROR FROM SERVER ", err.response);
 
         if (err.response.data.errorMessage) {
@@ -2869,7 +2900,6 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     getFullRound: function getFullRound() {
-      console.log("is real ", this.offer);
       if (!this.offer) return "consult-card-full-rounded";else return "col-lg-5 col-xl-5 col-md-5 col-12";
     },
     sendMail: function sendMail() {
@@ -2879,6 +2909,15 @@ __webpack_require__.r(__webpack_exports__);
       if (this.fullName && this.fullName != "") fd.append("fullName", this.fullName);else return toastr.error("Rellene todos los campos");
       if (this.email && this.email != "") fd.append("email", this.email);else return toastr.error("Rellene todos los campos");
       if (this.phone && this.phone != "") fd.append("phone", this.phone);else return toastr.error("Rellene todos los campos");
+
+      if (this.offer) {
+        fd.append("offer", this.offer.id);
+        fd.append("company_name", this.offer.company_name);
+        fd.append("service_name", this.offer.service_name);
+        if (this.offer.department) fd.append("department", this.offer.department_name);
+        if (this.offer.municipality) fd.append("municipality", this.offer.municipality_name);
+      }
+
       fd.append("type", this.offer ? "offer" : "general");
       this.disableButton = true;
       var loader = this.$loading.show();
@@ -3660,6 +3699,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3667,7 +3708,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       latLng: "",
       offers: [],
       consultMode: false,
-      autoplay: false,
       breakpoints: {
         1200: {
           visibleSlides: 3,
@@ -3816,16 +3856,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       axios.post(baseUrl + '/api/offers/area/highlight', fd).then(function (res) {
         console.log('Offers: ', res);
         _this3.offers = res.data;
-
-        if ($(document).width() <= 760) {
-          if (_this3.offers.length > 1) {
-            _this3.autoplay = true;
-          }
-        } else {
-          if (_this3.offers.length > 3) {
-            _this3.autoplay = true;
-          }
-        }
       })["catch"](function (err) {
         console.log("ERROR FROM SERVER ", err.response);
 
@@ -3836,7 +3866,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         if (err.response.data.errorMessage) {
           toastr.error(err.response.data.errorMessage);
         } else {
-          toastr.error('Error al obtener las ofertas destacadas');
+          toastr.error('Error al obtener los planes destacados');
         }
       });
     },
@@ -3949,6 +3979,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -4359,16 +4390,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ["middle", "hideDepartment", "hideMunicipality", "noRequest"],
+  props: ["middle", "hideDepartment", "hideMunicipality", "noRequest", "defaultDepartment", "defaultMunicipality"],
   data: function data() {
     return {
       departments: [],
       municipalities: [],
-      municipality: "",
-      department: ""
+      municipality: this.defaultMunicipality ? this.defaultMunicipality : null,
+      department: this.defaultDepartment ? this.defaultDepartment : null
     };
   },
   mounted: function mounted() {
+    if (this.department) this.getMunicipalities();
     this.getDepartments();
   },
   methods: {
@@ -4543,6 +4575,10 @@ __webpack_require__.r(__webpack_exports__);
 
         _this.$emit("creatingDone");
       })["catch"](function (err) {
+        if (err.response.status === 403) {
+          window.location.replace(baseUrl + "/login");
+        }
+
         console.log("ERROR FROM SERVER ", err.response);
 
         if (err.response.data.errorMessage) {
@@ -4650,6 +4686,10 @@ __webpack_require__.r(__webpack_exports__);
 
         _this.$emit("creatingDone");
       })["catch"](function (err) {
+        if (err.response.status === 403) {
+          window.location.replace(baseUrl + "/login");
+        }
+
         console.log("ERROR FROM SERVER ", err.response);
 
         if (err.response.data.errorMessage) {
@@ -4821,6 +4861,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         console.log(res);
         _this.departments = res.data;
       })["catch"](function (err) {
+        if (err.response.status === 403) {
+          window.location.replace(baseUrl + "/login");
+        }
+
         console.log("ERROR FROM SERVER ", err.response);
 
         if (err.response.data.errorMessage) {
@@ -4838,6 +4882,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
         _this2.refreshData();
       })["catch"](function (err) {
+        if (err.response.status === 403) {
+          window.location.replace(baseUrl + "/login");
+        }
+
         if (err.response.data.errorMessage) {
           toastr.error(err.response.data.errorMessage);
         }
@@ -5048,6 +5096,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         console.log(res);
         _this.companies = res.data;
       })["catch"](function (err) {
+        if (err.response.status === 403) {
+          window.location.replace(baseUrl + "/login");
+        }
+
         console.log("ERROR FROM SERVER ", err.response);
 
         if (err.response.data.errorMessage) {
@@ -5132,6 +5184,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                   _this3.$emit('refresh');
                 })["catch"](function (err) {
+                  if (err.response.status === 403) {
+                    window.location.replace(baseUrl + "/login");
+                  }
+
                   console.log("ERROR FROM SERVER ", err.response);
 
                   if (err.response.data.errorMessage) {
@@ -5349,6 +5405,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         console.log("response from server", res);
         _this.services = res.data;
       })["catch"](function (err) {
+        if (err.response.status === 403) {
+          window.location.replace(baseUrl + "/login");
+        }
+
         console.log("ERROR FROM SERVER ", err.response);
 
         if (err.response.data.errorMessage) {
@@ -5361,6 +5421,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         console.log(res.data);
         _this.offers = res.data;
       })["catch"](function (err) {
+        if (err.response.status === 403) {
+          window.location.replace(baseUrl + "/login");
+        }
+
         console.log("ERROR FROM SERVER ", err.response);
 
         if (err.response.data.errorMessage) {
@@ -5380,6 +5444,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
         _this2.refreshData();
       })["catch"](function (err) {
+        if (err.response.status === 403) {
+          window.location.replace(baseUrl + "/login");
+        }
+
         if (err.response.data.errorMessage) {
           toastr.error(err.response.data.errorMessage);
         }
@@ -5427,13 +5495,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                _context2.next = 2;
+                this.viewMode = false;
+                _context2.next = 3;
                 return this.setOffer(id);
 
-              case 2:
+              case 3:
                 this.viewMode = true;
 
-              case 3:
+              case 4:
               case "end":
                 return _context2.stop();
             }
@@ -5455,13 +5524,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
-                _context3.next = 2;
+                this.updateMode = false;
+                _context3.next = 3;
                 return this.setOffer(id);
 
-              case 2:
+              case 3:
                 this.updateMode = true;
 
-              case 3:
+              case 4:
               case "end":
                 return _context3.stop();
             }
@@ -5489,6 +5559,21 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -5576,6 +5661,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["offer", "services"],
+  data: function data() {
+    return {
+      fields_values: [],
+      fields: []
+    };
+  },
+  mounted: function mounted() {
+    if (!this.offer.fields_values) this.getFields();
+  },
   methods: {
     newDepartment: function newDepartment(department) {
       this.offer.department_name = department;
@@ -5583,69 +5677,181 @@ __webpack_require__.r(__webpack_exports__);
     newMunicipality: function newMunicipality(municipality) {
       this.offer.municipality_name = municipality;
     },
-    editOffer: function editOffer() {
-      for (var i = 0; i < this.offer.service_fields.length; i++) {
-        if (!this.offer.fields_value[i]) {
-          toastr.error('Debe llenar los campos referentes al servicio seleccionado');
-          return false;
-        }
-      }
+    getFields: function getFields() {
+      var _this = this;
 
-      var fd = new FormData();
-      fd.append("company", this.offer.company_name);
-      fd.append("service", this.offer.service);
-      fd.append("benefits", this.offer.benefits);
-      fd.append("department", this.offer.department_name);
-      fd.append("municipality", this.offer.municipality_name);
-      fd.append("tariff", this.offer.tariff);
-      fd.append("type", this.offer.type);
-      fd.append("points", this.offer.points);
-      fd.append("fields_value", JSON.stringify(this.offer.fields_value));
-      fd.append("_method", "put");
-      axios.post(baseUrl + "/api/offer/" + this.offer.id, fd).then(function (res) {
-        console.log("RESPONSE FROM SERVER ", res);
-        toastr.success("Oferta editada con éxito");
-        setTimeout(function () {
-          window.location.reload();
-        }, 2000);
+      console.log("ser-vice", this.offer.service);
+      axios.get(baseUrl + "/api/service/" + this.offer.service + "/fields").then(function (res) {
+        console.log("campos  ", res);
+        _this.fields = res.data;
+        _this.offer.fields_values = null;
       })["catch"](function (err) {
-        console.log("ERROR FROM SERVER ", err.response);
+        console.error(err);
+        toastr.error("error al obtener los campos del servicio");
+      });
+    },
+    editOffer: function () {
+      var _editOffer = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var _this2 = this;
 
-        if (err.response.data.errorMessage) {
-          toastr.error(err.response.data.errorMessage);
-        } else {
-          var allErrors = err.response.data;
+        var valuesArray, continueCreation, i, _this$offer$fields_va, field_id, value, fd;
 
-          for (var errorkey in allErrors) {
-            if (allErrors[errorkey]) {
-              var _iteratorNormalCompletion = true;
-              var _didIteratorError = false;
-              var _iteratorError = undefined;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                valuesArray = [];
 
-              try {
-                for (var _iterator = allErrors[errorkey][Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-                  var error = _step.value;
-                  toastr.error(error);
+                if (!this.fields.length) {
+                  _context.next = 9;
+                  break;
                 }
-              } catch (err) {
-                _didIteratorError = true;
-                _iteratorError = err;
-              } finally {
-                try {
-                  if (!_iteratorNormalCompletion && _iterator["return"] != null) {
-                    _iterator["return"]();
-                  }
-                } finally {
-                  if (_didIteratorError) {
-                    throw _iteratorError;
-                  }
+
+                continueCreation = true;
+                _context.next = 5;
+                return this.fields.map(function (field, i) {
+                  if (!_this2.fieldsValues[i] || _this2.fieldsValues[i] == "") {
+                    continueCreation = false;
+                  } else valuesArray.push({
+                    "field_id": field.id,
+                    "value": _this2.fieldsValues[i]
+                  });
+                });
+
+              case 5:
+                if (continueCreation) {
+                  _context.next = 7;
+                  break;
                 }
-              }
+
+                return _context.abrupt("return", toastr.error('Debe llenar los campos referentes al servicio seleccionado'));
+
+              case 7:
+                _context.next = 26;
+                break;
+
+              case 9:
+                if (!this.offer.fields_values) {
+                  _context.next = 26;
+                  break;
+                }
+
+                if (!this.offer.fields_values.length) {
+                  _context.next = 25;
+                  break;
+                }
+
+                i = 0;
+
+              case 12:
+                if (!(i < this.offer.fields_values.length)) {
+                  _context.next = 23;
+                  break;
+                }
+
+                if (this.offer.fields_values[i].value) {
+                  _context.next = 18;
+                  break;
+                }
+
+                toastr.error('Debe llenar los campos referentes al servicio seleccionado');
+                return _context.abrupt("return", false);
+
+              case 18:
+                _this$offer$fields_va = this.offer.fields_values[i], field_id = _this$offer$fields_va.field_id, value = _this$offer$fields_va.value;
+                valuesArray.push({
+                  field_id: field_id,
+                  value: value
+                });
+
+              case 20:
+                i++;
+                _context.next = 12;
+                break;
+
+              case 23:
+                _context.next = 26;
+                break;
+
+              case 25:
+                return _context.abrupt("return", toastr.error('Debe llenar los campos referentes al servicio seleccionado'));
+
+              case 26:
+                fd = new FormData();
+                fd.append("company", this.offer.company_name);
+                fd.append("service", this.offer.service);
+                fd.append("benefits", this.offer.benefits);
+                fd.append("department", this.offer.department_name);
+                fd.append("municipality", this.offer.municipality_name);
+                fd.append("tariff", this.offer.tariff);
+                fd.append("type", this.offer.type);
+                fd.append("points", this.offer.points);
+                fd.append("fields_values", valuesArray.length ? JSON.stringify(valuesArray) : null);
+                fd.append("_method", "put");
+                axios.post(baseUrl + "/api/offer/" + this.offer.id, fd).then(function (res) {
+                  console.log("RESPONSE FROM SERVER ", res);
+                  toastr.success("Oferta editada con éxito");
+                  setTimeout(function () {
+                    window.location.reload();
+                  }, 2000);
+                })["catch"](function (err) {
+                  if (err.response.status === 403) {
+                    window.location.replace(baseUrl + "/login");
+                  }
+
+                  console.log("ERROR FROM SERVER ", err.response);
+
+                  if (err.response.data.errorMessage) {
+                    toastr.error(err.response.data.errorMessage);
+                  } else {
+                    var allErrors = err.response.data;
+
+                    for (var errorkey in allErrors) {
+                      if (allErrors[errorkey]) {
+                        var _iteratorNormalCompletion = true;
+                        var _didIteratorError = false;
+                        var _iteratorError = undefined;
+
+                        try {
+                          for (var _iterator = allErrors[errorkey][Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                            var error = _step.value;
+                            toastr.error(error);
+                          }
+                        } catch (err) {
+                          _didIteratorError = true;
+                          _iteratorError = err;
+                        } finally {
+                          try {
+                            if (!_iteratorNormalCompletion && _iterator["return"] != null) {
+                              _iterator["return"]();
+                            }
+                          } finally {
+                            if (_didIteratorError) {
+                              throw _iteratorError;
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                });
+
+              case 38:
+              case "end":
+                return _context.stop();
             }
           }
-        }
-      });
-    }
+        }, _callee, this);
+      }));
+
+      function editOffer() {
+        return _editOffer.apply(this, arguments);
+      }
+
+      return editOffer;
+    }()
   }
 });
 
@@ -5802,6 +6008,10 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         console.log(res);
         _this.companies = res.data;
       })["catch"](function (err) {
+        if (err.response.status === 403) {
+          window.location.replace(baseUrl + "/login");
+        }
+
         console.log("ERROR FROM SERVER ", err.response);
 
         if (err.response.data.errorMessage) {
@@ -5843,6 +6053,10 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
         _this2.$emit('refresh');
       })["catch"](function (err) {
+        if (err.response.status === 403) {
+          window.location.replace(baseUrl + "/login");
+        }
+
         console.log("ERROR FROM SERVER ", err.response);
 
         if (err.response.data.errorMessage) {
@@ -5908,6 +6122,10 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         console.log("RESPONSE FROM SERVER ", res);
         _this3.offersByArea = res.data;
       })["catch"](function (err) {
+        if (err.response.status === 403) {
+          window.location.replace(baseUrl + "/login");
+        }
+
         console.log("ERROR FROM SERVER ", err.response);
 
         if (err.response.data.errorMessage) {
@@ -6042,6 +6260,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         console.log(res);
         _this.offers = res.data;
       })["catch"](function (err) {
+        if (err.response.status === 403) {
+          window.location.replace(baseUrl + "/login");
+        }
+
         console.log("ERROR FROM SERVER ", err.response);
 
         if (err.response.data.errorMessage) {
@@ -6078,6 +6300,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                   _this2.refreshData();
                 })["catch"](function (err) {
+                  if (err.response.status === 403) {
+                    window.location.replace(baseUrl + "/login");
+                  }
+
                   if (err.response.data.errorMessage) {
                     toastr.error(err.response.data.errorMessage);
                   }
@@ -6387,6 +6613,10 @@ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"
 
         _this.$emit("creatingDone");
       })["catch"](function (err) {
+        if (err.response.status === 403) {
+          window.location.replace(baseUrl + "/login");
+        }
+
         console.log("ERROR FROM SERVER ", err.response);
 
         if (err.response.data.errorMessage) {
@@ -6513,6 +6743,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         console.log(res);
         _this.services = res.data;
       })["catch"](function (err) {
+        if (err.response.status === 403) {
+          window.location.replace(baseUrl + "/login");
+        }
+
         console.log("ERROR FROM SERVER ", err.response);
 
         if (err.response.data.errorMessage) {
@@ -6530,6 +6764,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
         _this2.refreshData();
       })["catch"](function (err) {
+        if (err.response.status === 403) {
+          window.location.replace(baseUrl + "/login");
+        }
+
         if (err.response.data.errorMessage) {
           toastr.error(err.response.data.errorMessage);
         }
@@ -6799,6 +7037,10 @@ __webpack_require__.r(__webpack_exports__);
           window.location.reload();
         }, 2000);
       })["catch"](function (err) {
+        if (err.response.status === 403) {
+          window.location.replace(baseUrl + "/login");
+        }
+
         console.log("ERROR FROM SERVER ", err.response);
 
         if (err.response.data.errorMessage) {
@@ -40674,7 +40916,7 @@ var render = function() {
       _c("div", { staticClass: "row justify-content-center py-4" }, [
         _c(
           "div",
-          { staticClass: "col-10 col-lg-12" },
+          { staticClass: "col-12 col-sm-10" },
           [
             _c("company-highlight", {
               attrs: { companies: _vm.companies },
@@ -40743,7 +40985,7 @@ var render = function() {
       _c("div", { staticClass: "row justify-content-center py-4" }, [
         _c(
           "div",
-          { staticClass: "col-10 col-lg-12" },
+          { staticClass: "col-12 col-sm-10" },
           [_c("company-creation", { on: { creatingDone: _vm.refreshData } })],
           1
         )
@@ -40811,8 +41053,8 @@ var render = function() {
     {
       staticClass: "no-shadow high-companies-carousel mt-4 text-center",
       attrs: {
-        autoplay: _vm.companies.length < 4 ? false : true,
-        duration: _vm.autoplayDuration,
+        autoplay: true,
+        duration: 3000,
         bullets: false,
         arrows: false,
         "visible-slides": _vm.companies.length < 4 ? _vm.companies.length : 4,
@@ -42900,12 +43142,14 @@ var render = function() {
           ref: "plansSlider",
           staticClass: "no-shadow high-plans-carousel text-center w-100",
           attrs: {
+            id: "offer-cards",
             bullets: false,
-            autoplay: _vm.autoplay,
-            duration: 1000,
+            autoplay: true,
+            duration: 3000,
             "visible-slides": _vm.offers.length < 3 ? _vm.offers.length : 3,
             "slide-ratio": 0.4,
-            "dragging-distance": 70,
+            "slide-multiple": "",
+            "dragging-distance": 20,
             arrows: false,
             breakpoints: _vm.breakpoints
           }
@@ -43103,55 +43347,67 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "offer-card" }, [
-    _c("div", { staticClass: "offer-card-header" }, [
-      _c("img", {
-        staticClass: "col-10",
-        staticStyle: { "max-height": "100px" },
-        attrs: { src: _vm.baseUrl + "/" + _vm.offer.company_logo, alt: "logo" }
-      })
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "offer-card-separator bg-main-pink" }),
-    _vm._v(" "),
-    _c("div", { staticClass: "offer-card-content" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("h6", { staticClass: "col-12 offer-card-title" }, [
-          _vm._v(_vm._s(_vm.offer.company_name))
+  return _c(
+    "div",
+    { staticClass: "offer-card d-flex flex-column justify-content-between" },
+    [
+      _c("div", { staticClass: "offer-card-header" }, [
+        _c("img", {
+          staticClass: "col-10",
+          staticStyle: { "max-height": "100px" },
+          attrs: {
+            src: _vm.baseUrl + "/storage/" + _vm.offer.company_logo,
+            alt: "logo"
+          }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", {
+        class:
+          "offer-card-separator " +
+          (_vm.index % 2 ? "bg-main-blue" : "bg-main-pink")
+      }),
+      _vm._v(" "),
+      _c("div", { staticClass: "offer-card-content" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("h6", { staticClass: "col-12 offer-card-title" }, [
+            _vm._v(_vm._s(_vm.offer.company_name))
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row" }, [
+          _c("h6", { staticClass: "col-12 offer-card-benefits text-wrap" }, [
+            _vm._v(_vm._s(_vm.offer.benefits))
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row" }, [
+          _c("h5", { staticClass: "col-12 offer-card-price" }, [
+            _vm._v(_vm._s(_vm.offer.tariff) + " $")
+          ])
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "row" }, [
-        _c("h6", { staticClass: "col-12 offer-card-benefits text-wrap" }, [
-          _vm._v(_vm._s(_vm.offer.benefits))
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "row" }, [
-        _c("h5", { staticClass: "col-12 offer-card-price" }, [
-          _vm._v(_vm._s(_vm.offer.tariff) + " $")
-        ])
-      ])
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "offer-card-footer" }, [
-      _c("div", { staticClass: "col-10" }, [
-        _c(
-          "button",
-          {
-            staticClass:
-              "btn btn-block bg-main-pink text-white offer-card-btn rounded-pill",
-            attrs: {
-              "data-toggle": "modal",
-              "data-target": "#modalConsultOffer"
+      _c("div", { staticClass: "offer-card-footer" }, [
+        _c("div", { staticClass: "col-10" }, [
+          _c(
+            "button",
+            {
+              class:
+                "btn btn-block text-white offer-card-btn rounded-pill " +
+                (_vm.index % 2 ? "bg-main-blue" : "bg-main-pink"),
+              attrs: {
+                "data-toggle": "modal",
+                "data-target": "#modalConsultOffer"
+              },
+              on: { click: _vm.emitContact }
             },
-            on: { click: _vm.emitContact }
-          },
-          [_vm._v("\n        CONTACTAR\n      ")]
-        )
+            [_vm._v("\n        CONTACTAR\n      ")]
+          )
+        ])
       ])
-    ])
-  ])
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -43194,13 +43450,17 @@ var render = function() {
               _c("img", {
                 staticClass: "col-10",
                 attrs: {
-                  src: _vm.baseUrl + "/" + _vm.offer.company_logo,
+                  src: _vm.baseUrl + "/storage/" + _vm.offer.company_logo,
                   alt: "logo"
                 }
               })
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "offer-card-separator bg-main-pink" }),
+            _c("div", {
+              class:
+                "offer-card-separator " +
+                (_vm.index % 2 ? "bg-main-blue" : "bg-main-pink")
+            }),
             _vm._v(" "),
             _c("div", { staticClass: "consult-card-content p-3 pb-5" }, [
               _c("div", { staticClass: "row text-center w-100" }, [
@@ -43284,18 +43544,18 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "li",
-    { staticClass: "list-group-item d-flex justify-content-between flex-wrap" },
+    { staticClass: "list-group-item d-flex justify-content-between" },
     [
       _c(
         "h5",
         {
-          staticClass: "px-2 mt-2 card-text text-capitalize",
+          staticClass: "px-2 mt-2 card-text text-capitalize col-6",
           staticStyle: { color: "#006494" }
         },
         [_vm._v(_vm._s(_vm.title) + " - " + _vm._s(_vm.company))]
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "btn-group flex-wrap" }, [
+      _c("div", { staticClass: "btn-group col-6" }, [
         _c(
           "button",
           {
@@ -43581,7 +43841,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "li",
-    { staticClass: "list-group-item d-flex justify-content-between flex-wrap" },
+    { staticClass: "list-group-item d-flex justify-content-between" },
     [
       _c(
         "h5",
@@ -44462,7 +44722,14 @@ var render = function() {
                             "form-group col-xl-4 col-lg-4 col-md-6 col-12"
                         },
                         [
-                          _c("label", [_vm._v(_vm._s(field.name))]),
+                          _c("label", [
+                            _vm._v(
+                              _vm._s(
+                                field.name +
+                                  (field.unit ? " (" + field.unit + ")" : "")
+                              )
+                            )
+                          ]),
                           _vm._v(" "),
                           _c("input", {
                             directives: [
@@ -44833,7 +45100,7 @@ var render = function() {
       _c("div", { staticClass: "row justify-content-center py-1" }, [
         _c(
           "div",
-          { staticClass: "col-12 col-sm-10 col-lg-8 col-xl-8" },
+          { staticClass: "col-12 col-sm-10" },
           [
             _c("offer-creation", {
               attrs: { services: _vm.services },
@@ -44845,7 +45112,7 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "row justify-content-center py-1" }, [
-        _c("div", { staticClass: "col-12 col-sm-10 col-lg-8 col-xl-8" }, [
+        _c("div", { staticClass: "col-12 col-sm-10" }, [
           _c(
             "div",
             {
@@ -45036,23 +45303,26 @@ var render = function() {
                           ],
                           staticClass: "custom-select",
                           on: {
-                            change: function($event) {
-                              var $$selectedVal = Array.prototype.filter
-                                .call($event.target.options, function(o) {
-                                  return o.selected
-                                })
-                                .map(function(o) {
-                                  var val = "_value" in o ? o._value : o.value
-                                  return val
-                                })
-                              _vm.$set(
-                                _vm.offer,
-                                "service",
-                                $event.target.multiple
-                                  ? $$selectedVal
-                                  : $$selectedVal[0]
-                              )
-                            }
+                            change: [
+                              function($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                  .call($event.target.options, function(o) {
+                                    return o.selected
+                                  })
+                                  .map(function(o) {
+                                    var val = "_value" in o ? o._value : o.value
+                                    return val
+                                  })
+                                _vm.$set(
+                                  _vm.offer,
+                                  "service",
+                                  $event.target.multiple
+                                    ? $$selectedVal
+                                    : $$selectedVal[0]
+                                )
+                              },
+                              _vm.getFields
+                            ]
                           }
                         },
                         _vm._l(_vm.services, function(service) {
@@ -45072,14 +45342,14 @@ var render = function() {
                 ]
               ),
               _vm._v(" "),
-              _vm.offer.service
+              !_vm.offer.fields_values && _vm.fields.length
                 ? _c(
                     "div",
                     {
                       staticClass:
                         "d-flex flex-row w-100 justify-content-around flex-wrap"
                     },
-                    _vm._l(_vm.offer.service_fields, function(field, index) {
+                    _vm._l(_vm.fields, function(field, index) {
                       return _c(
                         "div",
                         {
@@ -45087,26 +45357,33 @@ var render = function() {
                             "form-group col-xl-4 col-lg-4 col-md-6 col-12"
                         },
                         [
-                          _c("label", [_vm._v(_vm._s(field.label))]),
+                          _c("label", [
+                            _vm._v(
+                              _vm._s(
+                                field.name +
+                                  (field.unit ? " (" + field.unit + ")" : "")
+                              )
+                            )
+                          ]),
                           _vm._v(" "),
                           _c("input", {
                             directives: [
                               {
                                 name: "model",
                                 rawName: "v-model",
-                                value: _vm.offer.fields_value[index],
-                                expression: "offer.fields_value[index]"
+                                value: _vm.fields_values[index],
+                                expression: "fields_values[index]"
                               }
                             ],
                             staticClass: "form-control",
-                            domProps: { value: _vm.offer.fields_value[index] },
+                            domProps: { value: _vm.fields_values[index] },
                             on: {
                               input: function($event) {
                                 if ($event.target.composing) {
                                   return
                                 }
                                 _vm.$set(
-                                  _vm.offer.fields_value,
+                                  _vm.fields_values,
                                   index,
                                   $event.target.value
                                 )
@@ -45118,7 +45395,60 @@ var render = function() {
                     }),
                     0
                   )
-                : _vm._e(),
+                : _c(
+                    "div",
+                    {
+                      staticClass:
+                        "d-flex flex-row w-100 justify-content-around flex-wrap"
+                    },
+                    _vm._l(_vm.offer.fields_values, function(field, index) {
+                      return _c(
+                        "div",
+                        {
+                          staticClass:
+                            "form-group col-xl-4 col-lg-4 col-md-6 col-12"
+                        },
+                        [
+                          _c("label", [
+                            _vm._v(
+                              _vm._s(
+                                field.field_name +
+                                  (field.unit ? " (" + field.unit + ")" : "")
+                              )
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.offer.fields_values[index].value,
+                                expression: "offer.fields_values[index].value"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            domProps: {
+                              value: _vm.offer.fields_values[index].value
+                            },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.offer.fields_values[index],
+                                  "value",
+                                  $event.target.value
+                                )
+                              }
+                            }
+                          })
+                        ]
+                      )
+                    }),
+                    0
+                  ),
               _vm._v(" "),
               _c(
                 "div",
@@ -45157,7 +45487,15 @@ var render = function() {
               ),
               _vm._v(" "),
               _c("zone-select", {
-                attrs: { middle: "col-xl-6 col-lg-6 col-md-6 col-12" },
+                attrs: {
+                  middle: "col-xl-6 col-lg-6 col-md-6 col-12 py-3",
+                  defaultDepartment: _vm.offer.department
+                    ? _vm.offer.department_name
+                    : null,
+                  defaultMunicipality: _vm.offer.municipality
+                    ? _vm.offer.municipality_name
+                    : null
+                },
                 on: {
                   newDepartment: _vm.newDepartment,
                   newMunicipality: _vm.newMunicipality
@@ -45408,8 +45746,7 @@ var render = function() {
       _c(
         "a",
         {
-          staticClass:
-            "card-header d-flex flex-row justify-cotent space-between align-items-center d-flex flex-row align-items-center d-flex collapsed",
+          staticClass: "card-header collapsed",
           attrs: {
             "data-parent": "#createOfferAccordion",
             href: "#collapseOne",
@@ -45528,7 +45865,7 @@ var render = function() {
                 _c(
                   "button",
                   {
-                    staticClass: "btn btn-outline-success mx-auto my-2",
+                    staticClass: "btn btn-outline-success my-2",
                     attrs: { type: "button" },
                     on: { click: _vm.highlightedOffers }
                   },
@@ -45819,7 +46156,7 @@ var render = function() {
       _c("div", { staticClass: "row justify-content-center py-4" }, [
         _c(
           "div",
-          { staticClass: "col-12 col-sm-10 col-lg-8 col-xl-8" },
+          { staticClass: "col-12 col-sm-10" },
           [
             _c("plans-creation", {
               on: { viewOffer: _vm.viewSelected, refresh: _vm.refreshData }
@@ -45834,7 +46171,7 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "row justify-content-center py-4" }, [
-        _c("div", { staticClass: "col-12 col-sm-10 col-lg-8 col-xl-8" }, [
+        _c("div", { staticClass: "col-12 col-sm-10" }, [
           _c("div", { staticClass: "card card-primary " }, [
             _vm._m(0),
             _vm._v(" "),

@@ -48,6 +48,12 @@
           <p>
             {{$general_message}}
             <br>
+
+            @if($offerLink)
+              <span>Link de la oferta: {{$offerLink}}</span>
+              <br>  
+            @endif
+
             <br>
             Aqui están mis datos de contacto:
             <br>
