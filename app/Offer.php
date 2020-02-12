@@ -57,7 +57,7 @@ class Offer extends Model{
 
     }
 
-    if(in_array("company",$options)){
+    if(in_array("highlight",$options)){
       
       return  DB::table('offers')
       ->where('offers.trash',0)
@@ -99,7 +99,7 @@ class Offer extends Model{
       ->where("fields_values.trash", 0)
       ->limit(2)
       ->orderBy("fields_values.field_id","asc")
-      ->select("fields_values.value", "fields.name as field_name", "fields.unit as unit")
+      ->select("fields_values.value", "fields.name as field_name", "fields.unit as unit", "fields.id as field_id")
       ->get();
     }
 

@@ -115,6 +115,9 @@ export default {
         console.log(res);
         this.departments=res.data;
       }).catch(err=>{
+        if(err.response.status===403){
+          window.location.replace(baseUrl+"/login");
+        }
         console.log("ERROR FROM SERVER ",err.response);
         if (err.response.data.errorMessage){
           toastr.error(err.response.data.errorMessage);
@@ -130,6 +133,9 @@ export default {
         toastr.success("Eliminado con éxito");
         this.refreshData();
       }).catch(err=>{
+        if(err.response.status===403){
+          window.location.replace(baseUrl+"/login");
+        }
         if (err.response.data.errorMessage){
           toastr.error(err.response.data.errorMessage);
         }

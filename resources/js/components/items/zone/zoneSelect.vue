@@ -47,16 +47,17 @@
 
 <script>
 export default {
-    props:["middle", "hideDepartment", "hideMunicipality", "noRequest"],
+    props:["middle", "hideDepartment", "hideMunicipality", "noRequest","defaultDepartment","defaultMunicipality"],
     data(){
         return {
           departments:[],
           municipalities:[],
-          municipality:"",
-          department:"",
+          municipality:this.defaultMunicipality?this.defaultMunicipality:null,
+          department:this.defaultDepartment?this.defaultDepartment:null,
         }
     },
     mounted(){
+      if(this.department) this.getMunicipalities();
       this.getDepartments();
     },
     methods:{

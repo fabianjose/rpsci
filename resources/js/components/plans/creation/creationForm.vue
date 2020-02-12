@@ -1,6 +1,6 @@
 <template>
     <div class="card card-info" id="createOfferAccordion">
-      <a class="card-header d-flex flex-row justify-cotent space-between align-items-center d-flex flex-row align-items-center d-flex collapsed" @click="active=!active" data-parent="#createOfferAccordion" href="#collapseOne" aria-expanded="false" data-toggle="collapse">
+      <a class="card-header collapsed" @click="active=!active" data-parent="#createOfferAccordion" href="#collapseOne" aria-expanded="false" data-toggle="collapse">
         <h3 class="card-title text-wrap col-10">Destacar Oferta</h3>
         <div class="card-tools">
           <button type="button" class="btn btn-tool ml-auto " >
@@ -35,7 +35,7 @@
 
 
           <div class="row my-3 px-4">
-            <button type="button" class="btn btn-outline-success mx-auto my-2" @click="highlightedOffers">Buscar ofertas</button>
+            <button type="button" class="btn btn-outline-success my-2" @click="highlightedOffers">Buscar ofertas</button>
           </div>
 
           <div class="row w-100 flex-wrap justify-content-around">
@@ -138,6 +138,9 @@ export default {
         console.log(res);
         this.companies=res.data;
       }).catch(err=>{
+        if(err.response.status===403){
+          window.location.replace(baseUrl+"/login");
+        }
         console.log("ERROR FROM SERVER ",err.response);
         if (err.response.data.errorMessage){
           toastr.error(err.response.data.errorMessage);
@@ -179,6 +182,9 @@ export default {
         this.OpenAccordion("#SelectedOfferAccordion","#SelectedOffer", "active3");
         this.$emit('refresh');
       }).catch(err=>{
+        if(err.response.status===403){
+          window.location.replace(baseUrl+"/login");
+        }
         console.log("ERROR FROM SERVER ",err.response);
         if (err.response.data.errorMessage){
           toastr.error(err.response.data.errorMessage);
@@ -224,6 +230,9 @@ export default {
         console.log("RESPONSE FROM SERVER ",res);
         this.offersByArea=res.data;
       }).catch(err=>{
+        if(err.response.status===403){
+          window.location.replace(baseUrl+"/login");
+        }
         console.log("ERROR FROM SERVER ",err.response);
         if (err.response.data.errorMessage){
           toastr.error(err.response.data.errorMessage);

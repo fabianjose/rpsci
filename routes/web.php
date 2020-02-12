@@ -48,6 +48,8 @@ Route::group(["middleware" => ["isAuth"]], function(){
         return view('pages.offers');
     });
 
+    Route::get('/offer/{id}','OfferController@getOffer');
+
     Route::get("/banners", function(){
         return view('pages.banners');
     });

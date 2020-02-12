@@ -1,13 +1,13 @@
 <template>
 <div class="container-fluid">
     <div class="row justify-content-center py-4">
-        <div class="col-12 col-sm-10 col-lg-8 col-xl-8">
+        <div class="col-12 col-sm-10">
             <plans-creation @viewOffer="viewSelected" @refresh="refreshData"></plans-creation>
         </div>
     </div>
     <h5 class="mt-4 mb-2 text-center">Ofertas Disponibles</h5>
     <div class="row justify-content-center py-4">
-      <div class="col-12 col-sm-10 col-lg-8 col-xl-8">
+      <div class="col-12 col-sm-10">
         <div class="card card-primary ">
           <div class="card-header">
             <h3 class="card-title">Busqueda Avanzada</h3>
@@ -78,6 +78,9 @@ export default {
         console.log(res);
         this.offers = res.data;
       }).catch(err=>{
+        if(err.response.status===403){
+          window.location.replace(baseUrl+"/login");
+        }
         console.log("ERROR FROM SERVER ",err.response);
         if (err.response.data.errorMessage){
           toastr.error(err.response.data.errorMessage);
@@ -98,6 +101,9 @@ export default {
         toastr.success("Oferta Descartada con éxito");
         this.refreshData();
       }).catch(err=>{
+        if(err.response.status===403){
+          window.location.replace(baseUrl+"/login");
+        }
         
         if (err.response.data.errorMessage){
           toastr.error(err.response.data.errorMessage);

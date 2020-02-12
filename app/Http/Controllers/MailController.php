@@ -17,15 +17,42 @@ class MailController extends Controller
           "fullName" => "required|string|min:3|max:48",
           "email" => "required|email|max:64",
           "phone" => ["required","regex:/^[0-9\-\+]{9,15}$/"],
-          "type" => "required|in:general,offer"
+          "type" => "required|in:general,offer",
+          "offfer" => "exists:offers,id",
+          "company_name" => "exists:companies,name",
+          "service_name" => "exists:services,name",
+          "department" => "exists:departments,name",
+          "municipality" => "exists:municipalities,name",
+          //'g-recaptcha-response' => 'required|captcha',
       ]);
       if ($validation->fails()){
         return response()->json($validation->errors(), 400);
       }
 
+      $fromOffer="";
+
       $fromGeneral="He visitado su página y me gustaría que nos pusiéramos en contacto para validar mi cobertura";
       
-      $fromOffer="He visitado su página y me gustaría conocer detalles más específicos sobre la oferta de {{empresa}} para {{servicio}} en {{zona}} ";
+      $zone="";
+
+      if($request->input("municipality")){
+        $zone+=" en ".$request->input("municipality").",";
+      }
+
+      if($request->input("department")){
+        $zone+=$zone==""?" en ":" ".$request->input("department").",";
+      }
+
+      if($request->input("company_name")&&$request->input("service_name")){
+        $fromOffer="He visitado su página y me gustaría conocer detalles más específicos sobre la oferta de ".$data["company_name"]." para el servicio de ".$data["service_name"].$zone." ";
+      }
+
+
+      $offerLink=null;
+
+      if($request->input("offer")){
+        $offerLink=url("offer/".$data["offer"]);
+      }
       //falta definir que haremos con los datos de la oferta
 
       //llevar el link de la oferta
@@ -36,7 +63,9 @@ class MailController extends Controller
       [
           "fullName"=>$data["fullName"],
           "email"=>$data["email"],
-          "phone"=>$data["phone"]
+          "phone"=>$data["phone"],
+          "offerLink"=>$offerLink,
+          "general_message"=>$general_message
       ]
       ,function ($m)
       {

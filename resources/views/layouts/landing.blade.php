@@ -16,8 +16,14 @@
                     <img class="ic-logo" src="{{ asset('images/logo.png') }}" alt="">
                 </a>
             </ul>
-            <a class="nav-link hidden-md nav-btn hidden-xl-xl hidden-xl hidden-lg" data-toggle="collapse" data-target="#responsive-menu"><i class="fas fa-bars"></i></a>
-            <div id="responsive-menu" class="navbar-collapse collapse">
+            <a class="nav-link hidden-md nav-btn ml-auto mx-1 hidden-xl-xl hidden-xl hidden-lg"  href="https://contratainternet.speedtestcustom.com/">
+                <i class="fas fa-tachometer-alt"></i>
+            </a>
+            <a class="nav-link hidden-md nav-btn mx-1 hidden-xl-xl hidden-xl hidden-lg" data-toggle="collapse" 
+              data-target="#responsive-menu">
+                <i class="fas fa-bars"></i>
+            </a>
+            <div id="responsive-menu" class="navbar-collapse collapse ml-auto mr-0">
                 <ul class="navbar-nav ml-auto mr-x3 ">
                     <li class="nav-item">
                         <a class="nav-link nav-item-border {{Route::current()->uri=='/'?'active':''}}" href="/">
@@ -47,8 +53,16 @@
                             </h6>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-item-border" href="https://contratainternet.speedtestcustom.com/">
+                            <h6 class="ic-main font-weight-bold">
+                                Prueba de Velocidad
+                            </h6>
+                        </a>
+                    </li>
                 </ul>
-            </div>
+              </div>
+
         </nav>
 
         @yield('content-page')
@@ -62,26 +76,37 @@
               <div class="col-xl-4 col-lg-4 col-md-6 col-12">
                 <h5 class="footer-title-color font-weight-bold">SERVICIOS DISPONIBLES</h5>
                 <ul class="footer-list p-2">
-                  <li>-Item 1</li>
-                  <li>-Item 2</li>
-                  <li>-Item 3</li>
-                  <li>-Item 4</li>
+                  <li>-internet satelital
+                  </li>
+
+                  <li>-Internet
+                  </li>
+
+                  <li>-Telefonia ip
+                  </li>
+
+                  <li>-MPLS
+                  </li>
+
+                  <li>-Television
+                  </li>
+
                 </ul>
               </div>
               <div class="col-xl-4 col-lg-4 col-md-6 col-12 footer-link-border">
                 <h5 class="footer-title-color font-weight-bold">CATEGORÍAS DEL BLOG</h5>
                 <ul class="footer-list p-2">
-                  <li>-Item 1</li>
-                  <li>-Item 2</li>
-                  <li>-Item 3</li>
-                  <li>-Item 4</li>
+                  <li>-Entrada 1</li>
+                  <li>-Entrada 2</li>
+                  <li>-Entrada 3</li>
+                  <li>-Entrada 4</li>
                 </ul>
               </div>
               <div class="col-xl-4 col-lg-4 col-md-6 col-12 footer-link-border">
                 <h5 class="footer-title-color font-weight-bold">PONTE EN CONTACTO</h5>
                 <ul class="footer-list p-2">
-                  <li>-Correo Electronico</li>
-                  <li>-Números de teléfono</li>
+                  <li>-Correo Electrónico: contacto@contratainternet.com.co</li>
+                  <li>-Números de teléfono: pbx 7868510</li>
                 </ul>
               </div>
             </div>

@@ -16,14 +16,16 @@
 				Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 			</span>
 		</div>
-		<h4 class="mision-title mt-5 mb-4">MISIÓN Y VISIÓN</h4>
+		<h4 class="mision-title mt-5 mb-4">MISIÓN</h4>
 		<div class="d-flex justify-content-center mision-content mb-3">
-			<span class="text-justify px-4">
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-				Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-				Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			<span class="text-justify px-4 text-wrap">
+				Facilitar a todos los hogares y empresas Colombianas la búsqueda del mejor proveedor en telecomunicaciones, posicionándonos como la plataforma web más buscada para la solución de conectividad a nivel nacional. 
+			</span>
+		</div>
+		<h4 class="mision-title mt-5 mb-4">VISION</h4>
+		<div class="d-flex justify-content-center mision-content mb-3">
+			<span class="text-justify px-4 text-wrap">
+				Posicionarnos como la plataforma web más utilizada a nivel global, siendo el metabuscador más rentable, generando a nuestros usuarios la facilidad de encontrar el mejor proveedor de telecomunicaciones, sin importar el lugar del mundo en el que se encuentre.  
 			</span>
 		</div>
 	</div>

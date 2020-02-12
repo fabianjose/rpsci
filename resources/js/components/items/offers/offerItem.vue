@@ -1,7 +1,7 @@
 <template>
-  <li class="list-group-item d-flex justify-content-between flex-wrap">
-    <h5 class="px-2 mt-2 card-text text-capitalize" style="color: #006494;">{{title}} - {{company}}</h5>
-    <div class="btn-group flex-wrap">
+  <li class="list-group-item d-flex justify-content-between">
+    <h5 class="px-2 mt-2 card-text text-capitalize col-6" style="color: #006494;">{{title}} - {{company}}</h5>
+    <div class="btn-group col-6">
       <button type="button" class="btn btn-app rounded mx-1" @click="emitView" data-toggle="modal" data-target="#modalViewOffer">
         <i class="fas fa-eye"></i>
       </button>

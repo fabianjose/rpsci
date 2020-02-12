@@ -10,7 +10,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <meta name="re-captcha-key" content="{{ env('RECAPTCHA_SITE_KEY') }}" > 
+    <meta name="re-captcha-key" content="{{ config('captcha.site_key') }}" > 
     <!-- Base URL -->
     <meta name="base-url" content="{{ URL::to('/') }}">
 

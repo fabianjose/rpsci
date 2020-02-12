@@ -78,6 +78,8 @@ Vue.component("filter-card", require("./components/forms/filterOffers").default)
 Vue.component("companies-slider", require("./components/companies/listSlider").default);
 Vue.component("filter-table", require("./components/items/offers-table").default);
 
+Vue.component("contact-main", require("./components/contact").default);
+
 //Vue.component('plans', require('./components/items/plans/plans.vue').default);
 //Vue.component('plans-details', require('./components/items/services/detailedService.vue').default);
 //Vue.component('plans-update', require('./components/services/update/updateForm.vue').default);
@@ -116,6 +118,21 @@ import { VueperSlides, VueperSlide } from 'vueperslides'
 import 'vueperslides/dist/vueperslides.css'
 Vue.component('vueper-slides', VueperSlides);
 Vue.component('vueper-slide', VueperSlide);
+
+import Vue from 'vue'
+import * as VueGoogleMaps from 'vue2-google-maps'
+ 
+Vue.use(VueGoogleMaps, {
+  load: {
+    key: "AIzaSyBL0ZT5AWyMHUGkuGVuSbqHwZx_3dr6MU0",
+    libraries: 'places', // This is required if you use the Autocomplete plugin
+    // OR: libraries: 'places,drawing'
+    // OR: libraries: 'places,drawing,visualization'
+    // (as you require)
+ 
+    //// If you want to set the version, you can do so:
+    // v: '3.26',
+},});
 
 let jwtToken = document.head.querySelector('meta[name="jwt-token"]');
 

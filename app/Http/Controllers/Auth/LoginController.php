@@ -24,7 +24,7 @@ class LoginController extends Controller{
   }
   
   public function enter(Request $request){
-    
+
     $user = null;
 
     $validator = Validator::make($request->all(), [

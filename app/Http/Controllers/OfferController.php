@@ -85,7 +85,10 @@ class OfferController extends Controller{
       'company' => ['exists:companies,name', 'string'],
       'service' => ['exists:services,id'],
       'benefits' => ['string'],
-      'fields_value' => ['json'],
+      'fields_values' => ['json', 'nullable'],
+      "fields_values.*"=> "json",
+      "fields_values.*.value"=> "required|string|max:32|min:3",
+      "fields_values.*.field_id"=> "required|exists:fields,id",
       'tariff' => ['required', 'numeric', "min:0.1", "max:99999999"],
       'points' => ['string'],
       'municipality' => ['in:private,company'],
@@ -119,6 +122,19 @@ class OfferController extends Controller{
       'department',
       'municipality'
     ];
+
+    $service=Service::find($request->input("service")||$offer->service);
+
+    $fields= DB::table('fields')->where("service_id", $service->id)->where("trash",0)->get();
+
+    if(count($fields)&&empty(json_decode($request->input("fields_values")))){
+      return response()->json("Debe introducir los campos requeridos del servicio", 400);
+    }
+    else if(!empty(json_decode($request->input("fields_values")))){ 
+      foreach (json_decode($request->input("fields_values")) as $field_value) {
+        FieldsValues::storeValues($field_value, $offer->id);
+      }
+    }
 
     foreach ($keysAllow as $key){
       if (isset($data[$key])){
@@ -360,7 +376,7 @@ class OfferController extends Controller{
     )->get();
 
     
-    $allOffers = Offer::getFromAll();
+    $allOffers = Offer::getFromAll(["highlight"]);
 
     $offers=array_merge($offers->toArray(),$allOffers->toArray());
 
