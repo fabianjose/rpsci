@@ -57,12 +57,20 @@
 
 .consult-card-header{
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     border-bottom: solid .22rem $mid-gray;
 }
 
 .consult-card-logo{
-    max-height: 200px;
+    max-height: 150px;
+}
+
+.consult-card-company{
+    text-align: center;
+    font-size: 1.5rem;
+    color: $dark-blue;
+    margin-top: 1.2rem;
 }
 
 .consult-card-sub-title{

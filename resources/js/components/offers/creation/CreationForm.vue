@@ -1,7 +1,7 @@
 <template>
     <div class="card card-info" id="createOfferAccordion">
       <a class="card-header collapsed" @click="active=!active" data-parent="#createOfferAccordion" href="#collapseOne" aria-expanded="false" data-toggle="collapse">
-        <h3 class="card-title">Nueva Oferta</h3>
+        <h3 class="card-title text-wrap col-10">Nueva Oferta</h3>
         <div class="card-tools">
           <button type="button" class="btn btn-tool ml-auto " >
             <personal-fab :active="active" />
@@ -11,8 +11,8 @@
 
       <div id="collapseOne" class="panel-collapse in collapse" >
         <div class="card-body">
-          <div class="d-flex w-100 flex-wrap">
-            <div class="form-group col-xl-6 col-lg-6 col-md-6 col-6">
+          <div class="d-flex flex-row w-100 justify-content-around flex-wrap">
+            <div class="form-group col-xl-6 col-lg-6 col-md-6 col-12">
               <label>Empresa</label>
               <select class="custom-select" v-model="company">
                 <option value="" class="d-none" selected>Empresa</option>
@@ -28,42 +28,42 @@
               inputClass="form-control"
               ></autocomplete-vue> -->
             </div>
-            <div class="form-group col-xl-6 col-lg-6 col-md-6 col-6">
+            <div class="form-group col-xl-6 col-lg-6 col-md-6 col-12">
               <label>Servicio</label>
               <select @change="getFields" class="custom-select" v-model="service">
                 <option :value="service.id" v-for="service in services" :key="service.id">{{service.name}}</option>
               </select>
             </div>
           </div>
-          <div class="d-flex w-100 flex-wrap" v-if="fields.length">
-            <div class="form-group col-xl-4 col-lg-4 col-md-6 col-6" v-for="(field,index) in fields" >
+          <div class="d-flex flex-row w-100 justify-content-around flex-wrap" v-if="fields.length">
+            <div class="form-group col-xl-4 col-lg-4 col-md-6 col-12" v-for="(field,index) in fields" >
               <label>{{field.name}}</label>
               <input v-model="fieldsValues[index]" class="form-control">
             </div>
           </div>
-          <div class="d-flex w-100 flex-wrap">
+          <div class="d-flex flex-row w-100 justify-content-around flex-wrap">
             <div class="form-group col-12">
               <label>Descripcion</label>
               <textarea class="form-control" rows="3" placeholder="Descripcion..." v-model="benefits" style="resize: none;"></textarea>
             </div>
           </div>
 
-          <zone-select @newDepartment="newDepartment" @newMunicipality="newMunicipality"  ></zone-select>
+          <zone-select middle="col-xl-6 col-lg-6 col-md-6 col-12" @newDepartment="newDepartment" @newMunicipality="newMunicipality"  ></zone-select>
 
 
-          <div class="d-flex w-100 flex-wrap">
-            <div class="form-group col-xl-4 col-lg-4 col-md-6 col-6">
+          <div class="d-flex flex-row w-100 justify-content-around flex-wrap">
+            <div class="form-group col-xl-4 col-lg-4 col-md-6 col-12">
               <label>Tarifa</label>
               <input v-model="tariff" class="form-control">
             </div>
-            <div class="form-group col-xl-4 col-lg-4 col-md-6 col-6">
+            <div class="form-group col-xl-4 col-lg-4 col-md-6 col-12">
               <label>Tipo</label>
               <select class="custom-select" v-model="type">
                 <option value="private">Particular</option>
                 <option value="company">Empresa</option>
               </select>
             </div>
-            <div class="form-group col-xl-4 col-lg-4 col-md-6 col-6">
+            <div class="form-group col-xl-4 col-lg-4 col-md-6 col-12">
               <label>
                 Puntuacion
               </label>

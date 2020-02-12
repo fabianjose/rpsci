@@ -7,7 +7,7 @@
 
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" data-widget="pushmenu" href="#">
+        <a class="nav-link nav-btn" data-widget="pushmenu" href="#">
           <i class="fas fa-bars"></i>
           <span class="sr-only">Navegación de palanca</span>
         </a>

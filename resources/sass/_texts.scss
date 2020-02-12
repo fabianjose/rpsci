@@ -6,6 +6,16 @@
     color: $dark-blue;
 }
 
+.company-card-label{
+    height: 90px;
+}
+
+@media (max-width:768px){
+    .company-card-label{
+        height: 100px;
+    }
+}
+
 .text-wrap {
     word-break: break-word;
 }

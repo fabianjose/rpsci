@@ -1,7 +1,7 @@
 <template>
     <div class="card card-info" id="createOfferAccordion">
-      <a class="card-header collapsed" @click="active=!active" data-parent="#createOfferAccordion" href="#collapseOne" aria-expanded="false" data-toggle="collapse">
-        <h3 class="card-title">Destacar Oferta</h3>
+      <a class="card-header d-flex flex-row justify-cotent space-between align-items-center d-flex flex-row align-items-center d-flex collapsed" @click="active=!active" data-parent="#createOfferAccordion" href="#collapseOne" aria-expanded="false" data-toggle="collapse">
+        <h3 class="card-title text-wrap col-10">Destacar Oferta</h3>
         <div class="card-tools">
           <button type="button" class="btn btn-tool ml-auto " >
             <personal-fab :active="active" />
@@ -12,8 +12,8 @@
       <div id="collapseOne" class="panel-collapse in collapse" >
         <div class="card-body">
 
-          <zone-select @newDepartment="newDepartment" @newMunicipality="newMunicipality"  >
-            <div class="form-group col-6">
+          <zone-select middle="col-xl-6 col-lg-6 col-md-6 col-12" @newDepartment="newDepartment" @newMunicipality="newMunicipality"  >
+            <div class="form-group col-xl-6 col-lg-6 col-md-6 col-12">
               <label>Empresa</label>
               <select class="custom-select" v-model="company">
                 <option value="" class="d-none" selected>Empresa</option>
@@ -35,20 +35,20 @@
 
 
           <div class="row my-3 px-4">
-            <button type="button" class="btn btn-outline-success" @click="highlightedOffers">Buscar ofertas</button>
+            <button type="button" class="btn btn-outline-success mx-auto my-2" @click="highlightedOffers">Buscar ofertas</button>
           </div>
 
           <div class="row w-100 flex-wrap justify-content-around">
-            <div class="col-md-6 col-sm-10 col-10 col-lg-12">
+            <div class="col-xl-6 col-lg-6 col-md-6 col-12">
 
               <div class="card card-primary" id="OffersAccordion">
-                <a class="card-header collapsed" @click="active2=!active2" data-parent="#OffersAccordion"
+                <a class="card-header d-flex flex-row justify-cotent space-between align-items-center d-flex flex-row align-items-center d-flex collapsed" @click="active2=!active2" data-parent="#OffersAccordion"
                     href="#OffersList" aria-expanded="false" data-toggle="collapse">
-                    <h3 class="card-title">Seleccione una oferta</h3>
+                    <h3 class="card-title col-10">Seleccione una oferta</h3>
                     <div class="card-tools">
-                    <button type="button" class="btn btn-tool ml-auto " >
-                        <personal-fab :active="active2" />
-                    </button>
+                      <button type="button" class="btn btn-tool ml-auto " >
+                          <personal-fab :active="active2" />
+                      </button>
                     </div>
                 </a>
 
@@ -67,15 +67,15 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-6 col-sm-10 col-10 col-lg-12">
+            <div class="col-xl-6 col-lg-6 col-md-6 col-12">
 
               <div class="card card-success" id="SelectedOfferAccordion">
-                <a class="card-header collapsed" @click="active3=!active3" data-parent="#SelectedOfferAccordion" href="#SelectedOffer" aria-expanded="false" data-toggle="collapse">
-                    <h3 class="card-title">Oferta Seleccionada</h3>
+                <a class="card-header d-flex flex-row justify-cotent space-between align-items-center d-flex flex-row align-items-center d-flex collapsed" @click="active3=!active3" data-parent="#SelectedOfferAccordion" href="#SelectedOffer" aria-expanded="false" data-toggle="collapse">
+                    <h3 class="card-title col-10">Oferta Seleccionada</h3>
                     <div class="card-tools">
-                    <button type="button" class="btn btn-tool ml-auto " >
-                        <personal-fab :active="active3" />
-                    </button>
+                      <button type="button" class="btn btn-tool ml-auto " >
+                          <personal-fab :active="active3" />
+                      </button>
                     </div>
                 </a>
 
@@ -93,7 +93,7 @@
                       <label>Fecha de expiracion</label>
                     </div>
 
-                      <datetimepicker value-type="YYYY-MM-DD HH:mm:ss" v-model="expiration" type="datetime"></datetimepicker>
+                      <datetimepicker class="w-100" value-type="YYYY-MM-DD HH:mm:ss" v-model="expiration" type="datetime"></datetimepicker>
 
                   </div>
 

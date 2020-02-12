@@ -27,7 +27,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a data-toggle="modal" data-target="#modalConsultOffer" class="nav-link nav-item-border {{strpos(Route::current()->uri,'nosotros')>-1?'active':''}}" href="#">
+                        <a class="nav-link nav-item-border {{strpos(Route::current()->uri,'nosotros')>-1?'active':''}}" href="/nosotros">
                             <h6 class="ic-main font-weight-bold">
                                 Nosotros
                             </h6>
@@ -50,9 +50,6 @@
                 </ul>
             </div>
         </nav>
-
-        
-        <offer-consult></offer-consult>
 
         @yield('content-page')
 

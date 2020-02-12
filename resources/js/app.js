@@ -71,6 +71,8 @@ Vue.component("high-plans", require("./components/items/offers/highPlans.vue").d
 
 Vue.component('zone-select', require('./components/items/zone/zoneSelect.vue').default);
 
+Vue.component("contact-form", require("./components/forms/contact-form").default);
+Vue.component("general-contact", require("./components/forms/general-contact").default);
 Vue.component("search-form", require("./components/forms/search").default);
 Vue.component("filter-card", require("./components/forms/filterOffers").default);
 Vue.component("companies-slider", require("./components/companies/listSlider").default);
