@@ -25,7 +25,7 @@ export default {
     return{
       baseUrl:baseUrl,
       companies:[],
-      autoplayDuration: 4000,
+      autoplayDuration: 1000,
       breakpoints:{
         1200: {
           visibleSlides:3,

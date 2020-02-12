@@ -2609,7 +2609,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       baseUrl: baseUrl,
       companies: [],
-      autoplayDuration: 4000,
+      autoplayDuration: 1000,
       breakpoints: {
         1200: {
           visibleSlides: 3,
@@ -6180,18 +6180,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var bootstrap_js_dist_tooltip_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! bootstrap/js/dist/tooltip.js */ "./node_modules/bootstrap/js/dist/tooltip.js");
 /* harmony import */ var bootstrap_js_dist_tooltip_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(bootstrap_js_dist_tooltip_js__WEBPACK_IMPORTED_MODULE_0__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -42914,7 +42902,7 @@ var render = function() {
           attrs: {
             bullets: false,
             autoplay: _vm.autoplay,
-            duration: 3000,
+            duration: 1000,
             "visible-slides": _vm.offers.length < 3 ? _vm.offers.length : 3,
             "slide-ratio": 0.4,
             "dragging-distance": 70,
@@ -46375,12 +46363,10 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("label", [
-      _vm._v(
-        "\n                      Unidad del campo\n                      "
-      ),
+      _vm._v("\n                    Unidad del campo\n                    "),
       _c("p", { staticClass: "text-muted text-sm mb-1" }, [
         _c("span", { staticClass: "text-danger" }, [_vm._v("* ")]),
-        _vm._v(" este campo es opcional\n                      ")
+        _vm._v(" este campo es opcional\n                    ")
       ])
     ])
   }
