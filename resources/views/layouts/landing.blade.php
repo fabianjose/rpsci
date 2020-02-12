@@ -20,28 +20,28 @@
             <div id="responsive-menu" class="navbar-collapse collapse">
                 <ul class="navbar-nav ml-auto mr-x3 ">
                     <li class="nav-item">
-                        <a class="nav-link nav-item-border active" href="/">
+                        <a class="nav-link nav-item-border {{Route::current()->uri=='/'?'active':''}}" href="/">
                             <h6 class="ic-main font-weight-bold">
                                 Inicio
                             </h6>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link nav-item-border" href="/nosotros">
+                        <a data-toggle="modal" data-target="#modalConsultOffer" class="nav-link nav-item-border {{strpos(Route::current()->uri,'nosotros')>-1?'active':''}}" href="#">
                             <h6 class="ic-main font-weight-bold">
                                 Nosotros
                             </h6>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link nav-item-border" href="/blog">
+                        <a class="nav-link nav-item-border {{strpos(Route::current()->uri,'blog')>-1?'active':''}}" href="/blog">
                             <h6 class="ic-main font-weight-bold">
                                 Blog
                             </h6>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link nav-item-border" href="/contacto">
+                        <a class="nav-link nav-item-border {{strpos(Route::current()->uri,'contacto')>-1?'active':''}}" href="/contacto">
                             <h6 class="ic-main font-weight-bold">
                                 Contacto
                             </h6>
@@ -50,6 +50,9 @@
                 </ul>
             </div>
         </nav>
+
+        
+        <offer-consult></offer-consult>
 
         @yield('content-page')
 

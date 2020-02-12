@@ -7,6 +7,7 @@
         <label>Departamento</label>
         <select class="custom-select ci-select rounded-pill" v-model="department" @change="getMunicipalities">
           <option value="" class="d-none" selected>Departamento</option>
+          <option :value="null">Todos</option>
           <option v-for="(department,index) in departments" :key="index" :value="department.name">{{department.name}}</option>
         </select>
         <!-- <autocomplete-vue
@@ -26,6 +27,7 @@
         <label>Municipio</label>
         <select class="custom-select ci-select rounded-pill" v-model="municipality" @change="setMunicipality">
           <option value="" class="d-none" selected>Municipio</option>
+          <option :value="null">Todos</option>          
           <option v-for="(municipality,index) in municipalities" :key="index" :value="municipality.name">{{municipality.name}}</option>
         </select>
         <!-- <autocomplete-vue
@@ -80,8 +82,9 @@ export default {
             await this.$emit("newMunicipality", this.municipality);
         },
 
-        getMunicipalities(){
-          this.setDepartment();
+        async getMunicipalities(){
+          await this.setDepartment();
+          if(!this.department) return;
             axios.get(baseUrl+'/api/municipalities/'+this.department)
             .then(res=>{
                 // console.log(res);
