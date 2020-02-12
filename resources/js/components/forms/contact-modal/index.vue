@@ -81,8 +81,6 @@ export default {
             else return "col-lg-5 col-xl-5 col-md-5 col-12";
         },
         sendMail(){
-
-<<<<<<< HEAD
             let fd= new FormData();
 
             if(this.fullName&&this.fullName!="") fd.append("fullName", this.fullName);
@@ -110,8 +108,6 @@ export default {
                 this.disableButton=false;
                 loader.hide()
             });
-=======
->>>>>>> d1c486560311011fdcec90b62c5254d65aea8053
         }
     },
 
