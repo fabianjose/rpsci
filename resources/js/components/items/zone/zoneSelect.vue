@@ -1,9 +1,9 @@
 <template>
-    <div class="d-flex w-100 flex-wrap">
+    <div class="d-flex w-100 flex-row flex-wrap justify-content-around">
 
       <slot></slot>
 
-      <div v-if="!hideDepartment" :class="'form-group'+(middle?' col-10':' col-6')">
+      <div v-if="!hideDepartment" :class="'form-group'+(middle?middle:' col-6')">
         <label>Departamento</label>
         <select class="custom-select ci-select rounded-pill" v-model="department" @change="getMunicipalities">
           <option value="" class="d-none" selected>Departamento</option>
@@ -23,7 +23,7 @@
         ></autocomplete-vue> -->
       </div>
 
-      <div v-if="!hideMunicipality" :class="'form-group'+(middle?' col-10':' col-6')">
+      <div v-if="!hideMunicipality" :class="'form-group'+(middle?middle:' col-6')">
         <label>Municipio</label>
         <select class="custom-select ci-select rounded-pill" v-model="municipality" @change="setMunicipality">
           <option value="" class="d-none" selected>Municipio</option>

@@ -8,7 +8,7 @@
         ref="plansSlider"
         :bullets="false"
         :autoplay="autoplay"
-        :duration="3000"
+        :duration="1000"
         :visible-slides="(offers.length < 3)?offers.length:3"
         :slide-ratio="0.4"
         :dragging-distance="70"

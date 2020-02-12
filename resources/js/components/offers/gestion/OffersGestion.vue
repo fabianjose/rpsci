@@ -1,12 +1,12 @@
 <template>
 <div class="container-fluid">
     <div class="row justify-content-center py-1">
-        <div class="col-8 col-sm-10">
+        <div class="col-12 col-sm-10 col-lg-8 col-xl-8">
             <offer-creation :services="services" @refresh="refreshData"></offer-creation>
         </div>
     </div>
     <div class="row justify-content-center py-1">
-      <div class="col-8 col-sm-10">
+      <div class="col-12 col-sm-10 col-lg-8 col-xl-8">
         <div class="card card-info" id="offerListAccordion">
           <a class="card-header collapsed" @click="active=!active" data-parent="#offerListAccordion" href="#collapseOffers" aria-expanded="false" data-toggle="collapse">
             <h3 class="card-title">Ofertas Disponibles</h3>
@@ -58,7 +58,7 @@ export default {
       let loader = this.$loading.show();
       axios.get(baseUrl+'/api/services')
       .then(res=>{
-        // console.log(res);
+        console.log("response from server", res);
         this.services = res.data;
       }).catch(err=>{
         console.log("ERROR FROM SERVER ",err.response);

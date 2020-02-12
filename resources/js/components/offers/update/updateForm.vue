@@ -10,8 +10,8 @@
         </button>
       </div>
       <div class="modal-body">
-        <div class="d-flex w-100 flex-wrap">
-          <div class="form-group col-xl-6 col-lg-6 col-md-6 col-6">
+        <div class="d-flex flex-row w-100 justify-content-around flex-wrap">
+          <div class="form-group col-xl-6 col-lg-6 col-md-6 col-12">
             <label>Empresa</label>
             <autocomplete-vue
             v-model="offer.company_name"
@@ -24,42 +24,42 @@
             inputClass="form-control"
             ></autocomplete-vue>
           </div>
-          <div class="form-group col-xl-6 col-lg-6 col-md-6 col-6">
+          <div class="form-group col-xl-6 col-lg-6 col-md-6 col-12">
             <label>Servicio</label>
             <select class="custom-select" v-model="offer.service">
               <option :value="service.id" v-for="service in services"  :key="service.id">{{service.name}}</option>
             </select>
           </div>
         </div>
-        <div class="d-flex w-100 flex-wrap" v-if="offer.service">
-          <div class="form-group col-xl-4 col-lg-4 col-md-6 col-6" v-for="(field,index) in offer.service_fields" >
+        <div class="d-flex flex-row w-100 justify-content-around flex-wrap" v-if="offer.service">
+          <div class="form-group col-xl-4 col-lg-4 col-md-6 col-12" v-for="(field,index) in offer.service_fields" >
             <label>{{field.label}}</label>
             <input v-model="offer.fields_value[index]" class="form-control">
           </div>
         </div>
-        <div class="d-flex w-100 flex-wrap">
+        <div class="d-flex flex-row w-100 justify-content-around flex-wrap">
           <div class="form-group col-12">
             <label>Descripcion</label>
             <textarea class="form-control" rows="3" placeholder="Descripcion..." v-model="offer.benefits" style="resize: none;"></textarea>
           </div>
         </div>
         
-        <zone-select @newDepartment="newDepartment" @newMunicipality="newMunicipality"  ></zone-select>
+        <zone-select middle="col-xl-6 col-lg-6 col-md-6 col-12" @newDepartment="newDepartment" @newMunicipality="newMunicipality"  ></zone-select>
 
 
-        <div class="d-flex w-100 flex-wrap">
-          <div class="form-group col-xl-4 col-lg-4 col-md-6 col-6">
+        <div class="d-flex flex-row w-100 justify-content-around flex-wrap">
+          <div class="form-group col-xl-4 col-lg-4 col-md-6 col-12">
             <label>Tarifa</label>
             <input v-model="offer.tariff" class="form-control">
           </div>
-          <div class="form-group col-xl-4 col-lg-4 col-md-6 col-6">
+          <div class="form-group col-xl-4 col-lg-4 col-md-6 col-12">
             <label>Tipo</label>
             <select class="custom-select" v-model="offer.type">
               <option value="private">Particular</option>
               <option value="company">Empresa</option>
             </select>
           </div>
-          <div class="form-group col-xl-4 col-lg-4 col-md-6 col-6">
+          <div class="form-group col-xl-4 col-lg-4 col-md-6 col-12">
             <label>Puntuacion (Opcional)</label>
             <select class="custom-select" v-model="offer.points">
               <option value="0" selected>0</option>

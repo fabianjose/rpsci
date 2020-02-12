@@ -35,7 +35,7 @@ class Offer extends Model{
       ->select('offers.*',
       'companies.name as company_name',
       'companies.logo as company_logo',
-      'services.name as service_name',
+      'services.name as service_name'
       )
       ->get();      
     }
@@ -51,7 +51,7 @@ class Offer extends Model{
       ->select('offers.*',
       'companies.name as company_name',
       'companies.logo as company_logo',
-      'services.name as service_name',
+      'services.name as service_name'
       )
       ->get();      
 
@@ -70,7 +70,7 @@ class Offer extends Model{
       ->select('offers.*',
       'companies.name as company_name',
       'companies.logo as company_logo',
-      'services.name as service_name',
+      'services.name as service_name'
       )
       ->get();
 
@@ -84,7 +84,7 @@ class Offer extends Model{
     ->select('offers.*',
     'companies.name as company_name',
     'companies.logo as company_logo',
-    'services.name as service_name',
+    'services.name as service_name'
     )
     ->get();
 

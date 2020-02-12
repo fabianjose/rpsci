@@ -11,7 +11,6 @@
               </span>
             </button>
           </div>
-<<<<<<< HEAD
           <button :disabled="currentpage==compLastpage" @click="setPage(currentpage)" class="col-2 col-md-1 col-lg-1 col-xl-1 d-flex justify-content-center align-items-center page-item rounded-pill btn btn-light"><i class="fas fa-arrow-right"></i></button>          
         </div>
 
@@ -30,30 +29,11 @@
           <div class="col-xl-2 col-lg-3 col-md-4 px-1">
             <div class="text-center p-2 text-sm w-100 text-white mx-auto bg-dark-blue rounded-pill p-1 text-wrap ">PRECIO</div>
           </div> 
-=======
-          <button :disabled="currentpage==lastpage" @click="setPage(currentpage)" class="col-2 col-md-1 col-lg-1 col-xl-1 d-flex justify-content-center align-items-center page-item rounded-pill btn btn-light"><i class="fas fa-arrow-right"></i></button>
-        </div>
-
-        <div class="d-flex flex-row w-100 justify-content-around mb-2">
-          <div class="col-xl-2 col-lg-3 col-md-4">
-            <div class="btn btn-block text-sm offers-label mx-auto btn-dark-blue rounded-pill ">PROVEEDOR</div>
-          </div>
-          <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 hidden-xs hidden-sm">
-            <div class="btn btn-block text-sm offers-label mx-auto btn-dark-blue rounded-pill ">DESCRIPCIÓN</div>
-          </div>
-
-          <div v-for="(field,k2) in fields" :key="k2" :class="'col-xl-2 col-lg-3 col-md-4 col-sm-4 offer-benefits hidden-md hidden-xs hidden-sm '+(!k2?'d-lg-flex':'hidden-lg')">
-            <div class="btn btn-block text-sm offers-label mx-auto btn-dark-blue rounded-pill text-uppercase">{{field.name}}</div>
-          </div>
-
-          <div class="col-xl-2 col-lg-3 col-md-4">
-            <div class="btn btn-block text-sm offers-label mx-auto btn-dark-blue rounded-pill">PRECIO</div>
-          </div>
->>>>>>> d1c486560311011fdcec90b62c5254d65aea8053
         </div>
         <div v-for="(offer,k) in compItems" :key="k" class="d-flex w-100 justify-content-around my-1 mb-3 offer offers-pagination-item pb-3">
           <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 d-flex flex-column align-items-center justify-content-center">
-            <img :src="baseUrl+'/'+offer.company_logo" class="w-100 p-2">
+            <img :src="baseUrl+'/'+offer.company_logo" class="img-fluid p-2" style="max-height:130px;">
+            <h6 class="text-dark-blue pt-2">{{offer.company_name}}</h6> 
           </div>
           <div class="text-wrap col-xl-2 col-lg-3 col-md-4 col-sm-4 text-center flex-column align-items-center justify-content-center d-xl-flex d-lg-flex d-md-flex hidden-xs hidden-sm">
             <h6 class="text-sm">
