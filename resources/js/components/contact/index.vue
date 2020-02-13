@@ -1,6 +1,6 @@
 <template>
     <div class="d-flex justify-content-center contacto-main-content row">
-		<div class="card card-primary contacto-card bg-light p-3 col-10 col-sm-10 col-md-10 col-lg-6 col-xl-6">
+		<div class="card card-primary contacto-card bg-light p-3 col-10 col-sm-10 col-md-10 col-lg-4 col-xl-4">
             <div class="card-body d-flex flex-column align-items-center pt-4">
             <h5 class="contacto-card-title font-weight-bold text-center">Ponte en contacto con nosotros</h5>
             <div class="d-flex flex-column w-100 py-3">
@@ -35,7 +35,7 @@
             </div>
             </div>
 	  </div>
-      <div class="col-10 col-sm-10 col-md-10 col-lg-6 col-xl-6 d-flex flex-column p-4 align-items-center">
+      <div class="col-10 col-sm-10 col-md-10 col-lg-7 col-xl-7 d-flex flex-column p-4 align-items-center">
 
         <h5 class="contacto-card-title mt-4 font-weight-bold text-center">Ubícanos</h5>
 

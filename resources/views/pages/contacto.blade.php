@@ -4,9 +4,9 @@
 <div class="d-flex flex-column contacto-main w-100">
 	<div class="d-flex justify-content-end align-items-end w-100 contacto-title p-5">
 		<div class="">
-			<h2 class="text-uppercase font-weight-bold text-white contacto-title-text">Estamos</h2>
-			<h2 class="text-uppercase font-weight-bold text-white contacto-title-text">Para</h2>
-			<h2 class="text-uppercase font-weight-bold text-white contacto-title-text">Servirte</h2>
+			<h2 class="text-uppercase font-weight-bold text-white contacto-title-text">Estamos para servirte</h2>
+			<!--<h2 class="text-uppercase font-weight-bold text-white contacto-title-text">Para</h2>
+			<h2 class="text-uppercase font-weight-bold text-white contacto-title-text">Servirte</h2>-->
 		</div>
 	</div>
 	<contact-main></contact-main>

@@ -41778,7 +41778,7 @@ var render = function() {
         "div",
         {
           staticClass:
-            "col-10 col-sm-10 col-md-10 col-lg-6 col-xl-6 d-flex flex-column p-4 align-items-center"
+            "col-10 col-sm-10 col-md-10 col-lg-7 col-xl-7 d-flex flex-column p-4 align-items-center"
         },
         [
           _c(
@@ -41826,7 +41826,7 @@ var staticRenderFns = [
       "div",
       {
         staticClass:
-          "card card-primary contacto-card bg-light p-3 col-10 col-sm-10 col-md-10 col-lg-6 col-xl-6"
+          "card card-primary contacto-card bg-light p-3 col-10 col-sm-10 col-md-10 col-lg-4 col-xl-4"
       },
       [
         _c(
@@ -43988,7 +43988,7 @@ var render = function() {
         _vm._v(" "),
         _c("div", { staticClass: "row" }, [
           _c("h5", { staticClass: "col-12 offer-card-price" }, [
-            _vm._v(_vm._s(_vm.offer.tariff) + " $")
+            _vm._v(_vm._s(Math.trunc(_vm.offer.tariff)) + " $")
           ])
         ])
       ]),
