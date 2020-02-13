@@ -6,17 +6,7 @@
 		<h2 class="text-uppercase font-weight-bold text-white nosotros-title-text">Nosotros</h2>
 	</div>
 	<div class="d-flex flex-column nosotros-main-content p-4 align-items-center">
-		<h4 class="mision-title my-4">¿QUÉ HACEMOS?</h4>
-		<div class="d-flex justify-content-center mision-content">
-			<span class="text-justify px-4">
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-				Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-				Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-			</span>
-		</div>
-		<h4 class="mision-title mt-5 mb-4">MISIÓN</h4>
+		<h4 class="mision-title mt-3 mb-4">MISIÓN</h4>
 		<div class="d-flex justify-content-center mision-content mb-3">
 			<span class="text-justify px-4 text-wrap">
 				Facilitar a todos los hogares y empresas Colombianas la búsqueda del mejor proveedor en telecomunicaciones, posicionándonos como la plataforma web más buscada para la solución de conectividad a nivel nacional. 
