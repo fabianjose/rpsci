@@ -45413,7 +45413,7 @@ var render = function() {
                 "div",
                 {
                   staticClass:
-                    "d-flex flex-row w-100 justify-content-around flex-wrap"
+                    "d-flex flex-row w-100 justify-content-around flex-wrap my-3"
                 },
                 [
                   _c(

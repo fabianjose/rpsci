@@ -20,6 +20,7 @@ Route::get('offers/highlighted', 'OfferController@getAllHighlighted');
 
 Route::post("/mail/contact", "MailController@sendMail");
 
+Route::get('/offers/search', "OfferController@searchOffers");
 
 Route::group(['middleware' => ['JwtMiddleware']], function () {
   Route::post('/department','DepartmentController@newDepartment');

@@ -51,7 +51,7 @@
           <zone-select middle="col-xl-6 col-lg-6 col-md-6 col-12" @newDepartment="newDepartment" @newMunicipality="newMunicipality"  ></zone-select>
 
 
-          <div class="d-flex flex-row w-100 justify-content-around flex-wrap">
+          <div class="d-flex flex-row w-100 justify-content-around flex-wrap my-3">
             <div class="form-group col-xl-4 col-lg-4 col-md-6 col-12">
               <label>Tarifa</label>
               <input v-model="tariff" class="form-control">

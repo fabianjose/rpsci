@@ -23,65 +23,39 @@ class Offer extends Model{
     'trash'
   ];
 
-  public static function getFromAll($options=[]){
-
-    if(in_array("company",$options)){
-      return DB::table('offers')->where('offers.trash',0)
-      ->join('companies','companies.id','offers.company')
-      ->join('services', 'services.id','offers.service')
-      ->where("offers.company", $options["company"])
-      ->where("offers.department", null)
-      ->where("offers.department", null)
-      ->select('offers.*',
-      'companies.name as company_name',
-      'companies.logo as company_logo',
-      'services.name as service_name'
-      )
-      ->get();      
-    }
-
-    if(in_array("company",$options)){
-      
-      return DB::table('offers')->where('offers.trash',0)
-      ->join('companies','companies.id','offers.company')
-      ->join('services', 'services.id','offers.service')
-      ->where("offers.company", $options["company"])
-      ->where("offers.department", null)
-      ->where("offers.department", null)
-      ->select('offers.*',
-      'companies.name as company_name',
-      'companies.logo as company_logo',
-      'services.name as service_name'
-      )
-      ->get();      
-
-    }
-
-    if(in_array("highlight",$options)){
-      
-      return  DB::table('offers')
-      ->where('offers.trash',0)
-      ->where('offers.highlighted',1)
-      ->where('offers.highlighted_expiration','>=',date('Y-m-d h:i:s'))
-      ->where("offers.department", null)
-      ->where("offers.department", null)
-      ->join('companies','companies.id','offers.company')
-      ->join('services', 'services.id','offers.service')
-      ->select('offers.*',
-      'companies.name as company_name',
-      'companies.logo as company_logo',
-      'services.name as service_name'
-      )
-      ->get();
-
-    }
-
-    else return DB::table('offers')->where('offers.trash',0)
+  public static function getFromAll($company=null,$service=null,$highlighted=false,$type=null){
+    $offers=DB::table('offers')->where('offers.trash',0)
+    ->where("offers.department", null)
+    ->where("offers.municipality", null)
     ->join('companies','companies.id','offers.company')
-    ->join('services', 'services.id','offers.service')
-    ->where("offers.department", null)
-    ->where("offers.department", null)
-    ->select('offers.*',
+    ->join('services', 'services.id','offers.service');
+
+    if($company){
+
+      $offers->where("offers.company", $company);  
+
+    }
+
+    if($service){
+      
+      $offers->where('service',$service);
+
+    }
+
+    if($highlighted){
+      
+      $offers->where('offers.highlighted',1)
+      ->where('offers.highlighted_expiration','>=',date('Y-m-d h:i:s'));
+
+    }
+
+    if($type){
+      
+      $offers->where("offers.type", $type);
+
+    }
+
+    return $offers->select('offers.*',
     'companies.name as company_name',
     'companies.logo as company_logo',
     'services.name as service_name'

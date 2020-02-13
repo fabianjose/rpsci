@@ -233,7 +233,7 @@ class OfferController extends Controller{
     ->get();
 
     
-    $allOffers = Offer::getFromAll(["company"=>$company->id]);
+    $allOffers = Offer::getFromAll($company->id);
 
     $offers=array_merge($offers->toArray(),$allOffers->toArray());
 
@@ -284,7 +284,7 @@ class OfferController extends Controller{
     'municipalities.name as municipality_name'
     );
 
-    $allOffers = Offer::getFromAll(["service"=>$service->id]);
+    $allOffers = Offer::getFromAll(null,$service->id,false,$data["offer_type"]);
 
     if (!$offers&&!$allOffers) return response()->json('Error en la base de datos',500);
 
@@ -376,7 +376,7 @@ class OfferController extends Controller{
     )->get();
 
     
-    $allOffers = Offer::getFromAll(["highlight"]);
+    $allOffers = Offer::getFromAll(null,null,true);
 
     $offers=array_merge($offers->toArray(),$allOffers->toArray());
 
@@ -431,7 +431,7 @@ class OfferController extends Controller{
     )
     ->get();
 
-    $allOffers=Offer::getFromAll(["highlighted"=>true]);
+    $allOffers=Offer::getFromAll(null,null,true);
 
     $offers=Offer::joinFields($offers);
 
