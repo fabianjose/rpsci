@@ -42073,11 +42073,7 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("vue-recaptcha", {
-        attrs: {
-          size: "invisible",
-          sitekey: _vm.reCaptchaKey,
-          loadRecaptchaScript: true
-        }
+        attrs: { sitekey: _vm.reCaptchaKey, loadRecaptchaScript: true }
       }),
       _vm._v(" "),
       _c("div", { staticClass: "col-12 my-2 p-3 mx-auto" }, [

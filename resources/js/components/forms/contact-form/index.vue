@@ -24,7 +24,7 @@
                 <input v-model="phone" class="form-control form-consulting-input rounded-pill rounded-input" type="text">
             </div>
         </div>
-        <vue-recaptcha size="invisible" :sitekey="reCaptchaKey" :loadRecaptchaScript="true" ></vue-recaptcha>
+        <vue-recaptcha :sitekey="reCaptchaKey" :loadRecaptchaScript="true" ></vue-recaptcha>
         <div class="col-12 my-2 p-3 mx-auto" >
             <button :disabled="disableButton" @click="sendMail" class="btn btn-block btn-dark-blue rounded-pill">
                 CONSULTAR
