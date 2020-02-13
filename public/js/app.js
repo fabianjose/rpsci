@@ -3712,7 +3712,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     showPrice: function showPrice(price) {
-      return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+      return Math.trunc(price);
     },
     setPage: function setPage() {
       var pageNumber = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
