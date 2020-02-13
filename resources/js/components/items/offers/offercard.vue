@@ -1,23 +1,24 @@
 <template>
-  <div class="offer-card">
+  <div class="offer-card d-flex flex-column justify-content-between">
     <div class="offer-card-header">
-      <img :src="baseUrl+'/storage/'+offer.company_logo" alt="logo" class="col-10">
+      <img :src="baseUrl+'/'+offer.company_logo" alt="logo" style="max-height:160px; max-width: 160px;">
     </div>
-    <div class="offer-card-separator bg-main-pink"></div>
+    <div :class="'offer-card-separator '+(index%2?'bg-main-blue':'bg-main-pink')"></div>
     <div class="offer-card-content">
       <div class="row">
         <h6 class="col-12 offer-card-title">{{offer.company_name}}</h6>
       </div>
       <div class="row">
-        <h6 class="col-12 offer-card-benefits text-wrap">{{offer.benefits}}</h6>
+        <h6 class="col-12 offer-card-benefits text-wrap" style="font-family:Montserrat-regular">{{offer.benefits}}</h6>
       </div>
       <div class="row">
-        <h5 class="col-12 offer-card-price">{{offer.tariff}} $</h5>
+        <h5 class="col-12 offer-card-price">{{Math.trunc(offer.tariff)}} $</h5>
       </div>
     </div>
     <div class="offer-card-footer">
       <div class="col-10">
-        <button @click="emitContact" data-toggle="modal" data-target="#modalConsultOffer" class="btn btn-block bg-main-pink text-white offer-card-btn rounded-pill">
+        <button @click="emitContact" data-toggle="modal" data-target="#modalConsultOffer"
+          :class="'btn btn-block text-white offer-card-btn rounded-pill '+(index%2?'bg-main-blue':'bg-main-pink')">
           CONTACTAR
         </button>
       </div>

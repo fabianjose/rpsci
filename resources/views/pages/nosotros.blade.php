@@ -6,6 +6,12 @@
 		<h2 class="text-uppercase font-weight-bold text-white nosotros-title-text">Nosotros</h2>
 	</div>
 	<div class="d-flex flex-column nosotros-main-content p-4 align-items-center">
+		<h4 class="mision-title mt-3 mb-4">Porque ContrataInternet?</h4>
+		<div class="d-flex justify-content-center mision-content mb-3">
+			<span class="text-justify px-4 text-wrap">
+				Creemos que Internet de banda ancha debería estar disponible para todos los Colombianos. Esto es lo que estamos haciendo para que sea una realidad.
+			</span>
+		</div>
 		<h4 class="mision-title mt-3 mb-4">MISIÓN</h4>
 		<div class="d-flex justify-content-center mision-content mb-3">
 			<span class="text-justify px-4 text-wrap">
