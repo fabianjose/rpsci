@@ -42805,7 +42805,7 @@ var render = function() {
                   staticClass: "custom-control-label",
                   attrs: { for: "privateOffer" }
                 },
-                [_vm._v("Soy un particular")]
+                [_vm._v("Hogar")]
               )
             ]
           ),
@@ -42834,7 +42834,7 @@ var render = function() {
                   staticClass: "custom-control-label",
                   attrs: { for: "companyOffer" }
                 },
-                [_vm._v("Soy una empresa")]
+                [_vm._v("Empresa")]
               )
             ]
           )
@@ -43339,7 +43339,7 @@ var render = function() {
                 },
                 [
                   _c("h6", { staticClass: "text-dark-blue text-lg" }, [
-                    _vm._v(_vm._s(offer.tariff) + " $")
+                    _vm._v("$ " + _vm._s(offer.tariff))
                   ]),
                   _vm._v(" "),
                   _c(
