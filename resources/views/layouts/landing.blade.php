@@ -39,20 +39,20 @@
                             </h6>
                         </a>
                     </li>
-                    <!-- <li class="nav-item">
-                        <a class="nav-link nav-item-border {{strpos(Route::current()->uri,'blog')>-1?'active':''}}" href="https://intercolombia.nextscale.net/blog">
-                            <h6 class="ic-main font-weight-bold">
-                                Blog
-                            </h6>
-                        </a>
-                    </li> -->
                     <li class="nav-item">
-                        <a class="nav-link nav-item-border {{strpos(Route::current()->uri,'blog')>-1?'active':''}}" href="#">
+                        <a class="nav-link nav-item-border {{strpos(Route::current()->uri,'blog')>-1?'active':''}}" href="/blog">
                             <h6 class="ic-main font-weight-bold">
                                 Blog
                             </h6>
                         </a>
                     </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link nav-item-border {{strpos(Route::current()->uri,'blog')>-1?'active':''}}" href="/blog">
+                            <h6 class="ic-main font-weight-bold">
+                                Blog
+                            </h6>
+                        </a>
+                    </li> -->
                     <li class="nav-item">
                         <a class="nav-link nav-item-border {{strpos(Route::current()->uri,'contacto')>-1?'active':''}}" href="/contacto">
                             <h6 class="ic-main font-weight-bold">
