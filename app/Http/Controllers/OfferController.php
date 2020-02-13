@@ -11,8 +11,8 @@ use App\Department;
 use App\Company;
 use App\Service;
 use Illuminate\Pagination\Paginator;
-use App\Offer;
 use App\FieldsValues;
+use App\Offer;
 
 class OfferController extends Controller{
 
