@@ -41256,7 +41256,7 @@ var render = function() {
                   _vm._l(_vm.companies, function(company, index) {
                     return _c(
                       "option",
-                      { key: index, domProps: { value: company.name } },
+                      { key: index, domProps: { value: company.id } },
                       [_vm._v(_vm._s(company.name))]
                     )
                   })
@@ -41472,7 +41472,7 @@ var render = function() {
       staticClass: "no-shadow high-companies-carousel mt-4 text-center",
       attrs: {
         autoplay: true,
-        duration: 3000,
+        duration: 1000,
         bullets: false,
         arrows: false,
         "visible-slides": _vm.companies.length < 4 ? _vm.companies.length : 4,
@@ -41770,7 +41770,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "d-flex justify-content-center contacto-main-content" },
+    { staticClass: "d-flex justify-content-center contacto-main-content row" },
     [
       _vm._m(0),
       _vm._v(" "),
@@ -41778,19 +41778,22 @@ var render = function() {
         "div",
         {
           staticClass:
-            "col-10 col-sm-10 col-md-10 col-lg-6 col-xl-6 d-flex flex-column p-4 align-items-center"
+            "col-10 col-sm-10 col-md-10 col-lg-7 col-xl-7 d-flex flex-column p-4 align-items-center"
         },
         [
           _c(
             "h5",
-            { staticClass: "contacto-card-title font-weight-bold text-center" },
+            {
+              staticClass:
+                "contacto-card-title mt-4 font-weight-bold text-center"
+            },
             [_vm._v("Ubícanos")]
           ),
           _vm._v(" "),
           _c(
             "GmapMap",
             {
-              staticStyle: { width: "90%", height: "300px" },
+              staticStyle: { width: "90%", height: "550px" },
               attrs: {
                 center: { lat: 4.613033, lng: -74.14456 },
                 zoom: 17,
@@ -41823,7 +41826,7 @@ var staticRenderFns = [
       "div",
       {
         staticClass:
-          "card card-primary contacto-card bg-light p-3 col-10 col-sm-10 col-md-10 col-lg-6 col-xl-6"
+          "card card-primary contacto-card bg-light p-3 col-10 col-sm-10 col-md-10 col-lg-4 col-xl-4"
       },
       [
         _c(
@@ -41906,7 +41909,7 @@ var staticRenderFns = [
           "div",
           {
             staticClass:
-              "card-footer d-flex justify-content-end pt-2 pb-5 bg-light"
+              "card-footer d-flex justify-content-end pt-2 pb-2 bg-light"
           },
           [
             _c("div", { staticClass: "col-lg-4 col-md-6 col-sm-8" }, [
@@ -42315,7 +42318,7 @@ var render = function() {
                         attrs: { selected: "" },
                         domProps: { value: "tariff" }
                       },
-                      [_vm._v("precio")]
+                      [_vm._v("Precio")]
                     ),
                     _vm._v(" "),
                     _c(
@@ -42324,14 +42327,20 @@ var render = function() {
                         attrs: { selected: "" },
                         domProps: { value: "points" }
                       },
-                      [_vm._v("puntuación")]
+                      [_vm._v("Puntuación")]
                     ),
                     _vm._v(" "),
                     _vm._l(_vm.compFields, function(field, k) {
                       return field.type == "numeric"
-                        ? _c("option", { key: k, domProps: { value: k + 1 } }, [
-                            _vm._v(_vm._s(field.name))
-                          ])
+                        ? _c(
+                            "option",
+                            {
+                              key: k,
+                              staticClass: "text-capitalize",
+                              domProps: { value: k + 1 }
+                            },
+                            [_vm._v(_vm._s(field.name))]
+                          )
                         : _vm._e()
                     })
                   ],
@@ -42805,7 +42814,7 @@ var render = function() {
                   staticClass: "custom-control-label",
                   attrs: { for: "privateOffer" }
                 },
-                [_vm._v("Soy un particular")]
+                [_vm._v("Hogar")]
               )
             ]
           ),
@@ -42834,7 +42843,7 @@ var render = function() {
                   staticClass: "custom-control-label",
                   attrs: { for: "companyOffer" }
                 },
-                [_vm._v("Soy una empresa")]
+                [_vm._v("Empresa")]
               )
             ]
           )
@@ -43339,7 +43348,7 @@ var render = function() {
                 },
                 [
                   _c("h6", { staticClass: "text-dark-blue text-lg" }, [
-                    _vm._v(_vm._s(offer.tariff) + " $")
+                    _vm._v("$ " + _vm._s(offer.tariff))
                   ]),
                   _vm._v(" "),
                   _c(
@@ -43730,7 +43739,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "high-plans py-5 px-4" },
+    { staticClass: "high-plans py-4 px-4" },
     [
       _vm._m(0),
       _vm._v(" "),
@@ -43833,7 +43842,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "col-sm-6 col-md-4 col-lg-3" }, [
+  return _c("div", { staticClass: "col-md-6 col-lg-4 col-sm-8" }, [
     _c("div", { staticClass: "card card-primary" }, [
       _c(
         "div",
@@ -43841,7 +43850,7 @@ var render = function() {
         [
           _c("img", {
             staticClass: "image-logo-banner",
-            attrs: { src: _vm.baseUrl + "/" + _vm.logo, alt: "" }
+            attrs: { src: _vm.baseUrl + "/" + _vm.logo }
           }),
           _vm._v(" "),
           _c(
@@ -43951,10 +43960,9 @@ var render = function() {
     [
       _c("div", { staticClass: "offer-card-header" }, [
         _c("img", {
-          staticClass: "col-10",
-          staticStyle: { "max-height": "100px" },
+          staticStyle: { "max-height": "160px", "max-width": "160px" },
           attrs: {
-            src: _vm.baseUrl + "/storage/" + _vm.offer.company_logo,
+            src: _vm.baseUrl + "/" + _vm.offer.company_logo,
             alt: "logo"
           }
         })
@@ -43986,7 +43994,7 @@ var render = function() {
         _vm._v(" "),
         _c("div", { staticClass: "row" }, [
           _c("h5", { staticClass: "col-12 offer-card-price" }, [
-            _vm._v(_vm._s(_vm.offer.tariff) + " $")
+            _vm._v(_vm._s(Math.trunc(_vm.offer.tariff)) + " $")
           ])
         ])
       ]),
@@ -44053,7 +44061,7 @@ var render = function() {
               _c("img", {
                 staticClass: "col-10",
                 attrs: {
-                  src: _vm.baseUrl + "/storage/" + _vm.offer.company_logo,
+                  src: _vm.baseUrl + "/" + _vm.offer.company_logo,
                   alt: "logo"
                 }
               })
@@ -44545,10 +44553,6 @@ var render = function() {
                     [_vm._v("Departamento")]
                   ),
                   _vm._v(" "),
-                  _c("option", { domProps: { value: null } }, [
-                    _vm._v("Todos")
-                  ]),
-                  _vm._v(" "),
                   _vm._l(_vm.departments, function(department, index) {
                     return _c(
                       "option",
@@ -44610,10 +44614,6 @@ var render = function() {
                     },
                     [_vm._v("Municipio")]
                   ),
-                  _vm._v(" "),
-                  _c("option", { domProps: { value: null } }, [
-                    _vm._v("Todos")
-                  ]),
                   _vm._v(" "),
                   _vm._l(_vm.municipalities, function(municipality, index) {
                     return _c(
@@ -46480,101 +46480,96 @@ var render = function() {
                 "div",
                 { staticClass: "row w-100 flex-wrap justify-content-around" },
                 [
-                  _c(
-                    "div",
-                    { staticClass: "col-xl-6 col-lg-6 col-md-6 col-12" },
-                    [
-                      _c(
-                        "div",
-                        {
-                          staticClass: "card card-primary",
-                          attrs: { id: "OffersAccordion" }
-                        },
-                        [
-                          _c(
-                            "a",
-                            {
-                              staticClass:
-                                "card-header d-flex flex-row justify-cotent space-between align-items-center d-flex flex-row align-items-center d-flex collapsed",
-                              attrs: {
-                                "data-parent": "#OffersAccordion",
-                                href: "#OffersList",
-                                "aria-expanded": "false",
-                                "data-toggle": "collapse"
-                              },
-                              on: {
-                                click: function($event) {
-                                  _vm.active2 = !_vm.active2
-                                }
+                  _c("div", { staticClass: "col-12" }, [
+                    _c(
+                      "div",
+                      {
+                        staticClass: "card card-primary",
+                        attrs: { id: "OffersAccordion" }
+                      },
+                      [
+                        _c(
+                          "a",
+                          {
+                            staticClass:
+                              "card-header d-flex flex-row justify-cotent space-between align-items-center d-flex flex-row align-items-center d-flex collapsed",
+                            attrs: {
+                              "data-parent": "#OffersAccordion",
+                              href: "#OffersList",
+                              "aria-expanded": "false",
+                              "data-toggle": "collapse"
+                            },
+                            on: {
+                              click: function($event) {
+                                _vm.active2 = !_vm.active2
                               }
-                            },
-                            [
-                              _c("h3", { staticClass: "card-title col-10" }, [
-                                _vm._v("Seleccione una oferta")
-                              ]),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "card-tools" }, [
-                                _c(
-                                  "button",
-                                  {
-                                    staticClass: "btn btn-tool ml-auto ",
-                                    attrs: { type: "button" }
-                                  },
-                                  [
-                                    _c("personal-fab", {
-                                      attrs: { active: _vm.active2 }
-                                    })
-                                  ],
-                                  1
-                                )
-                              ])
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "div",
-                            {
-                              staticClass: "panel-collapse in collapse",
-                              attrs: { id: "OffersList" }
-                            },
-                            [
-                              _c("div", { staticClass: "card-body" }, [
-                                _c(
-                                  "div",
-                                  {
-                                    staticClass:
-                                      "d-flex flex-row justify-content-around w-100 flex-wrap"
-                                  },
-                                  _vm._l(_vm.offersByArea, function(offer, k) {
-                                    return _c("offer", {
-                                      key: k,
-                                      staticClass: "col-md-6 col-lg-4 col-sm-8",
-                                      attrs: {
-                                        title: offer.service_name,
-                                        logo: offer.company_logo,
-                                        index: k,
-                                        company: offer.company_name,
-                                        pick: true
-                                      },
-                                      on: {
-                                        pick: _vm.selectOffer,
-                                        view: _vm.viewModal
-                                      }
-                                    })
-                                  }),
-                                  1
-                                )
-                              ])
-                            ]
-                          )
-                        ]
-                      )
-                    ]
-                  ),
+                            }
+                          },
+                          [
+                            _c("h3", { staticClass: "card-title col-10" }, [
+                              _vm._v("Seleccione una oferta")
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "card-tools" }, [
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-tool ml-auto ",
+                                  attrs: { type: "button" }
+                                },
+                                [
+                                  _c("personal-fab", {
+                                    attrs: { active: _vm.active2 }
+                                  })
+                                ],
+                                1
+                              )
+                            ])
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass: "panel-collapse in collapse",
+                            attrs: { id: "OffersList" }
+                          },
+                          [
+                            _c("div", { staticClass: "card-body w-100" }, [
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "d-flex justify-content-around w-100 flex-wrap"
+                                },
+                                _vm._l(_vm.offersByArea, function(offer, k) {
+                                  return _c("offer", {
+                                    key: k,
+                                    attrs: {
+                                      title: offer.service_name,
+                                      logo: offer.company_logo,
+                                      index: k,
+                                      company: offer.company_name,
+                                      pick: true
+                                    },
+                                    on: {
+                                      pick: _vm.selectOffer,
+                                      view: _vm.viewModal
+                                    }
+                                  })
+                                }),
+                                1
+                              )
+                            ])
+                          ]
+                        )
+                      ]
+                    )
+                  ]),
                   _vm._v(" "),
                   _c(
                     "div",
-                    { staticClass: "col-xl-6 col-lg-6 col-md-6 col-12" },
+                    { staticClass: "col-xl-12 col-lg-12 col-md-12 col-12" },
                     [
                       _c(
                         "div",

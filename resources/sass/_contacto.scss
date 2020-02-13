@@ -15,14 +15,14 @@
 	font-size: 48px;
 }
 .contacto-main-content{
-	min-height: 110vh;
+	min-height: 720px;
 }
 .contacto-main-content span{
 	font-family: montserrat-regular;
 }
 .contacto-card{
 	position: sticky;
-	max-height: 800px;
+	height: 640px;
 	margin-top: -40px;
   border-radius: 50px;
   -webkit-box-shadow: 0px 0px 5px 4px rgba(0,0,0,0.25);
@@ -45,8 +45,9 @@
   font-size: 14px;
 }
 .contacto-footer{
-	background-color: rgba(0, 173, 239, 1);
-	min-height: 40vh;
+	/*background-color: rgba(0, 173, 239, 1);
+	min-height: 40vh;*/
+	background: #20ADF4;
 }
 .contacto-footer-title{
 	color: rgba(230, 230, 230, 1);

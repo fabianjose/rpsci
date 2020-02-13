@@ -10,7 +10,7 @@
     top: 11vh;
     margin: 1.2rem auto;
     left: 0;
-    right: 0; 
+    right: 0;
     min-height:45%;
     width:auto;
     display: flex;
@@ -26,7 +26,7 @@
 }
 
 .about-sub{
-    margin-top: 28vh;
+    margin-top: 20vh;
 }
 
 .about-number{
@@ -49,9 +49,9 @@
 .about-title-container:after {
     display:block;
     content: '';
-    border-bottom: solid 3.5px $mid-gray;  
+    border-bottom: solid 3.5px $mid-gray;
     border-radius: 15px;
-    transform: scaleX(0);  
+    transform: scaleX(0);
     transition: transform 250ms ease-in-out;
 }
 
@@ -195,5 +195,3 @@
         margin-top: 105vh;
     }
 }
-
-

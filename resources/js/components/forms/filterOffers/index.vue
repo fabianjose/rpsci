@@ -8,9 +8,9 @@
           <div class="form-group my-2 col-12 ">
             <label for="orderBy" class="filter-card-label">Ordenar por:</label>
             <select class="custom-select rounded-pill" id="orderBy" v-model="orderBy">
-              <option :value="'tariff'" selected >precio</option>
-              <option :value="'points'" selected >puntuación</option>
-              <option v-for="(field, k) in compFields" :key="k" :value="k+1" v-if="field.type=='numeric'">{{field.name}}</option>
+              <option :value="'tariff'" selected >Precio</option>
+              <option :value="'points'" selected >Puntuación</option>
+              <option v-for="(field, k) in compFields" :key="k" :value="k+1" v-if="field.type=='numeric'" class="text-capitalize">{{field.name}}</option>
             </select>
           </div>
 

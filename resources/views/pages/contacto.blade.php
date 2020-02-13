@@ -4,9 +4,9 @@
 <div class="d-flex flex-column contacto-main w-100">
 	<div class="d-flex justify-content-end align-items-end w-100 contacto-title p-5">
 		<div class="">
-			<h2 class="text-uppercase font-weight-bold text-white contacto-title-text">Estamos</h2>
-			<h2 class="text-uppercase font-weight-bold text-white contacto-title-text">Para</h2>
-			<h2 class="text-uppercase font-weight-bold text-white contacto-title-text">Servirte</h2>
+			<h2 class="text-uppercase font-weight-bold text-white contacto-title-text">Estamos para servirte</h2>
+			<!--<h2 class="text-uppercase font-weight-bold text-white contacto-title-text">Para</h2>
+			<h2 class="text-uppercase font-weight-bold text-white contacto-title-text">Servirte</h2>-->
 		</div>
 	</div>
 	<contact-main></contact-main>
@@ -16,14 +16,13 @@
 				También puedes comunicarte con nosotros a través de:
 			</h4>
 		</div>
-		<div class="col-md-6 col-12 d-flex flex-column align-items-end">
-			<div class="my-2 d-flex flex-column align-items-end">
-				<span class="text-lg">Correo Electronico</span>
-				<span class="text-md">info@dominio.com</span>
+		<div class="col-md-6 col-12 d-flex flex-column align-items-end flex-wrap">
+			<div class="my-2 d-flex align-items-end">
+				<span class="text-lg">Correo Electronico: <span class="text-md ml-2" style="word-wrap: break-word;">correo@correo.com</span></span>
+
 			</div>
-			<div class="my-2 d-flex flex-column align-items-end">
-				<span class="text-lg">Numero de Telefono</span>
-				<span class="text-md">+55 121 4545 7878</span>
+			<div class="my-2 d-flex align-items-end">
+				<span class="text-lg">Numero de Telefono: <span class="text-md ml-2">+55 121 4545 7878</span></span>
 			</div>
 		</div>
 	</div>

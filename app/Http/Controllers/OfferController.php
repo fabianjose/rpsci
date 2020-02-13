@@ -11,8 +11,8 @@ use App\Department;
 use App\Company;
 use App\Service;
 use Illuminate\Pagination\Paginator;
-use App\Offer;
 use App\FieldsValues;
+use App\Offer;
 
 class OfferController extends Controller{
 
@@ -36,26 +36,26 @@ class OfferController extends Controller{
       return response()->json($validation->errors(), 400);
     }
 
-    
+
     $company = Company::where('name',$data['company'])->first();
     $data['company'] = $company->id;
-    
+
     if (!$company) return response()->json('Empresa no encontrada',404);
-    
+
     if($request->input("department")){
       $department = Department::where('name',$data['department'])->first();
       if (!$department) return response()->json('Departamento no encontrado',404);
       $data['department'] = $department->id;
     }
     else $data["department"]=null;
-    
+
     if($request->input("municipality")){
       $municipality = Municipality::where('name',$data['municipality'])->first();
       if (!$municipality) return response()->json('Municipio no encontrado',404);
       $data['municipality'] = $municipality->id;
     }
     else $data["municipality"]=null;
-    
+
 
     $service=Service::find($data["service"]);
 
@@ -130,7 +130,7 @@ class OfferController extends Controller{
     if(count($fields)&&empty(json_decode($request->input("fields_values")))){
       return response()->json("Debe introducir los campos requeridos del servicio", 400);
     }
-    else if(!empty(json_decode($request->input("fields_values")))){ 
+    else if(!empty(json_decode($request->input("fields_values")))){
       foreach (json_decode($request->input("fields_values")) as $field_value) {
         FieldsValues::storeValues($field_value, $offer->id);
       }
@@ -190,7 +190,7 @@ class OfferController extends Controller{
     'municipalities.name as municipality_name'
     )
     ->first();
-    
+
 		if (!$offer) return response()->json('Oferta no encontrada',404);
 		return response()->json($offer, 200);
 	}
@@ -288,20 +288,20 @@ class OfferController extends Controller{
 
     if (!$offers&&!$allOffers) return response()->json('Error en la base de datos',500);
 
-    
+
     if($request->input("from")&&is_numeric($request->input("from"))){
       $offers->where("offers.tariff", ">=", $request->input("from"));
       $allOffers->where("offers.tariff", ">=", $request->input("from"));
     }
-    
+
     if($request->input("to")&&is_numeric($request->input("to"))){
       $offers->where("offers.tariff", "<=", $request->input("to"));
       $allOffers->where("offers.tariff", "<=", $request->input("to"));
     }
-    
+
     $offers=$offers->get();
     $offers=array_merge($offers->toArray(),$allOffers->toArray());
-    
+
     $offers=Offer::joinFields($offers);
 
     $fields=DB::table("fields")->where("service_id", $service->id)
@@ -324,11 +324,12 @@ class OfferController extends Controller{
     $offersArray=[];
 
     foreach ($offers as $offer) {
+      $offer->tariff = round($offer->tariff);
       array_push($offersArray,$offer);
     }
 
     $page=$request->input("page")?$request->input("page"):1;
-    
+
     $paginator = new Paginator(array_slice($offersArray,(($page-1)*10),10), 10,$page);
 
     $last_page= max((int) ceil(count($offersArray) / 10), 1);
@@ -448,6 +449,6 @@ class OfferController extends Controller{
 		if (!$offer->save()) return response()->json('Error en la base de datos',500);
 		return response()->json('Oferta eliminada satisfactoriamente', 200);
   }
-  
+
 
 }
