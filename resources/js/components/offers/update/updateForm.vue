@@ -170,7 +170,7 @@ export default {
       fd.append("benefits", this.offer.benefits);
       fd.append("department", this.offer.department_name);
       fd.append("municipality", this.offer.municipality_name);
-      fd.append("tariff", this.offer.tariff);
+      fd.append("tariff", parseInt(this.offer.tariff));
       fd.append("type", this.offer.type);
       fd.append("points", this.offer.points);
       fd.append("fields_values", valuesArray.length?JSON.stringify(valuesArray):null);

@@ -113,7 +113,7 @@ class CompanyController extends Controller{
   public function highlightCompany($id,Request $request){
     $data = $request->all();
     $validation = Validator::make($data, [
-      'highlighted_expiration' => ['required', 'date'],
+      'highlighted_expiration' => ['required', 'date', "after_or_equal:".date('Y-m-d')],
     ]);
     if ($validation->fails()){
       return response()->json($validation->errors(), 400);

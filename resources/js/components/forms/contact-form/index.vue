@@ -80,8 +80,8 @@ export default {
             if(this.phone&&this.phone!="") fd.append("phone", this.phone);
             else return toastr.error("Rellene todos los campos");
 
-            if(this.captcha&&this.captcha!="") fd.append("g-recaptcha-response", this.captcha);
-            else return toastr.error("Complete la prueba de captcha");
+            //if(this.captcha&&this.captcha!="") fd.append("g-recaptcha-response", this.captcha);
+            //else return toastr.error("Complete la prueba de captcha");
 
             if(this.offer){
                 fd.append("offer", this.offer.id)

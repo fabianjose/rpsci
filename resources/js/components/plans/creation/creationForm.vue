@@ -12,7 +12,7 @@
       <div id="collapseOne" class="panel-collapse in collapse" >
         <div class="card-body">
 
-          <zone-select middle="col-xl-6 col-lg-6 col-md-6 col-12" @newDepartment="newDepartment" @newMunicipality="newMunicipality"  >
+          <div class="d-flex flex-row w-100 justify-content-around flex-wrap">
             <div class="form-group col-xl-6 col-lg-6 col-md-6 col-12">
               <label>Empresa</label>
               <select class="custom-select" v-model="company">
@@ -31,6 +31,15 @@
               value="id"
               ></autocomplete-vue> -->
             </div>
+            <div class="form-group col-xl-6 col-lg-6 col-md-6 col-12">
+              <label>Servicio</label>
+              <select class="custom-select" v-model="service">
+                <option :value="service.id" v-for="service in services" :key="service.id">{{service.name}}</option>
+              </select>
+            </div>
+          </div>
+
+          <zone-select  middle="col-xl-6 col-lg-6 col-md-6 col-12" @newDepartment="newDepartment" @newMunicipality="newMunicipality"  >
           </zone-select>
 
 
@@ -56,7 +65,7 @@
                   <div class="card-body w-100">
 
                       <div class="d-flex justify-content-around w-100 flex-wrap">
-                        <offer  v-for="(offer,k) in offersByArea" :key="k"
+                        <offer class="col-md-8 col-xl-6 col-10 col-lg-6 col-sm-8" v-for="(offer,k) in offersByArea" :key="k"
                           :title="offer.service_name" :logo="offer.company_logo" :index="k"
                           :company="offer.company_name" :pick="true"
                           @pick="selectOffer" @view="viewModal"
@@ -83,7 +92,7 @@
                   <div class="card-body">
 
                     <div v-if="selectedOffer" class="d-flex flex-row justify-content-around w-100 wlex-wrap">
-                      <offer class="col-md-6 col-lg-4 col-sm-8" v-if="selectedOffer" :title="selectedOffer.service_name"
+                      <offer class="col-md-8 col-xl-6 col-10 col-lg-6 col-sm-8" v-if="selectedOffer" :title="selectedOffer.service_name"
                         :logo="selectedOffer.company_logo" :company="selectedOffer.company_name" :remove="true"
                         @delete="selectedOffer=null;" @view="viewSelected"
                       ></offer>
@@ -112,9 +121,9 @@
 
 <script>
 export default {
-  props: ['services'],
   data(){
     return {
+      services:[],
       active:false,
       active2:false,
       active3:false,
@@ -124,7 +133,8 @@ export default {
       selectedOffer:null,
       offersByArea:[],
       expiration:null,
-      companies: []
+      companies: [],
+      service:null,
     }
   },
   mounted(){
@@ -133,6 +143,20 @@ export default {
   methods:{
     refreshData(){
       let loader = this.$loading.show();
+      axios.get(baseUrl+'/api/services')
+      .then(res=>{
+        console.log("response from server", res);
+        this.services = res.data;
+      }).catch(err=>{
+        if(err.response.status===403){
+          window.location.replace(baseUrl+"/login");
+        }
+        console.log("ERROR FROM SERVER ",err.response);
+        if (err.response.data.errorMessage){
+          toastr.error(err.response.data.errorMessage);
+        }
+      }).finally(()=>loader.hide());
+      
       axios.get(baseUrl+'/api/companies')
       .then(res=>{
         console.log(res);
@@ -176,8 +200,8 @@ export default {
         console.log("RESPONSE FROM SERVER ",res);
         toastr.success("Oferta Destacada con éxito");
         this.selectedOffer = null;
-        this.offersByArea = [];
-        this.company = "";
+        //this.offersByArea = [];
+        //this.company = "";
         this.OpenAccordion("#OffersAccordion","#OffersList", "active2");
         this.OpenAccordion("#SelectedOfferAccordion","#SelectedOffer", "active3");
         this.$emit('refresh');
@@ -222,6 +246,8 @@ export default {
       if(this.department) fd.append("department", this.department);
 
       if(this.municipality) fd.append("municipality", this.municipality);
+
+      if(this.service) fd.append("service", this.service);
 
       let loader = this.$loading.show();
 

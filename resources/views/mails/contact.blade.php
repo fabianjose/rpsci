@@ -49,6 +49,14 @@
             {{$general_message}}
             <br>
 
+            
+            @if($extra_message)
+              <br>
+                {{$extra_message}}
+              <br>
+              <br>  
+            @endif
+
             @if($offerLink)
               <span>Link de la oferta: {{$offerLink}}</span>
               <br>  

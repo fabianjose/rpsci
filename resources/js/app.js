@@ -50,6 +50,7 @@ Vue.component("offer-card", require("./components/items/offers/offerCard.vue").d
 Vue.component("offers-filter", require("./components/offers/filter").default);
 Vue.component("offer-consult", require("./components/forms/contact-modal").default);
 Vue.component("offer-modal", require("./components/items/offers/offerCardDetailed.vue").default);
+Vue.component("offer-detailed", require("./components/offers/detailed").default);
 
 // Servicios
 Vue.component('service-creation', require("./components/services/creation/creationForm.vue").default);

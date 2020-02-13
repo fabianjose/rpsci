@@ -52,6 +52,7 @@ Route::group(['middleware' => ['JwtMiddleware']], function () {
 
   Route::post('offers/area', 'OfferController@getByLocation');
   Route::post('offers/highlight/{id}', "OfferController@HighlightOffer");
+  Route::delete('offers/highlight/{id}', "OfferController@deleteHighlightOffer");
 
 
 });

@@ -5,7 +5,7 @@
                 <div class="col-lg-7 col-xl-7 col-md-12 col-12 d-flex flex-column p-4">
                     <div class="consult-card-content">
                         <div class="consult-card-header pt-4 pb-3">
-                            <img :src="baseUrl+'/'+offer.company_logo" alt="logo" class="consult-card-logo img-fluid">
+                            <img :src="baseUrl+'/storage/'+offer.company_logo" alt="logo" class="consult-card-logo img-fluid">
                             <h6 class="col-12 consult-card-company">{{offer.company_name}}</h6>
                         </div>
                         <div class="consult-card-benefits py-3">

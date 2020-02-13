@@ -72,13 +72,21 @@ export default {
         if(this.orderBySort=="desc") searchKey+="&sortByDesc=true";
       }
 
+      if(this.fromPrice&&this.fromPrice!=""){
+        
         if(!isNaN(this.fromPrice)) searchKey+="&from="+parseFloat(this.fromPrice);
 
         else return toastr.error("El campo 'Desde' es de valor numérico")
+        
+      }
 
+      if(this.toPrice&&this.toPrice!=""){
+        
         if(!isNaN(this.toPrice)) searchKey+="&to="+parseFloat(this.toPrice);
 
         else return toastr.error("El campo 'Hasta' es de valor numérico")
+        
+      }
 
       this.$emit("customFiltering", searchKey);
 
