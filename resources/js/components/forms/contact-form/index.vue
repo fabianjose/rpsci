@@ -24,7 +24,9 @@
                 <input v-model="phone" class="form-control form-consulting-input rounded-pill rounded-input" type="text">
             </div>
         </div>
-        <vue-recaptcha :sitekey="reCaptchaKey" :loadRecaptchaScript="true" ></vue-recaptcha>
+        <div class="col-12 my-2 d-flex justify-content-center align-items-center">
+            <vue-recaptcha @error="onCaptchaError" @expired="onCaptchaExpired" @verify="verifyCaptcha" class="col-12 v-captcha" :sitekey="reCaptchaKey" :loadRecaptchaScript="true" ></vue-recaptcha>
+        </div>
         <div class="col-12 my-2 p-3 mx-auto" >
             <button :disabled="disableButton" @click="sendMail" class="btn btn-block btn-dark-blue rounded-pill">
                 CONSULTAR
@@ -44,13 +46,28 @@ export default {
             phone:"",
             baseUrl:baseUrl,
             disableButton:false,
+            captcha:"",
         }
     },
 
     methods:{
+        verifyCaptcha(captcha){
+            this.captcha=captcha;
+        },
+
+        onCaptchaError(err){
+            console.log("error captcha ", err)
+            toastr.error("error en la validación del captcha, comprueba tu conexión a internet e intenta nuevamente")
+        },
+
+        onCaptchaExpired(err){
+            console.log("error captcha ", err)
+            toastr.error("el captcha se expiró, intente nuevamente")
+        },
+
         getFullRound(){
             if(!this.offer) return "consult-card-full-rounded";
-            else return "col-lg-5 col-xl-5 col-md-5 col-12";
+            else return "col-lg-5 col-xl-5 col-12";
         },
         sendMail(){
 
@@ -62,6 +79,9 @@ export default {
             else return toastr.error("Rellene todos los campos");
             if(this.phone&&this.phone!="") fd.append("phone", this.phone);
             else return toastr.error("Rellene todos los campos");
+
+            if(this.captcha&&this.captcha!="") fd.append("g-recaptcha-response", this.captcha);
+            else return toastr.error("Complete la prueba de captcha");
 
             if(this.offer){
                 fd.append("offer", this.offer.id)
@@ -103,3 +123,21 @@ export default {
     }
 }
 </script>
+
+<style>
+
+.v-captcha{
+    transform: scale(0.7);
+    -webkit-transform: scale(0.7);
+    transform-origin: 0 0;
+    -webkit-transform-origin: 0 0;
+}
+
+@media (max-width:350px) {
+    .v-captcha{
+        transform: scale(0.6);
+        -webkit-transform: scale(0.6);
+    }
+}
+
+</style>

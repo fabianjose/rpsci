@@ -485,15 +485,15 @@
   border-radius: 50px !important;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .form-consulting-field {
     border-top-right-radius: 50px;
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 991px) {
   .consult-card {
-    width: 80%;
+    width: 90vw;
   }
 
   .form-consulting-field {
@@ -501,8 +501,14 @@
   }
 }
 
+@media (max-width: 575px) {
+  .consult-card {
+    width: 100%;
+  }
+}
+
 .modal-xl-xl {
-  max-width: 100vw !important;
+  width: 100% !important;
 }
 
 .btn-dark-blue {
@@ -1080,7 +1086,7 @@
 body {
   scroll-behavior: smooth;
   font-family: montserrat-bold;
-  word-break: break-all;
+  word-break: break-word;
   box-sizing: content-box;
 }
 

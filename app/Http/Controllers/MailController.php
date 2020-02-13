@@ -23,11 +23,13 @@ class MailController extends Controller
           "service_name" => "exists:services,name",
           "department" => "exists:departments,name",
           "municipality" => "exists:municipalities,name",
-          //'g-recaptcha-response' => 'required|captcha',
+          'g-recaptcha-response' => 'required|captcha',
       ]);
       if ($validation->fails()){
         return response()->json($validation->errors(), 400);
       }
+
+      //var_dump("success"); exit();
 
       $fromOffer="";
 
