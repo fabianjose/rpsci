@@ -59,14 +59,14 @@
           <li class="nav-item ">
             <a class="nav-link d-flex flex-row align-items-center" href="/banners">
               <i class="fa fa-tag"></i col-2>
-              <p class="col-10" class="text-wrap">Banners Publicitarios</p>
+              <p class="col-10" class="text-wrap">Destacar Logo</p>
             </a>
           </li>
 
           <li class="nav-item ">
             <a class="nav-link d-flex flex-row align-items-center" href="/plans">
               <i class="fa fa-tags"></i col-2>
-              <p class="col-10">Planes Destacados</p>
+              <p class="col-10">Destacar Plan</p>
             </a>
           </li>
 
