@@ -30,7 +30,7 @@ class DepartmentController extends Controller{
 	}
 
 	public function getAll(){
-		$departments = DB::table('departments')->where('trash',0)->get();
+		$departments = DB::table('departments')->where('trash',0)->orderBy('name', 'asc')->get();
 		if (!$departments) return response()->json('Error en la base de datos',500);
 		return response()->json($departments, 200);
 	}
