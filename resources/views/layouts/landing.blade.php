@@ -19,7 +19,7 @@
             <a class="nav-link hidden-md nav-btn ml-auto mx-1 hidden-xl-xl hidden-xl hidden-lg"  href="https://contratainternet.speedtestcustom.com/">
                 <i class="fas fa-tachometer-alt"></i>
             </a>
-            <a class="nav-link hidden-md nav-btn mx-1 hidden-xl-xl hidden-xl hidden-lg" data-toggle="collapse" 
+            <a class="nav-link hidden-md nav-btn mx-1 hidden-xl-xl hidden-xl hidden-lg" data-toggle="collapse"
               data-target="#responsive-menu">
                 <i class="fas fa-bars"></i>
             </a>
@@ -40,7 +40,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link nav-item-border {{strpos(Route::current()->uri,'blog')>-1?'active':''}}" href="/blog">
+                        <a class="nav-link nav-item-border {{strpos(Route::current()->uri,'blog')>-1?'active':''}}" href="https://intercolombia.nextscale.net/blog">
                             <h6 class="ic-main font-weight-bold">
                                 Blog
                             </h6>
@@ -105,8 +105,8 @@
               <div class="col-xl-4 col-lg-4 col-md-6 col-12 footer-link-border">
                 <h5 class="footer-title-color font-weight-bold">PONTE EN CONTACTO</h5>
                 <ul class="footer-list p-2">
-                  <li>-Correo Electrónico: contacto@contratainternet.com.co</li>
-                  <li>-Números de teléfono: pbx 7868510</li>
+                  <li>-Correo Electrónico: correo@correo.com </li>
+                  <li>-Números de teléfono: PBX ###</li>
                 </ul>
               </div>
             </div>

@@ -12,12 +12,12 @@
         <h6 class="col-12 offer-card-benefits text-wrap" style="font-family:Montserrat-regular">{{offer.benefits}}</h6>
       </div>
       <div class="row">
-        <h5 class="col-12 offer-card-price">{{offer.tariff}} $</h5>
+        <h5 class="col-12 offer-card-price">{{Math.trunc(offer.tariff)}} $</h5>
       </div>
     </div>
     <div class="offer-card-footer">
       <div class="col-10">
-        <button @click="emitContact" data-toggle="modal" data-target="#modalConsultOffer" 
+        <button @click="emitContact" data-toggle="modal" data-target="#modalConsultOffer"
           :class="'btn btn-block text-white offer-card-btn rounded-pill '+(index%2?'bg-main-blue':'bg-main-pink')">
           CONTACTAR
         </button>

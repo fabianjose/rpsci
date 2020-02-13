@@ -41770,7 +41770,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "d-flex justify-content-center contacto-main-content" },
+    { staticClass: "d-flex justify-content-center contacto-main-content row" },
     [
       _vm._m(0),
       _vm._v(" "),
@@ -41778,19 +41778,22 @@ var render = function() {
         "div",
         {
           staticClass:
-            "col-10 col-sm-10 col-md-10 col-lg-6 col-xl-6 d-flex flex-column p-4 align-items-center"
+            "col-10 col-sm-10 col-md-10 col-lg-7 col-xl-7 d-flex flex-column p-4 align-items-center"
         },
         [
           _c(
             "h5",
-            { staticClass: "contacto-card-title font-weight-bold text-center" },
+            {
+              staticClass:
+                "contacto-card-title mt-4 font-weight-bold text-center"
+            },
             [_vm._v("Ubícanos")]
           ),
           _vm._v(" "),
           _c(
             "GmapMap",
             {
-              staticStyle: { width: "90%", height: "300px" },
+              staticStyle: { width: "90%", height: "550px" },
               attrs: {
                 center: { lat: 4.613033, lng: -74.14456 },
                 zoom: 17,
@@ -41823,7 +41826,7 @@ var staticRenderFns = [
       "div",
       {
         staticClass:
-          "card card-primary contacto-card bg-light p-3 col-10 col-sm-10 col-md-10 col-lg-6 col-xl-6"
+          "card card-primary contacto-card bg-light p-3 col-10 col-sm-10 col-md-10 col-lg-4 col-xl-4"
       },
       [
         _c(
@@ -41906,7 +41909,7 @@ var staticRenderFns = [
           "div",
           {
             staticClass:
-              "card-footer d-flex justify-content-end pt-2 pb-5 bg-light"
+              "card-footer d-flex justify-content-end pt-2 pb-2 bg-light"
           },
           [
             _c("div", { staticClass: "col-lg-4 col-md-6 col-sm-8" }, [
@@ -43985,7 +43988,7 @@ var render = function() {
         _vm._v(" "),
         _c("div", { staticClass: "row" }, [
           _c("h5", { staticClass: "col-12 offer-card-price" }, [
-            _vm._v(_vm._s(_vm.offer.tariff) + " $")
+            _vm._v(_vm._s(Math.trunc(_vm.offer.tariff)) + " $")
           ])
         ])
       ]),
@@ -44544,10 +44547,6 @@ var render = function() {
                     [_vm._v("Departamento")]
                   ),
                   _vm._v(" "),
-                  _c("option", { domProps: { value: null } }, [
-                    _vm._v("Todos")
-                  ]),
-                  _vm._v(" "),
                   _vm._l(_vm.departments, function(department, index) {
                     return _c(
                       "option",
@@ -44609,10 +44608,6 @@ var render = function() {
                     },
                     [_vm._v("Municipio")]
                   ),
-                  _vm._v(" "),
-                  _c("option", { domProps: { value: null } }, [
-                    _vm._v("Todos")
-                  ]),
                   _vm._v(" "),
                   _vm._l(_vm.municipalities, function(municipality, index) {
                     return _c(
@@ -94436,8 +94431,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\ConsultingME\colombia_internet\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\ConsultingME\colombia_internet\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\ConsultingMe\colombia_internet\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\ConsultingMe\colombia_internet\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),
