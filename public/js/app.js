@@ -41230,7 +41230,7 @@ var render = function() {
                       attrs: {
                         src: _vm.onPreview
                           ? _vm.onPreview
-                          : _vm.baseUrl + "/storage/" + _vm.company.logo,
+                          : _vm.baseUrl + "/" + _vm.company.logo,
                         alt: ""
                       }
                     })
@@ -41751,7 +41751,7 @@ var render = function() {
                     [
                       _c("img", {
                         staticClass: "high-companies-img align-self-center",
-                        attrs: { src: _vm.baseUrl + "/storage/" + company.logo }
+                        attrs: { src: _vm.baseUrl + "/" + company.logo }
                       })
                     ]
                   )
@@ -41817,7 +41817,7 @@ var render = function() {
                   attrs: {
                     src: _vm.onPreview
                       ? _vm.onPreview
-                      : _vm.baseUrl + "/storage/" + _vm.company.logo,
+                      : _vm.baseUrl + "/" + _vm.company.logo,
                     alt: ""
                   }
                 })
@@ -42514,10 +42514,7 @@ var render = function() {
                         _c("img", {
                           staticClass: "consult-card-logo img-fluid",
                           attrs: {
-                            src:
-                              _vm.baseUrl +
-                              "/storage/" +
-                              _vm.offer.company_logo,
+                            src: _vm.baseUrl + "/" + _vm.offer.company_logo,
                             alt: "logo"
                           }
                         }),
@@ -43276,7 +43273,7 @@ var render = function() {
           _c("img", {
             staticClass: "img-fluid",
             staticStyle: { "max-height": "135px" },
-            attrs: { src: _vm.baseUrl + "/storage/" + _vm.logo, alt: "" }
+            attrs: { src: _vm.baseUrl + "/" + _vm.logo, alt: "" }
           }),
           _vm._v(" "),
           _c(
@@ -43375,7 +43372,7 @@ var render = function() {
               _c("img", {
                 staticClass: "align-self-center img-fluid",
                 staticStyle: { "max-height": "300px" },
-                attrs: { src: _vm.baseUrl + "/storage/" + _vm.company.logo }
+                attrs: { src: _vm.baseUrl + "/" + _vm.company.logo }
               }),
               _vm._v(" "),
               _c("h2", { staticClass: "profile-username text-center" }, [
@@ -43650,9 +43647,7 @@ var render = function() {
                   _c("img", {
                     staticClass: "img-fluid p-2",
                     staticStyle: { "max-height": "130px" },
-                    attrs: {
-                      src: _vm.baseUrl + "/storage/" + offer.company_logo
-                    }
+                    attrs: { src: _vm.baseUrl + "/" + offer.company_logo }
                   }),
                   _vm._v(" "),
                   _c("h6", { staticClass: "text-dark-blue pt-2" }, [
@@ -43952,7 +43947,7 @@ var render = function() {
                 staticClass: "align-self-center img-fluid",
                 staticStyle: { "max-height": "300px" },
                 attrs: {
-                  src: _vm.baseUrl + "/storage/" + _vm.offer.company_logo,
+                  src: _vm.baseUrl + "/" + _vm.offer.company_logo,
                   alt: "Offer picture"
                 }
               }),
@@ -44223,7 +44218,7 @@ var render = function() {
         [
           _c("img", {
             staticClass: "image-logo-banner",
-            attrs: { src: _vm.baseUrl + "/storage/" + _vm.logo }
+            attrs: { src: _vm.baseUrl + "/" + _vm.logo }
           }),
           _vm._v(" "),
           _c(
@@ -44335,7 +44330,7 @@ var render = function() {
         _c("img", {
           staticStyle: { "max-height": "160px", "max-width": "160px" },
           attrs: {
-            src: _vm.baseUrl + "/storage/" + _vm.offer.company_logo,
+            src: _vm.baseUrl + "/" + _vm.offer.company_logo,
             alt: "logo"
           }
         })
@@ -44434,7 +44429,7 @@ var render = function() {
               _c("img", {
                 staticClass: "col-10",
                 attrs: {
-                  src: _vm.baseUrl + "/storage/" + _vm.offer.company_logo,
+                  src: _vm.baseUrl + "/" + _vm.offer.company_logo,
                   alt: "logo"
                 }
               })
@@ -46053,7 +46048,7 @@ var render = function() {
                       staticClass: "align-self-center img-fluid",
                       staticStyle: { "max-height": "300px" },
                       attrs: {
-                        src: _vm.baseUrl + "/storage/" + _vm.offer.company_logo,
+                        src: _vm.baseUrl + "/" + _vm.offer.company_logo,
                         alt: "Offer picture"
                       }
                     }),
@@ -95144,8 +95139,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\z-projects\colombia_internet\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\z-projects\colombia_internet\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\ConsultingME\colombia_internet\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\ConsultingME\colombia_internet\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),

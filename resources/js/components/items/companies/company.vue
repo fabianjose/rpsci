@@ -2,7 +2,7 @@
     <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4">
         <div class="card card-primary">
             <div class="card-body d-flex flex-column align-items-center">
-                <img class="img-fluid" style="max-height:135px;" :src="baseUrl+'/storage/'+logo" alt="">
+                <img class="img-fluid" style="max-height:135px;" :src="baseUrl+'/'+logo" alt="">
                 <h4 class="px-2 mt-3 text-dark-blue company-card-label card-text">{{title}}</h4>
             </div>
             <div class="card-footer">

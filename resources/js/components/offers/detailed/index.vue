@@ -15,7 +15,7 @@
                     <div id="collapseOne" class="panel-collapse collapse show" >
                         <div class="card-body d-flex flex-column box-profile">
 
-                            <img class="align-self-center img-fluid" :src="baseUrl+'/storage/'+offer.company_logo" alt="Offer picture" style="max-height: 300px;">
+                            <img class="align-self-center img-fluid" :src="baseUrl+'/'+offer.company_logo" alt="Offer picture" style="max-height: 300px;">
 
                             <h2 class="profile-username text-center">{{offer.service_name}}</h2>
 
