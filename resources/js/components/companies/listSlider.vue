@@ -2,7 +2,7 @@
   <vueper-slides
     class="no-shadow high-companies-carousel mt-4 text-center"
     :autoplay="true"
-    :duration="3000"
+    :duration="1000"
     :bullets="false"
     :arrows="false"
     :visible-slides="(companies.length < 4)?companies.length:4"
