@@ -4182,7 +4182,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     showPrice: function showPrice(price) {
-      return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+      return Math.trunc(price);
     },
     emitContact: function emitContact() {
       this.$emit("contactOffer", this.index);
