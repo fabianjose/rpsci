@@ -29,8 +29,8 @@ define( 'DB_NAME', 'wp_intercolombia' );
 define( 'DB_USER', 'root' );
 
 /** MySQL database password */
-// define( 'DB_PASSWORD', 'U9T9sR8XDCHMeE' );
-define( 'DB_PASSWORD', '' );
+define( 'DB_PASSWORD', 'U9T9sR8XDCHMeE' );
+// define( 'DB_PASSWORD', '' );
 
 /** MySQL hostname */
 define( 'DB_HOST', 'localhost' );
