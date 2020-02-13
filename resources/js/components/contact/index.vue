@@ -1,5 +1,5 @@
 <template>
-    <div class="d-flex justify-content-center contacto-main-content">
+    <div class="d-flex justify-content-center contacto-main-content row">
 		<div class="card card-primary contacto-card bg-light p-3 col-10 col-sm-10 col-md-10 col-lg-6 col-xl-6">
             <div class="card-body d-flex flex-column align-items-center pt-4">
             <h5 class="contacto-card-title font-weight-bold text-center">Ponte en contacto con nosotros</h5>
@@ -26,7 +26,7 @@
                         </div>
             </div>
             </div>
-            <div class="card-footer d-flex justify-content-end pt-2 pb-5 bg-light">
+            <div class="card-footer d-flex justify-content-end pt-2 pb-2 bg-light">
             <div class="col-lg-4 col-md-6 col-sm-8">
                 <i class="fa fa-search icon-btn"></i>
                 <button class="btn btn-block btn-dark-blue rounded-pill text-center">
@@ -37,13 +37,13 @@
 	  </div>
       <div class="col-10 col-sm-10 col-md-10 col-lg-6 col-xl-6 d-flex flex-column p-4 align-items-center">
 
-        <h5 class="contacto-card-title font-weight-bold text-center">Ubícanos</h5>
-        
+        <h5 class="contacto-card-title mt-4 font-weight-bold text-center">Ubícanos</h5>
+
         <GmapMap
             :center="{lat:4.613033, lng:-74.144560}"
             :zoom="17"
             map-type-id="roadmap"
-            style="width: 90%; height: 300px"
+            style="width: 90%; height: 550px"
         >
         <GmapMarker
             :position="{lat:4.613033, lng:-74.144560}"
@@ -57,6 +57,6 @@
 
 <script>
 export default {
-    
+
 }
 </script>

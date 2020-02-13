@@ -41770,7 +41770,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "d-flex justify-content-center contacto-main-content" },
+    { staticClass: "d-flex justify-content-center contacto-main-content row" },
     [
       _vm._m(0),
       _vm._v(" "),
@@ -41783,14 +41783,17 @@ var render = function() {
         [
           _c(
             "h5",
-            { staticClass: "contacto-card-title font-weight-bold text-center" },
+            {
+              staticClass:
+                "contacto-card-title mt-4 font-weight-bold text-center"
+            },
             [_vm._v("Ubícanos")]
           ),
           _vm._v(" "),
           _c(
             "GmapMap",
             {
-              staticStyle: { width: "90%", height: "300px" },
+              staticStyle: { width: "90%", height: "550px" },
               attrs: {
                 center: { lat: 4.613033, lng: -74.14456 },
                 zoom: 17,
@@ -41906,7 +41909,7 @@ var staticRenderFns = [
           "div",
           {
             staticClass:
-              "card-footer d-flex justify-content-end pt-2 pb-5 bg-light"
+              "card-footer d-flex justify-content-end pt-2 pb-2 bg-light"
           },
           [
             _c("div", { staticClass: "col-lg-4 col-md-6 col-sm-8" }, [
