@@ -53,11 +53,11 @@
             <div class="d-flex flex-row flex-wrap col-10 col-sm-10 col-lg-8 col-xl-8 pb-4 mx-auto justify-content-center">
                 <div class=" text-center custom-control custom-radio col-10 col-sm-10 col-md-6 col-lg-6 col-xl-6 mx-0" @click="offerType='private';" >
                     <input type="radio" class="custom-control-input" :checked="offerType=='private'" id="privateOffer" >
-                    <label class="custom-control-label" for="privateOffer">Soy un particular</label>
+                    <label class="custom-control-label" for="privateOffer">Hogar</label>
                 </div>
                 <div class=" text-center custom-control custom-radio col-10 col-sm-10 col-md-6 col-lg-6 col-xl-6 mx-0" @click="offerType='company';" >
                     <input type="radio" class="custom-control-input" :checked="offerType=='company'" id="companyOffer">
-                    <label class="custom-control-label" for="companyOffer">Soy una empresa</label>
+                    <label class="custom-control-label" for="companyOffer">Empresa</label>
                 </div>
             </div>
             <div class="col-10 col-md-8 col-lg-6 col-xl-6 mx-auto pb-1" @click="search" >

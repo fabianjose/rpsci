@@ -46,7 +46,7 @@
             </h6>
           </div>
           <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 py-2 text-center d-flex flex-column align-items-center justify-content-center">
-            <h6 class="text-dark-blue text-lg">{{offer.tariff}} $</h6>
+            <h6 class="text-dark-blue text-lg">$ {{offer.tariff}}</h6>
             <div class="stars-container flex-row justify-content-center mb-2">
               <i v-for="(starCount,k4) in 5" :key="k4" :class="(starCount>offer.points?'far':'fas')+' fa-star'"></i>
             </div>
