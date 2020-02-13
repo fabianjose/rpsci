@@ -39,8 +39,15 @@
                             </h6>
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link nav-item-border {{strpos(Route::current()->uri,'blog')>-1?'active':''}}" href="https://intercolombia.nextscale.net/blog">
+                            <h6 class="ic-main font-weight-bold">
+                                Blog
+                            </h6>
+                        </a>
+                    </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link nav-item-border {{strpos(Route::current()->uri,'blog')>-1?'active':''}}" href="#">
                             <h6 class="ic-main font-weight-bold">
                                 Blog
                             </h6>
