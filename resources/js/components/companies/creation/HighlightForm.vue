@@ -15,7 +15,7 @@
               <label>Empresa</label>
               <select class="custom-select" v-model="company">
                 <option value="" class="d-none" selected>Empresa</option>
-                <option v-for="(company,index) in companies" :key="index" :value="company.name">{{company.name}}</option>
+                <option v-for="(company,index) in companies" :key="index" :value="company.id">{{company.name}}</option>
               </select>
               <!-- <autocomplete-vue
               v-model="company"
@@ -63,9 +63,9 @@ export default {
           console.log(res);
           this.companies=res.data;
         }).catch(err=>{
-        if(err.response.status===403){
-          window.location.replace(baseUrl+"/login");
-        }
+          if(err.response.status===403){
+            window.location.replace(baseUrl+"/login");
+          }
           console.log("ERROR FROM SERVER ",err.response);
           if (err.response.data.errorMessage){
             toastr.error(err.response.data.errorMessage);

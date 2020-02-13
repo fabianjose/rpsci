@@ -41256,7 +41256,7 @@ var render = function() {
                   _vm._l(_vm.companies, function(company, index) {
                     return _c(
                       "option",
-                      { key: index, domProps: { value: company.name } },
+                      { key: index, domProps: { value: company.id } },
                       [_vm._v(_vm._s(company.name))]
                     )
                   })
@@ -42318,7 +42318,7 @@ var render = function() {
                         attrs: { selected: "" },
                         domProps: { value: "tariff" }
                       },
-                      [_vm._v("precio")]
+                      [_vm._v("Precio")]
                     ),
                     _vm._v(" "),
                     _c(
@@ -42327,14 +42327,20 @@ var render = function() {
                         attrs: { selected: "" },
                         domProps: { value: "points" }
                       },
-                      [_vm._v("puntuación")]
+                      [_vm._v("Puntuación")]
                     ),
                     _vm._v(" "),
                     _vm._l(_vm.compFields, function(field, k) {
                       return field.type == "numeric"
-                        ? _c("option", { key: k, domProps: { value: k + 1 } }, [
-                            _vm._v(_vm._s(field.name))
-                          ])
+                        ? _c(
+                            "option",
+                            {
+                              key: k,
+                              staticClass: "text-capitalize",
+                              domProps: { value: k + 1 }
+                            },
+                            [_vm._v(_vm._s(field.name))]
+                          )
                         : _vm._e()
                     })
                   ],

@@ -110,7 +110,7 @@ class CompanyController extends Controller{
 		return response()->json(200);
 	}
 
-  public function highlightCompany($name,Request $request){
+  public function highlightCompany($id,Request $request){
     $data = $request->all();
     $validation = Validator::make($data, [
       'highlighted_expiration' => ['required', 'date'],
@@ -119,7 +119,7 @@ class CompanyController extends Controller{
       return response()->json($validation->errors(), 400);
     }
 
-    $company = Company::where('name',$name)->first();
+    $company = Company::where('id',$id)->where('trash',0)->first();
     if (!$company) return response()->json(['errorMessage' => 'Empresa no encontrada'],404);
 
     if ($company->highlighted){
