@@ -44544,10 +44544,6 @@ var render = function() {
                     [_vm._v("Departamento")]
                   ),
                   _vm._v(" "),
-                  _c("option", { domProps: { value: null } }, [
-                    _vm._v("Todos")
-                  ]),
-                  _vm._v(" "),
                   _vm._l(_vm.departments, function(department, index) {
                     return _c(
                       "option",
@@ -44609,10 +44605,6 @@ var render = function() {
                     },
                     [_vm._v("Municipio")]
                   ),
-                  _vm._v(" "),
-                  _c("option", { domProps: { value: null } }, [
-                    _vm._v("Todos")
-                  ]),
                   _vm._v(" "),
                   _vm._l(_vm.municipalities, function(municipality, index) {
                     return _c(
@@ -94436,8 +94428,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\ConsultingME\colombia_internet\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\ConsultingME\colombia_internet\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\PMP\interco\colombia_internet\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\PMP\interco\colombia_internet\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),
