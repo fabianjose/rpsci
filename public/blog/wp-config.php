@@ -19,6 +19,8 @@
  */
  define( 'WP_HOME', 'https://intercolombia.nextscale.net/blog' );
  define( 'WP_SITEURL', 'https://intercolombia.nextscale.net/blog' );
+ // define( 'WP_HOME', 'http://127.0.0.1:8000/blog' );
+ // define( 'WP_SITEURL', 'http://127.0.0.1:8000/blog' );
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
 define( 'DB_NAME', 'wp_intercolombia' );
