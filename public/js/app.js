@@ -3927,6 +3927,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       municipality: null,
       defaultDepartment: "bogota",
       defaultMunicipality: "bogota",
+      onceActivation: false,
       apiKey: "AIzaSyBL0ZT5AWyMHUGkuGVuSbqHwZx_3dr6MU0"
     };
   },
@@ -4026,7 +4027,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         console.log("ERROR FROM SERVER ", err.response);
 
         if (err.response.status == 404) {
-          _this3.refreshDefault();
+          if (!_this3.onceActivation) {
+            _this3.refreshDefault();
+          }
         }
 
         if (err.response.data.errorMessage) {// toastr.error(err.response.data.errorMessage);
@@ -4040,6 +4043,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.currentOffer = this.offers[index];
     },
     refreshDefault: function refreshDefault() {
+      this.onceActivation = true;
       toastr.info("no se ha encontrado el departamento, mostrando planes destacados de la capital");
       this.department = null;
       this.municipality = null;
