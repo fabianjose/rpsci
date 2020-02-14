@@ -161,7 +161,7 @@ export default {
           this.refreshDefault()
         }
         if (err.response.data.errorMessage){
-          toastr.error(err.response.data.errorMessage);
+          // toastr.error(err.response.data.errorMessage);
         }else{
           toastr.error('Error al obtener los planes destacados');
         }
