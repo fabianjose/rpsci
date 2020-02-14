@@ -5,11 +5,28 @@
             <company-creation @creatingDone="refreshData"></company-creation>
         </div>
     </div>
-    <h5 class="mt-4 mb-2 text-center">Empresas Disponibles</h5>
-    <div class="row justify-content-space-between py-4">
-        <company v-for="(company,k) in companies" :key="k"
-            :title="company.name" :logo="company.logo" :index="company.id"
-            @view="viewModal" @edit="update" @delete="trash" ></company>
+    <div class="row justify-content-center py-1">
+      <div class="col-12 col-sm-10">
+        <div class="card card-info" id="companiesListAccordion">
+          <a class="card-header collapsed" @click="active=!active" data-parent="#companiesListAccordion" href="#companiesCollapsed" aria-expanded="false" data-toggle="collapse">
+            <h3 class="card-title">Empresas Disponibles</h3>
+            <div class="card-tools">
+              <button type="button" class="btn btn-tool ml-auto" >
+                <personal-fab :active="active" />
+              </button>
+            </div>
+          </a>
+          <div id="companiesCollapsed" class="panel-collapse in collapse">
+            <div class="card-body p-0">
+              <ul class="list-group p-0">
+                <company v-for="(company,k) in companies" :key="k"
+                  :title="company.name" :logo="company.logo" :index="company.id"
+                  @view="viewModal" @edit="update" @delete="trash" ></company>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <company-update v-if="currentCompany&&updateMode" @updateDone="refreshData" :company="currentCompany">
     </company-update>
@@ -22,6 +39,7 @@
 export default {
   data(){
     return{
+      active:false,
       baseUrl: baseUrl,
       companies:[],
       currentCompany:null,

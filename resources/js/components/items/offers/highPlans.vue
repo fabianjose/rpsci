@@ -1,5 +1,5 @@
 <template>
-    <div class="high-plans py-4 px-4">
+    <div class="high-plans py-4 pb-5 px-4">
       <div class="d-flex w-100 justify-content-center mt-3">
         <h4 class="high-plans-color high-plans-title">Planes destacados</h4>
       </div>
@@ -10,15 +10,14 @@
         :bullets="false"
         :autoplay="true"
         :duration="3000"
-        :visible-slides="(offers.length < 3)?offers.length:3"
+        :visible-slides="offers.length<3?offers.length:3"
         :slide-ratio="0.4"
-        slide-multiple
-        :dragging-distance="20"
+        :dragging-distance="70"
         :arrows="false"
         :breakpoints="breakpoints" >
         <vueper-slide v-for="(offer,index) in offers" :key="index" class="align-self-center">
           <template v-slot:content>
-            <div class="d-flex text-center justify-content-center">
+            <div class="d-flex text-center justify-content-center mx-auto">
               <offer-card @contactOffer="contactOffer" :index="index" :offer="offer" />
             </div>
           </template>
@@ -87,6 +86,8 @@ export default {
         }
       },
       locationDenied:false,
+
+      inCapital:false,
 
       department:null,
       municipality:null,
@@ -158,7 +159,10 @@ export default {
       }).catch(err=>{
         console.log("ERROR FROM SERVER ",err.response);
         if(err.response.status==404){
-          this.refreshDefault()
+          if(err.response.data.notMun) {
+            this.refreshDefault();
+          }
+          else toastr.error('Error al obtener los planes destacados');
         }
         if (err.response.data.errorMessage){
           toastr.error(err.response.data.errorMessage);

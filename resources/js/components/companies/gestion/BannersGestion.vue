@@ -7,9 +7,30 @@
     </div>
     <h5 class="mt-4 mb-2 text-center">Empresas Destacadas</h5>
     <div class="row justify-content-space-between py-4">
-        <company v-for="(company,k) in companies" :key="k"
-            :title="company.name" :logo="company.logo" :index="company.id"
-            @view="viewModal" @delete="trash" :noEdit="true"></company>
+        
+    </div>
+    <div class="row justify-content-center py-1">
+      <div class="col-12 col-sm-10">
+        <div class="card card-info" id="companiesHighlightList">
+          <a class="card-header collapsed" @click="active=!active" data-parent="#companiesHighlightList" href="#companiesHighlightCollapsed" aria-expanded="false" data-toggle="collapse">
+            <h3 class="card-title">Empresas Disponibles</h3>
+            <div class="card-tools">
+              <button type="button" class="btn btn-tool ml-auto" >
+                <personal-fab :active="active" />
+              </button>
+            </div>
+          </a>
+          <div id="companiesHighlightCollapsed" class="panel-collapse in collapse">
+            <div class="card-body p-0">
+              <ul class="list-group p-0">
+                <company v-for="(company,k) in companies" :key="k"
+                  :title="company.name" :logo="company.logo" :index="company.id"
+                  @view="viewModal" @delete="trash" :noEdit="true"></company>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <detailed-company v-if="currentCompany&&viewMode" :company="currentCompany">
     </detailed-company>
@@ -20,6 +41,7 @@
 export default {
   data(){
     return{
+      active:false,
       baseUrl: baseUrl,
       companies:[],
       currentCompany:null,

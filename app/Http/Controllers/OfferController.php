@@ -26,8 +26,8 @@ class OfferController extends Controller{
       "fields_values.*"=> "json",
       "fields_values.*.value"=> "required|string|max:32|min:3",
       "fields_values.*.field_id"=> "required|exists:fields,id",
-      'tariff' => ['required', 'numeric', "min:0.1" , "max:999999999"],
-      'points' => ['string'],
+      'tariff' => ['required', 'integer', "min:0.1" , "max:9999999999"],
+      'points' => ['integer','min:0,max:5'],
       'type' => ['required', 'in:private,company'],
       'department' => ['nullable', 'exists:departments,name', 'string'],
       'municipality' => ['nullable', 'exists:municipalities,name', 'string'],
@@ -89,8 +89,8 @@ class OfferController extends Controller{
       "fields_values.*"=> "json",
       "fields_values.*.value"=> "required|string|max:32|min:3",
       "fields_values.*.field_id"=> "required|exists:fields,id",
-      'tariff' => ['required', 'numeric', "min:0.1", "max:99999999"],
-      'points' => ['string'],
+      'tariff' => ['required', 'integer', "min:0.1", "max:999999999"],
+      'points' => ['integer','min:0,max:5'],
       'municipality' => ['in:private,company'],
       'department' => ['exists:departments,name', 'string'],
       'municipality' => ['exists:municipalities,name', 'string'],
@@ -252,7 +252,7 @@ class OfferController extends Controller{
 
     $offers= Offer::joinFields($offers);
 
-    if (!$offers) return response()->json(["errorMessage"=>'No se encontraron ofertas disponibles'],404);
+    if (!$offers) return response()->json(["errorMessage"=>'No se encontraron ofertas sin destacar'],404);
 		return response()->json($offers, 200);
   }
 
@@ -325,7 +325,7 @@ class OfferController extends Controller{
     if($request->input("sortBy")){
       $sorting="sortBy";
       $sortKey=$request->input("sortBy");
-      if($sortKey>2) return response()->json("No existe ese campo",200);
+      if($sortKey>2) return response()->json("No existe ese campo",400);
       if($request->input("sortByDesc")) $sorting="sortByDesc";
       $offers=collect($offers);
       $offers=$offers->{$sorting}(function ($offer, $key) use($sortKey) {
@@ -369,8 +369,8 @@ class OfferController extends Controller{
 
     $department = Department::where('name', 'like', "%".$data['department']."%")->first();
     $municipality = Municipality::where('name', 'like', "%".$data['municipality']."%")->first();
-    if (!$department) return response()->json('Departamento no encontrado',404);
-    if (!$municipality) return response()->json('Municipio no encontrado',404);
+    if (!$department) return response()->json(["errorMessage"=>'Departamento no encontrado',"notMun"=>1],404);
+    if (!$municipality) return response()->json(["errorMessage"=>'Municipio no encontrado',"notMun"=>1],404);
 
     $offers = DB::table('offers')
     ->where('offers.trash',0)
@@ -429,8 +429,6 @@ class OfferController extends Controller{
   }
 
   public function deleteHighlightOffer($id){
-    $data = $request->all();
-    //var_dump($data["highlighted_expiration"]); exit();
     
     $offer = Offer::find($id);
 		if (!$offer) return response()->json('Oferta no encontrada',404);

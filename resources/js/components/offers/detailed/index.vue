@@ -24,21 +24,28 @@
                             <p class="text-muted text-center">{{offer.benefits}}</p>
 
                             <ul class="list-group list-group-unbordered mb-3">
+                                
+                                <li class="list-group-item">
+                                <b>Tipo de cliente</b> <a class="float-right">{{offer.offer_type=="private"?"Hogar":"Empresa"}}</a>
+                                </li>
+
                                 <li v-if="offer.highlighted&&offer.highlighted_expiration" class="list-group-item">
                                 <b>Expiración en "Destacadas"</b> <a class="float-right">{{offer.highlighted_expiration}}</a>
                                 </li>
 
                                 <li class="list-group-item">
-                                <b>Tarifa</b> <a class="float-right">{{offer.tariff}}</a>
+                                <b>Tarifa</b> <a class="float-right">{{showPrice(offer.tariff)}}</a>
                                 </li>
+                                
                                 <li class="list-group-item">
                                 <b>Departamento</b> <a class="float-right">{{offer.department_name?offer.department_name:"Disponible para todos"}}</a>
                                 </li>
+                                
                                 <li class="list-group-item">
                                 <b>Municipio</b> <a class="float-right">{{offer.municipality_name?offer.municipality_name:"Disponible para todos"}}</a>
                                 </li>
+
                             </ul>
-                            <br>
                             <ul class="list-group list-group-unbordered mb-3 mt-3">
                                 <li class="list-group-item" v-for="(field,index) in offer.fields_values">
                                 <b class="text-capitalize">{{field.field_name}}</b> <a class="float-right">{{field.value+(field.unit?(" ("+field.unit+")"):"")}}</a>
@@ -63,6 +70,12 @@ export default {
             baseUrl:baseUrl,
             active:true,
         }
+    },
+
+    methods:{
+        showPrice(price){
+            return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+        },
     }
     
 }

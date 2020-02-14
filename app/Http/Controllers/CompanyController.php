@@ -33,7 +33,7 @@ class CompanyController extends Controller{
         $uploadedFile,
         $filename
       );
-      $data['logo'] = 'avatars/'.$filename;
+      $data['logo'] = 'uploads/logos/'.$filename;
     }
 
     $company = Company::create($data);

@@ -4,15 +4,12 @@
 <div>
         <div class="main-section-bg" style="position:relative;">
 
-            <div class="bg-ic">
-
+            <div class="bg-ic d-flex justify-content-center align-items-center">
+                <img class="ic-logo-grey my-2" src="{{asset('/images/logo-blanco.png')}}" alt="">
             </div>
             <div class=about-section>
-                <div class="d-flex flex-column about-sub">
-                    <div class="about-title-container mx-auto mb-1">
-                        <h6 class="about-title">¿En qué consiste?</h6>
-                    </div>
-                    <div class="d-flex flex-row flex-wrap justify-content-center py-3 pb-5">
+                <div class="d-flex flex-column about-sub py-5">
+                    <div class="d-flex flex-row flex-wrap justify-content-center py-3">
                         <div class="col-8 col-sm-3 col-md-3 col-lg-3 p-2 my-2">
                             <div class="row align-items-start justify-content-around text-white">
                                 <div class="rounded-circle about-number p-1 mb-2 text-center bg-dark-blue">1</div>
@@ -38,13 +35,16 @@
                             </div>
                         </div>
                     </div>
+
+                    
+                    @if ($errors->any())
+                    <search-form :errors="{{$errors}}"/>
+                    @else
+                    <search-form />
+                    @endif
+
                 </div>
             </div>
-            @if ($errors->any())
-            <search-form :errors="{{$errors}}"/>
-            @else
-            <search-form />
-            @endif
         </div>
 
         <div class="high-companies py-5 px-4">

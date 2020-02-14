@@ -23,14 +23,14 @@
           </div>
 
         </div>
-        <div class="form-horizontal my-2 col-12">
+        <div class="form-horizontal my-2 col-12 flex-wrap">
           <span class="filter-card-label mb-2">Rango de precios</span>
           <div class="form-group d-flex flex-row my-2 flex-wrap">
-            <div class="form-group has-search col-12 col-sm-6 col-md-6 my-2 col-lg-6 col-xl-6 d-flex align-items-center">
+            <div class="form-group has-search col-12 col-sm-6 col-md-6 my-2 col-lg-12 col-xl-12 d-flex align-items-center">
               <span class="fas fa-dollar-sign form-control-feedback "></span>
               <input class="form-control rounded-pill rounded-input" placeholder="Desde" type="numeric" v-model="fromPrice">
             </div>
-            <div class="form-group has-search col-12 col-sm-6 col-md-6 my-2 col-lg-6 col-xl-6 d-flex align-items-center">
+            <div class="form-group has-search col-12 col-sm-6 col-md-6 my-2 col-lg-12 col-xl-12 d-flex align-items-center">
               <span class="fas fa-dollar-sign form-control-feedback "></span>
               <input class="form-control rounded-pill rounded-input" placeholder="Hasta" type="numeric" v-model="toPrice">
             </div>

@@ -1,7 +1,7 @@
 <template>
   <vueper-slides
     class="no-shadow high-companies-carousel mt-4 text-center"
-    :autoplay="true"
+    :autoplay="companies.length>4?true:false"
     :duration="1000"
     :bullets="false"
     :arrows="false"

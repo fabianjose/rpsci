@@ -2208,6 +2208,8 @@ __webpack_require__.r(__webpack_exports__);
         _this2.expiration = null;
 
         _this2.$emit('refresh');
+
+        _this2.refreshData();
       })["catch"](function (err) {
         if (err.response.status === 403) {
           window.location.replace(baseUrl + "/login");
@@ -2292,9 +2294,31 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
+      active: false,
       baseUrl: baseUrl,
       companies: [],
       currentCompany: null,
@@ -2455,9 +2479,27 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
+      active: false,
       baseUrl: baseUrl,
       companies: [],
       currentCompany: null,
@@ -3351,7 +3393,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['errors'],
   data: function data() {
@@ -3506,7 +3547,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["title", "logo", "index", 'noEdit'],
   data: function data() {
@@ -3620,10 +3660,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
 //
 //
 //
@@ -3866,7 +3902,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3923,6 +3958,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }
       },
       locationDenied: false,
+      inCapital: false,
       department: null,
       municipality: null,
       defaultDepartment: "bogota",
@@ -4026,7 +4062,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         console.log("ERROR FROM SERVER ", err.response);
 
         if (err.response.status == 404) {
-          _this3.refreshDefault();
+          if (err.response.data.notMun) {
+            _this3.refreshDefault();
+          } else toastr.error('Error al obtener los planes destacados');
         }
 
         if (err.response.data.errorMessage) {
@@ -5489,6 +5527,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["offer"],
   data: function data() {
@@ -5496,6 +5541,11 @@ __webpack_require__.r(__webpack_exports__);
       baseUrl: baseUrl,
       active: true
     };
+  },
+  methods: {
+    showPrice: function showPrice(price) {
+      return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    }
   }
 });
 
@@ -6319,6 +6369,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       var _this2 = this;
 
       var fd = new FormData();
+      if (!this.selectedOffer) return toastr.error("Primero seleccione una oferta");
       if (this.expiration) fd.append("highlighted_expiration", this.expiration);else return toastr.error("Debe introducir una fecha de expiración");
       var loader = this.$loading.show();
       axios.post(baseUrl + '/api/offers/highlight/' + this.selectedOffer.id, fd).then(function (res) {
@@ -6330,6 +6381,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         _this2.OpenAccordion("#OffersAccordion", "#OffersList", "active2");
 
         _this2.OpenAccordion("#SelectedOfferAccordion", "#SelectedOffer", "active3");
+
+        _this2.highlightedOffers();
 
         _this2.$emit('refresh');
       })["catch"](function (err) {
@@ -6443,7 +6496,10 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
           }
         }
 
-        toastr.error("Error al cargar las ofertas del área");
+        if (err.response.status === 404) {
+          _this3.offersByArea = res.data;
+        } //toastr.error("Error al cargar las ofertas del área");
+
       })["finally"](function () {
         return loader.hide();
       });
@@ -6550,6 +6606,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         if (err.response.data.errorMessage) {
           toastr.error(err.response.data.errorMessage);
         }
+
+        if (err.response.status === 404) _this.offers = [];
       })["finally"](function () {
         return loader.hide();
       });
@@ -41601,23 +41659,84 @@ var render = function() {
         _vm._v("Empresas Destacadas")
       ]),
       _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "row justify-content-space-between py-4" },
-        _vm._l(_vm.companies, function(company, k) {
-          return _c("company", {
-            key: k,
-            attrs: {
-              title: company.name,
-              logo: company.logo,
-              index: company.id,
-              noEdit: true
+      _c("div", { staticClass: "row justify-content-space-between py-4" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "row justify-content-center py-1" }, [
+        _c("div", { staticClass: "col-12 col-sm-10" }, [
+          _c(
+            "div",
+            {
+              staticClass: "card card-info",
+              attrs: { id: "companiesHighlightList" }
             },
-            on: { view: _vm.viewModal, delete: _vm.trash }
-          })
-        }),
-        1
-      ),
+            [
+              _c(
+                "a",
+                {
+                  staticClass: "card-header collapsed",
+                  attrs: {
+                    "data-parent": "#companiesHighlightList",
+                    href: "#companiesHighlightCollapsed",
+                    "aria-expanded": "false",
+                    "data-toggle": "collapse"
+                  },
+                  on: {
+                    click: function($event) {
+                      _vm.active = !_vm.active
+                    }
+                  }
+                },
+                [
+                  _c("h3", { staticClass: "card-title" }, [
+                    _vm._v("Empresas Disponibles")
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "card-tools" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-tool ml-auto",
+                        attrs: { type: "button" }
+                      },
+                      [_c("personal-fab", { attrs: { active: _vm.active } })],
+                      1
+                    )
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "panel-collapse in collapse",
+                  attrs: { id: "companiesHighlightCollapsed" }
+                },
+                [
+                  _c("div", { staticClass: "card-body p-0" }, [
+                    _c(
+                      "ul",
+                      { staticClass: "list-group p-0" },
+                      _vm._l(_vm.companies, function(company, k) {
+                        return _c("company", {
+                          key: k,
+                          attrs: {
+                            title: company.name,
+                            logo: company.logo,
+                            index: company.id,
+                            noEdit: true
+                          },
+                          on: { view: _vm.viewModal, delete: _vm.trash }
+                        })
+                      }),
+                      1
+                    )
+                  ])
+                ]
+              )
+            ]
+          )
+        ])
+      ]),
       _vm._v(" "),
       _vm.currentCompany && _vm.viewMode
         ? _c("detailed-company", { attrs: { company: _vm.currentCompany } })
@@ -41661,26 +41780,85 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _c("h5", { staticClass: "mt-4 mb-2 text-center" }, [
-        _vm._v("Empresas Disponibles")
-      ]),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "row justify-content-space-between py-4" },
-        _vm._l(_vm.companies, function(company, k) {
-          return _c("company", {
-            key: k,
-            attrs: {
-              title: company.name,
-              logo: company.logo,
-              index: company.id
+      _c("div", { staticClass: "row justify-content-center py-1" }, [
+        _c("div", { staticClass: "col-12 col-sm-10" }, [
+          _c(
+            "div",
+            {
+              staticClass: "card card-info",
+              attrs: { id: "companiesListAccordion" }
             },
-            on: { view: _vm.viewModal, edit: _vm.update, delete: _vm.trash }
-          })
-        }),
-        1
-      ),
+            [
+              _c(
+                "a",
+                {
+                  staticClass: "card-header collapsed",
+                  attrs: {
+                    "data-parent": "#companiesListAccordion",
+                    href: "#companiesCollapsed",
+                    "aria-expanded": "false",
+                    "data-toggle": "collapse"
+                  },
+                  on: {
+                    click: function($event) {
+                      _vm.active = !_vm.active
+                    }
+                  }
+                },
+                [
+                  _c("h3", { staticClass: "card-title" }, [
+                    _vm._v("Empresas Disponibles")
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "card-tools" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-tool ml-auto",
+                        attrs: { type: "button" }
+                      },
+                      [_c("personal-fab", { attrs: { active: _vm.active } })],
+                      1
+                    )
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "panel-collapse in collapse",
+                  attrs: { id: "companiesCollapsed" }
+                },
+                [
+                  _c("div", { staticClass: "card-body p-0" }, [
+                    _c(
+                      "ul",
+                      { staticClass: "list-group p-0" },
+                      _vm._l(_vm.companies, function(company, k) {
+                        return _c("company", {
+                          key: k,
+                          attrs: {
+                            title: company.name,
+                            logo: company.logo,
+                            index: company.id
+                          },
+                          on: {
+                            view: _vm.viewModal,
+                            edit: _vm.update,
+                            delete: _vm.trash
+                          }
+                        })
+                      }),
+                      1
+                    )
+                  ])
+                ]
+              )
+            ]
+          )
+        ])
+      ]),
       _vm._v(" "),
       _vm.currentCompany && _vm.updateMode
         ? _c("company-update", {
@@ -41723,7 +41901,7 @@ var render = function() {
     {
       staticClass: "no-shadow high-companies-carousel mt-4 text-center",
       attrs: {
-        autoplay: true,
+        autoplay: _vm.companies.length > 4 ? true : false,
         duration: 1000,
         bullets: false,
         arrows: false,
@@ -42764,7 +42942,7 @@ var render = function() {
             ]
           ),
           _vm._v(" "),
-          _c("div", { staticClass: "form-horizontal my-2 col-12" }, [
+          _c("div", { staticClass: "form-horizontal my-2 col-12 flex-wrap" }, [
             _c("span", { staticClass: "filter-card-label mb-2" }, [
               _vm._v("Rango de precios")
             ]),
@@ -42777,7 +42955,7 @@ var render = function() {
                   "div",
                   {
                     staticClass:
-                      "form-group has-search col-12 col-sm-6 col-md-6 my-2 col-lg-6 col-xl-6 d-flex align-items-center"
+                      "form-group has-search col-12 col-sm-6 col-md-6 my-2 col-lg-12 col-xl-12 d-flex align-items-center"
                   },
                   [
                     _c("span", {
@@ -42812,7 +42990,7 @@ var render = function() {
                   "div",
                   {
                     staticClass:
-                      "form-group has-search col-12 col-sm-6 col-md-6 my-2 col-lg-6 col-xl-6 d-flex align-items-center"
+                      "form-group has-search col-12 col-sm-6 col-md-6 my-2 col-lg-12 col-xl-12 d-flex align-items-center"
                   },
                   [
                     _c("span", {
@@ -42939,11 +43117,6 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "main-middle" }, [
-    _c("img", {
-      staticClass: "ic-logo-grey my-2",
-      attrs: { src: _vm.baseUrl + "/images/logo-blanco.png", alt: "" }
-    }),
-    _vm._v(" "),
     _c("div", { staticClass: "main-search-form py-3 px-1 mt-3" }, [
       _vm._m(0),
       _vm._v(" "),
@@ -43267,72 +43440,101 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "col-sm-6 col-md-4 col-lg-4 col-xl-4" }, [
-    _c("div", { staticClass: "card card-primary" }, [
+  return _c(
+    "li",
+    {
+      staticClass:
+        "list-group-item d-flex justify-content-around align-items-center px-2 flex-wrap"
+    },
+    [
       _c(
         "div",
-        { staticClass: "card-body d-flex flex-column align-items-center" },
+        {
+          staticClass:
+            " d-flex flex-row justify-content-center col-12 col-sm-6 col-md-5 col-lg-5 col-xl-5"
+        },
         [
           _c("img", {
-            staticClass: "img-fluid",
-            staticStyle: { "max-height": "135px" },
+            staticStyle: { "max-height": "100px" },
             attrs: { src: _vm.baseUrl + "/storage/" + _vm.logo, alt: "" }
-          }),
-          _vm._v(" "),
-          _c(
-            "h4",
-            {
-              staticClass:
-                "px-2 mt-3 text-dark-blue company-card-label card-text"
-            },
-            [_vm._v(_vm._s(_vm.title))]
-          )
+          })
         ]
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "card-footer" }, [
-        _c("div", { staticClass: "card-tools row justify-content-around" }, [
+      _c(
+        "div",
+        {
+          staticClass:
+            "d-flex flex-row col-12 col-sm-6 col-md-7 col-lg-7 col-xl-7 flex-wrap"
+        },
+        [
           _c(
-            "div",
+            "h5",
             {
-              staticClass: "btn btn-info rounded-circle text-lg icon-btn-sm",
-              attrs: {
-                "data-toggle": "modal",
-                "data-target": "#modalViewCompany"
-              },
-              on: { click: _vm.emitView }
+              staticClass:
+                "px-2 mt-2 card-text text-capitalize text-center col-12 col-md-6 col-lg-6 col-xl-6 text-wrap-all",
+              staticStyle: { color: "#006494" }
             },
-            [_c("i", { staticClass: "fas fa-eye" })]
+            [_vm._v(_vm._s(_vm.title))]
           ),
           _vm._v(" "),
-          !_vm.noEdit
-            ? _c(
-                "div",
-                {
-                  staticClass:
-                    "btn btn-success rounded-circle text-lg icon-btn-sm",
-                  attrs: {
-                    "data-toggle": "modal",
-                    "data-target": "#modalEditCompany"
-                  },
-                  on: { click: _vm.emitEdition }
-                },
-                [_c("i", { staticClass: "fas fa-edit" })]
-              )
-            : _vm._e(),
-          _vm._v(" "),
           _c(
             "div",
             {
-              staticClass: "btn btn-danger rounded-circle text-lg icon-btn-sm",
-              on: { click: _vm.emitRemove }
+              staticClass:
+                "d-flex col-12 col-md-6 col-lg-6 col-xl-6 py-3 px-0 justify-content-center"
             },
-            [_c("i", { staticClass: "fas fa-trash" })]
+            [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-sm btn-info rounded-pill mx-1",
+                  staticStyle: { height: "40px", width: "40px" },
+                  attrs: {
+                    type: "button",
+                    "data-toggle": "modal",
+                    "data-target": "#modalViewCompany"
+                  },
+                  on: { click: _vm.emitView }
+                },
+                [_c("i", { staticClass: "fas fa-eye" })]
+              ),
+              _vm._v(" "),
+              !_vm.pick && !_vm.remove && !_vm.highlighted
+                ? _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-sm btn-success rounded-pill mx-1",
+                      staticStyle: { height: "40px", width: "40px" },
+                      attrs: {
+                        type: "button",
+                        "data-toggle": "modal",
+                        "data-target": "#modalEditCompany"
+                      },
+                      on: { click: _vm.emitEdition }
+                    },
+                    [_c("i", { staticClass: "fas fa-edit" })]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              !_vm.pick
+                ? _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-sm btn-danger rounded-pill mx-1",
+                      staticStyle: { height: "40px", width: "40px" },
+                      attrs: { type: "button" },
+                      on: { click: _vm.emitRemove }
+                    },
+                    [_c("i", { staticClass: "fas fa-trash" })]
+                  )
+                : _vm._e()
+            ]
           )
-        ])
-      ])
-    ])
-  ])
+        ]
+      )
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -43518,7 +43720,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "col-12 col-lg-8 col-xl-8" }, [
+  return _c("div", { staticClass: "col-12 col-lg-8 col-xl-9" }, [
     _c(
       "div",
       { staticClass: "d-flex flex-column w-100" },
@@ -43616,7 +43818,7 @@ var render = function() {
                     "div",
                     {
                       staticClass:
-                        "text-center p-2 text-sm w-100 text-white mx-auto bg-dark-blue rounded-pill  p-1 text-wrap "
+                        "text-center p-2 offer-table-label w-100 text-white mx-auto bg-dark-blue rounded-pill  p-1 text-wrap "
                     },
                     [_vm._v(_vm._s(field.name))]
                   )
@@ -43628,8 +43830,6 @@ var render = function() {
           ],
           2
         ),
-        _vm._v(" "),
-        _vm._m(3),
         _vm._v(" "),
         _vm._l(_vm.compItems, function(offer, k) {
           return _c(
@@ -43655,9 +43855,11 @@ var render = function() {
                     }
                   }),
                   _vm._v(" "),
-                  _c("h6", { staticClass: "text-dark-blue pt-2" }, [
-                    _vm._v(_vm._s(offer.company_name))
-                  ])
+                  _c(
+                    "h6",
+                    { staticClass: "text-dark-blue pt-2 text-wrap-all" },
+                    [_vm._v(_vm._s(offer.company_name))]
+                  )
                 ]
               ),
               _vm._v(" "),
@@ -43707,9 +43909,14 @@ var render = function() {
                     "col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 py-2 text-center d-flex flex-column align-items-center justify-content-center"
                 },
                 [
-                  _c("h6", { staticClass: "text-dark-blue text-lg" }, [
-                    _vm._v("$ " + _vm._s(_vm.showPrice(offer.tariff)))
-                  ]),
+                  _c(
+                    "h6",
+                    {
+                      staticClass:
+                        "text-dark-blue offer-table-price text-wrap-all"
+                    },
+                    [_vm._v("$ " + _vm._s(_vm.showPrice(offer.tariff)))]
+                  ),
                   _vm._v(" "),
                   _c(
                     "div",
@@ -43859,7 +44066,7 @@ var staticRenderFns = [
         "div",
         {
           staticClass:
-            "text-center p-2 text-sm w-100 text-white mx-auto bg-dark-blue rounded-pill  p-1 text-wrap "
+            "text-center p-2 offer-table-label w-100 text-white mx-auto bg-dark-blue rounded-pill  p-1 text-wrap "
         },
         [_vm._v("PROVEEDOR")]
       )
@@ -43880,7 +44087,7 @@ var staticRenderFns = [
           "div",
           {
             staticClass:
-              "text-center p-2 text-sm w-100 text-white mx-auto bg-dark-blue rounded-pill  p-1 text-wrap "
+              "text-center p-2 offer-table-label w-100 text-white mx-auto bg-dark-blue rounded-pill  p-1 text-wrap "
           },
           [_vm._v("DESCRIPCION")]
         )
@@ -43896,18 +44103,10 @@ var staticRenderFns = [
         "div",
         {
           staticClass:
-            "text-center p-2 text-sm w-100 text-white mx-auto bg-dark-blue rounded-pill p-1 text-wrap "
+            "text-center p-2 offer-table-label w-100 text-white mx-auto bg-dark-blue rounded-pill p-1 text-wrap "
         },
         [_vm._v("PRECIO")]
       )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "w-100 d-flex justify-content-center" }, [
-      _c("h4")
     ])
   }
 ]
@@ -44112,7 +44311,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "high-plans py-4 px-4" },
+    { staticClass: "high-plans py-4 pb-5 px-4" },
     [
       _vm._m(0),
       _vm._v(" "),
@@ -44128,8 +44327,7 @@ var render = function() {
             duration: 3000,
             "visible-slides": _vm.offers.length < 3 ? _vm.offers.length : 3,
             "slide-ratio": 0.4,
-            "slide-multiple": "",
-            "dragging-distance": 20,
+            "dragging-distance": 70,
             arrows: false,
             breakpoints: _vm.breakpoints
           }
@@ -44148,7 +44346,7 @@ var render = function() {
                         "div",
                         {
                           staticClass:
-                            "d-flex text-center justify-content-center"
+                            "d-flex text-center justify-content-center mx-auto"
                         },
                         [
                           _c("offer-card", {
@@ -44327,71 +44525,67 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "offer-card d-flex flex-column justify-content-between" },
-    [
-      _c("div", { staticClass: "offer-card-header" }, [
-        _c("img", {
-          staticStyle: { "max-height": "160px", "max-width": "160px" },
-          attrs: {
-            src: _vm.baseUrl + "/storage/" + _vm.offer.company_logo,
-            alt: "logo"
-          }
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", {
-        class:
-          "offer-card-separator " +
-          (_vm.index % 2 ? "bg-main-blue" : "bg-main-pink")
-      }),
-      _vm._v(" "),
-      _c("div", { staticClass: "offer-card-content" }, [
-        _c("div", { staticClass: "row" }, [
-          _c("h6", { staticClass: "col-12 offer-card-title" }, [
-            _vm._v(_vm._s(_vm.offer.company_name))
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "row" }, [
-          _c(
-            "h6",
-            {
-              staticClass: "col-12 offer-card-benefits text-wrap",
-              staticStyle: { "font-family": "Montserrat-regular" }
-            },
-            [_vm._v(_vm._s(_vm.offer.benefits))]
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "row" }, [
-          _c("h5", { staticClass: "col-12 offer-card-price" }, [
-            _vm._v("$ " + _vm._s(_vm.showPrice(_vm.offer.tariff)))
-          ])
+  return _c("div", { staticClass: "offer-card d-flex flex-column" }, [
+    _c("div", { staticClass: "offer-card-header" }, [
+      _c("img", {
+        staticClass: "h-100 img-fluid",
+        attrs: {
+          src: _vm.baseUrl + "/storage/" + _vm.offer.company_logo,
+          alt: "logo"
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c("div", {
+      class:
+        "offer-card-separator " +
+        (_vm.index % 2 ? "bg-main-blue" : "bg-main-pink")
+    }),
+    _vm._v(" "),
+    _c("div", { staticClass: "offer-card-content" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("h6", { staticClass: "col-12 offer-card-title" }, [
+          _vm._v(_vm._s(_vm.offer.company_name))
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "offer-card-footer" }, [
-        _c("div", { staticClass: "col-10" }, [
-          _c(
-            "button",
-            {
-              class:
-                "btn btn-block text-white offer-card-btn rounded-pill " +
-                (_vm.index % 2 ? "bg-main-blue" : "bg-main-pink"),
-              attrs: {
-                "data-toggle": "modal",
-                "data-target": "#modalConsultOffer"
-              },
-              on: { click: _vm.emitContact }
-            },
-            [_vm._v("\n        CONTACTAR\n      ")]
-          )
+      _c("div", { staticClass: "row" }, [
+        _c(
+          "h6",
+          {
+            staticClass: "col-12 offer-card-benefits text-wrap",
+            staticStyle: { "font-family": "Montserrat-regular" }
+          },
+          [_vm._v(_vm._s(_vm.offer.benefits))]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "row" }, [
+        _c("h5", { staticClass: "col-12 offer-card-price" }, [
+          _vm._v("$ " + _vm._s(_vm.showPrice(_vm.offer.tariff)))
         ])
       ])
-    ]
-  )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "offer-card-footer" }, [
+      _c("div", { staticClass: "col-10" }, [
+        _c(
+          "button",
+          {
+            class:
+              "btn btn-block text-white offer-card-btn rounded-pill " +
+              (_vm.index % 2 ? "bg-main-blue" : "bg-main-pink"),
+            attrs: {
+              "data-toggle": "modal",
+              "data-target": "#modalConsultOffer"
+            },
+            on: { click: _vm.emitContact }
+          },
+          [_vm._v("\n        CONTACTAR\n      ")]
+        )
+      ])
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -44926,6 +45120,10 @@ var render = function() {
                     [_vm._v("Departamento")]
                   ),
                   _vm._v(" "),
+                  _c("option", { domProps: { value: null } }, [
+                    _vm._v("Todos")
+                  ]),
+                  _vm._v(" "),
                   _vm._l(_vm.departments, function(department, index) {
                     return _c(
                       "option",
@@ -44987,6 +45185,10 @@ var render = function() {
                     },
                     [_vm._v("Municipio")]
                   ),
+                  _vm._v(" "),
+                  _c("option", { domProps: { value: null } }, [
+                    _vm._v("Todos")
+                  ]),
                   _vm._v(" "),
                   _vm._l(_vm.municipalities, function(municipality, index) {
                     return _c(
@@ -46074,6 +46276,20 @@ var render = function() {
                       "ul",
                       { staticClass: "list-group list-group-unbordered mb-3" },
                       [
+                        _c("li", { staticClass: "list-group-item" }, [
+                          _c("b", [_vm._v("Tipo de cliente")]),
+                          _vm._v(" "),
+                          _c("a", { staticClass: "float-right" }, [
+                            _vm._v(
+                              _vm._s(
+                                _vm.offer.offer_type == "private"
+                                  ? "Hogar"
+                                  : "Empresa"
+                              )
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
                         _vm.offer.highlighted &&
                         _vm.offer.highlighted_expiration
                           ? _c("li", { staticClass: "list-group-item" }, [
@@ -46089,7 +46305,7 @@ var render = function() {
                           _c("b", [_vm._v("Tarifa")]),
                           _vm._v(" "),
                           _c("a", { staticClass: "float-right" }, [
-                            _vm._v(_vm._s(_vm.offer.tariff))
+                            _vm._v(_vm._s(_vm.showPrice(_vm.offer.tariff)))
                           ])
                         ]),
                         _vm._v(" "),
@@ -46122,8 +46338,6 @@ var render = function() {
                         ])
                       ]
                     ),
-                    _vm._v(" "),
-                    _c("br"),
                     _vm._v(" "),
                     _c(
                       "ul",
@@ -46194,7 +46408,7 @@ var render = function() {
         [
           _c(
             "div",
-            { staticClass: "filterCard col-10 col-lg-4 col-xl-4" },
+            { staticClass: "filterCard col-10 col-lg-4 col-xl-3" },
             [
               _c("filter-card", {
                 attrs: { fields: _vm.compFields },
@@ -47108,8 +47322,7 @@ var render = function() {
                         _c(
                           "a",
                           {
-                            staticClass:
-                              "card-header d-flex flex-row justify-cotent space-between align-items-center d-flex flex-row align-items-center d-flex collapsed",
+                            staticClass: "card-header collapsed",
                             attrs: {
                               "data-parent": "#OffersAccordion",
                               href: "#OffersList",
@@ -47200,8 +47413,7 @@ var render = function() {
                           _c(
                             "a",
                             {
-                              staticClass:
-                                "card-header d-flex flex-row justify-cotent space-between align-items-center d-flex flex-row align-items-center d-flex collapsed",
+                              staticClass: "card-header collapsed",
                               attrs: {
                                 "data-parent": "#SelectedOfferAccordion",
                                 href: "#SelectedOffer",

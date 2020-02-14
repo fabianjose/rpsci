@@ -20,11 +20,23 @@
     word-break: break-word;
 }
 
+.text-wrap-all {
+    word-break: break-all;
+}
+
 @media(min-width:1000px){
 
     .offers-label{
         font-size: .8rem!important;
     }
     
+}
+
+.offer-table-label{
+    font-size: .7rem;
+}
+
+.offer-table-price{
+    font-size: 1.2rem;
 }
 

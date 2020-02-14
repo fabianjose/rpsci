@@ -51,7 +51,7 @@
             <div class="col-12">
 
               <div class="card card-primary" id="OffersAccordion">
-                <a class="card-header d-flex flex-row justify-cotent space-between align-items-center d-flex flex-row align-items-center d-flex collapsed" @click="active2=!active2" data-parent="#OffersAccordion"
+                <a class="card-header collapsed" @click="active2=!active2" data-parent="#OffersAccordion"
                     href="#OffersList" aria-expanded="false" data-toggle="collapse">
                     <h3 class="card-title col-10">Seleccione una oferta</h3>
                     <div class="card-tools">
@@ -79,7 +79,7 @@
             <div class="col-xl-12 col-lg-12 col-md-12 col-12">
 
               <div class="card card-success" id="SelectedOfferAccordion">
-                <a class="card-header d-flex flex-row justify-cotent space-between align-items-center d-flex flex-row align-items-center d-flex collapsed" @click="active3=!active3" data-parent="#SelectedOfferAccordion" href="#SelectedOffer" aria-expanded="false" data-toggle="collapse">
+                <a class="card-header collapsed" @click="active3=!active3" data-parent="#SelectedOfferAccordion" href="#SelectedOffer" aria-expanded="false" data-toggle="collapse">
                     <h3 class="card-title col-10">Oferta Seleccionada</h3>
                     <div class="card-tools">
                       <button type="button" class="btn btn-tool ml-auto " >
@@ -190,6 +190,8 @@ export default {
     highlightOffer(){
       let fd= new FormData();
 
+      if(!this.selectedOffer) return toastr.error("Primero seleccione una oferta")
+
       if(this.expiration) fd.append("highlighted_expiration", this.expiration);
       else return toastr.error("Debe introducir una fecha de expiración");
 
@@ -204,6 +206,7 @@ export default {
         //this.company = "";
         this.OpenAccordion("#OffersAccordion","#OffersList", "active2");
         this.OpenAccordion("#SelectedOfferAccordion","#SelectedOffer", "active3");
+        this.highlightedOffers()
         this.$emit('refresh');
       }).catch(err=>{
         if(err.response.status===403){
@@ -272,7 +275,10 @@ export default {
             }
           }
         }
-        toastr.error("Error al cargar las ofertas del área");
+        if(err.response.status===404){
+          this.offersByArea=res.data;
+        }
+        //toastr.error("Error al cargar las ofertas del área");
       }).finally(()=>loader.hide());
     }
   }

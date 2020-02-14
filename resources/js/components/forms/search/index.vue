@@ -1,6 +1,5 @@
 <template>
     <div class="main-middle" >
-        <img class="ic-logo-grey my-2" :src="baseUrl+'/images/logo-blanco.png'" alt="">
         <div class="main-search-form py-3 px-1 mt-3" >
             <div class="main-form-title-container text-center justify-content-center pt-2 py-1 px-3">
                 <h6 class="main-form-title font-weight-bold text-center">Encuentra el servicio que deseas</h6>

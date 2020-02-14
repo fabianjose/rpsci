@@ -1,5 +1,5 @@
 <template>
-<div class="col-12 col-lg-8 col-xl-8">
+<div class="col-12 col-lg-8 col-xl-9">
       <div class="d-flex flex-column w-100">
 
         <div class="d-flex flex-row w-100 justify-content-around py-3 pb-5 align-items-center p-2">
@@ -16,29 +16,25 @@
 
         <div class="d-flex flex-row w-100 justify-content-around mb-2">
           <div class="col-xl-2 col-lg-3 col-md-4 px-1">
-            <div class="text-center p-2 text-sm w-100 text-white mx-auto bg-dark-blue rounded-pill  p-1 text-wrap ">PROVEEDOR</div>
+            <div class="text-center p-2 offer-table-label w-100 text-white mx-auto bg-dark-blue rounded-pill  p-1 text-wrap ">PROVEEDOR</div>
           </div>
           <div class="col-xl-2 col-lg-3 col-md-4 co px-1 col-sm-4 hidden-xs hidden-sm">
-            <div class="text-center p-2 text-sm w-100 text-white mx-auto bg-dark-blue rounded-pill  p-1 text-wrap ">DESCRIPCION</div>
+            <div class="text-center p-2 offer-table-label w-100 text-white mx-auto bg-dark-blue rounded-pill  p-1 text-wrap ">DESCRIPCION</div>
           </div>
 
           <div v-for="(field,k2) in compFields" :key="k2" :class="'col-xl-2 px-1 col-lg-3 col-md-4 col-sm-4 offer-benefits hidden-md hidden-xs hidden-sm '+(!k2?'d-lg-flex':'hidden-lg')">
-            <div class="text-center p-2 text-sm w-100 text-white mx-auto bg-dark-blue rounded-pill  p-1 text-wrap ">{{field.name}}</div>
+            <div class="text-center p-2 offer-table-label w-100 text-white mx-auto bg-dark-blue rounded-pill  p-1 text-wrap ">{{field.name}}</div>
           </div>
 
           <div class="col-xl-2 col-lg-3 col-md-4 px-1">
-            <div class="text-center p-2 text-sm w-100 text-white mx-auto bg-dark-blue rounded-pill p-1 text-wrap ">PRECIO</div>
+            <div class="text-center p-2 offer-table-label w-100 text-white mx-auto bg-dark-blue rounded-pill p-1 text-wrap ">PRECIO</div>
           </div> 
-        </div>
-
-        <div class="w-100 d-flex justify-content-center">
-          <h4></h4>
         </div>
 
         <div v-for="(offer,k) in compItems" :key="k" class="d-flex w-100 justify-content-around my-1 mb-3 offer offers-pagination-item pb-3">
           <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 d-flex flex-column align-items-center justify-content-center">
             <img :src="baseUrl+'/storage/'+offer.company_logo" class="img-fluid p-2" style="max-height:130px;">
-            <h6 class="text-dark-blue pt-2">{{offer.company_name}}</h6> 
+            <h6 class="text-dark-blue pt-2 text-wrap-all">{{offer.company_name}}</h6> 
           </div>
           <div class="text-wrap col-xl-2 col-lg-3 col-md-4 col-sm-4 text-center flex-column align-items-center justify-content-center d-xl-flex d-lg-flex d-md-flex hidden-xs hidden-sm">
             <h6 class="text-sm">
@@ -51,7 +47,7 @@
             </h6>
           </div>
           <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 py-2 text-center d-flex flex-column align-items-center justify-content-center">
-            <h6 class="text-dark-blue text-lg">$ {{showPrice(offer.tariff)}}</h6>
+            <h6 class="text-dark-blue offer-table-price text-wrap-all">$ {{showPrice(offer.tariff)}}</h6>
             <div class="stars-container flex-row justify-content-center mb-2">
               <i v-for="(starCount,k4) in 5" :key="k4" :class="(starCount>offer.points?'far':'fas')+' fa-star'"></i>
             </div>

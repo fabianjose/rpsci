@@ -21,8 +21,9 @@ class CreateOffersTable extends Migration
             $table->foreign('service')->references('id')->on('services');
 
             $table->string('benefits',124);
-            $table->decimal('tariff', 10, 2);
-            //$table->float('amount', 15,8);
+            
+            $table->integer('tariff');
+
             $table->integer('points')->default(0);
             $table->enum('type',['private','company']);
 

@@ -86,6 +86,7 @@ export default {
         if (err.response.data.errorMessage){
           toastr.error(err.response.data.errorMessage);
         }
+        if(err.response.status===404) this.offers=[];
       }).finally(()=>loader.hide());
     },
     async trash(id){

@@ -92,6 +92,7 @@ export default {
           this.company = "";
           this.expiration = null;
           this.$emit('refresh');
+          this.refreshData();
         }).catch(err=>{
         if(err.response.status===403){
           window.location.replace(baseUrl+"/login");

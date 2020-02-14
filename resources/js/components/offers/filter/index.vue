@@ -1,7 +1,7 @@
 <template>
     <div class="planComparator-bg py-4 px-lg-4 px-md-4">
         <div class="d-flex flex-row h-100 w-100 flex-wrap justify-content-around align-items-start">
-            <div class="filterCard col-10 col-lg-4 col-xl-4">
+            <div class="filterCard col-10 col-lg-4 col-xl-3">
                 <filter-card @customFiltering="refreshData" :fields="compFields" />
             </div>
             <filter-table @consultItem="consultItem" @viewItem="viewItem" @pageSwitch="changePage" :fields="compFields" :items="compPagination.data" :currentpage="compPagination.current_page" :lastpage="compLastpage" ></filter-table>
