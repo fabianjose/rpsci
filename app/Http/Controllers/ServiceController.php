@@ -106,8 +106,7 @@ class ServiceController extends Controller{
 	public function deleteService($id){
 		$service = Service::find($id);
 		if (!$service) return response()->json('Servicio no encontrado',404);
-		$service->trash = 1;
-		if (!$service->save()) return response()->json('Error en la base de datos',500);
+		if (!$service->delete()) return response()->json('Error en la base de datos',500);
 		return response()->json('Servicio eliminado satisfactoriamente', 200);
 	}
 

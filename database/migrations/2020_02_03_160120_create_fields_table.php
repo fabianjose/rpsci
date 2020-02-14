@@ -16,7 +16,7 @@ class CreateFieldsTable extends Migration
         Schema::create('fields', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger("service_id")->unsigned();
-            $table->foreign("service_id")->references("id")->on("services");
+            $table->foreign("service_id")->references("id")->on("services")->onDelete('cascade');
             $table->string("name",32);
             $table->enum("type", ["numeric", "string"]);
             $table->string("unit",16)->nullable();

@@ -336,7 +336,7 @@ class OfferController extends Controller{
     }
 
     $offersArray=[];
-
+    //aaa
     foreach ($offers as $offer) {
       $offer->tariff = round($offer->tariff);
       array_push($offersArray,$offer);

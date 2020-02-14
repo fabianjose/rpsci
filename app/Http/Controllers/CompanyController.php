@@ -105,8 +105,7 @@ class CompanyController extends Controller{
 	public function deleteCompany($id){
 		$company = Company::find($id);
 		if (!$company) return response()->json(['errorMessage' => 'Empresa no encontrada'],404);
-		$company->trash = 1;
-		if (!$company->save()) return response()->json(['errorMessage' =>  'Error en la base de datos'],500);
+		if (!$company->delete()) return response()->json(['errorMessage' =>  'Error en la base de datos'],500);
 		return response()->json(200);
 	}
 

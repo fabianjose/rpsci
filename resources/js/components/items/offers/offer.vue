@@ -2,7 +2,7 @@
   <div class="col-md-6 col-lg-4 col-sm-8">
     <div class="card card-primary">
       <div class="card-body d-flex flex-column align-items-center">
-        <img class="image-logo-banner" :src="baseUrl+'/storage/'+logo">
+        <img class="image-logo-banner" :src="baseUrl+'/'+logo">
         <h4 class="px-2 mt-3 text-dark card-text text-capitalize">{{title}}</h4>
         <h6 class="px-2 mt-1 text-dark card-text text-capitalize">{{company}}</h6>
         <p v-if="this.highlighted" :class="'px-2 mt-1 card-text'+getDaysClass()">Expira en: {{getExpiration()}}</p>

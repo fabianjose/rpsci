@@ -17,10 +17,10 @@ class CreateFieldsValuesTable extends Migration
             $table->bigIncrements('id');
 
             $table->bigInteger("offer_id")->unsigned();
-            $table->foreign("offer_id")->references("id")->on("offers");
+            $table->foreign("offer_id")->references("id")->on("offers")->onDelete('cascade');
 
             $table->bigInteger("field_id")->unsigned();
-            $table->foreign("field_id")->references("id")->on("fields");
+            $table->foreign("field_id")->references("id")->on("fields")->onDelete('cascade');
 
             $table->string("value");
 

@@ -94,7 +94,7 @@ export default {
 
       defaultDepartment:"bogota",
       defaultMunicipality:"bogota",
-
+      onceActivation: false,
       apiKey:"AIzaSyBL0ZT5AWyMHUGkuGVuSbqHwZx_3dr6MU0",
     };
   },
@@ -165,7 +165,7 @@ export default {
           else toastr.error('Error al obtener los planes destacados');
         }
         if (err.response.data.errorMessage){
-          toastr.error(err.response.data.errorMessage);
+          // toastr.error(err.response.data.errorMessage);
         }else{
           toastr.error('Error al obtener los planes destacados');
         }
@@ -175,8 +175,8 @@ export default {
       this.consultMode=true;
       this.currentOffer=this.offers[index];
     },
-
     refreshDefault(){
+      this.onceActivation = true;
       toastr.info("no se ha encontrado el departamento, mostrando planes destacados de la capital");
       this.department=null;
       this.municipality=null;

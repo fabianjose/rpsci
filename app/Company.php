@@ -12,8 +12,9 @@ class Company extends Model{
 	    'nit',
 	    'phone',
 	    'web',
-			'highlighted',
-			'highlighted_expiration',
+		'highlighted',
+		'highlighted_expiration',
 	    'trash'
 	  ];
+
 }

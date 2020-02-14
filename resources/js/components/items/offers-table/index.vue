@@ -90,7 +90,7 @@ export default {
 
     methods:{
       showPrice(price){
-        return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+        return Math.trunc(price);
       },
       setPage(pageNumber=1){
         this.$emit("pageSwitch", pageNumber);

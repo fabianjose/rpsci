@@ -3748,7 +3748,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     showPrice: function showPrice(price) {
-      return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+      return Math.trunc(price);
     },
     setPage: function setPage() {
       var pageNumber = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
@@ -3963,6 +3963,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       municipality: null,
       defaultDepartment: "bogota",
       defaultMunicipality: "bogota",
+      onceActivation: false,
       apiKey: "AIzaSyBL0ZT5AWyMHUGkuGVuSbqHwZx_3dr6MU0"
     };
   },
@@ -4067,8 +4068,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           } else toastr.error('Error al obtener los planes destacados');
         }
 
-        if (err.response.data.errorMessage) {
-          toastr.error(err.response.data.errorMessage);
+        if (err.response.data.errorMessage) {// toastr.error(err.response.data.errorMessage);
         } else {
           toastr.error('Error al obtener los planes destacados');
         }
@@ -4079,6 +4079,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.currentOffer = this.offers[index];
     },
     refreshDefault: function refreshDefault() {
+      this.onceActivation = true;
       toastr.info("no se ha encontrado el departamento, mostrando planes destacados de la capital");
       this.department = null;
       this.municipality = null;
@@ -4220,7 +4221,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     showPrice: function showPrice(price) {
-      return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+      return Math.trunc(price);
     },
     emitContact: function emitContact() {
       this.$emit("contactOffer", this.index);
@@ -41288,7 +41289,7 @@ var render = function() {
                       attrs: {
                         src: _vm.onPreview
                           ? _vm.onPreview
-                          : _vm.baseUrl + "/storage/" + _vm.company.logo,
+                          : _vm.baseUrl + "/" + _vm.company.logo,
                         alt: ""
                       }
                     })
@@ -41929,7 +41930,7 @@ var render = function() {
                     [
                       _c("img", {
                         staticClass: "high-companies-img align-self-center",
-                        attrs: { src: _vm.baseUrl + "/storage/" + company.logo }
+                        attrs: { src: _vm.baseUrl + "/" + company.logo }
                       })
                     ]
                   )
@@ -41995,7 +41996,7 @@ var render = function() {
                   attrs: {
                     src: _vm.onPreview
                       ? _vm.onPreview
-                      : _vm.baseUrl + "/storage/" + _vm.company.logo,
+                      : _vm.baseUrl + "/" + _vm.company.logo,
                     alt: ""
                   }
                 })
@@ -42692,10 +42693,7 @@ var render = function() {
                         _c("img", {
                           staticClass: "consult-card-logo img-fluid",
                           attrs: {
-                            src:
-                              _vm.baseUrl +
-                              "/storage/" +
-                              _vm.offer.company_logo,
+                            src: _vm.baseUrl + "/" + _vm.offer.company_logo,
                             alt: "logo"
                           }
                         }),
@@ -43577,7 +43575,7 @@ var render = function() {
               _c("img", {
                 staticClass: "align-self-center img-fluid",
                 staticStyle: { "max-height": "300px" },
-                attrs: { src: _vm.baseUrl + "/storage/" + _vm.company.logo }
+                attrs: { src: _vm.baseUrl + "/" + _vm.company.logo }
               }),
               _vm._v(" "),
               _c("h2", { staticClass: "profile-username text-center" }, [
@@ -44151,7 +44149,7 @@ var render = function() {
                 staticClass: "align-self-center img-fluid",
                 staticStyle: { "max-height": "300px" },
                 attrs: {
-                  src: _vm.baseUrl + "/storage/" + _vm.offer.company_logo,
+                  src: _vm.baseUrl + "/" + _vm.offer.company_logo,
                   alt: "Offer picture"
                 }
               }),
@@ -44421,7 +44419,7 @@ var render = function() {
         [
           _c("img", {
             staticClass: "image-logo-banner",
-            attrs: { src: _vm.baseUrl + "/storage/" + _vm.logo }
+            attrs: { src: _vm.baseUrl + "/" + _vm.logo }
           }),
           _vm._v(" "),
           _c(
@@ -44628,7 +44626,7 @@ var render = function() {
               _c("img", {
                 staticClass: "col-10",
                 attrs: {
-                  src: _vm.baseUrl + "/storage/" + _vm.offer.company_logo,
+                  src: _vm.baseUrl + "/" + _vm.offer.company_logo,
                   alt: "logo"
                 }
               })
@@ -46255,7 +46253,7 @@ var render = function() {
                       staticClass: "align-self-center img-fluid",
                       staticStyle: { "max-height": "300px" },
                       attrs: {
-                        src: _vm.baseUrl + "/storage/" + _vm.offer.company_logo,
+                        src: _vm.baseUrl + "/" + _vm.offer.company_logo,
                         alt: "Offer picture"
                       }
                     }),

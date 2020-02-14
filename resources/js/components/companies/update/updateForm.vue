@@ -12,7 +12,7 @@
       <div class="modal-body">
           <div class="d-flex flex-column align-items-center py-4">
                 <h4 class="px-2 my-3 text-dark card-text">Logo de la Empresa</h4>
-                <img class="img-fluid" style="max-height:150px;" :src="onPreview?onPreview:(baseUrl+'/storage/'+company.logo)" alt="">
+                <img class="img-fluid" style="max-height:150px;" :src="onPreview?onPreview:(baseUrl+'/'+company.logo)" alt="">
           </div>
           <div class="form-group">
               <label>Nombre de la Empresa</label>
