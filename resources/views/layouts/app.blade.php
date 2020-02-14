@@ -51,7 +51,8 @@
     <script src="{{ asset('vendor/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
     <script src="{{ asset('vendor/adminlte/dist/js/adminlte.min.js') }}"></script>
     <script src="{{ asset('vendor/toastr/toastr.min.js') }}"></script>
-    
+
+    <script src="{{asset('vendor/inputmask/min/jquery.inputmask.bundle.min.js')}}" ></script>   
 
 </body>
 </html>

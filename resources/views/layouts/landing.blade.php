@@ -112,8 +112,8 @@
               <div class="col-xl-4 col-lg-4 col-md-6 col-12 footer-link-border">
                 <h5 class="footer-title-color font-weight-bold">PONTE EN CONTACTO</h5>
                 <ul class="footer-list p-2">
-                  <li>-Correo Electrónico: correo@correo.com </li>
-                  <li>-Números de teléfono: PBX ###</li>
+                  <li>-Correo Electrónico: contacto@contratainternet.com.co</li>
+                  <li>-PBX: 7868510</li>
                 </ul>
               </div>
             </div>

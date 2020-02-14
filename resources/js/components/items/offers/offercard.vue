@@ -10,9 +10,9 @@
       </div>
       <div class="row">
         <h6 class="col-12 offer-card-benefits text-wrap" style="font-family:Montserrat-regular">{{offer.benefits}}</h6>
-      </div>
+      </div> 
       <div class="row">
-        <h5 class="col-12 offer-card-price">{{Math.trunc(offer.tariff)}} $</h5>
+        <h5 class="col-12 offer-card-price">$ {{showPrice(offer.tariff)}}</h5>
       </div>
     </div>
     <div class="offer-card-footer">
@@ -36,6 +36,9 @@ export default {
   },
 
   methods:{
+    showPrice(price){
+        return Math.trunc(price);
+    },
     emitContact(){
       this.$emit("contactOffer",this.index);
     }

@@ -2,7 +2,7 @@
     <div class="modal fade" id="modalConsultOffer" aria-modal="true">
         <div class="modal-dialog modal-dialog-centered modal-xl modal-xl-xl d-flex flex-row justify-content-center align-items-center">
             <div class="consult-card p-0 flex-wrap modal-content">
-                <div class="col-lg-7 col-xl-7 col-md-7 col-12 d-flex flex-column p-4">
+                <div class="col-lg-7 col-xl-7 col-md-12 col-12 d-flex flex-column p-4">
                     <div class="consult-card-content">
                         <div class="consult-card-header pt-4 pb-3">
                             <img :src="baseUrl+'/'+offer.company_logo" alt="logo" class="consult-card-logo img-fluid">

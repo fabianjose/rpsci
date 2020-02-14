@@ -61,6 +61,10 @@ export default {
       this.getDepartments();
     },
     methods:{
+      reset(){
+        this.municipality=null;
+        this.department=null;
+      },
       getDepartments(){
         axios.get(baseUrl+'/api/departments')
         .then(res=>{

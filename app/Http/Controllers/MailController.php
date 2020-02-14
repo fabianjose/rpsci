@@ -23,39 +23,43 @@ class MailController extends Controller
           "service_name" => "exists:services,name",
           "department" => "exists:departments,name",
           "municipality" => "exists:municipalities,name",
-          //'g-recaptcha-response' => 'required|captcha',
+          "message" => "string|max:320",
+          'g-recaptcha-response' => 'required|captcha',
       ]);
       if ($validation->fails()){
         return response()->json($validation->errors(), 400);
       }
 
+      //var_dump("success"); exit();
+
       $fromOffer="";
 
-      $fromGeneral="He visitado su página y me gustaría que nos pusiéramos en contacto para validar mi cobertura";
       
       $zone="";
-
+      
       if($request->input("municipality")){
-        $zone+=" en ".$request->input("municipality").",";
+        $zone=$zone." en ".$request->input("municipality").",";
       }
-
+      
       if($request->input("department")){
-        $zone+=$zone==""?" en ":" ".$request->input("department").",";
+        $zone=$zone.(($zone==""?" en ":" ").$request->input("department"));
       }
-
+      
       if($request->input("company_name")&&$request->input("service_name")){
         $fromOffer="He visitado su página y me gustaría conocer detalles más específicos sobre la oferta de ".$data["company_name"]." para el servicio de ".$data["service_name"].$zone." ";
       }
+      
+      $fromGeneral="He visitado su página y me gustaría que nos pusiéramos en contacto para validar mi cobertura ".$zone;
 
+      $extraMessage=null;
+
+      if($request->input("message")) $extraMessage=$data["message"];
 
       $offerLink=null;
 
       if($request->input("offer")){
         $offerLink=url("offer/".$data["offer"]);
       }
-      //falta definir que haremos con los datos de la oferta
-
-      //llevar el link de la oferta
       
       $general_message=$data["type"]=="general"?$fromGeneral:$fromOffer;
 
@@ -65,7 +69,8 @@ class MailController extends Controller
           "email"=>$data["email"],
           "phone"=>$data["phone"],
           "offerLink"=>$offerLink,
-          "general_message"=>$general_message
+          "general_message"=>$general_message,
+          "extra_message"=>$extraMessage,
       ]
       ,function ($m)
       {

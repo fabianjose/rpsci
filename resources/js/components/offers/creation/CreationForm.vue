@@ -36,7 +36,7 @@
             </div>
           </div>
           <div class="d-flex flex-row w-100 justify-content-around flex-wrap" v-if="fields.length">
-            <div class="form-group col-xl-4 col-lg-4 col-md-6 col-12" v-for="(field,index) in fields" >
+            <div class="form-group col-xl-4 col-lg-4 col-md-6 col-12" v-for="(field,index) in fields" :key="index" >
               <label>{{field.name+(field.unit?" ("+field.unit+")":"")}}</label>
               <input v-model="fieldsValues[index]" class="form-control">
             </div>
@@ -48,7 +48,7 @@
             </div>
           </div>
 
-          <zone-select middle="col-xl-6 col-lg-6 col-md-6 col-12" @newDepartment="newDepartment" @newMunicipality="newMunicipality"  ></zone-select>
+          <zone-select ref="zoneSelectRef" middle="col-xl-6 col-lg-6 col-md-6 col-12" @newDepartment="newDepartment" @newMunicipality="newMunicipality"  ></zone-select>
 
 
           <div class="d-flex flex-row w-100 justify-content-around flex-wrap my-3">
@@ -59,7 +59,7 @@
             <div class="form-group col-xl-4 col-lg-4 col-md-6 col-12">
               <label>Tipo</label>
               <select class="custom-select" v-model="type">
-                <option value="private">Particular</option>
+                <option value="private">Hogar</option>
                 <option value="company">Empresa</option>
               </select>
             </div>
@@ -169,7 +169,7 @@ export default {
       if(this.department) fd.append("department", this.department);
       if(this.municipality) fd.append("municipality", this.municipality);
       fd.append("type", this.type);
-      fd.append("tariff", this.tariff);
+      fd.append("tariff", parseInt(this.tariff));
       fd.append("benefits", this.benefits);
       fd.append("service", this.service);
       fd.append("points", this.points);
@@ -190,6 +190,7 @@ export default {
         this.service = null;
         this.points = null;
         this.fields_value = [];
+        this.$refs.zoneSelectRef.reset();
         this.$emit('refresh');
       }).catch(err=>{
         if(err.response.status===403){

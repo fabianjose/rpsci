@@ -169,12 +169,12 @@ class OfferController extends Controller{
 
     $offers=Offer::joinFields($offers);
 
-    if (!$offers&&!$allOffers) return response()->json('Error en la base de datos',500);
+    if (!$offers&&!$allOffers) return response()->json(["errorMessage"=>'No se encontraron ofertas disponibles'],404);
 
 		return response()->json($offers, 200);
 	}
 
-	public function getOffer($id){
+	public function getOffer(Request $request,$id){
 		$offer = Offer::find($id);
 		if (!$offer) return response()->json('Oferta no encontrada',404);
 		$offer = DB::table('offers')->where('offers.id',$id)->where('offers.trash',0)
@@ -191,7 +191,18 @@ class OfferController extends Controller{
     )
     ->first();
 
-		if (!$offer) return response()->json('Oferta no encontrada',404);
+    $offers=Offer::joinFields(array($offer));
+
+    $offer=$offers[0];
+
+    if(!$request->ajax()){
+      if (!$offer) return response()->json('Oferta no encontrada',404);
+      
+      return view("pages.detailedOffer")->with(["offer"=>$offer]);
+    }
+
+    if (!$offer) return response()->json('Oferta no encontrada',404);
+
 		return response()->json($offer, 200);
 	}
 
@@ -201,6 +212,7 @@ class OfferController extends Controller{
       'company' => ['required', 'exists:companies,name'],
       'department' => ['required', 'exists:departments,name'],
       'municipality' => ['required', 'exists:municipalities,name'],
+      "service" => "required|exists:services,id"
     ]);
     if ($validation->fails()){
       return response()->json($validation->errors(), 400);
@@ -219,6 +231,7 @@ class OfferController extends Controller{
     ->where('company',$company->id)
     ->where('department',$department->id)
     ->where('municipality',$municipality->id)
+    ->where("service", $data["service"])
     ->join('companies','companies.id','offers.company')
     ->join('services', 'services.id','offers.service')
     ->join('departments', 'departments.id','offers.department')
@@ -239,7 +252,7 @@ class OfferController extends Controller{
 
     $offers= Offer::joinFields($offers);
 
-    if (!$offers) return response()->json('Error en la base de datos',500);
+    if (!$offers) return response()->json(["errorMessage"=>'No se encontraron ofertas disponibles'],404);
 		return response()->json($offers, 200);
   }
 
@@ -286,7 +299,7 @@ class OfferController extends Controller{
 
     $allOffers = Offer::getFromAll(null,$service->id,false,$data["offer_type"]);
 
-    if (!$offers&&!$allOffers) return response()->json('Error en la base de datos',500);
+    if (!$offers&&!$allOffers) return response()->json(["errorMessage"=>'No se encontraron ofertas disponibles'],404);
 
 
     if($request->input("from")&&is_numeric($request->input("from"))){
@@ -314,6 +327,7 @@ class OfferController extends Controller{
       $sortKey=$request->input("sortBy");
       if($sortKey>2) return response()->json("No existe ese campo",200);
       if($request->input("sortByDesc")) $sorting="sortByDesc";
+      $offers=collect($offers);
       $offers=$offers->{$sorting}(function ($offer, $key) use($sortKey) {
         if(is_numeric($sortKey))
           return $offer->fields_values[$sortKey-1]->value;
@@ -322,7 +336,7 @@ class OfferController extends Controller{
     }
 
     $offersArray=[];
-
+    //aaa
     foreach ($offers as $offer) {
       $offer->tariff = round($offer->tariff);
       array_push($offersArray,$offer);
@@ -383,7 +397,7 @@ class OfferController extends Controller{
 
     $offers= Offer::joinFields($offers);
 
-    if (!$offers) return response()->json('Error en la base de datos',500);
+    if (!$offers) return response()->json(["errorMessage"=>'No se encontraron ofertas disponibles'],404);
     return response()->json($offers, 200);
   }
 
@@ -391,7 +405,7 @@ class OfferController extends Controller{
     $data = $request->all();
     //var_dump($data["highlighted_expiration"]); exit();
     $validation = Validator::make($data, [
-      'highlighted_expiration' => ['required', 'date'],
+      'highlighted_expiration' => ['required', 'date',"after_or_equal:".date('Y-m-d')],
     ]);
     if ($validation->fails()){
       return response()->json($validation->errors(), 400);
@@ -402,15 +416,29 @@ class OfferController extends Controller{
 
     if ($offer->highlighted){
       $offer->highlighted = 0;
-      $offer->highlighted_expiration = null;
+      $offer->highlighted_expiration = $data["highlighted_expiration"];
       if (!$offer->save()) return response()->json('Error en la base de datos',500);
-      return response()->json('Offer highlight disabled', 200);
+      return response()->json('Oferta puesta fuera de "destacados"', 200);
     }else{
       $offer->highlighted = 1;
       $offer->highlighted_expiration = $data['highlighted_expiration'];
       if (!$offer->save()) return response()->json('Error en la base de datos',500);
-      return response()->json('Offer successfully highlighted', 200);
+      return response()->json('Oferta destacada', 200);
     }
+
+  }
+
+  public function deleteHighlightOffer($id){
+    $data = $request->all();
+    //var_dump($data["highlighted_expiration"]); exit();
+    
+    $offer = Offer::find($id);
+		if (!$offer) return response()->json('Oferta no encontrada',404);
+
+    $offer->highlighted = 0;
+    $offer->highlighted_expiration = null;
+    if (!$offer->save()) return response()->json('Error en la base de datos',500);
+    return response()->json('Oferta puesta fuera de "destacados"', 200);
 
   }
 
@@ -436,7 +464,7 @@ class OfferController extends Controller{
 
     $offers=Offer::joinFields($offers);
 
-		if (!$offers) return response()->json('Error en la base de datos',500);
+		if (!$offers) return response()->json(["errorMessage"=>'No se encontraron ofertas disponibles'],404);
 		return response()->json($offers, 200);
 	}
 

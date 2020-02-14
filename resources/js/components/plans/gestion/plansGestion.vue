@@ -50,7 +50,7 @@ export default {
     }
   },
   mounted(){
-    //this.refreshData()
+    console.log("andamo ruleta")
     toastr.info('Puedes buscar las ofertas activas por su municipio');
   },
   methods:{
@@ -73,6 +73,7 @@ export default {
       if(this.municipality) fd.append("municipality", this.municipality);
       else return;
       let loader = this.$loading.show();
+
       axios.post(baseUrl+'/api/offers/area/highlight', fd)
       .then(res=>{
         console.log(res);
@@ -88,13 +89,10 @@ export default {
       }).finally(()=>loader.hide());
     },
     async trash(id){
-      let offer= await this.offers.find(offerItem=>offerItem.id===id)
-      let fd = new FormData();
-      fd.append("highlighted_expiration", offer.highlighted_expiration);
         
       let loader = this.$loading.show();
       
-      axios.post(baseUrl+'/api/offers/highlight/'+id,fd)
+      axios.delete(baseUrl+'/api/offers/highlight/'+id)
       .then(res=>{
         
         console.log(res);

@@ -2,7 +2,7 @@
 <div class="container-fluid">
     <div class="row justify-content-center py-4">
         <div class="col-12 col-sm-10">
-            <company-highlight @refresh="refreshData" :companies="companies"></company-highlight>
+            <company-highlight ref="cHighlight" @refresh="refreshData" :companies="companies"></company-highlight>
         </div>
     </div>
     <h5 class="mt-4 mb-2 text-center">Empresas Destacadas</h5>
@@ -68,7 +68,10 @@ export default {
           toastr.error(err.response.data.errorMessage);
         }
 
-      }).finally(()=>loader.hide());
+      }).finally(()=>{
+        loader.hide();
+        this.$refs.cHighlight.refreshData()
+      });
     },
     async viewModal(id){
       await this.setCompany(id)
