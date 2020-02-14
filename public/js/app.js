@@ -43575,7 +43575,7 @@ var render = function() {
               _c("img", {
                 staticClass: "align-self-center img-fluid",
                 staticStyle: { "max-height": "300px" },
-                attrs: { src: _vm.baseUrl + "/" + _vm.company.logo }
+                attrs: { src: _vm.baseUrl + "/storage/" + _vm.company.logo }
               }),
               _vm._v(" "),
               _c("h2", { staticClass: "profile-username text-center" }, [
