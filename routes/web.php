@@ -75,8 +75,8 @@ return view('home');
 Route::get('/home', function() {
 */
 
-Route::get('storage/uploads/logos/{filename}', function ($filename){
-  $path = storage_path('app/public/' . $filename);
+Route::get('storage/{filename}', function ($filename){
+  $path = storage_path('app/public/uploads/logos/' . $filename);
 
   if (!File::exists($path)) { abort(404); }
 
