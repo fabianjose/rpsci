@@ -8,7 +8,7 @@
         class="no-shadow high-plans-carousel text-center w-100"
         ref="plansSlider"
         :bullets="false"
-        :autoplay="true"
+        :autoplay="companies.length>1?true:false"
         :duration="3000"
         :visible-slides="offers.length<3?offers.length:3"
         :slide-ratio="0.4"
