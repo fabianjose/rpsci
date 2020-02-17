@@ -4222,7 +4222,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     showPrice: function showPrice(price) {
-      return Math.trunc(price);
+      return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
     },
     emitContact: function emitContact() {
       this.$emit("contactOffer", this.index);
@@ -44635,7 +44635,7 @@ var render = function() {
               _c("img", {
                 staticClass: "col-10",
                 attrs: {
-                  src: _vm.baseUrl + "/" + _vm.offer.company_logo,
+                  src: _vm.baseUrl + "/storage/" + _vm.offer.company_logo,
                   alt: "logo"
                 }
               })

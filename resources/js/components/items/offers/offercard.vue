@@ -37,7 +37,7 @@ export default {
 
   methods:{
     showPrice(price){
-        return Math.trunc(price);
+        return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
     },
     emitContact(){
       this.$emit("contactOffer",this.index);
