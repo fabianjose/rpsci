@@ -76,6 +76,7 @@ Route::get('/home', function() {
 */
 
 Route::get('storage/{filename}', function ($filename){
+  var_dump('Prueba'); exit();
   $path = storage_path('app/public/' . $filename);
 
   if (!File::exists($path)) { abort(404); }
