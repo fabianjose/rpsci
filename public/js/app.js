@@ -44326,7 +44326,7 @@ var render = function() {
           attrs: {
             id: "offer-cards",
             bullets: false,
-            autoplay: _vm.companies.length > 1 ? true : false,
+            autoplay: _vm.offers.length > 1 ? true : false,
             duration: 3000,
             "visible-slides": _vm.offers.length < 3 ? _vm.offers.length : 3,
             "slide-ratio": 0.4,
