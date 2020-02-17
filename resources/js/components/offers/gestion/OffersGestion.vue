@@ -20,8 +20,7 @@
             <div class="card-body p-0">
               <ul class="list-group p-0">
                 <offerItem v-for="(offer,k) in offers" :key="k"
-                :title="offer.service_name" :logo="offer.company_logo" :index="offer.id"
-                :company="offer.company_name"
+                :offer="offer" :index="offer.id"
                 @delete="trash" @view="viewModal" @edit="update"
                 />
               </ul>

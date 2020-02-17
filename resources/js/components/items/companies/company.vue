@@ -10,10 +10,10 @@
                 <button style="height:40px; width:40px;" type="button" class="btn btn-sm btn-info rounded-pill mx-1" @click="emitView" data-toggle="modal" data-target="#modalViewCompany">
                     <i class="fas fa-eye"></i>
                 </button>
-                <button style="height:40px; width:40px;" v-if="!pick&&!remove&&!highlighted" type="button" class="btn btn-sm btn-success rounded-pill mx-1" @click="emitEdition" data-toggle="modal" data-target="#modalEditCompany">
+                <button style="height:40px; width:40px;" type="button" class="btn btn-sm btn-success rounded-pill mx-1" @click="emitEdition" data-toggle="modal" data-target="#modalEditCompany">
                     <i class="fas fa-edit"></i>
                 </button>
-                <button style="height:40px; width:40px;" v-if="!pick" type="button" class="btn btn-sm btn-danger rounded-pill mx-1" @click="emitRemove">
+                <button style="height:40px; width:40px;" type="button" class="btn btn-sm btn-danger rounded-pill mx-1" @click="emitRemove">
                     <i class="fas fa-trash"></i>
                 </button>
             </div>

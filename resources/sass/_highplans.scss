@@ -1,3 +1,8 @@
+
+#offer-cards .vueperslides__inner .vueperslides__parallax-wrapper{
+  padding-bottom: 500px!important;
+}
+
 .high-plans-color{
   color: rgba(83,83,83,1);
 }
@@ -28,7 +33,7 @@
 @media(max-width:450px){
 
   .offer-card{
-    width: 270px;
+    width: 260px;
   }
 
 }
@@ -71,7 +76,7 @@
   align-items: center;
   text-align: center;
   padding: 1rem;
-  padding-bottom: 1.5rem;
+  color: $dark-blue;
 }
 
 .offer-card-title{
@@ -79,18 +84,21 @@
   font-size: 1.5rem;
 }
 .offer-card-benefits{
-  margin-bottom: 1.5rem;
+  margin-bottom: .5rem;
   font-size: 1rem;
+  height: 90px;
+  overflow-y: auto;
 }
 
 .offer-card-price{
-  font-size: 1.8rem;
+  font-size: 1.3rem;
+  word-break: break-all;
 }
 
 .offer-card-footer{
   display: flex;
   padding: 0 1rem;
-  padding-bottom: 2rem;
+  padding-bottom: 1rem;
   flex-direction: column;
   align-items: center;
 }

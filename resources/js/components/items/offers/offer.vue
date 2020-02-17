@@ -1,10 +1,10 @@
 <template>
-  <div class="col-md-6 col-lg-4 col-sm-8">
+  <div class="col-md-8 col-xl-4 col-10 col-lg-6 col-sm-8">
     <div class="card card-primary">
       <div class="card-body d-flex flex-column align-items-center">
-        <img class="image-logo-banner" :src="baseUrl+'/'+logo">
-        <h4 class="px-2 mt-3 text-dark card-text text-capitalize">{{title}}</h4>
-        <h6 class="px-2 mt-1 text-dark card-text text-capitalize">{{company}}</h6>
+        <img class="image-logo-banner" :src="baseUrl+'/storage/'+offer.company_logo">
+        <h4 class="px-2 mt-3 text-dark card-text text-capitalize">{{offer.service_name}}</h4>
+        <h6 class="px-2 mt-1 text-dark card-text text-capitalize">{{offer.company_name}}</h6>
         <p v-if="this.highlighted" :class="'px-2 mt-1 card-text'+getDaysClass()">Expira en: {{getExpiration()}}</p>
       </div>
       <div class="card-footer">
@@ -29,7 +29,7 @@
 
 <script>
 export default {
-    props:["title", "logo", "index", "company", "remove", "pick", "highlighted", "highlightExpiration","notUpdate"],
+    props:["offer", "index", "remove", "pick", "highlighted","notUpdate"],
 
     data(){
         return {
@@ -43,7 +43,8 @@ export default {
           return daysRemaining>5?' text-info':' text-danger';
         },
         getDays(){
-          let Expiration= (this.highlightExpiration.split(' ')[0]).split('-');
+          console.log("offer", this.offer.highlighted_expiration)
+          let Expiration= (this.offer.highlighted_expiration.split(' ')[0]).split('-');
 
           console.log('expiration date : ', Expiration);
 

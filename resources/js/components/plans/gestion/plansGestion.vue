@@ -14,7 +14,7 @@
           </div>
           <div class="card-body">
             
-            <zone-select @newDepartment="newDepartment" @newMunicipality="newMunicipality"  ></zone-select>
+            <zone-select :notNullable="true" @newDepartment="newDepartment" @newMunicipality="newMunicipality"  ></zone-select>
 
             <div class="row my-3 px-4">
               <button type="button" class="btn btn-outline-success" @click="refreshData">Buscar ofertas por municipio</button>
@@ -25,9 +25,8 @@
     </div>
     <div class="row justify-content-space-around py-4">
       <offer v-for="(offer,k) in offers" :key="k"
-      :title="offer.service_name" :logo="offer.company_logo" :index="offer.id"
-      :company="offer.company_name" :highlighted="true"
-      @delete="trash" @view="viewModal" :highlightExpiration="offer.highlighted_expiration"
+      :index="offer.id" :offer="offer" :highlighted="true"
+      @delete="trash" @view="viewModal"
       ></offer>
     </div>
     <offer-details v-if="currentOffer&&viewMode" :offer="currentOffer">
@@ -50,7 +49,6 @@ export default {
     }
   },
   mounted(){
-    console.log("andamo ruleta")
     toastr.info('Puedes buscar las ofertas activas por su municipio');
   },
   methods:{
@@ -78,7 +76,9 @@ export default {
       .then(res=>{
         console.log(res);
         this.offers = res.data;
+        console.log("andamo ruleta")
       }).catch(err=>{
+        console.log("en una camioneta")
         if(err.response.status===403){
           window.location.replace(baseUrl+"/login");
         }

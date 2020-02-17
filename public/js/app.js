@@ -4129,7 +4129,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ["title", "logo", "index", "company", "remove", "pick", "highlighted", "highlightExpiration", "notUpdate"],
+  props: ["offer", "index", "remove", "pick", "highlighted", "notUpdate"],
   data: function data() {
     return {
       baseUrl: baseUrl
@@ -4141,7 +4141,8 @@ __webpack_require__.r(__webpack_exports__);
       return daysRemaining > 5 ? ' text-info' : ' text-danger';
     },
     getDays: function getDays() {
-      var Expiration = this.highlightExpiration.split(' ')[0].split('-');
+      console.log("offer", this.offer.highlighted_expiration);
+      var Expiration = this.offer.highlighted_expiration.split(' ')[0].split('-');
       console.log('expiration date : ', Expiration);
       var date1 = new Date(Expiration[0], parseInt(Expiration[1]) - 1, Expiration[2]);
       var date2 = new Date();
@@ -4313,8 +4314,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ["title", "logo", "index", "company", "remove", "pick", "highlighted", "highlightExpiration"],
+  props: ["offer", "index", "pick", "remove", "highlighted"],
   data: function data() {
     return {
       baseUrl: baseUrl
@@ -4326,7 +4333,7 @@ __webpack_require__.r(__webpack_exports__);
       return daysRemaining > 5 ? ' text-info' : ' text-danger';
     },
     getDays: function getDays() {
-      var Expiration = this.highlightExpiration.split(' ')[0].split('-');
+      var Expiration = this.offer.highlightExpiration.split(' ')[0].split('-');
       console.log('expiration date : ', Expiration);
       var date1 = new Date(Expiration[0], parseInt(Expiration[1]) - 1, Expiration[2]);
       var date2 = new Date();
@@ -4602,7 +4609,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ["middle", "hideDepartment", "hideMunicipality", "noRequest", "defaultDepartment", "defaultMunicipality"],
+  props: ["middle", "notNullable", "hideDepartment", "hideMunicipality", "noRequest", "defaultDepartment", "defaultMunicipality"],
   data: function data() {
     return {
       departments: [],
@@ -5686,7 +5693,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -6294,7 +6300,6 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -6498,7 +6503,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         }
 
         if (err.response.status === 404) {
-          _this3.offersByArea = res.data;
+          _this3.offersByArea = [];
         } //toastr.error("Error al cargar las ofertas del área");
 
       })["finally"](function () {
@@ -6563,7 +6568,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -6577,7 +6581,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     };
   },
   mounted: function mounted() {
-    console.log("andamo ruleta");
     toastr.info('Puedes buscar las ofertas activas por su municipio');
   },
   methods: {
@@ -6597,7 +6600,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       axios.post(baseUrl + '/api/offers/area/highlight', fd).then(function (res) {
         console.log(res);
         _this.offers = res.data;
+        console.log("andamo ruleta");
       })["catch"](function (err) {
+        console.log("en una camioneta");
+
         if (err.response.status === 403) {
           window.location.replace(baseUrl + "/login");
         }
@@ -41930,7 +41936,7 @@ var render = function() {
                     [
                       _c("img", {
                         staticClass: "high-companies-img align-self-center",
-                        attrs: { src: _vm.baseUrl + "/" + company.logo }
+                        attrs: { src: _vm.baseUrl + "/storage/" + company.logo }
                       })
                     ]
                   )
@@ -42693,7 +42699,10 @@ var render = function() {
                         _c("img", {
                           staticClass: "consult-card-logo img-fluid",
                           attrs: {
-                            src: _vm.baseUrl + "/" + _vm.offer.company_logo,
+                            src:
+                              _vm.baseUrl +
+                              "/storage/" +
+                              _vm.offer.company_logo,
                             alt: "logo"
                           }
                         }),
@@ -43498,35 +43507,31 @@ var render = function() {
                 [_c("i", { staticClass: "fas fa-eye" })]
               ),
               _vm._v(" "),
-              !_vm.pick && !_vm.remove && !_vm.highlighted
-                ? _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-sm btn-success rounded-pill mx-1",
-                      staticStyle: { height: "40px", width: "40px" },
-                      attrs: {
-                        type: "button",
-                        "data-toggle": "modal",
-                        "data-target": "#modalEditCompany"
-                      },
-                      on: { click: _vm.emitEdition }
-                    },
-                    [_c("i", { staticClass: "fas fa-edit" })]
-                  )
-                : _vm._e(),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-sm btn-success rounded-pill mx-1",
+                  staticStyle: { height: "40px", width: "40px" },
+                  attrs: {
+                    type: "button",
+                    "data-toggle": "modal",
+                    "data-target": "#modalEditCompany"
+                  },
+                  on: { click: _vm.emitEdition }
+                },
+                [_c("i", { staticClass: "fas fa-edit" })]
+              ),
               _vm._v(" "),
-              !_vm.pick
-                ? _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-sm btn-danger rounded-pill mx-1",
-                      staticStyle: { height: "40px", width: "40px" },
-                      attrs: { type: "button" },
-                      on: { click: _vm.emitRemove }
-                    },
-                    [_c("i", { staticClass: "fas fa-trash" })]
-                  )
-                : _vm._e()
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-sm btn-danger rounded-pill mx-1",
+                  staticStyle: { height: "40px", width: "40px" },
+                  attrs: { type: "button" },
+                  on: { click: _vm.emitRemove }
+                },
+                [_c("i", { staticClass: "fas fa-trash" })]
+              )
             ]
           )
         ]
@@ -44149,7 +44154,7 @@ var render = function() {
                 staticClass: "align-self-center img-fluid",
                 staticStyle: { "max-height": "300px" },
                 attrs: {
-                  src: _vm.baseUrl + "/" + _vm.offer.company_logo,
+                  src: _vm.baseUrl + "/storage/" + _vm.offer.company_logo,
                   alt: "Offer picture"
                 }
               }),
@@ -44309,7 +44314,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "high-plans py-4 pb-5 px-4" },
+    { staticClass: "high-plans py-4 pb-5 px-2" },
     [
       _vm._m(0),
       _vm._v(" "),
@@ -44411,95 +44416,99 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "col-md-6 col-lg-4 col-sm-8" }, [
-    _c("div", { staticClass: "card card-primary" }, [
-      _c(
-        "div",
-        { staticClass: "card-body d-flex flex-column align-items-center" },
-        [
-          _c("img", {
-            staticClass: "image-logo-banner",
-            attrs: { src: _vm.baseUrl + "/" + _vm.logo }
-          }),
-          _vm._v(" "),
-          _c(
-            "h4",
-            { staticClass: "px-2 mt-3 text-dark card-text text-capitalize" },
-            [_vm._v(_vm._s(_vm.title))]
-          ),
-          _vm._v(" "),
-          _c(
-            "h6",
-            { staticClass: "px-2 mt-1 text-dark card-text text-capitalize" },
-            [_vm._v(_vm._s(_vm.company))]
-          ),
-          _vm._v(" "),
-          this.highlighted
-            ? _c("p", { class: "px-2 mt-1 card-text" + _vm.getDaysClass() }, [
-                _vm._v("Expira en: " + _vm._s(_vm.getExpiration()))
-              ])
-            : _vm._e()
-        ]
-      ),
-      _vm._v(" "),
-      _c("div", { staticClass: "card-footer" }, [
-        _c("div", { staticClass: "card-tools row justify-content-around" }, [
-          _vm.pick
-            ? _c(
-                "div",
-                {
-                  staticClass:
-                    "btn btn-success rounded-circle text-lg icon-btn-sm",
-                  on: { click: _vm.emitPick }
-                },
-                [_c("i", { staticClass: "fas fa-plus" })]
-              )
-            : _vm._e(),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "btn btn-info rounded-circle text-lg icon-btn-sm",
-              attrs: {
-                "data-toggle": "modal",
-                "data-target": "#modalViewOffer"
-              },
-              on: { click: _vm.emitView }
-            },
-            [_c("i", { staticClass: "fas fa-eye" })]
-          ),
-          _vm._v(" "),
-          !_vm.pick && !_vm.remove && !_vm.highlighted
-            ? _c(
-                "div",
-                {
-                  staticClass:
-                    "btn btn-success rounded-circle text-lg icon-btn-sm",
-                  attrs: {
-                    "data-toggle": "modal",
-                    "data-target": "#modalEditOffer"
+  return _c(
+    "div",
+    { staticClass: "col-md-8 col-xl-4 col-10 col-lg-6 col-sm-8" },
+    [
+      _c("div", { staticClass: "card card-primary" }, [
+        _c(
+          "div",
+          { staticClass: "card-body d-flex flex-column align-items-center" },
+          [
+            _c("img", {
+              staticClass: "image-logo-banner",
+              attrs: { src: _vm.baseUrl + "/storage/" + _vm.offer.company_logo }
+            }),
+            _vm._v(" "),
+            _c(
+              "h4",
+              { staticClass: "px-2 mt-3 text-dark card-text text-capitalize" },
+              [_vm._v(_vm._s(_vm.offer.service_name))]
+            ),
+            _vm._v(" "),
+            _c(
+              "h6",
+              { staticClass: "px-2 mt-1 text-dark card-text text-capitalize" },
+              [_vm._v(_vm._s(_vm.offer.company_name))]
+            ),
+            _vm._v(" "),
+            this.highlighted
+              ? _c("p", { class: "px-2 mt-1 card-text" + _vm.getDaysClass() }, [
+                  _vm._v("Expira en: " + _vm._s(_vm.getExpiration()))
+                ])
+              : _vm._e()
+          ]
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "card-footer" }, [
+          _c("div", { staticClass: "card-tools row justify-content-around" }, [
+            _vm.pick
+              ? _c(
+                  "div",
+                  {
+                    staticClass:
+                      "btn btn-success rounded-circle text-lg icon-btn-sm",
+                    on: { click: _vm.emitPick }
                   },
-                  on: { click: _vm.emitEdition }
+                  [_c("i", { staticClass: "fas fa-plus" })]
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "btn btn-info rounded-circle text-lg icon-btn-sm",
+                attrs: {
+                  "data-toggle": "modal",
+                  "data-target": "#modalViewOffer"
                 },
-                [_c("i", { staticClass: "fas fa-edit" })]
-              )
-            : _vm._e(),
-          _vm._v(" "),
-          !_vm.pick
-            ? _c(
-                "div",
-                {
-                  staticClass:
-                    "btn btn-danger rounded-circle text-lg icon-btn-sm",
-                  on: { click: _vm.emitRemove }
-                },
-                [_c("i", { staticClass: "fas fa-trash" })]
-              )
-            : _vm._e()
+                on: { click: _vm.emitView }
+              },
+              [_c("i", { staticClass: "fas fa-eye" })]
+            ),
+            _vm._v(" "),
+            !_vm.pick && !_vm.remove && !_vm.highlighted
+              ? _c(
+                  "div",
+                  {
+                    staticClass:
+                      "btn btn-success rounded-circle text-lg icon-btn-sm",
+                    attrs: {
+                      "data-toggle": "modal",
+                      "data-target": "#modalEditOffer"
+                    },
+                    on: { click: _vm.emitEdition }
+                  },
+                  [_c("i", { staticClass: "fas fa-edit" })]
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            !_vm.pick
+              ? _c(
+                  "div",
+                  {
+                    staticClass:
+                      "btn btn-danger rounded-circle text-lg icon-btn-sm",
+                    on: { click: _vm.emitRemove }
+                  },
+                  [_c("i", { staticClass: "fas fa-trash" })]
+                )
+              : _vm._e()
+          ])
         ])
       ])
-    ])
-  ])
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -44723,57 +44732,85 @@ var render = function() {
     { staticClass: "list-group-item d-flex justify-content-between" },
     [
       _c(
-        "h5",
+        "div",
         {
-          staticClass: "px-2 mt-2 card-text text-capitalize col-6",
-          staticStyle: { color: "#006494" }
+          staticClass:
+            " d-flex flex-row justify-content-center col-12 col-sm-6 col-md4 col-lg-4 col-xl-4"
         },
-        [_vm._v(_vm._s(_vm.title) + " - " + _vm._s(_vm.company))]
+        [
+          _c("img", {
+            staticStyle: { "max-height": "100px" },
+            attrs: {
+              src: _vm.baseUrl + "/storage/" + _vm.offer.company_logo,
+              alt: ""
+            }
+          })
+        ]
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "btn-group col-6" }, [
-        _c(
-          "button",
-          {
-            staticClass: "btn btn-app rounded mx-1",
-            attrs: {
-              type: "button",
-              "data-toggle": "modal",
-              "data-target": "#modalViewOffer"
+      _c(
+        "div",
+        {
+          staticClass:
+            "d-flex flex-row col-12 col-sm-6 col-md-8 col-lg-8 col-xl-8 flex-wrap align-items-center"
+        },
+        [
+          _c(
+            "h5",
+            {
+              staticClass:
+                "px-2 mt-2 card-text text-capitalize text-center col-12 col-md-6 col-lg-6 col-xl-6 text-wrap-all",
+              staticStyle: { color: "#006494" }
             },
-            on: { click: _vm.emitView }
-          },
-          [_c("i", { staticClass: "fas fa-eye" })]
-        ),
-        _vm._v(" "),
-        !_vm.pick && !_vm.remove && !_vm.highlighted
-          ? _c(
-              "button",
-              {
-                staticClass: "btn btn-app rounded mx-1",
-                attrs: {
-                  type: "button",
-                  "data-toggle": "modal",
-                  "data-target": "#modalEditOffer"
+            [_vm._v(_vm._s(_vm.offer.company_name))]
+          ),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-sm btn-info rounded-pill mx-1",
+              staticStyle: { height: "40px", width: "40px" },
+              attrs: {
+                type: "button",
+                "data-toggle": "modal",
+                "data-target": "#modalViewOffer"
+              },
+              on: { click: _vm.emitView }
+            },
+            [_c("i", { staticClass: "fas fa-eye" })]
+          ),
+          _vm._v(" "),
+          !_vm.pick && !_vm.remove && !_vm.highlighted
+            ? _c(
+                "button",
+                {
+                  staticClass: "btn btn-sm btn-success rounded-pill mx-1",
+                  staticStyle: { height: "40px", width: "40px" },
+                  attrs: {
+                    type: "button",
+                    "data-toggle": "modal",
+                    "data-target": "#modalEditOffer"
+                  },
+                  on: { click: _vm.emitEdition }
                 },
-                on: { click: _vm.emitEdition }
-              },
-              [_c("i", { staticClass: "fas fa-edit" })]
-            )
-          : _vm._e(),
-        _vm._v(" "),
-        !_vm.pick
-          ? _c(
-              "button",
-              {
-                staticClass: "btn btn-app rounded mx-1",
-                attrs: { type: "button" },
-                on: { click: _vm.emitRemove }
-              },
-              [_c("i", { staticClass: "fas fa-trash" })]
-            )
-          : _vm._e()
-      ])
+                [_c("i", { staticClass: "fas fa-edit" })]
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          !_vm.pick
+            ? _c(
+                "button",
+                {
+                  staticClass: "btn btn-sm btn-danger rounded-pill mx-1",
+                  staticStyle: { height: "40px", width: "40px" },
+                  attrs: { type: "button" },
+                  on: { click: _vm.emitRemove }
+                },
+                [_c("i", { staticClass: "fas fa-trash" })]
+              )
+            : _vm._e()
+        ]
+      )
     ]
   )
 }
@@ -45118,9 +45155,11 @@ var render = function() {
                     [_vm._v("Departamento")]
                   ),
                   _vm._v(" "),
-                  _c("option", { domProps: { value: null } }, [
-                    _vm._v("Todos")
-                  ]),
+                  !_vm.notNullable
+                    ? _c("option", { domProps: { value: null } }, [
+                        _vm._v("Todos")
+                      ])
+                    : _vm._e(),
                   _vm._v(" "),
                   _vm._l(_vm.departments, function(department, index) {
                     return _c(
@@ -45184,9 +45223,11 @@ var render = function() {
                     [_vm._v("Municipio")]
                   ),
                   _vm._v(" "),
-                  _c("option", { domProps: { value: null } }, [
-                    _vm._v("Todos")
-                  ]),
+                  !_vm.notNullable
+                    ? _c("option", { domProps: { value: null } }, [
+                        _vm._v("Todos")
+                      ])
+                    : _vm._e(),
                   _vm._v(" "),
                   _vm._l(_vm.municipalities, function(municipality, index) {
                     return _c(
@@ -46544,12 +46585,7 @@ var render = function() {
                       _vm._l(_vm.offers, function(offer, k) {
                         return _c("offerItem", {
                           key: k,
-                          attrs: {
-                            title: offer.service_name,
-                            logo: offer.company_logo,
-                            index: offer.id,
-                            company: offer.company_name
-                          },
+                          attrs: { offer: offer, index: offer.id },
                           on: {
                             delete: _vm.trash,
                             view: _vm.viewModal,
@@ -47286,7 +47322,10 @@ var render = function() {
               ),
               _vm._v(" "),
               _c("zone-select", {
-                attrs: { middle: "col-xl-6 col-lg-6 col-md-6 col-12" },
+                attrs: {
+                  notNullable: true,
+                  middle: "col-xl-6 col-lg-6 col-md-6 col-12"
+                },
                 on: {
                   newDepartment: _vm.newDepartment,
                   newMunicipality: _vm.newMunicipality
@@ -47373,13 +47412,9 @@ var render = function() {
                                 _vm._l(_vm.offersByArea, function(offer, k) {
                                   return _c("offer", {
                                     key: k,
-                                    staticClass:
-                                      "col-md-8 col-xl-6 col-10 col-lg-6 col-sm-8",
                                     attrs: {
-                                      title: offer.service_name,
-                                      logo: offer.company_logo,
+                                      offer: offer,
                                       index: k,
-                                      company: offer.company_name,
                                       pick: true
                                     },
                                     on: {
@@ -47468,18 +47503,8 @@ var render = function() {
                                         [
                                           _vm.selectedOffer
                                             ? _c("offer", {
-                                                staticClass:
-                                                  "col-md-8 col-xl-6 col-10 col-lg-6 col-sm-8",
                                                 attrs: {
-                                                  title:
-                                                    _vm.selectedOffer
-                                                      .service_name,
-                                                  logo:
-                                                    _vm.selectedOffer
-                                                      .company_logo,
-                                                  company:
-                                                    _vm.selectedOffer
-                                                      .company_name,
+                                                  offer: _vm.selectedOffer,
                                                   remove: true
                                                 },
                                                 on: {
@@ -47607,6 +47632,7 @@ var render = function() {
               { staticClass: "card-body" },
               [
                 _c("zone-select", {
+                  attrs: { notNullable: true },
                   on: {
                     newDepartment: _vm.newDepartment,
                     newMunicipality: _vm.newMunicipality
@@ -47637,14 +47663,7 @@ var render = function() {
         _vm._l(_vm.offers, function(offer, k) {
           return _c("offer", {
             key: k,
-            attrs: {
-              title: offer.service_name,
-              logo: offer.company_logo,
-              index: offer.id,
-              company: offer.company_name,
-              highlighted: true,
-              highlightExpiration: offer.highlighted_expiration
-            },
+            attrs: { index: offer.id, offer: offer, highlighted: true },
             on: { delete: _vm.trash, view: _vm.viewModal }
           })
         }),

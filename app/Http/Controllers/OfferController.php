@@ -392,11 +392,13 @@ class OfferController extends Controller{
 
     
     $allOffers = Offer::getFromAll(null,null,true);
-
+    
     $offers=array_merge($offers->toArray(),$allOffers->toArray());
-
+    
+    
     $offers= Offer::joinFields($offers);
-
+    
+    
     if (!$offers) return response()->json(["errorMessage"=>'No se encontraron ofertas disponibles'],404);
     return response()->json($offers, 200);
   }
@@ -414,17 +416,10 @@ class OfferController extends Controller{
     $offer = Offer::find($id);
 		if (!$offer) return response()->json('Oferta no encontrada',404);
 
-    if ($offer->highlighted){
-      $offer->highlighted = 0;
-      $offer->highlighted_expiration = $data["highlighted_expiration"];
-      if (!$offer->save()) return response()->json('Error en la base de datos',500);
-      return response()->json('Oferta puesta fuera de "destacados"', 200);
-    }else{
-      $offer->highlighted = 1;
-      $offer->highlighted_expiration = $data['highlighted_expiration'];
-      if (!$offer->save()) return response()->json('Error en la base de datos',500);
-      return response()->json('Oferta destacada', 200);
-    }
+    $offer->highlighted = 1;
+    $offer->highlighted_expiration = $data['highlighted_expiration'];
+    if (!$offer->save()) return response()->json('Error en la base de datos',500);
+    return response()->json('Oferta destacada', 200);
 
   }
 

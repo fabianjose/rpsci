@@ -12,7 +12,7 @@
     <vueper-slide v-for="company in companies" :key="company.id">
       <template v-slot:content>
         <div class="h-100 d-flex text-center justify-content-center">
-          <img :src="baseUrl+'/'+company.logo" class="high-companies-img align-self-center">
+          <img :src="baseUrl+'/storage/'+company.logo" class="high-companies-img align-self-center">
         </div>
       </template>
     </vueper-slide>

@@ -79,8 +79,8 @@
             <div class="mt-3">
               <img src="{{asset('images/logo-gris.png')}}" class="footer-img">
             </div>
-            <div class="d-flex w-100 footer-links flex-wrap justify-content-center">
-              <div class="col-xl-4 col-lg-4 col-md-6 col-12">
+            <div class="d-flex w-100 footer-links flex-wrap justify-content-bewtween">
+              <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 my-2 footer-link-border">
                 <h5 class="footer-title-color font-weight-bold">SERVICIOS DISPONIBLES</h5>
                 <ul class="footer-list p-2">
                   <li>-internet satelital
@@ -100,7 +100,7 @@
 
                 </ul>
               </div>
-              <div class="col-xl-4 col-lg-4 col-md-6 col-12 footer-link-border">
+              <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 footer-link-border my-2">
                 <h5 class="footer-title-color font-weight-bold">CATEGORÍAS DEL BLOG</h5>
                 <ul class="footer-list p-2">
                   <li>-Entrada 1</li>
@@ -109,7 +109,7 @@
                   <li>-Entrada 4</li>
                 </ul>
               </div>
-              <div class="col-xl-4 col-lg-4 col-md-6 col-12 footer-link-border">
+              <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 footer-link-border my-2">
                 <h5 class="footer-title-color font-weight-bold">PONTE EN CONTACTO</h5>
                 <ul class="footer-list p-2">
                   <li>-Correo Electrónico: contacto@contratainternet.com.co</li>

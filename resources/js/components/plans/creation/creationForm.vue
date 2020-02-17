@@ -39,7 +39,7 @@
             </div>
           </div>
 
-          <zone-select  middle="col-xl-6 col-lg-6 col-md-6 col-12" @newDepartment="newDepartment" @newMunicipality="newMunicipality"  >
+          <zone-select :notNullable="true" middle="col-xl-6 col-lg-6 col-md-6 col-12" @newDepartment="newDepartment" @newMunicipality="newMunicipality"  >
           </zone-select>
 
 
@@ -65,9 +65,8 @@
                   <div class="card-body w-100">
 
                       <div class="d-flex justify-content-around w-100 flex-wrap">
-                        <offer class="col-md-8 col-xl-6 col-10 col-lg-6 col-sm-8" v-for="(offer,k) in offersByArea" :key="k"
-                          :title="offer.service_name" :logo="offer.company_logo" :index="k"
-                          :company="offer.company_name" :pick="true"
+                        <offer v-for="(offer,k) in offersByArea" :key="k"
+                          :offer="offer" :index="k" :pick="true"
                           @pick="selectOffer" @view="viewModal"
                         ></offer>
                       </div>
@@ -92,8 +91,8 @@
                   <div class="card-body">
 
                     <div v-if="selectedOffer" class="d-flex flex-row justify-content-around w-100 wlex-wrap">
-                      <offer class="col-md-8 col-xl-6 col-10 col-lg-6 col-sm-8" v-if="selectedOffer" :title="selectedOffer.service_name"
-                        :logo="selectedOffer.company_logo" :company="selectedOffer.company_name" :remove="true"
+                      <offer v-if="selectedOffer" 
+                        :offer="selectedOffer" :remove="true"
                         @delete="selectedOffer=null;" @view="viewSelected"
                       ></offer>
                     </div>
@@ -276,7 +275,7 @@ export default {
           }
         }
         if(err.response.status===404){
-          this.offersByArea=res.data;
+          this.offersByArea=[];
         }
         //toastr.error("Error al cargar las ofertas del área");
       }).finally(()=>loader.hide());

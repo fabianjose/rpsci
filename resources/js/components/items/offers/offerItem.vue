@@ -1,14 +1,20 @@
 <template>
   <li class="list-group-item d-flex justify-content-between">
-    <h5 class="px-2 mt-2 card-text text-capitalize col-6" style="color: #006494;">{{title}} - {{company}}</h5>
-    <div class="btn-group col-6">
-      <button type="button" class="btn btn-app rounded mx-1" @click="emitView" data-toggle="modal" data-target="#modalViewOffer">
+    <div class=" d-flex flex-row justify-content-center col-12 col-sm-6 col-md4 col-lg-4 col-xl-4">
+        <img class="" style="max-height:100px;" :src="baseUrl+'/storage/'+offer.company_logo" alt="">
+    </div>
+    <div class="d-flex flex-row col-12 col-sm-6 col-md-8 col-lg-8 col-xl-8 flex-wrap align-items-center">
+      <h5 class="px-2 mt-2 card-text text-capitalize text-center col-12 col-md-6 col-lg-6 col-xl-6 text-wrap-all" style="color: #006494;">{{offer.company_name}}</h5>
+      <button style="height:40px; width:40px;" type="button" class="btn btn-sm btn-info rounded-pill mx-1" 
+       @click="emitView" data-toggle="modal" data-target="#modalViewOffer">
         <i class="fas fa-eye"></i>
       </button>
-      <button v-if="!pick&&!remove&&!highlighted" type="button" class="btn btn-app rounded mx-1" @click="emitEdition" data-toggle="modal" data-target="#modalEditOffer">
+      <button style="height:40px; width:40px;" v-if="!pick&&!remove&&!highlighted" type="button" 
+       class="btn btn-sm btn-success rounded-pill mx-1" @click="emitEdition" data-toggle="modal" data-target="#modalEditOffer">
         <i class="fas fa-edit"></i>
       </button>
-      <button v-if="!pick" type="button" class="btn btn-app rounded mx-1" @click="emitRemove">
+      <button style="height:40px; width:40px;" v-if="!pick" type="button" class="btn btn-sm btn-danger rounded-pill mx-1"
+       @click="emitRemove">
         <i class="fas fa-trash"></i>
       </button>
     </div>
@@ -17,10 +23,10 @@
 
 <script>
 export default {
-  props:["title", "logo", "index", "company", "remove", "pick", "highlighted", "highlightExpiration"],
+  props:["offer", "index","pick", "remove", "highlighted"],
   data(){
     return {
-      baseUrl:baseUrl,
+      baseUrl,
     }
   },
   methods:{
@@ -29,7 +35,7 @@ export default {
       return daysRemaining>5?' text-info':' text-danger';
     },
     getDays(){
-      let Expiration= (this.highlightExpiration.split(' ')[0]).split('-');
+      let Expiration= (this.offer.highlightExpiration.split(' ')[0]).split('-');
       console.log('expiration date : ', Expiration);
       let date1 = new Date(Expiration[0], parseInt(Expiration[1])-1, Expiration[2]);
       let date2 = new Date();
