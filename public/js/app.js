@@ -3759,7 +3759,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     showPrice: function showPrice(price) {
-      return Math.trunc(price);
+      return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
     },
     setPage: function setPage() {
       var pageNumber = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
@@ -44323,6 +44323,7 @@ var render = function() {
     [
       _vm._m(0),
       _vm._v(" "),
+<<<<<<< HEAD
       _vm.offers.length
         ? _c(
             "vueper-slides",
@@ -44390,6 +44391,61 @@ var render = function() {
               ])
             ]
           ),
+=======
+      _c(
+        "vueper-slides",
+        {
+          ref: "plansSlider",
+          staticClass: "no-shadow high-plans-carousel text-center w-100",
+          attrs: {
+            id: "offer-cards",
+            bullets: false,
+            autoplay: _vm.offers.length > 1 ? true : false,
+            duration: 3000,
+            "visible-slides": _vm.offers.length < 3 ? _vm.offers.length : 3,
+            "slide-ratio": 0.4,
+            "dragging-distance": 70,
+            arrows: false,
+            breakpoints: _vm.breakpoints
+          }
+        },
+        _vm._l(_vm.offers, function(offer, index) {
+          return _c("vueper-slide", {
+            key: index,
+            staticClass: "align-self-center",
+            scopedSlots: _vm._u(
+              [
+                {
+                  key: "content",
+                  fn: function() {
+                    return [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "d-flex text-center justify-content-center mx-auto"
+                        },
+                        [
+                          _c("offer-card", {
+                            attrs: { index: index, offer: offer },
+                            on: { contactOffer: _vm.contactOffer }
+                          })
+                        ],
+                        1
+                      )
+                    ]
+                  },
+                  proxy: true
+                }
+              ],
+              null,
+              true
+            )
+          })
+        }),
+        1
+      ),
+>>>>>>> 91200f3f38fcb0250bb7a3c812db40b5078c5cba
       _vm._v(" "),
       _vm.currentOffer && _vm.consultMode
         ? _c("offer-consult", { attrs: { offer: _vm.currentOffer } })
@@ -95416,8 +95472,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\z-projects\colombia_internet\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\z-projects\colombia_internet\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\ConsultingMe\colombia_internet\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\ConsultingMe\colombia_internet\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),

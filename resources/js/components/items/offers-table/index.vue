@@ -11,7 +11,7 @@
               </span>
             </button>
           </div>
-          <button :disabled="currentpage==compLastpage" @click="setPage(currentpage)" class="col-2 col-md-1 col-lg-1 col-xl-1 d-flex justify-content-center align-items-center page-item rounded-pill btn btn-light"><i class="fas fa-arrow-right"></i></button>          
+          <button :disabled="currentpage==compLastpage" @click="setPage(currentpage)" class="col-2 col-md-1 col-lg-1 col-xl-1 d-flex justify-content-center align-items-center page-item rounded-pill btn btn-light"><i class="fas fa-arrow-right"></i></button>
         </div>
 
         <div class="d-flex flex-row w-100 justify-content-around mb-2 mt-3">
@@ -28,7 +28,7 @@
 
           <div class="col-xl-2 col-lg-3 col-md-4 px-1">
             <div class="text-center p-2 offer-table-label w-100 text-white mx-auto bg-dark-blue rounded-pill p-1 text-wrap ">PRECIO</div>
-          </div> 
+          </div>
         </div>
 
         <div v-for="(offer,k) in compItems" :key="k" class="d-flex w-100 justify-content-around my-1 mb-3 offer offers-pagination-item pb-3">
@@ -67,7 +67,7 @@
               </span>
             </button>
           </div>
-          <button :disabled="currentpage==compLastpage" @click="setPage(currentpage)" class="col-2 col-md-1 col-lg-1 col-xl-1 d-flex justify-content-center align-items-center page-item rounded-pill btn btn-light"><i class="fas fa-arrow-right"></i></button>          
+          <button :disabled="currentpage==compLastpage" @click="setPage(currentpage)" class="col-2 col-md-1 col-lg-1 col-xl-1 d-flex justify-content-center align-items-center page-item rounded-pill btn btn-light"><i class="fas fa-arrow-right"></i></button>
         </div>
 
       </div>
@@ -90,7 +90,7 @@ export default {
 
     methods:{
       showPrice(price){
-        return Math.trunc(price);
+          return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
       },
       setPage(pageNumber=1){
         this.$emit("pageSwitch", pageNumber);
