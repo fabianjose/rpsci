@@ -25,9 +25,9 @@
                     </div>
                 </div>
                 <div class="col-12 my-2 d-flex justify-content-center align-items-center">
-                    <vue-recaptcha @error="onCaptchaError" @expired="onCaptchaExpired" @verify="verifyCaptcha" 
+                    <!--<vue-recaptcha @error="onCaptchaError" @expired="onCaptchaExpired" @verify="verifyCaptcha" 
                         class="col-12 v-captcha" :sitekey="reCaptchaKey" :loadRecaptchaScript="true" >
-                    </vue-recaptcha>
+                    </vue-recaptcha>-->
                 </div>
             </div>
             <div class="card-footer d-flex justify-content-end pt-2 pb-2 bg-light">
@@ -80,7 +80,7 @@ export default {
             this.department=department;
         },
 
-        verifyCaptcha(captcha){
+        /*verifyCaptcha(captcha){
             this.captcha=captcha;
         },
 
@@ -92,7 +92,7 @@ export default {
         onCaptchaExpired(err){
             console.log("error captcha ", err)
             toastr.error("el captcha se expiró, intente nuevamente")
-        },
+        },*/
 
         getFullRound(){
             if(!this.offer) return "consult-card-full-rounded";
@@ -115,6 +115,9 @@ export default {
             else return toastr.error("Rellene todos los campos");
 
             if(this.message&&this.message!="") fd.append("message", this.message);
+
+            //if(this.captcha&&this.captcha!="") fd.append("g-recaptcha-response", this.captcha);
+            //else return toastr.error("Complete la prueba de captcha");
 
             this.disableButton= true;
 

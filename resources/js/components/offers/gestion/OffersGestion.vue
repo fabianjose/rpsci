@@ -74,6 +74,12 @@ export default {
         console.log(res.data);
         this.offers=res.data;
       }).catch(err=>{
+        
+        if(err.response.status===404){
+          this.offers=[];
+          return toastr.info(err.response.data.errorMessage)
+        }
+
         if(err.response.status===403){
           window.location.replace(baseUrl+"/login");
         }

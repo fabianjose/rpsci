@@ -78,15 +78,17 @@ export default {
         this.offers = res.data;
         console.log("andamo ruleta")
       }).catch(err=>{
-        console.log("en una camioneta")
-        if(err.response.status===403){
+        if(err.response.status===404) {
+          this.offers=[];
+          return toastr.info("No se encontraron ofertas destacadas en esta zona")
+        }
+        else if(err.response.status===403){
           window.location.replace(baseUrl+"/login");
         }
         console.log("ERROR FROM SERVER ",err.response);
         if (err.response.data.errorMessage){
           toastr.error(err.response.data.errorMessage);
         }
-        if(err.response.status===404) this.offers=[];
       }).finally(()=>loader.hide());
     },
     async trash(id){

@@ -1,7 +1,8 @@
 <template>
   <vueper-slides
     class="no-shadow high-companies-carousel mt-4 text-center"
-    :autoplay="companies.length>4?true:false"
+    :autoplay="true"
+    ref="companiesSlider"
     :duration="1000"
     :bullets="false"
     :arrows="false"
@@ -57,7 +58,6 @@ export default {
   },
   mounted(){
     this.refreshData();
-
   },
   methods:{
     refreshData(){
@@ -65,6 +65,8 @@ export default {
       .then(res=>{
         console.log(res);
         this.companies=res.data;
+        this.$refs.companiesSlider.pauseAutoplay();
+        if(res.data.length>1) this.$refs.companiesSlider.resumeAutoplay();
       }).catch(err=>{
         console.log("ERROR FROM SERVER ",err.response);
         if (err.response.data.errorMessage){

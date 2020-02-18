@@ -5,18 +5,20 @@
     </div>
     <div class="d-flex flex-row col-12 col-sm-6 col-md-8 col-lg-8 col-xl-8 flex-wrap align-items-center">
       <h5 class="px-2 mt-2 card-text text-capitalize text-center col-12 col-md-6 col-lg-6 col-xl-6 text-wrap-all" style="color: #006494;">{{offer.company_name}}</h5>
-      <button style="height:40px; width:40px;" type="button" class="btn btn-sm btn-info rounded-pill mx-1" 
-       @click="emitView" data-toggle="modal" data-target="#modalViewOffer">
-        <i class="fas fa-eye"></i>
-      </button>
-      <button style="height:40px; width:40px;" v-if="!pick&&!remove&&!highlighted" type="button" 
-       class="btn btn-sm btn-success rounded-pill mx-1" @click="emitEdition" data-toggle="modal" data-target="#modalEditOffer">
-        <i class="fas fa-edit"></i>
-      </button>
-      <button style="height:40px; width:40px;" v-if="!pick" type="button" class="btn btn-sm btn-danger rounded-pill mx-1"
-       @click="emitRemove">
-        <i class="fas fa-trash"></i>
-      </button>
+      <div class="d-flex col-12 col-md-6 col-lg-6 col-xl-6 py-3 px-0 justify-content-center">
+        <button style="height:40px; width:40px;" type="button" class="btn btn-sm btn-info rounded-pill mx-1" 
+         @click="emitView" data-toggle="modal" data-target="#modalViewOffer">
+          <i class="fas fa-eye"></i>
+        </button>
+        <button style="height:40px; width:40px;" v-if="!pick&&!remove&&!highlighted" type="button" 
+         class="btn btn-sm btn-success rounded-pill mx-1" @click="emitEdition" data-toggle="modal" data-target="#modalEditOffer">
+          <i class="fas fa-edit"></i>
+        </button>
+        <button style="height:40px; width:40px;" v-if="!pick" type="button" class="btn btn-sm btn-danger rounded-pill mx-1"
+         @click="emitRemove">
+          <i class="fas fa-trash"></i>
+        </button>
+      </div>
     </div>
   </li>
 </template>

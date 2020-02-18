@@ -4,12 +4,13 @@
         <h4 class="high-plans-color high-plans-title">Planes destacados</h4>
       </div>
       <vueper-slides
+        v-if="offers.length"
         id="offer-cards"
         class="no-shadow high-plans-carousel text-center w-100"
         ref="plansSlider"
         :bullets="false"
-        :autoplay="true"
-        :duration="3000"
+        :autoplay="offers.length>1?true:false"
+        :duration="2000"
         :visible-slides="offers.length<3?offers.length:3"
         :slide-ratio="0.4"
         :dragging-distance="70"
@@ -23,6 +24,10 @@
           </template>
         </vueper-slide>
       </vueper-slides>
+
+      <div v-else style="height:200px;" class="w-100 d-flex flex-column justify-content-center align-items-center">
+        <h4 class="text-dark-blue pt-5 p-4">No se encontraron ofertas destacadas</h4>
+      </div>
 
         <offer-consult v-if="currentOffer&&consultMode" :offer="currentOffer"></offer-consult>
 
@@ -102,6 +107,7 @@ export default {
     this.initGeo();
     // this.$refs.plansSlider.pauseAutoplay();
     // this.$refs.plansSlider.resumeAutoplay();
+    // this.$refs.plansSlider.justDragged();
     // console.log($(document).height());
     // console.log($(document).width());
 
@@ -156,18 +162,24 @@ export default {
       .then(res=>{
         console.log('Offers: ',res);
         this.offers=res.data;
+        this.$refs.plansSlider.pauseAutoplay();
+        if(res.data.length>1) this.$refs.plansSlider.resumeAutoplay();
       }).catch(err=>{
         console.log("ERROR FROM SERVER ",err.response);
         if(err.response.status==404){
           if(err.response.data.notMun) {
             this.refreshDefault();
           }
-          else toastr.error('Error al obtener los planes destacados');
+          else toastr.info('no se encontraron Ofertas destacadas');
         }
-        if (err.response.data.errorMessage){
-          // toastr.error(err.response.data.errorMessage);
-        }else{
-          toastr.error('Error al obtener los planes destacados');
+        else{
+
+          if (err.response.data.errorMessage){
+            // toastr.error(err.response.data.errorMessage);
+          }else{
+            toastr.error('Error al obtener las ofertas destacadas');
+          }
+
         }
       });
     },

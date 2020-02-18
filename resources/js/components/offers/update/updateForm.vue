@@ -31,7 +31,7 @@
             </select>
           </div>
         </div>
-        <div class="d-flex flex-row w-100 justify-content-around flex-wrap" v-if="!offer.fields_values&&fields.length">
+        <div class="d-flex flex-row w-100 justify-content-around flex-wrap" v-if="!offer.fields_values.length&&fields.length">
           <div class="form-group col-xl-4 col-lg-4 col-md-6 col-12" v-for="(field,index) in fields" >
             <label>{{field.name+(field.unit?" ("+field.unit+")":"")}}</label>
             <input v-model="fields_values[index]" class="form-control">
@@ -50,7 +50,9 @@
           </div>
         </div>
         
-        <zone-select middle="col-xl-6 col-lg-6 col-md-6 col-12 py-3" :defaultDepartment="offer.department?offer.department_name:null" :defaultMunicipality="offer.municipality?offer.municipality_name:null" 
+        <zone-select middle="col-xl-6 col-lg-6 col-md-6 col-12 py-3" 
+          :defaultDepartment="offer.department&&offer.department_name?offer.department_name:null" 
+          :defaultMunicipality="offer.municipality&&offer.municipality_name?offer.municipality_name:null" 
           @newDepartment="newDepartment" @newMunicipality="newMunicipality"  ></zone-select>
 
 
@@ -62,7 +64,8 @@
           <div class="form-group col-xl-4 col-lg-4 col-md-6 col-12">
             <label>Tipo</label>
             <select class="custom-select" v-model="offer.type">
-              <option value="private">Particular</option>
+              <option :value="null">Todos</option>
+              <option value="private">Hogar</option>
               <option value="company">Empresa</option>
             </select>
           </div>
@@ -145,7 +148,7 @@ export default {
           return toastr.error('Debe llenar los campos referentes al servicio seleccionado');
         }
 
-      }else if(this.offer.fields_values){
+      }else if(this.offer.fields_values.length){
         if(this.offer.fields_values.length){
           for(let i=0; i< this.offer.fields_values.length; i++){
             if(!this.offer.fields_values[i].value){
@@ -168,10 +171,10 @@ export default {
       fd.append("company", this.offer.company_name);
       fd.append("service", this.offer.service);
       fd.append("benefits", this.offer.benefits);
-      fd.append("department", this.offer.department_name);
-      fd.append("municipality", this.offer.municipality_name);
+      if(this.offer.department_name) fd.append("department", this.offer.department_name);
+      if(this.offer.municipality_name) fd.append("municipality", this.offer.municipality_name);
       fd.append("tariff", parseInt(this.offer.tariff));
-      fd.append("type", this.offer.type);
+      if(this.offer.type) fd.append("type", this.offer.type);
       fd.append("points", this.offer.points);
       fd.append("fields_values", valuesArray.length?JSON.stringify(valuesArray):null);
       fd.append("_method","put");

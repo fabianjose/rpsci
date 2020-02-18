@@ -258,6 +258,10 @@ export default {
         console.log("RESPONSE FROM SERVER ",res);
         this.offersByArea=res.data;
       }).catch(err=>{
+        if(err.response.status===404){
+          this.offersByArea=[];
+          return toastr.info("No hay ofertas sin destacar")
+        }
         if(err.response.status===403){
           window.location.replace(baseUrl+"/login");
         }

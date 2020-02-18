@@ -23,12 +23,29 @@ class Offer extends Model{
     'trash'
   ];
 
-  public static function getFromAll($company=null,$service=null,$highlighted=false,$type=null){
+  public static function getFromAll($company=null,$service=null,$highlighted=false,$type=null,$halfLocation=null, $halfLocationDetailed=null){
     $offers=DB::table('offers')->where('offers.trash',0)
-    ->where("offers.department", null)
-    ->where("offers.municipality", null)
     ->join('companies','companies.id','offers.company')
     ->join('services', 'services.id','offers.service');
+
+    
+    if($halfLocation){
+
+      if($halfLocation=="general"){
+        
+        $offers->where("offers.department", "<>", null )
+        ->where("offers.municipality", null)
+        ->join("departments", "departments.id", "offers.department");
+        
+      }else if($halfLocation=="detail"){
+        if($halfLocationDetailed){
+          $offers->where("offers.department", $halfLocationDetailed)
+          ->where("offers.municipality", null)
+          ->join("departments", "departments.id", "offers.department");
+        }
+      }
+      
+    }
 
     if($company){
 
@@ -48,19 +65,37 @@ class Offer extends Model{
       ->where('offers.highlighted_expiration','>=',date('Y-m-d h:i:s'));
 
     }
+    else{
 
-    if($type){
-      
-      $offers->where("offers.type", $type);
+      $offers->where("offers.highlighted", 0);
 
     }
 
-    return $offers->select('offers.*',
+    if($type){
+      
+      $offers->where("offers.type", $type)
+      ->orWhere("offers.type", null);
+
+    }
+
+    if($halfLocation){
+      return $offers->select('offers.*',
+      'companies.name as company_name',
+      'companies.logo as company_logo',
+      'departments.name as department_name',
+      'services.name as service_name'
+      )->get();
+    }
+
+    
+
+    return $offers->where("offers.department", null)
+    ->where("offers.municipality", null)
+    ->select('offers.*',
     'companies.name as company_name',
     'companies.logo as company_logo',
     'services.name as service_name'
-    )
-    ->get();
+    )->get();
 
   }
 

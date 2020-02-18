@@ -98,8 +98,9 @@
 }
 
 .high-companies {
-  min-height: 30vh;
-  background-color: #00adef;
+  background: white;
+  border-bottom: solid 50px #00adef;
+  border-top: solid 50px #00adef;
 }
 
 .footer-bg {
@@ -412,14 +413,14 @@
 }
 
 .high-companies-color {
-  color: #e6e6e6;
+  color: #13293d;
 }
 
 .high-companies-title:after {
   display: block;
   padding-top: 5px;
   content: "";
-  border-bottom: solid 3.5px rgba(230, 230, 230, 0.8);
+  border-bottom: solid 3.5px #9b9b9b;
   border-radius: 5px;
   -webkit-transform: scaleX(0.25);
           transform: scaleX(0.25);
@@ -915,6 +916,10 @@
   color: #13293d;
 }
 
+.text-dark-gray {
+  color: #9b9b9b;
+}
+
 .company-card-label {
   height: 90px;
 }
@@ -955,6 +960,10 @@
 @font-face {
   font-family: montserrat-regular;
   src: url(/fonts/Montserrat-Regular.otf?92db9a0772b3732e6d686fec3711af42);
+}
+
+.mts-regular {
+  font-family: montserrat-regular !important;
 }
 
 body {

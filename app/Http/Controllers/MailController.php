@@ -24,7 +24,7 @@ class MailController extends Controller
           "department" => "exists:departments,name",
           "municipality" => "exists:municipalities,name",
           "message" => "string|max:320",
-          'g-recaptcha-response' => 'required|captcha',
+          //'g-recaptcha-response' => 'required|captcha',
       ]);
       if ($validation->fails()){
         return response()->json($validation->errors(), 400);

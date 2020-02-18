@@ -22,10 +22,10 @@ class CreateOffersTable extends Migration
 
             $table->string('benefits',124);
             
-            $table->integer('tariff');
+            $table->bigInteger('tariff');
 
             $table->integer('points')->default(0);
-            $table->enum('type',['private','company']);
+            $table->enum('type',['private','company'])->nullable();
 
             $table->bigInteger('department')->unsigned()->nullable();
             $table->foreign('department')->references('id')->on('departments');

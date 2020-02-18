@@ -25,7 +25,9 @@
             </div>
         </div>
         <div class="col-12 my-2 d-flex justify-content-center align-items-center">
-            <vue-recaptcha @error="onCaptchaError" @expired="onCaptchaExpired" @verify="verifyCaptcha" class="col-12 v-captcha" :sitekey="reCaptchaKey" :loadRecaptchaScript="true" ></vue-recaptcha>
+            <!--
+                <vue-recaptcha @error="onCaptchaError" @expired="onCaptchaExpired" @verify="verifyCaptcha" class="col-12 v-captcha" :sitekey="reCaptchaKey" :loadRecaptchaScript="true" ></vue-recaptcha>
+            -->
         </div>
         <div class="col-12 my-2 p-3 mx-auto" >
             <button :disabled="disableButton" @click="sendMail" class="btn btn-block btn-dark-blue rounded-pill">
@@ -51,6 +53,7 @@ export default {
     },
 
     methods:{
+        /*
         verifyCaptcha(captcha){
             this.captcha=captcha;
         },
@@ -63,7 +66,7 @@ export default {
         onCaptchaExpired(err){
             console.log("error captcha ", err)
             toastr.error("el captcha se expiró, intente nuevamente")
-        },
+        },*/
 
         getFullRound(){
             if(!this.offer) return "consult-card-full-rounded";

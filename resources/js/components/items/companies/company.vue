@@ -1,10 +1,10 @@
 <template>
     <li class="list-group-item d-flex justify-content-around align-items-center px-2 flex-wrap">
-        <div class=" d-flex flex-row justify-content-center col-12 col-sm-6 col-md-5 col-lg-5 col-xl-5">
+        <div class=" d-flex flex-row justify-content-center col-12 col-sm-5 col-md-3 col-lg-3 col-xl-3">
             <img class="" style="max-height:100px;" :src="baseUrl+'/storage/'+logo" alt="">
         </div>
-        <div class="d-flex flex-row col-12 col-sm-6 col-md-7 col-lg-7 col-xl-7 flex-wrap">  
-            <h5 class="px-2 mt-2 card-text text-capitalize text-center col-12 col-md-6 col-lg-6 col-xl-6 text-wrap-all" style="color: #006494;">{{title}}</h5>
+        <div class="d-flex flex-row col-12 col-sm-7 col-md-9 col-lg-9 col-xl-9 flex-wrap">  
+            <h5 class="px-2 mt-3 card-text text-capitalize text-center col-12 col-md-6 col-lg-6 col-xl-6 text-wrap-all" style="color: #006494;">{{title}}</h5>
             <div class="d-flex col-12 col-md-6 col-lg-6 col-xl-6 py-3 px-0 justify-content-center">
                 
                 <button style="height:40px; width:40px;" type="button" class="btn btn-sm btn-info rounded-pill mx-1" @click="emitView" data-toggle="modal" data-target="#modalViewCompany">

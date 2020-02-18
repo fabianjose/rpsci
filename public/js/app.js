@@ -2676,6 +2676,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2721,6 +2722,10 @@ __webpack_require__.r(__webpack_exports__);
       axios.get(baseUrl + '/api/companies/highlighted').then(function (res) {
         console.log(res);
         _this.companies = res.data;
+
+        _this.$refs.companiesSlider.pauseAutoplay();
+
+        if (res.data.length > 1) _this.$refs.companiesSlider.resumeAutoplay();
       })["catch"](function (err) {
         console.log("ERROR FROM SERVER ", err.response);
 
@@ -2974,17 +2979,18 @@ __webpack_require__.r(__webpack_exports__);
       console.log("department ", department);
       this.department = department;
     },
-    verifyCaptcha: function verifyCaptcha(captcha) {
-      this.captcha = captcha;
+
+    /*verifyCaptcha(captcha){
+        this.captcha=captcha;
     },
-    onCaptchaError: function onCaptchaError(err) {
-      console.log("error captcha ", err);
-      toastr.error("error en la validación del captcha, comprueba tu conexión a internet e intenta nuevamente");
+      onCaptchaError(err){
+        console.log("error captcha ", err)
+        toastr.error("error en la validación del captcha, comprueba tu conexión a internet e intenta nuevamente")
     },
-    onCaptchaExpired: function onCaptchaExpired(err) {
-      console.log("error captcha ", err);
-      toastr.error("el captcha se expiró, intente nuevamente");
-    },
+      onCaptchaExpired(err){
+        console.log("error captcha ", err)
+        toastr.error("el captcha se expiró, intente nuevamente")
+    },*/
     getFullRound: function getFullRound() {
       if (!this.offer) return "consult-card-full-rounded";else return "col-lg-5 col-xl-5 col-12";
     },
@@ -2996,7 +3002,9 @@ __webpack_require__.r(__webpack_exports__);
       if (this.email && this.email != "") fd.append("email", this.email);else return toastr.error("Rellene todos los campos");
       if (this.phone && this.phone != "") fd.append("phone", this.phone);else return toastr.error("Rellene todos los campos");
       if (this.department && this.department != "") fd.append("department", this.department);else return toastr.error("Rellene todos los campos");
-      if (this.message && this.message != "") fd.append("message", this.message);
+      if (this.message && this.message != "") fd.append("message", this.message); //if(this.captcha&&this.captcha!="") fd.append("g-recaptcha-response", this.captcha);
+      //else return toastr.error("Complete la prueba de captcha");
+
       this.disableButton = true;
       var loader = this.$loading.show();
       axios.post(baseUrl + "/api/mail/contact", fd).then(function (res) {
@@ -3068,6 +3076,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["offer"],
   data: function data() {
@@ -3081,17 +3091,18 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    verifyCaptcha: function verifyCaptcha(captcha) {
-      this.captcha = captcha;
+    /*
+    verifyCaptcha(captcha){
+        this.captcha=captcha;
     },
-    onCaptchaError: function onCaptchaError(err) {
-      console.log("error captcha ", err);
-      toastr.error("error en la validación del captcha, comprueba tu conexión a internet e intenta nuevamente");
+      onCaptchaError(err){
+        console.log("error captcha ", err)
+        toastr.error("error en la validación del captcha, comprueba tu conexión a internet e intenta nuevamente")
     },
-    onCaptchaExpired: function onCaptchaExpired(err) {
-      console.log("error captcha ", err);
-      toastr.error("el captcha se expiró, intente nuevamente");
-    },
+      onCaptchaExpired(err){
+        console.log("error captcha ", err)
+        toastr.error("el captcha se expiró, intente nuevamente")
+    },*/
     getFullRound: function getFullRound() {
       if (!this.offer) return "consult-card-full-rounded";else return "col-lg-5 col-xl-5 col-12";
     },
@@ -3902,6 +3913,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3970,6 +3986,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   mounted: function mounted() {
     this.initGeo(); // this.$refs.plansSlider.pauseAutoplay();
     // this.$refs.plansSlider.resumeAutoplay();
+    // this.$refs.plansSlider.justDragged();
     // console.log($(document).height());
     // console.log($(document).width());
   },
@@ -4059,18 +4076,22 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       axios.post(baseUrl + '/api/offers/area/highlight', fd).then(function (res) {
         console.log('Offers: ', res);
         _this3.offers = res.data;
+
+        _this3.$refs.plansSlider.pauseAutoplay();
+
+        if (res.data.length > 1) _this3.$refs.plansSlider.resumeAutoplay();
       })["catch"](function (err) {
         console.log("ERROR FROM SERVER ", err.response);
 
         if (err.response.status == 404) {
           if (err.response.data.notMun) {
             _this3.refreshDefault();
-          } else toastr.error('Error al obtener los planes destacados');
-        }
-
-        if (err.response.data.errorMessage) {// toastr.error(err.response.data.errorMessage);
+          } else toastr.info('no se encontraron Ofertas destacadas');
         } else {
-          toastr.error('Error al obtener los planes destacados');
+          if (err.response.data.errorMessage) {// toastr.error(err.response.data.errorMessage);
+          } else {
+            toastr.error('Error al obtener las ofertas destacadas');
+          }
         }
       });
     },
@@ -4297,6 +4318,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
 //
 //
 //
@@ -5289,6 +5312,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['services'],
   data: function data() {
@@ -5385,7 +5409,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 fd.append("company", this.company);
                 if (this.department) fd.append("department", this.department);
                 if (this.municipality) fd.append("municipality", this.municipality);
-                fd.append("type", this.type);
+                if (this.type) fd.append("type", this.type);
                 fd.append("tariff", parseInt(this.tariff));
                 fd.append("benefits", this.benefits);
                 fd.append("service", this.service);
@@ -5402,7 +5426,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   _this3.tariff = "";
                   _this3.benefits = "";
                   _this3.service = null;
-                  _this3.points = null;
+                  _this3.points = 0;
                   _this3.fields_value = [];
 
                   _this3.$refs.zoneSelectRef.reset();
@@ -5733,6 +5757,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         console.log(res.data);
         _this.offers = res.data;
       })["catch"](function (err) {
+        if (err.response.status === 404) {
+          _this.offers = [];
+          return toastr.info(err.response.data.errorMessage);
+        }
+
         if (err.response.status === 403) {
           window.location.replace(baseUrl + "/login");
         }
@@ -5971,6 +6000,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["offer", "services"],
   data: function data() {
@@ -6045,7 +6077,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 break;
 
               case 9:
-                if (!this.offer.fields_values) {
+                if (!this.offer.fields_values.length) {
                   _context.next = 26;
                   break;
                 }
@@ -6095,10 +6127,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 fd.append("company", this.offer.company_name);
                 fd.append("service", this.offer.service);
                 fd.append("benefits", this.offer.benefits);
-                fd.append("department", this.offer.department_name);
-                fd.append("municipality", this.offer.municipality_name);
+                if (this.offer.department_name) fd.append("department", this.offer.department_name);
+                if (this.offer.municipality_name) fd.append("municipality", this.offer.municipality_name);
                 fd.append("tariff", parseInt(this.offer.tariff));
-                fd.append("type", this.offer.type);
+                if (this.offer.type) fd.append("type", this.offer.type);
                 fd.append("points", this.offer.points);
                 fd.append("fields_values", valuesArray.length ? JSON.stringify(valuesArray) : null);
                 fd.append("_method", "put");
@@ -6462,6 +6494,11 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         console.log("RESPONSE FROM SERVER ", res);
         _this3.offersByArea = res.data;
       })["catch"](function (err) {
+        if (err.response.status === 404) {
+          _this3.offersByArea = [];
+          return toastr.info("No hay ofertas sin destacar");
+        }
+
         if (err.response.status === 403) {
           window.location.replace(baseUrl + "/login");
         }
@@ -6602,9 +6639,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         _this.offers = res.data;
         console.log("andamo ruleta");
       })["catch"](function (err) {
-        console.log("en una camioneta");
-
-        if (err.response.status === 403) {
+        if (err.response.status === 404) {
+          _this.offers = [];
+          return toastr.info("No se encontraron ofertas destacadas en esta zona");
+        } else if (err.response.status === 403) {
           window.location.replace(baseUrl + "/login");
         }
 
@@ -6613,8 +6651,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         if (err.response.data.errorMessage) {
           toastr.error(err.response.data.errorMessage);
         }
-
-        if (err.response.status === 404) _this.offers = [];
       })["finally"](function () {
         return loader.hide();
       });
@@ -41906,9 +41942,10 @@ var render = function() {
   return _c(
     "vueper-slides",
     {
+      ref: "companiesSlider",
       staticClass: "no-shadow high-companies-carousel mt-4 text-center",
       attrs: {
-        autoplay: _vm.companies.length > 4 ? true : false,
+        autoplay: true,
         duration: 1000,
         bullets: false,
         arrows: false,
@@ -42365,28 +42402,10 @@ var render = function() {
                 ])
               ]),
               _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "col-12 my-2 d-flex justify-content-center align-items-center"
-                },
-                [
-                  _c("vue-recaptcha", {
-                    staticClass: "col-12 v-captcha",
-                    attrs: {
-                      sitekey: _vm.reCaptchaKey,
-                      loadRecaptchaScript: true
-                    },
-                    on: {
-                      error: _vm.onCaptchaError,
-                      expired: _vm.onCaptchaExpired,
-                      verify: _vm.verifyCaptcha
-                    }
-                  })
-                ],
-                1
-              )
+              _c("div", {
+                staticClass:
+                  "col-12 my-2 d-flex justify-content-center align-items-center"
+              })
             ]
           ),
           _vm._v(" "),
@@ -42599,25 +42618,10 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass:
-            "col-12 my-2 d-flex justify-content-center align-items-center"
-        },
-        [
-          _c("vue-recaptcha", {
-            staticClass: "col-12 v-captcha",
-            attrs: { sitekey: _vm.reCaptchaKey, loadRecaptchaScript: true },
-            on: {
-              error: _vm.onCaptchaError,
-              expired: _vm.onCaptchaExpired,
-              verify: _vm.verifyCaptcha
-            }
-          })
-        ],
-        1
-      ),
+      _c("div", {
+        staticClass:
+          "col-12 my-2 d-flex justify-content-center align-items-center"
+      }),
       _vm._v(" "),
       _c("div", { staticClass: "col-12 my-2 p-3 mx-auto" }, [
         _c(
@@ -43458,7 +43462,7 @@ var render = function() {
         "div",
         {
           staticClass:
-            " d-flex flex-row justify-content-center col-12 col-sm-6 col-md-5 col-lg-5 col-xl-5"
+            " d-flex flex-row justify-content-center col-12 col-sm-5 col-md-3 col-lg-3 col-xl-3"
         },
         [
           _c("img", {
@@ -43472,14 +43476,14 @@ var render = function() {
         "div",
         {
           staticClass:
-            "d-flex flex-row col-12 col-sm-6 col-md-7 col-lg-7 col-xl-7 flex-wrap"
+            "d-flex flex-row col-12 col-sm-7 col-md-9 col-lg-9 col-xl-9 flex-wrap"
         },
         [
           _c(
             "h5",
             {
               staticClass:
-                "px-2 mt-2 card-text text-capitalize text-center col-12 col-md-6 col-lg-6 col-xl-6 text-wrap-all",
+                "px-2 mt-3 card-text text-capitalize text-center col-12 col-md-6 col-lg-6 col-xl-6 text-wrap-all",
               staticStyle: { color: "#006494" }
             },
             [_vm._v(_vm._s(_vm.title))]
@@ -43801,7 +43805,10 @@ var render = function() {
         _vm._v(" "),
         _c(
           "div",
-          { staticClass: "d-flex flex-row w-100 justify-content-around mb-2" },
+          {
+            staticClass:
+              "d-flex flex-row w-100 justify-content-around mb-2 mt-3"
+          },
           [
             _vm._m(0),
             _vm._v(" "),
@@ -43858,11 +43865,9 @@ var render = function() {
                     }
                   }),
                   _vm._v(" "),
-                  _c(
-                    "h6",
-                    { staticClass: "text-dark-blue pt-2 text-wrap-all" },
-                    [_vm._v(_vm._s(offer.company_name))]
-                  )
+                  _c("h6", { staticClass: "text-dark-blue pt-2" }, [
+                    _vm._v(_vm._s(offer.company_name))
+                  ])
                 ]
               ),
               _vm._v(" "),
@@ -44318,59 +44323,73 @@ var render = function() {
     [
       _vm._m(0),
       _vm._v(" "),
-      _c(
-        "vueper-slides",
-        {
-          ref: "plansSlider",
-          staticClass: "no-shadow high-plans-carousel text-center w-100",
-          attrs: {
-            id: "offer-cards",
-            bullets: false,
-            autoplay: true,
-            duration: 3000,
-            "visible-slides": _vm.offers.length < 3 ? _vm.offers.length : 3,
-            "slide-ratio": 0.4,
-            "dragging-distance": 70,
-            arrows: false,
-            breakpoints: _vm.breakpoints
-          }
-        },
-        _vm._l(_vm.offers, function(offer, index) {
-          return _c("vueper-slide", {
-            key: index,
-            staticClass: "align-self-center",
-            scopedSlots: _vm._u(
-              [
-                {
-                  key: "content",
-                  fn: function() {
-                    return [
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "d-flex text-center justify-content-center mx-auto"
-                        },
-                        [
-                          _c("offer-card", {
-                            attrs: { index: index, offer: offer },
-                            on: { contactOffer: _vm.contactOffer }
-                          })
-                        ],
-                        1
-                      )
-                    ]
-                  },
-                  proxy: true
-                }
-              ],
-              null,
-              true
-            )
-          })
-        }),
-        1
-      ),
+      _vm.offers.length
+        ? _c(
+            "vueper-slides",
+            {
+              ref: "plansSlider",
+              staticClass: "no-shadow high-plans-carousel text-center w-100",
+              attrs: {
+                id: "offer-cards",
+                bullets: false,
+                autoplay: _vm.offers.length > 1 ? true : false,
+                duration: 2000,
+                "visible-slides": _vm.offers.length < 3 ? _vm.offers.length : 3,
+                "slide-ratio": 0.4,
+                "dragging-distance": 70,
+                arrows: false,
+                breakpoints: _vm.breakpoints
+              }
+            },
+            _vm._l(_vm.offers, function(offer, index) {
+              return _c("vueper-slide", {
+                key: index,
+                staticClass: "align-self-center",
+                scopedSlots: _vm._u(
+                  [
+                    {
+                      key: "content",
+                      fn: function() {
+                        return [
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "d-flex text-center justify-content-center mx-auto"
+                            },
+                            [
+                              _c("offer-card", {
+                                attrs: { index: index, offer: offer },
+                                on: { contactOffer: _vm.contactOffer }
+                              })
+                            ],
+                            1
+                          )
+                        ]
+                      },
+                      proxy: true
+                    }
+                  ],
+                  null,
+                  true
+                )
+              })
+            }),
+            1
+          )
+        : _c(
+            "div",
+            {
+              staticClass:
+                "w-100 d-flex flex-column justify-content-center align-items-center",
+              staticStyle: { height: "200px" }
+            },
+            [
+              _c("h4", { staticClass: "text-dark-blue pt-5 p-4" }, [
+                _vm._v("No se encontraron ofertas destacadas")
+              ])
+            ]
+          ),
       _vm._v(" "),
       _vm.currentOffer && _vm.consultMode
         ? _c("offer-consult", { attrs: { offer: _vm.currentOffer } })
@@ -44766,49 +44785,58 @@ var render = function() {
           ),
           _vm._v(" "),
           _c(
-            "button",
+            "div",
             {
-              staticClass: "btn btn-sm btn-info rounded-pill mx-1",
-              staticStyle: { height: "40px", width: "40px" },
-              attrs: {
-                type: "button",
-                "data-toggle": "modal",
-                "data-target": "#modalViewOffer"
-              },
-              on: { click: _vm.emitView }
+              staticClass:
+                "d-flex col-12 col-md-6 col-lg-6 col-xl-6 py-3 px-0 justify-content-center"
             },
-            [_c("i", { staticClass: "fas fa-eye" })]
-          ),
-          _vm._v(" "),
-          !_vm.pick && !_vm.remove && !_vm.highlighted
-            ? _c(
+            [
+              _c(
                 "button",
                 {
-                  staticClass: "btn btn-sm btn-success rounded-pill mx-1",
+                  staticClass: "btn btn-sm btn-info rounded-pill mx-1",
                   staticStyle: { height: "40px", width: "40px" },
                   attrs: {
                     type: "button",
                     "data-toggle": "modal",
-                    "data-target": "#modalEditOffer"
+                    "data-target": "#modalViewOffer"
                   },
-                  on: { click: _vm.emitEdition }
+                  on: { click: _vm.emitView }
                 },
-                [_c("i", { staticClass: "fas fa-edit" })]
-              )
-            : _vm._e(),
-          _vm._v(" "),
-          !_vm.pick
-            ? _c(
-                "button",
-                {
-                  staticClass: "btn btn-sm btn-danger rounded-pill mx-1",
-                  staticStyle: { height: "40px", width: "40px" },
-                  attrs: { type: "button" },
-                  on: { click: _vm.emitRemove }
-                },
-                [_c("i", { staticClass: "fas fa-trash" })]
-              )
-            : _vm._e()
+                [_c("i", { staticClass: "fas fa-eye" })]
+              ),
+              _vm._v(" "),
+              !_vm.pick && !_vm.remove && !_vm.highlighted
+                ? _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-sm btn-success rounded-pill mx-1",
+                      staticStyle: { height: "40px", width: "40px" },
+                      attrs: {
+                        type: "button",
+                        "data-toggle": "modal",
+                        "data-target": "#modalEditOffer"
+                      },
+                      on: { click: _vm.emitEdition }
+                    },
+                    [_c("i", { staticClass: "fas fa-edit" })]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              !_vm.pick
+                ? _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-sm btn-danger rounded-pill mx-1",
+                      staticStyle: { height: "40px", width: "40px" },
+                      attrs: { type: "button" },
+                      on: { click: _vm.emitRemove }
+                    },
+                    [_c("i", { staticClass: "fas fa-trash" })]
+                  )
+                : _vm._e()
+            ]
+          )
         ]
       )
     ]
@@ -46102,6 +46130,15 @@ var render = function() {
                           }
                         },
                         [
+                          _c(
+                            "option",
+                            {
+                              attrs: { selected: "" },
+                              domProps: { value: null }
+                            },
+                            [_vm._v("Todos")]
+                          ),
+                          _vm._v(" "),
                           _c("option", { attrs: { value: "private" } }, [
                             _vm._v("Hogar")
                           ]),
@@ -46753,7 +46790,7 @@ var render = function() {
                 ]
               ),
               _vm._v(" "),
-              !_vm.offer.fields_values && _vm.fields.length
+              !_vm.offer.fields_values.length && _vm.fields.length
                 ? _c(
                     "div",
                     {
@@ -46900,12 +46937,14 @@ var render = function() {
               _c("zone-select", {
                 attrs: {
                   middle: "col-xl-6 col-lg-6 col-md-6 col-12 py-3",
-                  defaultDepartment: _vm.offer.department
-                    ? _vm.offer.department_name
-                    : null,
-                  defaultMunicipality: _vm.offer.municipality
-                    ? _vm.offer.municipality_name
-                    : null
+                  defaultDepartment:
+                    _vm.offer.department && _vm.offer.department_name
+                      ? _vm.offer.department_name
+                      : null,
+                  defaultMunicipality:
+                    _vm.offer.municipality && _vm.offer.municipality_name
+                      ? _vm.offer.municipality_name
+                      : null
                 },
                 on: {
                   newDepartment: _vm.newDepartment,
@@ -46994,8 +47033,12 @@ var render = function() {
                           }
                         },
                         [
+                          _c("option", { domProps: { value: null } }, [
+                            _vm._v("Todos")
+                          ]),
+                          _vm._v(" "),
                           _c("option", { attrs: { value: "private" } }, [
-                            _vm._v("Particular")
+                            _vm._v("Hogar")
                           ]),
                           _vm._v(" "),
                           _c("option", { attrs: { value: "company" } }, [

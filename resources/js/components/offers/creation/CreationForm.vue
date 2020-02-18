@@ -59,6 +59,7 @@
             <div class="form-group col-xl-4 col-lg-4 col-md-6 col-12">
               <label>Tipo</label>
               <select class="custom-select" v-model="type">
+                <option :value="null" selected>Todos</option>
                 <option value="private">Hogar</option>
                 <option value="company">Empresa</option>
               </select>
@@ -168,7 +169,7 @@ export default {
       fd.append("company", this.company);
       if(this.department) fd.append("department", this.department);
       if(this.municipality) fd.append("municipality", this.municipality);
-      fd.append("type", this.type);
+      if(this.type) fd.append("type", this.type);
       fd.append("tariff", parseInt(this.tariff));
       fd.append("benefits", this.benefits);
       fd.append("service", this.service);
@@ -188,7 +189,7 @@ export default {
         this.tariff = "";
         this.benefits = "";
         this.service = null;
-        this.points = null;
+        this.points = 0;
         this.fields_value = [];
         this.$refs.zoneSelectRef.reset();
         this.$emit('refresh');

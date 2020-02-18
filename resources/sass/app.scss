@@ -32,6 +32,10 @@
     src: url("./../assets/fonts/Montserrat-Regular.otf");
 }
 
+.mts-regular{
+    font-family: montserrat-regular!important;
+}
+
 body{
     scroll-behavior: smooth;
     font-family: montserrat-bold;

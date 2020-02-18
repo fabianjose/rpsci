@@ -18,17 +18,18 @@ class OfferController extends Controller{
 
   public function newOffer(Request $request){
     $data = $request->all();
+    
     $validation = Validator::make($data, [
       'company' => ['required', 'exists:companies,name', 'string'],
       'service' => ['required', 'exists:services,id'],
-      'benefits' => ['required', 'string', 'min:16'],
+      'benefits' => ['required', 'string', 'min:16', 'max:124'],
       'fields_values' => ['json', 'nullable'],
       "fields_values.*"=> "json",
       "fields_values.*.value"=> "required|string|max:32|min:3",
       "fields_values.*.field_id"=> "required|exists:fields,id",
       'tariff' => ['required', 'integer', "min:0.1" , "max:9999999999"],
       'points' => ['integer','min:0,max:5'],
-      'type' => ['required', 'in:private,company'],
+      'type' => ['nullable', 'in:private,company'],
       'department' => ['nullable', 'exists:departments,name', 'string'],
       'municipality' => ['nullable', 'exists:municipalities,name', 'string'],
     ]);
@@ -84,16 +85,16 @@ class OfferController extends Controller{
     $validation = Validator::make($data, [
       'company' => ['exists:companies,name', 'string'],
       'service' => ['exists:services,id'],
-      'benefits' => ['string'],
+      'benefits' => ['string', 'min:16', 'max:124'],
       'fields_values' => ['json', 'nullable'],
       "fields_values.*"=> "json",
       "fields_values.*.value"=> "required|string|max:32|min:3",
       "fields_values.*.field_id"=> "required|exists:fields,id",
-      'tariff' => ['required', 'integer', "min:0.1", "max:999999999"],
+      'tariff' => ['required', 'integer', "min:0.1", "max:9999999999"],
       'points' => ['integer','min:0,max:5'],
-      'municipality' => ['in:private,company'],
-      'department' => ['exists:departments,name', 'string'],
-      'municipality' => ['exists:municipalities,name', 'string'],
+      'type' => [ 'nullable','in:private,company'],
+      'department' => ['nullable','exists:departments,name'],
+      'municipality' => ['nullable','exists:municipalities,name'],
     ]);
     if ($validation->fails()){
       return response()->json($validation->errors(), 400);
@@ -102,14 +103,35 @@ class OfferController extends Controller{
     if (!$offer) return response()->json('Oferta no encontrada',404);
 
     $company = Company::where('name',$data['company'])->first();
-    $department = Department::where('name',$data['department'])->first();
-    $municipality = Municipality::where('name',$data['municipality'])->first();
     if (!$company) return response()->json('Empresa no encontrada',404);
-    if (!$department) return response()->json('Departamento no encontrado',404);
-    if (!$municipality) return response()->json('Municipio no encontrado',404);
+    
+    if($request->input("department")){
+          
+      $department = Department::where('name',$data['department'])->first();
+    
+      $data['department'] = $department->id;
+      
+    }
+    else{
+
+      $data['department'] = null;
+
+    }
+
+    if($request->input("municipality")){
+          
+      $municipality = Municipality::where('name',$data['municipality'])->first();
+
+      $data['municipality'] = $municipality->id;
+      
+    }
+    else{
+
+      $data['municipality'] = null;
+
+    }
+
     $data['company'] = $company->id;
-    $data['department'] = $department->id;
-    $data['municipality'] = $municipality->id;
 
     $keysAllow = [
       'company',
@@ -118,9 +140,9 @@ class OfferController extends Controller{
       'fields_value',
       'tariff',
       'points',
-      'type',
-      'department',
-      'municipality'
+      "type",
+      "department",
+      "municipality",
     ];
 
     $service=Service::find($request->input("service")||$offer->service);
@@ -139,8 +161,11 @@ class OfferController extends Controller{
     foreach ($keysAllow as $key){
       if (isset($data[$key])){
         $offer->{$key} = $data[$key];
+      }else if($key=='type'||$key=='department'||$key=='municipality'){
+        $offer->{$key} = null;
       }
     }
+
     if (!$offer->save()){
       return response()->json('Error en la base de datos', 500);
     }
@@ -165,7 +190,11 @@ class OfferController extends Controller{
 
     $allOffers = Offer::getFromAll();
 
-    $offers=array_merge($offers->toArray(),$allOffers->toArray());
+    $allOffersDep = Offer::getFromAll(null, null, false, null, "general");
+
+    $allOffers= array_merge($allOffers->toArray(), $allOffersDep->toArray());
+
+    $offers=array_merge($offers->toArray(),$allOffers);
 
     $offers=Offer::joinFields($offers);
 
@@ -248,7 +277,11 @@ class OfferController extends Controller{
     
     $allOffers = Offer::getFromAll($company->id);
 
-    $offers=array_merge($offers->toArray(),$allOffers->toArray());
+    $allOffersDep = Offer::getFromAll($company->id,null,null,null,"detail",$department->id);
+
+    $allOffers = array_merge($allOffers->toArray(), $allOffersDep->toArray());
+
+    $offers=array_merge($offers->toArray(),$allOffers);
 
     $offers= Offer::joinFields($offers);
 
@@ -298,6 +331,10 @@ class OfferController extends Controller{
     );
 
     $allOffers = Offer::getFromAll(null,$service->id,false,$data["offer_type"]);
+    
+    $allOffersDep = Offer::getFromAll(null,$service->id,false,$data["offer_type"],"detail",$department->id);
+    
+    $allOffers = array_merge($allOffers->toArray(), $allOffersDep->toArray());
 
     if (!$offers&&!$allOffers) return response()->json(["errorMessage"=>'No se encontraron ofertas disponibles'],404);
 
@@ -313,7 +350,7 @@ class OfferController extends Controller{
     }
 
     $offers=$offers->get();
-    $offers=array_merge($offers->toArray(),$allOffers->toArray());
+    $offers=array_merge($offers->toArray(),$allOffers);
 
     $offers=Offer::joinFields($offers);
 
@@ -392,8 +429,12 @@ class OfferController extends Controller{
 
     
     $allOffers = Offer::getFromAll(null,null,true);
+
+    $allOffersDep = Offer::getFromAll(null,null,true,null,"detail",$department->id);
+
+    $allOffers = array_merge($allOffers->toArray(), $allOffersDep->toArray());
     
-    $offers=array_merge($offers->toArray(),$allOffers->toArray());
+    $offers=array_merge($offers->toArray(),$allOffers);
     
     
     $offers= Offer::joinFields($offers);

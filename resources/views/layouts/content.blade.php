@@ -29,10 +29,7 @@
 
   <aside class="sidebar main-sidebar sidebar-dark-primary elevation-4">
     <a href="/dashboard" class="brand-link ">
-      <img src="{{url('/vendor/adminlte/dist/img/AdminLTELogo.png')}}" alt="AdminLTE" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light ">
-        <b>Inter</b>Colombia
-      </span>
+      <img src="{{ asset('images/logo-blanco.png') }}" alt="Contrata Internet" style="height: 55px!important;" class="img-fluid" style="opacity: .8">
     </a>
 
     <div class="sidebar">
