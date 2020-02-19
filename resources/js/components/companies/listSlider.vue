@@ -65,8 +65,10 @@ export default {
       .then(res=>{
         console.log(res);
         this.companies=res.data;
-        this.$refs.companiesSlider.pauseAutoplay();
-        if(res.data.length>1) this.$refs.companiesSlider.resumeAutoplay();
+        if(res.data.length>1) {
+          this.$refs.companiesSlider.pauseAutoplay();
+          this.$refs.companiesSlider.resumeAutoplay();
+        }
       }).catch(err=>{
         console.log("ERROR FROM SERVER ",err.response);
         if (err.response.data.errorMessage){

@@ -162,8 +162,10 @@ export default {
       .then(res=>{
         console.log('Offers: ',res);
         this.offers=res.data;
-        this.$refs.plansSlider.pauseAutoplay();
-        if(res.data.length>1) this.$refs.plansSlider.resumeAutoplay();
+        if(res.data.length>1) {
+          this.$refs.plansSlider.pauseAutoplay();
+          this.$refs.plansSlider.resumeAutoplay();
+        }
       }).catch(err=>{
         console.log("ERROR FROM SERVER ",err.response);
         if(err.response.status==404){

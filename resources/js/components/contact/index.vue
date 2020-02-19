@@ -17,7 +17,7 @@
                         </div>
                     </div>
                     <div class="form-group my-2">
-                        <zone-select @newDepartment="newDepartment" :hideMunicipality="true" middle="col-12" ></zone-select>
+                        <zone-select :notNullable="true" @newDepartment="newDepartment" :hideMunicipality="true" middle="col-12" ></zone-select>
                     </div>
                     <div class="form-group my-2">
                         <label>Mensaje adicional</label>

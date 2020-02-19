@@ -2723,9 +2723,11 @@ __webpack_require__.r(__webpack_exports__);
         console.log(res);
         _this.companies = res.data;
 
-        _this.$refs.companiesSlider.pauseAutoplay();
+        if (res.data.length > 1) {
+          _this.$refs.companiesSlider.pauseAutoplay();
 
-        if (res.data.length > 1) _this.$refs.companiesSlider.resumeAutoplay();
+          _this.$refs.companiesSlider.resumeAutoplay();
+        }
       })["catch"](function (err) {
         console.log("ERROR FROM SERVER ", err.response);
 
@@ -4079,9 +4081,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         console.log('Offers: ', res);
         _this3.offers = res.data;
 
-        _this3.$refs.plansSlider.pauseAutoplay();
+        if (res.data.length > 1) {
+          _this3.$refs.plansSlider.pauseAutoplay();
 
-        if (res.data.length > 1) _this3.$refs.plansSlider.resumeAutoplay();
+          _this3.$refs.plansSlider.resumeAutoplay();
+        }
       })["catch"](function (err) {
         console.log("ERROR FROM SERVER ", err.response);
 
@@ -42374,7 +42378,11 @@ var render = function() {
                   { staticClass: "form-group my-2" },
                   [
                     _c("zone-select", {
-                      attrs: { hideMunicipality: true, middle: "col-12" },
+                      attrs: {
+                        notNullable: true,
+                        hideMunicipality: true,
+                        middle: "col-12"
+                      },
                       on: { newDepartment: _vm.newDepartment }
                     })
                   ],
