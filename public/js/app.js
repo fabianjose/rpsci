@@ -4343,6 +4343,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["offer", "index", "pick", "remove", "highlighted"],
   data: function data() {
@@ -4351,6 +4352,9 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    showPrice: function showPrice(price) {
+      return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    },
     getDaysClass: function getDaysClass() {
       var daysRemaining = this.getDays();
       return daysRemaining > 5 ? ' text-info' : ' text-danger';
@@ -44782,7 +44786,13 @@ var render = function() {
                 "px-2 mt-2 card-text text-capitalize text-center col-12 col-md-6 col-lg-6 col-xl-6 text-wrap-all",
               staticStyle: { color: "#006494" }
             },
-            [_vm._v(_vm._s(_vm.offer.company_name))]
+            [
+              _vm._v(
+                _vm._s(_vm.offer.company_name) +
+                  " - " +
+                  _vm._s(_vm.showPrice(_vm.offer.tariff))
+              )
+            ]
           ),
           _vm._v(" "),
           _c(

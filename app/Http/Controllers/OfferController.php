@@ -192,7 +192,7 @@ class OfferController extends Controller{
 
     $allOffersDep = Offer::getFromAll(null, null, false, null, "general");
 
-    $allOffers= array_merge($allOffers->toArray(), $allOffersDep->toArray());
+    $allOffers= array_merge($allOffers->get()->toArray(), $allOffersDep->get()->toArray());
 
     $offers=array_merge($offers->toArray(),$allOffers);
 
@@ -279,7 +279,7 @@ class OfferController extends Controller{
 
     $allOffersDep = Offer::getFromAll($company->id,null,null,null,"detail",$department->id);
 
-    $allOffers = array_merge($allOffers->toArray(), $allOffersDep->toArray());
+    $allOffers = array_merge($allOffers->get()->toArray(), $allOffersDep->get()->toArray());
 
     $offers=array_merge($offers->toArray(),$allOffers);
 
@@ -434,7 +434,7 @@ class OfferController extends Controller{
 
     $allOffersDep = Offer::getFromAll(null,null,true,null,"detail",$department->id);
 
-    $allOffers = array_merge($allOffers->toArray(), $allOffersDep->toArray());
+    $allOffers = array_merge($allOffers->get()->toArray(), $allOffersDep->get()->toArray());
     
     $offers=array_merge($offers->toArray(),$allOffers);
     
@@ -497,6 +497,8 @@ class OfferController extends Controller{
     ->get();
 
     $allOffers=Offer::getFromAll(null,null,true);
+
+    $offers= array_merge($offers->toArray(), $allOffers->get()->toArray());
 
     $offers=Offer::joinFields($offers);
 

@@ -4,7 +4,8 @@
         <img class="" style="max-height:100px;" :src="baseUrl+'/storage/'+offer.company_logo" alt="">
     </div>
     <div class="d-flex flex-row col-12 col-sm-6 col-md-8 col-lg-8 col-xl-8 flex-wrap align-items-center">
-      <h5 class="px-2 mt-2 card-text text-capitalize text-center col-12 col-md-6 col-lg-6 col-xl-6 text-wrap-all" style="color: #006494;">{{offer.company_name}}</h5>
+      <h5 class="px-2 mt-2 card-text text-capitalize text-center col-12 col-md-6 col-lg-6 col-xl-6 text-wrap-all" 
+      style="color: #006494;">{{offer.company_name}} - {{showPrice(offer.tariff)}}</h5>
       <div class="d-flex col-12 col-md-6 col-lg-6 col-xl-6 py-3 px-0 justify-content-center">
         <button style="height:40px; width:40px;" type="button" class="btn btn-sm btn-info rounded-pill mx-1" 
          @click="emitView" data-toggle="modal" data-target="#modalViewOffer">
@@ -32,6 +33,9 @@ export default {
     }
   },
   methods:{
+    showPrice(price){
+        return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    },
     getDaysClass(){
       let daysRemaining=this.getDays();
       return daysRemaining>5?' text-info':' text-danger';
