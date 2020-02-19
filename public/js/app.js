@@ -3002,7 +3002,8 @@ __webpack_require__.r(__webpack_exports__);
       if (this.email && this.email != "") fd.append("email", this.email);else return toastr.error("Rellene todos los campos");
       if (this.phone && this.phone != "") fd.append("phone", this.phone);else return toastr.error("Rellene todos los campos");
       if (this.department && this.department != "") fd.append("department", this.department);else return toastr.error("Rellene todos los campos");
-      if (this.message && this.message != "") fd.append("message", this.message); //if(this.captcha&&this.captcha!="") fd.append("g-recaptcha-response", this.captcha);
+      if (this.message && this.message != "") fd.append("message", this.message);
+      fd.append("type", "general"); //if(this.captcha&&this.captcha!="") fd.append("g-recaptcha-response", this.captcha);
       //else return toastr.error("Complete la prueba de captcha");
 
       this.disableButton = true;
@@ -3117,6 +3118,7 @@ __webpack_require__.r(__webpack_exports__);
 
       if (this.offer) {
         fd.append("offer", this.offer.id);
+        fd.append("type", "offer");
         fd.append("company_name", this.offer.company_name);
         fd.append("service_name", this.offer.service_name);
         if (this.offer.department) fd.append("department", this.offer.department_name);

@@ -116,6 +116,8 @@ export default {
 
             if(this.message&&this.message!="") fd.append("message", this.message);
 
+            fd.append("type", "general")
+
             //if(this.captcha&&this.captcha!="") fd.append("g-recaptcha-response", this.captcha);
             //else return toastr.error("Complete la prueba de captcha");
 

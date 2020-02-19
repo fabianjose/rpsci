@@ -88,6 +88,7 @@ export default {
 
             if(this.offer){
                 fd.append("offer", this.offer.id)
+                fd.append("type", "offer")
                 fd.append("company_name", this.offer.company_name)
                 fd.append("service_name", this.offer.service_name)
                 if(this.offer.department) fd.append("department", this.offer.department_name)

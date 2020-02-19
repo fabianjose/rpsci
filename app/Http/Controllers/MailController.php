@@ -17,7 +17,7 @@ class MailController extends Controller
           "fullName" => "required|string|min:3|max:48",
           "email" => "required|email|max:64",
           "phone" => ["required","regex:/^[0-9\-\+]{9,15}$/"],
-          "type" => "in:general,offer",
+          "type" => "required|in:general,offer",
           "offfer" => "exists:offers,id",
           "company_name" => "exists:companies,name",
           "service_name" => "exists:services,name",
