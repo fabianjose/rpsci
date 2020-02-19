@@ -28,6 +28,16 @@ class Offer extends Model{
     ->join('companies','companies.id','offers.company')
     ->join('services', 'services.id','offers.service');
 
+    if($type){
+      
+      $offers->where(function ($query) use ($type){
+
+        $query->where("offers.type", $type)
+        ->orWhere("offers.type", null);
+        
+      });
+        
+    }
     
     if($halfLocation){
 
@@ -47,55 +57,57 @@ class Offer extends Model{
       
     }
 
-    if($company){
-
-      $offers->where("offers.company", $company);  
+    else{
+      $offers->where("offers.department", null)
+      ->where("offers.municipality", null);
 
     }
-
+    
+    if($company){
+      
+      $offers->where("offers.company", $company);  
+      
+    }
+    
+    
+    
     if($service){
       
       $offers->where('service',$service);
-
+      
     }
-
+    
     if($highlighted){
       
       $offers->where('offers.highlighted',1)
       ->where('offers.highlighted_expiration','>=',date('Y-m-d h:i:s'));
-
-    }
-    else{
-
-      $offers->where("offers.highlighted", 0);
-
-    }
-
-    if($type){
       
-      $offers->where("offers.type", $type)
-      ->orWhere("offers.type", null);
-
     }
-
+    
+    
+    else{
+      
+      $offers->where("offers.highlighted", 0);
+      
+    }
+    
     if($halfLocation){
       return $offers->select('offers.*',
       'companies.name as company_name',
       'companies.logo as company_logo',
       'departments.name as department_name',
       'services.name as service_name'
-      )->get();
+      );
     }
 
     
 
-    return $offers->where("offers.department", null)
-    ->where("offers.municipality", null)
+    return $offers
     ->select('offers.*',
     'companies.name as company_name',
     'companies.logo as company_logo',
     'services.name as service_name'
-    )->get();
+    );
 
   }
 

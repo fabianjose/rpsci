@@ -334,7 +334,6 @@ class OfferController extends Controller{
     
     $allOffersDep = Offer::getFromAll(null,$service->id,false,$data["offer_type"],"detail",$department->id);
     
-    $allOffers = array_merge($allOffers->toArray(), $allOffersDep->toArray());
 
     if (!$offers&&!$allOffers) return response()->json(["errorMessage"=>'No se encontraron ofertas disponibles'],404);
 
@@ -342,14 +341,17 @@ class OfferController extends Controller{
     if($request->input("from")&&is_numeric($request->input("from"))){
       $offers->where("offers.tariff", ">=", $request->input("from"));
       $allOffers->where("offers.tariff", ">=", $request->input("from"));
+      $allOffersDep->where("offers.tariff", ">=", $request->input("from"));
     }
 
     if($request->input("to")&&is_numeric($request->input("to"))){
       $offers->where("offers.tariff", "<=", $request->input("to"));
       $allOffers->where("offers.tariff", "<=", $request->input("to"));
+      $allOffersDep->where("offers.tariff", "<=", $request->input("to"));
     }
 
     $offers=$offers->get();
+    $allOffers = array_merge($allOffers->get()->toArray(), $allOffersDep->get()->toArray());
     $offers=array_merge($offers->toArray(),$allOffers);
 
     $offers=Offer::joinFields($offers);
