@@ -30,33 +30,22 @@ class OfferController extends Controller{
       'tariff' => ['required', 'integer', "min:0.1" , "max:9999999999"],
       'points' => ['integer','min:0,max:5'],
       'type' => ['nullable', 'in:private,company'],
-      'department' => ['nullable', 'exists:departments,name', 'string'],
-      'municipality' => ['nullable', 'exists:municipalities,name', 'string'],
+      'departments' => ['nullable', 'json'],
+      'departments.*' => ["string|exists:departments,name"],
+      'municipalities' => ['nullable', 'json'],
+      'municipalities.*' => ["string|exists:municipalities,name"],
     ]);
+    
     if ($validation->fails()){
       return response()->json($validation->errors(), 400);
     }
+
 
 
     $company = Company::where('name',$data['company'])->first();
     $data['company'] = $company->id;
 
     if (!$company) return response()->json('Empresa no encontrada',404);
-
-    if($request->input("department")){
-      $department = Department::where('name',$data['department'])->first();
-      if (!$department) return response()->json('Departamento no encontrado',404);
-      $data['department'] = $department->id;
-    }
-    else $data["department"]=null;
-
-    if($request->input("municipality")){
-      $municipality = Municipality::where('name',$data['municipality'])->first();
-      if (!$municipality) return response()->json('Municipio no encontrado',404);
-      $data['municipality'] = $municipality->id;
-    }
-    else $data["municipality"]=null;
-
 
     $service=Service::find($data["service"]);
 
@@ -93,8 +82,10 @@ class OfferController extends Controller{
       'tariff' => ['required', 'integer', "min:0.1", "max:9999999999"],
       'points' => ['integer','min:0,max:5'],
       'type' => [ 'nullable','in:private,company'],
-      'department' => ['nullable','exists:departments,name'],
-      'municipality' => ['nullable','exists:municipalities,name'],
+      'departments' => ['nullable', 'json'],
+      'departments.*' => ["string|exists:departments,name"],
+      'municipalities' => ['nullable', 'json'],
+      'municipalities.*' => ["string|exists:municipalities,name"],
     ]);
     if ($validation->fails()){
       return response()->json($validation->errors(), 400);
@@ -104,32 +95,6 @@ class OfferController extends Controller{
 
     $company = Company::where('name',$data['company'])->first();
     if (!$company) return response()->json('Empresa no encontrada',404);
-    
-    if($request->input("department")){
-          
-      $department = Department::where('name',$data['department'])->first();
-    
-      $data['department'] = $department->id;
-      
-    }
-    else{
-
-      $data['department'] = null;
-
-    }
-
-    if($request->input("municipality")){
-          
-      $municipality = Municipality::where('name',$data['municipality'])->first();
-
-      $data['municipality'] = $municipality->id;
-      
-    }
-    else{
-
-      $data['municipality'] = null;
-
-    }
 
     $data['company'] = $company->id;
 
@@ -142,10 +107,10 @@ class OfferController extends Controller{
       'points',
       "type",
       "department",
-      "municipality",
+      "municipalities",
     ];
 
-    $service=Service::find($request->input("service")||$offer->service);
+    $service=Service::find($offer->service);
 
     $fields= DB::table('fields')->where("service_id", $service->id)->where("trash",0)->get();
 
@@ -161,7 +126,7 @@ class OfferController extends Controller{
     foreach ($keysAllow as $key){
       if (isset($data[$key])){
         $offer->{$key} = $data[$key];
-      }else if($key=='type'||$key=='department'||$key=='municipality'){
+      }else if($key=='type'||$key=='department'||$key=='municipalities'){
         $offer->{$key} = null;
       }
     }
@@ -177,30 +142,18 @@ class OfferController extends Controller{
     $offers = DB::table('offers')->where('offers.trash',0)
     ->join('companies','companies.id','offers.company')
     ->join('services', 'services.id','offers.service')
-    ->join('departments', 'departments.id','offers.department')
-    ->join('municipalities', 'municipalities.id','offers.municipality')
     ->select('offers.*',
     'companies.name as company_name',
     'companies.logo as company_logo',
     'services.name as service_name',
-    'departments.name as department_name',
-    'municipalities.name as municipality_name'
     )
     ->get();
 
-    $allOffers = Offer::getFromAll();
+    $offers=Offer::joinFields($offers->toArray());
 
-    $allOffersDep = Offer::getFromAll(null, null, false, null, "general");
-
-    $allOffers= array_merge($allOffers->get()->toArray(), $allOffersDep->get()->toArray());
-
-    $offers=array_merge($offers->toArray(),$allOffers);
-
-    $offers=Offer::joinFields($offers);
-
-    if (!$offers&&!$allOffers) return response()->json(["errorMessage"=>'No se encontraron ofertas disponibles'],404);
-
+    if (!$offers) return response()->json(["errorMessage"=>'No se encontraron ofertas disponibles'],404);
 		return response()->json($offers, 200);
+
 	}
 
 	public function getOffer(Request $request,$id){
@@ -209,14 +162,10 @@ class OfferController extends Controller{
 		$offer = DB::table('offers')->where('offers.id',$id)->where('offers.trash',0)
     ->join('companies','companies.id','offers.company')
     ->join('services', 'services.id','offers.service')
-    ->join('departments', 'departments.id','offers.department')
-    ->join('municipalities', 'municipalities.id','offers.municipality')
     ->select('offers.*',
     'companies.name as company_name',
     'companies.logo as company_logo',
     'services.name as service_name',
-    'departments.name as department_name',
-    'municipalities.name as municipality_name'
     )
     ->first();
 
@@ -250,40 +199,33 @@ class OfferController extends Controller{
     $company = Company::where('name',$data['company'])->first();
     $department = Department::where('name',$data['department'])->first();
     $municipality = Municipality::where('name',$data['municipality'])->first();
-    if (!$company) return response()->json('Empresa no encontrada',404);
-    if (!$department) return response()->json('Departamento no encontrado',404);
-    if (!$municipality) return response()->json('Municipio no encontrado',404);
+    if (!$company) return response()->json('Empresa no encontrada',400);
+    if (!$department) return response()->json('Departamento no encontrado',400);
+    if (!$municipality) return response()->json('Municipio no encontrado',400);
 
     $offers = DB::table('offers')
     ->where('offers.trash',0)
     ->where('offers.highlighted',0)
     ->where('company',$company->id)
-    ->where('department',$department->id)
-    ->where('municipality',$municipality->id)
+    ->where(function($query) use($department){
+      $query->where('departments', "like" ,'%'.$department->name.'%')
+      ->orWhere("departments",null);
+    })
+    ->where(function($query) use($municipality){
+      $query->where('municipalities', "like" ,'%'.$municipality->name.'%')
+      ->orWhere("municipalities",null);
+    })
     ->where("service", $data["service"])
     ->join('companies','companies.id','offers.company')
     ->join('services', 'services.id','offers.service')
-    ->join('departments', 'departments.id','offers.department')
-    ->join('municipalities', 'municipalities.id','offers.municipality')
     ->select('offers.*',
     'companies.name as company_name',
     'companies.logo as company_logo',
     'services.name as service_name',
-    'departments.name as department_name',
-    'municipalities.name as municipality_name'
     )
     ->get();
 
-    
-    $allOffers = Offer::getFromAll($company->id);
-
-    $allOffersDep = Offer::getFromAll($company->id,null,null,null,"detail",$department->id);
-
-    $allOffers = array_merge($allOffers->get()->toArray(), $allOffersDep->get()->toArray());
-
-    $offers=array_merge($offers->toArray(),$allOffers);
-
-    $offers= Offer::joinFields($offers);
+    $offers= Offer::joinFields($offers->toArray());
 
     if (!$offers) return response()->json(["errorMessage"=>'No se encontraron ofertas sin destacar'],404);
 		return response()->json($offers, 200);
@@ -314,47 +256,40 @@ class OfferController extends Controller{
 
     $offers = DB::table('offers')
     ->where('offers.trash',0)
-    ->where("offers.type", $data["offer_type"])
+    ->where(function($query) use($data){
+      $query->where("offers.type", $data["offer_type"])
+      ->orWhere("offers.type", null);
+    })
     ->where('service',$service->id)
-    ->where('department',$department->id)
-    ->where('municipality',$municipality->id)
+    ->where(function($query) use($department){
+      $query->where('departments', "like" ,'%'.$department->name.'%')
+      ->orWhere("departments",null);
+    })
+    ->where(function($query) use($municipality){
+      $query->where('municipalities', "like" ,'%'.$municipality->name.'%')
+      ->orWhere("municipalities",null);
+    })
     ->join('companies','companies.id','offers.company')
     ->join('services', 'services.id','offers.service')
-    ->join('departments', 'departments.id','offers.department')
-    ->join('municipalities', 'municipalities.id','offers.municipality')
     ->select('offers.*',
     'companies.name as company_name',
     'companies.logo as company_logo',
     'services.name as service_name',
-    'departments.name as department_name',
-    'municipalities.name as municipality_name'
     );
 
-    $allOffers = Offer::getFromAll(null,$service->id,false,$data["offer_type"]);
-    
-    $allOffersDep = Offer::getFromAll(null,$service->id,false,$data["offer_type"],"detail",$department->id);
-    
-
-    if (!$offers&&!$allOffers) return response()->json(["errorMessage"=>'No se encontraron ofertas disponibles'],404);
-
+    if (!$offers) return response()->json(["errorMessage"=>'No se encontraron ofertas disponibles'],404);
 
     if($request->input("from")&&is_numeric($request->input("from"))){
       $offers->where("offers.tariff", ">=", $request->input("from"));
-      $allOffers->where("offers.tariff", ">=", $request->input("from"));
-      $allOffersDep->where("offers.tariff", ">=", $request->input("from"));
     }
 
     if($request->input("to")&&is_numeric($request->input("to"))){
       $offers->where("offers.tariff", "<=", $request->input("to"));
-      $allOffers->where("offers.tariff", "<=", $request->input("to"));
-      $allOffersDep->where("offers.tariff", "<=", $request->input("to"));
     }
 
     $offers=$offers->get();
-    $allOffers = array_merge($allOffers->get()->toArray(), $allOffersDep->get()->toArray());
-    $offers=array_merge($offers->toArray(),$allOffers);
 
-    $offers=Offer::joinFields($offers);
+    $offers=Offer::joinFields($offers->toArray());
 
     $fields=DB::table("fields")->where("service_id", $service->id)
     ->where("trash",0)
@@ -375,7 +310,7 @@ class OfferController extends Controller{
     }
 
     $offersArray=[];
-    //aaa
+
     foreach ($offers as $offer) {
       $offer->tariff = round($offer->tariff);
       array_push($offersArray,$offer);
@@ -415,31 +350,25 @@ class OfferController extends Controller{
     ->where('offers.trash',0)
     ->where("offers.highlighted",1)
     ->where("offers.highlighted_expiration", '>=', date('Y-m-d H:i:s'))
-    ->where('department',$department->id)
-    ->where('municipality',$municipality->id)
+    ->where(function($query) use($department){
+      $query->where('departments', "like" ,'%'.$department->name.'%')
+      ->orWhere("departments",null);
+    })
+    ->where(function($query) use($municipality){
+      $query->where('municipalities', "like" ,'%'.$municipality->name.'%')
+      ->orWhere("municipalities",null);
+    })
     ->join('companies','companies.id','offers.company')
     ->join('services', 'services.id','offers.service')
-    ->join('departments', 'departments.id','offers.department')
-    ->join('municipalities', 'municipalities.id','offers.municipality')
     ->select('offers.*',
     'companies.name as company_name',
     'companies.logo as company_logo',
     'services.name as service_name',
-    'departments.name as department_name',
-    'municipalities.name as municipality_name'
     )->get();
 
     
-    $allOffers = Offer::getFromAll(null,null,true);
-
-    $allOffersDep = Offer::getFromAll(null,null,true,null,"detail",$department->id);
-
-    $allOffers = array_merge($allOffers->get()->toArray(), $allOffersDep->get()->toArray());
     
-    $offers=array_merge($offers->toArray(),$allOffers);
-    
-    
-    $offers= Offer::joinFields($offers);
+    $offers= Offer::joinFields($offers->toArray());
     
     
     if (!$offers) return response()->json(["errorMessage"=>'No se encontraron ofertas disponibles'],404);
@@ -485,22 +414,14 @@ class OfferController extends Controller{
     ->where('offers.highlighted_expiration','>=',date('Y-m-d h:i:s'))
     ->join('companies','companies.id','offers.company')
     ->join('services', 'services.id','offers.service')
-    ->join('departments', 'departments.id','offers.department')
-    ->join('municipalities', 'municipalities.id','offers.municipality')
     ->select('offers.*',
     'companies.name as company_name',
     'companies.logo as company_logo',
     'services.name as service_name',
-    'departments.name as department_name',
-    'municipalities.name as municipality_name'
     )
     ->get();
 
-    $allOffers=Offer::getFromAll(null,null,true);
-
-    $offers= array_merge($offers->toArray(), $allOffers->get()->toArray());
-
-    $offers=Offer::joinFields($offers);
+    $offers=Offer::joinFields($offers->toArray());
 
 		if (!$offers) return response()->json(["errorMessage"=>'No se encontraron ofertas disponibles'],404);
 		return response()->json($offers, 200);

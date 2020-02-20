@@ -28,9 +28,10 @@ class CreateOffersTable extends Migration
             $table->enum('type',['private','company'])->nullable();
 
             $table->bigInteger('department')->unsigned()->nullable();
-            $table->foreign('department')->references('id')->on('departments');
-            $table->bigInteger('municipality')->unsigned()->nullable();
-            $table->foreign('municipality')->references('id')->on('municipalities');
+
+            $table->string('departments')->nullable();
+
+            $table->string('municipalities')->nullable();
 
             $table->boolean('highlighted')->default(0);
             $table->timestamp('highlighted_expiration')->nullable();

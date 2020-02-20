@@ -16,17 +16,18 @@ class Offer extends Model{
     'tariff',
     'points',
     'type',
-    'department',
-    'municipality',
+    'departments',
+    'municipalities',
     'highlighted',
     'highlighted_expiration',
     'trash'
   ];
 
-  public static function getFromAll($company=null,$service=null,$highlighted=false,$type=null,$halfLocation=null, $halfLocationDetailed=null){
+  public static function getFromAll($company=null,$service=null,$highlighted=false,$type=null){
     $offers=DB::table('offers')->where('offers.trash',0)
     ->join('companies','companies.id','offers.company')
-    ->join('services', 'services.id','offers.service');
+    ->join('services', 'services.id','offers.service')
+    ->where("offers.department", null);
 
     if($type){
       
@@ -39,37 +40,11 @@ class Offer extends Model{
         
     }
     
-    if($halfLocation){
-
-      if($halfLocation=="general"){
-        
-        $offers->where("offers.department", "<>", null )
-        ->where("offers.municipality", null)
-        ->join("departments", "departments.id", "offers.department");
-        
-      }else if($halfLocation=="detail"){
-        if($halfLocationDetailed){
-          $offers->where("offers.department", $halfLocationDetailed)
-          ->where("offers.municipality", null)
-          ->join("departments", "departments.id", "offers.department");
-        }
-      }
-      
-    }
-
-    else{
-      $offers->where("offers.department", null)
-      ->where("offers.municipality", null);
-
-    }
-    
     if($company){
       
       $offers->where("offers.company", $company);  
       
-    }
-    
-    
+    }    
     
     if($service){
       
@@ -77,30 +52,18 @@ class Offer extends Model{
       
     }
     
-    if($highlighted){
+    if($highlighted===true){
       
       $offers->where('offers.highlighted',1)
       ->where('offers.highlighted_expiration','>=',date('Y-m-d h:i:s'));
       
     }
     
-    
-    else{
+    else if($highlighted==="not"){
       
       $offers->where("offers.highlighted", 0);
       
-    }
-    
-    if($halfLocation){
-      return $offers->select('offers.*',
-      'companies.name as company_name',
-      'companies.logo as company_logo',
-      'departments.name as department_name',
-      'services.name as service_name'
-      );
-    }
-
-    
+    }    
 
     return $offers
     ->select('offers.*',
@@ -122,6 +85,15 @@ class Offer extends Model{
       ->orderBy("fields_values.field_id","asc")
       ->select("fields_values.value", "fields.name as field_name", "fields.unit as unit", "fields.id as field_id")
       ->get();
+
+      /*if($offer->departments){
+        $offer->departments=Department::getFromIds(json_decode($offer->departments));
+      }
+  
+      if($offer->municipalities){
+        $offer->municipalities=Municipality::getFromIds(json_decode($offer->municipalities));
+      }*/
+
     }
 
     return $offersArray;

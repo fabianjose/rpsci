@@ -24,7 +24,11 @@
             </li>
 
             <li class="list-group-item">
-              <b>Tarifa</b> <a class="float-right">$ {{offer.tariff}}</a>
+            <b>Tipo de cliente</b> <a class="float-right">{{offer.type?(offer.offer_type=="private"?"Hogar":"Empresa"):"Todos"}}</a>
+            </li>
+
+            <li class="list-group-item">
+              <b>Tarifa</b> <a class="float-right">$ {{showPrice(offer.tariff)}}</a>
             </li>
             <li class="list-group-item">
               <b>Departamento</b> <a class="float-right">{{offer.department_name?offer.department_name:"Disponible para todos"}}</a>
@@ -55,5 +59,11 @@ export default {
       baseUrl: baseUrl,
     }
   },
+
+  methods:{
+    showPrice(price){
+            return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+        },
+  }
 }
 </script>

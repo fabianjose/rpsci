@@ -101,19 +101,19 @@
                 </ul>
               </div>
               <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 footer-link-border my-2">
-                <h5 class="footer-title-color font-weight-bold">CATEGORÍAS DEL BLOG</h5>
+                <h5 class="footer-title-color font-weight-bold">MAPA DE SITIO</h5>
                 <ul class="footer-list p-2">
-                  <li>-Entrada 1</li>
-                  <li>-Entrada 2</li>
-                  <li>-Entrada 3</li>
-                  <li>-Entrada 4</li>
+                  <a href="/"><li>-Inicio</li></a>
+                  <a href="/nosotros"><li>-Nosotros</li></a>
+                  <a href="/contacto"><li>-Contacto</li></a>
+                  <a href="https://contratainternet.speedtestcustom.com/"><li>-Prueba de Velocidad</li></a>
                 </ul>
               </div>
               <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 footer-link-border my-2">
                 <h5 class="footer-title-color font-weight-bold">PONTE EN CONTACTO</h5>
                 <ul class="footer-list p-2">
-                  <li>-Correo Electrónico: contacto@contratainternet.com.co</li>
-                  <li>-PBX: 7868510</li>
+                  <li>-Correo Electrónico: contacto@contratainternet.co</li>
+                  <li>-PBX: +57 (1) 7868510</li>
                 </ul>
               </div>
             </div>

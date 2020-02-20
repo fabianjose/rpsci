@@ -44,10 +44,42 @@
           </div>
         </div>
         <div class="d-flex flex-row w-100 justify-content-around flex-wrap">
-          <div class="form-group col-12">
+          <div class="form-group col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
             <label>Descripcion</label>
             <textarea class="form-control" rows="3" placeholder="Descripcion..." v-model="offer.benefits" style="resize: none;"></textarea>
           </div>
+          <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 py-3 pt-4">
+              <div class="card card-primary" id="MunicipalitiesAccordion">
+                <a class="card-header collapsed" @click="active2=!active2" data-parent="#MunicipalitiesAccordion"
+                    href="#MunicipalitiesOfferList" aria-expanded="false" data-toggle="collapse">
+                    <h3 class="card-title col-10">Municipios seleccionados</h3>
+                    <div class="card-tools">
+                      <button type="button" class="btn btn-tool ml-auto " >
+                          <personal-fab :active="active2" />
+                      </button>
+                    </div>
+                </a>
+
+                <div id="MunicipalitiesOfferList" class="panel-collapse in collapse" >
+                  <div class="card-body w-100">
+                  
+                      <div class="d-flex justify-content-around w-100 flex-wrap">
+                        <ul class="list-group list-group-unbordered mb-3 w-100">
+                          <li v-for="(municipality,k) in offer.municipalities?JSON.parse(offer.municipalities):municipalities" :key="k" class="list-group-item px-0">
+                              <b>{{municipality}}</b>
+                              <a class="float-right">
+                                <button type="button" class="btn btn-tool p-1" @click="deleteMunicipality(k)">
+                                  <i class="float-button fas fa-plus-circle active text-danger"></i>
+                                </button>
+                              </a>
+                          </li>
+                        </ul>
+                      </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
         </div>
         
         <zone-select middle="col-xl-6 col-lg-6 col-md-6 col-12 py-3" 
@@ -99,7 +131,9 @@ export default {
 
   data(){
     return{
+      active2:false,
       fields_values:[],
+      municipalities:[],
       fields:[],
     }
   },

@@ -15,7 +15,7 @@
                     <div id="collapseOne" class="panel-collapse collapse show" >
                         <div class="card-body d-flex flex-column box-profile">
 
-                            <img class="align-self-center img-fluid" :src="baseUrl+'/'+offer.company_logo" alt="Offer picture" style="max-height: 300px;">
+                            <img class="align-self-center img-fluid" :src="baseUrl+'/storage/'+offer.company_logo" alt="Offer picture" style="max-height: 300px;">
 
                             <h2 class="profile-username text-center">{{offer.service_name}}</h2>
 
@@ -30,7 +30,7 @@
                                 </li>
 
                                 <li v-if="offer.highlighted&&offer.highlighted_expiration" class="list-group-item">
-                                <b>Expiración en "Destacadas"</b> <a class="float-right">{{offer.highlighted_expiration}}</a>
+                                <b>Tipo de cliente</b> <a class="float-right">{{offer.type?(offer.offer_type=="private"?"Hogar":"Empresa"):"Todos"}}</a>
                                 </li>
 
                                 <li class="list-group-item">

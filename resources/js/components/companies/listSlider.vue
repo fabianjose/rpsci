@@ -3,7 +3,7 @@
     class="no-shadow high-companies-carousel mt-4 text-center"
     :autoplay="true"
     ref="companiesSlider"
-    :duration="1000"
+    :duration="2000"
     :bullets="false"
     :arrows="false"
     :visible-slides="(companies.length < 4)?companies.length:4"
@@ -12,7 +12,7 @@
     :breakpoints="breakpoints">
     <vueper-slide v-for="company in companies" :key="company.id">
       <template v-slot:content>
-        <div class="h-100 d-flex text-center justify-content-center">
+        <div class="h-100 d-flex text-center justify-content-center mx-2">
           <img :src="baseUrl+'/storage/'+company.logo" class="high-companies-img align-self-center">
         </div>
       </template>
@@ -46,12 +46,10 @@ export default {
         520: {
           visibleSlides:1,
           slideRatio:0.3,
-          arrows: false
         },
         380: {
           visibleSlides:1,
           slideRatio:0.35,
-          arrows: false
         }
       }
     }

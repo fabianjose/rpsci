@@ -4,7 +4,7 @@
         href="#collapseCreateService" aria-expanded="false" data-toggle="collapse">
           <h3 class="card-title">
             Nuevo Servicio
-            <i class="fas fa-question-circle text-md"data-toggle="tooltip"
+            <i class="fas fa-question-circle text-md" data-toggle="tooltip"
             data-placement="top"
             title="Aquí podrás definir campos adicionales de los servicios, ya hay definidos por defecto como lo son: Descripción, Tarifa y Puntuación"></i>
           </h3>
@@ -25,7 +25,7 @@
             <label>Campos del servicio</label>
           </div>
             <div class="row w-100 flex-wrap justify-content-around">
-              <div class="col-md-6 col-sm-10 col-10 col-lg-6">
+              <div class="col-md-6 col-sm-10 col-10 col-lg-6 col-xl-6">
                 <div class="card card-success" id="createServiceFieldAccordion">
                   <a class="card-header collapsed" @click="active2=!active2" data-parent="#createServiceFieldAccordion"
                   href="#collapseCreateServiceField" aria-expanded="false" data-toggle="collapse">
@@ -68,40 +68,37 @@
               </div>
             </div>
 
-              <div class="col-md-6 col-sm-10 col-10 col-lg-6">
-                <div class="card card-primary" id="ServicesFieldsAccordion">
-                  <a class="card-header collapsed" @click="active3=!active3" data-parent="#ServicesFieldsAccordion"
-                      href="#collapseServicesFields" aria-expanded="false" data-toggle="collapse">
-                      <h3 class="card-title">Lista de Campos</h3>
-                      <div class="card-tools">
-                      <button type="button" class="btn btn-tool ml-auto " >
-                          <personal-fab :active="active3" />
-                      </button>
-                      </div>
-                  </a>
+            <div class="col-md-6 col-sm-10 col-10 col-lg-6 col-xl-6">
+              <div class="card card-primary" id="ServicesFieldsAccordion">
+                <a class="card-header collapsed" @click="active3=!active3" data-parent="#ServicesFieldsAccordion"
+                    href="#collapseServicesFields" aria-expanded="false" data-toggle="collapse">
+                    <h3 class="card-title">Lista de Campos</h3>
+                    <div class="card-tools">
+                    <button type="button" class="btn btn-tool ml-auto " >
+                        <personal-fab :active="active3" />
+                    </button>
+                    </div>
+                </a>
 
-                  <div id="collapseServicesFields" class="panel-collapse in collapse" >
-                      <div class="card-body">
+                <div id="collapseServicesFields" class="panel-collapse in collapse" >
+                    <div class="card-body">
+                    
+                        <ul class="list-group list-group-unbordered mb-3">
+                            <li v-for="(field,k) in fields" :key="k" class="list-group-item">
+                                <b>{{JSON.parse(field).name}}</b>
+                                <a class="float-right">{{getFieldType(JSON.parse(field).type, JSON.parse(field).unit)}}
+                                  <button type="button" class="btn btn-tool p-1" @click="deleteField(k)">
+                                    <i class="float-button fas fa-plus-circle active text-danger"></i>
+                                  </button>
+                                </a>
+                            </li>
+                        </ul>
 
-                          <ul class="list-group list-group-unbordered mb-3">
-                              <li v-for="(field,k) in fields" :key="k" class="list-group-item">
-                                  <b>{{JSON.parse(field).name}}</b>
-                                  <a class="float-right">{{getFieldType(JSON.parse(field).type, JSON.parse(field).unit)}}
-                                    <button type="button" class="btn btn-tool p-1" @click="deleteField(k)">
-                                      <i class="float-button fas fa-plus-circle active text-danger"></i>
-                                    </button>
-                                  </a>
-                              </li>
-                          </ul>
-
-                      </div>
-                  </div>
+                    </div>
                 </div>
               </div>
-        </div>
-
-
-
+            </div>
+          </div>
         </div>
 
         <div class="card-footer">

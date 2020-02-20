@@ -35,20 +35,23 @@
               </select>
             </div>
           </div>
-          <div class="d-flex flex-row w-100 justify-content-around flex-wrap" v-if="fields.length">
+          <div class="d-flex flex-row w-100 justify-content-around flex-wrap my-3" v-if="fields.length">
             <div class="form-group col-xl-4 col-lg-4 col-md-6 col-12" v-for="(field,index) in fields" :key="index" >
               <label>{{field.name+(field.unit?" ("+field.unit+")":"")}}</label>
               <input v-model="fieldsValues[index]" class="form-control">
             </div>
           </div>
-          <div class="d-flex flex-row w-100 justify-content-around flex-wrap">
+
+          <div class="d-flex flex-row w-100 justify-content-around flex-wrap my-3">
             <div class="form-group col-12">
               <label>Descripcion</label>
               <textarea class="form-control" rows="3" placeholder="Descripcion..." v-model="benefits" style="resize: none;"></textarea>
             </div>
           </div>
 
-          <zone-select ref="zoneSelectRef" middle="col-xl-6 col-lg-6 col-md-6 col-12" @newDepartment="newDepartment" @newMunicipality="newMunicipality"  ></zone-select>
+          <zone-custom-selection @departments="setDepartments" @municipalities="setMunicipalities" 
+          ref="zoneSelectRef" ></zone-custom-selection>
+
 
 
           <div class="d-flex flex-row w-100 justify-content-around flex-wrap my-3">
@@ -96,9 +99,10 @@ export default {
   data(){
     return {
       active:false,
+      active2:false,
       company: "",
-      department: "",
-      municipality: "",
+      departments: [],
+      municipalities: [],
       type: "private",
       tariff: "",
       benefits: "",
@@ -132,12 +136,13 @@ export default {
         }
       }).finally(()=>loader.hide());
     },
-    newDepartment(department){
-      this.department=department;
+    
+    setDepartments(departments){
+      this.departments=departments;
     },
 
-    newMunicipality(municipality){
-      this.municipality=municipality;
+    setMunicipalities(municipalities){
+      this.municipalities=municipalities;
     },
 
     getFields(){
@@ -167,8 +172,8 @@ export default {
 
       let fd= new FormData();
       fd.append("company", this.company);
-      if(this.department) fd.append("department", this.department);
-      if(this.municipality) fd.append("municipality", this.municipality);
+      if(this.departments.length) fd.append("departments", JSON.stringify(this.departments));
+      if(this.municipalities.length) fd.append("municipalities", JSON.stringify(this.municipalities));
       if(this.type) fd.append("type", this.type);
       fd.append("tariff", parseInt(this.tariff));
       fd.append("benefits", this.benefits);
@@ -183,14 +188,14 @@ export default {
         console.log("RESPONSE FROM SERVER ",res);
         toastr.success("Oferta creada con éxito");
         this.company = "";
-        this.department = null;
-        this.municipality = null;
+        this.departments = [];
+        this.municipalities = [];
         this.type = "private";
         this.tariff = "";
         this.benefits = "";
         this.service = null;
         this.points = 0;
-        this.fields_value = [];
+        this.fields_values = [];
         this.$refs.zoneSelectRef.reset();
         this.$emit('refresh');
       }).catch(err=>{

@@ -1,7 +1,7 @@
 <template>
   <li class="list-group-item d-flex justify-content-between">
     <div class=" d-flex flex-row justify-content-center col-12 col-sm-6 col-md4 col-lg-4 col-xl-4">
-        <img class="" style="max-height:100px;" :src="baseUrl+'/storage/'+offer.company_logo" alt="">
+        <img class="company-logo-item" :src="baseUrl+'/storage/'+offer.company_logo" alt="">
     </div>
     <div class="d-flex flex-row col-12 col-sm-6 col-md-8 col-lg-8 col-xl-8 flex-wrap align-items-center">
       <h5 class="px-2 mt-2 card-text text-capitalize text-center col-12 col-md-6 col-lg-6 col-xl-6 text-wrap-all" 

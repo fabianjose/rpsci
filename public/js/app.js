@@ -2701,13 +2701,11 @@ __webpack_require__.r(__webpack_exports__);
         },
         520: {
           visibleSlides: 1,
-          slideRatio: 0.3,
-          arrows: false
+          slideRatio: 0.3
         },
         380: {
           visibleSlides: 1,
-          slideRatio: 0.35,
-          arrows: false
+          slideRatio: 0.35
         }
       }
     };
@@ -3751,6 +3749,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["items", "fields", "lastpage", "currentpage"],
   data: function data() {
@@ -3858,12 +3862,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["offer"],
   data: function data() {
     return {
       baseUrl: baseUrl
     };
+  },
+  methods: {
+    showPrice: function showPrice(price) {
+      return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    }
   }
 });
 
@@ -4530,6 +4543,447 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/items/zone/ZoneSelectOffer.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/items/zone/ZoneSelectOffer.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var _methods;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ["defaultDepartmens", "defaultMunicipalities"],
+  data: function data() {
+    return {
+      activeD: false,
+      activeM: false,
+      active: false,
+      active2: false,
+      active3: false,
+      municipality: null,
+      department: null,
+      selectedDepartment: null,
+      active4: false,
+      departments: [],
+      departmentsSelected: this.defaultDepartments ? this.defaultDepartments : [],
+      municipalities: [],
+      municipalitiesSelected: this.defaultMunicipalities ? this.defaultMunicipalities : []
+    };
+  },
+  mounted: function mounted() {
+    this.getDepartments();
+  },
+  methods: (_methods = {
+    addMunicipality: function () {
+      var _addMunicipality = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var _this = this;
+
+        var index;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                if (!this.municipalitiesSelected.length) {
+                  _context.next = 11;
+                  break;
+                }
+
+                _context.next = 3;
+                return this.municipalitiesSelected.findIndex(function (item) {
+                  return item === _this.municipality;
+                });
+
+              case 3:
+                index = _context.sent;
+
+                if (!(index === -1)) {
+                  _context.next = 8;
+                  break;
+                }
+
+                this.municipalitiesSelected.push(this.municipality);
+                _context.next = 9;
+                break;
+
+              case 8:
+                return _context.abrupt("return");
+
+              case 9:
+                _context.next = 12;
+                break;
+
+              case 11:
+                this.municipalitiesSelected.push(this.municipality);
+
+              case 12:
+                this.setValues();
+
+              case 13:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function addMunicipality() {
+        return _addMunicipality.apply(this, arguments);
+      }
+
+      return addMunicipality;
+    }(),
+    deleteMunicipality: function deleteMunicipality(index) {
+      this.municipalitiesSelected.splice(index, 1);
+      this.setValues();
+    },
+    addDepartment: function () {
+      var _addDepartment = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        var _this2 = this;
+
+        var index;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                if (!this.departmentsSelected.length) {
+                  _context2.next = 11;
+                  break;
+                }
+
+                _context2.next = 3;
+                return this.departmentsSelected.findIndex(function (item) {
+                  return item === _this2.department;
+                });
+
+              case 3:
+                index = _context2.sent;
+
+                if (!(index === -1)) {
+                  _context2.next = 8;
+                  break;
+                }
+
+                this.departmentsSelected.push(this.department);
+                _context2.next = 9;
+                break;
+
+              case 8:
+                return _context2.abrupt("return");
+
+              case 9:
+                _context2.next = 12;
+                break;
+
+              case 11:
+                this.departmentsSelected.push(this.department);
+
+              case 12:
+                this.setValues();
+
+              case 13:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, this);
+      }));
+
+      function addDepartment() {
+        return _addDepartment.apply(this, arguments);
+      }
+
+      return addDepartment;
+    }()
+  }, _defineProperty(_methods, "deleteMunicipality", function deleteMunicipality(index) {
+    this.departmentsSelected.splice(index, 1);
+    this.setValues();
+  }), _defineProperty(_methods, "reset", function reset() {
+    this.municipalitiesSelected = [];
+    this.municipalities = [];
+    this.departmentsSelected = [];
+    this.municipality = null;
+    this.department = null;
+  }), _defineProperty(_methods, "getDepartments", function getDepartments() {
+    var _this3 = this;
+
+    axios.get(baseUrl + '/api/departments').then(function (res) {
+      console.log(res);
+      _this3.departments = res.data;
+    })["catch"](function (err) {
+      console.log("ERROR FROM SERVER ", err.response);
+
+      if (err.response.data.errorMessage) {
+        toastr.error(err.response.data.errorMessage);
+      }
+    });
+  }), _defineProperty(_methods, "setValues", function () {
+    var _setValues = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              _context3.next = 2;
+              return this.$emit("departments", this.departmentsSelected);
+
+            case 2:
+              _context3.next = 4;
+              return this.$emit("municipalities", this.municipalitiesSelected);
+
+            case 4:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3, this);
+    }));
+
+    function setValues() {
+      return _setValues.apply(this, arguments);
+    }
+
+    return setValues;
+  }()), _defineProperty(_methods, "customMunicipalities", function () {
+    var _customMunicipalities = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4() {
+      var _this4 = this;
+
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              if (this.selectedDepartment) {
+                _context4.next = 2;
+                break;
+              }
+
+              return _context4.abrupt("return");
+
+            case 2:
+              axios.get(baseUrl + '/api/municipalities/' + this.selectedDepartment).then(function (res) {
+                _this4.municipalities = res.data;
+              })["catch"](function (err) {
+                console.log("ERROR FROM SERVER ", err, err.response);
+                toastr.error("error al cargar los municipios");
+              });
+
+            case 3:
+            case "end":
+              return _context4.stop();
+          }
+        }
+      }, _callee4, this);
+    }));
+
+    function customMunicipalities() {
+      return _customMunicipalities.apply(this, arguments);
+    }
+
+    return customMunicipalities;
+  }()), _methods)
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/items/zone/zoneItem.vue?vue&type=script&lang=js&":
 /*!******************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/items/zone/zoneItem.vue?vue&type=script&lang=js& ***!
@@ -4594,8 +5048,6 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-//
-//
 //
 //
 //
@@ -5323,14 +5775,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['services'],
   data: function data() {
     return {
       active: false,
+      active2: false,
       company: "",
-      department: "",
-      municipality: "",
+      departments: [],
+      municipalities: [],
       type: "private",
       tariff: "",
       benefits: "",
@@ -5368,11 +5824,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         return loader.hide();
       });
     },
-    newDepartment: function newDepartment(department) {
-      this.department = department;
+    setDepartments: function setDepartments(departments) {
+      this.departments = departments;
     },
-    newMunicipality: function newMunicipality(municipality) {
-      this.municipality = municipality;
+    setMunicipalities: function setMunicipalities(municipalities) {
+      this.municipalities = municipalities;
     },
     getFields: function getFields() {
       var _this2 = this;
@@ -5417,8 +5873,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 6:
                 fd = new FormData();
                 fd.append("company", this.company);
-                if (this.department) fd.append("department", this.department);
-                if (this.municipality) fd.append("municipality", this.municipality);
+                if (this.departments.length) fd.append("departments", JSON.stringify(this.departments));
+                if (this.municipalities.length) fd.append("municipalities", JSON.stringify(this.municipalities));
                 if (this.type) fd.append("type", this.type);
                 fd.append("tariff", parseInt(this.tariff));
                 fd.append("benefits", this.benefits);
@@ -5430,14 +5886,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   console.log("RESPONSE FROM SERVER ", res);
                   toastr.success("Oferta creada con éxito");
                   _this3.company = "";
-                  _this3.department = null;
-                  _this3.municipality = null;
+                  _this3.departments = [];
+                  _this3.municipalities = [];
                   _this3.type = "private";
                   _this3.tariff = "";
                   _this3.benefits = "";
                   _this3.service = null;
                   _this3.points = 0;
-                  _this3.fields_value = [];
+                  _this3.fields_values = [];
 
                   _this3.$refs.zoneSelectRef.reset();
 
@@ -6013,11 +6469,45 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["offer", "services"],
   data: function data() {
     return {
+      active2: false,
       fields_values: [],
+      municipalities: [],
       fields: []
     };
   },
@@ -6789,9 +7279,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var bootstrap_js_dist_tooltip_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! bootstrap/js/dist/tooltip.js */ "./node_modules/bootstrap/js/dist/tooltip.js");
 /* harmony import */ var bootstrap_js_dist_tooltip_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(bootstrap_js_dist_tooltip_js__WEBPACK_IMPORTED_MODULE_0__);
-//
-//
-//
 //
 //
 //
@@ -41956,7 +42443,7 @@ var render = function() {
       staticClass: "no-shadow high-companies-carousel mt-4 text-center",
       attrs: {
         autoplay: true,
-        duration: 1000,
+        duration: 2000,
         bullets: false,
         arrows: false,
         "visible-slides": _vm.companies.length < 4 ? _vm.companies.length : 4,
@@ -41978,7 +42465,7 @@ var render = function() {
                     "div",
                     {
                       staticClass:
-                        "h-100 d-flex text-center justify-content-center"
+                        "h-100 d-flex text-center justify-content-center mx-2"
                     },
                     [
                       _c("img", {
@@ -43476,11 +43963,11 @@ var render = function() {
         "div",
         {
           staticClass:
-            " d-flex flex-row justify-content-center col-12 col-sm-5 col-md-3 col-lg-3 col-xl-3"
+            " d-flex flex-row justify-content-center col-12 col-sm-5 col-md-4 col-lg-4 col-xl-4"
         },
         [
           _c("img", {
-            staticStyle: { "max-height": "100px" },
+            staticClass: "company-logo-item",
             attrs: { src: _vm.baseUrl + "/storage/" + _vm.logo, alt: "" }
           })
         ]
@@ -43490,7 +43977,7 @@ var render = function() {
         "div",
         {
           staticClass:
-            "d-flex flex-row col-12 col-sm-7 col-md-9 col-lg-9 col-xl-9 flex-wrap"
+            "d-flex flex-row col-12 col-sm-7 col-md-8 col-lg-8 col-xl-8 flex-wrap"
         },
         [
           _c(
@@ -43826,8 +44313,6 @@ var render = function() {
           [
             _vm._m(0),
             _vm._v(" "),
-            _vm._m(1),
-            _vm._v(" "),
             _vm._l(_vm.compFields, function(field, k2) {
               return _c(
                 "div",
@@ -43849,6 +44334,8 @@ var render = function() {
                 ]
               )
             }),
+            _vm._v(" "),
+            _vm._m(1),
             _vm._v(" "),
             _vm._m(2)
           ],
@@ -43885,23 +44372,6 @@ var render = function() {
                 ]
               ),
               _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "text-wrap col-xl-2 col-lg-3 col-md-4 col-sm-4 text-center flex-column align-items-center justify-content-center d-xl-flex d-lg-flex d-md-flex hidden-xs hidden-sm"
-                },
-                [
-                  _c("h6", { staticClass: "text-sm" }, [
-                    _vm._v(
-                      "\r\n              " +
-                        _vm._s(offer.benefits) +
-                        "\r\n            "
-                    )
-                  ])
-                ]
-              ),
-              _vm._v(" "),
               _vm._l(offer.fields_values, function(fieldValue, k3) {
                 return _c(
                   "div",
@@ -43923,6 +44393,23 @@ var render = function() {
                   ]
                 )
               }),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "text-wrap col-xl-2 col-lg-3 col-md-4 col-sm-4 text-center flex-column align-items-center justify-content-center d-xl-flex d-lg-flex d-md-flex hidden-xs hidden-sm"
+                },
+                [
+                  _c("h6", { staticClass: "text-sm" }, [
+                    _vm._v(
+                      "\r\n              " +
+                        _vm._s(offer.benefits) +
+                        "\r\n            "
+                    )
+                  ])
+                ]
+              ),
               _vm._v(" "),
               _c(
                 "div",
@@ -43975,25 +44462,6 @@ var render = function() {
                         }
                       },
                       [_vm._v("Consultar")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        staticClass:
-                          "btn btn-sm btn-main-pink rounded-pill mx-1 hidden-xl hidden-xl-xl",
-                        attrs: {
-                          type: "button",
-                          "data-toggle": "modal",
-                          "data-target": "#offerView"
-                        },
-                        on: {
-                          click: function($event) {
-                            return _vm.emitView(k)
-                          }
-                        }
-                      },
-                      [_c("i", { staticClass: "fas fa-eye" })]
                     )
                   ])
                 ]
@@ -44206,10 +44674,26 @@ var render = function() {
                     : _vm._e(),
                   _vm._v(" "),
                   _c("li", { staticClass: "list-group-item" }, [
+                    _c("b", [_vm._v("Tipo de cliente")]),
+                    _vm._v(" "),
+                    _c("a", { staticClass: "float-right" }, [
+                      _vm._v(
+                        _vm._s(
+                          _vm.offer.type
+                            ? _vm.offer.offer_type == "private"
+                              ? "Hogar"
+                              : "Empresa"
+                            : "Todos"
+                        )
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("li", { staticClass: "list-group-item" }, [
                     _c("b", [_vm._v("Tarifa")]),
                     _vm._v(" "),
                     _c("a", { staticClass: "float-right" }, [
-                      _vm._v("$ " + _vm._s(_vm.offer.tariff))
+                      _vm._v("$ " + _vm._s(_vm.showPrice(_vm.offer.tariff)))
                     ])
                   ]),
                   _vm._v(" "),
@@ -44773,7 +45257,7 @@ var render = function() {
         },
         [
           _c("img", {
-            staticStyle: { "max-height": "100px" },
+            staticClass: "company-logo-item",
             attrs: {
               src: _vm.baseUrl + "/storage/" + _vm.offer.company_logo,
               alt: ""
@@ -45086,6 +45570,849 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/items/zone/ZoneSelectOffer.vue?vue&type=template&id=38a8606b&":
+/*!*****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/items/zone/ZoneSelectOffer.vue?vue&type=template&id=38a8606b& ***!
+  \*****************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "d-flex w-100 flex-column justify-content-around" },
+    [
+      _c("div", { staticClass: "row w-100 flex-wrap justify-content-around" }, [
+        _c("div", { staticClass: "col-12" }, [
+          _c(
+            "div",
+            {
+              staticClass: "card card-primary",
+              attrs: { id: "DepartmentsField" }
+            },
+            [
+              _c(
+                "a",
+                {
+                  staticClass: "card-header collapsed",
+                  attrs: {
+                    "data-parent": "#DepartmentsField",
+                    href: "#collapseDepartmentsField",
+                    "aria-expanded": "false",
+                    "data-toggle": "collapse"
+                  },
+                  on: {
+                    click: function($event) {
+                      _vm.activeD = !_vm.activeD
+                    }
+                  }
+                },
+                [
+                  _c("h3", { staticClass: "card-title" }, [
+                    _vm._v("Departamentos")
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "card-tools" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-tool ml-auto ",
+                        attrs: { type: "button" }
+                      },
+                      [_c("personal-fab", { attrs: { active: _vm.activeD } })],
+                      1
+                    )
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "panel-collapse in collapse",
+                  attrs: { id: "collapseDepartmentsField" }
+                },
+                [
+                  _c("div", { staticClass: "card-body" }, [
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "row w-100 flex-wrap justify-content-around"
+                      },
+                      [
+                        _c("div", { staticClass: "col-10 col-xl-6" }, [
+                          _c(
+                            "div",
+                            {
+                              staticClass: "card card-success",
+                              attrs: { id: "addDepartmentAccordion" }
+                            },
+                            [
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "card-header collapsed",
+                                  attrs: {
+                                    "data-parent": "#addDepartmentAccordion",
+                                    href: "#addDepartmentAccordionCollapse",
+                                    "aria-expanded": "false",
+                                    "data-toggle": "collapse"
+                                  },
+                                  on: {
+                                    click: function($event) {
+                                      _vm.active = !_vm.active
+                                    }
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "h3",
+                                    { staticClass: "card-title col-10" },
+                                    [_vm._v("Seleccionar departamento")]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "card-tools" }, [
+                                    _c(
+                                      "button",
+                                      {
+                                        staticClass: "btn btn-tool ml-auto ",
+                                        attrs: { type: "button" }
+                                      },
+                                      [
+                                        _c("personal-fab", {
+                                          attrs: { active: _vm.active }
+                                        })
+                                      ],
+                                      1
+                                    )
+                                  ])
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  staticClass: "panel-collapse in collapse",
+                                  attrs: {
+                                    id: "addDepartmentAccordionCollapse"
+                                  }
+                                },
+                                [
+                                  _c("div", { staticClass: "card-body" }, [
+                                    _c(
+                                      "div",
+                                      { staticClass: "form-group col-12" },
+                                      [
+                                        _c("label", [_vm._v("Departamento")]),
+                                        _vm._v(" "),
+                                        _c(
+                                          "select",
+                                          {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: _vm.department,
+                                                expression: "department"
+                                              }
+                                            ],
+                                            staticClass:
+                                              "custom-select ci-select rounded-pill",
+                                            on: {
+                                              change: function($event) {
+                                                var $$selectedVal = Array.prototype.filter
+                                                  .call(
+                                                    $event.target.options,
+                                                    function(o) {
+                                                      return o.selected
+                                                    }
+                                                  )
+                                                  .map(function(o) {
+                                                    var val =
+                                                      "_value" in o
+                                                        ? o._value
+                                                        : o.value
+                                                    return val
+                                                  })
+                                                _vm.department = $event.target
+                                                  .multiple
+                                                  ? $$selectedVal
+                                                  : $$selectedVal[0]
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "option",
+                                              {
+                                                staticClass: "d-none",
+                                                attrs: {
+                                                  value: "",
+                                                  selected: ""
+                                                }
+                                              },
+                                              [_vm._v("Departamento")]
+                                            ),
+                                            _vm._v(" "),
+                                            _vm._l(_vm.departments, function(
+                                              department,
+                                              index
+                                            ) {
+                                              return _c(
+                                                "option",
+                                                {
+                                                  key: index,
+                                                  domProps: {
+                                                    value: department.name
+                                                  }
+                                                },
+                                                [
+                                                  _vm._v(
+                                                    _vm._s(department.name)
+                                                  )
+                                                ]
+                                              )
+                                            })
+                                          ],
+                                          2
+                                        )
+                                      ]
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "card-footer" }, [
+                                    _c(
+                                      "button",
+                                      {
+                                        staticClass: "btn btn-outline-success",
+                                        attrs: { type: "button" },
+                                        on: { click: _vm.addDepartment }
+                                      },
+                                      [_vm._v("Agregar Departamento")]
+                                    )
+                                  ])
+                                ]
+                              )
+                            ]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-10 col-xl-6" }, [
+                          _c(
+                            "div",
+                            {
+                              staticClass: "card card-info",
+                              attrs: { id: "departmentsAccordion" }
+                            },
+                            [
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "card-header collapsed",
+                                  attrs: {
+                                    "data-parent": "#departmentsAccordion",
+                                    href: "#DepartmentsOfferList",
+                                    "aria-expanded": "false",
+                                    "data-toggle": "collapse"
+                                  },
+                                  on: {
+                                    click: function($event) {
+                                      _vm.active2 = !_vm.active2
+                                    }
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "h3",
+                                    { staticClass: "card-title col-10" },
+                                    [_vm._v("Departamentos seleccionados")]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "card-tools" }, [
+                                    _c(
+                                      "button",
+                                      {
+                                        staticClass: "btn btn-tool ml-auto ",
+                                        attrs: { type: "button" }
+                                      },
+                                      [
+                                        _c("personal-fab", {
+                                          attrs: { active: _vm.active2 }
+                                        })
+                                      ],
+                                      1
+                                    )
+                                  ])
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  staticClass: "panel-collapse in collapse",
+                                  attrs: { id: "DepartmentsOfferList" }
+                                },
+                                [
+                                  _c(
+                                    "div",
+                                    { staticClass: "card-body w-100" },
+                                    [
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "d-flex justify-content-around w-100 flex-wrap"
+                                        },
+                                        [
+                                          _c(
+                                            "ul",
+                                            {
+                                              staticClass:
+                                                "list-group list-group-unbordered mb-3 w-100"
+                                            },
+                                            _vm._l(
+                                              _vm.departmentsSelected,
+                                              function(department, k) {
+                                                return _c(
+                                                  "li",
+                                                  {
+                                                    key: k,
+                                                    staticClass:
+                                                      "list-group-item px-0"
+                                                  },
+                                                  [
+                                                    _c("b", [
+                                                      _vm._v(_vm._s(department))
+                                                    ]),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "a",
+                                                      {
+                                                        staticClass:
+                                                          "float-right"
+                                                      },
+                                                      [
+                                                        _c(
+                                                          "button",
+                                                          {
+                                                            staticClass:
+                                                              "btn btn-tool p-1",
+                                                            attrs: {
+                                                              type: "button"
+                                                            },
+                                                            on: {
+                                                              click: function(
+                                                                $event
+                                                              ) {
+                                                                return _vm.deleteDepartment(
+                                                                  k
+                                                                )
+                                                              }
+                                                            }
+                                                          },
+                                                          [
+                                                            _c("i", {
+                                                              staticClass:
+                                                                "float-button fas fa-plus-circle active text-danger"
+                                                            })
+                                                          ]
+                                                        )
+                                                      ]
+                                                    )
+                                                  ]
+                                                )
+                                              }
+                                            ),
+                                            0
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              )
+                            ]
+                          )
+                        ])
+                      ]
+                    )
+                  ])
+                ]
+              )
+            ]
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "row w-100 flex-wrap justify-content-around" }, [
+        _c("div", { staticClass: "col-12" }, [
+          _c(
+            "div",
+            {
+              staticClass: "card card-primary",
+              attrs: { id: "MunicipalitiesField" }
+            },
+            [
+              _c(
+                "a",
+                {
+                  staticClass: "card-header collapsed",
+                  attrs: {
+                    "data-parent": "#MunicipalitiesField",
+                    href: "#collapseMunicipalitiesField",
+                    "aria-expanded": "false",
+                    "data-toggle": "collapse"
+                  },
+                  on: {
+                    click: function($event) {
+                      _vm.activeM = !_vm.activeM
+                    }
+                  }
+                },
+                [
+                  _c("h3", { staticClass: "card-title" }, [
+                    _vm._v("Municipios")
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "card-tools" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-tool ml-auto ",
+                        attrs: { type: "button" }
+                      },
+                      [_c("personal-fab", { attrs: { active: _vm.activeM } })],
+                      1
+                    )
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "panel-collapse in collapse",
+                  attrs: { id: "collapseMunicipalitiesField" }
+                },
+                [
+                  _c("div", { staticClass: "card-body" }, [
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "row w-100 flex-wrap justify-content-around"
+                      },
+                      [
+                        _c("div", { staticClass: "col-10 col-xl-6" }, [
+                          _c(
+                            "div",
+                            {
+                              staticClass: "card card-success",
+                              attrs: { id: "addMunicipalityAccordion" }
+                            },
+                            [
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "card-header collapsed",
+                                  attrs: {
+                                    "data-parent": "#addMunicipalityAccordion",
+                                    href: "#addMunicipalityAccordionCollapse",
+                                    "aria-expanded": "false",
+                                    "data-toggle": "collapse"
+                                  },
+                                  on: {
+                                    click: function($event) {
+                                      _vm.active3 = !_vm.active3
+                                    }
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "h3",
+                                    { staticClass: "card-title col-10" },
+                                    [_vm._v("Seleccionar Municipio")]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "card-tools" }, [
+                                    _c(
+                                      "button",
+                                      {
+                                        staticClass: "btn btn-tool ml-auto ",
+                                        attrs: { type: "button" }
+                                      },
+                                      [
+                                        _c("personal-fab", {
+                                          attrs: { active: _vm.active3 }
+                                        })
+                                      ],
+                                      1
+                                    )
+                                  ])
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  staticClass: "panel-collapse in collapse",
+                                  attrs: {
+                                    id: "addMunicipalityAccordionCollapse"
+                                  }
+                                },
+                                [
+                                  _c("div", { staticClass: "card-body" }, [
+                                    _c(
+                                      "div",
+                                      { staticClass: "form-group col-12" },
+                                      [
+                                        _c("label", [_vm._v("Departamento")]),
+                                        _vm._v(" "),
+                                        _c(
+                                          "select",
+                                          {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: _vm.selectedDepartment,
+                                                expression: "selectedDepartment"
+                                              }
+                                            ],
+                                            staticClass:
+                                              "custom-select ci-select rounded-pill",
+                                            on: {
+                                              change: [
+                                                function($event) {
+                                                  var $$selectedVal = Array.prototype.filter
+                                                    .call(
+                                                      $event.target.options,
+                                                      function(o) {
+                                                        return o.selected
+                                                      }
+                                                    )
+                                                    .map(function(o) {
+                                                      var val =
+                                                        "_value" in o
+                                                          ? o._value
+                                                          : o.value
+                                                      return val
+                                                    })
+                                                  _vm.selectedDepartment = $event
+                                                    .target.multiple
+                                                    ? $$selectedVal
+                                                    : $$selectedVal[0]
+                                                },
+                                                _vm.customMunicipalities
+                                              ]
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "option",
+                                              {
+                                                staticClass: "d-none",
+                                                attrs: {
+                                                  value: "",
+                                                  selected: ""
+                                                }
+                                              },
+                                              [_vm._v("Departamento")]
+                                            ),
+                                            _vm._v(" "),
+                                            _vm._l(
+                                              _vm.departmentsSelected,
+                                              function(department, index) {
+                                                return _c(
+                                                  "option",
+                                                  {
+                                                    key: index,
+                                                    domProps: {
+                                                      value: department
+                                                    }
+                                                  },
+                                                  [_vm._v(_vm._s(department))]
+                                                )
+                                              }
+                                            )
+                                          ],
+                                          2
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _vm.selectedDepartment
+                                      ? _c(
+                                          "div",
+                                          { staticClass: "form-group col-12" },
+                                          [
+                                            _c("label", [_vm._v("Municipio")]),
+                                            _vm._v(" "),
+                                            _c(
+                                              "select",
+                                              {
+                                                directives: [
+                                                  {
+                                                    name: "model",
+                                                    rawName: "v-model",
+                                                    value: _vm.municipality,
+                                                    expression: "municipality"
+                                                  }
+                                                ],
+                                                staticClass:
+                                                  "custom-select ci-select rounded-pill",
+                                                on: {
+                                                  change: function($event) {
+                                                    var $$selectedVal = Array.prototype.filter
+                                                      .call(
+                                                        $event.target.options,
+                                                        function(o) {
+                                                          return o.selected
+                                                        }
+                                                      )
+                                                      .map(function(o) {
+                                                        var val =
+                                                          "_value" in o
+                                                            ? o._value
+                                                            : o.value
+                                                        return val
+                                                      })
+                                                    _vm.municipality = $event
+                                                      .target.multiple
+                                                      ? $$selectedVal
+                                                      : $$selectedVal[0]
+                                                  }
+                                                }
+                                              },
+                                              [
+                                                _c(
+                                                  "option",
+                                                  {
+                                                    staticClass: "d-none",
+                                                    attrs: {
+                                                      value: "",
+                                                      selected: ""
+                                                    }
+                                                  },
+                                                  [_vm._v("Municipio")]
+                                                ),
+                                                _vm._v(" "),
+                                                _vm._l(
+                                                  _vm.municipalities,
+                                                  function(
+                                                    municipality,
+                                                    index
+                                                  ) {
+                                                    return _c(
+                                                      "option",
+                                                      {
+                                                        key: index,
+                                                        domProps: {
+                                                          value:
+                                                            municipality.name
+                                                        }
+                                                      },
+                                                      [
+                                                        _vm._v(
+                                                          _vm._s(
+                                                            municipality.name
+                                                          )
+                                                        )
+                                                      ]
+                                                    )
+                                                  }
+                                                )
+                                              ],
+                                              2
+                                            )
+                                          ]
+                                        )
+                                      : _vm._e()
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "card-footer" }, [
+                                    _c(
+                                      "button",
+                                      {
+                                        staticClass: "btn btn-outline-success",
+                                        attrs: { type: "button" },
+                                        on: { click: _vm.addMunicipality }
+                                      },
+                                      [_vm._v("Agregar Municipio")]
+                                    )
+                                  ])
+                                ]
+                              )
+                            ]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-10 col-xl-6" }, [
+                          _c(
+                            "div",
+                            {
+                              staticClass: "card card-info",
+                              attrs: { id: "municipalitiesAccordion" }
+                            },
+                            [
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "card-header collapsed",
+                                  attrs: {
+                                    "data-parent": "#municipalitiesAccordion",
+                                    href: "#MunicipalitiesOfferList",
+                                    "aria-expanded": "false",
+                                    "data-toggle": "collapse"
+                                  },
+                                  on: {
+                                    click: function($event) {
+                                      _vm.active4 = !_vm.active4
+                                    }
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "h3",
+                                    { staticClass: "card-title col-10" },
+                                    [_vm._v("Municipios seleccionados")]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "card-tools" }, [
+                                    _c(
+                                      "button",
+                                      {
+                                        staticClass: "btn btn-tool ml-auto ",
+                                        attrs: { type: "button" }
+                                      },
+                                      [
+                                        _c("personal-fab", {
+                                          attrs: { active: _vm.active4 }
+                                        })
+                                      ],
+                                      1
+                                    )
+                                  ])
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  staticClass: "panel-collapse in collapse",
+                                  attrs: { id: "MunicipalitiesOfferList" }
+                                },
+                                [
+                                  _c(
+                                    "div",
+                                    { staticClass: "card-body w-100" },
+                                    [
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "d-flex justify-content-around w-100 flex-wrap"
+                                        },
+                                        [
+                                          _c(
+                                            "ul",
+                                            {
+                                              staticClass:
+                                                "list-group list-group-unbordered mb-3 w-100"
+                                            },
+                                            _vm._l(
+                                              _vm.municipalitiesSelected,
+                                              function(municipality, k2) {
+                                                return _c(
+                                                  "li",
+                                                  {
+                                                    key: k2,
+                                                    staticClass:
+                                                      "list-group-item px-0"
+                                                  },
+                                                  [
+                                                    _c("b", [
+                                                      _vm._v(
+                                                        _vm._s(municipality)
+                                                      )
+                                                    ]),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "a",
+                                                      {
+                                                        staticClass:
+                                                          "float-right"
+                                                      },
+                                                      [
+                                                        _c(
+                                                          "button",
+                                                          {
+                                                            staticClass:
+                                                              "btn btn-tool p-1",
+                                                            attrs: {
+                                                              type: "button"
+                                                            },
+                                                            on: {
+                                                              click: function(
+                                                                $event
+                                                              ) {
+                                                                return _vm.deleteMunicipality(
+                                                                  k2
+                                                                )
+                                                              }
+                                                            }
+                                                          },
+                                                          [
+                                                            _c("i", {
+                                                              staticClass:
+                                                                "float-button fas fa-plus-circle active text-danger"
+                                                            })
+                                                          ]
+                                                        )
+                                                      ]
+                                                    )
+                                                  ]
+                                                )
+                                              }
+                                            ),
+                                            0
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              )
+                            ]
+                          )
+                        ])
+                      ]
+                    )
+                  ])
+                ]
+              )
+            ]
+          )
+        ])
+      ])
+    ]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/items/zone/zoneItem.vue?vue&type=template&id=62d88750&":
 /*!**********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/items/zone/zoneItem.vue?vue&type=template&id=62d88750& ***!
@@ -45204,12 +46531,6 @@ var render = function() {
                     [_vm._v("Departamento")]
                   ),
                   _vm._v(" "),
-                  !_vm.notNullable
-                    ? _c("option", { domProps: { value: null } }, [
-                        _vm._v("Todos")
-                      ])
-                    : _vm._e(),
-                  _vm._v(" "),
                   _vm._l(_vm.departments, function(department, index) {
                     return _c(
                       "option",
@@ -45271,12 +46592,6 @@ var render = function() {
                     },
                     [_vm._v("Municipio")]
                   ),
-                  _vm._v(" "),
-                  !_vm.notNullable
-                    ? _c("option", { domProps: { value: null } }, [
-                        _vm._v("Todos")
-                      ])
-                    : _vm._e(),
                   _vm._v(" "),
                   _vm._l(_vm.municipalities, function(municipality, index) {
                     return _c(
@@ -45978,7 +47293,7 @@ var render = function() {
                     "div",
                     {
                       staticClass:
-                        "d-flex flex-row w-100 justify-content-around flex-wrap"
+                        "d-flex flex-row w-100 justify-content-around flex-wrap my-3"
                     },
                     _vm._l(_vm.fields, function(field, index) {
                       return _c(
@@ -46033,7 +47348,7 @@ var render = function() {
                 "div",
                 {
                   staticClass:
-                    "d-flex flex-row w-100 justify-content-around flex-wrap"
+                    "d-flex flex-row w-100 justify-content-around flex-wrap my-3"
                 },
                 [
                   _c("div", { staticClass: "form-group col-12" }, [
@@ -46065,12 +47380,11 @@ var render = function() {
                 ]
               ),
               _vm._v(" "),
-              _c("zone-select", {
+              _c("zone-custom-selection", {
                 ref: "zoneSelectRef",
-                attrs: { middle: "col-xl-6 col-lg-6 col-md-6 col-12" },
                 on: {
-                  newDepartment: _vm.newDepartment,
-                  newMunicipality: _vm.newMunicipality
+                  departments: _vm.setDepartments,
+                  municipalities: _vm.setMunicipalities
                 }
               }),
               _vm._v(" "),
@@ -46352,7 +47666,7 @@ var render = function() {
                       staticClass: "align-self-center img-fluid",
                       staticStyle: { "max-height": "300px" },
                       attrs: {
-                        src: _vm.baseUrl + "/" + _vm.offer.company_logo,
+                        src: _vm.baseUrl + "/storage/" + _vm.offer.company_logo,
                         alt: "Offer picture"
                       }
                     }),
@@ -46390,10 +47704,18 @@ var render = function() {
                         _vm.offer.highlighted &&
                         _vm.offer.highlighted_expiration
                           ? _c("li", { staticClass: "list-group-item" }, [
-                              _c("b", [_vm._v('Expiración en "Destacadas"')]),
+                              _c("b", [_vm._v("Tipo de cliente")]),
                               _vm._v(" "),
                               _c("a", { staticClass: "float-right" }, [
-                                _vm._v(_vm._s(_vm.offer.highlighted_expiration))
+                                _vm._v(
+                                  _vm._s(
+                                    _vm.offer.type
+                                      ? _vm.offer.offer_type == "private"
+                                        ? "Hogar"
+                                        : "Empresa"
+                                      : "Todos"
+                                  )
+                                )
                               ])
                             ])
                           : _vm._e(),
@@ -46926,32 +48248,175 @@ var render = function() {
                     "d-flex flex-row w-100 justify-content-around flex-wrap"
                 },
                 [
-                  _c("div", { staticClass: "form-group col-12" }, [
-                    _c("label", [_vm._v("Descripcion")]),
-                    _vm._v(" "),
-                    _c("textarea", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.offer.benefits,
-                          expression: "offer.benefits"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      staticStyle: { resize: "none" },
-                      attrs: { rows: "3", placeholder: "Descripcion..." },
-                      domProps: { value: _vm.offer.benefits },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "form-group col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6"
+                    },
+                    [
+                      _c("label", [_vm._v("Descripcion")]),
+                      _vm._v(" "),
+                      _c("textarea", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.offer.benefits,
+                            expression: "offer.benefits"
                           }
-                          _vm.$set(_vm.offer, "benefits", $event.target.value)
+                        ],
+                        staticClass: "form-control",
+                        staticStyle: { resize: "none" },
+                        attrs: { rows: "3", placeholder: "Descripcion..." },
+                        domProps: { value: _vm.offer.benefits },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.offer, "benefits", $event.target.value)
+                          }
                         }
-                      }
-                    })
-                  ])
+                      })
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 py-3 pt-4"
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "card card-primary",
+                          attrs: { id: "MunicipalitiesAccordion" }
+                        },
+                        [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "card-header collapsed",
+                              attrs: {
+                                "data-parent": "#MunicipalitiesAccordion",
+                                href: "#MunicipalitiesOfferList",
+                                "aria-expanded": "false",
+                                "data-toggle": "collapse"
+                              },
+                              on: {
+                                click: function($event) {
+                                  _vm.active2 = !_vm.active2
+                                }
+                              }
+                            },
+                            [
+                              _c("h3", { staticClass: "card-title col-10" }, [
+                                _vm._v("Municipios seleccionados")
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "card-tools" }, [
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass: "btn btn-tool ml-auto ",
+                                    attrs: { type: "button" }
+                                  },
+                                  [
+                                    _c("personal-fab", {
+                                      attrs: { active: _vm.active2 }
+                                    })
+                                  ],
+                                  1
+                                )
+                              ])
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass: "panel-collapse in collapse",
+                              attrs: { id: "MunicipalitiesOfferList" }
+                            },
+                            [
+                              _c("div", { staticClass: "card-body w-100" }, [
+                                _c(
+                                  "div",
+                                  {
+                                    staticClass:
+                                      "d-flex justify-content-around w-100 flex-wrap"
+                                  },
+                                  [
+                                    _c(
+                                      "ul",
+                                      {
+                                        staticClass:
+                                          "list-group list-group-unbordered mb-3 w-100"
+                                      },
+                                      _vm._l(
+                                        _vm.offer.municipalities
+                                          ? JSON.parse(_vm.offer.municipalities)
+                                          : _vm.municipalities,
+                                        function(municipality, k) {
+                                          return _c(
+                                            "li",
+                                            {
+                                              key: k,
+                                              staticClass:
+                                                "list-group-item px-0"
+                                            },
+                                            [
+                                              _c("b", [
+                                                _vm._v(_vm._s(municipality))
+                                              ]),
+                                              _vm._v(" "),
+                                              _c(
+                                                "a",
+                                                { staticClass: "float-right" },
+                                                [
+                                                  _c(
+                                                    "button",
+                                                    {
+                                                      staticClass:
+                                                        "btn btn-tool p-1",
+                                                      attrs: { type: "button" },
+                                                      on: {
+                                                        click: function(
+                                                          $event
+                                                        ) {
+                                                          return _vm.deleteMunicipality(
+                                                            k
+                                                          )
+                                                        }
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("i", {
+                                                        staticClass:
+                                                          "float-button fas fa-plus-circle active text-danger"
+                                                      })
+                                                    ]
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        }
+                                      ),
+                                      0
+                                    )
+                                  ]
+                                )
+                              ])
+                            ]
+                          )
+                        ]
+                      )
+                    ]
+                  )
                 ]
               ),
               _vm._v(" "),
@@ -47850,7 +49315,9 @@ var render = function() {
               [
                 _c(
                   "div",
-                  { staticClass: "col-md-6 col-sm-10 col-10 col-lg-6" },
+                  {
+                    staticClass: "col-md-6 col-sm-10 col-10 col-lg-6 col-xl-6"
+                  },
                   [
                     _c(
                       "div",
@@ -48047,7 +49514,9 @@ var render = function() {
                 _vm._v(" "),
                 _c(
                   "div",
-                  { staticClass: "col-md-6 col-sm-10 col-10 col-lg-6" },
+                  {
+                    staticClass: "col-md-6 col-sm-10 col-10 col-lg-6 col-xl-6"
+                  },
                   [
                     _c(
                       "div",
@@ -48125,8 +49594,7 @@ var render = function() {
                                               JSON.parse(field).type,
                                               JSON.parse(field).unit
                                             )
-                                          ) +
-                                            "\n                                "
+                                          ) + "\n                              "
                                         ),
                                         _c(
                                           "button",
@@ -92475,7 +93943,8 @@ vue__WEBPACK_IMPORTED_MODULE_9___default.a.component('service-update', __webpack
 vue__WEBPACK_IMPORTED_MODULE_9___default.a.component('location-creation', __webpack_require__(/*! ./components/locations/creation/creationForm.vue */ "./resources/js/components/locations/creation/creationForm.vue")["default"]);
 vue__WEBPACK_IMPORTED_MODULE_9___default.a.component('sub-location-creation', __webpack_require__(/*! ./components/locations/creation/subCreationForm.vue */ "./resources/js/components/locations/creation/subCreationForm.vue")["default"]);
 vue__WEBPACK_IMPORTED_MODULE_9___default.a.component('locations-gestion', __webpack_require__(/*! ./components/locations/gestion/gestion.vue */ "./resources/js/components/locations/gestion/gestion.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_9___default.a.component('zone-item', __webpack_require__(/*! ./components/items/zone/zoneItem.vue */ "./resources/js/components/items/zone/zoneItem.vue")["default"]); // Vue.component('location-details', require('./components/items/locations/detailedLocation.vue').default);
+vue__WEBPACK_IMPORTED_MODULE_9___default.a.component('zone-item', __webpack_require__(/*! ./components/items/zone/zoneItem.vue */ "./resources/js/components/items/zone/zoneItem.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_9___default.a.component("zone-custom-selection", __webpack_require__(/*! ./components/items/zone/ZoneSelectOffer.vue */ "./resources/js/components/items/zone/ZoneSelectOffer.vue")["default"]); // Vue.component('location-details', require('./components/items/locations/detailedLocation.vue').default);
 // Vue.component('location-update', require('./components/locations/update/updateForm.vue').default);
 
 vue__WEBPACK_IMPORTED_MODULE_9___default.a.component('plans-creation', __webpack_require__(/*! ./components/plans/creation/creationForm.vue */ "./resources/js/components/plans/creation/creationForm.vue")["default"]);
@@ -94379,6 +95848,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_service_vue_vue_type_template_id_43ae42fe___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_service_vue_vue_type_template_id_43ae42fe___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/items/zone/ZoneSelectOffer.vue":
+/*!****************************************************************!*\
+  !*** ./resources/js/components/items/zone/ZoneSelectOffer.vue ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ZoneSelectOffer_vue_vue_type_template_id_38a8606b___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ZoneSelectOffer.vue?vue&type=template&id=38a8606b& */ "./resources/js/components/items/zone/ZoneSelectOffer.vue?vue&type=template&id=38a8606b&");
+/* harmony import */ var _ZoneSelectOffer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ZoneSelectOffer.vue?vue&type=script&lang=js& */ "./resources/js/components/items/zone/ZoneSelectOffer.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _ZoneSelectOffer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ZoneSelectOffer_vue_vue_type_template_id_38a8606b___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ZoneSelectOffer_vue_vue_type_template_id_38a8606b___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/items/zone/ZoneSelectOffer.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/items/zone/ZoneSelectOffer.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/components/items/zone/ZoneSelectOffer.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ZoneSelectOffer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./ZoneSelectOffer.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/items/zone/ZoneSelectOffer.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ZoneSelectOffer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/items/zone/ZoneSelectOffer.vue?vue&type=template&id=38a8606b&":
+/*!***********************************************************************************************!*\
+  !*** ./resources/js/components/items/zone/ZoneSelectOffer.vue?vue&type=template&id=38a8606b& ***!
+  \***********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ZoneSelectOffer_vue_vue_type_template_id_38a8606b___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./ZoneSelectOffer.vue?vue&type=template&id=38a8606b& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/items/zone/ZoneSelectOffer.vue?vue&type=template&id=38a8606b&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ZoneSelectOffer_vue_vue_type_template_id_38a8606b___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ZoneSelectOffer_vue_vue_type_template_id_38a8606b___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
