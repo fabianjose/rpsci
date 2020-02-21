@@ -106,7 +106,7 @@ class OfferController extends Controller{
       'tariff',
       'points',
       "type",
-      "department",
+      "departments",
       "municipalities",
     ];
 
@@ -126,7 +126,7 @@ class OfferController extends Controller{
     foreach ($keysAllow as $key){
       if (isset($data[$key])){
         $offer->{$key} = $data[$key];
-      }else if($key=='type'||$key=='department'||$key=='municipalities'){
+      }else if($key=='type'||$key=='departments'||$key=='municipalities'){
         $offer->{$key} = null;
       }
     }
@@ -169,7 +169,7 @@ class OfferController extends Controller{
     )
     ->first();
 
-    $offers=Offer::joinFields(array($offer));
+    $offers=Offer::joinFields(array( $offer ));
 
     $offer=$offers[0];
 

@@ -10,13 +10,13 @@
                 <i class="fab fa-instagram i-c-main mx-2 text-white text-lg"></i>
             </div>
         </div>
-        <nav class="main-header navbar-light navbar navbar-expand-md mx-auto py-3 px-4">
+        <nav class="main-header navbar-light navbar navbar-expand-md mx-auto py-3 px-1">
             <ul class="navbar-nav ml-3">
                 <a class="nav-item" href="/">
                     <img class="ic-logo" src="{{ asset('images/logo.png') }}" alt="">
                 </a>
             </ul>
-            <a class="nav-link hidden-md nav-btn ml-auto mx-1 hidden-xl-xl hidden-xl hidden-lg"  href="https://contratainternet.speedtestcustom.com/">
+            <a class="nav-link hidden-md nav-btn ml-auto mx-1 hidden-xl-xl hidden-xl hidden-lg hidden-xs"  href="https://contratainternet.speedtestcustom.com/">
                 <i class="fas fa-tachometer-alt"></i>
             </a>
             <a class="nav-link hidden-md nav-btn mx-1 hidden-xl-xl hidden-xl hidden-lg" data-toggle="collapse"

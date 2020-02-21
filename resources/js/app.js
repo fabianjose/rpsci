@@ -51,6 +51,8 @@ Vue.component("offers-filter", require("./components/offers/filter").default);
 Vue.component("offer-consult", require("./components/forms/contact-modal").default);
 Vue.component("offer-modal", require("./components/items/offers/offerCardDetailed.vue").default);
 Vue.component("offer-detailed", require("./components/offers/detailed").default);
+Vue.component("offer-clone", require("./components/offers/cloning").default);
+Vue.component("offer-zone", require("./components/items/zone/offerZone.vue").default);
 
 // Servicios
 Vue.component('service-creation', require("./components/services/creation/creationForm.vue").default);
@@ -82,6 +84,12 @@ Vue.component("companies-slider", require("./components/companies/listSlider").d
 Vue.component("filter-table", require("./components/items/offers-table").default);
 
 Vue.component("contact-main", require("./components/contact").default);
+
+Vue.component("config-gestion", require("./components/config/gestion").default);
+
+Vue.component("config-counters", require("./components/config/counters").default);
+
+Vue.component("counter", require("./components/items/counters/counter.vue").default);
 
 //Vue.component('plans', require('./components/items/plans/plans.vue').default);
 //Vue.component('plans-details', require('./components/items/services/detailedService.vue').default);

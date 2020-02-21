@@ -121,10 +121,6 @@ class CompanyController extends Controller{
     $company = Company::where('id',$id)->where('trash',0)->first();
     if (!$company) return response()->json(['errorMessage' => 'Empresa no encontrada'],404);
 
-    if ($company->highlighted){
-      return response()->json(['errorMessage' => 'Empresa ya destacada'], 400);
-    }
-
     $company->highlighted = 1;
     $company->highlighted_expiration = $data['highlighted_expiration'];
 		if (!$company->save()) return response()->json(['errorMessage' =>  'Error en la base de datos'],500);
@@ -147,7 +143,7 @@ class CompanyController extends Controller{
 		$companies = DB::table('companies')
     ->where('trash',0)
     ->where('highlighted',1)
-    ->where('highlighted_expiration','>',date('Y-m-d h:i:s'))
+    ->where('highlighted_expiration','>=',date('Y-m-d'))
     ->get();
 		if (!$companies) return response()->json(['errorMessage' =>  'Error en la base de datos'],500);
 		return response()->json($companies, 200);
@@ -158,7 +154,7 @@ class CompanyController extends Controller{
     ->where('trash',0)
     ->where(function($query){
       $query->where('highlighted',0)
-      ->orWhere('highlighted_expiration','<',date('Y-m-d h:i:s'));
+      ->orWhere('highlighted_expiration','<',date('Y-m-d'));
     })
     ->get();
 		if (!$companies) return response()->json(['errorMessage' =>  'Error en la base de datos'],500);

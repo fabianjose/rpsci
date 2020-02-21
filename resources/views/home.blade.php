@@ -8,6 +8,18 @@
 
           <div class="col-12 col-md-6 col-lg-6 col-xl-4">
             <div class="info-box">
+              <span class="info-box-icon bg-main-blue col-3 col-md-4 col-lg-4"><i class="fas fa-cogs text-white"></i></span>
+              <div class="info-box-content">
+                <h5 class="info-box-text text-wrap" style="height:60px;">Configuración</h5>
+                <a href="/config" class="btn btn-block btn-outline-primary">
+                  Gestión  <i class="fas fa-arrow-circle-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-6 col-xl-4">
+            <div class="info-box">
               <span class="info-box-icon bg-primary col-3 col-md-4 col-lg-4"><i class="fas fa-suitcase"></i></span>
               <div class="info-box-content">
                 <h5 class="info-box-text text-wrap" style="height:60px;">Empresas</h5>
@@ -55,7 +67,7 @@
 
           <div class="col-12 col-md-6 col-lg-6 col-xl-4">
             <div class="info-box">
-              <span class="info-box-icon bg-warning col-3 col-md-4 col-lg-4"><i class="fas fa-tags text-white"></i></span>
+              <span class="info-box-icon bg-warning col-3 col-md-4 col-lg-4"><i class="fas fa-tags text-dark"></i></span>
               <div class="info-box-content">
                 <h5 class="info-box-text text-wrap" style="height:60px;">Planes Destacados</h5>
                 <a href="/plans" class="btn btn-block btn-outline-warning text-dark">

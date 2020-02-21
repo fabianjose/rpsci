@@ -31,10 +31,25 @@
               <b>Tarifa</b> <a class="float-right">$ {{showPrice(offer.tariff)}}</a>
             </li>
             <li class="list-group-item">
-              <b>Departamento</b> <a class="float-right">{{offer.department_name?offer.department_name:"Disponible para todos"}}</a>
+            <b>Departamento</b> <a class="float-right">
+                <button class="btn btn-info" v-if="offer.departments" @click="seeList"  data-toggle="modal" data-target="#modalZoneOffer">
+                    Ver lista
+                </button>
+                <span v-else>
+                    Disponible para todos
+                </span>
+            </a>
             </li>
+
             <li class="list-group-item">
-              <b>Municipio</b> <a class="float-right">{{offer.municipality_name?offer.municipality_name:"Disponible para todos"}}</a>
+            <b>Municipio</b> <a class="float-right">
+                <button class="btn btn-info" v-if="offer.municipalities"  @click="seeList" data-toggle="modal" data-target="#modalZoneOffer">
+                    Ver lista
+                </button>
+                <span v-else>
+                    Disponible para todos
+                </span>
+            </a>
             </li>
           </ul>
           <br>
@@ -44,10 +59,14 @@
             </li>
           </ul>
 
+          <offer-zone :municipalities="JSON.parse(offer.municipalities)" :departments="JSON.parse(offer.departments)"></offer-zone>
+
+
           <button href="#" class="btn btn-outline-danger btn-block" data-dismiss="modal"><b>Cerrar</b></button>
         </div>
       </div>
     </div>
+    
   </div>
 </template>
 
@@ -62,8 +81,13 @@ export default {
 
   methods:{
     showPrice(price){
-            return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-        },
+      return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    },
+
+    seeList(){
+      this.$emit("zoneWatch", offer)
+    }
+    
   }
 }
 </script>

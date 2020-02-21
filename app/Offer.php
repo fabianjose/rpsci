@@ -77,6 +77,7 @@ class Offer extends Model{
   public static function joinFields($offersArray){
 
     foreach ($offersArray as $offer) {
+      if($offer)
       $offer->fields_values=DB::table('fields_values')
       ->join("fields", "fields.id", "fields_values.field_id")
       ->where("fields_values.offer_id", $offer->id)

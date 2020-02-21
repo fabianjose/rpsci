@@ -56,7 +56,7 @@ export default {
       let loader = this.$loading.show();
       axios.get(baseUrl+'/api/companies/highlighted')
       .then(res=>{
-        console.log(res);
+        console.log( "copmpanies ",res);
         this.companies=res.data;
       }).catch(err=>{
         if(err.response.status===403){

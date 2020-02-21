@@ -27,8 +27,6 @@ class CreateOffersTable extends Migration
             $table->integer('points')->default(0);
             $table->enum('type',['private','company'])->nullable();
 
-            $table->bigInteger('department')->unsigned()->nullable();
-
             $table->string('departments')->nullable();
 
             $table->string('municipalities')->nullable();

@@ -2,8 +2,8 @@
     <div class="modal fade" id="offerView" aria-modal="true">
       <div class="modal-dialog modal-xl d-flex flex-row justify-content-center">
         <div class="offer-card-lg modal-content">
-          <div class="offer-card-header">
-            <img :src="baseUrl+'/storage/'+offer.company_logo" alt="logo" class="col-10">
+          <div class="offer-card-header col-10">
+            <img :src="baseUrl+'/storage/'+offer.company_logo" alt="logo" class="offer-card-logo">
           </div>
           <div :class="'offer-card-separator '+(index%2?'bg-main-blue':'bg-main-pink')"></div>
           <div class="consult-card-content p-3 pb-5">

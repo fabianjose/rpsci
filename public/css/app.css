@@ -71,8 +71,8 @@
   background-size: cover;
   -webkit-background-size: cover;
   -moz-background-size: cover;
-  height: 36vh;
-  padding: 0;
+  height: auto;
+  padding: 2rem 1em;
   -webkit-box-align: center;
           align-items: center;
   -webkit-box-pack: center;
@@ -128,14 +128,8 @@
 }
 
 .ic-logo-grey {
-  max-width: 70vw;
+  max-width: 220px;
   padding: 5px 10px;
-}
-
-@media (min-width: 575px) {
-  .ic-logo-grey {
-    max-width: 33vw;
-  }
 }
 
 .main-middle {
@@ -370,6 +364,8 @@
 .company-logo-item {
   max-width: 100%;
   max-height: 120px;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .btn-dark-blue {
@@ -440,8 +436,10 @@
 }
 
 .high-companies-img {
-  max-width: 200px;
-  max-height: 200px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  max-width: 100%;
+  max-height: 100px;
 }
 
 #offer-cards .vueperslides__inner .vueperslides__parallax-wrapper {
@@ -537,6 +535,13 @@
   font-size: 1rem;
   height: 90px;
   overflow-y: auto;
+}
+
+.offer-card-logo {
+  -o-object-fit: contain;
+     object-fit: contain;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .offer-card-price {
@@ -666,10 +671,6 @@
 
 .contacto-title-text {
   font-size: 48px;
-}
-
-.contacto-main-content {
-  min-height: 720px;
 }
 
 .contacto-main-content span {
@@ -955,6 +956,15 @@
 
 .offer-table-price {
   font-size: 1.2rem;
+}
+
+.counters-container {
+  display: -webkit-box;
+  display: flex;
+  padding: 1.4rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 @font-face {

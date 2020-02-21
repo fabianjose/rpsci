@@ -54,5 +54,8 @@ Route::group(['middleware' => ['JwtMiddleware']], function () {
   Route::post('offers/highlight/{id}', "OfferController@HighlightOffer");
   Route::delete('offers/highlight/{id}', "OfferController@deleteHighlightOffer");
 
+  Route::get('config', "ConfigController@getAll");
+
+  Route::post('config', "ConfigController@edit");
 
 });

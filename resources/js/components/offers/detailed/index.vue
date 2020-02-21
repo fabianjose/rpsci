@@ -36,21 +36,17 @@
                                 <li class="list-group-item">
                                 <b>Tarifa</b> <a class="float-right">{{showPrice(offer.tariff)}}</a>
                                 </li>
-                                
-                                <li class="list-group-item">
-                                <b>Departamento</b> <a class="float-right">{{offer.department_name?offer.department_name:"Disponible para todos"}}</a>
-                                </li>
-                                
-                                <li class="list-group-item">
-                                <b>Municipio</b> <a class="float-right">{{offer.municipality_name?offer.municipality_name:"Disponible para todos"}}</a>
-                                </li>
 
                             </ul>
+
                             <ul class="list-group list-group-unbordered mb-3 mt-3">
                                 <li class="list-group-item" v-for="(field,index) in offer.fields_values">
                                 <b class="text-capitalize">{{field.field_name}}</b> <a class="float-right">{{field.value+(field.unit?(" ("+field.unit+")"):"")}}</a>
                                 </li>
                             </ul>
+
+                              <offer-zone :municipalities="JSON.parse(offer.municipalities)" :departments="JSON.parse(offer.departments)"></offer-zone>
+
 
                         </div>
                     </div>

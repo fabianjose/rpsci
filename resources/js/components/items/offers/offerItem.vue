@@ -1,6 +1,6 @@
 <template>
   <li class="list-group-item d-flex justify-content-between">
-    <div class=" d-flex flex-row justify-content-center col-12 col-sm-6 col-md4 col-lg-4 col-xl-4">
+    <div style="height:120px" class=" d-flex flex-row justify-content-center col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
         <img class="company-logo-item" :src="baseUrl+'/storage/'+offer.company_logo" alt="">
     </div>
     <div class="d-flex flex-row col-12 col-sm-6 col-md-8 col-lg-8 col-xl-8 flex-wrap align-items-center">
@@ -18,6 +18,10 @@
         <button style="height:40px; width:40px;" v-if="!pick" type="button" class="btn btn-sm btn-danger rounded-pill mx-1"
          @click="emitRemove">
           <i class="fas fa-trash"></i>
+        </button>
+        <button data-toggle="modal" data-target="#modalCloneOffer" style="height:40px; width:40px;" type="button" class="btn btn-sm bg-dark-blue text-white rounded-pill mx-1"
+         @click="emitClone">
+          <i class="fas fa-clone"></i>
         </button>
       </div>
     </div>
@@ -71,6 +75,9 @@ export default {
     },
     emitPick(){
       this.$emit('pick', this.index);
+    },
+    emitClone(){
+      this.$emit("clone", this.index);
     }
   }
 }

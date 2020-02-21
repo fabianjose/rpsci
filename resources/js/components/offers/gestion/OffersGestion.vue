@@ -20,8 +20,8 @@
             <div class="card-body p-0">
               <ul class="list-group p-0">
                 <offerItem v-for="(offer,k) in offers" :key="k"
-                :offer="offer" :index="offer.id"
-                @delete="trash" @view="viewModal" @edit="update"
+                :offer="offer" :index="offer.id" :clone="true"
+                @delete="trash" @view="viewModal" @edit="update" @clone="openCloning"
                 />
               </ul>
             </div>
@@ -31,8 +31,8 @@
     </div>
     <offer-details v-if="currentOffer&&viewMode" :offer="currentOffer">
     </offer-details>
-    <offer-update v-if="currentOffer&&updateMode" :offer="currentOffer" :services="services">
-    </offer-update>
+    <offer-update v-if="currentOffer&&updateMode" :offer="currentOffer" :services="services"></offer-update>
+    <offer-clone v-if="currentOffer&&cloneMode" :offer="currentOffer" :services="services"></offer-clone>
 </div>
 </template>
 
@@ -46,7 +46,10 @@ export default {
       viewMode:false,
       updateMode: false,
       services: null,
-      active: false
+      active: false,
+      cloneMode:false,
+      selectedMunicipalities:[],
+      selectedDepartments:[],
     }
   },
   mounted(){
@@ -119,7 +122,12 @@ export default {
       this.updateMode=false;
       await this.setOffer(id);
       this.updateMode=true;
-    }
+    },
+    async openCloning(id){
+      this.cloneMode=false;
+      await this.setOffer(id);
+      this.cloneMode=true;
+    },
   }
 }
 </script>

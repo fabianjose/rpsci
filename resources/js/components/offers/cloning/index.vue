@@ -1,36 +1,15 @@
 <template>
-<div class="modal fade" id="modalEditOffer" aria-modal="true" style="padding-right: 15px; display: block;">
+<div class="modal fade" id="modalCloneOffer" aria-modal="true" style="padding-right: 15px; display: block;">
 
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
-      <div class="modal-header bg-success text-white">
-        <h4 class="modal-title">Editar Oferta</h4>
+      <div class="modal-header bg-dark-blue text-white">
+        <h4 class="modal-title">Clonar Oferta</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">×</span>
         </button>
       </div>
       <div class="modal-body">
-        <div class="d-flex flex-row w-100 justify-content-around flex-wrap">
-          <div class="form-group col-xl-6 col-lg-6 col-md-6 col-12">
-            <label>Empresa</label>
-            <autocomplete-vue
-            v-model="offer.company_name"
-            url="/api/companies"
-            requestType="get"
-            placeholder="Empresa"
-            property="name"
-            :required="true"
-            :threshold="1"
-            inputClass="form-control"
-            ></autocomplete-vue>
-          </div>
-          <div class="form-group col-xl-6 col-lg-6 col-md-6 col-12">
-            <label>Servicio</label>
-            <select class="custom-select" @change="getFields" v-model="offer.service">
-              <option :value="service.id" v-for="service in services"  :key="service.id">{{service.name}}</option>
-            </select>
-          </div>
-        </div>
         <div class="d-flex flex-row w-100 justify-content-around flex-wrap" v-if="!offer.fields_values.length&&fields.length">
           <div class="form-group col-xl-4 col-lg-4 col-md-6 col-12" v-for="(field,index) in fields" >
             <label>{{field.name+(field.unit?" ("+field.unit+")":"")}}</label>
@@ -49,11 +28,6 @@
             <textarea class="form-control" rows="3" placeholder="Descripcion..." v-model="offer.benefits" style="resize: none;"></textarea>
           </div>
         </div>
-        
-        <zone-custom-selection @departments="setDepartments" @municipalities="setMunicipalities" 
-          ref="zoneSelectRef" :defaultDepartments="offer.departments?JSON.parse(offer.departments):[]"
-          :defaultMunicipalities="offer.municipalities?JSON.parse(offer.municipalities):[]" ></zone-custom-selection>
-
 
         <div class="d-flex flex-row w-100 justify-content-around flex-wrap">
           <div class="form-group col-xl-4 col-lg-4 col-md-6 col-12">
@@ -83,7 +57,7 @@
       </div>
       <div class="modal-footer justify-content-between">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-outline-info" @click="editOffer">Editar</button>
+        <button type="button" class="btn btn-outline-info" @click="cloneOffer">Clonar</button>
       </div>
     </div>
     <!-- /.modal-content -->
@@ -100,7 +74,6 @@ export default {
     return{
       active2:false,
       fields_values:[],
-      municipalities:[],
       fields:[],
     }
   },
@@ -110,13 +83,6 @@ export default {
   },
 
   methods:{
-    setDepartments(departments){
-      this.offer.departments=JSON.stringify(departments);
-    },
-
-    setMunicipalities(municipalities){
-      this.offer.municipalities=JSON.stringify(municipalities);
-    },
 
     getFields(){
       console.log("ser-vice",this.offer.service)
@@ -128,7 +94,7 @@ export default {
       }).catch(err=>{console.error(err);toastr.error("error al obtener los campos del servicio")})
     },
 
-    async editOffer(){
+    async cloneOffer(){
 
       let valuesArray=[];
 
@@ -185,12 +151,12 @@ export default {
       if(this.offer.type) fd.append("type", this.offer.type);
       fd.append("points", this.offer.points);
       fd.append("fields_values", valuesArray.length?JSON.stringify(valuesArray):null);
-      fd.append("_method","put");
-      axios.post(baseUrl+"/api/offer/"+this.offer.id, fd)
+
+      axios.post(baseUrl+"/api/offer", fd)
       .then(res=>{
         console.log("RESPONSE FROM SERVER ",res);
 
-        toastr.success("Oferta editada con éxito");
+        toastr.success("Oferta clonada con éxito");
         setTimeout(function(){
           window.location.reload();
         }, 2000);

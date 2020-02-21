@@ -1,6 +1,6 @@
 <template>
-    <div class="d-flex justify-content-center contacto-main-content row">
-		<div class="card card-primary contacto-card flex-wrap bg-light p-3 col-10 col-sm-10 col-md-10 col-lg-4 col-xl-4">
+    <div class="d-flex justify-content-center contacto-main-content flex-row flex-wrap">
+		<div class="card card-primary contacto-card flex-wrap bg-light p-3 col-10 col-sm-10 col-md-8 col-lg-5 col-xl-5">
             <div class="card-body d-flex flex-column align-items-center pt-4 w-100">
                 <h5 class="contacto-card-title font-weight-bold text-center">Ponte en contacto con nosotros</h5>
                 <div class="d-flex flex-column w-100 py-3">
@@ -17,11 +17,8 @@
                         </div>
                     </div>
                     <div class="form-group my-2">
-                        <zone-select :notNullable="true" @newDepartment="newDepartment" :hideMunicipality="true" middle="col-12" ></zone-select>
-                    </div>
-                    <div class="form-group my-2">
                         <label>Mensaje adicional</label>
-                        <textarea v-model="message" rows="8" class="form-control w-100" placeholder="Mensaje..."></textarea>
+                        <textarea v-model="message" rows="4" class="form-control w-100" placeholder="Mensaje..."></textarea>
                     </div>
                 </div>
                 <div class="col-12 my-2 d-flex justify-content-center align-items-center">
@@ -38,22 +35,24 @@
                 </div>
             </div>
 	  </div>
-      <div class="col-10 col-sm-10 col-md-10 col-lg-7 col-xl-7 d-flex flex-column p-4 align-items-center">
+      <div class="col-10 col-sm-10 col-md-8 col-lg-6 col-xl-6 d-flex flex-column px-3 py-4">
 
-        <h5 class="contacto-card-title mt-4 font-weight-bold text-center">Ubícanos</h5>
+            <h5 class="contacto-card-title my-3 font-weight-bold text-center">Ubica nuestra oficina</h5>
 
-        <GmapMap
-            :center="{lat:4.613033, lng:-74.144560}"
-            :zoom="17"
-            map-type-id="roadmap"
-            style="width: 90%; height: 550px"
-        >
-        <GmapMarker
-            :position="{lat:4.613033, lng:-74.144560}"
-            :clickable="false"
-            :draggable="false"
-        />
-        </GmapMap>
+            <div class="d-flex flex-row my-2 justify-content-start w-100">
+                <b><i class="fas fa-map-marker-alt text-lg text-main-blue mx-2"></i>    Dirección:</b>
+                
+                <span class="mts-regular mx-2">Colombia, Bogotá, calle 38a sur #72 k 30</span>
+            </div> 
+            <div class="d-flex flex-row my-2 justify-content-start w-100">
+                <b><i class="fas fa-phone text-lg text-main-blue mx-2"></i>    Teléfono:</b>
+                <span class="mts-regular mx-2">+57 (1) 7868510</span>
+            </div> 
+            <div class="d-flex flex-row my-2 justify-content-start w-100">
+                <b><i class="fas fas fa-mail-bulk text-lg text-main-blue mx-2"></i>    Correo:</b>
+                <span class="mts-regular mx-2">contacto@contratainternet.co</span>
+            </div>
+
       </div>
 	</div>
 </template>
@@ -65,7 +64,6 @@ export default {
             fullName:"",
             email:"",
             phone:"",
-            department:"",
             message:"",
             baseUrl:baseUrl,
             disableButton:false,
@@ -74,11 +72,6 @@ export default {
     },
 
     methods:{
-
-        newDepartment(department){
-            console.log("department ",department);
-            this.department=department;
-        },
 
         /*verifyCaptcha(captcha){
             this.captcha=captcha;
@@ -109,9 +102,6 @@ export default {
             else return toastr.error("Rellene todos los campos");
             
             if(this.phone&&this.phone!="") fd.append("phone", this.phone);
-            else return toastr.error("Rellene todos los campos");
-
-            if(this.department&&this.department!="") fd.append("department", this.department);
             else return toastr.error("Rellene todos los campos");
 
             if(this.message&&this.message!="") fd.append("message", this.message);

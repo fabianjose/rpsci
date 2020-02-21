@@ -1,8 +1,10 @@
 <template>
   <div class="col-md-8 col-xl-4 col-10 col-lg-6 col-sm-8">
-    <div class="card card-primary">
+    <div class="card card-primary py-3">
       <div class="card-body d-flex flex-column align-items-center">
-        <img class="image-logo-banner" :src="baseUrl+'/storage/'+offer.company_logo">
+        <div style="height:120px" class="d-flex flex-column justify-content-center align-items-center">
+          <img class="image-logo-banner" :src="baseUrl+'/storage/'+offer.company_logo">
+        </div>
         <h4 class="px-2 mt-3 text-dark card-text text-capitalize">{{offer.service_name}}</h4>
         <h6 class="px-2 mt-1 text-dark card-text text-capitalize">{{offer.company_name}}</h6>
         <p v-if="this.highlighted" :class="'px-2 mt-1 card-text'+getDaysClass()">Expira en: {{getExpiration()}}</p>

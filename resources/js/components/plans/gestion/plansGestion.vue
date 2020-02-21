@@ -23,7 +23,7 @@
         </div>
       </div>
     </div>
-    <div class="row justify-content-space-around py-4">
+    <div class="row justify-content-around py-4 col-10 mx-auto">
       <offer v-for="(offer,k) in offers" :key="k"
       :index="offer.id" :offer="offer" :highlighted="true"
       @delete="trash" @view="viewModal"

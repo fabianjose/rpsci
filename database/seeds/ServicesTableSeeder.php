@@ -12,9 +12,5 @@ class ServicesTableSeeder extends Seeder
      */
     public function run()
     {
-      DB::table('services')->insert([
-        "name" => 'Internet',
-        "fields" =>  '1: {name: name, type: string}'
-      ]);
     }
 }

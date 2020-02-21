@@ -36,6 +36,12 @@
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu">
           <li class="nav-item ">
+            <a class="nav-link d-flex flex-row align-items-center" href="/config">
+              <i class="fa fa-cogs"></i col-2>
+              <p class="col-10">Configuración</p>
+            </a>
+          </li>
+          <li class="nav-item ">
             <a class="nav-link d-flex flex-row align-items-center" href="/companies">
               <i class="fa fa-suitcase"></i col-2>
               <p class="col-10">Empresas</p>
@@ -88,7 +94,7 @@
       </div>
     </div>
   </section>
-  <section class="content" >
+  <section class="content pb-5" >
     @yield('content-adminlte')
   </section>
 </div>

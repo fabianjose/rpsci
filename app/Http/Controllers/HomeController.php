@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Config;
 
 class HomeController extends Controller
 {
@@ -24,7 +25,9 @@ class HomeController extends Controller
 
     public function landing()
     {
-        return view('landing');
+        $configItems=Config::all();
+
+        return view('landing')->with(["configs"=>$configItems]);
     }
 
 }

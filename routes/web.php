@@ -40,6 +40,10 @@ Route::group(["middleware" => ["isAuth"]], function(){
         return view('home');
     });
 
+    Route::get("/config", function(){
+        return view("pages.config");
+    });
+
     Route::get("/companies", function(){
         return view('pages.companies');
     });

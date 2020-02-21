@@ -180,7 +180,7 @@
 
 <script>
 export default {
-    props:["defaultDepartmens","defaultMunicipalities"],
+    props:["defaultDepartments","defaultMunicipalities"],
     data(){
         return {
           activeD:false,
@@ -230,7 +230,7 @@ export default {
             this.setValues();
         },
 
-        deleteMunicipality(index){
+        deleteDepartment(index){
             this.departmentsSelected.splice(index,1);
             this.setValues();
         },

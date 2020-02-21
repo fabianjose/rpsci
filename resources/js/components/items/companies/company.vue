@@ -1,6 +1,6 @@
 <template>
     <li class="list-group-item d-flex justify-content-around align-items-center px-2 flex-wrap">
-        <div class=" d-flex flex-row justify-content-center col-12 col-sm-5 col-md-4 col-lg-4 col-xl-4">
+        <div style="height:120px;" class=" d-flex flex-row justify-content-center col-12 col-sm-5 col-md-4 col-lg-4 col-xl-4">
             <img class="company-logo-item" :src="baseUrl+'/storage/'+logo" alt="">
         </div>
         <div class="d-flex flex-row col-12 col-sm-7 col-md-8 col-lg-8 col-xl-8 flex-wrap">  
