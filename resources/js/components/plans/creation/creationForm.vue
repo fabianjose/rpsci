@@ -191,7 +191,16 @@ export default {
 
       if(!this.selectedOffer) return toastr.error("Primero seleccione una oferta")
 
+      if(this.department) fd.append("department", this.department);
+
+      else return toastr.error("rellene los campos requeridos");
+      
+      if(this.municipality) fd.append("municipality", this.municipality);
+
+      else return toastr.error("rellene los campos requeridos");
+
       if(this.expiration) fd.append("highlighted_expiration", this.expiration);
+      
       else return toastr.error("Debe introducir una fecha de expiración");
 
       let loader = this.$loading.show();

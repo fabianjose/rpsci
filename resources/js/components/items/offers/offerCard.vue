@@ -1,7 +1,7 @@
 <template>
-  <div class="offer-card d-flex flex-column justify-content-between">
+  <div class="offer-card d-flex flex-column">
     <div class="offer-card-header">
-      <img :src="baseUrl+'/'+offer.company_logo" alt="logo" style="max-height:160px; max-width: 160px;">
+      <img :src="baseUrl+'/storage/'+offer.company_logo" alt="logo" class="h-100 img-fluid">
     </div>
     <div :class="'offer-card-separator '+(index%2?'bg-main-blue':'bg-main-pink')"></div>
     <div class="offer-card-content">
@@ -10,9 +10,9 @@
       </div>
       <div class="row">
         <h6 class="col-12 offer-card-benefits text-wrap" style="font-family:Montserrat-regular">{{offer.benefits}}</h6>
-      </div>
+      </div> 
       <div class="row">
-        <h5 class="col-12 offer-card-price">{{Math.trunc(offer.tariff)}} $</h5>
+        <h5 class="col-12 offer-card-price">$ {{showPrice(offer.tariff)}}</h5>
       </div>
     </div>
     <div class="offer-card-footer">
@@ -36,6 +36,9 @@ export default {
   },
 
   methods:{
+    showPrice(price){
+        return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    },
     emitContact(){
       this.$emit("contactOffer",this.index);
     }

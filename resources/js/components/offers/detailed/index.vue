@@ -15,7 +15,7 @@
                     <div id="collapseOne" class="panel-collapse collapse show" >
                         <div class="card-body d-flex flex-column box-profile">
 
-                            <img class="align-self-center img-fluid" :src="baseUrl+'/storage/'+offer.company_logo" alt="Offer picture" style="max-height: 300px;">
+                            <img class="align-self-center img-fluid col-10" :src="baseUrl+'/storage/'+offer.company_logo" alt="Offer picture" style="max-height: 300px;">
 
                             <h2 class="profile-username text-center">{{offer.service_name}}</h2>
 
@@ -23,18 +23,38 @@
 
                             <p class="text-muted text-center">{{offer.benefits}}</p>
 
-                            <ul class="list-group list-group-unbordered mb-3">
-                                
-                                <li class="list-group-item">
-                                <b>Tipo de cliente</b> <a class="float-right">{{offer.offer_type=="private"?"Hogar":"Empresa"}}</a>
-                                </li>
+                            <ul class="list-group list-group-unbordered mb-3 px-3">
 
                                 <li v-if="offer.highlighted&&offer.highlighted_expiration" class="list-group-item">
-                                <b>Tipo de cliente</b> <a class="float-right">{{offer.type?(offer.offer_type=="private"?"Hogar":"Empresa"):"Todos"}}</a>
+                                  <b>Expiración en "Destacadas"</b> <a class="float-right">{{offer.highlighted_expiration}}</a>
+                                </li>
+
+                                <li class="list-group-item">
+                                    <b>Tipo de cliente</b> <a class="float-right">{{offer.type?(offer.type=="private"?"Hogar":"Empresa"):"Todos"}}</a>
                                 </li>
 
                                 <li class="list-group-item">
                                 <b>Tarifa</b> <a class="float-right">{{showPrice(offer.tariff)}}</a>
+                                </li>
+
+                                <li class="list-group-item">
+                                <b>Puntuación</b> <a class="float-right">{{offer.points}}</a>
+                                </li>
+
+                                <li v-if="!JSON.parse(offer.departments)||!JSON.parse(offer.departments.length)" class="list-group-item">
+                                <b>Departamento</b> <a class="float-right">
+                                    <span >
+                                        Disponible para todos
+                                    </span>
+                                </a>
+                                </li>
+
+                                <li v-if="!JSON.parse(offer.municipalities)||!JSON.parse(offer.municipalities.length)" class="list-group-item">
+                                <b>Municipio</b> <a class="float-right">
+                                    <span>
+                                        Disponible para todos
+                                    </span>
+                                </a>
                                 </li>
 
                             </ul>
@@ -45,7 +65,7 @@
                                 </li>
                             </ul>
 
-                              <offer-zone :municipalities="JSON.parse(offer.municipalities)" :departments="JSON.parse(offer.departments)"></offer-zone>
+                            <offer-zone :municipalities="JSON.parse(offer.municipalities)" :departments="JSON.parse(offer.departments)"></offer-zone>
 
 
                         </div>

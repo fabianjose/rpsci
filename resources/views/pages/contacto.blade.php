@@ -1,6 +1,12 @@
 @extends("layouts.landing")
 
 @section("content-page")
+<meta name="keywords" content="contratar internet, internet hogar,
+    internet satelital, internet para hogares, internet wifi, internet banda ancha,
+    internet para negocios, internet para empresas, internet empresas, internet fibra optica,
+    internet en bogota, internet para pueblos, internetpara mi casa, internet pymes,
+    internet business, internet radio, internet economico, internet rapido">
+    
 <div class="d-flex flex-column contacto-main w-100">
 	<div class="d-flex justify-content-end align-items-end w-100 contacto-title p-5">
 		<div class="">
@@ -10,7 +16,7 @@
 		</div>
 	</div>
 	<contact-main></contact-main>
-	<div class="d-flex contacto-footer flex-wrap w-100 p-5 mt-5">
+	<!-- <div class="d-flex contacto-footer flex-wrap w-100 p-5 mt-5">
 		<div class="col-md-6 col-12">
 			<h4 class="font-weight-bold contacto-footer-title text-uppercase">
 				También puedes comunicarte con nosotros a través de:
@@ -25,6 +31,6 @@
 				<span class="text-lg">Numero de Telefono: <span class="text-md ml-2">+55 121 4545 7878</span></span>
 			</div>
 		</div>
-	</div>
+	</div> -->
 </div>
 @stop

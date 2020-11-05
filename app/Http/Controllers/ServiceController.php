@@ -34,8 +34,10 @@ class ServiceController extends Controller{
     $service = Service::create($data);
 
     if($fields){
-      foreach ($fields as $field) {
-        Fields::storeData($service->id,json_decode($field));
+      foreach ($fields as $key=> $field) {
+        $field=json_decode($field);
+        $field->field_id=null;
+        Fields::storeData($service->id,$field);
       }
     }
 
@@ -47,8 +49,7 @@ class ServiceController extends Controller{
     $data = $request->all();
     $validation = Validator::make($data, [
       'name' => ['string', 'min:6', 'max:128', 'required'],
-      'fields' => ['json', "array", 'max:2', 'nullable'],
-      "fields.*"=> "json",
+      'fields' => ['json', 'nullable'],
       "fields.*.name"=> "string|max:32|min:3",
       "fields.*.type"=> "in:numeric,string",
       "fields.*.unit"=> "string|max:16|min:1|nullable",
@@ -70,6 +71,42 @@ class ServiceController extends Controller{
         $service->{$key} = $data[$key];
       }
     }
+
+    $fields = $request->input("fields")?json_decode($data["fields"]):null;
+
+    if($fields){
+      foreach ($fields as $key => $field) {
+        $field=json_decode($field);
+        $field->field_id=null;
+        $fields[$key]=json_encode($field);
+        
+      }
+    }
+
+    $existentFields= DB::table("fields")->where("service_id", $service->id)->get();
+
+    if($existentFields){
+      foreach ($existentFields as $key => $exField) {
+        if($fields){
+          if(count($fields)>$key){
+            $field=json_decode($fields[$key]);
+            $field->field_id= $exField->id;
+            $fields[$key] = json_encode($field);
+          }
+          else {
+            $field=Fields::find($exField->id);
+            $field->delete();
+          }
+        }
+      }
+    }
+
+    if($fields){
+      foreach ($fields as $field) {
+        Fields::storeData($service->id,json_decode($field));
+      }
+    }
+    
     if (!$service->save()){
 
       return response()->json('Error en la base de datos', 500);

@@ -2,11 +2,11 @@
 
 @section("content-page")
 <div>
-        <div class="main-section-bg" style="position:relative;">
+        <div class="main-section-bg" style="position:relative;" >
 
             <div class="bg-ic d-flex flex-row justify-content-around flex-wrap align-items-center">
-                <img class="ic-logo-grey my-2" src="{{asset('/images/logo-blanco.png')}}" alt="">
-                <config-counters :counters="{{json_encode($configs)}}" class="col-10 col-sm-10 col-md-6 col-lg-6 col-xl-6"></config-counters>
+                <img class="ic-logo-grey my-2" src="{{asset('/images/BOTON-200x200.png')}}" alt="">
+                <config-counters :counters="{{json_encode($configs)}}" class="col-10 col-sm-10 col-md-7 col-lg-7 col-xl-7"></config-counters>
             </div>
             <div class=about-section>
                 <div class="d-flex flex-column about-sub py-5">
@@ -54,7 +54,8 @@
             <companies-slider />
           </div>
         </div>
-
+<div  id="planes_destacados">
+</div>
         <high-plans></high-plans>
 
 </div>

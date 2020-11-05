@@ -57,7 +57,7 @@
             <div class="info-box">
               <span class="info-box-icon bg-info col-3 col-md-4 col-lg-4"><i class="fas fa-tag"></i></span>
               <div class="info-box-content">
-                <h5 class="info-box-text text-wrap" style="height:60px;">Banners Publicitarios</h5>
+                <h5 class="info-box-text text-wrap" style="height:60px;">Destacar Logo</h5>
                 <a href="/banners" class="btn btn-block btn-outline-info">
                   Gestión  <i class="fas fa-arrow-circle-right"></i>
                 </a>
@@ -69,7 +69,7 @@
             <div class="info-box">
               <span class="info-box-icon bg-warning col-3 col-md-4 col-lg-4"><i class="fas fa-tags text-dark"></i></span>
               <div class="info-box-content">
-                <h5 class="info-box-text text-wrap" style="height:60px;">Planes Destacados</h5>
+                <h5 class="info-box-text text-wrap" style="height:60px;">Destacar Plan</h5>
                 <a href="/plans" class="btn btn-block btn-outline-warning text-dark">
                   Gestión  <i class="fas fa-arrow-circle-right"></i>
                 </a>

@@ -70,7 +70,7 @@ export default {
         },
         getExpiration(){
           let daysRemaining=this.getDays();
-          return daysRemaining+' '+(daysRemaining>1?'días':'día');
+          return daysRemaining>0?( daysRemaining+' '+(daysRemaining>1?'días':'día')):' Hoy';
         },
         emitView(){
             this.$emit('view', this.index)

@@ -13,6 +13,7 @@ use App\Service;
 use Illuminate\Pagination\Paginator;
 use App\FieldsValues;
 use App\Offer;
+use App\Highlight;
 
 class OfferController extends Controller{
 
@@ -145,7 +146,7 @@ class OfferController extends Controller{
     ->select('offers.*',
     'companies.name as company_name',
     'companies.logo as company_logo',
-    'services.name as service_name',
+    'services.name as service_name'
     )
     ->get();
 
@@ -165,7 +166,7 @@ class OfferController extends Controller{
     ->select('offers.*',
     'companies.name as company_name',
     'companies.logo as company_logo',
-    'services.name as service_name',
+    'services.name as service_name'
     )
     ->first();
 
@@ -205,7 +206,6 @@ class OfferController extends Controller{
 
     $offers = DB::table('offers')
     ->where('offers.trash',0)
-    ->where('offers.highlighted',0)
     ->where('company',$company->id)
     ->where(function($query) use($department){
       $query->where('departments', "like" ,'%'.$department->name.'%')
@@ -221,15 +221,37 @@ class OfferController extends Controller{
     ->select('offers.*',
     'companies.name as company_name',
     'companies.logo as company_logo',
-    'services.name as service_name',
+    'services.name as service_name'
     )
     ->get();
 
-    $offers= Offer::joinFields($offers->toArray());
+    $offersAll =  [];
+    
+   foreach ($offers as $offer) {
+     $highlights= DB::table('highlights')->where("offer", $offer->id)->get();
 
+     if(!$highlights) array_push($offersAll,$offer);
+     
+     else{
+        
+        $pushArray=true;
+       
+        foreach ($highlights as $highlight) {
+          if($highlight->department==$department->id
+            &&$highlight->municipality==$municipality->id
+            &&$highlight->highlighted_expiration>=date('Y-m-d')) $pushArray=false;  
+        }
+
+        if($pushArray) array_push($offersAll,$offer);
+      }
+    }
+
+    $offers= Offer::joinFields($offersAll);
+    
+    
     if (!$offers) return response()->json(["errorMessage"=>'No se encontraron ofertas sin destacar'],404);
 		return response()->json($offers, 200);
-  }
+  }//here
 
   public function searchOffers(Request $request){
     $data = $request->all();
@@ -274,7 +296,7 @@ class OfferController extends Controller{
     ->select('offers.*',
     'companies.name as company_name',
     'companies.logo as company_logo',
-    'services.name as service_name',
+    'services.name as service_name'
     );
 
     if (!$offers) return response()->json(["errorMessage"=>'No se encontraron ofertas disponibles'],404);
@@ -348,8 +370,10 @@ class OfferController extends Controller{
 
     $offers = DB::table('offers')
     ->where('offers.trash',0)
-    ->where("offers.highlighted",1)
-    ->where("offers.highlighted_expiration", '>=', date('Y-m-d H:i:s'))
+    ->join('highlights','highlights.offer','offers.id')
+    ->where("highlights.department", $department->id)
+    ->where("highlights.municipality",$municipality->id)
+    ->where('highlights.highlighted_expiration','>=',date('Y-m-d h:i:s'))
     ->where(function($query) use($department){
       $query->where('departments', "like" ,'%'.$department->name.'%')
       ->orWhere("departments",null);
@@ -364,6 +388,7 @@ class OfferController extends Controller{
     'companies.name as company_name',
     'companies.logo as company_logo',
     'services.name as service_name',
+    'highlights.highlighted_expiration as highlighted_expiration'
     )->get();
 
     
@@ -373,51 +398,63 @@ class OfferController extends Controller{
     
     if (!$offers) return response()->json(["errorMessage"=>'No se encontraron ofertas disponibles'],404);
     return response()->json($offers, 200);
-  }
+  }//here
 
   public function HighlightOffer($id, Request $request){
     $data = $request->all();
     //var_dump($data["highlighted_expiration"]); exit();
     $validation = Validator::make($data, [
       'highlighted_expiration' => ['required', 'date',"after_or_equal:".date('Y-m-d')],
+      "department" => "required|exists:departments,name",
+      "municipality" => "required|exists:municipalities,name",
     ]);
     if ($validation->fails()){
       return response()->json($validation->errors(), 400);
     }
 
     $offer = Offer::find($id);
-		if (!$offer) return response()->json('Oferta no encontrada',404);
+    if (!$offer) return response()->json('Oferta no encontrada',404);
+    
+    $department = Department::where('name',$data['department'])->first();
+    $municipality = Municipality::where('name',$data['municipality'])->first();
 
-    $offer->highlighted = 1;
-    $offer->highlighted_expiration = $data['highlighted_expiration'];
-    if (!$offer->save()) return response()->json('Error en la base de datos',500);
+    $data["offer"] = $offer->id;
+    $data["department"] = $department->id;
+    $data["municipality"] = $municipality->id;
+
+    $highlight= Highlight::findOrCreate($data);
+    
+    if (!$highlight) return response()->json('Error en la base de datos',500);
     return response()->json('Oferta destacada', 200);
 
-  }
+  }//here
 
   public function deleteHighlightOffer($id){
     
     $offer = Offer::find($id);
-		if (!$offer) return response()->json('Oferta no encontrada',404);
+    if (!$offer) return response()->json('Oferta no encontrada',404);
+    
+    $highlight= Highlight::where("offer","=",$offer->id)->first();
 
-    $offer->highlighted = 0;
-    $offer->highlighted_expiration = null;
-    if (!$offer->save()) return response()->json('Error en la base de datos',500);
+    if(!$highlight) return response()->json("Oferta no destacada", 400);
+
+    if (!$highlight->delete()) return response()->json('Error en la base de datos',500);
     return response()->json('Oferta puesta fuera de "destacados"', 200);
 
   }
 
   public function getAllHighlighted(){
-		$offers = DB::table('offers')
+    $offers = DB::table('offers')
     ->where('offers.trash',0)
-    ->where('offers.highlighted',1)
-    ->where('offers.highlighted_expiration','>=',date('Y-m-d h:i:s'))
+    ->join("highlights", "highlights.offer", "offer.id")
+    ->where('highlights.highlighted_expiration','>=',date('Y-m-d h:i:s'))
     ->join('companies','companies.id','offers.company')
     ->join('services', 'services.id','offers.service')
     ->select('offers.*',
     'companies.name as company_name',
     'companies.logo as company_logo',
     'services.name as service_name',
+    'highlights.highlighted_expiration as highlighted_expiration'
     )
     ->get();
 

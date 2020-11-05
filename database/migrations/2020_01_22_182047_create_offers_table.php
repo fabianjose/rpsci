@@ -27,12 +27,9 @@ class CreateOffersTable extends Migration
             $table->integer('points')->default(0);
             $table->enum('type',['private','company'])->nullable();
 
-            $table->string('departments')->nullable();
+            $table->longText('departments')->nullable();
 
-            $table->string('municipalities')->nullable();
-
-            $table->boolean('highlighted')->default(0);
-            $table->timestamp('highlighted_expiration')->nullable();
+            $table->longText('municipalities')->nullable();
 
             $table->boolean('trash')->default(0);
             $table->timestamps();

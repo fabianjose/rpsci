@@ -17,7 +17,18 @@
 
                 <div id="collapseDepartmentsField" class="panel-collapse in collapse" >
                     <div class="card-body">
-                        <div class="row w-100 flex-wrap justify-content-around">
+
+                        <div class="d-flex flex-row flex-wrap col-10 col-sm-10 col-lg-8 col-xl-8 py-3 mx-auto justify-content-center">
+                            <div class=" text-center custom-control custom-radio col-10 col-sm-10 col-md-6 col-lg-6 col-xl-6 mx-0" @click="departmentSelection=false; setValues();" >
+                                <input type="radio" class="custom-control-input" :checked="!departmentSelection" id="allSelect" >
+                                <label class="custom-control-label" for="allSelect">Todos</label>
+                            </div>
+                            <div class=" text-center custom-control custom-radio col-10 col-sm-10 col-md-6 col-lg-6 col-xl-6 mx-0" @click="departmentSelection=true;" >
+                                <input type="radio" class="custom-control-input" :checked="departmentSelection==true" id="detailSelect">
+                                <label class="custom-control-label" for="detailSelect">Seleccionar</label>
+                            </div>
+                        </div>
+                        <div v-if="departmentSelection" class="row w-100 flex-wrap justify-content-around">
                             <div class="col-10 col-xl-6">
                                 <div class="card card-success" id="addDepartmentAccordion">
                                     <a class="card-header collapsed" @click="active=!active" data-parent="#addDepartmentAccordion"
@@ -31,7 +42,7 @@
                                     </a>
                                     <div id="addDepartmentAccordionCollapse" class="panel-collapse in collapse" >
                                         <div class="card-body">
-                                            <div class="form-group col-12">
+                                            <div v-if="departmentSelection" class="form-group col-12">
                                                 <label>Departamento</label>
                                                 <select class="custom-select ci-select rounded-pill" v-model="department">
                                                     <option value="" class="d-none" selected>Departamento</option>
@@ -46,7 +57,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-10 col-xl-6">
+                            <div v-if="departmentSelection" class="col-10 col-xl-6">
                                 <div class="card card-info" id="departmentsAccordion">
                                     <a class="card-header collapsed" @click="active2=!active2" data-parent="#departmentsAccordion"
                                     href="#DepartmentsOfferList" aria-expanded="false" data-toggle="collapse">
@@ -57,7 +68,7 @@
                                         </button>
                                     </div>
                                     </a>
-                                    <div id="DepartmentsOfferList" class="panel-collapse in collapse" >
+                                    <div id="DepartmentsOfferList" class="panel-collapse in show" >
                                         <div class="card-body w-100">
                                         
                                             <div class="d-flex justify-content-around w-100 flex-wrap">
@@ -101,7 +112,17 @@
 
                 <div id="collapseMunicipalitiesField" class="panel-collapse in collapse" >
                     <div class="card-body">
-                        <div class="row w-100 flex-wrap justify-content-around">
+                        <div class="d-flex flex-row flex-wrap col-10 col-sm-10 col-lg-8 col-xl-8 py-3 mx-auto justify-content-center">
+                            <div class=" text-center custom-control custom-radio col-10 col-sm-10 col-md-6 col-lg-6 col-xl-6 mx-0" @click="municipalitiesSelection=false; setValues();" >
+                                <input type="radio" class="custom-control-input" :checked="!municipalitiesSelection" id="allMunSelect" >
+                                <label class="custom-control-label" for="allMunSelect">Todos</label>
+                            </div>
+                            <div class=" text-center custom-control custom-radio col-10 col-sm-10 col-md-6 col-lg-6 col-xl-6 mx-0" @click="municipalitiesSelection=true;" >
+                                <input type="radio" class="custom-control-input" :checked="municipalitiesSelection==true" id="detailMunSelect">
+                                <label class="custom-control-label" for="detailMunSelect">Seleccionar</label>
+                            </div>
+                        </div>
+                        <div v-if="municipalitiesSelection" class="row w-100 flex-wrap justify-content-around">
                             <div class="col-10 col-xl-6">
                                 <div class="card card-success" id="addMunicipalityAccordion">
                                     <a class="card-header collapsed" @click="active3=!active3" data-parent="#addMunicipalityAccordion"
@@ -115,14 +136,14 @@
                                     </a>
                                     <div id="addMunicipalityAccordionCollapse" class="panel-collapse in collapse" >
                                         <div class="card-body">
-                                            <div class="form-group col-12">
+                                            <div v-if="municipalitiesSelection" class="form-group col-12">
                                             <label>Departamento</label>
                                             <select class="custom-select ci-select rounded-pill" v-model="selectedDepartment" @change="customMunicipalities">
                                                 <option value="" class="d-none" selected>Departamento</option>
-                                                <option v-for="(department,index) in departmentsSelected" :key="index" :value="department">{{department}}</option>
+                                                <option v-for="(department,index) in departmentsSelected.length&&departmentSelection?departmentsSelected:departments" :key="index" :value="department.name?department.name:department">{{department.name?department.name:department}}</option>
                                             </select>
                                             </div>
-                                            <div v-if="selectedDepartment" class="form-group col-12">
+                                            <div v-if="selectedDepartment&&municipalitiesSelection" class="form-group col-12">
                                                 <label>Municipio</label>
                                                 <select class="custom-select ci-select rounded-pill" v-model="municipality">
                                                     <option value="" class="d-none" selected>Municipio</option>
@@ -137,7 +158,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-10 col-xl-6">
+                            <div v-if="municipalitiesSelection" class="col-10 col-xl-6">
                                 <div class="card card-info" id="municipalitiesAccordion">
                                     <a class="card-header collapsed" @click="active4=!active4" data-parent="#municipalitiesAccordion"
                                     href="#MunicipalitiesOfferList" aria-expanded="false" data-toggle="collapse">
@@ -148,7 +169,7 @@
                                         </button>
                                     </div>
                                     </a>
-                                    <div id="MunicipalitiesOfferList" class="panel-collapse in collapse" >
+                                    <div id="MunicipalitiesOfferList" class="panel-collapse in show" >
                                         <div class="card-body w-100">
                                         
                                             <div class="d-flex justify-content-around w-100 flex-wrap">
@@ -186,9 +207,12 @@ export default {
           activeD:false,
           activeM:false,
           active:false,
-          active2:false,
+          active2:true,
           active3:false,
+          active4:true,
           municipality:null,
+          municipalitiesSelection:this.defaultDepartments&&this.defaultDepartments.length?true:false,
+          departmentSelection:this.defaultMunicipalities&&this.defaultMunicipalities.length?true:false,
           department:null,
           selectedDepartment:null,
           active4:false,
@@ -255,8 +279,12 @@ export default {
             });
         },
         async setValues(){
-            await this.$emit("departments",this.departmentsSelected);
-            await this.$emit("municipalities",this.municipalitiesSelected);
+            if(this.departmentSelection)
+                await this.$emit("departments",this.departmentsSelected);
+            else this.$emit("departments",[]);
+            if(this.municipalitiesSelection)
+                await this.$emit("municipalities",this.municipalitiesSelected);
+            else this.$emit("municipalities", []);
         },
 
         async customMunicipalities(){

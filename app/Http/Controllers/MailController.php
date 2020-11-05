@@ -75,7 +75,7 @@ class MailController extends Controller
       ,function ($m)
       {
           $m->from(config("mail.username"));
-          $m->to("contact.contratainternet@gmail.com", "Admin")->subject("offer Request");
+          $m->to("contacto@contratainternet.co", "Admin")->subject("offer Request");
       });
 
       return response()->json("Formulario enviado exitosamente", 200);

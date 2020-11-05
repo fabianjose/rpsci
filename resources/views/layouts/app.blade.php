@@ -10,11 +10,19 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <meta name="re-captcha-key" content="{{ config('captcha.site_key') }}" > 
+    <meta name="re-captcha-key" content="{{ config('captcha.site_key') }}" >
     <!-- Base URL -->
+    <meta name="description" content="buscador de internet en toda colombia"/>
     <meta name="base-url" content="{{ URL::to('/') }}">
-
-    <title>{{ config('app.name', 'Contrata Internet') }}</title>
+    <meta name="keywords" content="contratar internet, contratar internet, internet hogar,
+    internet satelital, internet para hogares, internet wifi, internet banda ancha,
+    internet para negocios, internet para empresas, internet empresas, internet fibra optica,
+    internet en bogota, internet para pueblos, internetpara mi casa, internet pymes,
+    internet business, internet radio, internet economico, internet rapido, el internet
+    mas economico de colombia, colombia internet, internet barato, tigo, claro, net2phone,
+    telefonia ip, telefonia movil, voz sobre ip, telefonos grandStream, internexa, 
+    azteca comunicaciones, HughesNet, ETB, Voip, telefonia en la nube, central virtual">
+    <h1> <title>{{ config('app.name', 'Contratar Internet') }}</title> </h1>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -64,7 +72,7 @@
     </script>
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-151798596-4"></script>
-    
+
     <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}

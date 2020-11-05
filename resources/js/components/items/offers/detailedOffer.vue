@@ -24,29 +24,28 @@
             </li>
 
             <li class="list-group-item">
-            <b>Tipo de cliente</b> <a class="float-right">{{offer.type?(offer.offer_type=="private"?"Hogar":"Empresa"):"Todos"}}</a>
+              <b>Tipo de cliente</b> <a class="float-right">{{offer.type?(offer.type=="private"?"Hogar":"Empresa"):"Todos"}}</a>
             </li>
 
             <li class="list-group-item">
               <b>Tarifa</b> <a class="float-right">$ {{showPrice(offer.tariff)}}</a>
             </li>
+
             <li class="list-group-item">
+              <b>Puntuación</b> <a class="float-right">{{offer.points}}</a>
+            </li>
+
+            <li v-if="!JSON.parse(offer.departments)||!JSON.parse(offer.departments.length)" class="list-group-item">
             <b>Departamento</b> <a class="float-right">
-                <button class="btn btn-info" v-if="offer.departments" @click="seeList"  data-toggle="modal" data-target="#modalZoneOffer">
-                    Ver lista
-                </button>
-                <span v-else>
+                <span >
                     Disponible para todos
                 </span>
             </a>
             </li>
 
-            <li class="list-group-item">
-            <b>Municipio</b> <a class="float-right">
-                <button class="btn btn-info" v-if="offer.municipalities"  @click="seeList" data-toggle="modal" data-target="#modalZoneOffer">
-                    Ver lista
-                </button>
-                <span v-else>
+            <li v-if="!JSON.parse(offer.municipalities)||!JSON.parse(offer.municipalities.length)" class="list-group-item">
+              <b>Municipio</b> <a class="float-right">
+                <span>
                     Disponible para todos
                 </span>
             </a>

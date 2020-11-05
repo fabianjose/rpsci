@@ -1942,6 +1942,12 @@ module.exports = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 //
 //
 //
@@ -2066,28 +2072,18 @@ __webpack_require__.r(__webpack_exports__);
 
           for (var errorkey in allErrors) {
             if (allErrors[errorkey]) {
-              var _iteratorNormalCompletion = true;
-              var _didIteratorError = false;
-              var _iteratorError = undefined;
+              var _iterator = _createForOfIteratorHelper(allErrors[errorkey]),
+                  _step;
 
               try {
-                for (var _iterator = allErrors[errorkey][Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                for (_iterator.s(); !(_step = _iterator.n()).done;) {
                   var error = _step.value;
                   toastr.error(error);
                 }
               } catch (err) {
-                _didIteratorError = true;
-                _iteratorError = err;
+                _iterator.e(err);
               } finally {
-                try {
-                  if (!_iteratorNormalCompletion && _iterator["return"] != null) {
-                    _iterator["return"]();
-                  }
-                } finally {
-                  if (_didIteratorError) {
-                    throw _iteratorError;
-                  }
-                }
+                _iterator.f();
               }
             }
           }
@@ -2110,6 +2106,12 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 //
 //
 //
@@ -2224,28 +2226,18 @@ __webpack_require__.r(__webpack_exports__);
 
           for (var errorkey in allErrors) {
             if (allErrors[errorkey]) {
-              var _iteratorNormalCompletion = true;
-              var _didIteratorError = false;
-              var _iteratorError = undefined;
+              var _iterator = _createForOfIteratorHelper(allErrors[errorkey]),
+                  _step;
 
               try {
-                for (var _iterator = allErrors[errorkey][Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                for (_iterator.s(); !(_step = _iterator.n()).done;) {
                   var error = _step.value;
                   toastr.error(error);
                 }
               } catch (err) {
-                _didIteratorError = true;
-                _iteratorError = err;
+                _iterator.e(err);
               } finally {
-                try {
-                  if (!_iteratorNormalCompletion && _iterator["return"] != null) {
-                    _iterator["return"]();
-                  }
-                } finally {
-                  if (_didIteratorError) {
-                    throw _iteratorError;
-                  }
-                }
+                _iterator.f();
               }
             }
           }
@@ -2352,47 +2344,41 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         return loader.hide();
       });
     },
-    setCompany: function () {
-      var _setCompany = _asyncToGenerator(
-      /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(id) {
+    setCompany: function setCompany(id) {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
         var currentCompany;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return this.companies.find(function (company) {
+                return _this2.companies.find(function (company) {
                   return company.id === id;
                 });
 
               case 2:
                 currentCompany = _context.sent;
-                this.currentCompany = currentCompany;
+                _this2.currentCompany = currentCompany;
 
               case 4:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, this);
-      }));
-
-      function setCompany(_x) {
-        return _setCompany.apply(this, arguments);
-      }
-
-      return setCompany;
-    }(),
+        }, _callee);
+      }))();
+    },
     trash: function trash(id) {
-      var _this2 = this;
+      var _this3 = this;
 
       var loader = this.$loading.show();
       axios.put(baseUrl + '/api/company/' + id + '/dehighlight').then(function (res) {
         console.log(res);
         toastr.success("Compañía sacada de destacadas");
 
-        _this2.refreshData();
+        _this3.refreshData();
       })["catch"](function (err) {
         if (err.response.status === 403) {
           window.location.replace(baseUrl + "/login");
@@ -2406,37 +2392,31 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       })["finally"](function () {
         loader.hide();
 
-        _this2.$refs.cHighlight.refreshData();
+        _this3.$refs.cHighlight.refreshData();
       });
     },
-    viewModal: function () {
-      var _viewModal = _asyncToGenerator(
-      /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(id) {
+    viewModal: function viewModal(id) {
+      var _this4 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.next = 2;
-                return this.setCompany(id);
+                return _this4.setCompany(id);
 
               case 2:
-                this.viewMode = true;
+                _this4.viewMode = true;
 
               case 3:
               case "end":
                 return _context2.stop();
             }
           }
-        }, _callee2, this);
-      }));
-
-      function viewModal(_x2) {
-        return _viewModal.apply(this, arguments);
-      }
-
-      return viewModal;
-    }()
+        }, _callee2);
+      }))();
+    }
   }
 });
 
@@ -2532,75 +2512,63 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         return loader.hide();
       });
     },
-    setCompany: function () {
-      var _setCompany = _asyncToGenerator(
-      /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(id) {
+    setCompany: function setCompany(id) {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
         var currentCompany;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return this.companies.find(function (company) {
+                return _this2.companies.find(function (company) {
                   return company.id === id;
                 });
 
               case 2:
                 currentCompany = _context.sent;
-                this.currentCompany = currentCompany;
+                _this2.currentCompany = currentCompany;
 
               case 4:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, this);
-      }));
+        }, _callee);
+      }))();
+    },
+    update: function update(id) {
+      var _this3 = this;
 
-      function setCompany(_x) {
-        return _setCompany.apply(this, arguments);
-      }
-
-      return setCompany;
-    }(),
-    update: function () {
-      var _update = _asyncToGenerator(
-      /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(id) {
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.next = 2;
-                return this.setCompany(id);
+                return _this3.setCompany(id);
 
               case 2:
-                this.updateMode = true;
+                _this3.updateMode = true;
 
               case 3:
               case "end":
                 return _context2.stop();
             }
           }
-        }, _callee2, this);
-      }));
-
-      function update(_x2) {
-        return _update.apply(this, arguments);
-      }
-
-      return update;
-    }(),
+        }, _callee2);
+      }))();
+    },
     trash: function trash(id) {
-      var _this2 = this;
+      var _this4 = this;
 
       var loader = this.$loading.show();
       axios["delete"](baseUrl + '/api/company/' + id).then(function (res) {
         console.log(res);
         toastr.success("Compañía eliminada con éxito");
 
-        _this2.refreshData();
+        _this4.refreshData();
       })["catch"](function (err) {
         if (err.response.status === 403) {
           window.location.replace(baseUrl + "/login");
@@ -2613,34 +2581,28 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         return loader.hide();
       });
     },
-    viewModal: function () {
-      var _viewModal = _asyncToGenerator(
-      /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(id) {
+    viewModal: function viewModal(id) {
+      var _this5 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
                 _context3.next = 2;
-                return this.setCompany(id);
+                return _this5.setCompany(id);
 
               case 2:
-                this.viewMode = true;
+                _this5.viewMode = true;
 
               case 3:
               case "end":
                 return _context3.stop();
             }
           }
-        }, _callee3, this);
-      }));
-
-      function viewModal(_x3) {
-        return _viewModal.apply(this, arguments);
-      }
-
-      return viewModal;
-    }()
+        }, _callee3);
+      }))();
+    }
   }
 });
 
@@ -2750,6 +2712,12 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 //
 //
 //
@@ -2857,28 +2825,18 @@ __webpack_require__.r(__webpack_exports__);
 
           for (var errorkey in allErrors) {
             if (allErrors[errorkey]) {
-              var _iteratorNormalCompletion = true;
-              var _didIteratorError = false;
-              var _iteratorError = undefined;
+              var _iterator = _createForOfIteratorHelper(allErrors[errorkey]),
+                  _step;
 
               try {
-                for (var _iterator = allErrors[errorkey][Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                for (_iterator.s(); !(_step = _iterator.n()).done;) {
                   var error = _step.value;
                   toastr.error(error);
                 }
               } catch (err) {
-                _didIteratorError = true;
-                _iteratorError = err;
+                _iterator.e(err);
               } finally {
-                try {
-                  if (!_iteratorNormalCompletion && _iterator["return"] != null) {
-                    _iterator["return"]();
-                  }
-                } finally {
-                  if (_didIteratorError) {
-                    throw _iteratorError;
-                  }
-                }
+                _iterator.f();
               }
             }
           }
@@ -3061,11 +3019,11 @@ __webpack_require__.r(__webpack_exports__);
     /*verifyCaptcha(captcha){
         this.captcha=captcha;
     },
-      onCaptchaError(err){
+     onCaptchaError(err){
         console.log("error captcha ", err)
         toastr.error("error en la validación del captcha, comprueba tu conexión a internet e intenta nuevamente")
     },
-      onCaptchaExpired(err){
+     onCaptchaExpired(err){
         console.log("error captcha ", err)
         toastr.error("el captcha se expiró, intente nuevamente")
     },*/
@@ -3173,11 +3131,11 @@ __webpack_require__.r(__webpack_exports__);
     verifyCaptcha(captcha){
         this.captcha=captcha;
     },
-      onCaptchaError(err){
+     onCaptchaError(err){
         console.log("error captcha ", err)
         toastr.error("error en la validación del captcha, comprueba tu conexión a internet e intenta nuevamente")
     },
-      onCaptchaExpired(err){
+     onCaptchaExpired(err){
         console.log("error captcha ", err)
         toastr.error("el captcha se expiró, intente nuevamente")
     },*/
@@ -3412,6 +3370,12 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 //
 //
 //
@@ -3503,28 +3467,18 @@ __webpack_require__.r(__webpack_exports__);
 
       for (var errorkey in allErrors) {
         if (allErrors[errorkey]) {
-          var _iteratorNormalCompletion = true;
-          var _didIteratorError = false;
-          var _iteratorError = undefined;
+          var _iterator = _createForOfIteratorHelper(allErrors[errorkey]),
+              _step;
 
           try {
-            for (var _iterator = allErrors[errorkey][Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+            for (_iterator.s(); !(_step = _iterator.n()).done;) {
               var error = _step.value;
               toastr.error(error);
             }
           } catch (err) {
-            _didIteratorError = true;
-            _iteratorError = err;
+            _iterator.e(err);
           } finally {
-            try {
-              if (!_iteratorNormalCompletion && _iterator["return"] != null) {
-                _iterator["return"]();
-              }
-            } finally {
-              if (_didIteratorError) {
-                throw _iteratorError;
-              }
-            }
+            _iterator.f();
           }
         }
       }
@@ -3637,8 +3591,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ["title", "logo", "index", 'noEdit'],
+  props: ["title", "logo", "index", 'noEdit', "pick", "picked"],
   data: function data() {
     return {
       baseUrl: baseUrl
@@ -3653,6 +3613,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     emitRemove: function emitRemove() {
       this.$emit('delete', this.index);
+    },
+    emitPick: function emitPick() {
+      this.$emit("pick", this.index);
     }
   }
 });
@@ -3720,6 +3683,98 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/items/companies/select.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/items/companies/select.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ["companies"],
+  data: function data() {
+    return {
+      currentCompany: null,
+      currentCompanyView: null,
+      active: false,
+      viewMode: false
+    };
+  },
+  methods: {
+    pickCompany: function pickCompany(index) {
+      this.$emit("company", this.companies[index]);
+      this.currentCompany = this.companies[index].id;
+    },
+    viewCompany: function viewCompany(index) {
+      this.viewMode = false;
+      this.currentCompanyView = this.companies[index];
+      this.viewMode = true;
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/items/counters/counter.vue?vue&type=script&lang=js&":
 /*!*********************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/items/counters/counter.vue?vue&type=script&lang=js& ***!
@@ -3737,7 +3792,47 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ["counter"]
+  props: ["counter"],
+  data: function data() {
+    return {
+      counterValue: 0
+    };
+  },
+  mounted: function mounted() {
+    this.increaseCounter();
+  },
+  methods: {
+    showPrice: function showPrice(price) {
+      return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    },
+    increaseCounter: function increaseCounter() {
+      var _this = this;
+
+      console.log("va lue ", this.counter.value.match(/\d+/)[0]);
+      var counterInterval = setInterval(function () {
+        var limitVal = _this.counter.value.match(/\d+/)[0];
+
+        _this.counterValue += limitVal * 0.02;
+
+        if (_this.counterValue >= limitVal) {
+          console.log(_this.counterValue);
+          return clearInterval(counterInterval);
+        }
+      }, 20);
+    },
+    getCounterValue: function getCounterValue(counter) {
+      var num = counter;
+      return parseInt(num); // if value < 1000, nothing to do
+
+      if (num > 999 && num < 1000000) {
+        return (num / 1000).toFixed(0) + 'K'; // convert to K for number from > 1000 < 1 million 
+      } else if (num > 1000000) {
+        return (num / 1000000).toFixed(0) + 'M'; // convert to M for number from > 1 million 
+      } else if (num < 900) {
+        return parseInt(num); // if value < 1000, nothing to do
+      }
+    }
+  }
 });
 
 /***/ }),
@@ -3983,7 +4078,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["offer"],
   data: function data() {
@@ -4020,6 +4114,8 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
+//
 //
 //
 //
@@ -4111,7 +4207,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           autoplay: true
         }
       },
-      locationDenied: false,
       inCapital: false,
       department: null,
       municipality: null,
@@ -4132,20 +4227,23 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     initGeo: function initGeo() {
       var _this = this;
 
-      navigator.geolocation.getCurrentPosition(function (location) {
-        console.log("location ", location);
-        _this.latLng = "&latlng=" + location.coords.latitude;
-        _this.latLng += "," + location.coords.longitude;
+      if ("geolocation" in navigator) {
+        navigator.geolocation.getCurrentPosition(function (location) {
+          console.log("location ", location);
+          _this.latLng = "&latlng=" + location.coords.latitude;
+          _this.latLng += "," + location.coords.longitude;
 
-        _this.callGmap();
-      }, function (err) {
-        console.log("error ", err);
-        _this.locationDenied = true; //this.department=""
+          _this.callGmap();
+        }, function (err) {
+          console.log("error ", err); //this.department=""
 
-        _this.refreshData();
-      }, {
-        timeout: 10000
-      });
+          _this.refreshData();
+        }, {
+          timeout: 10000
+        });
+      } else {
+        this.refreshDefault();
+      }
     },
     callGmap: function callGmap() {
       var _this2 = this;
@@ -4154,12 +4252,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         _method: "get"
       }).then(function (res) {
         return res.json();
-      }).then(
-      /*#__PURE__*/
-      function () {
-        var _ref = _asyncToGenerator(
-        /*#__PURE__*/
-        _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(res) {
+      }).then( /*#__PURE__*/function () {
+        var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(res) {
           return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
             while (1) {
               switch (_context.prev = _context.next) {
@@ -4320,7 +4414,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     getExpiration: function getExpiration() {
       var daysRemaining = this.getDays();
-      return daysRemaining + ' ' + (daysRemaining > 1 ? 'días' : 'día');
+      return daysRemaining > 0 ? daysRemaining + ' ' + (daysRemaining > 1 ? 'días' : 'día') : ' Hoy';
     },
     emitView: function emitView() {
       this.$emit('view', this.index);
@@ -4690,6 +4784,29 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -4873,44 +4990,42 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["defaultDepartments", "defaultMunicipalities"],
   data: function data() {
-    return {
+    var _ref;
+
+    return _ref = {
       activeD: false,
       activeM: false,
       active: false,
-      active2: false,
+      active2: true,
       active3: false,
+      active4: true,
       municipality: null,
+      municipalitiesSelection: this.defaultDepartments && this.defaultDepartments.length ? true : false,
+      departmentSelection: this.defaultMunicipalities && this.defaultMunicipalities.length ? true : false,
       department: null,
-      selectedDepartment: null,
-      active4: false,
-      departments: [],
-      departmentsSelected: this.defaultDepartments ? this.defaultDepartments : [],
-      municipalities: [],
-      municipalitiesSelected: this.defaultMunicipalities ? this.defaultMunicipalities : []
-    };
+      selectedDepartment: null
+    }, _defineProperty(_ref, "active4", false), _defineProperty(_ref, "departments", []), _defineProperty(_ref, "departmentsSelected", this.defaultDepartments ? this.defaultDepartments : []), _defineProperty(_ref, "municipalities", []), _defineProperty(_ref, "municipalitiesSelected", this.defaultMunicipalities ? this.defaultMunicipalities : []), _ref;
   },
   mounted: function mounted() {
     this.getDepartments();
   },
   methods: {
-    addMunicipality: function () {
-      var _addMunicipality = _asyncToGenerator(
-      /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        var _this = this;
+    addMunicipality: function addMunicipality() {
+      var _this = this;
 
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
         var index;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                if (!this.municipalitiesSelected.length) {
+                if (!_this.municipalitiesSelected.length) {
                   _context.next = 11;
                   break;
                 }
 
                 _context.next = 3;
-                return this.municipalitiesSelected.findIndex(function (item) {
+                return _this.municipalitiesSelected.findIndex(function (item) {
                   return item === _this.municipality;
                 });
 
@@ -4922,7 +5037,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   break;
                 }
 
-                this.municipalitiesSelected.push(this.municipality);
+                _this.municipalitiesSelected.push(_this.municipality);
+
                 _context.next = 9;
                 break;
 
@@ -4934,47 +5050,39 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 break;
 
               case 11:
-                this.municipalitiesSelected.push(this.municipality);
+                _this.municipalitiesSelected.push(_this.municipality);
 
               case 12:
-                this.setValues();
+                _this.setValues();
 
               case 13:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, this);
-      }));
-
-      function addMunicipality() {
-        return _addMunicipality.apply(this, arguments);
-      }
-
-      return addMunicipality;
-    }(),
+        }, _callee);
+      }))();
+    },
     deleteMunicipality: function deleteMunicipality(index) {
       this.municipalitiesSelected.splice(index, 1);
       this.setValues();
     },
-    addDepartment: function () {
-      var _addDepartment = _asyncToGenerator(
-      /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
-        var _this2 = this;
+    addDepartment: function addDepartment() {
+      var _this2 = this;
 
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
         var index;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                if (!this.departmentsSelected.length) {
+                if (!_this2.departmentsSelected.length) {
                   _context2.next = 11;
                   break;
                 }
 
                 _context2.next = 3;
-                return this.departmentsSelected.findIndex(function (item) {
+                return _this2.departmentsSelected.findIndex(function (item) {
                   return item === _this2.department;
                 });
 
@@ -4986,7 +5094,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   break;
                 }
 
-                this.departmentsSelected.push(this.department);
+                _this2.departmentsSelected.push(_this2.department);
+
                 _context2.next = 9;
                 break;
 
@@ -4998,25 +5107,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 break;
 
               case 11:
-                this.departmentsSelected.push(this.department);
+                _this2.departmentsSelected.push(_this2.department);
 
               case 12:
-                this.setValues();
+                _this2.setValues();
 
               case 13:
               case "end":
                 return _context2.stop();
             }
           }
-        }, _callee2, this);
-      }));
-
-      function addDepartment() {
-        return _addDepartment.apply(this, arguments);
-      }
-
-      return addDepartment;
-    }(),
+        }, _callee2);
+      }))();
+    },
     deleteDepartment: function deleteDepartment(index) {
       this.departmentsSelected.splice(index, 1);
       this.setValues();
@@ -5042,46 +5145,62 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }
       });
     },
-    setValues: function () {
-      var _setValues = _asyncToGenerator(
-      /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
+    setValues: function setValues() {
+      var _this4 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
-                _context3.next = 2;
-                return this.$emit("departments", this.departmentsSelected);
+                if (!_this4.departmentSelection) {
+                  _context3.next = 5;
+                  break;
+                }
 
-              case 2:
-                _context3.next = 4;
-                return this.$emit("municipalities", this.municipalitiesSelected);
+                _context3.next = 3;
+                return _this4.$emit("departments", _this4.departmentsSelected);
 
-              case 4:
+              case 3:
+                _context3.next = 6;
+                break;
+
+              case 5:
+                _this4.$emit("departments", []);
+
+              case 6:
+                if (!_this4.municipalitiesSelection) {
+                  _context3.next = 11;
+                  break;
+                }
+
+                _context3.next = 9;
+                return _this4.$emit("municipalities", _this4.municipalitiesSelected);
+
+              case 9:
+                _context3.next = 12;
+                break;
+
+              case 11:
+                _this4.$emit("municipalities", []);
+
+              case 12:
               case "end":
                 return _context3.stop();
             }
           }
-        }, _callee3, this);
-      }));
+        }, _callee3);
+      }))();
+    },
+    customMunicipalities: function customMunicipalities() {
+      var _this5 = this;
 
-      function setValues() {
-        return _setValues.apply(this, arguments);
-      }
-
-      return setValues;
-    }(),
-    customMunicipalities: function () {
-      var _customMunicipalities = _asyncToGenerator(
-      /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4() {
-        var _this4 = this;
-
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4() {
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
           while (1) {
             switch (_context4.prev = _context4.next) {
               case 0:
-                if (this.selectedDepartment) {
+                if (_this5.selectedDepartment) {
                   _context4.next = 2;
                   break;
                 }
@@ -5089,8 +5208,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _context4.abrupt("return");
 
               case 2:
-                axios.get(baseUrl + '/api/municipalities/' + this.selectedDepartment).then(function (res) {
-                  _this4.municipalities = res.data;
+                axios.get(baseUrl + '/api/municipalities/' + _this5.selectedDepartment).then(function (res) {
+                  _this5.municipalities = res.data;
                 })["catch"](function (err) {
                   console.log("ERROR FROM SERVER ", err, err.response);
                   toastr.error("error al cargar los municipios");
@@ -5101,15 +5220,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _context4.stop();
             }
           }
-        }, _callee4, this);
-      }));
-
-      function customMunicipalities() {
-        return _customMunicipalities.apply(this, arguments);
-      }
-
-      return customMunicipalities;
-    }()
+        }, _callee4);
+      }))();
+    }
   }
 });
 
@@ -5338,72 +5451,58 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }
       });
     },
-    setDepartment: function () {
-      var _setDepartment = _asyncToGenerator(
-      /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+    setDepartment: function setDepartment() {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                console.log("new val ", this.department);
+                console.log("new val ", _this2.department);
                 _context.next = 3;
-                return this.$emit("newDepartment", this.department);
+                return _this2.$emit("newDepartment", _this2.department);
 
               case 3:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, this);
-      }));
+        }, _callee);
+      }))();
+    },
+    setMunicipality: function setMunicipality() {
+      var _this3 = this;
 
-      function setDepartment() {
-        return _setDepartment.apply(this, arguments);
-      }
-
-      return setDepartment;
-    }(),
-    setMunicipality: function () {
-      var _setMunicipality = _asyncToGenerator(
-      /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.next = 2;
-                return this.$emit("newMunicipality", this.municipality);
+                return _this3.$emit("newMunicipality", _this3.municipality);
 
               case 2:
               case "end":
                 return _context2.stop();
             }
           }
-        }, _callee2, this);
-      }));
+        }, _callee2);
+      }))();
+    },
+    getMunicipalities: function getMunicipalities() {
+      var _this4 = this;
 
-      function setMunicipality() {
-        return _setMunicipality.apply(this, arguments);
-      }
-
-      return setMunicipality;
-    }(),
-    getMunicipalities: function () {
-      var _getMunicipalities = _asyncToGenerator(
-      /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
-        var _this2 = this;
-
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
                 _context3.next = 2;
-                return this.setDepartment();
+                return _this4.setDepartment();
 
               case 2:
-                if (this.department) {
+                if (_this4.department) {
                   _context3.next = 4;
                   break;
                 }
@@ -5411,11 +5510,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _context3.abrupt("return");
 
               case 4:
-                axios.get(baseUrl + '/api/municipalities/' + this.department).then(function (res) {
+                axios.get(baseUrl + '/api/municipalities/' + _this4.department).then(function (res) {
                   // console.log(res);
                   // console.log(this.$refs);
                   // if(!this.hideMunicipality) this.$refs.municipalitiesList.setEntries(res.data)
-                  if (!_this2.hideMunicipality) _this2.municipalities = res.data;else _this2.$emit("newMunicipalities", res.data);
+                  if (!_this4.hideMunicipality) _this4.municipalities = res.data;else _this4.$emit("newMunicipalities", res.data);
                 })["catch"](function (err) {
                   console.log("ERROR FROM SERVER ", err, err.response);
                   toastr.error("error al cargar los municipios");
@@ -5426,15 +5525,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _context3.stop();
             }
           }
-        }, _callee3, this);
-      }));
-
-      function getMunicipalities() {
-        return _getMunicipalities.apply(this, arguments);
-      }
-
-      return getMunicipalities;
-    }()
+        }, _callee3);
+      }))();
+    }
   }
 });
 
@@ -5449,6 +5542,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 //
 //
 //
@@ -5508,28 +5607,18 @@ __webpack_require__.r(__webpack_exports__);
 
           for (var errorkey in allErrors) {
             if (allErrors[errorkey]) {
-              var _iteratorNormalCompletion = true;
-              var _didIteratorError = false;
-              var _iteratorError = undefined;
+              var _iterator = _createForOfIteratorHelper(allErrors[errorkey]),
+                  _step;
 
               try {
-                for (var _iterator = allErrors[errorkey][Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                for (_iterator.s(); !(_step = _iterator.n()).done;) {
                   var error = _step.value;
                   toastr.error(error);
                 }
               } catch (err) {
-                _didIteratorError = true;
-                _iteratorError = err;
+                _iterator.e(err);
               } finally {
-                try {
-                  if (!_iteratorNormalCompletion && _iterator["return"] != null) {
-                    _iterator["return"]();
-                  }
-                } finally {
-                  if (_didIteratorError) {
-                    throw _iteratorError;
-                  }
-                }
+                _iterator.f();
               }
             }
           }
@@ -5552,6 +5641,12 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 //
 //
 //
@@ -5619,28 +5714,18 @@ __webpack_require__.r(__webpack_exports__);
 
           for (var errorkey in allErrors) {
             if (allErrors[errorkey]) {
-              var _iteratorNormalCompletion = true;
-              var _didIteratorError = false;
-              var _iteratorError = undefined;
+              var _iterator = _createForOfIteratorHelper(allErrors[errorkey]),
+                  _step;
 
               try {
-                for (var _iterator = allErrors[errorkey][Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                for (_iterator.s(); !(_step = _iterator.n()).done;) {
                   var error = _step.value;
                   toastr.error(error);
                 }
               } catch (err) {
-                _didIteratorError = true;
-                _iteratorError = err;
+                _iterator.e(err);
               } finally {
-                try {
-                  if (!_iteratorNormalCompletion && _iterator["return"] != null) {
-                    _iterator["return"]();
-                  }
-                } finally {
-                  if (_didIteratorError) {
-                    throw _iteratorError;
-                  }
-                }
+                _iterator.f();
               }
             }
           }
@@ -5813,66 +5898,54 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         return loader.hide();
       });
     },
-    setService: function () {
-      var _setService = _asyncToGenerator(
-      /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(id) {
+    setService: function setService(id) {
+      var _this3 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
         var currentService;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return this.services.find(function (service) {
+                return _this3.services.find(function (service) {
                   return service.id === id;
                 });
 
               case 2:
                 currentService = _context.sent;
-                this.currentService = currentService;
+                _this3.currentService = currentService;
 
               case 4:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, this);
-      }));
+        }, _callee);
+      }))();
+    },
+    update: function update(data) {
+      var _this4 = this;
 
-      function setService(_x) {
-        return _setService.apply(this, arguments);
-      }
-
-      return setService;
-    }(),
-    update: function () {
-      var _update = _asyncToGenerator(
-      /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(data) {
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.next = 2;
-                return this.setService(data.id);
+                return _this4.setService(data.id);
 
               case 2:
-                this.updateMode = true;
+                _this4.updateMode = true;
 
               case 3:
               case "end":
                 return _context2.stop();
             }
           }
-        }, _callee2, this);
-      }));
-
-      function update(_x2) {
-        return _update.apply(this, arguments);
-      }
-
-      return update;
-    }()
+        }, _callee2);
+      }))();
+    }
   }
 });
 
@@ -5891,10 +5964,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 
 
+function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
 //
 //
 //
@@ -5989,13 +6069,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         toastr.error("error al obtener los campos del servicio");
       });
     },
-    cloneOffer: function () {
-      var _cloneOffer = _asyncToGenerator(
-      /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        var _this2 = this;
+    cloneOffer: function cloneOffer() {
+      var _this2 = this;
 
-        var valuesArray, continueCreation, i, _this$offer$fields_va, field_id, value, fd;
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var valuesArray, continueCreation, i, _this2$offer$fields_v, field_id, value, fd;
 
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
@@ -6003,14 +6081,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 valuesArray = [];
 
-                if (!this.fields.length) {
+                if (!_this2.fields.length) {
                   _context.next = 9;
                   break;
                 }
 
                 continueCreation = true;
                 _context.next = 5;
-                return this.fields.map(function (field, i) {
+                return _this2.fields.map(function (field, i) {
                   if (!_this2.fieldsValues[i] || _this2.fieldsValues[i] == "") {
                     continueCreation = false;
                   } else valuesArray.push({
@@ -6032,12 +6110,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 break;
 
               case 9:
-                if (!this.offer.fields_values.length) {
+                if (!_this2.offer.fields_values.length) {
                   _context.next = 26;
                   break;
                 }
 
-                if (!this.offer.fields_values.length) {
+                if (!_this2.offer.fields_values.length) {
                   _context.next = 25;
                   break;
                 }
@@ -6045,12 +6123,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 i = 0;
 
               case 12:
-                if (!(i < this.offer.fields_values.length)) {
+                if (!(i < _this2.offer.fields_values.length)) {
                   _context.next = 23;
                   break;
                 }
 
-                if (this.offer.fields_values[i].value) {
+                if (_this2.offer.fields_values[i].value) {
                   _context.next = 18;
                   break;
                 }
@@ -6059,7 +6137,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _context.abrupt("return", false);
 
               case 18:
-                _this$offer$fields_va = this.offer.fields_values[i], field_id = _this$offer$fields_va.field_id, value = _this$offer$fields_va.value;
+                _this2$offer$fields_v = _this2.offer.fields_values[i], field_id = _this2$offer$fields_v.field_id, value = _this2$offer$fields_v.value;
                 valuesArray.push({
                   field_id: field_id,
                   value: value
@@ -6079,14 +6157,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 26:
                 fd = new FormData();
-                fd.append("company", this.offer.company_name);
-                fd.append("service", this.offer.service);
-                fd.append("benefits", this.offer.benefits);
-                if (this.offer.departments) if (JSON.parse(this.offer.departments) && JSON.parse(this.offer.departments).length) fd.append("departments", this.offer.departments);
-                if (this.offer.municipalities) if (JSON.parse(this.offer.municipalities) && JSON.parse(this.offer.municipalities).length) fd.append("municipalities", this.offer.municipalities);
-                fd.append("tariff", parseInt(this.offer.tariff));
-                if (this.offer.type) fd.append("type", this.offer.type);
-                fd.append("points", this.offer.points);
+                fd.append("company", _this2.offer.company_name);
+                fd.append("service", _this2.offer.service);
+                fd.append("benefits", _this2.offer.benefits);
+                if (_this2.offer.departments) if (JSON.parse(_this2.offer.departments) && JSON.parse(_this2.offer.departments).length) fd.append("departments", _this2.offer.departments);
+                if (_this2.offer.municipalities) if (JSON.parse(_this2.offer.municipalities) && JSON.parse(_this2.offer.municipalities).length) fd.append("municipalities", _this2.offer.municipalities);
+                fd.append("tariff", parseInt(_this2.offer.tariff));
+                if (_this2.offer.type) fd.append("type", _this2.offer.type);
+                fd.append("points", _this2.offer.points);
                 fd.append("fields_values", valuesArray.length ? JSON.stringify(valuesArray) : null);
                 axios.post(baseUrl + "/api/offer", fd).then(function (res) {
                   console.log("RESPONSE FROM SERVER ", res);
@@ -6108,28 +6186,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                     for (var errorkey in allErrors) {
                       if (allErrors[errorkey]) {
-                        var _iteratorNormalCompletion = true;
-                        var _didIteratorError = false;
-                        var _iteratorError = undefined;
+                        var _iterator = _createForOfIteratorHelper(allErrors[errorkey]),
+                            _step;
 
                         try {
-                          for (var _iterator = allErrors[errorkey][Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                          for (_iterator.s(); !(_step = _iterator.n()).done;) {
                             var error = _step.value;
                             toastr.error(error);
                           }
                         } catch (err) {
-                          _didIteratorError = true;
-                          _iteratorError = err;
+                          _iterator.e(err);
                         } finally {
-                          try {
-                            if (!_iteratorNormalCompletion && _iterator["return"] != null) {
-                              _iterator["return"]();
-                            }
-                          } finally {
-                            if (_didIteratorError) {
-                              throw _iteratorError;
-                            }
-                          }
+                          _iterator.f();
                         }
                       }
                     }
@@ -6141,15 +6209,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _context.stop();
             }
           }
-        }, _callee, this);
-      }));
-
-      function cloneOffer() {
-        return _cloneOffer.apply(this, arguments);
-      }
-
-      return cloneOffer;
-    }()
+        }, _callee);
+      }))();
+    }
   }
 });
 
@@ -6168,10 +6230,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 
 
+function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
+//
+//
+//
+//
 //
 //
 //
@@ -6276,7 +6349,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       company: "",
       departments: [],
       municipalities: [],
-      type: "private",
+      type: null,
       tariff: "",
       benefits: "",
       service: null,
@@ -6328,12 +6401,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         return toastr.error("error al obtener los campos del servicio");
       });
     },
-    createOffer: function () {
-      var _createOffer = _asyncToGenerator(
-      /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        var _this3 = this;
 
+    /*setCompany(company){
+      this.company=company.name
+    },*/
+    createOffer: function createOffer() {
+      var _this3 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
         var continueCreation, valuesArray, fd, loader;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
@@ -6342,7 +6417,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 continueCreation = true;
                 valuesArray = [];
                 _context.next = 4;
-                return this.fields.map(function (field, i) {
+                return _this3.fields.map(function (field, i) {
                   if (!_this3.fieldsValues[i] || _this3.fieldsValues[i] == "") {
                     continueCreation = false;
                   } else valuesArray.push({
@@ -6361,16 +6436,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 6:
                 fd = new FormData();
-                fd.append("company", this.company);
-                if (this.departments.length) fd.append("departments", JSON.stringify(this.departments));
-                if (this.municipalities.length) fd.append("municipalities", JSON.stringify(this.municipalities));
-                if (this.type) fd.append("type", this.type);
-                fd.append("tariff", parseInt(this.tariff));
-                fd.append("benefits", this.benefits);
-                fd.append("service", this.service);
-                fd.append("points", this.points);
+                fd.append("company", _this3.company);
+                if (_this3.departments.length) fd.append("departments", JSON.stringify(_this3.departments));
+                if (_this3.municipalities.length) fd.append("municipalities", JSON.stringify(_this3.municipalities));
+                if (_this3.type) fd.append("type", _this3.type);
+                fd.append("tariff", parseInt(_this3.tariff));
+                fd.append("benefits", _this3.benefits);
+                fd.append("service", _this3.service);
+                fd.append("points", _this3.points);
                 fd.append("fields_values", valuesArray.length ? JSON.stringify(valuesArray) : null);
-                loader = this.$loading.show();
+                loader = _this3.$loading.show();
                 axios.post(baseUrl + '/api/offer', fd).then(function (res) {
                   console.log("RESPONSE FROM SERVER ", res);
                   toastr.success("Oferta creada con éxito");
@@ -6401,28 +6476,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                     for (var errorkey in allErrors) {
                       if (allErrors[errorkey]) {
-                        var _iteratorNormalCompletion = true;
-                        var _didIteratorError = false;
-                        var _iteratorError = undefined;
+                        var _iterator = _createForOfIteratorHelper(allErrors[errorkey]),
+                            _step;
 
                         try {
-                          for (var _iterator = allErrors[errorkey][Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                          for (_iterator.s(); !(_step = _iterator.n()).done;) {
                             var error = _step.value;
                             toastr.error(error);
                           }
                         } catch (err) {
-                          _didIteratorError = true;
-                          _iteratorError = err;
+                          _iterator.e(err);
                         } finally {
-                          try {
-                            if (!_iteratorNormalCompletion && _iterator["return"] != null) {
-                              _iterator["return"]();
-                            }
-                          } finally {
-                            if (_didIteratorError) {
-                              throw _iteratorError;
-                            }
-                          }
+                          _iterator.f();
                         }
                       }
                     }
@@ -6436,15 +6501,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _context.stop();
             }
           }
-        }, _callee, this);
-      }));
-
-      function createOffer() {
-        return _createOffer.apply(this, arguments);
-      }
-
-      return createOffer;
-    }()
+        }, _callee);
+      }))();
+    }
   }
 });
 
@@ -6459,6 +6518,26 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -6750,125 +6829,101 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         return loader.hide();
       });
     },
-    setOffer: function () {
-      var _setOffer = _asyncToGenerator(
-      /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(id) {
+    setOffer: function setOffer(id) {
+      var _this3 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
         var currentOffer;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return this.offers.find(function (offer) {
+                return _this3.offers.find(function (offer) {
                   return offer.id === id;
                 });
 
               case 2:
                 currentOffer = _context.sent;
-                this.currentOffer = currentOffer;
+                _this3.currentOffer = currentOffer;
 
               case 4:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, this);
-      }));
+        }, _callee);
+      }))();
+    },
+    viewModal: function viewModal(id) {
+      var _this4 = this;
 
-      function setOffer(_x) {
-        return _setOffer.apply(this, arguments);
-      }
-
-      return setOffer;
-    }(),
-    viewModal: function () {
-      var _viewModal = _asyncToGenerator(
-      /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(id) {
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                this.viewMode = false;
+                _this4.viewMode = false;
                 _context2.next = 3;
-                return this.setOffer(id);
+                return _this4.setOffer(id);
 
               case 3:
-                this.viewMode = true;
+                _this4.viewMode = true;
 
               case 4:
               case "end":
                 return _context2.stop();
             }
           }
-        }, _callee2, this);
-      }));
+        }, _callee2);
+      }))();
+    },
+    update: function update(id) {
+      var _this5 = this;
 
-      function viewModal(_x2) {
-        return _viewModal.apply(this, arguments);
-      }
-
-      return viewModal;
-    }(),
-    update: function () {
-      var _update = _asyncToGenerator(
-      /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(id) {
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
-                this.updateMode = false;
+                _this5.updateMode = false;
                 _context3.next = 3;
-                return this.setOffer(id);
+                return _this5.setOffer(id);
 
               case 3:
-                this.updateMode = true;
+                _this5.updateMode = true;
 
               case 4:
               case "end":
                 return _context3.stop();
             }
           }
-        }, _callee3, this);
-      }));
+        }, _callee3);
+      }))();
+    },
+    openCloning: function openCloning(id) {
+      var _this6 = this;
 
-      function update(_x3) {
-        return _update.apply(this, arguments);
-      }
-
-      return update;
-    }(),
-    openCloning: function () {
-      var _openCloning = _asyncToGenerator(
-      /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(id) {
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4() {
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
           while (1) {
             switch (_context4.prev = _context4.next) {
               case 0:
-                this.cloneMode = false;
+                _this6.cloneMode = false;
                 _context4.next = 3;
-                return this.setOffer(id);
+                return _this6.setOffer(id);
 
               case 3:
-                this.cloneMode = true;
+                _this6.cloneMode = true;
 
               case 4:
               case "end":
                 return _context4.stop();
             }
           }
-        }, _callee4, this);
-      }));
-
-      function openCloning(_x4) {
-        return _openCloning.apply(this, arguments);
-      }
-
-      return openCloning;
-    }()
+        }, _callee4);
+      }))();
+    }
   }
 });
 
@@ -6887,10 +6942,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 
 
+function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
 //
 //
 //
@@ -7018,13 +7080,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         toastr.error("error al obtener los campos del servicio");
       });
     },
-    editOffer: function () {
-      var _editOffer = _asyncToGenerator(
-      /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        var _this2 = this;
+    editOffer: function editOffer() {
+      var _this2 = this;
 
-        var valuesArray, continueCreation, i, _this$offer$fields_va, field_id, value, fd;
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var valuesArray, continueCreation, i, _this2$offer$fields_v, field_id, value, fd;
 
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
@@ -7032,14 +7092,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 valuesArray = [];
 
-                if (!this.fields.length) {
+                if (!_this2.fields.length) {
                   _context.next = 9;
                   break;
                 }
 
                 continueCreation = true;
                 _context.next = 5;
-                return this.fields.map(function (field, i) {
+                return _this2.fields.map(function (field, i) {
                   if (!_this2.fieldsValues[i] || _this2.fieldsValues[i] == "") {
                     continueCreation = false;
                   } else valuesArray.push({
@@ -7061,12 +7121,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 break;
 
               case 9:
-                if (!this.offer.fields_values.length) {
+                if (!_this2.offer.fields_values.length) {
                   _context.next = 26;
                   break;
                 }
 
-                if (!this.offer.fields_values.length) {
+                if (!_this2.offer.fields_values.length) {
                   _context.next = 25;
                   break;
                 }
@@ -7074,12 +7134,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 i = 0;
 
               case 12:
-                if (!(i < this.offer.fields_values.length)) {
+                if (!(i < _this2.offer.fields_values.length)) {
                   _context.next = 23;
                   break;
                 }
 
-                if (this.offer.fields_values[i].value) {
+                if (_this2.offer.fields_values[i].value) {
                   _context.next = 18;
                   break;
                 }
@@ -7088,7 +7148,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _context.abrupt("return", false);
 
               case 18:
-                _this$offer$fields_va = this.offer.fields_values[i], field_id = _this$offer$fields_va.field_id, value = _this$offer$fields_va.value;
+                _this2$offer$fields_v = _this2.offer.fields_values[i], field_id = _this2$offer$fields_v.field_id, value = _this2$offer$fields_v.value;
                 valuesArray.push({
                   field_id: field_id,
                   value: value
@@ -7108,17 +7168,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 26:
                 fd = new FormData();
-                fd.append("company", this.offer.company_name);
-                fd.append("service", this.offer.service);
-                fd.append("benefits", this.offer.benefits);
-                if (this.offer.departments) if (JSON.parse(this.offer.departments) && JSON.parse(this.offer.departments).length) fd.append("departments", this.offer.departments);
-                if (this.offer.municipalities) if (JSON.parse(this.offer.municipalities) && JSON.parse(this.offer.municipalities).length) fd.append("municipalities", this.offer.municipalities);
-                fd.append("tariff", parseInt(this.offer.tariff));
-                if (this.offer.type) fd.append("type", this.offer.type);
-                fd.append("points", this.offer.points);
+                fd.append("company", _this2.offer.company_name);
+                fd.append("service", _this2.offer.service);
+                fd.append("benefits", _this2.offer.benefits);
+                if (_this2.offer.departments) if (JSON.parse(_this2.offer.departments) && JSON.parse(_this2.offer.departments).length) fd.append("departments", _this2.offer.departments);
+                if (_this2.offer.municipalities) if (JSON.parse(_this2.offer.municipalities) && JSON.parse(_this2.offer.municipalities).length) fd.append("municipalities", _this2.offer.municipalities);
+                fd.append("tariff", parseInt(_this2.offer.tariff));
+                if (_this2.offer.type) fd.append("type", _this2.offer.type);
+                fd.append("points", _this2.offer.points);
                 fd.append("fields_values", valuesArray.length ? JSON.stringify(valuesArray) : null);
                 fd.append("_method", "put");
-                axios.post(baseUrl + "/api/offer/" + this.offer.id, fd).then(function (res) {
+                axios.post(baseUrl + "/api/offer/" + _this2.offer.id, fd).then(function (res) {
                   console.log("RESPONSE FROM SERVER ", res);
                   toastr.success("Oferta editada con éxito");
                   setTimeout(function () {
@@ -7138,28 +7198,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                     for (var errorkey in allErrors) {
                       if (allErrors[errorkey]) {
-                        var _iteratorNormalCompletion = true;
-                        var _didIteratorError = false;
-                        var _iteratorError = undefined;
+                        var _iterator = _createForOfIteratorHelper(allErrors[errorkey]),
+                            _step;
 
                         try {
-                          for (var _iterator = allErrors[errorkey][Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                          for (_iterator.s(); !(_step = _iterator.n()).done;) {
                             var error = _step.value;
                             toastr.error(error);
                           }
                         } catch (err) {
-                          _didIteratorError = true;
-                          _iteratorError = err;
+                          _iterator.e(err);
                         } finally {
-                          try {
-                            if (!_iteratorNormalCompletion && _iterator["return"] != null) {
-                              _iterator["return"]();
-                            }
-                          } finally {
-                            if (_didIteratorError) {
-                              throw _iteratorError;
-                            }
-                          }
+                          _iterator.f();
                         }
                       }
                     }
@@ -7171,15 +7221,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _context.stop();
             }
           }
-        }, _callee, this);
-      }));
-
-      function editOffer() {
-        return _editOffer.apply(this, arguments);
-      }
-
-      return editOffer;
-    }()
+        }, _callee);
+      }))();
+    }
   }
 });
 
@@ -7194,7 +7238,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
 //
 //
@@ -7392,6 +7442,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
       var fd = new FormData();
       if (!this.selectedOffer) return toastr.error("Primero seleccione una oferta");
+      if (this.department) fd.append("department", this.department);else return toastr.error("rellene los campos requeridos");
+      if (this.municipality) fd.append("municipality", this.municipality);else return toastr.error("rellene los campos requeridos");
       if (this.expiration) fd.append("highlighted_expiration", this.expiration);else return toastr.error("Debe introducir una fecha de expiración");
       var loader = this.$loading.show();
       axios.post(baseUrl + '/api/offers/highlight/' + this.selectedOffer.id, fd).then(function (res) {
@@ -7421,28 +7473,18 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
           for (var errorkey in allErrors) {
             if (allErrors[errorkey]) {
-              var _iteratorNormalCompletion = true;
-              var _didIteratorError = false;
-              var _iteratorError = undefined;
+              var _iterator = _createForOfIteratorHelper(allErrors[errorkey]),
+                  _step;
 
               try {
-                for (var _iterator = allErrors[errorkey][Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                for (_iterator.s(); !(_step = _iterator.n()).done;) {
                   var error = _step.value;
                   toastr.error(error);
                 }
               } catch (err) {
-                _didIteratorError = true;
-                _iteratorError = err;
+                _iterator.e(err);
               } finally {
-                try {
-                  if (!_iteratorNormalCompletion && _iterator["return"] != null) {
-                    _iterator["return"]();
-                  }
-                } finally {
-                  if (_didIteratorError) {
-                    throw _iteratorError;
-                  }
-                }
+                _iterator.f();
               }
             }
           }
@@ -7496,28 +7538,18 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
           for (var errorkey in allErrors) {
             if (allErrors[errorkey]) {
-              var _iteratorNormalCompletion2 = true;
-              var _didIteratorError2 = false;
-              var _iteratorError2 = undefined;
+              var _iterator2 = _createForOfIteratorHelper(allErrors[errorkey]),
+                  _step2;
 
               try {
-                for (var _iterator2 = allErrors[errorkey][Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+                for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
                   var error = _step2.value;
                   toastr.error(error);
                 }
               } catch (err) {
-                _didIteratorError2 = true;
-                _iteratorError2 = err;
+                _iterator2.e(err);
               } finally {
-                try {
-                  if (!_iteratorNormalCompletion2 && _iterator2["return"] != null) {
-                    _iterator2["return"]();
-                  }
-                } finally {
-                  if (_didIteratorError2) {
-                    throw _iteratorError2;
-                  }
-                }
+                _iterator2.f();
               }
             }
           }
@@ -7639,18 +7671,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         return loader.hide();
       });
     },
-    trash: function () {
-      var _trash = _asyncToGenerator(
-      /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(id) {
-        var _this2 = this;
+    trash: function trash(id) {
+      var _this2 = this;
 
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
         var loader;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                loader = this.$loading.show();
+                loader = _this2.$loading.show();
                 axios["delete"](baseUrl + '/api/offers/highlight/' + id).then(function (res) {
                   console.log(res);
                   toastr.success("Oferta Descartada con éxito");
@@ -7673,75 +7703,57 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _context.stop();
             }
           }
-        }, _callee, this);
-      }));
+        }, _callee);
+      }))();
+    },
+    setOffer: function setOffer(id) {
+      var _this3 = this;
 
-      function trash(_x) {
-        return _trash.apply(this, arguments);
-      }
-
-      return trash;
-    }(),
-    setOffer: function () {
-      var _setOffer = _asyncToGenerator(
-      /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(id) {
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
         var currentOffer;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.next = 2;
-                return this.offers.find(function (offer) {
+                return _this3.offers.find(function (offer) {
                   return offer.id === id;
                 });
 
               case 2:
                 currentOffer = _context2.sent;
-                this.currentOffer = currentOffer;
+                _this3.currentOffer = currentOffer;
 
               case 4:
               case "end":
                 return _context2.stop();
             }
           }
-        }, _callee2, this);
-      }));
+        }, _callee2);
+      }))();
+    },
+    viewModal: function viewModal(id) {
+      var _this4 = this;
 
-      function setOffer(_x2) {
-        return _setOffer.apply(this, arguments);
-      }
-
-      return setOffer;
-    }(),
-    viewModal: function () {
-      var _viewModal = _asyncToGenerator(
-      /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(id) {
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
                 _context3.next = 2;
-                return this.setOffer(id);
+                return _this4.setOffer(id);
 
               case 2:
-                this.viewMode = true;
+                _this4.viewMode = true;
 
               case 3:
               case "end":
                 return _context3.stop();
             }
           }
-        }, _callee3, this);
-      }));
-
-      function viewModal(_x3) {
-        return _viewModal.apply(this, arguments);
-      }
-
-      return viewModal;
-    }(),
+        }, _callee3);
+      }))();
+    },
     viewSelected: function viewSelected(offer) {
       console.log("offer from selected one", offer, this.currentOffer, this.viewMode);
       this.currentOffer = offer;
@@ -7763,6 +7775,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var bootstrap_js_dist_tooltip_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! bootstrap/js/dist/tooltip.js */ "./node_modules/bootstrap/js/dist/tooltip.js");
 /* harmony import */ var bootstrap_js_dist_tooltip_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(bootstrap_js_dist_tooltip_js__WEBPACK_IMPORTED_MODULE_0__);
+function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 //
 //
 //
@@ -7980,28 +7998,18 @@ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"
 
           for (var errorkey in allErrors) {
             if (allErrors[errorkey]) {
-              var _iteratorNormalCompletion = true;
-              var _didIteratorError = false;
-              var _iteratorError = undefined;
+              var _iterator = _createForOfIteratorHelper(allErrors[errorkey]),
+                  _step;
 
               try {
-                for (var _iterator = allErrors[errorkey][Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                for (_iterator.s(); !(_step = _iterator.n()).done;) {
                   var error = _step.value;
                   toastr.error(error);
                 }
               } catch (err) {
-                _didIteratorError = true;
-                _iteratorError = err;
+                _iterator.e(err);
               } finally {
-                try {
-                  if (!_iteratorNormalCompletion && _iterator["return"] != null) {
-                    _iterator["return"]();
-                  }
-                } finally {
-                  if (_didIteratorError) {
-                    throw _iteratorError;
-                  }
-                }
+                _iterator.f();
               }
             }
           }
@@ -8129,94 +8137,76 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         return loader.hide();
       });
     },
-    setService: function () {
-      var _setService = _asyncToGenerator(
-      /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(id) {
+    setService: function setService(id) {
+      var _this3 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
         var currentService;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return this.services.find(function (service) {
+                return _this3.services.find(function (service) {
                   return service.id === id;
                 });
 
               case 2:
                 currentService = _context.sent;
-                this.currentService = currentService;
+                _this3.currentService = currentService;
 
               case 4:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, this);
-      }));
+        }, _callee);
+      }))();
+    },
+    viewModal: function viewModal(id) {
+      var _this4 = this;
 
-      function setService(_x) {
-        return _setService.apply(this, arguments);
-      }
-
-      return setService;
-    }(),
-    viewModal: function () {
-      var _viewModal = _asyncToGenerator(
-      /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(id) {
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.next = 2;
-                return this.setService(id);
+                return _this4.setService(id);
 
               case 2:
-                this.viewMode = true;
+                _this4.viewMode = true;
 
               case 3:
               case "end":
                 return _context2.stop();
             }
           }
-        }, _callee2, this);
-      }));
+        }, _callee2);
+      }))();
+    },
+    update: function update(id) {
+      var _this5 = this;
 
-      function viewModal(_x2) {
-        return _viewModal.apply(this, arguments);
-      }
-
-      return viewModal;
-    }(),
-    update: function () {
-      var _update = _asyncToGenerator(
-      /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(id) {
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
                 _context3.next = 2;
-                return this.setService(id);
+                return _this5.setService(id);
 
               case 2:
-                this.updateMode = true;
+                _this5.updateMode = true;
 
               case 3:
               case "end":
                 return _context3.stop();
             }
           }
-        }, _callee3, this);
-      }));
-
-      function update(_x3) {
-        return _update.apply(this, arguments);
-      }
-
-      return update;
-    }()
+        }, _callee3);
+      }))();
+    }
   }
 });
 
@@ -8231,6 +8221,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 //
 //
 //
@@ -8404,28 +8400,18 @@ __webpack_require__.r(__webpack_exports__);
 
           for (var errorkey in allErrors) {
             if (allErrors[errorkey]) {
-              var _iteratorNormalCompletion = true;
-              var _didIteratorError = false;
-              var _iteratorError = undefined;
+              var _iterator = _createForOfIteratorHelper(allErrors[errorkey]),
+                  _step;
 
               try {
-                for (var _iterator = allErrors[errorkey][Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                for (_iterator.s(); !(_step = _iterator.n()).done;) {
                   var error = _step.value;
                   toastr.error(error);
                 }
               } catch (err) {
-                _didIteratorError = true;
-                _iteratorError = err;
+                _iterator.e(err);
               } finally {
-                try {
-                  if (!_iteratorNormalCompletion && _iterator["return"] != null) {
-                    _iterator["return"]();
-                  }
-                } finally {
-                  if (_didIteratorError) {
-                    throw _iteratorError;
-                  }
-                }
+                _iterator.f();
               }
             }
           }
@@ -8447,88 +8433,23 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 /*!
-  * Bootstrap tooltip.js v4.4.1 (https://getbootstrap.com/)
-  * Copyright 2011-2019 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
-  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+  * Bootstrap tooltip.js v4.5.2 (https://getbootstrap.com/)
+  * Copyright 2011-2020 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
+  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
 (function (global, factory) {
    true ? module.exports = factory(__webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"), __webpack_require__(/*! popper.js */ "./node_modules/popper.js/dist/esm/popper.js"), __webpack_require__(/*! ./util.js */ "./node_modules/bootstrap/js/dist/util.js")) :
   undefined;
 }(this, (function ($, Popper, Util) { 'use strict';
 
-  $ = $ && $.hasOwnProperty('default') ? $['default'] : $;
-  Popper = Popper && Popper.hasOwnProperty('default') ? Popper['default'] : Popper;
-  Util = Util && Util.hasOwnProperty('default') ? Util['default'] : Util;
-
-  function _defineProperties(target, props) {
-    for (var i = 0; i < props.length; i++) {
-      var descriptor = props[i];
-      descriptor.enumerable = descriptor.enumerable || false;
-      descriptor.configurable = true;
-      if ("value" in descriptor) descriptor.writable = true;
-      Object.defineProperty(target, descriptor.key, descriptor);
-    }
-  }
-
-  function _createClass(Constructor, protoProps, staticProps) {
-    if (protoProps) _defineProperties(Constructor.prototype, protoProps);
-    if (staticProps) _defineProperties(Constructor, staticProps);
-    return Constructor;
-  }
-
-  function _defineProperty(obj, key, value) {
-    if (key in obj) {
-      Object.defineProperty(obj, key, {
-        value: value,
-        enumerable: true,
-        configurable: true,
-        writable: true
-      });
-    } else {
-      obj[key] = value;
-    }
-
-    return obj;
-  }
-
-  function ownKeys(object, enumerableOnly) {
-    var keys = Object.keys(object);
-
-    if (Object.getOwnPropertySymbols) {
-      var symbols = Object.getOwnPropertySymbols(object);
-      if (enumerableOnly) symbols = symbols.filter(function (sym) {
-        return Object.getOwnPropertyDescriptor(object, sym).enumerable;
-      });
-      keys.push.apply(keys, symbols);
-    }
-
-    return keys;
-  }
-
-  function _objectSpread2(target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i] != null ? arguments[i] : {};
-
-      if (i % 2) {
-        ownKeys(Object(source), true).forEach(function (key) {
-          _defineProperty(target, key, source[key]);
-        });
-      } else if (Object.getOwnPropertyDescriptors) {
-        Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
-      } else {
-        ownKeys(Object(source)).forEach(function (key) {
-          Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
-        });
-      }
-    }
-
-    return target;
-  }
+  $ = $ && Object.prototype.hasOwnProperty.call($, 'default') ? $['default'] : $;
+  Popper = Popper && Object.prototype.hasOwnProperty.call(Popper, 'default') ? Popper['default'] : Popper;
+  Util = Util && Object.prototype.hasOwnProperty.call(Util, 'default') ? Util['default'] : Util;
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v4.4.1): tools/sanitizer.js
-   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+   * Bootstrap (v4.5.2): tools/sanitizer.js
+   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
   var uriAttrs = ['background', 'cite', 'href', 'itemtype', 'longdesc', 'poster', 'src', 'xlink:href'];
@@ -8552,7 +8473,7 @@ __webpack_require__.r(__webpack_exports__);
     h5: [],
     h6: [],
     i: [],
-    img: ['src', 'alt', 'title', 'width', 'height'],
+    img: ['src', 'srcset', 'alt', 'title', 'width', 'height'],
     li: [],
     ol: [],
     p: [],
@@ -8572,14 +8493,14 @@ __webpack_require__.r(__webpack_exports__);
    * Shoutout to Angular 7 https://github.com/angular/angular/blob/7.2.4/packages/core/src/sanitization/url_sanitizer.ts
    */
 
-  var SAFE_URL_PATTERN = /^(?:(?:https?|mailto|ftp|tel|file):|[^&:/?#]*(?:[/?#]|$))/gi;
+  var SAFE_URL_PATTERN = /^(?:(?:https?|mailto|ftp|tel|file):|[^#&/:?]*(?:[#/?]|$))/gi;
   /**
    * A pattern that matches safe data URLs. Only matches image, video and audio types.
    *
    * Shoutout to Angular 7 https://github.com/angular/angular/blob/7.2.4/packages/core/src/sanitization/url_sanitizer.ts
    */
 
-  var DATA_URL_PATTERN = /^data:(?:image\/(?:bmp|gif|jpeg|jpg|png|tiff|webp)|video\/(?:mpeg|mp4|ogg|webm)|audio\/(?:mp3|oga|ogg|opus));base64,[a-z0-9+/]+=*$/i;
+  var DATA_URL_PATTERN = /^data:(?:image\/(?:bmp|gif|jpeg|jpg|png|tiff|webp)|video\/(?:mpeg|mp4|ogg|webm)|audio\/(?:mp3|oga|ogg|opus));base64,[\d+/a-z]+=*$/i;
 
   function allowedAttribute(attr, allowedAttributeList) {
     var attrName = attr.nodeName.toLowerCase();
@@ -8596,7 +8517,7 @@ __webpack_require__.r(__webpack_exports__);
       return attrRegex instanceof RegExp;
     }); // Check if a regular expression validates the attribute.
 
-    for (var i = 0, l = regExp.length; i < l; i++) {
+    for (var i = 0, len = regExp.length; i < len; i++) {
       if (attrName.match(regExp[i])) {
         return true;
       }
@@ -8646,6 +8567,11 @@ __webpack_require__.r(__webpack_exports__);
     return createdDocument.body.innerHTML;
   }
 
+  function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+  function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+  function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
   /**
    * ------------------------------------------------------------------------
    * Constants
@@ -8653,7 +8579,7 @@ __webpack_require__.r(__webpack_exports__);
    */
 
   var NAME = 'tooltip';
-  var VERSION = '4.4.1';
+  var VERSION = '4.5.2';
   var DATA_KEY = 'bs.tooltip';
   var EVENT_KEY = "." + DATA_KEY;
   var JQUERY_NO_CONFLICT = $.fn[NAME];
@@ -8703,10 +8629,8 @@ __webpack_require__.r(__webpack_exports__);
     whiteList: DefaultWhitelist,
     popperConfig: null
   };
-  var HoverState = {
-    SHOW: 'show',
-    OUT: 'out'
-  };
+  var HOVER_STATE_SHOW = 'show';
+  var HOVER_STATE_OUT = 'out';
   var Event = {
     HIDE: "hide" + EVENT_KEY,
     HIDDEN: "hidden" + EVENT_KEY,
@@ -8719,30 +8643,21 @@ __webpack_require__.r(__webpack_exports__);
     MOUSEENTER: "mouseenter" + EVENT_KEY,
     MOUSELEAVE: "mouseleave" + EVENT_KEY
   };
-  var ClassName = {
-    FADE: 'fade',
-    SHOW: 'show'
-  };
-  var Selector = {
-    TOOLTIP: '.tooltip',
-    TOOLTIP_INNER: '.tooltip-inner',
-    ARROW: '.arrow'
-  };
-  var Trigger = {
-    HOVER: 'hover',
-    FOCUS: 'focus',
-    CLICK: 'click',
-    MANUAL: 'manual'
-  };
+  var CLASS_NAME_FADE = 'fade';
+  var CLASS_NAME_SHOW = 'show';
+  var SELECTOR_TOOLTIP_INNER = '.tooltip-inner';
+  var SELECTOR_ARROW = '.arrow';
+  var TRIGGER_HOVER = 'hover';
+  var TRIGGER_FOCUS = 'focus';
+  var TRIGGER_CLICK = 'click';
+  var TRIGGER_MANUAL = 'manual';
   /**
    * ------------------------------------------------------------------------
    * Class Definition
    * ------------------------------------------------------------------------
    */
 
-  var Tooltip =
-  /*#__PURE__*/
-  function () {
+  var Tooltip = /*#__PURE__*/function () {
     function Tooltip(element, config) {
       if (typeof Popper === 'undefined') {
         throw new TypeError('Bootstrap\'s tooltips require Popper.js (https://popper.js.org/)');
@@ -8800,7 +8715,7 @@ __webpack_require__.r(__webpack_exports__);
           context._leave(null, context);
         }
       } else {
-        if ($(this.getTipElement()).hasClass(ClassName.SHOW)) {
+        if ($(this.getTipElement()).hasClass(CLASS_NAME_SHOW)) {
           this._leave(null, this);
 
           return;
@@ -8860,7 +8775,7 @@ __webpack_require__.r(__webpack_exports__);
         this.setContent();
 
         if (this.config.animation) {
-          $(tip).addClass(ClassName.FADE);
+          $(tip).addClass(CLASS_NAME_FADE);
         }
 
         var placement = typeof this.config.placement === 'function' ? this.config.placement.call(this, tip, this.element) : this.config.placement;
@@ -8879,7 +8794,7 @@ __webpack_require__.r(__webpack_exports__);
 
         $(this.element).trigger(this.constructor.Event.INSERTED);
         this._popper = new Popper(this.element, tip, this._getPopperConfig(attachment));
-        $(tip).addClass(ClassName.SHOW); // If this is a touch-enabled device we add extra
+        $(tip).addClass(CLASS_NAME_SHOW); // If this is a touch-enabled device we add extra
         // empty mouseover listeners to the body's immediate children;
         // only needed because of broken event delegation on iOS
         // https://www.quirksmode.org/blog/archives/2014/02/mouse_event_bub.html
@@ -8897,12 +8812,12 @@ __webpack_require__.r(__webpack_exports__);
           _this._hoverState = null;
           $(_this.element).trigger(_this.constructor.Event.SHOWN);
 
-          if (prevHoverState === HoverState.OUT) {
+          if (prevHoverState === HOVER_STATE_OUT) {
             _this._leave(null, _this);
           }
         };
 
-        if ($(this.tip).hasClass(ClassName.FADE)) {
+        if ($(this.tip).hasClass(CLASS_NAME_FADE)) {
           var transitionDuration = Util.getTransitionDurationFromElement(this.tip);
           $(this.tip).one(Util.TRANSITION_END, complete).emulateTransitionEnd(transitionDuration);
         } else {
@@ -8918,7 +8833,7 @@ __webpack_require__.r(__webpack_exports__);
       var hideEvent = $.Event(this.constructor.Event.HIDE);
 
       var complete = function complete() {
-        if (_this2._hoverState !== HoverState.SHOW && tip.parentNode) {
+        if (_this2._hoverState !== HOVER_STATE_SHOW && tip.parentNode) {
           tip.parentNode.removeChild(tip);
         }
 
@@ -8943,18 +8858,18 @@ __webpack_require__.r(__webpack_exports__);
         return;
       }
 
-      $(tip).removeClass(ClassName.SHOW); // If this is a touch-enabled device we remove the extra
+      $(tip).removeClass(CLASS_NAME_SHOW); // If this is a touch-enabled device we remove the extra
       // empty mouseover listeners we added for iOS support
 
       if ('ontouchstart' in document.documentElement) {
         $(document.body).children().off('mouseover', null, $.noop);
       }
 
-      this._activeTrigger[Trigger.CLICK] = false;
-      this._activeTrigger[Trigger.FOCUS] = false;
-      this._activeTrigger[Trigger.HOVER] = false;
+      this._activeTrigger[TRIGGER_CLICK] = false;
+      this._activeTrigger[TRIGGER_FOCUS] = false;
+      this._activeTrigger[TRIGGER_HOVER] = false;
 
-      if ($(this.tip).hasClass(ClassName.FADE)) {
+      if ($(this.tip).hasClass(CLASS_NAME_FADE)) {
         var transitionDuration = Util.getTransitionDurationFromElement(tip);
         $(tip).one(Util.TRANSITION_END, complete).emulateTransitionEnd(transitionDuration);
       } else {
@@ -8986,8 +8901,8 @@ __webpack_require__.r(__webpack_exports__);
 
     _proto.setContent = function setContent() {
       var tip = this.getTipElement();
-      this.setElementContent($(tip.querySelectorAll(Selector.TOOLTIP_INNER)), this.getTitle());
-      $(tip).removeClass(ClassName.FADE + " " + ClassName.SHOW);
+      this.setElementContent($(tip.querySelectorAll(SELECTOR_TOOLTIP_INNER)), this.getTitle());
+      $(tip).removeClass(CLASS_NAME_FADE + " " + CLASS_NAME_SHOW);
     };
 
     _proto.setElementContent = function setElementContent($element, content) {
@@ -9037,7 +8952,7 @@ __webpack_require__.r(__webpack_exports__);
             behavior: this.config.fallbackPlacement
           },
           arrow: {
-            element: Selector.ARROW
+            element: SELECTOR_ARROW
           },
           preventOverflow: {
             boundariesElement: this.config.boundary
@@ -9052,7 +8967,7 @@ __webpack_require__.r(__webpack_exports__);
           return _this3._handlePopperPlacementChange(data);
         }
       };
-      return _objectSpread2({}, defaultBsConfig, {}, this.config.popperConfig);
+      return _extends({}, defaultBsConfig, this.config.popperConfig);
     };
 
     _proto._getOffset = function _getOffset() {
@@ -9062,7 +8977,7 @@ __webpack_require__.r(__webpack_exports__);
 
       if (typeof this.config.offset === 'function') {
         offset.fn = function (data) {
-          data.offsets = _objectSpread2({}, data.offsets, {}, _this4.config.offset(data.offsets, _this4.element) || {});
+          data.offsets = _extends({}, data.offsets, _this4.config.offset(data.offsets, _this4.element) || {});
           return data;
         };
       } else {
@@ -9097,9 +9012,9 @@ __webpack_require__.r(__webpack_exports__);
           $(_this5.element).on(_this5.constructor.Event.CLICK, _this5.config.selector, function (event) {
             return _this5.toggle(event);
           });
-        } else if (trigger !== Trigger.MANUAL) {
-          var eventIn = trigger === Trigger.HOVER ? _this5.constructor.Event.MOUSEENTER : _this5.constructor.Event.FOCUSIN;
-          var eventOut = trigger === Trigger.HOVER ? _this5.constructor.Event.MOUSELEAVE : _this5.constructor.Event.FOCUSOUT;
+        } else if (trigger !== TRIGGER_MANUAL) {
+          var eventIn = trigger === TRIGGER_HOVER ? _this5.constructor.Event.MOUSEENTER : _this5.constructor.Event.FOCUSIN;
+          var eventOut = trigger === TRIGGER_HOVER ? _this5.constructor.Event.MOUSELEAVE : _this5.constructor.Event.FOCUSOUT;
           $(_this5.element).on(eventIn, _this5.config.selector, function (event) {
             return _this5._enter(event);
           }).on(eventOut, _this5.config.selector, function (event) {
@@ -9117,7 +9032,7 @@ __webpack_require__.r(__webpack_exports__);
       $(this.element).closest('.modal').on('hide.bs.modal', this._hideModalHandler);
 
       if (this.config.selector) {
-        this.config = _objectSpread2({}, this.config, {
+        this.config = _extends({}, this.config, {
           trigger: 'manual',
           selector: ''
         });
@@ -9145,16 +9060,16 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       if (event) {
-        context._activeTrigger[event.type === 'focusin' ? Trigger.FOCUS : Trigger.HOVER] = true;
+        context._activeTrigger[event.type === 'focusin' ? TRIGGER_FOCUS : TRIGGER_HOVER] = true;
       }
 
-      if ($(context.getTipElement()).hasClass(ClassName.SHOW) || context._hoverState === HoverState.SHOW) {
-        context._hoverState = HoverState.SHOW;
+      if ($(context.getTipElement()).hasClass(CLASS_NAME_SHOW) || context._hoverState === HOVER_STATE_SHOW) {
+        context._hoverState = HOVER_STATE_SHOW;
         return;
       }
 
       clearTimeout(context._timeout);
-      context._hoverState = HoverState.SHOW;
+      context._hoverState = HOVER_STATE_SHOW;
 
       if (!context.config.delay || !context.config.delay.show) {
         context.show();
@@ -9162,7 +9077,7 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       context._timeout = setTimeout(function () {
-        if (context._hoverState === HoverState.SHOW) {
+        if (context._hoverState === HOVER_STATE_SHOW) {
           context.show();
         }
       }, context.config.delay.show);
@@ -9178,7 +9093,7 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       if (event) {
-        context._activeTrigger[event.type === 'focusout' ? Trigger.FOCUS : Trigger.HOVER] = false;
+        context._activeTrigger[event.type === 'focusout' ? TRIGGER_FOCUS : TRIGGER_HOVER] = false;
       }
 
       if (context._isWithActiveTrigger()) {
@@ -9186,7 +9101,7 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       clearTimeout(context._timeout);
-      context._hoverState = HoverState.OUT;
+      context._hoverState = HOVER_STATE_OUT;
 
       if (!context.config.delay || !context.config.delay.hide) {
         context.hide();
@@ -9194,7 +9109,7 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       context._timeout = setTimeout(function () {
-        if (context._hoverState === HoverState.OUT) {
+        if (context._hoverState === HOVER_STATE_OUT) {
           context.hide();
         }
       }, context.config.delay.hide);
@@ -9217,7 +9132,7 @@ __webpack_require__.r(__webpack_exports__);
           delete dataAttributes[dataAttr];
         }
       });
-      config = _objectSpread2({}, this.constructor.Default, {}, dataAttributes, {}, typeof config === 'object' && config ? config : {});
+      config = _extends({}, this.constructor.Default, dataAttributes, typeof config === 'object' && config ? config : {});
 
       if (typeof config.delay === 'number') {
         config.delay = {
@@ -9267,8 +9182,7 @@ __webpack_require__.r(__webpack_exports__);
     };
 
     _proto._handlePopperPlacementChange = function _handlePopperPlacementChange(popperData) {
-      var popperInstance = popperData.instance;
-      this.tip = popperInstance.popper;
+      this.tip = popperData.instance.popper;
 
       this._cleanTipClass();
 
@@ -9283,7 +9197,7 @@ __webpack_require__.r(__webpack_exports__);
         return;
       }
 
-      $(tip).removeClass(ClassName.FADE);
+      $(tip).removeClass(CLASS_NAME_FADE);
       this.config.animation = false;
       this.hide();
       this.show();
@@ -9386,21 +9300,21 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 /*!
-  * Bootstrap util.js v4.4.1 (https://getbootstrap.com/)
-  * Copyright 2011-2019 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
-  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+  * Bootstrap util.js v4.5.2 (https://getbootstrap.com/)
+  * Copyright 2011-2020 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
+  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
 (function (global, factory) {
    true ? module.exports = factory(__webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")) :
   undefined;
 }(this, (function ($) { 'use strict';
 
-  $ = $ && $.hasOwnProperty('default') ? $['default'] : $;
+  $ = $ && Object.prototype.hasOwnProperty.call($, 'default') ? $['default'] : $;
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v4.4.1): util.js
-   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+   * Bootstrap (v4.5.2): util.js
+   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
   /**
@@ -9414,6 +9328,10 @@ __webpack_require__.r(__webpack_exports__);
   var MILLISECONDS_MULTIPLIER = 1000; // Shoutout AngusCroll (https://goo.gl/pxwQGp)
 
   function toType(obj) {
+    if (obj === null || typeof obj === 'undefined') {
+      return "" + obj;
+    }
+
     return {}.toString.call(obj).match(/\s([a-z]+)/i)[1].toLowerCase();
   }
 
@@ -9426,7 +9344,7 @@ __webpack_require__.r(__webpack_exports__);
           return event.handleObj.handler.apply(this, arguments); // eslint-disable-line prefer-rest-params
         }
 
-        return undefined; // eslint-disable-line no-undefined
+        return undefined;
       }
     };
   }
@@ -9589,7 +9507,7 @@ exports = module.exports = __webpack_require__(/*! ../../css-loader/lib/css-base
 
 
 // module
-exports.push([module.i, ".vld-overlay {\n  bottom: 0;\n  left: 0;\n  position: absolute;\n  right: 0;\n  top: 0;\n  -webkit-box-align: center;\n          align-items: center;\n  display: none;\n  -webkit-box-pack: center;\n          justify-content: center;\n  overflow: hidden;\n  z-index: 1\n}\n\n.vld-overlay.is-active {\n  display: -webkit-box;\n  display: flex\n}\n\n.vld-overlay.is-full-page {\n  z-index: 999;\n  position: fixed\n}\n\n.vld-overlay .vld-background {\n  bottom: 0;\n  left: 0;\n  position: absolute;\n  right: 0;\n  top: 0;\n  background: #fff;\n  opacity: 0.5\n}\n\n.vld-overlay .vld-icon, .vld-parent {\n  position: relative\n}\n\n", ""]);
+exports.push([module.i, ".vld-shown {\n  overflow: hidden;\n}\n\n.vld-overlay {\n  bottom: 0;\n  left: 0;\n  position: absolute;\n  right: 0;\n  top: 0;\n  align-items: center;\n  display: none;\n  justify-content: center;\n  overflow: hidden;\n  z-index: 9999;\n}\n\n.vld-overlay.is-active {\n  display: flex;\n}\n\n.vld-overlay.is-full-page {\n  z-index: 9999;\n  position: fixed;\n}\n\n.vld-overlay .vld-background {\n  bottom: 0;\n  left: 0;\n  position: absolute;\n  right: 0;\n  top: 0;\n  background: #fff;\n  opacity: 0.5;\n}\n\n.vld-overlay .vld-icon, .vld-parent {\n  position: relative;\n}\n\n", ""]);
 
 // exports
 
@@ -9608,7 +9526,7 @@ exports = module.exports = __webpack_require__(/*! ../css-loader/lib/css-base.js
 
 
 // module
-exports.push([module.i, ".mx-icon-left:before,.mx-icon-right:before,.mx-icon-double-left:before,.mx-icon-double-right:before,.mx-icon-double-left:after,.mx-icon-double-right:after{content:\"\";position:relative;top:-1px;display:inline-block;width:10px;height:10px;vertical-align:middle;border-style:solid;border-color:currentColor;border-width:2px 0 0 2px;border-radius:1px;-webkit-box-sizing:border-box;box-sizing:border-box;-webkit-transform-origin:center;transform-origin:center;-webkit-transform:rotate(-45deg) scale(0.7);transform:rotate(-45deg) scale(0.7)}.mx-icon-double-left:after{left:-4px}.mx-icon-double-right:before{left:4px}.mx-icon-right:before,.mx-icon-double-right:before,.mx-icon-double-right:after{-webkit-transform:rotate(135deg) scale(0.7);transform:rotate(135deg) scale(0.7)}.mx-btn{-webkit-box-sizing:border-box;box-sizing:border-box;line-height:1;font-size:14px;font-weight:500;padding:7px 15px;margin:0;cursor:pointer;background-color:transparent;outline:none;border:1px solid rgba(0,0,0,.1);border-radius:4px;color:#73879c;white-space:nowrap}.mx-btn:hover{border-color:#1284e7;color:#1284e7}.mx-btn-text{border:0;padding:0 4px;text-align:left;line-height:inherit}.mx-scrollbar{height:100%}.mx-scrollbar:hover .mx-scrollbar-track{opacity:1}.mx-scrollbar-wrap{height:100%;overflow-x:hidden;overflow-y:auto}.mx-scrollbar-track{position:absolute;top:2px;right:2px;bottom:2px;width:6px;z-index:1;border-radius:4px;opacity:0;-webkit-transition:opacity .24s ease-out;transition:opacity .24s ease-out}.mx-scrollbar-track .mx-scrollbar-thumb{position:absolute;width:100%;height:0;cursor:pointer;border-radius:inherit;background-color:rgba(144,147,153,.3);-webkit-transition:background-color .3s;transition:background-color .3s}.mx-zoom-in-down-enter-active,.mx-zoom-in-down-leave-active{opacity:1;-webkit-transform:scaleY(1);transform:scaleY(1);-webkit-transition:opacity .3s cubic-bezier(0.23, 1, 0.32, 1),-webkit-transform .3s cubic-bezier(0.23, 1, 0.32, 1);transition:opacity .3s cubic-bezier(0.23, 1, 0.32, 1),-webkit-transform .3s cubic-bezier(0.23, 1, 0.32, 1);transition:transform .3s cubic-bezier(0.23, 1, 0.32, 1),opacity .3s cubic-bezier(0.23, 1, 0.32, 1);transition:transform .3s cubic-bezier(0.23, 1, 0.32, 1),opacity .3s cubic-bezier(0.23, 1, 0.32, 1),-webkit-transform .3s cubic-bezier(0.23, 1, 0.32, 1);-webkit-transform-origin:center top;transform-origin:center top}.mx-zoom-in-down-enter,.mx-zoom-in-down-leave-to{opacity:0;-webkit-transform:scaleY(0);transform:scaleY(0)}.mx-datepicker{position:relative;display:inline-block;width:210px}.mx-datepicker svg{width:1em;height:1em;vertical-align:-0.15em;fill:currentColor;overflow:hidden}.mx-datepicker-range{width:320px}.mx-datepicker-inline{width:auto}.mx-input-wrapper{position:relative}.mx-input-wrapper .mx-icon-clear{display:none}.mx-input-wrapper:hover .mx-icon-clear{display:block}.mx-input-wrapper:hover .mx-icon-clear+.mx-icon-calendar{display:none}.mx-input{display:inline-block;-webkit-box-sizing:border-box;box-sizing:border-box;width:100%;height:34px;padding:6px 30px;padding-left:10px;font-size:14px;line-height:1.4;color:#555;background-color:#fff;border:1px solid #ccc;border-radius:4px;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075);box-shadow:inset 0 1px 1px rgba(0,0,0,.075)}.mx-input:hover,.mx-input:focus{border-color:#409aff}.mx-input:disabled,.mx-input.disabled{color:#ccc;background-color:#f3f3f3;border-color:#ccc;cursor:not-allowed}.mx-input:focus{outline:none}.mx-input::-ms-clear{display:none}.mx-icon-calendar,.mx-icon-clear{position:absolute;top:50%;right:8px;-webkit-transform:translateY(-50%);transform:translateY(-50%);font-size:16px;line-height:1;color:rgba(0,0,0,.5);vertical-align:middle}.mx-icon-clear{cursor:pointer}.mx-icon-clear:hover{color:rgba(0,0,0,.8)}.mx-datepicker-main{font:14px/1.5 \"Helvetica Neue\",Helvetica,Arial,\"Microsoft Yahei\",sans-serif;color:#73879c;background-color:#fff;border:1px solid #e8e8e8}.mx-datepicker-popup{position:absolute;margin-top:1px;margin-bottom:1px;-webkit-box-shadow:0 6px 12px rgba(0,0,0,.175);box-shadow:0 6px 12px rgba(0,0,0,.175);z-index:1000}.mx-datepicker-sidebar{float:left;-webkit-box-sizing:border-box;box-sizing:border-box;width:100px;padding:6px;overflow:auto}.mx-datepicker-sidebar+.mx-datepicker-content{margin-left:100px;border-left:1px solid #e8e8e8}.mx-datepicker-body{position:relative;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.mx-btn-shortcut{display:block;padding:0 6px;line-height:24px}.mx-range-wrapper{display:-webkit-box;display:-ms-flexbox;display:flex}.mx-datepicker-header{padding:6px 8px;border-bottom:1px solid #e8e8e8}.mx-datepicker-footer{padding:6px 8px;text-align:right;border-top:1px solid #e8e8e8}.mx-calendar{-webkit-box-sizing:border-box;box-sizing:border-box;width:248px;padding:6px 12px}.mx-calendar+.mx-calendar{border-left:1px solid #e8e8e8}.mx-calendar-header,.mx-time-header{-webkit-box-sizing:border-box;box-sizing:border-box;height:34px;line-height:34px;text-align:center;overflow:hidden}.mx-btn-icon-left,.mx-btn-icon-double-left{float:left}.mx-btn-icon-right,.mx-btn-icon-double-right{float:right}.mx-calendar-header-label{font-size:14px}.mx-calendar-decade-separator{margin:0 2px}.mx-calendar-decade-separator:after{content:\"~\"}.mx-calendar-content{position:relative;height:224px;-webkit-box-sizing:border-box;box-sizing:border-box}.mx-calendar-content .cell{cursor:pointer}.mx-calendar-content .cell:hover{color:#73879c;background-color:#f3f9fe}.mx-calendar-content .cell.active{color:#fff;background-color:#1284e7}.mx-calendar-content .cell.in-range{color:#73879c;background-color:#dbedfb}.mx-calendar-content .cell.disabled{cursor:not-allowed;color:#ccc;background-color:#f3f3f3}.mx-calendar-week-mode .mx-date-row{cursor:pointer}.mx-calendar-week-mode .mx-date-row:hover{background-color:#f3f9fe}.mx-calendar-week-mode .mx-date-row.mx-active-week{background-color:#dbedfb}.mx-calendar-week-mode .mx-date-row .cell:hover{color:inherit;background-color:transparent}.mx-calendar-week-mode .mx-date-row .cell.active{color:inherit;background-color:transparent}.mx-week-number{opacity:.5}.mx-table{table-layout:fixed;border-collapse:separate;border-spacing:0;width:100%;height:100%;-webkit-box-sizing:border-box;box-sizing:border-box;text-align:center;vertical-align:middle}.mx-table th{padding:0;font-weight:500}.mx-table td{padding:0}.mx-table-date td,.mx-table-date th{height:32px;font-size:12px}.mx-table-date .today{color:#2a90e9}.mx-table-date .cell.not-current-month{color:#ccc}.mx-time{-webkit-box-flex:1;-ms-flex:1;flex:1;width:224px;background:#fff}.mx-time+.mx-time{border-left:1px solid #e8e8e8}.mx-calendar-time{position:absolute;top:0;left:0;width:100%;height:100%}.mx-time-header{border-bottom:1px solid #e8e8e8}.mx-time-content{height:224px;-webkit-box-sizing:border-box;box-sizing:border-box;overflow:hidden}.mx-time-columns{display:-webkit-box;display:-ms-flexbox;display:flex;width:100%;height:100%;overflow:hidden}.mx-time-column{-webkit-box-flex:1;-ms-flex:1;flex:1;position:relative;border-left:1px solid #e8e8e8;text-align:center}.mx-time-column:first-child{border-left:0}.mx-time-column .mx-time-list{margin:0;padding:0;list-style:none}.mx-time-column .mx-time-list::after{content:\"\";display:block;height:192px}.mx-time-column .mx-time-item{cursor:pointer;font-size:12px;height:32px;line-height:32px}.mx-time-column .mx-time-item:hover{color:#73879c;background-color:#f3f9fe}.mx-time-column .mx-time-item.active{color:#1284e7;background-color:transparent;font-weight:700}.mx-time-column .mx-time-item.disabled{cursor:not-allowed;color:#ccc;background-color:#f3f3f3}.mx-time-option{cursor:pointer;padding:8px 10px;font-size:14px;line-height:20px}.mx-time-option:hover{color:#73879c;background-color:#f3f9fe}.mx-time-option.active{color:#1284e7;background-color:transparent;font-weight:700}.mx-time-option.disabled{cursor:not-allowed;color:#ccc;background-color:#f3f3f3}\n", ""]);
+exports.push([module.i, ".mx-icon-left:before,.mx-icon-right:before,.mx-icon-double-left:before,.mx-icon-double-right:before,.mx-icon-double-left:after,.mx-icon-double-right:after{content:\"\";position:relative;top:-1px;display:inline-block;width:10px;height:10px;vertical-align:middle;border-style:solid;border-color:currentColor;border-width:2px 0 0 2px;border-radius:1px;-webkit-box-sizing:border-box;box-sizing:border-box;-webkit-transform-origin:center;transform-origin:center;-webkit-transform:rotate(-45deg) scale(0.7);transform:rotate(-45deg) scale(0.7)}.mx-icon-double-left:after{left:-4px}.mx-icon-double-right:before{left:4px}.mx-icon-right:before,.mx-icon-double-right:before,.mx-icon-double-right:after{-webkit-transform:rotate(135deg) scale(0.7);transform:rotate(135deg) scale(0.7)}.mx-btn{-webkit-box-sizing:border-box;box-sizing:border-box;line-height:1;font-size:14px;font-weight:500;padding:7px 15px;margin:0;cursor:pointer;background-color:transparent;outline:none;border:1px solid rgba(0,0,0,.1);border-radius:4px;color:#73879c;white-space:nowrap}.mx-btn:hover{border-color:#1284e7;color:#1284e7}.mx-btn-text{border:0;padding:0 4px;text-align:left;line-height:inherit}.mx-scrollbar{height:100%}.mx-scrollbar:hover .mx-scrollbar-track{opacity:1}.mx-scrollbar-wrap{height:100%;overflow-x:hidden;overflow-y:auto}.mx-scrollbar-track{position:absolute;top:2px;right:2px;bottom:2px;width:6px;z-index:1;border-radius:4px;opacity:0;-webkit-transition:opacity .24s ease-out;transition:opacity .24s ease-out}.mx-scrollbar-track .mx-scrollbar-thumb{position:absolute;width:100%;height:0;cursor:pointer;border-radius:inherit;background-color:rgba(144,147,153,.3);-webkit-transition:background-color .3s;transition:background-color .3s}.mx-zoom-in-down-enter-active,.mx-zoom-in-down-leave-active{opacity:1;-webkit-transform:scaleY(1);transform:scaleY(1);-webkit-transition:opacity .3s cubic-bezier(0.23, 1, 0.32, 1),-webkit-transform .3s cubic-bezier(0.23, 1, 0.32, 1);transition:opacity .3s cubic-bezier(0.23, 1, 0.32, 1),-webkit-transform .3s cubic-bezier(0.23, 1, 0.32, 1);transition:transform .3s cubic-bezier(0.23, 1, 0.32, 1),opacity .3s cubic-bezier(0.23, 1, 0.32, 1);transition:transform .3s cubic-bezier(0.23, 1, 0.32, 1),opacity .3s cubic-bezier(0.23, 1, 0.32, 1),-webkit-transform .3s cubic-bezier(0.23, 1, 0.32, 1);-webkit-transform-origin:center top;transform-origin:center top}.mx-zoom-in-down-enter,.mx-zoom-in-down-leave-to{opacity:0;-webkit-transform:scaleY(0);transform:scaleY(0)}.mx-datepicker{position:relative;display:inline-block;width:210px}.mx-datepicker svg{width:1em;height:1em;vertical-align:-0.15em;fill:currentColor;overflow:hidden}.mx-datepicker-range{width:320px}.mx-datepicker-inline{width:auto}.mx-input-wrapper{position:relative}.mx-input-wrapper .mx-icon-clear{display:none}.mx-input-wrapper:hover .mx-icon-clear{display:block}.mx-input-wrapper:hover .mx-icon-clear+.mx-icon-calendar{display:none}.mx-input{display:inline-block;-webkit-box-sizing:border-box;box-sizing:border-box;width:100%;height:34px;padding:6px 30px;padding-left:10px;font-size:14px;line-height:1.4;color:#555;background-color:#fff;border:1px solid #ccc;border-radius:4px;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075);box-shadow:inset 0 1px 1px rgba(0,0,0,.075)}.mx-input:hover,.mx-input:focus{border-color:#409aff}.mx-input:disabled,.mx-input.disabled{color:#ccc;background-color:#f3f3f3;border-color:#ccc;cursor:not-allowed}.mx-input:focus{outline:none}.mx-input::-ms-clear{display:none}.mx-icon-calendar,.mx-icon-clear{position:absolute;top:50%;right:8px;-webkit-transform:translateY(-50%);transform:translateY(-50%);font-size:16px;line-height:1;color:rgba(0,0,0,.5);vertical-align:middle}.mx-icon-clear{cursor:pointer}.mx-icon-clear:hover{color:rgba(0,0,0,.8)}.mx-datepicker-main{font:14px/1.5 \"Helvetica Neue\",Helvetica,Arial,\"Microsoft Yahei\",sans-serif;color:#73879c;background-color:#fff;border:1px solid #e8e8e8}.mx-datepicker-popup{position:absolute;margin-top:1px;margin-bottom:1px;-webkit-box-shadow:0 6px 12px rgba(0,0,0,.175);box-shadow:0 6px 12px rgba(0,0,0,.175);z-index:2001}.mx-datepicker-sidebar{float:left;-webkit-box-sizing:border-box;box-sizing:border-box;width:100px;padding:6px;overflow:auto}.mx-datepicker-sidebar+.mx-datepicker-content{margin-left:100px;border-left:1px solid #e8e8e8}.mx-datepicker-body{position:relative;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.mx-btn-shortcut{display:block;padding:0 6px;line-height:24px}.mx-range-wrapper{display:-webkit-box;display:-ms-flexbox;display:flex}@media(max-width: 750px){.mx-range-wrapper{-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column}}.mx-datepicker-header{padding:6px 8px;border-bottom:1px solid #e8e8e8}.mx-datepicker-footer{padding:6px 8px;text-align:right;border-top:1px solid #e8e8e8}.mx-calendar{-webkit-box-sizing:border-box;box-sizing:border-box;width:248px;padding:6px 12px}.mx-calendar+.mx-calendar{border-left:1px solid #e8e8e8}.mx-calendar-header,.mx-time-header{-webkit-box-sizing:border-box;box-sizing:border-box;height:34px;line-height:34px;text-align:center;overflow:hidden}.mx-btn-icon-left,.mx-btn-icon-double-left{float:left}.mx-btn-icon-right,.mx-btn-icon-double-right{float:right}.mx-calendar-header-label{font-size:14px}.mx-calendar-decade-separator{margin:0 2px}.mx-calendar-decade-separator:after{content:\"~\"}.mx-calendar-content{position:relative;height:224px;-webkit-box-sizing:border-box;box-sizing:border-box}.mx-calendar-content .cell{cursor:pointer}.mx-calendar-content .cell:hover{color:#73879c;background-color:#f3f9fe}.mx-calendar-content .cell.active{color:#fff;background-color:#1284e7}.mx-calendar-content .cell.in-range{color:#73879c;background-color:#dbedfb}.mx-calendar-content .cell.disabled{cursor:not-allowed;color:#ccc;background-color:#f3f3f3}.mx-calendar-week-mode .mx-date-row{cursor:pointer}.mx-calendar-week-mode .mx-date-row:hover{background-color:#f3f9fe}.mx-calendar-week-mode .mx-date-row.mx-active-week{background-color:#dbedfb}.mx-calendar-week-mode .mx-date-row .cell:hover{color:inherit;background-color:transparent}.mx-calendar-week-mode .mx-date-row .cell.active{color:inherit;background-color:transparent}.mx-week-number{opacity:.5}.mx-table{table-layout:fixed;border-collapse:separate;border-spacing:0;width:100%;height:100%;-webkit-box-sizing:border-box;box-sizing:border-box;text-align:center;vertical-align:middle}.mx-table th{padding:0;font-weight:500}.mx-table td{padding:0}.mx-table-date td,.mx-table-date th{height:32px;font-size:12px}.mx-table-date .today{color:#2a90e9}.mx-table-date .cell.not-current-month{color:#ccc}.mx-time{-webkit-box-flex:1;-ms-flex:1;flex:1;width:224px;background:#fff}.mx-time+.mx-time{border-left:1px solid #e8e8e8}.mx-calendar-time{position:absolute;top:0;left:0;width:100%;height:100%}.mx-time-header{border-bottom:1px solid #e8e8e8}.mx-time-content{height:224px;-webkit-box-sizing:border-box;box-sizing:border-box;overflow:hidden}.mx-time-columns{display:-webkit-box;display:-ms-flexbox;display:flex;width:100%;height:100%;overflow:hidden}.mx-time-column{-webkit-box-flex:1;-ms-flex:1;flex:1;position:relative;border-left:1px solid #e8e8e8;text-align:center}.mx-time-column:first-child{border-left:0}.mx-time-column .mx-time-list{margin:0;padding:0;list-style:none}.mx-time-column .mx-time-list::after{content:\"\";display:block;height:192px}.mx-time-column .mx-time-item{cursor:pointer;font-size:12px;height:32px;line-height:32px}.mx-time-column .mx-time-item:hover{color:#73879c;background-color:#f3f9fe}.mx-time-column .mx-time-item.active{color:#1284e7;background-color:transparent;font-weight:700}.mx-time-column .mx-time-item.disabled{cursor:not-allowed;color:#ccc;background-color:#f3f3f3}.mx-time-option{cursor:pointer;padding:8px 10px;font-size:14px;line-height:20px}.mx-time-option:hover{color:#73879c;background-color:#f3f9fe}.mx-time-option.active{color:#1284e7;background-color:transparent;font-weight:700}.mx-time-option.disabled{cursor:not-allowed;color:#ccc;background-color:#f3f3f3}\n", ""]);
 
 // exports
 
@@ -9627,7 +9545,7 @@ exports = module.exports = __webpack_require__(/*! ../../css-loader/lib/css-base
 
 
 // module
-exports.push([module.i, ".vueperslide{white-space:normal;background-size:cover;flex-shrink:0;display:block;width:100%;position:relative}.vueperslide[href]{-webkit-user-drag:none}.vueperslide__image{background-size:cover}.vueperslide__image,.vueperslide__loader{position:absolute;top:0;left:0;right:0;bottom:0}.vueperslide__loader{display:-webkit-box;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;flex-direction:column;-webkit-box-align:center;align-items:center;-webkit-box-pack:center;justify-content:center}.vueperslide__content-wrapper:not(.vueperslide__content-wrapper--outside-top):not(.vueperslide__content-wrapper--outside-bottom){height:100%;margin:auto}.vueperslides--fade .vueperslide{position:absolute;top:0;left:0;right:0;bottom:0;opacity:0;-webkit-transition:opacity .8s ease-in-out;transition:opacity .8s ease-in-out;-webkit-transition-duration:inherit;transition-duration:inherit}.vueperslides--fade .vueperslide--active,.vueperslides--fade .vueperslide--visible{z-index:1;opacity:1}.vueperslides--slide-image-inside .vueperslide{overflow:hidden}.vueperslides--3d .vueperslide{position:absolute;z-index:-1;height:100%}.vueperslides--3d .vueperslide--active,.vueperslides--3d .vueperslide--next-slide,.vueperslides--3d .vueperslide--previous-slide{z-index:0}.vueperslides--3d .vueperslide--active{z-index:1}.vueperslides--3d .vueperslide[face=front]{-webkit-transform:rotateY(90deg) translateX(-50%) rotateY(-90deg);transform:rotateY(90deg) translateX(-50%) rotateY(-90deg)}.vueperslides--3d .vueperslide[face=right]{-webkit-transform:rotateY(90deg) translateX(50%);transform:rotateY(90deg) translateX(50%);-webkit-transform-origin:100% 0;transform-origin:100% 0}.vueperslides--3d .vueperslide[face=back]{-webkit-transform:rotateY(270deg) translateX(-50%) rotateY(-90deg);transform:rotateY(270deg) translateX(-50%) rotateY(-90deg)}.vueperslides--3d .vueperslide[face=left]{-webkit-transform:rotateY(270deg) translateX(-50%);transform:rotateY(270deg) translateX(-50%);-webkit-transform-origin:0 0;transform-origin:0 0}.vueperslides:not(.no-shadow):not(.vueperslides--3d) .vueperslides__parallax-wrapper:after,.vueperslides:not(.no-shadow):not(.vueperslides--3d) .vueperslides__parallax-wrapper:before{content:\"\";position:absolute;bottom:100%;left:-1em;right:-1em;height:2em;box-shadow:0 0 20px rgba(0,0,0,.25);z-index:2}.vueperslides:not(.no-shadow):not(.vueperslides--3d) .vueperslides__parallax-wrapper:after{top:100%;bottom:auto}.vueperslides__arrows{color:#fff}.vueperslides__arrows--outside{color:currentColor}.vueperslides__arrow{top:50%;background-color:transparent;border:none;opacity:.7}.vueperslides__arrow--prev{left:.5em}.vueperslides__arrow--next{right:.5em}.vueperslides__arrow:hover{opacity:1}.vueperslides__arrows--outside .vueperslides__arrow--prev{left:-3.5em}.vueperslides__arrows--outside .vueperslides__arrow--next{right:-3.5em}.vueperslides__paused{top:.7em;right:.7em;opacity:0;text-shadow:0 0 3px rgba(0,0,0,.4);z-index:1}.vueperslides:hover .vueperslides__paused{opacity:1}.vueperslides__bullets:not(.vueperslides__bullets--outside){color:#fff}.vueperslides__bullet{margin:1.5em .6em;padding:0;border:none;background:none}.vueperslides__bullet .default{width:12px;height:12px;border-radius:12px;border:1px solid currentColor;background-color:transparent;box-shadow:0 0 1px rgba(0,0,0,.5),0 0 3px rgba(0,0,0,.3);-webkit-transition:.4s ease-in-out;transition:.4s ease-in-out;box-sizing:border-box}.vueperslides__bullet .default span{display:none}.vueperslides__bullet--active .default{border-width:6px}.vueperslide,.vueperslide__image{background-position:50%}.vueperslide__content-wrapper:not(.vueperslide__content-wrapper--outside-top):not(.vueperslide__content-wrapper--outside-bottom){-webkit-box-flex:1;flex:1 1 auto;-webkit-box-orient:vertical;-webkit-box-direction:normal;flex-direction:column;text-align:center}.vueperslide__content-wrapper.parallax-fixed-content,.vueperslide__content-wrapper:not(.vueperslide__content-wrapper--outside-top):not(.vueperslide__content-wrapper--outside-bottom){display:-webkit-box;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-webkit-box-align:center;align-items:center;-webkit-box-pack:center;justify-content:center}.vueperslide__content-wrapper.parallax-fixed-content{position:absolute;z-index:2;top:0;bottom:0;left:0;right:0;-webkit-box-orient:vertical;-webkit-box-direction:normal;flex-direction:column;pointer-events:none}.vueperslides{position:relative}.vueperslides--fixed-height .vueperslide,.vueperslides--fixed-height .vueperslides__inner,.vueperslides--fixed-height .vueperslides__parallax-wrapper{height:inherit}.vueperslides--fixed-height .vueperslides__parallax-wrapper{padding-bottom:0!important}.vueperslides--fixed-height.vueperslides--bullets-outside{margin-bottom:4em}.vueperslides__inner{position:relative;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.vueperslides__parallax-wrapper{position:relative;overflow:hidden}.vueperslides--3d .vueperslides__parallax-wrapper{overflow:visible}.vueperslides__track{position:absolute;top:0;height:100%;left:0;right:0;overflow:hidden;z-index:1}.vueperslides--parallax .vueperslides__track{height:200%;-webkit-transform:translateY(0);transform:translateY(0)}.vueperslides--touchable .vueperslides__track{cursor:ew-resize;cursor:-webkit-grab;cursor:grab}.vueperslides--touchable .vueperslides__track--dragging,.vueperslides--touchable .vueperslides__track--mousedown{cursor:-webkit-grabbing;cursor:grabbing}.vueperslides--3d .vueperslides__track{overflow:visible;-webkit-perspective:100em;perspective:100em}.vueperslides__track-inner{white-space:nowrap;-webkit-transition:transform .5s ease-in-out;-webkit-transition:-webkit-transform .5s ease-in-out;transition:-webkit-transform .5s ease-in-out;transition:transform .5s ease-in-out;transition:transform .5s ease-in-out, -webkit-transform .5s ease-in-out;height:100%;display:-webkit-box;display:flex}.vueperslides--fade .vueperslides__track-inner{white-space:normal;-webkit-transition:none;transition:none}.vueperslides--3d .vueperslides__track-inner{-webkit-transform-style:preserve-3d;transform-style:preserve-3d}.vueperslides__track--mousedown .vueperslides__track-inner{-webkit-transition:transform .2s ease-in-out!important;-webkit-transition:-webkit-transform .2s ease-in-out!important;transition:-webkit-transform .2s ease-in-out!important;transition:transform .2s ease-in-out!important;transition:transform .2s ease-in-out, -webkit-transform .2s ease-in-out!important}.vueperslides__track--dragging .vueperslides__track-inner{-webkit-transition:none;transition:none}.vueperslides__track--no-animation .vueperslides__track-inner{-webkit-transition-duration:0s;transition-duration:0s}.vueperslides__arrow{position:absolute;font-size:inherit;color:inherit;text-align:center;-webkit-transform:translateY(-50%);transform:translateY(-50%);cursor:pointer;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;outline:none;z-index:2;line-height:1}.vueperslides__arrow,.vueperslides__arrow svg{-webkit-transition:.3s ease-in-out;transition:.3s ease-in-out}.vueperslides__arrow svg{vertical-align:middle;stroke:currentColor;fill:none;width:3.5em;padding:1em;stroke-width:1;box-sizing:border-box}.vueperslides__arrow svg:hover{stroke-width:1.3}.vueperslides__paused{position:absolute;-webkit-transition:.3s ease-in-out;transition:.3s ease-in-out}.vueperslides__bullets{display:-webkit-box;display:flex;-webkit-box-pack:center;justify-content:center;position:absolute;bottom:0;left:0;right:0}.vueperslides__bullets--outside{position:relative}.vueperslides__bullet,.vueperslides__bullets button{cursor:pointer;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;outline:none;z-index:2;display:-webkit-box;display:flex;-webkit-box-pack:center;justify-content:center;-webkit-box-align:center;align-items:center}.vueperslides__bullet::-moz-focus-inner,.vueperslides__bullets button::-moz-focus-inner{border:0}.vueperslides__fractions{position:absolute;top:.8em;left:.5em;z-index:2;padding:.2em 1em;border:1px solid hsla(0,0%,100%,.5);border-radius:2em;background:hsla(0,0%,100%,.2);color:#fff}.vueperslides__progress{position:absolute;top:0;left:0;right:0;z-index:2;height:6px;color:rgba(0,0,0,.7)}.vueperslides__progress>*{position:absolute;top:0;bottom:0;left:0;background:currentColor;-webkit-transition:.3s ease-in-out;transition:.3s ease-in-out}", ""]);
+exports.push([module.i, ".vueperslide{white-space:normal;background-size:cover;flex-shrink:0;display:block;width:100%;position:relative}.vueperslide--clone-1{position:absolute;top:0;bottom:0;right:100%}.vueperslide[href]{-webkit-user-drag:none}.vueperslide__image{background-size:cover}.vueperslide__image,.vueperslide__loader{position:absolute;top:0;left:0;right:0;bottom:0}.vueperslide__loader{display:flex;flex-direction:column;align-items:center;justify-content:center}.vueperslide__content-wrapper:not(.vueperslide__content-wrapper--outside-top):not(.vueperslide__content-wrapper--outside-bottom){height:100%;margin:auto}.vueperslides--fade .vueperslide{position:absolute;top:0;left:0;right:0;bottom:0;opacity:0;transition:opacity .8s ease-in-out;transition-duration:inherit}.vueperslides--fade .vueperslide--active,.vueperslides--fade .vueperslide--visible{z-index:1;opacity:1}.vueperslides--slide-image-inside .vueperslide{overflow:hidden}.vueperslides--3d .vueperslide{position:absolute;z-index:-1;height:100%}.vueperslides--3d .vueperslide--active,.vueperslides--3d .vueperslide--next-slide,.vueperslides--3d .vueperslide--previous-slide{z-index:0}.vueperslides--3d .vueperslide--active{z-index:1}.vueperslides--3d .vueperslide[face=front]{transform:rotateY(90deg) translateX(-50%) rotateY(-90deg)}.vueperslides--3d .vueperslide[face=right]{transform:rotateY(90deg) translateX(50%);transform-origin:100% 0}.vueperslides--3d .vueperslide[face=back]{transform:rotateY(270deg) translateX(-50%) rotateY(-90deg)}.vueperslides--3d .vueperslide[face=left]{transform:rotateY(270deg) translateX(-50%);transform-origin:0 0}.vueperslides:not(.no-shadow):not(.vueperslides--3d) .vueperslides__parallax-wrapper:after,.vueperslides:not(.no-shadow):not(.vueperslides--3d) .vueperslides__parallax-wrapper:before{content:\"\";position:absolute;bottom:100%;left:-1em;right:-1em;height:2em;box-shadow:0 0 20px rgba(0,0,0,.25);z-index:2}.vueperslides:not(.no-shadow):not(.vueperslides--3d) .vueperslides__parallax-wrapper:after{top:100%;bottom:auto}.vueperslides__arrows{color:#fff}.vueperslides__arrows--outside{color:currentColor}.vueperslides__arrow{top:50%;background-color:transparent;border:none;opacity:.7}.vueperslides__arrow--prev{left:.5em}.vueperslides__arrow--next{right:.5em}.vueperslides__arrow:hover{opacity:1}.vueperslides__arrows--outside .vueperslides__arrow--prev{left:-3.5em}.vueperslides__arrows--outside .vueperslides__arrow--next{right:-3.5em}.vueperslides__paused{top:.7em;right:.7em;opacity:0;text-shadow:0 0 3px rgba(0,0,0,.4);z-index:1}.vueperslides:hover .vueperslides__paused{opacity:1}.vueperslides__bullets:not(.vueperslides__bullets--outside){color:#fff}.vueperslides__bullet{margin:1.5em .6em;padding:0;border:none;background:none}.vueperslides__bullet .default{width:12px;height:12px;border-radius:12px;border:1px solid currentColor;background-color:transparent;box-shadow:0 0 1px rgba(0,0,0,.5),0 0 3px rgba(0,0,0,.3);transition:.4s ease-in-out;box-sizing:border-box}.vueperslides__bullet .default span{display:none}.vueperslides__bullet--active .default{border-width:6px}.vueperslide,.vueperslide__image{background-position:50%}.vueperslide__content-wrapper:not(.vueperslide__content-wrapper--outside-top):not(.vueperslide__content-wrapper--outside-bottom){flex:1 1 auto;flex-direction:column;text-align:center}.vueperslide__content-wrapper.parallax-fixed-content,.vueperslide__content-wrapper:not(.vueperslide__content-wrapper--outside-top):not(.vueperslide__content-wrapper--outside-bottom){display:flex;-webkit-box-orient:vertical;align-items:center;justify-content:center}.vueperslide__content-wrapper.parallax-fixed-content{position:absolute;z-index:2;top:0;bottom:0;left:0;right:0;flex-direction:column;pointer-events:none}.vueperslides{position:relative}.vueperslides--fixed-height .vueperslide,.vueperslides--fixed-height .vueperslides__inner,.vueperslides--fixed-height .vueperslides__parallax-wrapper{height:inherit}.vueperslides--fixed-height .vueperslides__parallax-wrapper{padding-bottom:0!important}.vueperslides--fixed-height.vueperslides--bullets-outside{margin-bottom:4em}.vueperslides__inner{position:relative;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.vueperslides__parallax-wrapper{position:relative;overflow:hidden}.vueperslides--3d .vueperslides__parallax-wrapper{overflow:visible}.vueperslides__track{position:absolute;top:0;height:100%;left:0;right:0;overflow:hidden;z-index:1}.vueperslides--parallax .vueperslides__track{height:200%;transform:translateY(0)}.vueperslides--touchable .vueperslides__track{cursor:ew-resize;cursor:-webkit-grab;cursor:grab}.vueperslides--touchable .vueperslides__track--dragging,.vueperslides--touchable .vueperslides__track--mousedown{cursor:-webkit-grabbing;cursor:grabbing}.vueperslides--3d .vueperslides__track{overflow:visible;perspective:100em}.vueperslides__track-inner{white-space:nowrap;transition:transform .5s ease-in-out;height:100%;display:flex}.vueperslides--no-animation .vueperslides__track-inner{transition-duration:0s!important}.vueperslides--fade .vueperslides__track-inner{white-space:normal;transition:none}.vueperslides--3d .vueperslides__track-inner{transform-style:preserve-3d}.vueperslides__track--mousedown .vueperslides__track-inner{transition:transform .25s ease-in-out!important}.vueperslides__track--dragging .vueperslides__track-inner{transition:none}.vueperslides__arrow{position:absolute;font-size:inherit;color:inherit;text-align:center;transform:translateY(-50%);cursor:pointer;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;outline:none;z-index:2;line-height:1}.vueperslides__arrow,.vueperslides__arrow svg{transition:.3s ease-in-out}.vueperslides__arrow svg{vertical-align:middle;stroke:currentColor;fill:none;width:3.5em;padding:1em;stroke-width:1;box-sizing:border-box}.vueperslides__arrow svg:hover{stroke-width:1.3}.vueperslides__paused{position:absolute;transition:.3s ease-in-out}.vueperslides__bullets{display:flex;justify-content:center;position:absolute;bottom:0;left:0;right:0}.vueperslides__bullets--outside{position:relative}.vueperslides__bullet,.vueperslides__bullets button{cursor:pointer;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;outline:none;z-index:2;display:flex;justify-content:center;align-items:center}.vueperslides__bullet::-moz-focus-inner,.vueperslides__bullets button::-moz-focus-inner{border:0}.vueperslides__fractions{position:absolute;top:.8em;left:.5em;z-index:2;padding:.2em 1em;border:1px solid hsla(0,0%,100%,.5);border-radius:2em;background:hsla(0,0%,100%,.2);color:#fff}.vueperslides__progress{position:absolute;top:0;left:0;right:0;z-index:2;height:6px;color:rgba(0,0,0,.7)}.vueperslides__progress>*{position:absolute;top:0;bottom:0;left:0;background:currentColor;transition:.3s ease-in-out}", ""]);
 
 // exports
 
@@ -9684,7 +9602,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.v-captcha{\r\n    transform: scale(0.7);\r\n    -webkit-transform: scale(0.7);\r\n    transform-origin: 0 0;\r\n    -webkit-transform-origin: 0 0;\n}\n@media (max-width:350px) {\n.v-captcha{\r\n        transform: scale(0.6);\r\n        -webkit-transform: scale(0.6);\n}\n}\r\n\r\n", ""]);
+exports.push([module.i, "\n.v-captcha{\n    transform: scale(0.7);\n    -webkit-transform: scale(0.7);\n    transform-origin: 0 0;\n    -webkit-transform-origin: 0 0;\n}\n@media (max-width:350px) {\n.v-captcha{\n        transform: scale(0.6);\n        -webkit-transform: scale(0.6);\n}\n}\n\n", ""]);
 
 // exports
 
@@ -9703,7 +9621,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.float-button{\n    font-size: 1.5rem;\n    -webkit-transition: all 0.3s ease-in-out;\n    transition: all 0.3s ease-in-out;    \n    -webkit-transform: rotate(90deg);    \n            transform: rotate(90deg);\n}\n.float-button.active{\n    -webkit-transition: all 0.5s;\n    transition: all 0.5s;\n    -webkit-transform: rotate(225deg);\n            transform: rotate(225deg);\n}\n\n", ""]);
+exports.push([module.i, "\n.float-button{\n    font-size: 1.5rem;\n    transition: all 0.3s ease-in-out;    \n    transform: rotate(90deg);\n}\n.float-button.active{\n    transition: all 0.5s;\n    transform: rotate(225deg);\n}\n\n", ""]);
 
 // exports
 
@@ -9805,7 +9723,7 @@ function toComment(sourceMap) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
- * jQuery JavaScript Library v3.4.1
+ * jQuery JavaScript Library v3.5.1
  * https://jquery.com/
  *
  * Includes Sizzle.js
@@ -9815,7 +9733,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
  * Released under the MIT license
  * https://jquery.org/license
  *
- * Date: 2019-05-01T21:04Z
+ * Date: 2020-05-04T22:49Z
  */
 ( function( global, factory ) {
 
@@ -9853,13 +9771,16 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 
 var arr = [];
 
-var document = window.document;
-
 var getProto = Object.getPrototypeOf;
 
 var slice = arr.slice;
 
-var concat = arr.concat;
+var flat = arr.flat ? function( array ) {
+	return arr.flat.call( array );
+} : function( array ) {
+	return arr.concat.apply( [], array );
+};
+
 
 var push = arr.push;
 
@@ -9891,6 +9812,8 @@ var isWindow = function isWindow( obj ) {
 		return obj != null && obj === obj.window;
 	};
 
+
+var document = window.document;
 
 
 
@@ -9948,7 +9871,7 @@ function toType( obj ) {
 
 
 var
-	version = "3.4.1",
+	version = "3.5.1",
 
 	// Define a local copy of jQuery
 	jQuery = function( selector, context ) {
@@ -9956,11 +9879,7 @@ var
 		// The jQuery object is actually just the init constructor 'enhanced'
 		// Need init if jQuery is called (just allow error to be thrown if not included)
 		return new jQuery.fn.init( selector, context );
-	},
-
-	// Support: Android <=4.0 only
-	// Make sure we trim BOM and NBSP
-	rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
+	};
 
 jQuery.fn = jQuery.prototype = {
 
@@ -10024,6 +9943,18 @@ jQuery.fn = jQuery.prototype = {
 
 	last: function() {
 		return this.eq( -1 );
+	},
+
+	even: function() {
+		return this.pushStack( jQuery.grep( this, function( _elem, i ) {
+			return ( i + 1 ) % 2;
+		} ) );
+	},
+
+	odd: function() {
+		return this.pushStack( jQuery.grep( this, function( _elem, i ) {
+			return i % 2;
+		} ) );
 	},
 
 	eq: function( i ) {
@@ -10159,9 +10090,10 @@ jQuery.extend( {
 		return true;
 	},
 
-	// Evaluates a script in a global context
-	globalEval: function( code, options ) {
-		DOMEval( code, { nonce: options && options.nonce } );
+	// Evaluates a script in a provided context; falls back to the global one
+	// if not specified.
+	globalEval: function( code, options, doc ) {
+		DOMEval( code, { nonce: options && options.nonce }, doc );
 	},
 
 	each: function( obj, callback ) {
@@ -10183,13 +10115,6 @@ jQuery.extend( {
 		}
 
 		return obj;
-	},
-
-	// Support: Android <=4.0 only
-	trim: function( text ) {
-		return text == null ?
-			"" :
-			( text + "" ).replace( rtrim, "" );
 	},
 
 	// results is for internal usage only
@@ -10278,7 +10203,7 @@ jQuery.extend( {
 		}
 
 		// Flatten any nested arrays
-		return concat.apply( [], ret );
+		return flat( ret );
 	},
 
 	// A global GUID counter for objects
@@ -10295,7 +10220,7 @@ if ( typeof Symbol === "function" ) {
 
 // Populate the class2type map
 jQuery.each( "Boolean Number String Function Array Date RegExp Object Error Symbol".split( " " ),
-function( i, name ) {
+function( _i, name ) {
 	class2type[ "[object " + name + "]" ] = name.toLowerCase();
 } );
 
@@ -10317,17 +10242,16 @@ function isArrayLike( obj ) {
 }
 var Sizzle =
 /*!
- * Sizzle CSS Selector Engine v2.3.4
+ * Sizzle CSS Selector Engine v2.3.5
  * https://sizzlejs.com/
  *
  * Copyright JS Foundation and other contributors
  * Released under the MIT license
  * https://js.foundation/
  *
- * Date: 2019-04-08
+ * Date: 2020-03-14
  */
-(function( window ) {
-
+( function( window ) {
 var i,
 	support,
 	Expr,
@@ -10367,59 +10291,70 @@ var i,
 	},
 
 	// Instance methods
-	hasOwn = ({}).hasOwnProperty,
+	hasOwn = ( {} ).hasOwnProperty,
 	arr = [],
 	pop = arr.pop,
-	push_native = arr.push,
+	pushNative = arr.push,
 	push = arr.push,
 	slice = arr.slice,
+
 	// Use a stripped-down indexOf as it's faster than native
 	// https://jsperf.com/thor-indexof-vs-for/5
 	indexOf = function( list, elem ) {
 		var i = 0,
 			len = list.length;
 		for ( ; i < len; i++ ) {
-			if ( list[i] === elem ) {
+			if ( list[ i ] === elem ) {
 				return i;
 			}
 		}
 		return -1;
 	},
 
-	booleans = "checked|selected|async|autofocus|autoplay|controls|defer|disabled|hidden|ismap|loop|multiple|open|readonly|required|scoped",
+	booleans = "checked|selected|async|autofocus|autoplay|controls|defer|disabled|hidden|" +
+		"ismap|loop|multiple|open|readonly|required|scoped",
 
 	// Regular expressions
 
 	// http://www.w3.org/TR/css3-selectors/#whitespace
 	whitespace = "[\\x20\\t\\r\\n\\f]",
 
-	// http://www.w3.org/TR/CSS21/syndata.html#value-def-identifier
-	identifier = "(?:\\\\.|[\\w-]|[^\0-\\xa0])+",
+	// https://www.w3.org/TR/css-syntax-3/#ident-token-diagram
+	identifier = "(?:\\\\[\\da-fA-F]{1,6}" + whitespace +
+		"?|\\\\[^\\r\\n\\f]|[\\w-]|[^\0-\\x7f])+",
 
 	// Attribute selectors: http://www.w3.org/TR/selectors/#attribute-selectors
 	attributes = "\\[" + whitespace + "*(" + identifier + ")(?:" + whitespace +
+
 		// Operator (capture 2)
 		"*([*^$|!~]?=)" + whitespace +
-		// "Attribute values must be CSS identifiers [capture 5] or strings [capture 3 or capture 4]"
-		"*(?:'((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\"|(" + identifier + "))|)" + whitespace +
-		"*\\]",
+
+		// "Attribute values must be CSS identifiers [capture 5]
+		// or strings [capture 3 or capture 4]"
+		"*(?:'((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\"|(" + identifier + "))|)" +
+		whitespace + "*\\]",
 
 	pseudos = ":(" + identifier + ")(?:\\((" +
+
 		// To reduce the number of selectors needing tokenize in the preFilter, prefer arguments:
 		// 1. quoted (capture 3; capture 4 or capture 5)
 		"('((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\")|" +
+
 		// 2. simple (capture 6)
 		"((?:\\\\.|[^\\\\()[\\]]|" + attributes + ")*)|" +
+
 		// 3. anything else (capture 2)
 		".*" +
 		")\\)|)",
 
 	// Leading and non-escaped trailing whitespace, capturing some non-whitespace characters preceding the latter
 	rwhitespace = new RegExp( whitespace + "+", "g" ),
-	rtrim = new RegExp( "^" + whitespace + "+|((?:^|[^\\\\])(?:\\\\.)*)" + whitespace + "+$", "g" ),
+	rtrim = new RegExp( "^" + whitespace + "+|((?:^|[^\\\\])(?:\\\\.)*)" +
+		whitespace + "+$", "g" ),
 
 	rcomma = new RegExp( "^" + whitespace + "*," + whitespace + "*" ),
-	rcombinators = new RegExp( "^" + whitespace + "*([>+~]|" + whitespace + ")" + whitespace + "*" ),
+	rcombinators = new RegExp( "^" + whitespace + "*([>+~]|" + whitespace + ")" + whitespace +
+		"*" ),
 	rdescend = new RegExp( whitespace + "|>" ),
 
 	rpseudo = new RegExp( pseudos ),
@@ -10431,14 +10366,16 @@ var i,
 		"TAG": new RegExp( "^(" + identifier + "|[*])" ),
 		"ATTR": new RegExp( "^" + attributes ),
 		"PSEUDO": new RegExp( "^" + pseudos ),
-		"CHILD": new RegExp( "^:(only|first|last|nth|nth-last)-(child|of-type)(?:\\(" + whitespace +
-			"*(even|odd|(([+-]|)(\\d*)n|)" + whitespace + "*(?:([+-]|)" + whitespace +
-			"*(\\d+)|))" + whitespace + "*\\)|)", "i" ),
+		"CHILD": new RegExp( "^:(only|first|last|nth|nth-last)-(child|of-type)(?:\\(" +
+			whitespace + "*(even|odd|(([+-]|)(\\d*)n|)" + whitespace + "*(?:([+-]|)" +
+			whitespace + "*(\\d+)|))" + whitespace + "*\\)|)", "i" ),
 		"bool": new RegExp( "^(?:" + booleans + ")$", "i" ),
+
 		// For use in libraries implementing .is()
 		// We use this for POS matching in `select`
-		"needsContext": new RegExp( "^" + whitespace + "*[>+~]|:(even|odd|eq|gt|lt|nth|first|last)(?:\\(" +
-			whitespace + "*((?:-\\d)?\\d*)" + whitespace + "*\\)|)(?=[^-]|$)", "i" )
+		"needsContext": new RegExp( "^" + whitespace +
+			"*[>+~]|:(even|odd|eq|gt|lt|nth|first|last)(?:\\(" + whitespace +
+			"*((?:-\\d)?\\d*)" + whitespace + "*\\)|)(?=[^-]|$)", "i" )
 	},
 
 	rhtml = /HTML$/i,
@@ -10454,18 +10391,21 @@ var i,
 
 	// CSS escapes
 	// http://www.w3.org/TR/CSS21/syndata.html#escaped-characters
-	runescape = new RegExp( "\\\\([\\da-f]{1,6}" + whitespace + "?|(" + whitespace + ")|.)", "ig" ),
-	funescape = function( _, escaped, escapedWhitespace ) {
-		var high = "0x" + escaped - 0x10000;
-		// NaN means non-codepoint
-		// Support: Firefox<24
-		// Workaround erroneous numeric interpretation of +"0x"
-		return high !== high || escapedWhitespace ?
-			escaped :
+	runescape = new RegExp( "\\\\[\\da-fA-F]{1,6}" + whitespace + "?|\\\\([^\\r\\n\\f])", "g" ),
+	funescape = function( escape, nonHex ) {
+		var high = "0x" + escape.slice( 1 ) - 0x10000;
+
+		return nonHex ?
+
+			// Strip the backslash prefix from a non-hex escape sequence
+			nonHex :
+
+			// Replace a hexadecimal escape sequence with the encoded Unicode code point
+			// Support: IE <=11+
+			// For values outside the Basic Multilingual Plane (BMP), manually construct a
+			// surrogate pair
 			high < 0 ?
-				// BMP codepoint
 				String.fromCharCode( high + 0x10000 ) :
-				// Supplemental Plane codepoint (surrogate pair)
 				String.fromCharCode( high >> 10 | 0xD800, high & 0x3FF | 0xDC00 );
 	},
 
@@ -10481,7 +10421,8 @@ var i,
 			}
 
 			// Control characters and (dependent upon position) numbers get escaped as code points
-			return ch.slice( 0, -1 ) + "\\" + ch.charCodeAt( ch.length - 1 ).toString( 16 ) + " ";
+			return ch.slice( 0, -1 ) + "\\" +
+				ch.charCodeAt( ch.length - 1 ).toString( 16 ) + " ";
 		}
 
 		// Other potentially-special ASCII characters get backslash-escaped
@@ -10506,18 +10447,20 @@ var i,
 // Optimize for push.apply( _, NodeList )
 try {
 	push.apply(
-		(arr = slice.call( preferredDoc.childNodes )),
+		( arr = slice.call( preferredDoc.childNodes ) ),
 		preferredDoc.childNodes
 	);
+
 	// Support: Android<4.0
 	// Detect silently failing push.apply
+	// eslint-disable-next-line no-unused-expressions
 	arr[ preferredDoc.childNodes.length ].nodeType;
 } catch ( e ) {
 	push = { apply: arr.length ?
 
 		// Leverage slice if possible
 		function( target, els ) {
-			push_native.apply( target, slice.call(els) );
+			pushNative.apply( target, slice.call( els ) );
 		} :
 
 		// Support: IE<9
@@ -10525,8 +10468,9 @@ try {
 		function( target, els ) {
 			var j = target.length,
 				i = 0;
+
 			// Can't trust NodeList.length
-			while ( (target[j++] = els[i++]) ) {}
+			while ( ( target[ j++ ] = els[ i++ ] ) ) {}
 			target.length = j - 1;
 		}
 	};
@@ -10550,24 +10494,21 @@ function Sizzle( selector, context, results, seed ) {
 
 	// Try to shortcut find operations (as opposed to filters) in HTML documents
 	if ( !seed ) {
-
-		if ( ( context ? context.ownerDocument || context : preferredDoc ) !== document ) {
-			setDocument( context );
-		}
+		setDocument( context );
 		context = context || document;
 
 		if ( documentIsHTML ) {
 
 			// If the selector is sufficiently simple, try using a "get*By*" DOM method
 			// (excepting DocumentFragment context, where the methods don't exist)
-			if ( nodeType !== 11 && (match = rquickExpr.exec( selector )) ) {
+			if ( nodeType !== 11 && ( match = rquickExpr.exec( selector ) ) ) {
 
 				// ID selector
-				if ( (m = match[1]) ) {
+				if ( ( m = match[ 1 ] ) ) {
 
 					// Document context
 					if ( nodeType === 9 ) {
-						if ( (elem = context.getElementById( m )) ) {
+						if ( ( elem = context.getElementById( m ) ) ) {
 
 							// Support: IE, Opera, Webkit
 							// TODO: identify versions
@@ -10586,7 +10527,7 @@ function Sizzle( selector, context, results, seed ) {
 						// Support: IE, Opera, Webkit
 						// TODO: identify versions
 						// getElementById can match elements by name instead of ID
-						if ( newContext && (elem = newContext.getElementById( m )) &&
+						if ( newContext && ( elem = newContext.getElementById( m ) ) &&
 							contains( context, elem ) &&
 							elem.id === m ) {
 
@@ -10596,12 +10537,12 @@ function Sizzle( selector, context, results, seed ) {
 					}
 
 				// Type selector
-				} else if ( match[2] ) {
+				} else if ( match[ 2 ] ) {
 					push.apply( results, context.getElementsByTagName( selector ) );
 					return results;
 
 				// Class selector
-				} else if ( (m = match[3]) && support.getElementsByClassName &&
+				} else if ( ( m = match[ 3 ] ) && support.getElementsByClassName &&
 					context.getElementsByClassName ) {
 
 					push.apply( results, context.getElementsByClassName( m ) );
@@ -10612,11 +10553,11 @@ function Sizzle( selector, context, results, seed ) {
 			// Take advantage of querySelectorAll
 			if ( support.qsa &&
 				!nonnativeSelectorCache[ selector + " " ] &&
-				(!rbuggyQSA || !rbuggyQSA.test( selector )) &&
+				( !rbuggyQSA || !rbuggyQSA.test( selector ) ) &&
 
 				// Support: IE 8 only
 				// Exclude object elements
-				(nodeType !== 1 || context.nodeName.toLowerCase() !== "object") ) {
+				( nodeType !== 1 || context.nodeName.toLowerCase() !== "object" ) ) {
 
 				newSelector = selector;
 				newContext = context;
@@ -10625,27 +10566,36 @@ function Sizzle( selector, context, results, seed ) {
 				// descendant combinators, which is not what we want.
 				// In such cases, we work around the behavior by prefixing every selector in the
 				// list with an ID selector referencing the scope context.
+				// The technique has to be used as well when a leading combinator is used
+				// as such selectors are not recognized by querySelectorAll.
 				// Thanks to Andrew Dupont for this technique.
-				if ( nodeType === 1 && rdescend.test( selector ) ) {
+				if ( nodeType === 1 &&
+					( rdescend.test( selector ) || rcombinators.test( selector ) ) ) {
 
-					// Capture the context ID, setting it first if necessary
-					if ( (nid = context.getAttribute( "id" )) ) {
-						nid = nid.replace( rcssescape, fcssescape );
-					} else {
-						context.setAttribute( "id", (nid = expando) );
+					// Expand context for sibling selectors
+					newContext = rsibling.test( selector ) && testContext( context.parentNode ) ||
+						context;
+
+					// We can use :scope instead of the ID hack if the browser
+					// supports it & if we're not changing the context.
+					if ( newContext !== context || !support.scope ) {
+
+						// Capture the context ID, setting it first if necessary
+						if ( ( nid = context.getAttribute( "id" ) ) ) {
+							nid = nid.replace( rcssescape, fcssescape );
+						} else {
+							context.setAttribute( "id", ( nid = expando ) );
+						}
 					}
 
 					// Prefix every selector in the list
 					groups = tokenize( selector );
 					i = groups.length;
 					while ( i-- ) {
-						groups[i] = "#" + nid + " " + toSelector( groups[i] );
+						groups[ i ] = ( nid ? "#" + nid : ":scope" ) + " " +
+							toSelector( groups[ i ] );
 					}
 					newSelector = groups.join( "," );
-
-					// Expand context for sibling selectors
-					newContext = rsibling.test( selector ) && testContext( context.parentNode ) ||
-						context;
 				}
 
 				try {
@@ -10678,12 +10628,14 @@ function createCache() {
 	var keys = [];
 
 	function cache( key, value ) {
+
 		// Use (key + " ") to avoid collision with native prototype properties (see Issue #157)
 		if ( keys.push( key + " " ) > Expr.cacheLength ) {
+
 			// Only keep the most recent entries
 			delete cache[ keys.shift() ];
 		}
-		return (cache[ key + " " ] = value);
+		return ( cache[ key + " " ] = value );
 	}
 	return cache;
 }
@@ -10702,17 +10654,19 @@ function markFunction( fn ) {
  * @param {Function} fn Passed the created element and returns a boolean result
  */
 function assert( fn ) {
-	var el = document.createElement("fieldset");
+	var el = document.createElement( "fieldset" );
 
 	try {
 		return !!fn( el );
-	} catch (e) {
+	} catch ( e ) {
 		return false;
 	} finally {
+
 		// Remove from its parent by default
 		if ( el.parentNode ) {
 			el.parentNode.removeChild( el );
 		}
+
 		// release memory in IE
 		el = null;
 	}
@@ -10724,11 +10678,11 @@ function assert( fn ) {
  * @param {Function} handler The method that will be applied
  */
 function addHandle( attrs, handler ) {
-	var arr = attrs.split("|"),
+	var arr = attrs.split( "|" ),
 		i = arr.length;
 
 	while ( i-- ) {
-		Expr.attrHandle[ arr[i] ] = handler;
+		Expr.attrHandle[ arr[ i ] ] = handler;
 	}
 }
 
@@ -10750,7 +10704,7 @@ function siblingCheck( a, b ) {
 
 	// Check if b follows a
 	if ( cur ) {
-		while ( (cur = cur.nextSibling) ) {
+		while ( ( cur = cur.nextSibling ) ) {
 			if ( cur === b ) {
 				return -1;
 			}
@@ -10778,7 +10732,7 @@ function createInputPseudo( type ) {
 function createButtonPseudo( type ) {
 	return function( elem ) {
 		var name = elem.nodeName.toLowerCase();
-		return (name === "input" || name === "button") && elem.type === type;
+		return ( name === "input" || name === "button" ) && elem.type === type;
 	};
 }
 
@@ -10821,7 +10775,7 @@ function createDisabledPseudo( disabled ) {
 					// Where there is no isDisabled, check manually
 					/* jshint -W018 */
 					elem.isDisabled !== !disabled &&
-						inDisabledFieldset( elem ) === disabled;
+					inDisabledFieldset( elem ) === disabled;
 			}
 
 			return elem.disabled === disabled;
@@ -10843,21 +10797,21 @@ function createDisabledPseudo( disabled ) {
  * @param {Function} fn
  */
 function createPositionalPseudo( fn ) {
-	return markFunction(function( argument ) {
+	return markFunction( function( argument ) {
 		argument = +argument;
-		return markFunction(function( seed, matches ) {
+		return markFunction( function( seed, matches ) {
 			var j,
 				matchIndexes = fn( [], seed.length, argument ),
 				i = matchIndexes.length;
 
 			// Match elements found at the specified indexes
 			while ( i-- ) {
-				if ( seed[ (j = matchIndexes[i]) ] ) {
-					seed[j] = !(matches[j] = seed[j]);
+				if ( seed[ ( j = matchIndexes[ i ] ) ] ) {
+					seed[ j ] = !( matches[ j ] = seed[ j ] );
 				}
 			}
-		});
-	});
+		} );
+	} );
 }
 
 /**
@@ -10879,7 +10833,7 @@ support = Sizzle.support = {};
  */
 isXML = Sizzle.isXML = function( elem ) {
 	var namespace = elem.namespaceURI,
-		docElem = (elem.ownerDocument || elem).documentElement;
+		docElem = ( elem.ownerDocument || elem ).documentElement;
 
 	// Support: IE <=8
 	// Assume HTML when documentElement doesn't yet exist, such as inside loading iframes
@@ -10897,7 +10851,11 @@ setDocument = Sizzle.setDocument = function( node ) {
 		doc = node ? node.ownerDocument || node : preferredDoc;
 
 	// Return early if doc is invalid or already selected
-	if ( doc === document || doc.nodeType !== 9 || !doc.documentElement ) {
+	// Support: IE 11+, Edge 17 - 18+
+	// IE/Edge sometimes throw a "Permission denied" error when strict-comparing
+	// two documents; shallow comparisons work.
+	// eslint-disable-next-line eqeqeq
+	if ( doc == document || doc.nodeType !== 9 || !doc.documentElement ) {
 		return document;
 	}
 
@@ -10906,10 +10864,14 @@ setDocument = Sizzle.setDocument = function( node ) {
 	docElem = document.documentElement;
 	documentIsHTML = !isXML( document );
 
-	// Support: IE 9-11, Edge
+	// Support: IE 9 - 11+, Edge 12 - 18+
 	// Accessing iframe documents after unload throws "permission denied" errors (jQuery #13936)
-	if ( preferredDoc !== document &&
-		(subWindow = document.defaultView) && subWindow.top !== subWindow ) {
+	// Support: IE 11+, Edge 17 - 18+
+	// IE/Edge sometimes throw a "Permission denied" error when strict-comparing
+	// two documents; shallow comparisons work.
+	// eslint-disable-next-line eqeqeq
+	if ( preferredDoc != document &&
+		( subWindow = document.defaultView ) && subWindow.top !== subWindow ) {
 
 		// Support: IE 11, Edge
 		if ( subWindow.addEventListener ) {
@@ -10921,25 +10883,36 @@ setDocument = Sizzle.setDocument = function( node ) {
 		}
 	}
 
+	// Support: IE 8 - 11+, Edge 12 - 18+, Chrome <=16 - 25 only, Firefox <=3.6 - 31 only,
+	// Safari 4 - 5 only, Opera <=11.6 - 12.x only
+	// IE/Edge & older browsers don't support the :scope pseudo-class.
+	// Support: Safari 6.0 only
+	// Safari 6.0 supports :scope but it's an alias of :root there.
+	support.scope = assert( function( el ) {
+		docElem.appendChild( el ).appendChild( document.createElement( "div" ) );
+		return typeof el.querySelectorAll !== "undefined" &&
+			!el.querySelectorAll( ":scope fieldset div" ).length;
+	} );
+
 	/* Attributes
 	---------------------------------------------------------------------- */
 
 	// Support: IE<8
 	// Verify that getAttribute really returns attributes and not properties
 	// (excepting IE8 booleans)
-	support.attributes = assert(function( el ) {
+	support.attributes = assert( function( el ) {
 		el.className = "i";
-		return !el.getAttribute("className");
-	});
+		return !el.getAttribute( "className" );
+	} );
 
 	/* getElement(s)By*
 	---------------------------------------------------------------------- */
 
 	// Check if getElementsByTagName("*") returns only elements
-	support.getElementsByTagName = assert(function( el ) {
-		el.appendChild( document.createComment("") );
-		return !el.getElementsByTagName("*").length;
-	});
+	support.getElementsByTagName = assert( function( el ) {
+		el.appendChild( document.createComment( "" ) );
+		return !el.getElementsByTagName( "*" ).length;
+	} );
 
 	// Support: IE<9
 	support.getElementsByClassName = rnative.test( document.getElementsByClassName );
@@ -10948,38 +10921,38 @@ setDocument = Sizzle.setDocument = function( node ) {
 	// Check if getElementById returns elements by name
 	// The broken getElementById methods don't pick up programmatically-set names,
 	// so use a roundabout getElementsByName test
-	support.getById = assert(function( el ) {
+	support.getById = assert( function( el ) {
 		docElem.appendChild( el ).id = expando;
 		return !document.getElementsByName || !document.getElementsByName( expando ).length;
-	});
+	} );
 
 	// ID filter and find
 	if ( support.getById ) {
-		Expr.filter["ID"] = function( id ) {
+		Expr.filter[ "ID" ] = function( id ) {
 			var attrId = id.replace( runescape, funescape );
 			return function( elem ) {
-				return elem.getAttribute("id") === attrId;
+				return elem.getAttribute( "id" ) === attrId;
 			};
 		};
-		Expr.find["ID"] = function( id, context ) {
+		Expr.find[ "ID" ] = function( id, context ) {
 			if ( typeof context.getElementById !== "undefined" && documentIsHTML ) {
 				var elem = context.getElementById( id );
 				return elem ? [ elem ] : [];
 			}
 		};
 	} else {
-		Expr.filter["ID"] =  function( id ) {
+		Expr.filter[ "ID" ] =  function( id ) {
 			var attrId = id.replace( runescape, funescape );
 			return function( elem ) {
 				var node = typeof elem.getAttributeNode !== "undefined" &&
-					elem.getAttributeNode("id");
+					elem.getAttributeNode( "id" );
 				return node && node.value === attrId;
 			};
 		};
 
 		// Support: IE 6 - 7 only
 		// getElementById is not reliable as a find shortcut
-		Expr.find["ID"] = function( id, context ) {
+		Expr.find[ "ID" ] = function( id, context ) {
 			if ( typeof context.getElementById !== "undefined" && documentIsHTML ) {
 				var node, i, elems,
 					elem = context.getElementById( id );
@@ -10987,7 +10960,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 				if ( elem ) {
 
 					// Verify the id attribute
-					node = elem.getAttributeNode("id");
+					node = elem.getAttributeNode( "id" );
 					if ( node && node.value === id ) {
 						return [ elem ];
 					}
@@ -10995,8 +10968,8 @@ setDocument = Sizzle.setDocument = function( node ) {
 					// Fall back on getElementsByName
 					elems = context.getElementsByName( id );
 					i = 0;
-					while ( (elem = elems[i++]) ) {
-						node = elem.getAttributeNode("id");
+					while ( ( elem = elems[ i++ ] ) ) {
+						node = elem.getAttributeNode( "id" );
 						if ( node && node.value === id ) {
 							return [ elem ];
 						}
@@ -11009,7 +10982,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 	}
 
 	// Tag
-	Expr.find["TAG"] = support.getElementsByTagName ?
+	Expr.find[ "TAG" ] = support.getElementsByTagName ?
 		function( tag, context ) {
 			if ( typeof context.getElementsByTagName !== "undefined" ) {
 				return context.getElementsByTagName( tag );
@@ -11024,12 +10997,13 @@ setDocument = Sizzle.setDocument = function( node ) {
 			var elem,
 				tmp = [],
 				i = 0,
+
 				// By happy coincidence, a (broken) gEBTN appears on DocumentFragment nodes too
 				results = context.getElementsByTagName( tag );
 
 			// Filter out possible comments
 			if ( tag === "*" ) {
-				while ( (elem = results[i++]) ) {
+				while ( ( elem = results[ i++ ] ) ) {
 					if ( elem.nodeType === 1 ) {
 						tmp.push( elem );
 					}
@@ -11041,7 +11015,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 		};
 
 	// Class
-	Expr.find["CLASS"] = support.getElementsByClassName && function( className, context ) {
+	Expr.find[ "CLASS" ] = support.getElementsByClassName && function( className, context ) {
 		if ( typeof context.getElementsByClassName !== "undefined" && documentIsHTML ) {
 			return context.getElementsByClassName( className );
 		}
@@ -11062,10 +11036,14 @@ setDocument = Sizzle.setDocument = function( node ) {
 	// See https://bugs.jquery.com/ticket/13378
 	rbuggyQSA = [];
 
-	if ( (support.qsa = rnative.test( document.querySelectorAll )) ) {
+	if ( ( support.qsa = rnative.test( document.querySelectorAll ) ) ) {
+
 		// Build QSA regex
 		// Regex strategy adopted from Diego Perini
-		assert(function( el ) {
+		assert( function( el ) {
+
+			var input;
+
 			// Select is set to empty string on purpose
 			// This is to test IE's treatment of not explicitly
 			// setting a boolean content attribute,
@@ -11079,78 +11057,98 @@ setDocument = Sizzle.setDocument = function( node ) {
 			// Nothing should be selected when empty strings follow ^= or $= or *=
 			// The test attribute must be unknown in Opera but "safe" for WinRT
 			// https://msdn.microsoft.com/en-us/library/ie/hh465388.aspx#attribute_section
-			if ( el.querySelectorAll("[msallowcapture^='']").length ) {
+			if ( el.querySelectorAll( "[msallowcapture^='']" ).length ) {
 				rbuggyQSA.push( "[*^$]=" + whitespace + "*(?:''|\"\")" );
 			}
 
 			// Support: IE8
 			// Boolean attributes and "value" are not treated correctly
-			if ( !el.querySelectorAll("[selected]").length ) {
+			if ( !el.querySelectorAll( "[selected]" ).length ) {
 				rbuggyQSA.push( "\\[" + whitespace + "*(?:value|" + booleans + ")" );
 			}
 
 			// Support: Chrome<29, Android<4.4, Safari<7.0+, iOS<7.0+, PhantomJS<1.9.8+
 			if ( !el.querySelectorAll( "[id~=" + expando + "-]" ).length ) {
-				rbuggyQSA.push("~=");
+				rbuggyQSA.push( "~=" );
+			}
+
+			// Support: IE 11+, Edge 15 - 18+
+			// IE 11/Edge don't find elements on a `[name='']` query in some cases.
+			// Adding a temporary attribute to the document before the selection works
+			// around the issue.
+			// Interestingly, IE 10 & older don't seem to have the issue.
+			input = document.createElement( "input" );
+			input.setAttribute( "name", "" );
+			el.appendChild( input );
+			if ( !el.querySelectorAll( "[name='']" ).length ) {
+				rbuggyQSA.push( "\\[" + whitespace + "*name" + whitespace + "*=" +
+					whitespace + "*(?:''|\"\")" );
 			}
 
 			// Webkit/Opera - :checked should return selected option elements
 			// http://www.w3.org/TR/2011/REC-css3-selectors-20110929/#checked
 			// IE8 throws error here and will not see later tests
-			if ( !el.querySelectorAll(":checked").length ) {
-				rbuggyQSA.push(":checked");
+			if ( !el.querySelectorAll( ":checked" ).length ) {
+				rbuggyQSA.push( ":checked" );
 			}
 
 			// Support: Safari 8+, iOS 8+
 			// https://bugs.webkit.org/show_bug.cgi?id=136851
 			// In-page `selector#id sibling-combinator selector` fails
 			if ( !el.querySelectorAll( "a#" + expando + "+*" ).length ) {
-				rbuggyQSA.push(".#.+[+~]");
+				rbuggyQSA.push( ".#.+[+~]" );
 			}
-		});
 
-		assert(function( el ) {
+			// Support: Firefox <=3.6 - 5 only
+			// Old Firefox doesn't throw on a badly-escaped identifier.
+			el.querySelectorAll( "\\\f" );
+			rbuggyQSA.push( "[\\r\\n\\f]" );
+		} );
+
+		assert( function( el ) {
 			el.innerHTML = "<a href='' disabled='disabled'></a>" +
 				"<select disabled='disabled'><option/></select>";
 
 			// Support: Windows 8 Native Apps
 			// The type and name attributes are restricted during .innerHTML assignment
-			var input = document.createElement("input");
+			var input = document.createElement( "input" );
 			input.setAttribute( "type", "hidden" );
 			el.appendChild( input ).setAttribute( "name", "D" );
 
 			// Support: IE8
 			// Enforce case-sensitivity of name attribute
-			if ( el.querySelectorAll("[name=d]").length ) {
+			if ( el.querySelectorAll( "[name=d]" ).length ) {
 				rbuggyQSA.push( "name" + whitespace + "*[*^$|!~]?=" );
 			}
 
 			// FF 3.5 - :enabled/:disabled and hidden elements (hidden elements are still enabled)
 			// IE8 throws error here and will not see later tests
-			if ( el.querySelectorAll(":enabled").length !== 2 ) {
+			if ( el.querySelectorAll( ":enabled" ).length !== 2 ) {
 				rbuggyQSA.push( ":enabled", ":disabled" );
 			}
 
 			// Support: IE9-11+
 			// IE's :disabled selector does not pick up the children of disabled fieldsets
 			docElem.appendChild( el ).disabled = true;
-			if ( el.querySelectorAll(":disabled").length !== 2 ) {
+			if ( el.querySelectorAll( ":disabled" ).length !== 2 ) {
 				rbuggyQSA.push( ":enabled", ":disabled" );
 			}
 
+			// Support: Opera 10 - 11 only
 			// Opera 10-11 does not throw on post-comma invalid pseudos
-			el.querySelectorAll("*,:x");
-			rbuggyQSA.push(",.*:");
-		});
+			el.querySelectorAll( "*,:x" );
+			rbuggyQSA.push( ",.*:" );
+		} );
 	}
 
-	if ( (support.matchesSelector = rnative.test( (matches = docElem.matches ||
+	if ( ( support.matchesSelector = rnative.test( ( matches = docElem.matches ||
 		docElem.webkitMatchesSelector ||
 		docElem.mozMatchesSelector ||
 		docElem.oMatchesSelector ||
-		docElem.msMatchesSelector) )) ) {
+		docElem.msMatchesSelector ) ) ) ) {
 
-		assert(function( el ) {
+		assert( function( el ) {
+
 			// Check to see if it's possible to do matchesSelector
 			// on a disconnected node (IE 9)
 			support.disconnectedMatch = matches.call( el, "*" );
@@ -11159,11 +11157,11 @@ setDocument = Sizzle.setDocument = function( node ) {
 			// Gecko does not error, returns false instead
 			matches.call( el, "[s!='']:x" );
 			rbuggyMatches.push( "!=", pseudos );
-		});
+		} );
 	}
 
-	rbuggyQSA = rbuggyQSA.length && new RegExp( rbuggyQSA.join("|") );
-	rbuggyMatches = rbuggyMatches.length && new RegExp( rbuggyMatches.join("|") );
+	rbuggyQSA = rbuggyQSA.length && new RegExp( rbuggyQSA.join( "|" ) );
+	rbuggyMatches = rbuggyMatches.length && new RegExp( rbuggyMatches.join( "|" ) );
 
 	/* Contains
 	---------------------------------------------------------------------- */
@@ -11180,11 +11178,11 @@ setDocument = Sizzle.setDocument = function( node ) {
 				adown.contains ?
 					adown.contains( bup ) :
 					a.compareDocumentPosition && a.compareDocumentPosition( bup ) & 16
-			));
+			) );
 		} :
 		function( a, b ) {
 			if ( b ) {
-				while ( (b = b.parentNode) ) {
+				while ( ( b = b.parentNode ) ) {
 					if ( b === a ) {
 						return true;
 					}
@@ -11213,7 +11211,11 @@ setDocument = Sizzle.setDocument = function( node ) {
 		}
 
 		// Calculate position if both inputs belong to the same document
-		compare = ( a.ownerDocument || a ) === ( b.ownerDocument || b ) ?
+		// Support: IE 11+, Edge 17 - 18+
+		// IE/Edge sometimes throw a "Permission denied" error when strict-comparing
+		// two documents; shallow comparisons work.
+		// eslint-disable-next-line eqeqeq
+		compare = ( a.ownerDocument || a ) == ( b.ownerDocument || b ) ?
 			a.compareDocumentPosition( b ) :
 
 			// Otherwise we know they are disconnected
@@ -11221,13 +11223,24 @@ setDocument = Sizzle.setDocument = function( node ) {
 
 		// Disconnected nodes
 		if ( compare & 1 ||
-			(!support.sortDetached && b.compareDocumentPosition( a ) === compare) ) {
+			( !support.sortDetached && b.compareDocumentPosition( a ) === compare ) ) {
 
 			// Choose the first element that is related to our preferred document
-			if ( a === document || a.ownerDocument === preferredDoc && contains(preferredDoc, a) ) {
+			// Support: IE 11+, Edge 17 - 18+
+			// IE/Edge sometimes throw a "Permission denied" error when strict-comparing
+			// two documents; shallow comparisons work.
+			// eslint-disable-next-line eqeqeq
+			if ( a == document || a.ownerDocument == preferredDoc &&
+				contains( preferredDoc, a ) ) {
 				return -1;
 			}
-			if ( b === document || b.ownerDocument === preferredDoc && contains(preferredDoc, b) ) {
+
+			// Support: IE 11+, Edge 17 - 18+
+			// IE/Edge sometimes throw a "Permission denied" error when strict-comparing
+			// two documents; shallow comparisons work.
+			// eslint-disable-next-line eqeqeq
+			if ( b == document || b.ownerDocument == preferredDoc &&
+				contains( preferredDoc, b ) ) {
 				return 1;
 			}
 
@@ -11240,6 +11253,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 		return compare & 4 ? -1 : 1;
 	} :
 	function( a, b ) {
+
 		// Exit early if the nodes are identical
 		if ( a === b ) {
 			hasDuplicate = true;
@@ -11255,8 +11269,14 @@ setDocument = Sizzle.setDocument = function( node ) {
 
 		// Parentless nodes are either documents or disconnected
 		if ( !aup || !bup ) {
-			return a === document ? -1 :
-				b === document ? 1 :
+
+			// Support: IE 11+, Edge 17 - 18+
+			// IE/Edge sometimes throw a "Permission denied" error when strict-comparing
+			// two documents; shallow comparisons work.
+			/* eslint-disable eqeqeq */
+			return a == document ? -1 :
+				b == document ? 1 :
+				/* eslint-enable eqeqeq */
 				aup ? -1 :
 				bup ? 1 :
 				sortInput ?
@@ -11270,26 +11290,32 @@ setDocument = Sizzle.setDocument = function( node ) {
 
 		// Otherwise we need full lists of their ancestors for comparison
 		cur = a;
-		while ( (cur = cur.parentNode) ) {
+		while ( ( cur = cur.parentNode ) ) {
 			ap.unshift( cur );
 		}
 		cur = b;
-		while ( (cur = cur.parentNode) ) {
+		while ( ( cur = cur.parentNode ) ) {
 			bp.unshift( cur );
 		}
 
 		// Walk down the tree looking for a discrepancy
-		while ( ap[i] === bp[i] ) {
+		while ( ap[ i ] === bp[ i ] ) {
 			i++;
 		}
 
 		return i ?
+
 			// Do a sibling check if the nodes have a common ancestor
-			siblingCheck( ap[i], bp[i] ) :
+			siblingCheck( ap[ i ], bp[ i ] ) :
 
 			// Otherwise nodes in our document sort first
-			ap[i] === preferredDoc ? -1 :
-			bp[i] === preferredDoc ? 1 :
+			// Support: IE 11+, Edge 17 - 18+
+			// IE/Edge sometimes throw a "Permission denied" error when strict-comparing
+			// two documents; shallow comparisons work.
+			/* eslint-disable eqeqeq */
+			ap[ i ] == preferredDoc ? -1 :
+			bp[ i ] == preferredDoc ? 1 :
+			/* eslint-enable eqeqeq */
 			0;
 	};
 
@@ -11301,10 +11327,7 @@ Sizzle.matches = function( expr, elements ) {
 };
 
 Sizzle.matchesSelector = function( elem, expr ) {
-	// Set document vars if needed
-	if ( ( elem.ownerDocument || elem ) !== document ) {
-		setDocument( elem );
-	}
+	setDocument( elem );
 
 	if ( support.matchesSelector && documentIsHTML &&
 		!nonnativeSelectorCache[ expr + " " ] &&
@@ -11316,12 +11339,13 @@ Sizzle.matchesSelector = function( elem, expr ) {
 
 			// IE 9's matchesSelector returns false on disconnected nodes
 			if ( ret || support.disconnectedMatch ||
-					// As well, disconnected nodes are said to be in a document
-					// fragment in IE 9
-					elem.document && elem.document.nodeType !== 11 ) {
+
+				// As well, disconnected nodes are said to be in a document
+				// fragment in IE 9
+				elem.document && elem.document.nodeType !== 11 ) {
 				return ret;
 			}
-		} catch (e) {
+		} catch ( e ) {
 			nonnativeSelectorCache( expr, true );
 		}
 	}
@@ -11330,20 +11354,31 @@ Sizzle.matchesSelector = function( elem, expr ) {
 };
 
 Sizzle.contains = function( context, elem ) {
+
 	// Set document vars if needed
-	if ( ( context.ownerDocument || context ) !== document ) {
+	// Support: IE 11+, Edge 17 - 18+
+	// IE/Edge sometimes throw a "Permission denied" error when strict-comparing
+	// two documents; shallow comparisons work.
+	// eslint-disable-next-line eqeqeq
+	if ( ( context.ownerDocument || context ) != document ) {
 		setDocument( context );
 	}
 	return contains( context, elem );
 };
 
 Sizzle.attr = function( elem, name ) {
+
 	// Set document vars if needed
-	if ( ( elem.ownerDocument || elem ) !== document ) {
+	// Support: IE 11+, Edge 17 - 18+
+	// IE/Edge sometimes throw a "Permission denied" error when strict-comparing
+	// two documents; shallow comparisons work.
+	// eslint-disable-next-line eqeqeq
+	if ( ( elem.ownerDocument || elem ) != document ) {
 		setDocument( elem );
 	}
 
 	var fn = Expr.attrHandle[ name.toLowerCase() ],
+
 		// Don't get fooled by Object.prototype properties (jQuery #13807)
 		val = fn && hasOwn.call( Expr.attrHandle, name.toLowerCase() ) ?
 			fn( elem, name, !documentIsHTML ) :
@@ -11353,13 +11388,13 @@ Sizzle.attr = function( elem, name ) {
 		val :
 		support.attributes || !documentIsHTML ?
 			elem.getAttribute( name ) :
-			(val = elem.getAttributeNode(name)) && val.specified ?
+			( val = elem.getAttributeNode( name ) ) && val.specified ?
 				val.value :
 				null;
 };
 
 Sizzle.escape = function( sel ) {
-	return (sel + "").replace( rcssescape, fcssescape );
+	return ( sel + "" ).replace( rcssescape, fcssescape );
 };
 
 Sizzle.error = function( msg ) {
@@ -11382,7 +11417,7 @@ Sizzle.uniqueSort = function( results ) {
 	results.sort( sortOrder );
 
 	if ( hasDuplicate ) {
-		while ( (elem = results[i++]) ) {
+		while ( ( elem = results[ i++ ] ) ) {
 			if ( elem === results[ i ] ) {
 				j = duplicates.push( i );
 			}
@@ -11410,17 +11445,21 @@ getText = Sizzle.getText = function( elem ) {
 		nodeType = elem.nodeType;
 
 	if ( !nodeType ) {
+
 		// If no nodeType, this is expected to be an array
-		while ( (node = elem[i++]) ) {
+		while ( ( node = elem[ i++ ] ) ) {
+
 			// Do not traverse comment nodes
 			ret += getText( node );
 		}
 	} else if ( nodeType === 1 || nodeType === 9 || nodeType === 11 ) {
+
 		// Use textContent for elements
 		// innerText usage removed for consistency of new lines (jQuery #11153)
 		if ( typeof elem.textContent === "string" ) {
 			return elem.textContent;
 		} else {
+
 			// Traverse its children
 			for ( elem = elem.firstChild; elem; elem = elem.nextSibling ) {
 				ret += getText( elem );
@@ -11429,6 +11468,7 @@ getText = Sizzle.getText = function( elem ) {
 	} else if ( nodeType === 3 || nodeType === 4 ) {
 		return elem.nodeValue;
 	}
+
 	// Do not include comment or processing instruction nodes
 
 	return ret;
@@ -11456,19 +11496,21 @@ Expr = Sizzle.selectors = {
 
 	preFilter: {
 		"ATTR": function( match ) {
-			match[1] = match[1].replace( runescape, funescape );
+			match[ 1 ] = match[ 1 ].replace( runescape, funescape );
 
 			// Move the given value to match[3] whether quoted or unquoted
-			match[3] = ( match[3] || match[4] || match[5] || "" ).replace( runescape, funescape );
+			match[ 3 ] = ( match[ 3 ] || match[ 4 ] ||
+				match[ 5 ] || "" ).replace( runescape, funescape );
 
-			if ( match[2] === "~=" ) {
-				match[3] = " " + match[3] + " ";
+			if ( match[ 2 ] === "~=" ) {
+				match[ 3 ] = " " + match[ 3 ] + " ";
 			}
 
 			return match.slice( 0, 4 );
 		},
 
 		"CHILD": function( match ) {
+
 			/* matches from matchExpr["CHILD"]
 				1 type (only|nth|...)
 				2 what (child|of-type)
@@ -11479,22 +11521,25 @@ Expr = Sizzle.selectors = {
 				7 sign of y-component
 				8 y of y-component
 			*/
-			match[1] = match[1].toLowerCase();
+			match[ 1 ] = match[ 1 ].toLowerCase();
 
-			if ( match[1].slice( 0, 3 ) === "nth" ) {
+			if ( match[ 1 ].slice( 0, 3 ) === "nth" ) {
+
 				// nth-* requires argument
-				if ( !match[3] ) {
-					Sizzle.error( match[0] );
+				if ( !match[ 3 ] ) {
+					Sizzle.error( match[ 0 ] );
 				}
 
 				// numeric x and y parameters for Expr.filter.CHILD
 				// remember that false/true cast respectively to 0/1
-				match[4] = +( match[4] ? match[5] + (match[6] || 1) : 2 * ( match[3] === "even" || match[3] === "odd" ) );
-				match[5] = +( ( match[7] + match[8] ) || match[3] === "odd" );
+				match[ 4 ] = +( match[ 4 ] ?
+					match[ 5 ] + ( match[ 6 ] || 1 ) :
+					2 * ( match[ 3 ] === "even" || match[ 3 ] === "odd" ) );
+				match[ 5 ] = +( ( match[ 7 ] + match[ 8 ] ) || match[ 3 ] === "odd" );
 
-			// other types prohibit arguments
-			} else if ( match[3] ) {
-				Sizzle.error( match[0] );
+				// other types prohibit arguments
+			} else if ( match[ 3 ] ) {
+				Sizzle.error( match[ 0 ] );
 			}
 
 			return match;
@@ -11502,26 +11547,28 @@ Expr = Sizzle.selectors = {
 
 		"PSEUDO": function( match ) {
 			var excess,
-				unquoted = !match[6] && match[2];
+				unquoted = !match[ 6 ] && match[ 2 ];
 
-			if ( matchExpr["CHILD"].test( match[0] ) ) {
+			if ( matchExpr[ "CHILD" ].test( match[ 0 ] ) ) {
 				return null;
 			}
 
 			// Accept quoted arguments as-is
-			if ( match[3] ) {
-				match[2] = match[4] || match[5] || "";
+			if ( match[ 3 ] ) {
+				match[ 2 ] = match[ 4 ] || match[ 5 ] || "";
 
 			// Strip excess characters from unquoted arguments
 			} else if ( unquoted && rpseudo.test( unquoted ) &&
+
 				// Get excess from tokenize (recursively)
-				(excess = tokenize( unquoted, true )) &&
+				( excess = tokenize( unquoted, true ) ) &&
+
 				// advance to the next closing parenthesis
-				(excess = unquoted.indexOf( ")", unquoted.length - excess ) - unquoted.length) ) {
+				( excess = unquoted.indexOf( ")", unquoted.length - excess ) - unquoted.length ) ) {
 
 				// excess is a negative index
-				match[0] = match[0].slice( 0, excess );
-				match[2] = unquoted.slice( 0, excess );
+				match[ 0 ] = match[ 0 ].slice( 0, excess );
+				match[ 2 ] = unquoted.slice( 0, excess );
 			}
 
 			// Return only captures needed by the pseudo filter method (type and argument)
@@ -11534,7 +11581,9 @@ Expr = Sizzle.selectors = {
 		"TAG": function( nodeNameSelector ) {
 			var nodeName = nodeNameSelector.replace( runescape, funescape ).toLowerCase();
 			return nodeNameSelector === "*" ?
-				function() { return true; } :
+				function() {
+					return true;
+				} :
 				function( elem ) {
 					return elem.nodeName && elem.nodeName.toLowerCase() === nodeName;
 				};
@@ -11544,10 +11593,16 @@ Expr = Sizzle.selectors = {
 			var pattern = classCache[ className + " " ];
 
 			return pattern ||
-				(pattern = new RegExp( "(^|" + whitespace + ")" + className + "(" + whitespace + "|$)" )) &&
-				classCache( className, function( elem ) {
-					return pattern.test( typeof elem.className === "string" && elem.className || typeof elem.getAttribute !== "undefined" && elem.getAttribute("class") || "" );
-				});
+				( pattern = new RegExp( "(^|" + whitespace +
+					")" + className + "(" + whitespace + "|$)" ) ) && classCache(
+						className, function( elem ) {
+							return pattern.test(
+								typeof elem.className === "string" && elem.className ||
+								typeof elem.getAttribute !== "undefined" &&
+									elem.getAttribute( "class" ) ||
+								""
+							);
+				} );
 		},
 
 		"ATTR": function( name, operator, check ) {
@@ -11563,6 +11618,8 @@ Expr = Sizzle.selectors = {
 
 				result += "";
 
+				/* eslint-disable max-len */
+
 				return operator === "=" ? result === check :
 					operator === "!=" ? result !== check :
 					operator === "^=" ? check && result.indexOf( check ) === 0 :
@@ -11571,10 +11628,12 @@ Expr = Sizzle.selectors = {
 					operator === "~=" ? ( " " + result.replace( rwhitespace, " " ) + " " ).indexOf( check ) > -1 :
 					operator === "|=" ? result === check || result.slice( 0, check.length + 1 ) === check + "-" :
 					false;
+				/* eslint-enable max-len */
+
 			};
 		},
 
-		"CHILD": function( type, what, argument, first, last ) {
+		"CHILD": function( type, what, _argument, first, last ) {
 			var simple = type.slice( 0, 3 ) !== "nth",
 				forward = type.slice( -4 ) !== "last",
 				ofType = what === "of-type";
@@ -11586,7 +11645,7 @@ Expr = Sizzle.selectors = {
 					return !!elem.parentNode;
 				} :
 
-				function( elem, context, xml ) {
+				function( elem, _context, xml ) {
 					var cache, uniqueCache, outerCache, node, nodeIndex, start,
 						dir = simple !== forward ? "nextSibling" : "previousSibling",
 						parent = elem.parentNode,
@@ -11600,7 +11659,7 @@ Expr = Sizzle.selectors = {
 						if ( simple ) {
 							while ( dir ) {
 								node = elem;
-								while ( (node = node[ dir ]) ) {
+								while ( ( node = node[ dir ] ) ) {
 									if ( ofType ?
 										node.nodeName.toLowerCase() === name :
 										node.nodeType === 1 ) {
@@ -11608,6 +11667,7 @@ Expr = Sizzle.selectors = {
 										return false;
 									}
 								}
+
 								// Reverse direction for :only-* (if we haven't yet done so)
 								start = dir = type === "only" && !start && "nextSibling";
 							}
@@ -11623,22 +11683,22 @@ Expr = Sizzle.selectors = {
 
 							// ...in a gzip-friendly way
 							node = parent;
-							outerCache = node[ expando ] || (node[ expando ] = {});
+							outerCache = node[ expando ] || ( node[ expando ] = {} );
 
 							// Support: IE <9 only
 							// Defend against cloned attroperties (jQuery gh-1709)
 							uniqueCache = outerCache[ node.uniqueID ] ||
-								(outerCache[ node.uniqueID ] = {});
+								( outerCache[ node.uniqueID ] = {} );
 
 							cache = uniqueCache[ type ] || [];
 							nodeIndex = cache[ 0 ] === dirruns && cache[ 1 ];
 							diff = nodeIndex && cache[ 2 ];
 							node = nodeIndex && parent.childNodes[ nodeIndex ];
 
-							while ( (node = ++nodeIndex && node && node[ dir ] ||
+							while ( ( node = ++nodeIndex && node && node[ dir ] ||
 
 								// Fallback to seeking `elem` from the start
-								(diff = nodeIndex = 0) || start.pop()) ) {
+								( diff = nodeIndex = 0 ) || start.pop() ) ) {
 
 								// When found, cache indexes on `parent` and break
 								if ( node.nodeType === 1 && ++diff && node === elem ) {
@@ -11648,16 +11708,18 @@ Expr = Sizzle.selectors = {
 							}
 
 						} else {
+
 							// Use previously-cached element index if available
 							if ( useCache ) {
+
 								// ...in a gzip-friendly way
 								node = elem;
-								outerCache = node[ expando ] || (node[ expando ] = {});
+								outerCache = node[ expando ] || ( node[ expando ] = {} );
 
 								// Support: IE <9 only
 								// Defend against cloned attroperties (jQuery gh-1709)
 								uniqueCache = outerCache[ node.uniqueID ] ||
-									(outerCache[ node.uniqueID ] = {});
+									( outerCache[ node.uniqueID ] = {} );
 
 								cache = uniqueCache[ type ] || [];
 								nodeIndex = cache[ 0 ] === dirruns && cache[ 1 ];
@@ -11667,9 +11729,10 @@ Expr = Sizzle.selectors = {
 							// xml :nth-child(...)
 							// or :nth-last-child(...) or :nth(-last)?-of-type(...)
 							if ( diff === false ) {
+
 								// Use the same loop as above to seek `elem` from the start
-								while ( (node = ++nodeIndex && node && node[ dir ] ||
-									(diff = nodeIndex = 0) || start.pop()) ) {
+								while ( ( node = ++nodeIndex && node && node[ dir ] ||
+									( diff = nodeIndex = 0 ) || start.pop() ) ) {
 
 									if ( ( ofType ?
 										node.nodeName.toLowerCase() === name :
@@ -11678,12 +11741,13 @@ Expr = Sizzle.selectors = {
 
 										// Cache the index of each encountered element
 										if ( useCache ) {
-											outerCache = node[ expando ] || (node[ expando ] = {});
+											outerCache = node[ expando ] ||
+												( node[ expando ] = {} );
 
 											// Support: IE <9 only
 											// Defend against cloned attroperties (jQuery gh-1709)
 											uniqueCache = outerCache[ node.uniqueID ] ||
-												(outerCache[ node.uniqueID ] = {});
+												( outerCache[ node.uniqueID ] = {} );
 
 											uniqueCache[ type ] = [ dirruns, diff ];
 										}
@@ -11704,6 +11768,7 @@ Expr = Sizzle.selectors = {
 		},
 
 		"PSEUDO": function( pseudo, argument ) {
+
 			// pseudo-class names are case-insensitive
 			// http://www.w3.org/TR/selectors/#pseudo-classes
 			// Prioritize by case sensitivity in case custom pseudos are added with uppercase letters
@@ -11723,15 +11788,15 @@ Expr = Sizzle.selectors = {
 			if ( fn.length > 1 ) {
 				args = [ pseudo, pseudo, "", argument ];
 				return Expr.setFilters.hasOwnProperty( pseudo.toLowerCase() ) ?
-					markFunction(function( seed, matches ) {
+					markFunction( function( seed, matches ) {
 						var idx,
 							matched = fn( seed, argument ),
 							i = matched.length;
 						while ( i-- ) {
-							idx = indexOf( seed, matched[i] );
-							seed[ idx ] = !( matches[ idx ] = matched[i] );
+							idx = indexOf( seed, matched[ i ] );
+							seed[ idx ] = !( matches[ idx ] = matched[ i ] );
 						}
-					}) :
+					} ) :
 					function( elem ) {
 						return fn( elem, 0, args );
 					};
@@ -11742,8 +11807,10 @@ Expr = Sizzle.selectors = {
 	},
 
 	pseudos: {
+
 		// Potentially complex pseudos
-		"not": markFunction(function( selector ) {
+		"not": markFunction( function( selector ) {
+
 			// Trim the selector passed to compile
 			// to avoid treating leading and trailing
 			// spaces as combinators
@@ -11752,39 +11819,40 @@ Expr = Sizzle.selectors = {
 				matcher = compile( selector.replace( rtrim, "$1" ) );
 
 			return matcher[ expando ] ?
-				markFunction(function( seed, matches, context, xml ) {
+				markFunction( function( seed, matches, _context, xml ) {
 					var elem,
 						unmatched = matcher( seed, null, xml, [] ),
 						i = seed.length;
 
 					// Match elements unmatched by `matcher`
 					while ( i-- ) {
-						if ( (elem = unmatched[i]) ) {
-							seed[i] = !(matches[i] = elem);
+						if ( ( elem = unmatched[ i ] ) ) {
+							seed[ i ] = !( matches[ i ] = elem );
 						}
 					}
-				}) :
-				function( elem, context, xml ) {
-					input[0] = elem;
+				} ) :
+				function( elem, _context, xml ) {
+					input[ 0 ] = elem;
 					matcher( input, null, xml, results );
+
 					// Don't keep the element (issue #299)
-					input[0] = null;
+					input[ 0 ] = null;
 					return !results.pop();
 				};
-		}),
+		} ),
 
-		"has": markFunction(function( selector ) {
+		"has": markFunction( function( selector ) {
 			return function( elem ) {
 				return Sizzle( selector, elem ).length > 0;
 			};
-		}),
+		} ),
 
-		"contains": markFunction(function( text ) {
+		"contains": markFunction( function( text ) {
 			text = text.replace( runescape, funescape );
 			return function( elem ) {
 				return ( elem.textContent || getText( elem ) ).indexOf( text ) > -1;
 			};
-		}),
+		} ),
 
 		// "Whether an element is represented by a :lang() selector
 		// is based solely on the element's language value
@@ -11794,25 +11862,26 @@ Expr = Sizzle.selectors = {
 		// The identifier C does not have to be a valid language name."
 		// http://www.w3.org/TR/selectors/#lang-pseudo
 		"lang": markFunction( function( lang ) {
+
 			// lang value must be a valid identifier
-			if ( !ridentifier.test(lang || "") ) {
+			if ( !ridentifier.test( lang || "" ) ) {
 				Sizzle.error( "unsupported lang: " + lang );
 			}
 			lang = lang.replace( runescape, funescape ).toLowerCase();
 			return function( elem ) {
 				var elemLang;
 				do {
-					if ( (elemLang = documentIsHTML ?
+					if ( ( elemLang = documentIsHTML ?
 						elem.lang :
-						elem.getAttribute("xml:lang") || elem.getAttribute("lang")) ) {
+						elem.getAttribute( "xml:lang" ) || elem.getAttribute( "lang" ) ) ) {
 
 						elemLang = elemLang.toLowerCase();
 						return elemLang === lang || elemLang.indexOf( lang + "-" ) === 0;
 					}
-				} while ( (elem = elem.parentNode) && elem.nodeType === 1 );
+				} while ( ( elem = elem.parentNode ) && elem.nodeType === 1 );
 				return false;
 			};
-		}),
+		} ),
 
 		// Miscellaneous
 		"target": function( elem ) {
@@ -11825,7 +11894,9 @@ Expr = Sizzle.selectors = {
 		},
 
 		"focus": function( elem ) {
-			return elem === document.activeElement && (!document.hasFocus || document.hasFocus()) && !!(elem.type || elem.href || ~elem.tabIndex);
+			return elem === document.activeElement &&
+				( !document.hasFocus || document.hasFocus() ) &&
+				!!( elem.type || elem.href || ~elem.tabIndex );
 		},
 
 		// Boolean properties
@@ -11833,16 +11904,20 @@ Expr = Sizzle.selectors = {
 		"disabled": createDisabledPseudo( true ),
 
 		"checked": function( elem ) {
+
 			// In CSS3, :checked should return both checked and selected elements
 			// http://www.w3.org/TR/2011/REC-css3-selectors-20110929/#checked
 			var nodeName = elem.nodeName.toLowerCase();
-			return (nodeName === "input" && !!elem.checked) || (nodeName === "option" && !!elem.selected);
+			return ( nodeName === "input" && !!elem.checked ) ||
+				( nodeName === "option" && !!elem.selected );
 		},
 
 		"selected": function( elem ) {
+
 			// Accessing this property makes selected-by-default
 			// options in Safari work properly
 			if ( elem.parentNode ) {
+				// eslint-disable-next-line no-unused-expressions
 				elem.parentNode.selectedIndex;
 			}
 
@@ -11851,6 +11926,7 @@ Expr = Sizzle.selectors = {
 
 		// Contents
 		"empty": function( elem ) {
+
 			// http://www.w3.org/TR/selectors/#empty-pseudo
 			// :empty is negated by element (1) or content nodes (text: 3; cdata: 4; entity ref: 5),
 			//   but not by others (comment: 8; processing instruction: 7; etc.)
@@ -11864,7 +11940,7 @@ Expr = Sizzle.selectors = {
 		},
 
 		"parent": function( elem ) {
-			return !Expr.pseudos["empty"]( elem );
+			return !Expr.pseudos[ "empty" ]( elem );
 		},
 
 		// Element/input types
@@ -11888,39 +11964,40 @@ Expr = Sizzle.selectors = {
 
 				// Support: IE<8
 				// New HTML5 attribute values (e.g., "search") appear with elem.type === "text"
-				( (attr = elem.getAttribute("type")) == null || attr.toLowerCase() === "text" );
+				( ( attr = elem.getAttribute( "type" ) ) == null ||
+					attr.toLowerCase() === "text" );
 		},
 
 		// Position-in-collection
-		"first": createPositionalPseudo(function() {
+		"first": createPositionalPseudo( function() {
 			return [ 0 ];
-		}),
+		} ),
 
-		"last": createPositionalPseudo(function( matchIndexes, length ) {
+		"last": createPositionalPseudo( function( _matchIndexes, length ) {
 			return [ length - 1 ];
-		}),
+		} ),
 
-		"eq": createPositionalPseudo(function( matchIndexes, length, argument ) {
+		"eq": createPositionalPseudo( function( _matchIndexes, length, argument ) {
 			return [ argument < 0 ? argument + length : argument ];
-		}),
+		} ),
 
-		"even": createPositionalPseudo(function( matchIndexes, length ) {
+		"even": createPositionalPseudo( function( matchIndexes, length ) {
 			var i = 0;
 			for ( ; i < length; i += 2 ) {
 				matchIndexes.push( i );
 			}
 			return matchIndexes;
-		}),
+		} ),
 
-		"odd": createPositionalPseudo(function( matchIndexes, length ) {
+		"odd": createPositionalPseudo( function( matchIndexes, length ) {
 			var i = 1;
 			for ( ; i < length; i += 2 ) {
 				matchIndexes.push( i );
 			}
 			return matchIndexes;
-		}),
+		} ),
 
-		"lt": createPositionalPseudo(function( matchIndexes, length, argument ) {
+		"lt": createPositionalPseudo( function( matchIndexes, length, argument ) {
 			var i = argument < 0 ?
 				argument + length :
 				argument > length ?
@@ -11930,19 +12007,19 @@ Expr = Sizzle.selectors = {
 				matchIndexes.push( i );
 			}
 			return matchIndexes;
-		}),
+		} ),
 
-		"gt": createPositionalPseudo(function( matchIndexes, length, argument ) {
+		"gt": createPositionalPseudo( function( matchIndexes, length, argument ) {
 			var i = argument < 0 ? argument + length : argument;
 			for ( ; ++i < length; ) {
 				matchIndexes.push( i );
 			}
 			return matchIndexes;
-		})
+		} )
 	}
 };
 
-Expr.pseudos["nth"] = Expr.pseudos["eq"];
+Expr.pseudos[ "nth" ] = Expr.pseudos[ "eq" ];
 
 // Add button/input type pseudos
 for ( i in { radio: true, checkbox: true, file: true, password: true, image: true } ) {
@@ -11973,37 +12050,39 @@ tokenize = Sizzle.tokenize = function( selector, parseOnly ) {
 	while ( soFar ) {
 
 		// Comma and first run
-		if ( !matched || (match = rcomma.exec( soFar )) ) {
+		if ( !matched || ( match = rcomma.exec( soFar ) ) ) {
 			if ( match ) {
+
 				// Don't consume trailing commas as valid
-				soFar = soFar.slice( match[0].length ) || soFar;
+				soFar = soFar.slice( match[ 0 ].length ) || soFar;
 			}
-			groups.push( (tokens = []) );
+			groups.push( ( tokens = [] ) );
 		}
 
 		matched = false;
 
 		// Combinators
-		if ( (match = rcombinators.exec( soFar )) ) {
+		if ( ( match = rcombinators.exec( soFar ) ) ) {
 			matched = match.shift();
-			tokens.push({
+			tokens.push( {
 				value: matched,
+
 				// Cast descendant combinators to space
-				type: match[0].replace( rtrim, " " )
-			});
+				type: match[ 0 ].replace( rtrim, " " )
+			} );
 			soFar = soFar.slice( matched.length );
 		}
 
 		// Filters
 		for ( type in Expr.filter ) {
-			if ( (match = matchExpr[ type ].exec( soFar )) && (!preFilters[ type ] ||
-				(match = preFilters[ type ]( match ))) ) {
+			if ( ( match = matchExpr[ type ].exec( soFar ) ) && ( !preFilters[ type ] ||
+				( match = preFilters[ type ]( match ) ) ) ) {
 				matched = match.shift();
-				tokens.push({
+				tokens.push( {
 					value: matched,
 					type: type,
 					matches: match
-				});
+				} );
 				soFar = soFar.slice( matched.length );
 			}
 		}
@@ -12020,6 +12099,7 @@ tokenize = Sizzle.tokenize = function( selector, parseOnly ) {
 		soFar.length :
 		soFar ?
 			Sizzle.error( selector ) :
+
 			// Cache the tokens
 			tokenCache( selector, groups ).slice( 0 );
 };
@@ -12029,7 +12109,7 @@ function toSelector( tokens ) {
 		len = tokens.length,
 		selector = "";
 	for ( ; i < len; i++ ) {
-		selector += tokens[i].value;
+		selector += tokens[ i ].value;
 	}
 	return selector;
 }
@@ -12042,9 +12122,10 @@ function addCombinator( matcher, combinator, base ) {
 		doneName = done++;
 
 	return combinator.first ?
+
 		// Check against closest ancestor/preceding element
 		function( elem, context, xml ) {
-			while ( (elem = elem[ dir ]) ) {
+			while ( ( elem = elem[ dir ] ) ) {
 				if ( elem.nodeType === 1 || checkNonElements ) {
 					return matcher( elem, context, xml );
 				}
@@ -12059,7 +12140,7 @@ function addCombinator( matcher, combinator, base ) {
 
 			// We can't set arbitrary data on XML nodes, so they don't benefit from combinator caching
 			if ( xml ) {
-				while ( (elem = elem[ dir ]) ) {
+				while ( ( elem = elem[ dir ] ) ) {
 					if ( elem.nodeType === 1 || checkNonElements ) {
 						if ( matcher( elem, context, xml ) ) {
 							return true;
@@ -12067,27 +12148,29 @@ function addCombinator( matcher, combinator, base ) {
 					}
 				}
 			} else {
-				while ( (elem = elem[ dir ]) ) {
+				while ( ( elem = elem[ dir ] ) ) {
 					if ( elem.nodeType === 1 || checkNonElements ) {
-						outerCache = elem[ expando ] || (elem[ expando ] = {});
+						outerCache = elem[ expando ] || ( elem[ expando ] = {} );
 
 						// Support: IE <9 only
 						// Defend against cloned attroperties (jQuery gh-1709)
-						uniqueCache = outerCache[ elem.uniqueID ] || (outerCache[ elem.uniqueID ] = {});
+						uniqueCache = outerCache[ elem.uniqueID ] ||
+							( outerCache[ elem.uniqueID ] = {} );
 
 						if ( skip && skip === elem.nodeName.toLowerCase() ) {
 							elem = elem[ dir ] || elem;
-						} else if ( (oldCache = uniqueCache[ key ]) &&
+						} else if ( ( oldCache = uniqueCache[ key ] ) &&
 							oldCache[ 0 ] === dirruns && oldCache[ 1 ] === doneName ) {
 
 							// Assign to newCache so results back-propagate to previous elements
-							return (newCache[ 2 ] = oldCache[ 2 ]);
+							return ( newCache[ 2 ] = oldCache[ 2 ] );
 						} else {
+
 							// Reuse newcache so results back-propagate to previous elements
 							uniqueCache[ key ] = newCache;
 
 							// A match means we're done; a fail means we have to keep checking
-							if ( (newCache[ 2 ] = matcher( elem, context, xml )) ) {
+							if ( ( newCache[ 2 ] = matcher( elem, context, xml ) ) ) {
 								return true;
 							}
 						}
@@ -12103,20 +12186,20 @@ function elementMatcher( matchers ) {
 		function( elem, context, xml ) {
 			var i = matchers.length;
 			while ( i-- ) {
-				if ( !matchers[i]( elem, context, xml ) ) {
+				if ( !matchers[ i ]( elem, context, xml ) ) {
 					return false;
 				}
 			}
 			return true;
 		} :
-		matchers[0];
+		matchers[ 0 ];
 }
 
 function multipleContexts( selector, contexts, results ) {
 	var i = 0,
 		len = contexts.length;
 	for ( ; i < len; i++ ) {
-		Sizzle( selector, contexts[i], results );
+		Sizzle( selector, contexts[ i ], results );
 	}
 	return results;
 }
@@ -12129,7 +12212,7 @@ function condense( unmatched, map, filter, context, xml ) {
 		mapped = map != null;
 
 	for ( ; i < len; i++ ) {
-		if ( (elem = unmatched[i]) ) {
+		if ( ( elem = unmatched[ i ] ) ) {
 			if ( !filter || filter( elem, context, xml ) ) {
 				newUnmatched.push( elem );
 				if ( mapped ) {
@@ -12149,14 +12232,18 @@ function setMatcher( preFilter, selector, matcher, postFilter, postFinder, postS
 	if ( postFinder && !postFinder[ expando ] ) {
 		postFinder = setMatcher( postFinder, postSelector );
 	}
-	return markFunction(function( seed, results, context, xml ) {
+	return markFunction( function( seed, results, context, xml ) {
 		var temp, i, elem,
 			preMap = [],
 			postMap = [],
 			preexisting = results.length,
 
 			// Get initial elements from seed or context
-			elems = seed || multipleContexts( selector || "*", context.nodeType ? [ context ] : context, [] ),
+			elems = seed || multipleContexts(
+				selector || "*",
+				context.nodeType ? [ context ] : context,
+				[]
+			),
 
 			// Prefilter to get matcher input, preserving a map for seed-results synchronization
 			matcherIn = preFilter && ( seed || !selector ) ?
@@ -12164,6 +12251,7 @@ function setMatcher( preFilter, selector, matcher, postFilter, postFinder, postS
 				elems,
 
 			matcherOut = matcher ?
+
 				// If we have a postFinder, or filtered seed, or non-seed postFilter or preexisting results,
 				postFinder || ( seed ? preFilter : preexisting || postFilter ) ?
 
@@ -12187,8 +12275,8 @@ function setMatcher( preFilter, selector, matcher, postFilter, postFinder, postS
 			// Un-match failing elements by moving them back to matcherIn
 			i = temp.length;
 			while ( i-- ) {
-				if ( (elem = temp[i]) ) {
-					matcherOut[ postMap[i] ] = !(matcherIn[ postMap[i] ] = elem);
+				if ( ( elem = temp[ i ] ) ) {
+					matcherOut[ postMap[ i ] ] = !( matcherIn[ postMap[ i ] ] = elem );
 				}
 			}
 		}
@@ -12196,25 +12284,27 @@ function setMatcher( preFilter, selector, matcher, postFilter, postFinder, postS
 		if ( seed ) {
 			if ( postFinder || preFilter ) {
 				if ( postFinder ) {
+
 					// Get the final matcherOut by condensing this intermediate into postFinder contexts
 					temp = [];
 					i = matcherOut.length;
 					while ( i-- ) {
-						if ( (elem = matcherOut[i]) ) {
+						if ( ( elem = matcherOut[ i ] ) ) {
+
 							// Restore matcherIn since elem is not yet a final match
-							temp.push( (matcherIn[i] = elem) );
+							temp.push( ( matcherIn[ i ] = elem ) );
 						}
 					}
-					postFinder( null, (matcherOut = []), temp, xml );
+					postFinder( null, ( matcherOut = [] ), temp, xml );
 				}
 
 				// Move matched elements from seed to results to keep them synchronized
 				i = matcherOut.length;
 				while ( i-- ) {
-					if ( (elem = matcherOut[i]) &&
-						(temp = postFinder ? indexOf( seed, elem ) : preMap[i]) > -1 ) {
+					if ( ( elem = matcherOut[ i ] ) &&
+						( temp = postFinder ? indexOf( seed, elem ) : preMap[ i ] ) > -1 ) {
 
-						seed[temp] = !(results[temp] = elem);
+						seed[ temp ] = !( results[ temp ] = elem );
 					}
 				}
 			}
@@ -12232,14 +12322,14 @@ function setMatcher( preFilter, selector, matcher, postFilter, postFinder, postS
 				push.apply( results, matcherOut );
 			}
 		}
-	});
+	} );
 }
 
 function matcherFromTokens( tokens ) {
 	var checkContext, matcher, j,
 		len = tokens.length,
-		leadingRelative = Expr.relative[ tokens[0].type ],
-		implicitRelative = leadingRelative || Expr.relative[" "],
+		leadingRelative = Expr.relative[ tokens[ 0 ].type ],
+		implicitRelative = leadingRelative || Expr.relative[ " " ],
 		i = leadingRelative ? 1 : 0,
 
 		// The foundational matcher ensures that elements are reachable from top-level context(s)
@@ -12251,38 +12341,43 @@ function matcherFromTokens( tokens ) {
 		}, implicitRelative, true ),
 		matchers = [ function( elem, context, xml ) {
 			var ret = ( !leadingRelative && ( xml || context !== outermostContext ) ) || (
-				(checkContext = context).nodeType ?
+				( checkContext = context ).nodeType ?
 					matchContext( elem, context, xml ) :
 					matchAnyContext( elem, context, xml ) );
+
 			// Avoid hanging onto element (issue #299)
 			checkContext = null;
 			return ret;
 		} ];
 
 	for ( ; i < len; i++ ) {
-		if ( (matcher = Expr.relative[ tokens[i].type ]) ) {
-			matchers = [ addCombinator(elementMatcher( matchers ), matcher) ];
+		if ( ( matcher = Expr.relative[ tokens[ i ].type ] ) ) {
+			matchers = [ addCombinator( elementMatcher( matchers ), matcher ) ];
 		} else {
-			matcher = Expr.filter[ tokens[i].type ].apply( null, tokens[i].matches );
+			matcher = Expr.filter[ tokens[ i ].type ].apply( null, tokens[ i ].matches );
 
 			// Return special upon seeing a positional matcher
 			if ( matcher[ expando ] ) {
+
 				// Find the next relative operator (if any) for proper handling
 				j = ++i;
 				for ( ; j < len; j++ ) {
-					if ( Expr.relative[ tokens[j].type ] ) {
+					if ( Expr.relative[ tokens[ j ].type ] ) {
 						break;
 					}
 				}
 				return setMatcher(
 					i > 1 && elementMatcher( matchers ),
 					i > 1 && toSelector(
-						// If the preceding token was a descendant combinator, insert an implicit any-element `*`
-						tokens.slice( 0, i - 1 ).concat({ value: tokens[ i - 2 ].type === " " ? "*" : "" })
+
+					// If the preceding token was a descendant combinator, insert an implicit any-element `*`
+					tokens
+						.slice( 0, i - 1 )
+						.concat( { value: tokens[ i - 2 ].type === " " ? "*" : "" } )
 					).replace( rtrim, "$1" ),
 					matcher,
 					i < j && matcherFromTokens( tokens.slice( i, j ) ),
-					j < len && matcherFromTokens( (tokens = tokens.slice( j )) ),
+					j < len && matcherFromTokens( ( tokens = tokens.slice( j ) ) ),
 					j < len && toSelector( tokens )
 				);
 			}
@@ -12303,28 +12398,40 @@ function matcherFromGroupMatchers( elementMatchers, setMatchers ) {
 				unmatched = seed && [],
 				setMatched = [],
 				contextBackup = outermostContext,
+
 				// We must always have either seed elements or outermost context
-				elems = seed || byElement && Expr.find["TAG"]( "*", outermost ),
+				elems = seed || byElement && Expr.find[ "TAG" ]( "*", outermost ),
+
 				// Use integer dirruns iff this is the outermost matcher
-				dirrunsUnique = (dirruns += contextBackup == null ? 1 : Math.random() || 0.1),
+				dirrunsUnique = ( dirruns += contextBackup == null ? 1 : Math.random() || 0.1 ),
 				len = elems.length;
 
 			if ( outermost ) {
-				outermostContext = context === document || context || outermost;
+
+				// Support: IE 11+, Edge 17 - 18+
+				// IE/Edge sometimes throw a "Permission denied" error when strict-comparing
+				// two documents; shallow comparisons work.
+				// eslint-disable-next-line eqeqeq
+				outermostContext = context == document || context || outermost;
 			}
 
 			// Add elements passing elementMatchers directly to results
 			// Support: IE<9, Safari
 			// Tolerate NodeList properties (IE: "length"; Safari: <number>) matching elements by id
-			for ( ; i !== len && (elem = elems[i]) != null; i++ ) {
+			for ( ; i !== len && ( elem = elems[ i ] ) != null; i++ ) {
 				if ( byElement && elem ) {
 					j = 0;
-					if ( !context && elem.ownerDocument !== document ) {
+
+					// Support: IE 11+, Edge 17 - 18+
+					// IE/Edge sometimes throw a "Permission denied" error when strict-comparing
+					// two documents; shallow comparisons work.
+					// eslint-disable-next-line eqeqeq
+					if ( !context && elem.ownerDocument != document ) {
 						setDocument( elem );
 						xml = !documentIsHTML;
 					}
-					while ( (matcher = elementMatchers[j++]) ) {
-						if ( matcher( elem, context || document, xml) ) {
+					while ( ( matcher = elementMatchers[ j++ ] ) ) {
+						if ( matcher( elem, context || document, xml ) ) {
 							results.push( elem );
 							break;
 						}
@@ -12336,8 +12443,9 @@ function matcherFromGroupMatchers( elementMatchers, setMatchers ) {
 
 				// Track unmatched elements for set filters
 				if ( bySet ) {
+
 					// They will have gone through all possible matchers
-					if ( (elem = !matcher && elem) ) {
+					if ( ( elem = !matcher && elem ) ) {
 						matchedCount--;
 					}
 
@@ -12361,16 +12469,17 @@ function matcherFromGroupMatchers( elementMatchers, setMatchers ) {
 			// numerically zero.
 			if ( bySet && i !== matchedCount ) {
 				j = 0;
-				while ( (matcher = setMatchers[j++]) ) {
+				while ( ( matcher = setMatchers[ j++ ] ) ) {
 					matcher( unmatched, setMatched, context, xml );
 				}
 
 				if ( seed ) {
+
 					// Reintegrate element matches to eliminate the need for sorting
 					if ( matchedCount > 0 ) {
 						while ( i-- ) {
-							if ( !(unmatched[i] || setMatched[i]) ) {
-								setMatched[i] = pop.call( results );
+							if ( !( unmatched[ i ] || setMatched[ i ] ) ) {
+								setMatched[ i ] = pop.call( results );
 							}
 						}
 					}
@@ -12411,13 +12520,14 @@ compile = Sizzle.compile = function( selector, match /* Internal Use Only */ ) {
 		cached = compilerCache[ selector + " " ];
 
 	if ( !cached ) {
+
 		// Generate a function of recursive functions that can be used to check each element
 		if ( !match ) {
 			match = tokenize( selector );
 		}
 		i = match.length;
 		while ( i-- ) {
-			cached = matcherFromTokens( match[i] );
+			cached = matcherFromTokens( match[ i ] );
 			if ( cached[ expando ] ) {
 				setMatchers.push( cached );
 			} else {
@@ -12426,7 +12536,10 @@ compile = Sizzle.compile = function( selector, match /* Internal Use Only */ ) {
 		}
 
 		// Cache the compiled function
-		cached = compilerCache( selector, matcherFromGroupMatchers( elementMatchers, setMatchers ) );
+		cached = compilerCache(
+			selector,
+			matcherFromGroupMatchers( elementMatchers, setMatchers )
+		);
 
 		// Save selector and tokenization
 		cached.selector = selector;
@@ -12446,7 +12559,7 @@ compile = Sizzle.compile = function( selector, match /* Internal Use Only */ ) {
 select = Sizzle.select = function( selector, context, results, seed ) {
 	var i, tokens, token, type, find,
 		compiled = typeof selector === "function" && selector,
-		match = !seed && tokenize( (selector = compiled.selector || selector) );
+		match = !seed && tokenize( ( selector = compiled.selector || selector ) );
 
 	results = results || [];
 
@@ -12455,11 +12568,12 @@ select = Sizzle.select = function( selector, context, results, seed ) {
 	if ( match.length === 1 ) {
 
 		// Reduce context if the leading compound selector is an ID
-		tokens = match[0] = match[0].slice( 0 );
-		if ( tokens.length > 2 && (token = tokens[0]).type === "ID" &&
-				context.nodeType === 9 && documentIsHTML && Expr.relative[ tokens[1].type ] ) {
+		tokens = match[ 0 ] = match[ 0 ].slice( 0 );
+		if ( tokens.length > 2 && ( token = tokens[ 0 ] ).type === "ID" &&
+			context.nodeType === 9 && documentIsHTML && Expr.relative[ tokens[ 1 ].type ] ) {
 
-			context = ( Expr.find["ID"]( token.matches[0].replace(runescape, funescape), context ) || [] )[0];
+			context = ( Expr.find[ "ID" ]( token.matches[ 0 ]
+				.replace( runescape, funescape ), context ) || [] )[ 0 ];
 			if ( !context ) {
 				return results;
 
@@ -12472,20 +12586,22 @@ select = Sizzle.select = function( selector, context, results, seed ) {
 		}
 
 		// Fetch a seed set for right-to-left matching
-		i = matchExpr["needsContext"].test( selector ) ? 0 : tokens.length;
+		i = matchExpr[ "needsContext" ].test( selector ) ? 0 : tokens.length;
 		while ( i-- ) {
-			token = tokens[i];
+			token = tokens[ i ];
 
 			// Abort if we hit a combinator
-			if ( Expr.relative[ (type = token.type) ] ) {
+			if ( Expr.relative[ ( type = token.type ) ] ) {
 				break;
 			}
-			if ( (find = Expr.find[ type ]) ) {
+			if ( ( find = Expr.find[ type ] ) ) {
+
 				// Search, expanding context for leading sibling combinators
-				if ( (seed = find(
-					token.matches[0].replace( runescape, funescape ),
-					rsibling.test( tokens[0].type ) && testContext( context.parentNode ) || context
-				)) ) {
+				if ( ( seed = find(
+					token.matches[ 0 ].replace( runescape, funescape ),
+					rsibling.test( tokens[ 0 ].type ) && testContext( context.parentNode ) ||
+						context
+				) ) ) {
 
 					// If seed is empty or no tokens remain, we can return early
 					tokens.splice( i, 1 );
@@ -12516,7 +12632,7 @@ select = Sizzle.select = function( selector, context, results, seed ) {
 // One-time assignments
 
 // Sort stability
-support.sortStable = expando.split("").sort( sortOrder ).join("") === expando;
+support.sortStable = expando.split( "" ).sort( sortOrder ).join( "" ) === expando;
 
 // Support: Chrome 14-35+
 // Always assume duplicates if they aren't passed to the comparison function
@@ -12527,58 +12643,59 @@ setDocument();
 
 // Support: Webkit<537.32 - Safari 6.0.3/Chrome 25 (fixed in Chrome 27)
 // Detached nodes confoundingly follow *each other*
-support.sortDetached = assert(function( el ) {
+support.sortDetached = assert( function( el ) {
+
 	// Should return 1, but returns 4 (following)
-	return el.compareDocumentPosition( document.createElement("fieldset") ) & 1;
-});
+	return el.compareDocumentPosition( document.createElement( "fieldset" ) ) & 1;
+} );
 
 // Support: IE<8
 // Prevent attribute/property "interpolation"
 // https://msdn.microsoft.com/en-us/library/ms536429%28VS.85%29.aspx
-if ( !assert(function( el ) {
+if ( !assert( function( el ) {
 	el.innerHTML = "<a href='#'></a>";
-	return el.firstChild.getAttribute("href") === "#" ;
-}) ) {
+	return el.firstChild.getAttribute( "href" ) === "#";
+} ) ) {
 	addHandle( "type|href|height|width", function( elem, name, isXML ) {
 		if ( !isXML ) {
 			return elem.getAttribute( name, name.toLowerCase() === "type" ? 1 : 2 );
 		}
-	});
+	} );
 }
 
 // Support: IE<9
 // Use defaultValue in place of getAttribute("value")
-if ( !support.attributes || !assert(function( el ) {
+if ( !support.attributes || !assert( function( el ) {
 	el.innerHTML = "<input/>";
 	el.firstChild.setAttribute( "value", "" );
 	return el.firstChild.getAttribute( "value" ) === "";
-}) ) {
-	addHandle( "value", function( elem, name, isXML ) {
+} ) ) {
+	addHandle( "value", function( elem, _name, isXML ) {
 		if ( !isXML && elem.nodeName.toLowerCase() === "input" ) {
 			return elem.defaultValue;
 		}
-	});
+	} );
 }
 
 // Support: IE<9
 // Use getAttributeNode to fetch booleans when getAttribute lies
-if ( !assert(function( el ) {
-	return el.getAttribute("disabled") == null;
-}) ) {
+if ( !assert( function( el ) {
+	return el.getAttribute( "disabled" ) == null;
+} ) ) {
 	addHandle( booleans, function( elem, name, isXML ) {
 		var val;
 		if ( !isXML ) {
 			return elem[ name ] === true ? name.toLowerCase() :
-					(val = elem.getAttributeNode( name )) && val.specified ?
+				( val = elem.getAttributeNode( name ) ) && val.specified ?
 					val.value :
-				null;
+					null;
 		}
-	});
+	} );
 }
 
 return Sizzle;
 
-})( window );
+} )( window );
 
 
 
@@ -12947,7 +13064,7 @@ jQuery.each( {
 	parents: function( elem ) {
 		return dir( elem, "parentNode" );
 	},
-	parentsUntil: function( elem, i, until ) {
+	parentsUntil: function( elem, _i, until ) {
 		return dir( elem, "parentNode", until );
 	},
 	next: function( elem ) {
@@ -12962,10 +13079,10 @@ jQuery.each( {
 	prevAll: function( elem ) {
 		return dir( elem, "previousSibling" );
 	},
-	nextUntil: function( elem, i, until ) {
+	nextUntil: function( elem, _i, until ) {
 		return dir( elem, "nextSibling", until );
 	},
-	prevUntil: function( elem, i, until ) {
+	prevUntil: function( elem, _i, until ) {
 		return dir( elem, "previousSibling", until );
 	},
 	siblings: function( elem ) {
@@ -12975,7 +13092,13 @@ jQuery.each( {
 		return siblings( elem.firstChild );
 	},
 	contents: function( elem ) {
-		if ( typeof elem.contentDocument !== "undefined" ) {
+		if ( elem.contentDocument != null &&
+
+			// Support: IE 11+
+			// <object> elements with no `data` attribute has an object
+			// `contentDocument` with a `null` prototype.
+			getProto( elem.contentDocument ) ) {
+
 			return elem.contentDocument;
 		}
 
@@ -13318,7 +13441,7 @@ jQuery.extend( {
 					var fns = arguments;
 
 					return jQuery.Deferred( function( newDefer ) {
-						jQuery.each( tuples, function( i, tuple ) {
+						jQuery.each( tuples, function( _i, tuple ) {
 
 							// Map tuples (progress, done, fail) to arguments (done, fail, progress)
 							var fn = isFunction( fns[ tuple[ 4 ] ] ) && fns[ tuple[ 4 ] ];
@@ -13771,7 +13894,7 @@ var access = function( elems, fn, key, value, chainable, emptyGet, raw ) {
 			// ...except when executing function values
 			} else {
 				bulk = fn;
-				fn = function( elem, key, value ) {
+				fn = function( elem, _key, value ) {
 					return bulk.call( jQuery( elem ), value );
 				};
 			}
@@ -13806,7 +13929,7 @@ var rmsPrefix = /^-ms-/,
 	rdashAlpha = /-([a-z])/g;
 
 // Used by camelCase as callback to replace()
-function fcamelCase( all, letter ) {
+function fcamelCase( _all, letter ) {
 	return letter.toUpperCase();
 }
 
@@ -14334,27 +14457,6 @@ var isHiddenWithinTree = function( elem, el ) {
 			jQuery.css( elem, "display" ) === "none";
 	};
 
-var swap = function( elem, options, callback, args ) {
-	var ret, name,
-		old = {};
-
-	// Remember the old values, and insert the new ones
-	for ( name in options ) {
-		old[ name ] = elem.style[ name ];
-		elem.style[ name ] = options[ name ];
-	}
-
-	ret = callback.apply( elem, args || [] );
-
-	// Revert the old values
-	for ( name in options ) {
-		elem.style[ name ] = old[ name ];
-	}
-
-	return ret;
-};
-
-
 
 
 function adjustCSS( elem, prop, valueParts, tween ) {
@@ -14525,11 +14627,40 @@ var rscriptType = ( /^$|^module$|\/(?:java|ecma)script/i );
 
 
 
-// We have to close these tags to support XHTML (#13200)
-var wrapMap = {
+( function() {
+	var fragment = document.createDocumentFragment(),
+		div = fragment.appendChild( document.createElement( "div" ) ),
+		input = document.createElement( "input" );
+
+	// Support: Android 4.0 - 4.3 only
+	// Check state lost if the name is set (#11217)
+	// Support: Windows Web Apps (WWA)
+	// `name` and `type` must use .setAttribute for WWA (#14901)
+	input.setAttribute( "type", "radio" );
+	input.setAttribute( "checked", "checked" );
+	input.setAttribute( "name", "t" );
+
+	div.appendChild( input );
+
+	// Support: Android <=4.1 only
+	// Older WebKit doesn't clone checked state correctly in fragments
+	support.checkClone = div.cloneNode( true ).cloneNode( true ).lastChild.checked;
+
+	// Support: IE <=11 only
+	// Make sure textarea (and checkbox) defaultValue is properly cloned
+	div.innerHTML = "<textarea>x</textarea>";
+	support.noCloneChecked = !!div.cloneNode( true ).lastChild.defaultValue;
 
 	// Support: IE <=9 only
-	option: [ 1, "<select multiple='multiple'>", "</select>" ],
+	// IE <=9 replaces <option> tags with their contents when inserted outside of
+	// the select element.
+	div.innerHTML = "<option></option>";
+	support.option = !!div.lastChild;
+} )();
+
+
+// We have to close these tags to support XHTML (#13200)
+var wrapMap = {
 
 	// XHTML parsers do not magically insert elements in the
 	// same way that tag soup parsers do. So we cannot shorten
@@ -14542,11 +14673,13 @@ var wrapMap = {
 	_default: [ 0, "", "" ]
 };
 
-// Support: IE <=9 only
-wrapMap.optgroup = wrapMap.option;
-
 wrapMap.tbody = wrapMap.tfoot = wrapMap.colgroup = wrapMap.caption = wrapMap.thead;
 wrapMap.th = wrapMap.td;
+
+// Support: IE <=9 only
+if ( !support.option ) {
+	wrapMap.optgroup = wrapMap.option = [ 1, "<select multiple='multiple'>", "</select>" ];
+}
 
 
 function getAll( context, tag ) {
@@ -14680,32 +14813,6 @@ function buildFragment( elems, context, scripts, selection, ignored ) {
 }
 
 
-( function() {
-	var fragment = document.createDocumentFragment(),
-		div = fragment.appendChild( document.createElement( "div" ) ),
-		input = document.createElement( "input" );
-
-	// Support: Android 4.0 - 4.3 only
-	// Check state lost if the name is set (#11217)
-	// Support: Windows Web Apps (WWA)
-	// `name` and `type` must use .setAttribute for WWA (#14901)
-	input.setAttribute( "type", "radio" );
-	input.setAttribute( "checked", "checked" );
-	input.setAttribute( "name", "t" );
-
-	div.appendChild( input );
-
-	// Support: Android <=4.1 only
-	// Older WebKit doesn't clone checked state correctly in fragments
-	support.checkClone = div.cloneNode( true ).cloneNode( true ).lastChild.checked;
-
-	// Support: IE <=11 only
-	// Make sure textarea (and checkbox) defaultValue is properly cloned
-	div.innerHTML = "<textarea>x</textarea>";
-	support.noCloneChecked = !!div.cloneNode( true ).lastChild.defaultValue;
-} )();
-
-
 var
 	rkeyEvent = /^key/,
 	rmouseEvent = /^(?:mouse|pointer|contextmenu|drag|drop)|click/,
@@ -14814,8 +14921,8 @@ jQuery.event = {
 			special, handlers, type, namespaces, origType,
 			elemData = dataPriv.get( elem );
 
-		// Don't attach events to noData or text/comment nodes (but allow plain objects)
-		if ( !elemData ) {
+		// Only attach events to objects that accept data
+		if ( !acceptData( elem ) ) {
 			return;
 		}
 
@@ -14839,7 +14946,7 @@ jQuery.event = {
 
 		// Init the element's event structure and main handler, if this is the first
 		if ( !( events = elemData.events ) ) {
-			events = elemData.events = {};
+			events = elemData.events = Object.create( null );
 		}
 		if ( !( eventHandle = elemData.handle ) ) {
 			eventHandle = elemData.handle = function( e ) {
@@ -14997,12 +15104,15 @@ jQuery.event = {
 
 	dispatch: function( nativeEvent ) {
 
-		// Make a writable jQuery.Event from the native event object
-		var event = jQuery.event.fix( nativeEvent );
-
 		var i, j, ret, matched, handleObj, handlerQueue,
 			args = new Array( arguments.length ),
-			handlers = ( dataPriv.get( this, "events" ) || {} )[ event.type ] || [],
+
+			// Make a writable jQuery.Event from the native event object
+			event = jQuery.event.fix( nativeEvent ),
+
+			handlers = (
+					dataPriv.get( this, "events" ) || Object.create( null )
+				)[ event.type ] || [],
 			special = jQuery.event.special[ event.type ] || {};
 
 		// Use the fix-ed jQuery.Event rather than the (read-only) native event
@@ -15577,13 +15687,6 @@ jQuery.fn.extend( {
 
 var
 
-	/* eslint-disable max-len */
-
-	// See https://github.com/eslint/eslint/issues/3229
-	rxhtmlTag = /<(?!area|br|col|embed|hr|img|input|link|meta|param)(([a-z][^\/\0>\x20\t\r\n\f]*)[^>]*)\/>/gi,
-
-	/* eslint-enable */
-
 	// Support: IE <=10 - 11, Edge 12 - 13 only
 	// In IE/Edge using regex groups here causes severe slowdowns.
 	// See https://connect.microsoft.com/IE/feedback/details/1736512/
@@ -15620,7 +15723,7 @@ function restoreScript( elem ) {
 }
 
 function cloneCopyEvent( src, dest ) {
-	var i, l, type, pdataOld, pdataCur, udataOld, udataCur, events;
+	var i, l, type, pdataOld, udataOld, udataCur, events;
 
 	if ( dest.nodeType !== 1 ) {
 		return;
@@ -15628,13 +15731,11 @@ function cloneCopyEvent( src, dest ) {
 
 	// 1. Copy private data: events, handlers, etc.
 	if ( dataPriv.hasData( src ) ) {
-		pdataOld = dataPriv.access( src );
-		pdataCur = dataPriv.set( dest, pdataOld );
+		pdataOld = dataPriv.get( src );
 		events = pdataOld.events;
 
 		if ( events ) {
-			delete pdataCur.handle;
-			pdataCur.events = {};
+			dataPriv.remove( dest, "handle events" );
 
 			for ( type in events ) {
 				for ( i = 0, l = events[ type ].length; i < l; i++ ) {
@@ -15670,7 +15771,7 @@ function fixInput( src, dest ) {
 function domManip( collection, args, callback, ignored ) {
 
 	// Flatten any nested arrays
-	args = concat.apply( [], args );
+	args = flat( args );
 
 	var fragment, first, scripts, hasScripts, node, doc,
 		i = 0,
@@ -15745,7 +15846,7 @@ function domManip( collection, args, callback, ignored ) {
 							if ( jQuery._evalUrl && !node.noModule ) {
 								jQuery._evalUrl( node.src, {
 									nonce: node.nonce || node.getAttribute( "nonce" )
-								} );
+								}, doc );
 							}
 						} else {
 							DOMEval( node.textContent.replace( rcleanScript, "" ), node, doc );
@@ -15782,7 +15883,7 @@ function remove( elem, selector, keepData ) {
 
 jQuery.extend( {
 	htmlPrefilter: function( html ) {
-		return html.replace( rxhtmlTag, "<$1></$2>" );
+		return html;
 	},
 
 	clone: function( elem, dataAndEvents, deepDataAndEvents ) {
@@ -16044,6 +16145,27 @@ var getStyles = function( elem ) {
 		return view.getComputedStyle( elem );
 	};
 
+var swap = function( elem, options, callback ) {
+	var ret, name,
+		old = {};
+
+	// Remember the old values, and insert the new ones
+	for ( name in options ) {
+		old[ name ] = elem.style[ name ];
+		elem.style[ name ] = options[ name ];
+	}
+
+	ret = callback.call( elem );
+
+	// Revert the old values
+	for ( name in options ) {
+		elem.style[ name ] = old[ name ];
+	}
+
+	return ret;
+};
+
+
 var rboxStyle = new RegExp( cssExpand.join( "|" ), "i" );
 
 
@@ -16101,7 +16223,7 @@ var rboxStyle = new RegExp( cssExpand.join( "|" ), "i" );
 	}
 
 	var pixelPositionVal, boxSizingReliableVal, scrollboxSizeVal, pixelBoxStylesVal,
-		reliableMarginLeftVal,
+		reliableTrDimensionsVal, reliableMarginLeftVal,
 		container = document.createElement( "div" ),
 		div = document.createElement( "div" );
 
@@ -16136,6 +16258,35 @@ var rboxStyle = new RegExp( cssExpand.join( "|" ), "i" );
 		scrollboxSize: function() {
 			computeStyleTests();
 			return scrollboxSizeVal;
+		},
+
+		// Support: IE 9 - 11+, Edge 15 - 18+
+		// IE/Edge misreport `getComputedStyle` of table rows with width/height
+		// set in CSS while `offset*` properties report correct values.
+		// Behavior in IE 9 is more subtle than in newer versions & it passes
+		// some versions of this test; make sure not to make it pass there!
+		reliableTrDimensions: function() {
+			var table, tr, trChild, trStyle;
+			if ( reliableTrDimensionsVal == null ) {
+				table = document.createElement( "table" );
+				tr = document.createElement( "tr" );
+				trChild = document.createElement( "div" );
+
+				table.style.cssText = "position:absolute;left:-11111px";
+				tr.style.height = "1px";
+				trChild.style.height = "9px";
+
+				documentElement
+					.appendChild( table )
+					.appendChild( tr )
+					.appendChild( trChild );
+
+				trStyle = window.getComputedStyle( tr );
+				reliableTrDimensionsVal = parseInt( trStyle.height ) > 3;
+
+				documentElement.removeChild( table );
+			}
+			return reliableTrDimensionsVal;
 		}
 	} );
 } )();
@@ -16260,7 +16411,7 @@ var
 		fontWeight: "400"
 	};
 
-function setPositiveNumber( elem, value, subtract ) {
+function setPositiveNumber( _elem, value, subtract ) {
 
 	// Any relative (+/-) values have already been
 	// normalized at this point
@@ -16365,17 +16516,26 @@ function getWidthOrHeight( elem, dimension, extra ) {
 	}
 
 
-	// Fall back to offsetWidth/offsetHeight when value is "auto"
-	// This happens for inline elements with no explicit setting (gh-3571)
-	// Support: Android <=4.1 - 4.3 only
-	// Also use offsetWidth/offsetHeight for misreported inline dimensions (gh-3602)
-	// Support: IE 9-11 only
-	// Also use offsetWidth/offsetHeight for when box sizing is unreliable
-	// We use getClientRects() to check for hidden/disconnected.
-	// In those cases, the computed value can be trusted to be border-box
+	// Support: IE 9 - 11 only
+	// Use offsetWidth/offsetHeight for when box sizing is unreliable.
+	// In those cases, the computed value can be trusted to be border-box.
 	if ( ( !support.boxSizingReliable() && isBorderBox ||
+
+		// Support: IE 10 - 11+, Edge 15 - 18+
+		// IE/Edge misreport `getComputedStyle` of table rows with width/height
+		// set in CSS while `offset*` properties report correct values.
+		// Interestingly, in some cases IE 9 doesn't suffer from this issue.
+		!support.reliableTrDimensions() && nodeName( elem, "tr" ) ||
+
+		// Fall back to offsetWidth/offsetHeight when value is "auto"
+		// This happens for inline elements with no explicit setting (gh-3571)
 		val === "auto" ||
+
+		// Support: Android <=4.1 - 4.3 only
+		// Also use offsetWidth/offsetHeight for misreported inline dimensions (gh-3602)
 		!parseFloat( val ) && jQuery.css( elem, "display", false, styles ) === "inline" ) &&
+
+		// Make sure the element is visible & connected
 		elem.getClientRects().length ) {
 
 		isBorderBox = jQuery.css( elem, "boxSizing", false, styles ) === "border-box";
@@ -16570,7 +16730,7 @@ jQuery.extend( {
 	}
 } );
 
-jQuery.each( [ "height", "width" ], function( i, dimension ) {
+jQuery.each( [ "height", "width" ], function( _i, dimension ) {
 	jQuery.cssHooks[ dimension ] = {
 		get: function( elem, computed, extra ) {
 			if ( computed ) {
@@ -17343,7 +17503,7 @@ jQuery.fn.extend( {
 			clearQueue = type;
 			type = undefined;
 		}
-		if ( clearQueue && type !== false ) {
+		if ( clearQueue ) {
 			this.queue( type || "fx", [] );
 		}
 
@@ -17426,7 +17586,7 @@ jQuery.fn.extend( {
 	}
 } );
 
-jQuery.each( [ "toggle", "show", "hide" ], function( i, name ) {
+jQuery.each( [ "toggle", "show", "hide" ], function( _i, name ) {
 	var cssFn = jQuery.fn[ name ];
 	jQuery.fn[ name ] = function( speed, easing, callback ) {
 		return speed == null || typeof speed === "boolean" ?
@@ -17647,7 +17807,7 @@ boolHook = {
 	}
 };
 
-jQuery.each( jQuery.expr.match.bool.source.match( /\w+/g ), function( i, name ) {
+jQuery.each( jQuery.expr.match.bool.source.match( /\w+/g ), function( _i, name ) {
 	var getter = attrHandle[ name ] || jQuery.find.attr;
 
 	attrHandle[ name ] = function( elem, name, isXML ) {
@@ -18271,7 +18431,9 @@ jQuery.extend( jQuery.event, {
 				special.bindType || type;
 
 			// jQuery handler
-			handle = ( dataPriv.get( cur, "events" ) || {} )[ event.type ] &&
+			handle = (
+					dataPriv.get( cur, "events" ) || Object.create( null )
+				)[ event.type ] &&
 				dataPriv.get( cur, "handle" );
 			if ( handle ) {
 				handle.apply( cur, data );
@@ -18382,7 +18544,10 @@ if ( !support.focusin ) {
 
 		jQuery.event.special[ fix ] = {
 			setup: function() {
-				var doc = this.ownerDocument || this,
+
+				// Handle: regular nodes (via `this.ownerDocument`), window
+				// (via `this.document`) & document (via `this`).
+				var doc = this.ownerDocument || this.document || this,
 					attaches = dataPriv.access( doc, fix );
 
 				if ( !attaches ) {
@@ -18391,7 +18556,7 @@ if ( !support.focusin ) {
 				dataPriv.access( doc, fix, ( attaches || 0 ) + 1 );
 			},
 			teardown: function() {
-				var doc = this.ownerDocument || this,
+				var doc = this.ownerDocument || this.document || this,
 					attaches = dataPriv.access( doc, fix ) - 1;
 
 				if ( !attaches ) {
@@ -18407,7 +18572,7 @@ if ( !support.focusin ) {
 }
 var location = window.location;
 
-var nonce = Date.now();
+var nonce = { guid: Date.now() };
 
 var rquery = ( /\?/ );
 
@@ -18539,7 +18704,7 @@ jQuery.fn.extend( {
 				rsubmittable.test( this.nodeName ) && !rsubmitterTypes.test( type ) &&
 				( this.checked || !rcheckableType.test( type ) );
 		} )
-		.map( function( i, elem ) {
+		.map( function( _i, elem ) {
 			var val = jQuery( this ).val();
 
 			if ( val == null ) {
@@ -19152,7 +19317,8 @@ jQuery.extend( {
 			// Add or update anti-cache param if needed
 			if ( s.cache === false ) {
 				cacheURL = cacheURL.replace( rantiCache, "$1" );
-				uncached = ( rquery.test( cacheURL ) ? "&" : "?" ) + "_=" + ( nonce++ ) + uncached;
+				uncached = ( rquery.test( cacheURL ) ? "&" : "?" ) + "_=" + ( nonce.guid++ ) +
+					uncached;
 			}
 
 			// Put hash and anti-cache on the URL that will be requested (gh-1732)
@@ -19285,6 +19451,11 @@ jQuery.extend( {
 				response = ajaxHandleResponses( s, jqXHR, responses );
 			}
 
+			// Use a noop converter for missing script
+			if ( !isSuccess && jQuery.inArray( "script", s.dataTypes ) > -1 ) {
+				s.converters[ "text script" ] = function() {};
+			}
+
 			// Convert no matter what (that way responseXXX fields are always set)
 			response = ajaxConvert( s, response, jqXHR, isSuccess );
 
@@ -19375,7 +19546,7 @@ jQuery.extend( {
 	}
 } );
 
-jQuery.each( [ "get", "post" ], function( i, method ) {
+jQuery.each( [ "get", "post" ], function( _i, method ) {
 	jQuery[ method ] = function( url, data, callback, type ) {
 
 		// Shift arguments if data argument was omitted
@@ -19396,8 +19567,17 @@ jQuery.each( [ "get", "post" ], function( i, method ) {
 	};
 } );
 
+jQuery.ajaxPrefilter( function( s ) {
+	var i;
+	for ( i in s.headers ) {
+		if ( i.toLowerCase() === "content-type" ) {
+			s.contentType = s.headers[ i ] || "";
+		}
+	}
+} );
 
-jQuery._evalUrl = function( url, options ) {
+
+jQuery._evalUrl = function( url, options, doc ) {
 	return jQuery.ajax( {
 		url: url,
 
@@ -19415,7 +19595,7 @@ jQuery._evalUrl = function( url, options ) {
 			"text script": function() {}
 		},
 		dataFilter: function( response ) {
-			jQuery.globalEval( response, options );
+			jQuery.globalEval( response, options, doc );
 		}
 	} );
 };
@@ -19737,7 +19917,7 @@ var oldCallbacks = [],
 jQuery.ajaxSetup( {
 	jsonp: "callback",
 	jsonpCallback: function() {
-		var callback = oldCallbacks.pop() || ( jQuery.expando + "_" + ( nonce++ ) );
+		var callback = oldCallbacks.pop() || ( jQuery.expando + "_" + ( nonce.guid++ ) );
 		this[ callback ] = true;
 		return callback;
 	}
@@ -19954,23 +20134,6 @@ jQuery.fn.load = function( url, params, callback ) {
 
 
 
-// Attach a bunch of functions for handling common AJAX events
-jQuery.each( [
-	"ajaxStart",
-	"ajaxStop",
-	"ajaxComplete",
-	"ajaxError",
-	"ajaxSuccess",
-	"ajaxSend"
-], function( i, type ) {
-	jQuery.fn[ type ] = function( fn ) {
-		return this.on( type, fn );
-	};
-} );
-
-
-
-
 jQuery.expr.pseudos.animated = function( elem ) {
 	return jQuery.grep( jQuery.timers, function( fn ) {
 		return elem === fn.elem;
@@ -20027,6 +20190,12 @@ jQuery.offset = {
 			options.using.call( elem, props );
 
 		} else {
+			if ( typeof props.top === "number" ) {
+				props.top += "px";
+			}
+			if ( typeof props.left === "number" ) {
+				props.left += "px";
+			}
 			curElem.css( props );
 		}
 	}
@@ -20177,7 +20346,7 @@ jQuery.each( { scrollLeft: "pageXOffset", scrollTop: "pageYOffset" }, function( 
 // Blink bug: https://bugs.chromium.org/p/chromium/issues/detail?id=589347
 // getComputedStyle returns percent when specified for top/left/bottom/right;
 // rather than make the css module depend on the offset module, just check for it here
-jQuery.each( [ "top", "left" ], function( i, prop ) {
+jQuery.each( [ "top", "left" ], function( _i, prop ) {
 	jQuery.cssHooks[ prop ] = addGetHookIf( support.pixelPosition,
 		function( elem, computed ) {
 			if ( computed ) {
@@ -20240,23 +20409,17 @@ jQuery.each( { Height: "height", Width: "width" }, function( name, type ) {
 } );
 
 
-jQuery.each( ( "blur focus focusin focusout resize scroll click dblclick " +
-	"mousedown mouseup mousemove mouseover mouseout mouseenter mouseleave " +
-	"change select submit keydown keypress keyup contextmenu" ).split( " " ),
-	function( i, name ) {
-
-	// Handle event binding
-	jQuery.fn[ name ] = function( data, fn ) {
-		return arguments.length > 0 ?
-			this.on( name, null, data, fn ) :
-			this.trigger( name );
+jQuery.each( [
+	"ajaxStart",
+	"ajaxStop",
+	"ajaxComplete",
+	"ajaxError",
+	"ajaxSuccess",
+	"ajaxSend"
+], function( _i, type ) {
+	jQuery.fn[ type ] = function( fn ) {
+		return this.on( type, fn );
 	};
-} );
-
-jQuery.fn.extend( {
-	hover: function( fnOver, fnOut ) {
-		return this.mouseenter( fnOver ).mouseleave( fnOut || fnOver );
-	}
 } );
 
 
@@ -20280,8 +20443,32 @@ jQuery.fn.extend( {
 		return arguments.length === 1 ?
 			this.off( selector, "**" ) :
 			this.off( types, selector || "**", fn );
+	},
+
+	hover: function( fnOver, fnOut ) {
+		return this.mouseenter( fnOver ).mouseleave( fnOut || fnOver );
 	}
 } );
+
+jQuery.each( ( "blur focus focusin focusout resize scroll click dblclick " +
+	"mousedown mouseup mousemove mouseover mouseout mouseenter mouseleave " +
+	"change select submit keydown keypress keyup contextmenu" ).split( " " ),
+	function( _i, name ) {
+
+		// Handle event binding
+		jQuery.fn[ name ] = function( data, fn ) {
+			return arguments.length > 0 ?
+				this.on( name, null, data, fn ) :
+				this.trigger( name );
+		};
+	} );
+
+
+
+
+// Support: Android <=4.0 only
+// Make sure we trim BOM and NBSP
+var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
 
 // Bind a function to a context, optionally partially applying any
 // arguments.
@@ -20345,6 +20532,11 @@ jQuery.isNumeric = function( obj ) {
 		!isNaN( obj - parseFloat( obj ) );
 };
 
+jQuery.trim = function( text ) {
+	return text == null ?
+		"" :
+		( text + "" ).replace( rtrim, "" );
+};
 
 
 
@@ -20394,7 +20586,7 @@ jQuery.noConflict = function( deep ) {
 // Expose jQuery and $ identifiers, even in AMD
 // (#7102#comment:10, https://github.com/jquery/jquery/pull/557)
 // and CommonJS for browser emulators (#13566)
-if ( !noGlobal ) {
+if ( typeof noGlobal === "undefined" ) {
 	window.jQuery = window.$ = jQuery;
 }
 
@@ -20428,7 +20620,7 @@ return jQuery;
   var undefined;
 
   /** Used as the semantic version number. */
-  var VERSION = '4.17.15';
+  var VERSION = '4.17.20';
 
   /** Used as the size to enable large array optimizations. */
   var LARGE_ARRAY_SIZE = 200;
@@ -24135,8 +24327,21 @@ return jQuery;
      * @returns {Array} Returns the new sorted array.
      */
     function baseOrderBy(collection, iteratees, orders) {
+      if (iteratees.length) {
+        iteratees = arrayMap(iteratees, function(iteratee) {
+          if (isArray(iteratee)) {
+            return function(value) {
+              return baseGet(value, iteratee.length === 1 ? iteratee[0] : iteratee);
+            }
+          }
+          return iteratee;
+        });
+      } else {
+        iteratees = [identity];
+      }
+
       var index = -1;
-      iteratees = arrayMap(iteratees.length ? iteratees : [identity], baseUnary(getIteratee()));
+      iteratees = arrayMap(iteratees, baseUnary(getIteratee()));
 
       var result = baseMap(collection, function(value, key, collection) {
         var criteria = arrayMap(iteratees, function(iteratee) {
@@ -24393,6 +24598,10 @@ return jQuery;
         var key = toKey(path[index]),
             newValue = value;
 
+        if (key === '__proto__' || key === 'constructor' || key === 'prototype') {
+          return object;
+        }
+
         if (index != lastIndex) {
           var objValue = nested[key];
           newValue = customizer ? customizer(objValue, key, nested) : undefined;
@@ -24545,11 +24754,14 @@ return jQuery;
      *  into `array`.
      */
     function baseSortedIndexBy(array, value, iteratee, retHighest) {
-      value = iteratee(value);
-
       var low = 0,
-          high = array == null ? 0 : array.length,
-          valIsNaN = value !== value,
+          high = array == null ? 0 : array.length;
+      if (high === 0) {
+        return 0;
+      }
+
+      value = iteratee(value);
+      var valIsNaN = value !== value,
           valIsNull = value === null,
           valIsSymbol = isSymbol(value),
           valIsUndefined = value === undefined;
@@ -26034,10 +26246,11 @@ return jQuery;
       if (arrLength != othLength && !(isPartial && othLength > arrLength)) {
         return false;
       }
-      // Assume cyclic values are equal.
-      var stacked = stack.get(array);
-      if (stacked && stack.get(other)) {
-        return stacked == other;
+      // Check that cyclic values are equal.
+      var arrStacked = stack.get(array);
+      var othStacked = stack.get(other);
+      if (arrStacked && othStacked) {
+        return arrStacked == other && othStacked == array;
       }
       var index = -1,
           result = true,
@@ -26199,10 +26412,11 @@ return jQuery;
           return false;
         }
       }
-      // Assume cyclic values are equal.
-      var stacked = stack.get(object);
-      if (stacked && stack.get(other)) {
-        return stacked == other;
+      // Check that cyclic values are equal.
+      var objStacked = stack.get(object);
+      var othStacked = stack.get(other);
+      if (objStacked && othStacked) {
+        return objStacked == other && othStacked == object;
       }
       var result = true;
       stack.set(object, other);
@@ -29583,6 +29797,10 @@ return jQuery;
      * // The `_.property` iteratee shorthand.
      * _.filter(users, 'active');
      * // => objects for ['barney']
+     *
+     * // Combining several predicates using `_.overEvery` or `_.overSome`.
+     * _.filter(users, _.overSome([{ 'age': 36 }, ['age', 40]]));
+     * // => objects for ['fred', 'barney']
      */
     function filter(collection, predicate) {
       var func = isArray(collection) ? arrayFilter : baseFilter;
@@ -30332,15 +30550,15 @@ return jQuery;
      * var users = [
      *   { 'user': 'fred',   'age': 48 },
      *   { 'user': 'barney', 'age': 36 },
-     *   { 'user': 'fred',   'age': 40 },
+     *   { 'user': 'fred',   'age': 30 },
      *   { 'user': 'barney', 'age': 34 }
      * ];
      *
      * _.sortBy(users, [function(o) { return o.user; }]);
-     * // => objects for [['barney', 36], ['barney', 34], ['fred', 48], ['fred', 40]]
+     * // => objects for [['barney', 36], ['barney', 34], ['fred', 48], ['fred', 30]]
      *
      * _.sortBy(users, ['user', 'age']);
-     * // => objects for [['barney', 34], ['barney', 36], ['fred', 40], ['fred', 48]]
+     * // => objects for [['barney', 34], ['barney', 36], ['fred', 30], ['fred', 48]]
      */
     var sortBy = baseRest(function(collection, iteratees) {
       if (collection == null) {
@@ -35215,11 +35433,11 @@ return jQuery;
 
       // Use a sourceURL for easier debugging.
       // The sourceURL gets injected into the source that's eval-ed, so be careful
-      // with lookup (in case of e.g. prototype pollution), and strip newlines if any.
-      // A newline wouldn't be a valid sourceURL anyway, and it'd enable code injection.
+      // to normalize all kinds of whitespace, so e.g. newlines (and unicode versions of it) can't sneak in
+      // and escape the comment, thus injecting code that gets evaled.
       var sourceURL = '//# sourceURL=' +
         (hasOwnProperty.call(options, 'sourceURL')
-          ? (options.sourceURL + '').replace(/[\r\n]/g, ' ')
+          ? (options.sourceURL + '').replace(/\s/g, ' ')
           : ('lodash.templateSources[' + (++templateCounter) + ']')
         ) + '\n';
 
@@ -35252,8 +35470,6 @@ return jQuery;
 
       // If `variable` is not specified wrap a with-statement around the generated
       // code to add the data object to the top of the scope chain.
-      // Like with sourceURL, we take care to not check the option's prototype,
-      // as this configuration is a code injection vector.
       var variable = hasOwnProperty.call(options, 'variable') && options.variable;
       if (!variable) {
         source = 'with (obj) {\n' + source + '\n}\n';
@@ -35960,6 +36176,9 @@ return jQuery;
      * values against any array or object value, respectively. See `_.isEqual`
      * for a list of supported value comparisons.
      *
+     * **Note:** Multiple values can be checked by combining several matchers
+     * using `_.overSome`
+     *
      * @static
      * @memberOf _
      * @since 3.0.0
@@ -35975,6 +36194,10 @@ return jQuery;
      *
      * _.filter(objects, _.matches({ 'a': 4, 'c': 6 }));
      * // => [{ 'a': 4, 'b': 5, 'c': 6 }]
+     *
+     * // Checking for several possible values
+     * _.filter(objects, _.overSome([_.matches({ 'a': 1 }), _.matches({ 'a': 4 })]));
+     * // => [{ 'a': 1, 'b': 2, 'c': 3 }, { 'a': 4, 'b': 5, 'c': 6 }]
      */
     function matches(source) {
       return baseMatches(baseClone(source, CLONE_DEEP_FLAG));
@@ -35988,6 +36211,9 @@ return jQuery;
      * **Note:** Partial comparisons will match empty array and empty object
      * `srcValue` values against any array or object value, respectively. See
      * `_.isEqual` for a list of supported value comparisons.
+     *
+     * **Note:** Multiple values can be checked by combining several matchers
+     * using `_.overSome`
      *
      * @static
      * @memberOf _
@@ -36005,6 +36231,10 @@ return jQuery;
      *
      * _.find(objects, _.matchesProperty('a', 4));
      * // => { 'a': 4, 'b': 5, 'c': 6 }
+     *
+     * // Checking for several possible values
+     * _.filter(objects, _.overSome([_.matchesProperty('a', 1), _.matchesProperty('a', 4)]));
+     * // => [{ 'a': 1, 'b': 2, 'c': 3 }, { 'a': 4, 'b': 5, 'c': 6 }]
      */
     function matchesProperty(path, srcValue) {
       return baseMatchesProperty(path, baseClone(srcValue, CLONE_DEEP_FLAG));
@@ -36228,6 +36458,10 @@ return jQuery;
      * Creates a function that checks if **all** of the `predicates` return
      * truthy when invoked with the arguments it receives.
      *
+     * Following shorthands are possible for providing predicates.
+     * Pass an `Object` and it will be used as an parameter for `_.matches` to create the predicate.
+     * Pass an `Array` of parameters for `_.matchesProperty` and the predicate will be created using them.
+     *
      * @static
      * @memberOf _
      * @since 4.0.0
@@ -36254,6 +36488,10 @@ return jQuery;
      * Creates a function that checks if **any** of the `predicates` return
      * truthy when invoked with the arguments it receives.
      *
+     * Following shorthands are possible for providing predicates.
+     * Pass an `Object` and it will be used as an parameter for `_.matches` to create the predicate.
+     * Pass an `Array` of parameters for `_.matchesProperty` and the predicate will be created using them.
+     *
      * @static
      * @memberOf _
      * @since 4.0.0
@@ -36273,6 +36511,9 @@ return jQuery;
      *
      * func(NaN);
      * // => false
+     *
+     * var matchesFunc = _.overSome([{ 'a': 1 }, { 'a': 2 }])
+     * var matchesPropertyFunc = _.overSome([['a', 1], ['a', 2]])
      */
     var overSome = createOver(arraySome);
 
@@ -37534,7 +37775,7 @@ return jQuery;
 __webpack_require__.r(__webpack_exports__);
 /* WEBPACK VAR INJECTION */(function(global) {/**!
  * @fileOverview Kickass library to create and place poppers near their reference elements.
- * @version 1.16.0
+ * @version 1.16.1
  * @license
  * Copyright (c) 2016 Federico Zivolo and contributors
  *
@@ -37880,7 +38121,7 @@ function getBordersSize(styles, axis) {
   var sideA = axis === 'x' ? 'Left' : 'Top';
   var sideB = sideA === 'Left' ? 'Right' : 'Bottom';
 
-  return parseFloat(styles['border' + sideA + 'Width'], 10) + parseFloat(styles['border' + sideB + 'Width'], 10);
+  return parseFloat(styles['border' + sideA + 'Width']) + parseFloat(styles['border' + sideB + 'Width']);
 }
 
 function getSize(axis, body, html, computedStyle) {
@@ -38035,8 +38276,8 @@ function getOffsetRectRelativeToArbitraryNode(children, parent) {
   var scrollParent = getScrollParent(children);
 
   var styles = getStyleComputedProperty(parent);
-  var borderTopWidth = parseFloat(styles.borderTopWidth, 10);
-  var borderLeftWidth = parseFloat(styles.borderLeftWidth, 10);
+  var borderTopWidth = parseFloat(styles.borderTopWidth);
+  var borderLeftWidth = parseFloat(styles.borderLeftWidth);
 
   // In cases where the parent is fixed, we must ignore negative scroll in offset calc
   if (fixedPosition && isHTML) {
@@ -38057,8 +38298,8 @@ function getOffsetRectRelativeToArbitraryNode(children, parent) {
   // differently when margins are applied to it. The margins are included in
   // the box of the documentElement, in the other cases not.
   if (!isIE10 && isHTML) {
-    var marginTop = parseFloat(styles.marginTop, 10);
-    var marginLeft = parseFloat(styles.marginLeft, 10);
+    var marginTop = parseFloat(styles.marginTop);
+    var marginLeft = parseFloat(styles.marginLeft);
 
     offsets.top -= borderTopWidth - marginTop;
     offsets.bottom -= borderTopWidth - marginTop;
@@ -38997,8 +39238,8 @@ function arrow(data, options) {
   // Compute the sideValue using the updated popper offsets
   // take popper margin in account because we don't have this info available
   var css = getStyleComputedProperty(data.instance.popper);
-  var popperMarginSide = parseFloat(css['margin' + sideCapitalized], 10);
-  var popperBorderSide = parseFloat(css['border' + sideCapitalized + 'Width'], 10);
+  var popperMarginSide = parseFloat(css['margin' + sideCapitalized]);
+  var popperBorderSide = parseFloat(css['border' + sideCapitalized + 'Width']);
   var sideValue = center - data.offsets.popper[side] - popperMarginSide - popperBorderSide;
 
   // prevent arrowElement from being placed not contiguously to its popper
@@ -40373,6 +40614,24 @@ var runtime = (function (exports) {
   var asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator";
   var toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag";
 
+  function define(obj, key, value) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+    return obj[key];
+  }
+  try {
+    // IE 8 has a broken Object.defineProperty that only works on DOM objects.
+    define({}, "");
+  } catch (err) {
+    define = function(obj, key, value) {
+      return obj[key] = value;
+    };
+  }
+
   function wrap(innerFn, outerFn, self, tryLocsList) {
     // If outerFn provided and outerFn.prototype is a Generator, then outerFn.prototype instanceof Generator.
     var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator;
@@ -40443,16 +40702,19 @@ var runtime = (function (exports) {
     Generator.prototype = Object.create(IteratorPrototype);
   GeneratorFunction.prototype = Gp.constructor = GeneratorFunctionPrototype;
   GeneratorFunctionPrototype.constructor = GeneratorFunction;
-  GeneratorFunctionPrototype[toStringTagSymbol] =
-    GeneratorFunction.displayName = "GeneratorFunction";
+  GeneratorFunction.displayName = define(
+    GeneratorFunctionPrototype,
+    toStringTagSymbol,
+    "GeneratorFunction"
+  );
 
   // Helper for defining the .next, .throw, and .return methods of the
   // Iterator interface in terms of a single ._invoke method.
   function defineIteratorMethods(prototype) {
     ["next", "throw", "return"].forEach(function(method) {
-      prototype[method] = function(arg) {
+      define(prototype, method, function(arg) {
         return this._invoke(method, arg);
-      };
+      });
     });
   }
 
@@ -40471,9 +40733,7 @@ var runtime = (function (exports) {
       Object.setPrototypeOf(genFun, GeneratorFunctionPrototype);
     } else {
       genFun.__proto__ = GeneratorFunctionPrototype;
-      if (!(toStringTagSymbol in genFun)) {
-        genFun[toStringTagSymbol] = "GeneratorFunction";
-      }
+      define(genFun, toStringTagSymbol, "GeneratorFunction");
     }
     genFun.prototype = Object.create(Gp);
     return genFun;
@@ -40487,7 +40747,7 @@ var runtime = (function (exports) {
     return { __await: arg };
   };
 
-  function AsyncIterator(generator) {
+  function AsyncIterator(generator, PromiseImpl) {
     function invoke(method, arg, resolve, reject) {
       var record = tryCatch(generator[method], generator, arg);
       if (record.type === "throw") {
@@ -40498,14 +40758,14 @@ var runtime = (function (exports) {
         if (value &&
             typeof value === "object" &&
             hasOwn.call(value, "__await")) {
-          return Promise.resolve(value.__await).then(function(value) {
+          return PromiseImpl.resolve(value.__await).then(function(value) {
             invoke("next", value, resolve, reject);
           }, function(err) {
             invoke("throw", err, resolve, reject);
           });
         }
 
-        return Promise.resolve(value).then(function(unwrapped) {
+        return PromiseImpl.resolve(value).then(function(unwrapped) {
           // When a yielded Promise is resolved, its final value becomes
           // the .value of the Promise<{value,done}> result for the
           // current iteration.
@@ -40523,7 +40783,7 @@ var runtime = (function (exports) {
 
     function enqueue(method, arg) {
       function callInvokeWithMethodAndArg() {
-        return new Promise(function(resolve, reject) {
+        return new PromiseImpl(function(resolve, reject) {
           invoke(method, arg, resolve, reject);
         });
       }
@@ -40563,9 +40823,12 @@ var runtime = (function (exports) {
   // Note that simple async functions are implemented on top of
   // AsyncIterator objects; they just return a Promise for the value of
   // the final result produced by the iterator.
-  exports.async = function(innerFn, outerFn, self, tryLocsList) {
+  exports.async = function(innerFn, outerFn, self, tryLocsList, PromiseImpl) {
+    if (PromiseImpl === void 0) PromiseImpl = Promise;
+
     var iter = new AsyncIterator(
-      wrap(innerFn, outerFn, self, tryLocsList)
+      wrap(innerFn, outerFn, self, tryLocsList),
+      PromiseImpl
     );
 
     return exports.isGeneratorFunction(outerFn)
@@ -40740,7 +41003,7 @@ var runtime = (function (exports) {
   // unified ._invoke helper method.
   defineIteratorMethods(Gp);
 
-  Gp[toStringTagSymbol] = "Generator";
+  define(Gp, toStringTagSymbol, "Generator");
 
   // A Generator should always return itself as the iterator object when the
   // @@iterator function is called on it. Some browsers' implementations of the
@@ -43020,7 +43283,7 @@ var render = function() {
                   attrs: {
                     src: _vm.onPreview
                       ? _vm.onPreview
-                      : _vm.baseUrl + "/" + _vm.company.logo,
+                      : _vm.baseUrl + "/storage/" + _vm.company.logo,
                     alt: ""
                   }
                 })
@@ -44632,6 +44895,31 @@ var render = function() {
                 "d-flex col-12 col-md-6 col-lg-6 col-xl-6 py-3 px-0 justify-content-center"
             },
             [
+              _vm.picked
+                ? _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-sm btn-primary rounded-pill mx-1",
+                      staticStyle: { height: "40px", width: "40px" },
+                      attrs: { type: "button", disabled: "" }
+                    },
+                    [_c("i", { staticClass: "fas fa-check" })]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.pick && !_vm.picked
+                ? _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-sm btn-success rounded-pill mx-1",
+                      staticStyle: { height: "40px", width: "40px" },
+                      attrs: { type: "button" },
+                      on: { click: _vm.emitPick }
+                    },
+                    [_c("i", { staticClass: "fas fa-plus" })]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
               _c(
                 "button",
                 {
@@ -44647,31 +44935,35 @@ var render = function() {
                 [_c("i", { staticClass: "fas fa-eye" })]
               ),
               _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-sm btn-success rounded-pill mx-1",
-                  staticStyle: { height: "40px", width: "40px" },
-                  attrs: {
-                    type: "button",
-                    "data-toggle": "modal",
-                    "data-target": "#modalEditCompany"
-                  },
-                  on: { click: _vm.emitEdition }
-                },
-                [_c("i", { staticClass: "fas fa-edit" })]
-              ),
+              !_vm.pick
+                ? _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-sm btn-success rounded-pill mx-1",
+                      staticStyle: { height: "40px", width: "40px" },
+                      attrs: {
+                        type: "button",
+                        "data-toggle": "modal",
+                        "data-target": "#modalEditCompany"
+                      },
+                      on: { click: _vm.emitEdition }
+                    },
+                    [_c("i", { staticClass: "fas fa-edit" })]
+                  )
+                : _vm._e(),
               _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-sm btn-danger rounded-pill mx-1",
-                  staticStyle: { height: "40px", width: "40px" },
-                  attrs: { type: "button" },
-                  on: { click: _vm.emitRemove }
-                },
-                [_c("i", { staticClass: "fas fa-trash" })]
-              )
+              !_vm.pick
+                ? _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-sm btn-danger rounded-pill mx-1",
+                      staticStyle: { height: "40px", width: "40px" },
+                      attrs: { type: "button" },
+                      on: { click: _vm.emitRemove }
+                    },
+                    [_c("i", { staticClass: "fas fa-trash" })]
+                  )
+                : _vm._e()
             ]
           )
         ]
@@ -44815,6 +45107,134 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/items/companies/select.vue?vue&type=template&id=560da2ac&":
+/*!*************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/items/companies/select.vue?vue&type=template&id=560da2ac& ***!
+  \*************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    {
+      staticClass:
+        "d-flex flex-row w-100  py-3 pb-4justify-content-around flex-wrap"
+    },
+    [
+      _c("div", { staticClass: "row w-100 flex-wrap justify-content-around" }, [
+        _c("div", { staticClass: "col-12" }, [
+          _c(
+            "div",
+            {
+              staticClass: "card card-primary",
+              attrs: { id: "CompaniesField" }
+            },
+            [
+              _c(
+                "a",
+                {
+                  staticClass: "card-header collapsed",
+                  attrs: {
+                    "data-parent": "#CompaniesField",
+                    href: "#companySelectField",
+                    "aria-expanded": "false",
+                    "data-toggle": "collapse"
+                  },
+                  on: {
+                    click: function($event) {
+                      _vm.active = !_vm.active
+                    }
+                  }
+                },
+                [
+                  _c("h3", { staticClass: "card-title" }, [_vm._v("Empresas")]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "card-tools" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-tool ml-auto ",
+                        attrs: { type: "button" }
+                      },
+                      [_c("personal-fab", { attrs: { active: _vm.active } })],
+                      1
+                    )
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "panel-collapse in collapse",
+                  attrs: { id: "companySelectField" }
+                },
+                [
+                  _c("div", { staticClass: "card-body" }, [
+                    _c("h4", { staticClass: "card-text col-10" }, [
+                      _vm._v("Seleccionar Empresa")
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "d-flex flex-row flex-wrap col-12 py-3 mx-auto justify-content-center"
+                      },
+                      [
+                        _c(
+                          "ul",
+                          { staticClass: "list-group p-0" },
+                          _vm._l(_vm.companies, function(company, k) {
+                            return _c("company", {
+                              key: k,
+                              attrs: {
+                                title: company.name,
+                                logo: company.logo,
+                                index: k,
+                                pick: true,
+                                picked: company.id == _vm.currentCompany
+                              },
+                              on: {
+                                pick: _vm.pickCompany,
+                                view: _vm.viewCompany
+                              }
+                            })
+                          }),
+                          1
+                        )
+                      ]
+                    )
+                  ])
+                ]
+              )
+            ]
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _vm.currentCompanyView && _vm.viewMode
+        ? _c("detailed-company", { attrs: { company: _vm.currentCompanyView } })
+        : _vm._e()
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/items/counters/counter.vue?vue&type=template&id=7c3a92de&":
 /*!*************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/items/counters/counter.vue?vue&type=template&id=7c3a92de& ***!
@@ -44831,13 +45251,15 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "d-flex flex-column align-items-center" }, [
-    _c("h2", { staticClass: "text-center text-white" }, [
-      _vm._v(_vm._s(_vm.counter.value))
+    _c("h2", { staticClass: "text-center text-white counter-value" }, [
+      _vm._v("+" + _vm._s(_vm.showPrice(_vm.getCounterValue(_vm.counterValue))))
     ]),
     _vm._v(" "),
-    _c("h6", { staticClass: "text-center mt-2 text-sm text-white" }, [
-      _vm._v(_vm._s(_vm.counter.label))
-    ])
+    _c(
+      "h6",
+      { staticClass: "text-center mt-2 text-sm text-white counter-label" },
+      [_vm._v(_vm._s(_vm.counter.label))]
+    )
   ])
 }
 var staticRenderFns = []
@@ -44943,9 +45365,7 @@ var render = function() {
                   [
                     _c("span", { staticClass: "text-center pr-1" }, [
                       _vm._v(
-                        "\r\n                " +
-                          _vm._s(item) +
-                          "\r\n              "
+                        "\n                " + _vm._s(item) + "\n              "
                       )
                     ])
                   ]
@@ -45051,7 +45471,7 @@ var render = function() {
                   [
                     _c("h6", { staticClass: "text-lg" }, [
                       _vm._v(
-                        "\r\n              " + _vm._s(fieldValue.value) + " "
+                        "\n              " + _vm._s(fieldValue.value) + " "
                       ),
                       _vm.fields[k3].unit
                         ? _c("span", [_vm._v(_vm._s(_vm.fields[k3].unit))])
@@ -45070,9 +45490,9 @@ var render = function() {
                 [
                   _c("h6", { staticClass: "text-sm" }, [
                     _vm._v(
-                      "\r\n              " +
+                      "\n              " +
                         _vm._s(offer.benefits) +
-                        "\r\n            "
+                        "\n            "
                     )
                   ])
                 ]
@@ -45182,9 +45602,7 @@ var render = function() {
                   [
                     _c("span", { staticClass: "text-center pr-1" }, [
                       _vm._v(
-                        "\r\n                " +
-                          _vm._s(item) +
-                          "\r\n              "
+                        "\n                " + _vm._s(item) + "\n              "
                       )
                     ])
                   ]
@@ -45347,7 +45765,7 @@ var render = function() {
                       _vm._v(
                         _vm._s(
                           _vm.offer.type
-                            ? _vm.offer.offer_type == "private"
+                            ? _vm.offer.type == "private"
                               ? "Hogar"
                               : "Empresa"
                             : "Todos"
@@ -45365,62 +45783,30 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("li", { staticClass: "list-group-item" }, [
-                    _c("b", [_vm._v("Departamento")]),
+                    _c("b", [_vm._v("Puntuación")]),
                     _vm._v(" "),
                     _c("a", { staticClass: "float-right" }, [
-                      _vm.offer.departments
-                        ? _c(
-                            "button",
-                            {
-                              staticClass: "btn btn-info",
-                              attrs: {
-                                "data-toggle": "modal",
-                                "data-target": "#modalZoneOffer"
-                              },
-                              on: { click: _vm.seeList }
-                            },
-                            [
-                              _vm._v(
-                                "\n                  Ver lista\n              "
-                              )
-                            ]
-                          )
-                        : _c("span", [
-                            _vm._v(
-                              "\n                  Disponible para todos\n              "
-                            )
-                          ])
+                      _vm._v(_vm._s(_vm.offer.points))
                     ])
                   ]),
                   _vm._v(" "),
-                  _c("li", { staticClass: "list-group-item" }, [
-                    _c("b", [_vm._v("Municipio")]),
-                    _vm._v(" "),
-                    _c("a", { staticClass: "float-right" }, [
-                      _vm.offer.municipalities
-                        ? _c(
-                            "button",
-                            {
-                              staticClass: "btn btn-info",
-                              attrs: {
-                                "data-toggle": "modal",
-                                "data-target": "#modalZoneOffer"
-                              },
-                              on: { click: _vm.seeList }
-                            },
-                            [
-                              _vm._v(
-                                "\n                  Ver lista\n              "
-                              )
-                            ]
-                          )
-                        : _c("span", [
-                            _vm._v(
-                              "\n                  Disponible para todos\n              "
-                            )
-                          ])
-                    ])
-                  ])
+                  !JSON.parse(_vm.offer.departments) ||
+                  !JSON.parse(_vm.offer.departments.length)
+                    ? _c("li", { staticClass: "list-group-item" }, [
+                        _c("b", [_vm._v("Departamento")]),
+                        _vm._v(" "),
+                        _vm._m(1)
+                      ])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  !JSON.parse(_vm.offer.municipalities) ||
+                  !JSON.parse(_vm.offer.municipalities.length)
+                    ? _c("li", { staticClass: "list-group-item" }, [
+                        _c("b", [_vm._v("Municipio")]),
+                        _vm._v(" "),
+                        _vm._m(2)
+                      ])
+                    : _vm._e()
                 ]
               ),
               _vm._v(" "),
@@ -45455,7 +45841,7 @@ var render = function() {
                 }
               }),
               _vm._v(" "),
-              _vm._m(1)
+              _vm._m(3)
             ],
             1
           )
@@ -45484,6 +45870,26 @@ var staticRenderFns = [
         },
         [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
       )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { staticClass: "float-right" }, [
+      _c("span", [
+        _vm._v("\n                  Disponible para todos\n              ")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { staticClass: "float-right" }, [
+      _c("span", [
+        _vm._v("\n                  Disponible para todos\n              ")
+      ])
     ])
   },
   function() {
@@ -45537,7 +45943,7 @@ var render = function() {
                 id: "offer-cards",
                 bullets: false,
                 autoplay: _vm.offers.length > 1 ? true : false,
-                duration: 2000,
+                duration: 5000,
                 "visible-slides": _vm.offers.length < 3 ? _vm.offers.length : 3,
                 "slide-ratio": 0.4,
                 "dragging-distance": 70,
@@ -45770,7 +46176,7 @@ var render = function() {
   return _c("div", { staticClass: "offer-card d-flex flex-column" }, [
     _c("div", { staticClass: "offer-card-header" }, [
       _c("img", {
-        staticClass: "offer-card-logo",
+        staticClass: "h-100 img-fluid",
         attrs: {
           src: _vm.baseUrl + "/storage/" + _vm.offer.company_logo,
           alt: "logo"
@@ -46018,7 +46424,7 @@ var render = function() {
                 "button",
                 {
                   staticClass: "btn btn-sm btn-info rounded-pill mx-1",
-                  staticStyle: { height: "40px", width: "40px" },
+                  staticStyle: { height: "39px", width: "40px" },
                   attrs: {
                     type: "button",
                     "data-toggle": "modal",
@@ -46034,7 +46440,7 @@ var render = function() {
                     "button",
                     {
                       staticClass: "btn btn-sm btn-success rounded-pill mx-1",
-                      staticStyle: { height: "40px", width: "40px" },
+                      staticStyle: { height: "39px", width: "40px" },
                       attrs: {
                         type: "button",
                         "data-toggle": "modal",
@@ -46051,7 +46457,7 @@ var render = function() {
                     "button",
                     {
                       staticClass: "btn btn-sm btn-danger rounded-pill mx-1",
-                      staticStyle: { height: "40px", width: "40px" },
+                      staticStyle: { height: "39px", width: "40px" },
                       attrs: { type: "button" },
                       on: { click: _vm.emitRemove }
                     },
@@ -46379,293 +46785,248 @@ var render = function() {
                       "div",
                       {
                         staticClass:
-                          "row w-100 flex-wrap justify-content-around"
+                          "d-flex flex-row flex-wrap col-10 col-sm-10 col-lg-8 col-xl-8 py-3 mx-auto justify-content-center"
                       },
                       [
-                        _c("div", { staticClass: "col-10 col-xl-6" }, [
-                          _c(
-                            "div",
-                            {
-                              staticClass: "card card-success",
-                              attrs: { id: "addDepartmentAccordion" }
-                            },
-                            [
-                              _c(
-                                "a",
-                                {
-                                  staticClass: "card-header collapsed",
-                                  attrs: {
-                                    "data-parent": "#addDepartmentAccordion",
-                                    href: "#addDepartmentAccordionCollapse",
-                                    "aria-expanded": "false",
-                                    "data-toggle": "collapse"
-                                  },
-                                  on: {
-                                    click: function($event) {
-                                      _vm.active = !_vm.active
-                                    }
-                                  }
-                                },
-                                [
-                                  _c(
-                                    "h3",
-                                    { staticClass: "card-title col-10" },
-                                    [_vm._v("Seleccionar departamento")]
-                                  ),
-                                  _vm._v(" "),
-                                  _c("div", { staticClass: "card-tools" }, [
-                                    _c(
-                                      "button",
-                                      {
-                                        staticClass: "btn btn-tool ml-auto ",
-                                        attrs: { type: "button" }
-                                      },
-                                      [
-                                        _c("personal-fab", {
-                                          attrs: { active: _vm.active }
-                                        })
-                                      ],
-                                      1
-                                    )
-                                  ])
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass: "panel-collapse in collapse",
-                                  attrs: {
-                                    id: "addDepartmentAccordionCollapse"
-                                  }
-                                },
-                                [
-                                  _c("div", { staticClass: "card-body" }, [
-                                    _c(
-                                      "div",
-                                      { staticClass: "form-group col-12" },
-                                      [
-                                        _c("label", [_vm._v("Departamento")]),
-                                        _vm._v(" "),
-                                        _c(
-                                          "select",
-                                          {
-                                            directives: [
-                                              {
-                                                name: "model",
-                                                rawName: "v-model",
-                                                value: _vm.department,
-                                                expression: "department"
-                                              }
-                                            ],
-                                            staticClass:
-                                              "custom-select ci-select rounded-pill",
-                                            on: {
-                                              change: function($event) {
-                                                var $$selectedVal = Array.prototype.filter
-                                                  .call(
-                                                    $event.target.options,
-                                                    function(o) {
-                                                      return o.selected
-                                                    }
-                                                  )
-                                                  .map(function(o) {
-                                                    var val =
-                                                      "_value" in o
-                                                        ? o._value
-                                                        : o.value
-                                                    return val
-                                                  })
-                                                _vm.department = $event.target
-                                                  .multiple
-                                                  ? $$selectedVal
-                                                  : $$selectedVal[0]
-                                              }
-                                            }
-                                          },
-                                          [
-                                            _c(
-                                              "option",
-                                              {
-                                                staticClass: "d-none",
-                                                attrs: {
-                                                  value: "",
-                                                  selected: ""
-                                                }
-                                              },
-                                              [_vm._v("Departamento")]
-                                            ),
-                                            _vm._v(" "),
-                                            _vm._l(_vm.departments, function(
-                                              department,
-                                              index
-                                            ) {
-                                              return _c(
-                                                "option",
-                                                {
-                                                  key: index,
-                                                  domProps: {
-                                                    value: department.name
-                                                  }
-                                                },
-                                                [
-                                                  _vm._v(
-                                                    _vm._s(department.name)
-                                                  )
-                                                ]
-                                              )
-                                            })
-                                          ],
-                                          2
-                                        )
-                                      ]
-                                    )
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("div", { staticClass: "card-footer" }, [
-                                    _c(
-                                      "button",
-                                      {
-                                        staticClass: "btn btn-outline-success",
-                                        attrs: { type: "button" },
-                                        on: { click: _vm.addDepartment }
-                                      },
-                                      [_vm._v("Agregar Departamento")]
-                                    )
-                                  ])
-                                ]
-                              )
-                            ]
-                          )
-                        ]),
+                        _c(
+                          "div",
+                          {
+                            staticClass:
+                              " text-center custom-control custom-radio col-10 col-sm-10 col-md-6 col-lg-6 col-xl-6 mx-0",
+                            on: {
+                              click: function($event) {
+                                _vm.departmentSelection = false
+                                _vm.setValues()
+                              }
+                            }
+                          },
+                          [
+                            _c("input", {
+                              staticClass: "custom-control-input",
+                              attrs: { type: "radio", id: "allSelect" },
+                              domProps: { checked: !_vm.departmentSelection }
+                            }),
+                            _vm._v(" "),
+                            _c(
+                              "label",
+                              {
+                                staticClass: "custom-control-label",
+                                attrs: { for: "allSelect" }
+                              },
+                              [_vm._v("Todos")]
+                            )
+                          ]
+                        ),
                         _vm._v(" "),
-                        _c("div", { staticClass: "col-10 col-xl-6" }, [
-                          _c(
-                            "div",
-                            {
-                              staticClass: "card card-info",
-                              attrs: { id: "departmentsAccordion" }
-                            },
-                            [
-                              _c(
-                                "a",
-                                {
-                                  staticClass: "card-header collapsed",
-                                  attrs: {
-                                    "data-parent": "#departmentsAccordion",
-                                    href: "#DepartmentsOfferList",
-                                    "aria-expanded": "false",
-                                    "data-toggle": "collapse"
-                                  },
-                                  on: {
-                                    click: function($event) {
-                                      _vm.active2 = !_vm.active2
-                                    }
-                                  }
-                                },
-                                [
-                                  _c(
-                                    "h3",
-                                    { staticClass: "card-title col-10" },
-                                    [_vm._v("Departamentos seleccionados")]
-                                  ),
-                                  _vm._v(" "),
-                                  _c("div", { staticClass: "card-tools" }, [
-                                    _c(
-                                      "button",
-                                      {
-                                        staticClass: "btn btn-tool ml-auto ",
-                                        attrs: { type: "button" }
-                                      },
-                                      [
-                                        _c("personal-fab", {
-                                          attrs: { active: _vm.active2 }
-                                        })
-                                      ],
-                                      1
-                                    )
-                                  ])
-                                ]
-                              ),
-                              _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass:
+                              " text-center custom-control custom-radio col-10 col-sm-10 col-md-6 col-lg-6 col-xl-6 mx-0",
+                            on: {
+                              click: function($event) {
+                                _vm.departmentSelection = true
+                              }
+                            }
+                          },
+                          [
+                            _c("input", {
+                              staticClass: "custom-control-input",
+                              attrs: { type: "radio", id: "detailSelect" },
+                              domProps: {
+                                checked: _vm.departmentSelection == true
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c(
+                              "label",
+                              {
+                                staticClass: "custom-control-label",
+                                attrs: { for: "detailSelect" }
+                              },
+                              [_vm._v("Seleccionar")]
+                            )
+                          ]
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _vm.departmentSelection
+                      ? _c(
+                          "div",
+                          {
+                            staticClass:
+                              "row w-100 flex-wrap justify-content-around"
+                          },
+                          [
+                            _c("div", { staticClass: "col-10 col-xl-6" }, [
                               _c(
                                 "div",
                                 {
-                                  staticClass: "panel-collapse in collapse",
-                                  attrs: { id: "DepartmentsOfferList" }
+                                  staticClass: "card card-success",
+                                  attrs: { id: "addDepartmentAccordion" }
                                 },
                                 [
                                   _c(
-                                    "div",
-                                    { staticClass: "card-body w-100" },
+                                    "a",
+                                    {
+                                      staticClass: "card-header collapsed",
+                                      attrs: {
+                                        "data-parent":
+                                          "#addDepartmentAccordion",
+                                        href: "#addDepartmentAccordionCollapse",
+                                        "aria-expanded": "false",
+                                        "data-toggle": "collapse"
+                                      },
+                                      on: {
+                                        click: function($event) {
+                                          _vm.active = !_vm.active
+                                        }
+                                      }
+                                    },
                                     [
                                       _c(
-                                        "div",
-                                        {
-                                          staticClass:
-                                            "d-flex justify-content-around w-100 flex-wrap"
-                                        },
-                                        [
-                                          _c(
-                                            "ul",
-                                            {
-                                              staticClass:
-                                                "list-group list-group-unbordered mb-3 w-100"
-                                            },
-                                            _vm._l(
-                                              _vm.departmentsSelected,
-                                              function(department, k) {
-                                                return _c(
-                                                  "li",
+                                        "h3",
+                                        { staticClass: "card-title col-10" },
+                                        [_vm._v("Seleccionar departamento")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("div", { staticClass: "card-tools" }, [
+                                        _c(
+                                          "button",
+                                          {
+                                            staticClass:
+                                              "btn btn-tool ml-auto ",
+                                            attrs: { type: "button" }
+                                          },
+                                          [
+                                            _c("personal-fab", {
+                                              attrs: { active: _vm.active }
+                                            })
+                                          ],
+                                          1
+                                        )
+                                      ])
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass: "panel-collapse in collapse",
+                                      attrs: {
+                                        id: "addDepartmentAccordionCollapse"
+                                      }
+                                    },
+                                    [
+                                      _c("div", { staticClass: "card-body" }, [
+                                        _vm.departmentSelection
+                                          ? _c(
+                                              "div",
+                                              {
+                                                staticClass: "form-group col-12"
+                                              },
+                                              [
+                                                _c("label", [
+                                                  _vm._v("Departamento")
+                                                ]),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "select",
                                                   {
-                                                    key: k,
+                                                    directives: [
+                                                      {
+                                                        name: "model",
+                                                        rawName: "v-model",
+                                                        value: _vm.department,
+                                                        expression: "department"
+                                                      }
+                                                    ],
                                                     staticClass:
-                                                      "list-group-item px-0"
+                                                      "custom-select ci-select rounded-pill",
+                                                    on: {
+                                                      change: function($event) {
+                                                        var $$selectedVal = Array.prototype.filter
+                                                          .call(
+                                                            $event.target
+                                                              .options,
+                                                            function(o) {
+                                                              return o.selected
+                                                            }
+                                                          )
+                                                          .map(function(o) {
+                                                            var val =
+                                                              "_value" in o
+                                                                ? o._value
+                                                                : o.value
+                                                            return val
+                                                          })
+                                                        _vm.department = $event
+                                                          .target.multiple
+                                                          ? $$selectedVal
+                                                          : $$selectedVal[0]
+                                                      }
+                                                    }
                                                   },
                                                   [
-                                                    _c("b", [
-                                                      _vm._v(_vm._s(department))
-                                                    ]),
-                                                    _vm._v(" "),
                                                     _c(
-                                                      "a",
+                                                      "option",
                                                       {
-                                                        staticClass:
-                                                          "float-right"
+                                                        staticClass: "d-none",
+                                                        attrs: {
+                                                          value: "",
+                                                          selected: ""
+                                                        }
                                                       },
-                                                      [
-                                                        _c(
-                                                          "button",
+                                                      [_vm._v("Departamento")]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _vm._l(
+                                                      _vm.departments,
+                                                      function(
+                                                        department,
+                                                        index
+                                                      ) {
+                                                        return _c(
+                                                          "option",
                                                           {
-                                                            staticClass:
-                                                              "btn btn-tool p-1",
-                                                            attrs: {
-                                                              type: "button"
-                                                            },
-                                                            on: {
-                                                              click: function(
-                                                                $event
-                                                              ) {
-                                                                return _vm.deleteDepartment(
-                                                                  k
-                                                                )
-                                                              }
+                                                            key: index,
+                                                            domProps: {
+                                                              value:
+                                                                department.name
                                                             }
                                                           },
                                                           [
-                                                            _c("i", {
-                                                              staticClass:
-                                                                "float-button fas fa-plus-circle active text-danger"
-                                                            })
+                                                            _vm._v(
+                                                              _vm._s(
+                                                                department.name
+                                                              )
+                                                            )
                                                           ]
                                                         )
-                                                      ]
+                                                      }
                                                     )
-                                                  ]
+                                                  ],
+                                                  2
                                                 )
-                                              }
-                                            ),
-                                            0
+                                              ]
+                                            )
+                                          : _vm._e()
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        { staticClass: "card-footer" },
+                                        [
+                                          _c(
+                                            "button",
+                                            {
+                                              staticClass:
+                                                "btn btn-outline-success",
+                                              attrs: { type: "button" },
+                                              on: { click: _vm.addDepartment }
+                                            },
+                                            [_vm._v("Agregar Departamento")]
                                           )
                                         ]
                                       )
@@ -46673,11 +47034,169 @@ var render = function() {
                                   )
                                 ]
                               )
-                            ]
-                          )
-                        ])
-                      ]
-                    )
+                            ]),
+                            _vm._v(" "),
+                            _vm.departmentSelection
+                              ? _c("div", { staticClass: "col-10 col-xl-6" }, [
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass: "card card-info",
+                                      attrs: { id: "departmentsAccordion" }
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "card-header collapsed",
+                                          attrs: {
+                                            "data-parent":
+                                              "#departmentsAccordion",
+                                            href: "#DepartmentsOfferList",
+                                            "aria-expanded": "false",
+                                            "data-toggle": "collapse"
+                                          },
+                                          on: {
+                                            click: function($event) {
+                                              _vm.active2 = !_vm.active2
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "h3",
+                                            {
+                                              staticClass: "card-title col-10"
+                                            },
+                                            [
+                                              _vm._v(
+                                                "Departamentos seleccionados"
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            { staticClass: "card-tools" },
+                                            [
+                                              _c(
+                                                "button",
+                                                {
+                                                  staticClass:
+                                                    "btn btn-tool ml-auto ",
+                                                  attrs: { type: "button" }
+                                                },
+                                                [
+                                                  _c("personal-fab", {
+                                                    attrs: {
+                                                      active: _vm.active2
+                                                    }
+                                                  })
+                                                ],
+                                                1
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass: "panel-collapse in show",
+                                          attrs: { id: "DepartmentsOfferList" }
+                                        },
+                                        [
+                                          _c(
+                                            "div",
+                                            { staticClass: "card-body w-100" },
+                                            [
+                                              _c(
+                                                "div",
+                                                {
+                                                  staticClass:
+                                                    "d-flex justify-content-around w-100 flex-wrap"
+                                                },
+                                                [
+                                                  _c(
+                                                    "ul",
+                                                    {
+                                                      staticClass:
+                                                        "list-group list-group-unbordered mb-3 w-100"
+                                                    },
+                                                    _vm._l(
+                                                      _vm.departmentsSelected,
+                                                      function(department, k) {
+                                                        return _c(
+                                                          "li",
+                                                          {
+                                                            key: k,
+                                                            staticClass:
+                                                              "list-group-item px-0"
+                                                          },
+                                                          [
+                                                            _c("b", [
+                                                              _vm._v(
+                                                                _vm._s(
+                                                                  department
+                                                                )
+                                                              )
+                                                            ]),
+                                                            _vm._v(" "),
+                                                            _c(
+                                                              "a",
+                                                              {
+                                                                staticClass:
+                                                                  "float-right"
+                                                              },
+                                                              [
+                                                                _c(
+                                                                  "button",
+                                                                  {
+                                                                    staticClass:
+                                                                      "btn btn-tool p-1",
+                                                                    attrs: {
+                                                                      type:
+                                                                        "button"
+                                                                    },
+                                                                    on: {
+                                                                      click: function(
+                                                                        $event
+                                                                      ) {
+                                                                        return _vm.deleteDepartment(
+                                                                          k
+                                                                        )
+                                                                      }
+                                                                    }
+                                                                  },
+                                                                  [
+                                                                    _c("i", {
+                                                                      staticClass:
+                                                                        "float-button fas fa-plus-circle active text-danger"
+                                                                    })
+                                                                  ]
+                                                                )
+                                                              ]
+                                                            )
+                                                          ]
+                                                        )
+                                                      }
+                                                    ),
+                                                    0
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ])
+                              : _vm._e()
+                          ]
+                        )
+                      : _vm._e()
                   ])
                 ]
               )
@@ -46742,382 +47261,358 @@ var render = function() {
                       "div",
                       {
                         staticClass:
-                          "row w-100 flex-wrap justify-content-around"
+                          "d-flex flex-row flex-wrap col-10 col-sm-10 col-lg-8 col-xl-8 py-3 mx-auto justify-content-center"
                       },
                       [
-                        _c("div", { staticClass: "col-10 col-xl-6" }, [
-                          _c(
-                            "div",
-                            {
-                              staticClass: "card card-success",
-                              attrs: { id: "addMunicipalityAccordion" }
-                            },
-                            [
-                              _c(
-                                "a",
-                                {
-                                  staticClass: "card-header collapsed",
-                                  attrs: {
-                                    "data-parent": "#addMunicipalityAccordion",
-                                    href: "#addMunicipalityAccordionCollapse",
-                                    "aria-expanded": "false",
-                                    "data-toggle": "collapse"
-                                  },
-                                  on: {
-                                    click: function($event) {
-                                      _vm.active3 = !_vm.active3
-                                    }
-                                  }
-                                },
-                                [
-                                  _c(
-                                    "h3",
-                                    { staticClass: "card-title col-10" },
-                                    [_vm._v("Seleccionar Municipio")]
-                                  ),
-                                  _vm._v(" "),
-                                  _c("div", { staticClass: "card-tools" }, [
-                                    _c(
-                                      "button",
-                                      {
-                                        staticClass: "btn btn-tool ml-auto ",
-                                        attrs: { type: "button" }
-                                      },
-                                      [
-                                        _c("personal-fab", {
-                                          attrs: { active: _vm.active3 }
-                                        })
-                                      ],
-                                      1
-                                    )
-                                  ])
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass: "panel-collapse in collapse",
-                                  attrs: {
-                                    id: "addMunicipalityAccordionCollapse"
-                                  }
-                                },
-                                [
-                                  _c("div", { staticClass: "card-body" }, [
-                                    _c(
-                                      "div",
-                                      { staticClass: "form-group col-12" },
-                                      [
-                                        _c("label", [_vm._v("Departamento")]),
-                                        _vm._v(" "),
-                                        _c(
-                                          "select",
-                                          {
-                                            directives: [
-                                              {
-                                                name: "model",
-                                                rawName: "v-model",
-                                                value: _vm.selectedDepartment,
-                                                expression: "selectedDepartment"
-                                              }
-                                            ],
-                                            staticClass:
-                                              "custom-select ci-select rounded-pill",
-                                            on: {
-                                              change: [
-                                                function($event) {
-                                                  var $$selectedVal = Array.prototype.filter
-                                                    .call(
-                                                      $event.target.options,
-                                                      function(o) {
-                                                        return o.selected
-                                                      }
-                                                    )
-                                                    .map(function(o) {
-                                                      var val =
-                                                        "_value" in o
-                                                          ? o._value
-                                                          : o.value
-                                                      return val
-                                                    })
-                                                  _vm.selectedDepartment = $event
-                                                    .target.multiple
-                                                    ? $$selectedVal
-                                                    : $$selectedVal[0]
-                                                },
-                                                _vm.customMunicipalities
-                                              ]
-                                            }
-                                          },
-                                          [
-                                            _c(
-                                              "option",
-                                              {
-                                                staticClass: "d-none",
-                                                attrs: {
-                                                  value: "",
-                                                  selected: ""
-                                                }
-                                              },
-                                              [_vm._v("Departamento")]
-                                            ),
-                                            _vm._v(" "),
-                                            _vm._l(
-                                              _vm.departmentsSelected,
-                                              function(department, index) {
-                                                return _c(
-                                                  "option",
-                                                  {
-                                                    key: index,
-                                                    domProps: {
-                                                      value: department
-                                                    }
-                                                  },
-                                                  [_vm._v(_vm._s(department))]
-                                                )
-                                              }
-                                            )
-                                          ],
-                                          2
-                                        )
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _vm.selectedDepartment
-                                      ? _c(
-                                          "div",
-                                          { staticClass: "form-group col-12" },
-                                          [
-                                            _c("label", [_vm._v("Municipio")]),
-                                            _vm._v(" "),
-                                            _c(
-                                              "select",
-                                              {
-                                                directives: [
-                                                  {
-                                                    name: "model",
-                                                    rawName: "v-model",
-                                                    value: _vm.municipality,
-                                                    expression: "municipality"
-                                                  }
-                                                ],
-                                                staticClass:
-                                                  "custom-select ci-select rounded-pill",
-                                                on: {
-                                                  change: function($event) {
-                                                    var $$selectedVal = Array.prototype.filter
-                                                      .call(
-                                                        $event.target.options,
-                                                        function(o) {
-                                                          return o.selected
-                                                        }
-                                                      )
-                                                      .map(function(o) {
-                                                        var val =
-                                                          "_value" in o
-                                                            ? o._value
-                                                            : o.value
-                                                        return val
-                                                      })
-                                                    _vm.municipality = $event
-                                                      .target.multiple
-                                                      ? $$selectedVal
-                                                      : $$selectedVal[0]
-                                                  }
-                                                }
-                                              },
-                                              [
-                                                _c(
-                                                  "option",
-                                                  {
-                                                    staticClass: "d-none",
-                                                    attrs: {
-                                                      value: "",
-                                                      selected: ""
-                                                    }
-                                                  },
-                                                  [_vm._v("Municipio")]
-                                                ),
-                                                _vm._v(" "),
-                                                _vm._l(
-                                                  _vm.municipalities,
-                                                  function(
-                                                    municipality,
-                                                    index
-                                                  ) {
-                                                    return _c(
-                                                      "option",
-                                                      {
-                                                        key: index,
-                                                        domProps: {
-                                                          value:
-                                                            municipality.name
-                                                        }
-                                                      },
-                                                      [
-                                                        _vm._v(
-                                                          _vm._s(
-                                                            municipality.name
-                                                          )
-                                                        )
-                                                      ]
-                                                    )
-                                                  }
-                                                )
-                                              ],
-                                              2
-                                            )
-                                          ]
-                                        )
-                                      : _vm._e()
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("div", { staticClass: "card-footer" }, [
-                                    _c(
-                                      "button",
-                                      {
-                                        staticClass: "btn btn-outline-success",
-                                        attrs: { type: "button" },
-                                        on: { click: _vm.addMunicipality }
-                                      },
-                                      [_vm._v("Agregar Municipio")]
-                                    )
-                                  ])
-                                ]
-                              )
-                            ]
-                          )
-                        ]),
+                        _c(
+                          "div",
+                          {
+                            staticClass:
+                              " text-center custom-control custom-radio col-10 col-sm-10 col-md-6 col-lg-6 col-xl-6 mx-0",
+                            on: {
+                              click: function($event) {
+                                _vm.municipalitiesSelection = false
+                                _vm.setValues()
+                              }
+                            }
+                          },
+                          [
+                            _c("input", {
+                              staticClass: "custom-control-input",
+                              attrs: { type: "radio", id: "allMunSelect" },
+                              domProps: {
+                                checked: !_vm.municipalitiesSelection
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c(
+                              "label",
+                              {
+                                staticClass: "custom-control-label",
+                                attrs: { for: "allMunSelect" }
+                              },
+                              [_vm._v("Todos")]
+                            )
+                          ]
+                        ),
                         _vm._v(" "),
-                        _c("div", { staticClass: "col-10 col-xl-6" }, [
-                          _c(
-                            "div",
-                            {
-                              staticClass: "card card-info",
-                              attrs: { id: "municipalitiesAccordion" }
-                            },
-                            [
-                              _c(
-                                "a",
-                                {
-                                  staticClass: "card-header collapsed",
-                                  attrs: {
-                                    "data-parent": "#municipalitiesAccordion",
-                                    href: "#MunicipalitiesOfferList",
-                                    "aria-expanded": "false",
-                                    "data-toggle": "collapse"
-                                  },
-                                  on: {
-                                    click: function($event) {
-                                      _vm.active4 = !_vm.active4
-                                    }
-                                  }
-                                },
-                                [
-                                  _c(
-                                    "h3",
-                                    { staticClass: "card-title col-10" },
-                                    [_vm._v("Municipios seleccionados")]
-                                  ),
-                                  _vm._v(" "),
-                                  _c("div", { staticClass: "card-tools" }, [
-                                    _c(
-                                      "button",
-                                      {
-                                        staticClass: "btn btn-tool ml-auto ",
-                                        attrs: { type: "button" }
-                                      },
-                                      [
-                                        _c("personal-fab", {
-                                          attrs: { active: _vm.active4 }
-                                        })
-                                      ],
-                                      1
-                                    )
-                                  ])
-                                ]
-                              ),
-                              _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass:
+                              " text-center custom-control custom-radio col-10 col-sm-10 col-md-6 col-lg-6 col-xl-6 mx-0",
+                            on: {
+                              click: function($event) {
+                                _vm.municipalitiesSelection = true
+                              }
+                            }
+                          },
+                          [
+                            _c("input", {
+                              staticClass: "custom-control-input",
+                              attrs: { type: "radio", id: "detailMunSelect" },
+                              domProps: {
+                                checked: _vm.municipalitiesSelection == true
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c(
+                              "label",
+                              {
+                                staticClass: "custom-control-label",
+                                attrs: { for: "detailMunSelect" }
+                              },
+                              [_vm._v("Seleccionar")]
+                            )
+                          ]
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _vm.municipalitiesSelection
+                      ? _c(
+                          "div",
+                          {
+                            staticClass:
+                              "row w-100 flex-wrap justify-content-around"
+                          },
+                          [
+                            _c("div", { staticClass: "col-10 col-xl-6" }, [
                               _c(
                                 "div",
                                 {
-                                  staticClass: "panel-collapse in collapse",
-                                  attrs: { id: "MunicipalitiesOfferList" }
+                                  staticClass: "card card-success",
+                                  attrs: { id: "addMunicipalityAccordion" }
                                 },
                                 [
                                   _c(
-                                    "div",
-                                    { staticClass: "card-body w-100" },
+                                    "a",
+                                    {
+                                      staticClass: "card-header collapsed",
+                                      attrs: {
+                                        "data-parent":
+                                          "#addMunicipalityAccordion",
+                                        href:
+                                          "#addMunicipalityAccordionCollapse",
+                                        "aria-expanded": "false",
+                                        "data-toggle": "collapse"
+                                      },
+                                      on: {
+                                        click: function($event) {
+                                          _vm.active3 = !_vm.active3
+                                        }
+                                      }
+                                    },
                                     [
                                       _c(
-                                        "div",
-                                        {
-                                          staticClass:
-                                            "d-flex justify-content-around w-100 flex-wrap"
-                                        },
-                                        [
-                                          _c(
-                                            "ul",
-                                            {
-                                              staticClass:
-                                                "list-group list-group-unbordered mb-3 w-100"
-                                            },
-                                            _vm._l(
-                                              _vm.municipalitiesSelected,
-                                              function(municipality, k2) {
-                                                return _c(
-                                                  "li",
+                                        "h3",
+                                        { staticClass: "card-title col-10" },
+                                        [_vm._v("Seleccionar Municipio")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("div", { staticClass: "card-tools" }, [
+                                        _c(
+                                          "button",
+                                          {
+                                            staticClass:
+                                              "btn btn-tool ml-auto ",
+                                            attrs: { type: "button" }
+                                          },
+                                          [
+                                            _c("personal-fab", {
+                                              attrs: { active: _vm.active3 }
+                                            })
+                                          ],
+                                          1
+                                        )
+                                      ])
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass: "panel-collapse in collapse",
+                                      attrs: {
+                                        id: "addMunicipalityAccordionCollapse"
+                                      }
+                                    },
+                                    [
+                                      _c("div", { staticClass: "card-body" }, [
+                                        _vm.municipalitiesSelection
+                                          ? _c(
+                                              "div",
+                                              {
+                                                staticClass: "form-group col-12"
+                                              },
+                                              [
+                                                _c("label", [
+                                                  _vm._v("Departamento")
+                                                ]),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "select",
                                                   {
-                                                    key: k2,
+                                                    directives: [
+                                                      {
+                                                        name: "model",
+                                                        rawName: "v-model",
+                                                        value:
+                                                          _vm.selectedDepartment,
+                                                        expression:
+                                                          "selectedDepartment"
+                                                      }
+                                                    ],
                                                     staticClass:
-                                                      "list-group-item px-0"
+                                                      "custom-select ci-select rounded-pill",
+                                                    on: {
+                                                      change: [
+                                                        function($event) {
+                                                          var $$selectedVal = Array.prototype.filter
+                                                            .call(
+                                                              $event.target
+                                                                .options,
+                                                              function(o) {
+                                                                return o.selected
+                                                              }
+                                                            )
+                                                            .map(function(o) {
+                                                              var val =
+                                                                "_value" in o
+                                                                  ? o._value
+                                                                  : o.value
+                                                              return val
+                                                            })
+                                                          _vm.selectedDepartment = $event
+                                                            .target.multiple
+                                                            ? $$selectedVal
+                                                            : $$selectedVal[0]
+                                                        },
+                                                        _vm.customMunicipalities
+                                                      ]
+                                                    }
                                                   },
                                                   [
-                                                    _c("b", [
-                                                      _vm._v(
-                                                        _vm._s(municipality)
-                                                      )
-                                                    ]),
-                                                    _vm._v(" "),
                                                     _c(
-                                                      "a",
+                                                      "option",
                                                       {
-                                                        staticClass:
-                                                          "float-right"
+                                                        staticClass: "d-none",
+                                                        attrs: {
+                                                          value: "",
+                                                          selected: ""
+                                                        }
                                                       },
-                                                      [
-                                                        _c(
-                                                          "button",
+                                                      [_vm._v("Departamento")]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _vm._l(
+                                                      _vm.departmentsSelected
+                                                        .length &&
+                                                        _vm.departmentSelection
+                                                        ? _vm.departmentsSelected
+                                                        : _vm.departments,
+                                                      function(
+                                                        department,
+                                                        index
+                                                      ) {
+                                                        return _c(
+                                                          "option",
                                                           {
-                                                            staticClass:
-                                                              "btn btn-tool p-1",
-                                                            attrs: {
-                                                              type: "button"
-                                                            },
-                                                            on: {
-                                                              click: function(
-                                                                $event
-                                                              ) {
-                                                                return _vm.deleteMunicipality(
-                                                                  k2
-                                                                )
-                                                              }
+                                                            key: index,
+                                                            domProps: {
+                                                              value: department.name
+                                                                ? department.name
+                                                                : department
                                                             }
                                                           },
                                                           [
-                                                            _c("i", {
-                                                              staticClass:
-                                                                "float-button fas fa-plus-circle active text-danger"
-                                                            })
+                                                            _vm._v(
+                                                              _vm._s(
+                                                                department.name
+                                                                  ? department.name
+                                                                  : department
+                                                              )
+                                                            )
                                                           ]
                                                         )
-                                                      ]
+                                                      }
                                                     )
-                                                  ]
+                                                  ],
+                                                  2
                                                 )
-                                              }
-                                            ),
-                                            0
+                                              ]
+                                            )
+                                          : _vm._e(),
+                                        _vm._v(" "),
+                                        _vm.selectedDepartment &&
+                                        _vm.municipalitiesSelection
+                                          ? _c(
+                                              "div",
+                                              {
+                                                staticClass: "form-group col-12"
+                                              },
+                                              [
+                                                _c("label", [
+                                                  _vm._v("Municipio")
+                                                ]),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "select",
+                                                  {
+                                                    directives: [
+                                                      {
+                                                        name: "model",
+                                                        rawName: "v-model",
+                                                        value: _vm.municipality,
+                                                        expression:
+                                                          "municipality"
+                                                      }
+                                                    ],
+                                                    staticClass:
+                                                      "custom-select ci-select rounded-pill",
+                                                    on: {
+                                                      change: function($event) {
+                                                        var $$selectedVal = Array.prototype.filter
+                                                          .call(
+                                                            $event.target
+                                                              .options,
+                                                            function(o) {
+                                                              return o.selected
+                                                            }
+                                                          )
+                                                          .map(function(o) {
+                                                            var val =
+                                                              "_value" in o
+                                                                ? o._value
+                                                                : o.value
+                                                            return val
+                                                          })
+                                                        _vm.municipality = $event
+                                                          .target.multiple
+                                                          ? $$selectedVal
+                                                          : $$selectedVal[0]
+                                                      }
+                                                    }
+                                                  },
+                                                  [
+                                                    _c(
+                                                      "option",
+                                                      {
+                                                        staticClass: "d-none",
+                                                        attrs: {
+                                                          value: "",
+                                                          selected: ""
+                                                        }
+                                                      },
+                                                      [_vm._v("Municipio")]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _vm._l(
+                                                      _vm.municipalities,
+                                                      function(
+                                                        municipality,
+                                                        index
+                                                      ) {
+                                                        return _c(
+                                                          "option",
+                                                          {
+                                                            key: index,
+                                                            domProps: {
+                                                              value:
+                                                                municipality.name
+                                                            }
+                                                          },
+                                                          [
+                                                            _vm._v(
+                                                              _vm._s(
+                                                                municipality.name
+                                                              )
+                                                            )
+                                                          ]
+                                                        )
+                                                      }
+                                                    )
+                                                  ],
+                                                  2
+                                                )
+                                              ]
+                                            )
+                                          : _vm._e()
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        { staticClass: "card-footer" },
+                                        [
+                                          _c(
+                                            "button",
+                                            {
+                                              staticClass:
+                                                "btn btn-outline-success",
+                                              attrs: { type: "button" },
+                                              on: { click: _vm.addMunicipality }
+                                            },
+                                            [_vm._v("Agregar Municipio")]
                                           )
                                         ]
                                       )
@@ -47125,11 +47620,170 @@ var render = function() {
                                   )
                                 ]
                               )
-                            ]
-                          )
-                        ])
-                      ]
-                    )
+                            ]),
+                            _vm._v(" "),
+                            _vm.municipalitiesSelection
+                              ? _c("div", { staticClass: "col-10 col-xl-6" }, [
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass: "card card-info",
+                                      attrs: { id: "municipalitiesAccordion" }
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "card-header collapsed",
+                                          attrs: {
+                                            "data-parent":
+                                              "#municipalitiesAccordion",
+                                            href: "#MunicipalitiesOfferList",
+                                            "aria-expanded": "false",
+                                            "data-toggle": "collapse"
+                                          },
+                                          on: {
+                                            click: function($event) {
+                                              _vm.active4 = !_vm.active4
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "h3",
+                                            {
+                                              staticClass: "card-title col-10"
+                                            },
+                                            [_vm._v("Municipios seleccionados")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            { staticClass: "card-tools" },
+                                            [
+                                              _c(
+                                                "button",
+                                                {
+                                                  staticClass:
+                                                    "btn btn-tool ml-auto ",
+                                                  attrs: { type: "button" }
+                                                },
+                                                [
+                                                  _c("personal-fab", {
+                                                    attrs: {
+                                                      active: _vm.active4
+                                                    }
+                                                  })
+                                                ],
+                                                1
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass: "panel-collapse in show",
+                                          attrs: {
+                                            id: "MunicipalitiesOfferList"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "div",
+                                            { staticClass: "card-body w-100" },
+                                            [
+                                              _c(
+                                                "div",
+                                                {
+                                                  staticClass:
+                                                    "d-flex justify-content-around w-100 flex-wrap"
+                                                },
+                                                [
+                                                  _c(
+                                                    "ul",
+                                                    {
+                                                      staticClass:
+                                                        "list-group list-group-unbordered mb-3 w-100"
+                                                    },
+                                                    _vm._l(
+                                                      _vm.municipalitiesSelected,
+                                                      function(
+                                                        municipality,
+                                                        k2
+                                                      ) {
+                                                        return _c(
+                                                          "li",
+                                                          {
+                                                            key: k2,
+                                                            staticClass:
+                                                              "list-group-item px-0"
+                                                          },
+                                                          [
+                                                            _c("b", [
+                                                              _vm._v(
+                                                                _vm._s(
+                                                                  municipality
+                                                                )
+                                                              )
+                                                            ]),
+                                                            _vm._v(" "),
+                                                            _c(
+                                                              "a",
+                                                              {
+                                                                staticClass:
+                                                                  "float-right"
+                                                              },
+                                                              [
+                                                                _c(
+                                                                  "button",
+                                                                  {
+                                                                    staticClass:
+                                                                      "btn btn-tool p-1",
+                                                                    attrs: {
+                                                                      type:
+                                                                        "button"
+                                                                    },
+                                                                    on: {
+                                                                      click: function(
+                                                                        $event
+                                                                      ) {
+                                                                        return _vm.deleteMunicipality(
+                                                                          k2
+                                                                        )
+                                                                      }
+                                                                    }
+                                                                  },
+                                                                  [
+                                                                    _c("i", {
+                                                                      staticClass:
+                                                                        "float-button fas fa-plus-circle active text-danger"
+                                                                    })
+                                                                  ]
+                                                                )
+                                                              ]
+                                                            )
+                                                          ]
+                                                        )
+                                                      }
+                                                    ),
+                                                    0
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ])
+                              : _vm._e()
+                          ]
+                        )
+                      : _vm._e()
                   ])
                 ]
               )
@@ -47164,171 +47818,186 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "d-flex flex-row w-100 flex-wrap justify-content-around" },
+    {
+      staticClass:
+        "d-flex flex-row w-100 flex-wrap py-2 pb-5 justify-content-around"
+    },
     [
-      _c("div", { staticClass: "col-10 col-xl-6" }, [
-        _c(
-          "div",
-          {
-            staticClass: "card card-info",
-            attrs: { id: "municipalitiesAccordion" }
-          },
-          [
-            _c(
-              "a",
-              {
-                staticClass: "card-header collapsed",
-                attrs: {
-                  "data-parent": "#municipalitiesAccordion",
-                  href: "#MunicipalitiesOfferList",
-                  "aria-expanded": "false",
-                  "data-toggle": "collapse"
-                },
-                on: {
-                  click: function($event) {
-                    _vm.active = !_vm.active
-                  }
-                }
-              },
-              [
-                _c("h3", { staticClass: "card-title col-10" }, [
-                  _vm._v("Departamentos")
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "card-tools" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-tool ml-auto ",
-                      attrs: { type: "button" }
-                    },
-                    [_c("personal-fab", { attrs: { active: _vm.active } })],
-                    1
-                  )
-                ])
-              ]
-            ),
-            _vm._v(" "),
+      _vm.departments && _vm.departments.length
+        ? _c("div", { staticClass: "col-10 col-xl-6" }, [
             _c(
               "div",
               {
-                staticClass: "panel-collapse in collapse",
-                attrs: { id: "MunicipalitiesOfferList" }
+                staticClass: "card card-info",
+                attrs: { id: "departmentsDetailedAccordion" }
               },
               [
-                _c("div", { staticClass: "card-body w-100" }, [
-                  _c(
-                    "div",
-                    {
-                      staticClass:
-                        "d-flex justify-content-around w-100 flex-wrap"
+                _c(
+                  "a",
+                  {
+                    staticClass: "card-header collapsed",
+                    attrs: {
+                      "data-parent": "#departmentsDetailedAccordion",
+                      href: "#departmentsDetailedOfferList",
+                      "aria-expanded": "false",
+                      "data-toggle": "collapse"
                     },
-                    [
+                    on: {
+                      click: function($event) {
+                        _vm.active = !_vm.active
+                      }
+                    }
+                  },
+                  [
+                    _c("h3", { staticClass: "card-title col-10" }, [
+                      _vm._v("Departamentos")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "card-tools" }, [
                       _c(
-                        "ul",
+                        "button",
+                        {
+                          staticClass: "btn btn-tool ml-auto ",
+                          attrs: { type: "button" }
+                        },
+                        [_c("personal-fab", { attrs: { active: _vm.active } })],
+                        1
+                      )
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "panel-collapse in collapse",
+                    attrs: { id: "departmentsDetailedOfferList" }
+                  },
+                  [
+                    _c("div", { staticClass: "card-body w-100" }, [
+                      _c(
+                        "div",
                         {
                           staticClass:
-                            "list-group list-group-unbordered mb-3 w-100"
+                            "d-flex justify-content-around w-100 flex-wrap"
                         },
-                        _vm._l(_vm.departments, function(department, k) {
-                          return _c(
-                            "li",
-                            { key: k, staticClass: "list-group-item px-0" },
-                            [_c("b", [_vm._v(_vm._s(department))])]
+                        [
+                          _c(
+                            "ul",
+                            {
+                              staticClass:
+                                "list-group list-group-unbordered mb-3 w-100"
+                            },
+                            _vm._l(_vm.departments, function(department, k) {
+                              return _c(
+                                "li",
+                                { key: k, staticClass: "list-group-item px-0" },
+                                [_c("b", [_vm._v(_vm._s(department))])]
+                              )
+                            }),
+                            0
                           )
-                        }),
-                        0
+                        ]
                       )
-                    ]
-                  )
-                ])
+                    ])
+                  ]
+                )
               ]
             )
-          ]
-        )
-      ]),
+          ])
+        : _vm._e(),
       _vm._v(" "),
-      _c("div", { staticClass: "col-10 col-xl-6" }, [
-        _c(
-          "div",
-          {
-            staticClass: "card card-info",
-            attrs: { id: "municipalitiesAccordion" }
-          },
-          [
-            _c(
-              "a",
-              {
-                staticClass: "card-header collapsed",
-                attrs: {
-                  "data-parent": "#municipalitiesAccordion",
-                  href: "#MunicipalitiesOfferList",
-                  "aria-expanded": "false",
-                  "data-toggle": "collapse"
-                },
-                on: {
-                  click: function($event) {
-                    _vm.active2 = !_vm.active2
-                  }
-                }
-              },
-              [
-                _c("h3", { staticClass: "card-title col-10" }, [
-                  _vm._v("Municipios")
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "card-tools" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-tool ml-auto ",
-                      attrs: { type: "button" }
-                    },
-                    [_c("personal-fab", { attrs: { active: _vm.active2 } })],
-                    1
-                  )
-                ])
-              ]
-            ),
-            _vm._v(" "),
+      _vm.municipalities && _vm.municipalities.length
+        ? _c("div", { staticClass: "col-10 col-xl-6" }, [
             _c(
               "div",
               {
-                staticClass: "panel-collapse in collapse",
-                attrs: { id: "MunicipalitiesOfferList" }
+                staticClass: "card card-info",
+                attrs: { id: "municipalitiesAccordion" }
               },
               [
-                _c("div", { staticClass: "card-body w-100" }, [
-                  _c(
-                    "div",
-                    {
-                      staticClass:
-                        "d-flex justify-content-around w-100 flex-wrap"
+                _c(
+                  "a",
+                  {
+                    staticClass: "card-header collapsed",
+                    attrs: {
+                      "data-parent": "#municipalitiesAccordion",
+                      href: "#MunicipalitiesOfferList",
+                      "aria-expanded": "false",
+                      "data-toggle": "collapse"
                     },
-                    [
+                    on: {
+                      click: function($event) {
+                        _vm.active2 = !_vm.active2
+                      }
+                    }
+                  },
+                  [
+                    _c("h3", { staticClass: "card-title col-10" }, [
+                      _vm._v("Municipios")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "card-tools" }, [
                       _c(
-                        "ul",
+                        "button",
+                        {
+                          staticClass: "btn btn-tool ml-auto ",
+                          attrs: { type: "button" }
+                        },
+                        [
+                          _c("personal-fab", { attrs: { active: _vm.active2 } })
+                        ],
+                        1
+                      )
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "panel-collapse in collapse",
+                    attrs: { id: "MunicipalitiesOfferList" }
+                  },
+                  [
+                    _c("div", { staticClass: "card-body w-100" }, [
+                      _c(
+                        "div",
                         {
                           staticClass:
-                            "list-group list-group-unbordered mb-3 w-100"
+                            "d-flex justify-content-around w-100 flex-wrap"
                         },
-                        _vm._l(_vm.municipalities, function(municipality, k2) {
-                          return _c(
-                            "li",
-                            { key: k2, staticClass: "list-group-item px-0" },
-                            [_c("b", [_vm._v(_vm._s(municipality))])]
+                        [
+                          _c(
+                            "ul",
+                            {
+                              staticClass:
+                                "list-group list-group-unbordered mb-3 w-100"
+                            },
+                            _vm._l(_vm.municipalities, function(
+                              municipality,
+                              k2
+                            ) {
+                              return _c(
+                                "li",
+                                {
+                                  key: k2,
+                                  staticClass: "list-group-item px-0"
+                                },
+                                [_c("b", [_vm._v(_vm._s(municipality))])]
+                              )
+                            }),
+                            0
                           )
-                        }),
-                        0
+                        ]
                       )
-                    ]
-                  )
-                ])
+                    ])
+                  ]
+                )
               ]
             )
-          ]
-        )
-      ])
+          ])
+        : _vm._e()
     ]
   )
 }
@@ -48600,65 +49269,56 @@ var render = function() {
                         0
                       )
                     ]
-                  )
-                ]
-              ),
-              _vm._v(" "),
-              _vm.fields.length
-                ? _c(
-                    "div",
-                    {
-                      staticClass:
-                        "d-flex flex-row w-100 justify-content-around flex-wrap my-3"
-                    },
-                    _vm._l(_vm.fields, function(field, index) {
-                      return _c(
-                        "div",
-                        {
-                          key: index,
-                          staticClass:
-                            "form-group col-xl-4 col-lg-4 col-md-6 col-12"
-                        },
-                        [
-                          _c("label", [
-                            _vm._v(
-                              _vm._s(
-                                field.name +
-                                  (field.unit ? " (" + field.unit + ")" : "")
-                              )
+                  ),
+                  _vm._v(" "),
+                  _vm._l(_vm.fields, function(field, index) {
+                    return _c(
+                      "div",
+                      {
+                        key: index,
+                        staticClass:
+                          "form-group col-xl-4 col-lg-4 col-md-6 col-12"
+                      },
+                      [
+                        _c("label", [
+                          _vm._v(
+                            _vm._s(
+                              field.name +
+                                (field.unit ? " (" + field.unit + ")" : "")
                             )
-                          ]),
-                          _vm._v(" "),
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.fieldsValues[index],
-                                expression: "fieldsValues[index]"
-                              }
-                            ],
-                            staticClass: "form-control",
-                            domProps: { value: _vm.fieldsValues[index] },
-                            on: {
-                              input: function($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.$set(
-                                  _vm.fieldsValues,
-                                  index,
-                                  $event.target.value
-                                )
-                              }
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.fieldsValues[index],
+                              expression: "fieldsValues[index]"
                             }
-                          })
-                        ]
-                      )
-                    }),
-                    0
-                  )
-                : _vm._e(),
+                          ],
+                          staticClass: "form-control",
+                          domProps: { value: _vm.fieldsValues[index] },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.fieldsValues,
+                                index,
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ]
+                    )
+                  })
+                ],
+                2
+              ),
               _vm._v(" "),
               _c(
                 "div",
@@ -48979,7 +49639,7 @@ var render = function() {
                   { staticClass: "card-body d-flex flex-column box-profile" },
                   [
                     _c("img", {
-                      staticClass: "align-self-center img-fluid",
+                      staticClass: "align-self-center img-fluid col-10",
                       staticStyle: { "max-height": "300px" },
                       attrs: {
                         src: _vm.baseUrl + "/storage/" + _vm.offer.company_logo,
@@ -49001,40 +49661,37 @@ var render = function() {
                     _vm._v(" "),
                     _c(
                       "ul",
-                      { staticClass: "list-group list-group-unbordered mb-3" },
+                      {
+                        staticClass:
+                          "list-group list-group-unbordered mb-3 px-3"
+                      },
                       [
+                        _vm.offer.highlighted &&
+                        _vm.offer.highlighted_expiration
+                          ? _c("li", { staticClass: "list-group-item" }, [
+                              _c("b", [_vm._v('Expiración en "Destacadas"')]),
+                              _vm._v(" "),
+                              _c("a", { staticClass: "float-right" }, [
+                                _vm._v(_vm._s(_vm.offer.highlighted_expiration))
+                              ])
+                            ])
+                          : _vm._e(),
+                        _vm._v(" "),
                         _c("li", { staticClass: "list-group-item" }, [
                           _c("b", [_vm._v("Tipo de cliente")]),
                           _vm._v(" "),
                           _c("a", { staticClass: "float-right" }, [
                             _vm._v(
                               _vm._s(
-                                _vm.offer.offer_type == "private"
-                                  ? "Hogar"
-                                  : "Empresa"
+                                _vm.offer.type
+                                  ? _vm.offer.type == "private"
+                                    ? "Hogar"
+                                    : "Empresa"
+                                  : "Todos"
                               )
                             )
                           ])
                         ]),
-                        _vm._v(" "),
-                        _vm.offer.highlighted &&
-                        _vm.offer.highlighted_expiration
-                          ? _c("li", { staticClass: "list-group-item" }, [
-                              _c("b", [_vm._v("Tipo de cliente")]),
-                              _vm._v(" "),
-                              _c("a", { staticClass: "float-right" }, [
-                                _vm._v(
-                                  _vm._s(
-                                    _vm.offer.type
-                                      ? _vm.offer.offer_type == "private"
-                                        ? "Hogar"
-                                        : "Empresa"
-                                      : "Todos"
-                                  )
-                                )
-                              ])
-                            ])
-                          : _vm._e(),
                         _vm._v(" "),
                         _c("li", { staticClass: "list-group-item" }, [
                           _c("b", [_vm._v("Tarifa")]),
@@ -49042,7 +49699,33 @@ var render = function() {
                           _c("a", { staticClass: "float-right" }, [
                             _vm._v(_vm._s(_vm.showPrice(_vm.offer.tariff)))
                           ])
-                        ])
+                        ]),
+                        _vm._v(" "),
+                        _c("li", { staticClass: "list-group-item" }, [
+                          _c("b", [_vm._v("Puntuación")]),
+                          _vm._v(" "),
+                          _c("a", { staticClass: "float-right" }, [
+                            _vm._v(_vm._s(_vm.offer.points))
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        !JSON.parse(_vm.offer.departments) ||
+                        !JSON.parse(_vm.offer.departments.length)
+                          ? _c("li", { staticClass: "list-group-item" }, [
+                              _c("b", [_vm._v("Departamento")]),
+                              _vm._v(" "),
+                              _vm._m(0)
+                            ])
+                          : _vm._e(),
+                        _vm._v(" "),
+                        !JSON.parse(_vm.offer.municipalities) ||
+                        !JSON.parse(_vm.offer.municipalities.length)
+                          ? _c("li", { staticClass: "list-group-item" }, [
+                              _c("b", [_vm._v("Municipio")]),
+                              _vm._v(" "),
+                              _vm._m(1)
+                            ])
+                          : _vm._e()
                       ]
                     ),
                     _vm._v(" "),
@@ -49088,7 +49771,32 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { staticClass: "float-right" }, [
+      _c("span", [
+        _vm._v(
+          "\n                                    Disponible para todos\n                                "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { staticClass: "float-right" }, [
+      _c("span", [
+        _vm._v(
+          "\n                                    Disponible para todos\n                                "
+        )
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -51260,7 +51968,7 @@ var render = function() {
                               _c("a", { staticClass: "float-right" }, [
                                 _vm._v(
                                   _vm._s(_vm.getFieldType(field.type)) +
-                                    "\r\n                              "
+                                    "\n                              "
                                 ),
                                 _c(
                                   "button",
@@ -51429,7 +52137,12 @@ function normalizeComponent (
     options._ssrRegister = hook
   } else if (injectStyles) {
     hook = shadowMode
-      ? function () { injectStyles.call(this, this.$root.$options.shadowRoot) }
+      ? function () {
+        injectStyles.call(
+          this,
+          (options.functional ? this.parent : this).$root.$options.shadowRoot
+        )
+      }
       : injectStyles
   }
 
@@ -51438,7 +52151,7 @@ function normalizeComponent (
       // for template-only hot-reload because in that case the render fn doesn't
       // go through the normalizer
       options._injectStyles = hook
-      // register for functioal component in vue file
+      // register for functional component in vue file
       var originalRender = options.render
       options.render = function renderWithStyleInjection (h, context) {
         hook.call(context)
@@ -51499,7 +52212,7 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-!function(t,e){ true?module.exports=e():undefined}("undefined"!=typeof self?self:this,function(){return function(t){var e={};function i(n){if(e[n])return e[n].exports;var r=e[n]={i:n,l:!1,exports:{}};return t[n].call(r.exports,r,r.exports,i),r.l=!0,r.exports}return i.m=t,i.c=e,i.d=function(t,e,n){i.o(t,e)||Object.defineProperty(t,e,{enumerable:!0,get:n})},i.r=function(t){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(t,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(t,"__esModule",{value:!0})},i.t=function(t,e){if(1&e&&(t=i(t)),8&e)return t;if(4&e&&"object"==typeof t&&t&&t.__esModule)return t;var n=Object.create(null);if(i.r(n),Object.defineProperty(n,"default",{enumerable:!0,value:t}),2&e&&"string"!=typeof t)for(var r in t)i.d(n,r,function(e){return t[e]}.bind(null,r));return n},i.n=function(t){var e=t&&t.__esModule?function(){return t.default}:function(){return t};return i.d(e,"a",e),e},i.o=function(t,e){return Object.prototype.hasOwnProperty.call(t,e)},i.p="",i(i.s=1)}([function(t,e,i){},function(t,e,i){"use strict";i.r(e);var n="undefined"!=typeof window?window.HTMLElement:Object,r={mounted:function(){document.addEventListener("focusin",this.focusIn)},methods:{focusIn:function(t){if(this.isActive&&t.target!==this.$el&&!this.$el.contains(t.target)){var e=this.container?this.container:this.isFullPage?null:this.$el.parentElement;(this.isFullPage||e&&e.contains(t.target))&&(t.preventDefault(),this.$el.focus())}}},beforeDestroy:function(){document.removeEventListener("focusin",this.focusIn)}};function a(t,e,i,n,r,a,o,s){var u,l="function"==typeof t?t.options:t;if(e&&(l.render=e,l.staticRenderFns=i,l._compiled=!0),n&&(l.functional=!0),a&&(l._scopeId="data-v-"+a),o?(u=function(t){(t=t||this.$vnode&&this.$vnode.ssrContext||this.parent&&this.parent.$vnode&&this.parent.$vnode.ssrContext)||"undefined"==typeof __VUE_SSR_CONTEXT__||(t=__VUE_SSR_CONTEXT__),r&&r.call(this,t),t&&t._registeredComponents&&t._registeredComponents.add(o)},l._ssrRegister=u):r&&(u=s?function(){r.call(this,this.$root.$options.shadowRoot)}:r),u)if(l.functional){l._injectStyles=u;var c=l.render;l.render=function(t,e){return u.call(e),c(t,e)}}else{var d=l.beforeCreate;l.beforeCreate=d?[].concat(d,u):[u]}return{exports:t,options:l}}var o=a({name:"spinner",props:{color:{type:String,default:"#000"},height:{type:Number,default:64},width:{type:Number,default:64}}},function(){var t=this.$createElement,e=this._self._c||t;return e("svg",{attrs:{viewBox:"0 0 38 38",xmlns:"http://www.w3.org/2000/svg",width:this.width,height:this.height,stroke:this.color}},[e("g",{attrs:{fill:"none","fill-rule":"evenodd"}},[e("g",{attrs:{transform:"translate(1 1)","stroke-width":"2"}},[e("circle",{attrs:{"stroke-opacity":".25",cx:"18",cy:"18",r:"18"}}),e("path",{attrs:{d:"M36 18c0-9.94-8.06-18-18-18"}},[e("animateTransform",{attrs:{attributeName:"transform",type:"rotate",from:"0 18 18",to:"360 18 18",dur:"0.8s",repeatCount:"indefinite"}})],1)])])])},[],!1,null,null,null).exports,s=a({name:"dots",props:{color:{type:String,default:"#000"},height:{type:Number,default:240},width:{type:Number,default:60}}},function(){var t=this.$createElement,e=this._self._c||t;return e("svg",{attrs:{viewBox:"0 0 120 30",xmlns:"http://www.w3.org/2000/svg",fill:this.color,width:this.width,height:this.height}},[e("circle",{attrs:{cx:"15",cy:"15",r:"15"}},[e("animate",{attrs:{attributeName:"r",from:"15",to:"15",begin:"0s",dur:"0.8s",values:"15;9;15",calcMode:"linear",repeatCount:"indefinite"}}),e("animate",{attrs:{attributeName:"fill-opacity",from:"1",to:"1",begin:"0s",dur:"0.8s",values:"1;.5;1",calcMode:"linear",repeatCount:"indefinite"}})]),e("circle",{attrs:{cx:"60",cy:"15",r:"9","fill-opacity":"0.3"}},[e("animate",{attrs:{attributeName:"r",from:"9",to:"9",begin:"0s",dur:"0.8s",values:"9;15;9",calcMode:"linear",repeatCount:"indefinite"}}),e("animate",{attrs:{attributeName:"fill-opacity",from:"0.5",to:"0.5",begin:"0s",dur:"0.8s",values:".5;1;.5",calcMode:"linear",repeatCount:"indefinite"}})]),e("circle",{attrs:{cx:"105",cy:"15",r:"15"}},[e("animate",{attrs:{attributeName:"r",from:"15",to:"15",begin:"0s",dur:"0.8s",values:"15;9;15",calcMode:"linear",repeatCount:"indefinite"}}),e("animate",{attrs:{attributeName:"fill-opacity",from:"1",to:"1",begin:"0s",dur:"0.8s",values:"1;.5;1",calcMode:"linear",repeatCount:"indefinite"}})])])},[],!1,null,null,null).exports,u=a({name:"bars",props:{color:{type:String,default:"#000"},height:{type:Number,default:40},width:{type:Number,default:40}}},function(){var t=this.$createElement,e=this._self._c||t;return e("svg",{attrs:{xmlns:"http://www.w3.org/2000/svg",viewBox:"0 0 30 30",height:this.height,width:this.width,fill:this.color}},[e("rect",{attrs:{x:"0",y:"13",width:"4",height:"5"}},[e("animate",{attrs:{attributeName:"height",attributeType:"XML",values:"5;21;5",begin:"0s",dur:"0.6s",repeatCount:"indefinite"}}),e("animate",{attrs:{attributeName:"y",attributeType:"XML",values:"13; 5; 13",begin:"0s",dur:"0.6s",repeatCount:"indefinite"}})]),e("rect",{attrs:{x:"10",y:"13",width:"4",height:"5"}},[e("animate",{attrs:{attributeName:"height",attributeType:"XML",values:"5;21;5",begin:"0.15s",dur:"0.6s",repeatCount:"indefinite"}}),e("animate",{attrs:{attributeName:"y",attributeType:"XML",values:"13; 5; 13",begin:"0.15s",dur:"0.6s",repeatCount:"indefinite"}})]),e("rect",{attrs:{x:"20",y:"13",width:"4",height:"5"}},[e("animate",{attrs:{attributeName:"height",attributeType:"XML",values:"5;21;5",begin:"0.3s",dur:"0.6s",repeatCount:"indefinite"}}),e("animate",{attrs:{attributeName:"y",attributeType:"XML",values:"13; 5; 13",begin:"0.3s",dur:"0.6s",repeatCount:"indefinite"}})])])},[],!1,null,null,null).exports,l=a({name:"vue-loading",mixins:[r],props:{active:Boolean,programmatic:Boolean,container:[Object,Function,n],isFullPage:{type:Boolean,default:!0},transition:{type:String,default:"fade"},canCancel:Boolean,onCancel:{type:Function,default:function(){}},color:String,backgroundColor:String,opacity:Number,width:Number,height:Number,zIndex:Number,loader:{type:String,default:"spinner"}},data:function(){return{isActive:this.active}},components:{Spinner:o,Dots:s,Bars:u},beforeMount:function(){this.programmatic&&(this.container?(this.isFullPage=!1,this.container.appendChild(this.$el)):document.body.appendChild(this.$el))},mounted:function(){this.programmatic&&(this.isActive=!0),document.addEventListener("keyup",this.keyPress)},methods:{cancel:function(){this.canCancel&&this.isActive&&(this.hide(),this.onCancel.apply(null,arguments))},hide:function(){var t=this;this.$emit("hide"),this.$emit("update:active",!1),this.programmatic&&(this.isActive=!1,setTimeout(function(){var e;t.$destroy(),void 0!==(e=t.$el).remove?e.remove():e.parentNode.removeChild(e)},150))},keyPress:function(t){27===t.keyCode&&this.cancel()}},watch:{active:function(t){this.isActive=t}},beforeDestroy:function(){document.removeEventListener("keyup",this.keyPress)}},function(){var t=this,e=t.$createElement,i=t._self._c||e;return i("transition",{attrs:{name:t.transition}},[i("div",{directives:[{name:"show",rawName:"v-show",value:t.isActive,expression:"isActive"}],staticClass:"vld-overlay is-active",class:{"is-full-page":t.isFullPage},style:{zIndex:this.zIndex},attrs:{tabindex:"0","aria-busy":t.isActive,"aria-label":"Loading"}},[i("div",{staticClass:"vld-background",style:{background:this.backgroundColor,opacity:this.opacity},on:{click:function(e){return e.preventDefault(),t.cancel(e)}}}),i("div",{staticClass:"vld-icon"},[t._t("before"),t._t("default",[i(t.loader,{tag:"component",attrs:{color:t.color,width:t.width,height:t.height}})]),t._t("after")],2)])])},[],!1,null,null,null).exports,c=function(t){var e=arguments.length>1&&void 0!==arguments[1]?arguments[1]:{},i=arguments.length>2&&void 0!==arguments[2]?arguments[2]:{};return{show:function(){var n=arguments.length>0&&void 0!==arguments[0]?arguments[0]:e,r=arguments.length>1&&void 0!==arguments[1]?arguments[1]:i,a=Object.assign({},e,n,{programmatic:!0}),o=new(t.extend(l))({el:document.createElement("div"),propsData:a}),s=Object.assign({},i,r);return Object.keys(s).map(function(t){o.$slots[t]=s[t]}),o}}};i(0);l.install=function(t){var e=arguments.length>1&&void 0!==arguments[1]?arguments[1]:{},i=arguments.length>2&&void 0!==arguments[2]?arguments[2]:{},n=c(t,e,i);t.$loading=n,t.prototype.$loading=n};e.default=l}]).default});
+!function(t,e){ true?module.exports=e():undefined}("undefined"!=typeof self?self:this,(function(){return function(t){var e={};function i(n){if(e[n])return e[n].exports;var r=e[n]={i:n,l:!1,exports:{}};return t[n].call(r.exports,r,r.exports,i),r.l=!0,r.exports}return i.m=t,i.c=e,i.d=function(t,e,n){i.o(t,e)||Object.defineProperty(t,e,{enumerable:!0,get:n})},i.r=function(t){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(t,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(t,"__esModule",{value:!0})},i.t=function(t,e){if(1&e&&(t=i(t)),8&e)return t;if(4&e&&"object"==typeof t&&t&&t.__esModule)return t;var n=Object.create(null);if(i.r(n),Object.defineProperty(n,"default",{enumerable:!0,value:t}),2&e&&"string"!=typeof t)for(var r in t)i.d(n,r,function(e){return t[e]}.bind(null,r));return n},i.n=function(t){var e=t&&t.__esModule?function(){return t.default}:function(){return t};return i.d(e,"a",e),e},i.o=function(t,e){return Object.prototype.hasOwnProperty.call(t,e)},i.p="",i(i.s=1)}([function(t,e,i){},function(t,e,i){"use strict";i.r(e);var n="undefined"!=typeof window?window.HTMLElement:Object,r={mounted:function(){this.enforceFocus&&document.addEventListener("focusin",this.focusIn)},methods:{focusIn:function(t){if(this.isActive&&t.target!==this.$el&&!this.$el.contains(t.target)){var e=this.container?this.container:this.isFullPage?null:this.$el.parentElement;(this.isFullPage||e&&e.contains(t.target))&&(t.preventDefault(),this.$el.focus())}}},beforeDestroy:function(){document.removeEventListener("focusin",this.focusIn)}};function a(t,e,i,n,r,a,o,s){var l,u="function"==typeof t?t.options:t;if(e&&(u.render=e,u.staticRenderFns=i,u._compiled=!0),n&&(u.functional=!0),a&&(u._scopeId="data-v-"+a),o?(l=function(t){(t=t||this.$vnode&&this.$vnode.ssrContext||this.parent&&this.parent.$vnode&&this.parent.$vnode.ssrContext)||"undefined"==typeof __VUE_SSR_CONTEXT__||(t=__VUE_SSR_CONTEXT__),r&&r.call(this,t),t&&t._registeredComponents&&t._registeredComponents.add(o)},u._ssrRegister=l):r&&(l=s?function(){r.call(this,(u.functional?this.parent:this).$root.$options.shadowRoot)}:r),l)if(u.functional){u._injectStyles=l;var c=u.render;u.render=function(t,e){return l.call(e),c(t,e)}}else{var d=u.beforeCreate;u.beforeCreate=d?[].concat(d,l):[l]}return{exports:t,options:u}}var o=a({name:"spinner",props:{color:{type:String,default:"#000"},height:{type:Number,default:64},width:{type:Number,default:64}}},(function(){var t=this.$createElement,e=this._self._c||t;return e("svg",{attrs:{viewBox:"0 0 38 38",xmlns:"http://www.w3.org/2000/svg",width:this.width,height:this.height,stroke:this.color}},[e("g",{attrs:{fill:"none","fill-rule":"evenodd"}},[e("g",{attrs:{transform:"translate(1 1)","stroke-width":"2"}},[e("circle",{attrs:{"stroke-opacity":".25",cx:"18",cy:"18",r:"18"}}),e("path",{attrs:{d:"M36 18c0-9.94-8.06-18-18-18"}},[e("animateTransform",{attrs:{attributeName:"transform",type:"rotate",from:"0 18 18",to:"360 18 18",dur:"0.8s",repeatCount:"indefinite"}})],1)])])])}),[],!1,null,null,null).exports,s=a({name:"dots",props:{color:{type:String,default:"#000"},height:{type:Number,default:240},width:{type:Number,default:60}}},(function(){var t=this.$createElement,e=this._self._c||t;return e("svg",{attrs:{viewBox:"0 0 120 30",xmlns:"http://www.w3.org/2000/svg",fill:this.color,width:this.width,height:this.height}},[e("circle",{attrs:{cx:"15",cy:"15",r:"15"}},[e("animate",{attrs:{attributeName:"r",from:"15",to:"15",begin:"0s",dur:"0.8s",values:"15;9;15",calcMode:"linear",repeatCount:"indefinite"}}),e("animate",{attrs:{attributeName:"fill-opacity",from:"1",to:"1",begin:"0s",dur:"0.8s",values:"1;.5;1",calcMode:"linear",repeatCount:"indefinite"}})]),e("circle",{attrs:{cx:"60",cy:"15",r:"9","fill-opacity":"0.3"}},[e("animate",{attrs:{attributeName:"r",from:"9",to:"9",begin:"0s",dur:"0.8s",values:"9;15;9",calcMode:"linear",repeatCount:"indefinite"}}),e("animate",{attrs:{attributeName:"fill-opacity",from:"0.5",to:"0.5",begin:"0s",dur:"0.8s",values:".5;1;.5",calcMode:"linear",repeatCount:"indefinite"}})]),e("circle",{attrs:{cx:"105",cy:"15",r:"15"}},[e("animate",{attrs:{attributeName:"r",from:"15",to:"15",begin:"0s",dur:"0.8s",values:"15;9;15",calcMode:"linear",repeatCount:"indefinite"}}),e("animate",{attrs:{attributeName:"fill-opacity",from:"1",to:"1",begin:"0s",dur:"0.8s",values:"1;.5;1",calcMode:"linear",repeatCount:"indefinite"}})])])}),[],!1,null,null,null).exports,l=a({name:"bars",props:{color:{type:String,default:"#000"},height:{type:Number,default:40},width:{type:Number,default:40}}},(function(){var t=this.$createElement,e=this._self._c||t;return e("svg",{attrs:{xmlns:"http://www.w3.org/2000/svg",viewBox:"0 0 30 30",height:this.height,width:this.width,fill:this.color}},[e("rect",{attrs:{x:"0",y:"13",width:"4",height:"5"}},[e("animate",{attrs:{attributeName:"height",attributeType:"XML",values:"5;21;5",begin:"0s",dur:"0.6s",repeatCount:"indefinite"}}),e("animate",{attrs:{attributeName:"y",attributeType:"XML",values:"13; 5; 13",begin:"0s",dur:"0.6s",repeatCount:"indefinite"}})]),e("rect",{attrs:{x:"10",y:"13",width:"4",height:"5"}},[e("animate",{attrs:{attributeName:"height",attributeType:"XML",values:"5;21;5",begin:"0.15s",dur:"0.6s",repeatCount:"indefinite"}}),e("animate",{attrs:{attributeName:"y",attributeType:"XML",values:"13; 5; 13",begin:"0.15s",dur:"0.6s",repeatCount:"indefinite"}})]),e("rect",{attrs:{x:"20",y:"13",width:"4",height:"5"}},[e("animate",{attrs:{attributeName:"height",attributeType:"XML",values:"5;21;5",begin:"0.3s",dur:"0.6s",repeatCount:"indefinite"}}),e("animate",{attrs:{attributeName:"y",attributeType:"XML",values:"13; 5; 13",begin:"0.3s",dur:"0.6s",repeatCount:"indefinite"}})])])}),[],!1,null,null,null).exports,u=a({name:"vue-loading",mixins:[r],props:{active:Boolean,programmatic:Boolean,container:[Object,Function,n],isFullPage:{type:Boolean,default:!0},enforceFocus:{type:Boolean,default:!0},lockScroll:{type:Boolean,default:!1},transition:{type:String,default:"fade"},canCancel:Boolean,onCancel:{type:Function,default:function(){}},color:String,backgroundColor:String,blur:{type:String,default:"2px"},opacity:Number,width:Number,height:Number,zIndex:Number,loader:{type:String,default:"spinner"}},data:function(){return{isActive:this.active}},components:{Spinner:o,Dots:s,Bars:l},beforeMount:function(){this.programmatic&&(this.container?(this.isFullPage=!1,this.container.appendChild(this.$el)):document.body.appendChild(this.$el))},mounted:function(){this.programmatic&&(this.isActive=!0),document.addEventListener("keyup",this.keyPress)},methods:{cancel:function(){this.canCancel&&this.isActive&&(this.hide(),this.onCancel.apply(null,arguments))},hide:function(){var t=this;this.$emit("hide"),this.$emit("update:active",!1),this.programmatic&&(this.isActive=!1,setTimeout((function(){var e;t.$destroy(),void 0!==(e=t.$el).remove?e.remove():e.parentNode.removeChild(e)}),150))},disableScroll:function(){this.isFullPage&&this.lockScroll&&document.body.classList.add("vld-shown")},enableScroll:function(){this.isFullPage&&this.lockScroll&&document.body.classList.remove("vld-shown")},keyPress:function(t){27===t.keyCode&&this.cancel()}},watch:{active:function(t){this.isActive=t},isActive:function(t){t?this.disableScroll():this.enableScroll()}},computed:{bgStyle:function(){return{background:this.backgroundColor,opacity:this.opacity,backdropFilter:"blur(".concat(this.blur,")")}}},beforeDestroy:function(){document.removeEventListener("keyup",this.keyPress)}},(function(){var t=this,e=t.$createElement,i=t._self._c||e;return i("transition",{attrs:{name:t.transition}},[i("div",{directives:[{name:"show",rawName:"v-show",value:t.isActive,expression:"isActive"}],staticClass:"vld-overlay is-active",class:{"is-full-page":t.isFullPage},style:{zIndex:t.zIndex},attrs:{tabindex:"0","aria-busy":t.isActive,"aria-label":"Loading"}},[i("div",{staticClass:"vld-background",style:t.bgStyle,on:{click:function(e){return e.preventDefault(),t.cancel(e)}}}),i("div",{staticClass:"vld-icon"},[t._t("before"),t._t("default",[i(t.loader,{tag:"component",attrs:{color:t.color,width:t.width,height:t.height}})]),t._t("after")],2)])])}),[],!1,null,null,null).exports,c=function(t){var e=arguments.length>1&&void 0!==arguments[1]?arguments[1]:{},i=arguments.length>2&&void 0!==arguments[2]?arguments[2]:{};return{show:function(){var n=arguments.length>0&&void 0!==arguments[0]?arguments[0]:e,r=arguments.length>1&&void 0!==arguments[1]?arguments[1]:i,a={programmatic:!0},o=Object.assign({},e,n,a),s=new(t.extend(u))({el:document.createElement("div"),propsData:o}),l=Object.assign({},i,r);return Object.keys(l).map((function(t){s.$slots[t]=l[t]})),s}}};i(0);u.install=function(t){var e=arguments.length>1&&void 0!==arguments[1]?arguments[1]:{},i=arguments.length>2&&void 0!==arguments[2]?arguments[2]:{},n=c(t,e,i);t.$loading=n,t.prototype.$loading=n};e.default=u}]).default}));
 
 /***/ }),
 
@@ -53299,8 +54012,8 @@ if (typeof window !== 'undefined' && window.Vue) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(global, setImmediate) {/*!
- * Vue.js v2.6.11
- * (c) 2014-2019 Evan You
+ * Vue.js v2.6.12
+ * (c) 2014-2020 Evan You
  * Released under the MIT License.
  */
 
@@ -58739,7 +59452,7 @@ Object.defineProperty(Vue, 'FunctionalRenderContext', {
   value: FunctionalRenderContext
 });
 
-Vue.version = '2.6.11';
+Vue.version = '2.6.12';
 
 /*  */
 
@@ -60945,7 +61658,7 @@ function updateDOMProps (oldVnode, vnode) {
       // skip the update if old and new VDOM state is the same.
       // `value` is handled separately because the DOM value may be temporarily
       // out of sync with VDOM state due to focus, composition and modifiers.
-      // This  #4521 by skipping the unnecesarry `checked` update.
+      // This  #4521 by skipping the unnecessary `checked` update.
       cur !== oldProps[key]
     ) {
       // some property updates can throw
@@ -63190,7 +63903,7 @@ function parse (
       }
     },
     comment: function comment (text, start, end) {
-      // adding anyting as a sibling to the root node is forbidden
+      // adding anything as a sibling to the root node is forbidden
       // comments should still be allowed, but ignored
       if (currentParent) {
         var child = {
@@ -66133,14 +66846,25 @@ function isValidDate$1(date) {
 function isValidRangeDate(date) {
   return Array.isArray(date) && date.length === 2 && date.every(isValidDate$1) && date[0] <= date[1];
 }
+function isValidDates(dates) {
+  return Array.isArray(dates) && dates.every(isValidDate$1);
+}
 function getValidDate(value) {
   var date = new Date(value);
+
+  if (isValidDate$1(date)) {
+    return date;
+  }
 
   for (var _len = arguments.length, backup = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
     backup[_key - 1] = arguments[_key];
   }
 
-  return isValidDate$1(date) ? date : getValidDate.apply(void 0, backup);
+  if (backup.length) {
+    return getValidDate.apply(void 0, backup);
+  }
+
+  return new Date();
 }
 function assignTime(target, source) {
   var date = new Date(target);
@@ -66406,17 +67130,19 @@ function getRelativePosition(el, targetWidth, targetHeight, fixed) {
   };
 }
 function getScrollParent(node) {
-  var until = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : document;
+  var until = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : document.body;
 
   if (!node || node === until) {
     return null;
   }
 
-  if (node.scrollHeight > node.clientHeight) {
-    return node;
-  }
+  var style = function style(value, prop) {
+    return getComputedStyle(value, null).getPropertyValue(prop);
+  };
 
-  return getScrollParent(node.parentNode, until);
+  var regex = /(auto|scroll)/;
+  var scroll = regex.test(style(node, 'overflow') + style(node, 'overflow-y') + style(node, 'overflow-x'));
+  return scroll ? node : getScrollParent(node.parentNode, until);
 }
 
 var Popup = {
@@ -67146,6 +67872,33 @@ var TableYear = normalizeComponent({
   staticRenderFns: __vue_staticRenderFns__$4
 }, __vue_inject_styles__$4, __vue_script__$2, __vue_scope_id__$4, __vue_is_functional_template__$4, __vue_module_identifier__$4, false, undefined, undefined, undefined);
 
+var emitter = {
+  methods: {
+    dispatch: function dispatch(componentName) {
+      var parent = this.$parent || this.$root;
+      var name = parent.$options.name;
+
+      while (parent && (!name || name !== componentName)) {
+        parent = parent.$parent;
+
+        if (parent) {
+          name = parent.$options.name;
+        }
+      }
+
+      if (parent) {
+        var _parent;
+
+        for (var _len = arguments.length, params = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+          params[_key - 1] = arguments[_key];
+        }
+
+        (_parent = parent).$emit.apply(_parent, params);
+      }
+    }
+  }
+};
+
 //
 var script$3 = {
   name: 'CalendarPanel',
@@ -67154,6 +67907,7 @@ var script$3 = {
     TableMonth: TableMonth,
     TableYear: TableYear
   },
+  mixins: [emitter],
   inject: {
     t: {
       default: function _default() {
@@ -67281,7 +68035,8 @@ var script$3 = {
       var calendarDate = this.calendar;
 
       if (!isValidDate$1(calendarDate)) {
-        calendarDate = getValidDate(this.innerValue[0], this.defaultValue);
+        var length = this.innerValue.length;
+        calendarDate = getValidDate(length > 0 ? this.innerValue[length - 1] : this.defaultValue);
       }
 
       this.innerCalendar = calendarDate;
@@ -67291,31 +68046,35 @@ var script$3 = {
     },
     emitDate: function emitDate(date, type) {
       if (!this.isDisabled(date)) {
-        this.$emit('select', date, type);
+        this.$emit('select', date, type, this.innerValue); // someone need get the first selected date to set range value. (#429)
+
+        this.dispatch('DatePicker', 'pick', date, type);
       }
     },
-    updateCalendar: function updateCalendar(date) {
+    updateCalendar: function updateCalendar(date, type) {
+      var oldValue = new Date(this.innerCalendar);
       this.innerCalendar = date;
       this.$emit('update:calendar', date);
+      this.dispatch('DatePicker', 'calendar-change', date, oldValue, type);
     },
     handelPanelChange: function handelPanelChange(panel) {
       this.panel = panel;
     },
     handleIconLeftClick: function handleIconLeftClick() {
       var nextCalendar = Object(date_fns__WEBPACK_IMPORTED_MODULE_0__["subMonths"])(this.innerCalendar, 1);
-      this.updateCalendar(nextCalendar);
+      this.updateCalendar(nextCalendar, 'last-month');
     },
     handleIconRightClick: function handleIconRightClick() {
       var nextCalendar = Object(date_fns__WEBPACK_IMPORTED_MODULE_0__["addMonths"])(this.innerCalendar, 1);
-      this.updateCalendar(nextCalendar);
+      this.updateCalendar(nextCalendar, 'next-month');
     },
     handleIconDoubleLeftClick: function handleIconDoubleLeftClick() {
       var nextCalendar = Object(date_fns__WEBPACK_IMPORTED_MODULE_0__["subYears"])(this.innerCalendar, this.panel === 'year' ? 10 : 1);
-      this.updateCalendar(nextCalendar);
+      this.updateCalendar(nextCalendar, this.panel === 'year' ? 'last-decade' : 'last-year');
     },
     handleIconDoubleRightClick: function handleIconDoubleRightClick() {
       var nextCalendar = Object(date_fns__WEBPACK_IMPORTED_MODULE_0__["addYears"])(this.innerCalendar, this.panel === 'year' ? 10 : 1);
-      this.updateCalendar(nextCalendar);
+      this.updateCalendar(nextCalendar, this.panel === 'year' ? 'next-decade' : 'next-year');
     },
     handleSelectYear: function handleSelectYear(year) {
       if (this.type === 'year') {
@@ -67323,10 +68082,10 @@ var script$3 = {
         this.emitDate(date, 'year');
       } else {
         var nextCalendar = Object(date_fns__WEBPACK_IMPORTED_MODULE_0__["setYear"])(this.innerCalendar, year);
-        this.updateCalendar(nextCalendar);
+        this.updateCalendar(nextCalendar, 'year');
         this.handelPanelChange('month');
 
-        if (this.partialUpdate && this.innerValue[0]) {
+        if (this.partialUpdate && this.innerValue.length === 1) {
           var _date = Object(date_fns__WEBPACK_IMPORTED_MODULE_0__["setYear"])(this.innerValue[0], year);
 
           this.emitDate(_date, 'year');
@@ -67339,10 +68098,10 @@ var script$3 = {
         this.emitDate(date, 'month');
       } else {
         var nextCalendar = Object(date_fns__WEBPACK_IMPORTED_MODULE_0__["setMonth"])(this.innerCalendar, month);
-        this.updateCalendar(nextCalendar);
+        this.updateCalendar(nextCalendar, 'month');
         this.handelPanelChange('date');
 
-        if (this.partialUpdate && this.innerValue[0]) {
+        if (this.partialUpdate && this.innerValue.length === 1) {
           var _date2 = Object(date_fns__WEBPACK_IMPORTED_MODULE_0__["setMonth"])(Object(date_fns__WEBPACK_IMPORTED_MODULE_0__["setYear"])(this.innerValue[0], this.calendarYear), month);
 
           this.emitDate(_date2, 'month');
@@ -67975,6 +68734,10 @@ var script$5 = {
   },
   props: {
     date: Date,
+    scrollDuration: {
+      type: Number,
+      default: 100
+    },
     getClasses: {
       type: Function,
       default: function _default() {
@@ -68043,7 +68806,7 @@ var script$5 = {
         var _this = this;
 
         this.$nextTick(function () {
-          _this.scrollToSelected(100);
+          _this.scrollToSelected(_this.scrollDuration);
         });
       }
     }
@@ -68441,6 +69204,10 @@ var script$7 = {
     use12h: {
       type: Boolean,
       default: undefined
+    },
+    scrollDuration: {
+      type: Number,
+      default: 100
     }
   },
   computed: {
@@ -68551,7 +69318,8 @@ var __vue_render__$9 = function __vue_render__() {
       "second-options": _vm.secondOptions,
       "hour-step": _vm.hourStep,
       "minute-step": _vm.minuteStep,
-      "second-step": _vm.secondStep
+      "second-step": _vm.secondStep,
+      "scroll-duration": _vm.scrollDuration
     },
     on: {
       "select": _vm.handleSelect
@@ -68618,7 +69386,7 @@ var TimeRange = {
   methods: {
     emitChange: function emitChange(type, index) {
       var date = [this.startValue, this.endValue];
-      this.$emit('select', date, type, index);
+      this.$emit('select', date, type === 'time' ? 'time-range' : type, index);
     },
     handleSelectStart: function handleSelectStart(date, type) {
       this.startValue = date; // check the NaN
@@ -68960,9 +69728,15 @@ var script$8 = {
       type: Boolean,
       default: false
     },
+    multiple: {
+      type: Boolean,
+      default: false
+    },
     rangeSeparator: {
       type: String,
-      default: ' ~ '
+      default: function _default() {
+        return this.multiple ? ',' : ' ~ ';
+      }
     },
     lang: {
       type: [String, Object]
@@ -69025,6 +69799,9 @@ var script$8 = {
       type: String,
       default: 'OK'
     },
+    renderInputText: {
+      type: Function
+    },
     shortcuts: {
       type: Array,
       validator: function validator(value) {
@@ -69063,6 +69840,11 @@ var script$8 = {
     innerValue: function innerValue() {
       var value = this.value;
 
+      if (this.validMultipleType) {
+        value = Array.isArray(value) ? value : [];
+        return value.map(this.value2date);
+      }
+
       if (this.range) {
         value = Array.isArray(value) ? value.slice(0, 2) : [null, null];
         return value.map(this.value2date);
@@ -69075,6 +69857,10 @@ var script$8 = {
 
       if (this.userInput !== null) {
         return this.userInput;
+      }
+
+      if (typeof this.renderInputText === 'function') {
+        return this.renderInputText(this.innerValue);
       }
 
       if (!this.isValidValue(this.innerValue)) {
@@ -69100,6 +69886,10 @@ var script$8 = {
       }
 
       return getLocale(this.lang);
+    },
+    validMultipleType: function validMultipleType() {
+      var types = ['date', 'month', 'year'];
+      return this.multiple && !this.range && types.indexOf(this.type) !== -1;
     }
   },
   watch: {
@@ -69195,14 +69985,58 @@ var script$8 = {
       }
     },
     isValidValue: function isValidValue(value) {
-      var validate = this.range ? isValidRangeDate : isValidDate$1;
-      return validate(value);
+      if (this.validMultipleType) {
+        return isValidDates(value);
+      }
+
+      if (this.range) {
+        return isValidRangeDate(value);
+      }
+
+      return isValidDate$1(value);
     },
-    handleSelectDate: function handleSelectDate(val, type) {
+    isValidValueAndNotDisabled: function isValidValueAndNotDisabled(value) {
+      if (!this.isValidValue(value)) {
+        return false;
+      }
+
+      var disabledDate = typeof this.disabledDate === 'function' ? this.disabledDate : function () {
+        return false;
+      };
+      var disabledTime = typeof this.disabledTime === 'function' ? this.disabledTime : function () {
+        return false;
+      };
+
+      if (!Array.isArray(value)) {
+        value = [value];
+      }
+
+      return value.every(function (v) {
+        return !disabledDate(v) && !disabledTime(v);
+      });
+    },
+    handleMultipleDates: function handleMultipleDates(date, dates) {
+      if (this.validMultipleType && dates) {
+        var nextDates = dates.filter(function (v) {
+          return v.getTime() !== date.getTime();
+        });
+
+        if (nextDates.length === dates.length) {
+          nextDates.push(date);
+        }
+
+        return nextDates;
+      }
+
+      return date;
+    },
+    handleSelectDate: function handleSelectDate(val, type, dates) {
+      val = this.handleMultipleDates(val, dates);
+
       if (this.confirm) {
         this.currentValue = val;
       } else {
-        this.emitValue(val, type);
+        this.emitValue(val, this.validMultipleType ? "multiple-".concat(type) : type);
       }
     },
     handleClear: function handleClear() {
@@ -69222,27 +70056,34 @@ var script$8 = {
         }
       }
     },
-    openPopup: function openPopup() {
+    openPopup: function openPopup(evt) {
+      if (this.popupVisible) return;
       this.defaultOpen = true;
-      this.$emit('open');
+      this.$emit('open', evt);
       this.$emit('update:open', true);
     },
     closePopup: function closePopup() {
+      if (!this.popupVisible) return;
       this.defaultOpen = false;
       this.$emit('close');
       this.$emit('update:open', false);
     },
     blur: function blur() {
-      this.$refs.input.blur();
+      // when use slot input
+      if (this.$refs.input) {
+        this.$refs.input.blur();
+      }
     },
     focus: function focus() {
-      this.$refs.input.focus();
+      if (this.$refs.input) {
+        this.$refs.input.focus();
+      }
     },
     handleInputChange: function handleInputChange() {
       var _this2 = this;
 
       if (!this.editable || this.userInput === null) return;
-      var text = this.userInput;
+      var text = this.userInput.trim();
       this.userInput = null;
 
       if (text === '') {
@@ -69250,11 +70091,29 @@ var script$8 = {
         return;
       }
 
-      var date = this.range ? text.split(this.rangeSeparator).map(function (v) {
-        return _this2.parseDate(v, _this2.format);
-      }) : this.parseDate(text, this.format);
+      var date;
 
-      if (this.isValidValue(date)) {
+      if (this.validMultipleType) {
+        date = text.split(this.rangeSeparator).map(function (v) {
+          return _this2.parseDate(v.trim(), _this2.format);
+        });
+      } else if (this.range) {
+        var arr = text.split(this.rangeSeparator);
+
+        if (arr.length !== 2) {
+          // Maybe the separator during the day is the same as the separator for the date
+          // eg: 2019-10-09-2020-01-02
+          arr = text.split(this.rangeSeparator.trim());
+        }
+
+        date = arr.map(function (v) {
+          return _this2.parseDate(v.trim(), _this2.format);
+        });
+      } else {
+        date = this.parseDate(text, this.format);
+      }
+
+      if (this.isValidValueAndNotDisabled(date)) {
         this.emitValue(date);
         this.blur();
       } else {
@@ -69278,7 +70137,7 @@ var script$8 = {
       this.$emit('blur', evt);
     },
     handleInputFocus: function handleInputFocus(evt) {
-      this.openPopup();
+      this.openPopup(evt);
       this.$emit('focus', evt);
     },
     hasSlot: function hasSlot(name) {
@@ -69307,30 +70166,44 @@ var __vue_render__$a = function __vue_render__() {
   }, [!_vm.inline ? _c('div', {
     class: _vm.prefixClass + "-input-wrapper",
     on: {
-      "mousedown": _vm.openPopup,
-      "touchstart": _vm.openPopup
+      "mousedown": _vm.openPopup
     }
-  }, [_vm._t("input", [_c('input', _vm._b({
-    ref: "input",
-    class: _vm.inputClass,
-    attrs: {
-      "disabled": _vm.disabled,
-      "readonly": !_vm.editable,
-      "placeholder": _vm.placeholder
-    },
-    on: {
-      "keydown": _vm.handleInputKeydown,
-      "focus": _vm.handleInputFocus,
-      "blur": _vm.handleInputBlur,
-      "input": _vm.handleInputInput,
-      "change": _vm.handleInputChange
-    }
+  }, [_vm._t("input", [_c('input', _vm._g(_vm._b({
+    ref: "input"
   }, 'input', _extends({}, {
     name: 'date',
     type: 'text',
     autocomplete: 'off',
-    value: _vm.text
-  }, _vm.inputAttr), false))]), _vm._v(" "), _vm.showClearIcon ? _c('i', {
+    value: _vm.text,
+    class: _vm.inputClass,
+    readonly: !_vm.editable,
+    disabled: _vm.disabled,
+    placeholder: _vm.placeholder
+  }, _vm.inputAttr), false), {
+    keydown: _vm.handleInputKeydown,
+    focus: _vm.handleInputFocus,
+    blur: _vm.handleInputBlur,
+    input: _vm.handleInputInput,
+    change: _vm.handleInputChange
+  }))], {
+    "props": _extends({}, {
+      name: 'date',
+      type: 'text',
+      autocomplete: 'off',
+      value: _vm.text,
+      class: _vm.inputClass,
+      readonly: !_vm.editable,
+      disabled: _vm.disabled,
+      placeholder: _vm.placeholder
+    }, _vm.inputAttr),
+    "events": {
+      keydown: _vm.handleInputKeydown,
+      focus: _vm.handleInputFocus,
+      blur: _vm.handleInputBlur,
+      input: _vm.handleInputInput,
+      change: _vm.handleInputChange
+    }
+  }), _vm._v(" "), _vm.showClearIcon ? _c('i', {
     class: _vm.prefixClass + "-icon-clear",
     on: {
       "mousedown": function mousedown($event) {
@@ -70610,6 +71483,10 @@ var longFormatters = {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return getTimezoneOffsetInMilliseconds; });
 var MILLISECONDS_IN_MINUTE = 60000;
+
+function getDateMillisecondsPart(date) {
+  return date.getTime() % MILLISECONDS_IN_MINUTE;
+}
 /**
  * Google Chrome as of 67.0.3396.87 introduced timezones with offset that includes seconds.
  * They usually appear for dates that denote time before the timezones were introduced
@@ -70622,11 +71499,13 @@ var MILLISECONDS_IN_MINUTE = 60000;
  * This function returns the timezone offset in milliseconds that takes seconds in account.
  */
 
+
 function getTimezoneOffsetInMilliseconds(dirtyDate) {
   var date = new Date(dirtyDate.getTime());
   var baseTimezoneOffset = Math.ceil(date.getTimezoneOffset());
   date.setSeconds(0, 0);
-  var millisecondsPartOfTimezoneOffset = date.getTime() % MILLISECONDS_IN_MINUTE;
+  var hasNegativeUTCOffset = baseTimezoneOffset > 0;
+  var millisecondsPartOfTimezoneOffset = hasNegativeUTCOffset ? (MILLISECONDS_IN_MINUTE + getDateMillisecondsPart(date)) % MILLISECONDS_IN_MINUTE : getDateMillisecondsPart(date);
   return baseTimezoneOffset * MILLISECONDS_IN_MINUTE + millisecondsPartOfTimezoneOffset;
 }
 
@@ -70844,15 +71723,15 @@ function isProtectedDayOfYearToken(token) {
 function isProtectedWeekYearToken(token) {
   return protectedWeekYearTokens.indexOf(token) !== -1;
 }
-function throwProtectedError(token) {
+function throwProtectedError(token, format, input) {
   if (token === 'YYYY') {
-    throw new RangeError('Use `yyyy` instead of `YYYY` for formatting years; see: https://git.io/fxCyr');
+    throw new RangeError("Use `yyyy` instead of `YYYY` (in `".concat(format, "`) for formatting years to the input `").concat(input, "`; see: https://git.io/fxCyr"));
   } else if (token === 'YY') {
-    throw new RangeError('Use `yy` instead of `YY` for formatting years; see: https://git.io/fxCyr');
+    throw new RangeError("Use `yy` instead of `YY` (in `".concat(format, "`) for formatting years to the input `").concat(input, "`; see: https://git.io/fxCyr"));
   } else if (token === 'D') {
-    throw new RangeError('Use `d` instead of `D` for formatting days of the month; see: https://git.io/fxCyr');
+    throw new RangeError("Use `d` instead of `D` (in `".concat(format, "`) for formatting days of the month to the input `").concat(input, "`; see: https://git.io/fxCyr"));
   } else if (token === 'DD') {
-    throw new RangeError('Use `dd` instead of `DD` for formatting days of the month; see: https://git.io/fxCyr');
+    throw new RangeError("Use `dd` instead of `DD` (in `".concat(format, "`) for formatting days of the month to the input `").concat(input, "`; see: https://git.io/fxCyr"));
   }
 }
 
@@ -70870,7 +71749,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return requiredArgs; });
 function requiredArgs(required, args) {
   if (args.length < required) {
-    throw new TypeError(required + ' argument' + required > 1 ? 's' : '' + ' required, but only ' + args.length + ' present');
+    throw new TypeError(required + ' argument' + (required > 1 ? 's' : '') + ' required, but only ' + args.length + ' present');
   }
 }
 
@@ -71203,18 +72082,19 @@ __webpack_require__.r(__webpack_exports__);
 /**
  * @name add
  * @category Common Helpers
- * @summary Add the specified years, months, days, hours, minutes and seconds to the given date.
+ * @summary Add the specified years, months, weeks, days, hours, minutes and seconds to the given date.
  *
  * @description
- * Add the specified years, months, days, hours, minutes and seconds to the given date.
+ * Add the specified years, months, weeks, days, hours, minutes and seconds to the given date.
  *
  * @param {Date|Number} date - the date to be changed
- * @param {Duration} duration - the object with years, months, days, hours, minutes and seconds to be added
+ * @param {Duration} duration - the object with years, months, weeks, days, hours, minutes and seconds to be added. Positive decimals will be rounded using `Math.floor`, decimals less than zero will be rounded using `Math.ceil`.
  *
  * | Key            | Description                        |
  * |----------------|------------------------------------|
  * | years          | Amount of years to be added        |
  * | months         | Amount of months to be added       |
+ * | weeks          | Amount of weeks to be added       |
  * | days           | Amount of days to be added         |
  * | hours          | Amount of hours to be added        |
  * | minutes        | Amount of minutes to be added      |
@@ -71229,13 +72109,14 @@ __webpack_require__.r(__webpack_exports__);
  * // Add the following duration to 1 September 2014, 10:19:50
  * var result = add(new Date(2014, 8, 1, 10, 19, 50), {
  *   years: 2,
- *   months: 24,
+ *   months: 9,
+ *   weeks: 1,
  *   days: 7,
  *   hours: 5,
  *   minutes: 9,
  *   seconds: 30,
  * })
- * //=> Sat Sep 8 2018 15:29:20
+ * //=> Thu Jun 15 2017 15:29:20
  */
 
 function add(dirtyDate, duration) {
@@ -71243,14 +72124,16 @@ function add(dirtyDate, duration) {
   if (!duration || typeof duration !== 'object') return new Date(NaN);
   var years = 'years' in duration ? Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_4__["default"])(duration.years) : 0;
   var months = 'months' in duration ? Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_4__["default"])(duration.months) : 0;
+  var weeks = 'weeks' in duration ? Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_4__["default"])(duration.weeks) : 0;
   var days = 'days' in duration ? Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_4__["default"])(duration.days) : 0;
   var hours = 'hours' in duration ? Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_4__["default"])(duration.hours) : 0;
   var minutes = 'minutes' in duration ? Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_4__["default"])(duration.minutes) : 0;
   var seconds = 'seconds' in duration ? Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_4__["default"])(duration.seconds) : 0; // Add years and months
 
-  var dateWithMonths = Object(_addMonths_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dirtyDate), months + years * 12); // Add days
+  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dirtyDate);
+  var dateWithMonths = months || years ? Object(_addMonths_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(date, months + years * 12) : date; // Add weeks and days
 
-  var dateWithDays = Object(_addDays_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dateWithMonths, days); // Add days, hours, minutes and seconds
+  var dateWithDays = days || weeks ? Object(_addDays_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dateWithMonths, days + weeks * 7) : dateWithMonths; // Add days, hours, minutes and seconds
 
   var minutesToAdd = minutes + hours * 60;
   var secondsToAdd = seconds + minutesToAdd * 60;
@@ -71275,6 +72158,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _toDate_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../toDate/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/toDate/index.js");
 /* harmony import */ var _lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../_lib/toInteger/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/_lib/toInteger/index.js");
 /* harmony import */ var _lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../_lib/requiredArgs/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/_lib/requiredArgs/index.js");
+/* harmony import */ var _isSunday_index_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../isSunday/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isSunday/index.js");
+/* harmony import */ var _isSaturday_index_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../isSaturday/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isSaturday/index.js");
+
+
 
 
 
@@ -71288,7 +72175,7 @@ __webpack_require__.r(__webpack_exports__);
  * Add the specified number of business days (mon - fri) to the given date, ignoring weekends.
  *
  * @param {Date|Number} date - the date to be changed
- * @param {Number} amount - the amount of business days to be added
+ * @param {Number} amount - the amount of business days to be added. Positive decimals will be rounded using `Math.floor`, decimals less than zero will be rounded using `Math.ceil`.
  * @returns {Date} the new date with the business days added
  * @throws {TypeError} 2 arguments required
  *
@@ -71301,6 +72188,7 @@ __webpack_require__.r(__webpack_exports__);
 function addBusinessDays(dirtyDate, dirtyAmount) {
   Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(2, arguments);
   var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate);
+  var startedOnWeekend = Object(_isWeekend_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(date);
   var amount = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dirtyAmount);
   if (isNaN(amount)) return new Date(NaN);
   var hours = date.getHours();
@@ -71313,6 +72201,16 @@ function addBusinessDays(dirtyDate, dirtyAmount) {
   while (restDays > 0) {
     date.setDate(date.getDate() + sign);
     if (!Object(_isWeekend_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(date)) restDays -= 1;
+  } // If the date is a weekend day and we reduce a dividable of
+  // 5 from it, we land on a weekend date.
+  // To counter this, we add days accordingly to land on the next business day
+
+
+  if (startedOnWeekend && Object(_isWeekend_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(date) && amount !== 0) {
+    // If we're reducing days, we want to add days until we land on a weekday
+    // If we're adding days we want to reduce days until we land on a weekday
+    if (Object(_isSaturday_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(date)) date.setDate(date.getDate() + (sign < 0 ? 2 : -1));
+    if (Object(_isSunday_index_js__WEBPACK_IMPORTED_MODULE_4__["default"])(date)) date.setDate(date.getDate() + (sign < 0 ? 1 : -2));
   } // Restore hours to avoid DST lag
 
 
@@ -71351,7 +72249,7 @@ __webpack_require__.r(__webpack_exports__);
  * - [Changes that are common for the whole library](https://github.com/date-fns/date-fns/blob/master/docs/upgradeGuide.md#Common-Changes).
  *
  * @param {Date|Number} date - the date to be changed
- * @param {Number} amount - the amount of days to be added
+ * @param {Number} amount - the amount of days to be added. Positive decimals will be rounded using `Math.floor`, decimals less than zero will be rounded using `Math.ceil`.
  * @returns {Date} the new date with the days added
  * @throws {TypeError} 2 arguments required
  *
@@ -71365,6 +72263,16 @@ function addDays(dirtyDate, dirtyAmount) {
   Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(2, arguments);
   var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate);
   var amount = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyAmount);
+
+  if (isNaN(amount)) {
+    return new Date(NaN);
+  }
+
+  if (!amount) {
+    // If 0 days, no-op to avoid changing times in the hour before end of DST
+    return date;
+  }
+
   date.setDate(date.getDate() + amount);
   return date;
 }
@@ -71401,7 +72309,7 @@ var MILLISECONDS_IN_HOUR = 3600000;
  * - [Changes that are common for the whole library](https://github.com/date-fns/date-fns/blob/master/docs/upgradeGuide.md#Common-Changes).
  *
  * @param {Date|Number} date - the date to be changed
- * @param {Number} amount - the amount of hours to be added
+ * @param {Number} amount - the amount of hours to be added. Positive decimals will be rounded using `Math.floor`, decimals less than zero will be rounded using `Math.ceil`.
  * @returns {Date} the new date with the hours added
  * @throws {TypeError} 2 arguments required
  *
@@ -71457,7 +72365,7 @@ __webpack_require__.r(__webpack_exports__);
  *   locale-dependent week-numbering year helpers, e.g., `addWeekYears`.
  *
  * @param {Date|Number} date - the date to be changed
- * @param {Number} amount - the amount of ISO week-numbering years to be added
+ * @param {Number} amount - the amount of ISO week-numbering years to be added. Positive decimals will be rounded using `Math.floor`, decimals less than zero will be rounded using `Math.ceil`.
  * @returns {Date} the new date with the ISO week-numbering years added
  * @throws {TypeError} 2 arguments required
  *
@@ -71504,7 +72412,7 @@ __webpack_require__.r(__webpack_exports__);
  * - [Changes that are common for the whole library](https://github.com/date-fns/date-fns/blob/master/docs/upgradeGuide.md#Common-Changes).
  *
  * @param {Date|Number} date - the date to be changed
- * @param {Number} amount - the amount of milliseconds to be added
+ * @param {Number} amount - the amount of milliseconds to be added. Positive decimals will be rounded using `Math.floor`, decimals less than zero will be rounded using `Math.ceil`.
  * @returns {Date} the new date with the milliseconds added
  * @throws {TypeError} 2 arguments required
  *
@@ -71553,7 +72461,7 @@ var MILLISECONDS_IN_MINUTE = 60000;
  * - [Changes that are common for the whole library](https://github.com/date-fns/date-fns/blob/master/docs/upgradeGuide.md#Common-Changes).
  *
  * @param {Date|Number} date - the date to be changed
- * @param {Number} amount - the amount of minutes to be added
+ * @param {Number} amount - the amount of minutes to be added. Positive decimals will be rounded using `Math.floor`, decimals less than zero will be rounded using `Math.ceil`.
  * @returns {Date} the new date with the minutes added
  * @throws {TypeError} 2 arguments required
  *
@@ -71583,9 +72491,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return addMonths; });
 /* harmony import */ var _lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../_lib/toInteger/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/_lib/toInteger/index.js");
 /* harmony import */ var _toDate_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../toDate/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/toDate/index.js");
-/* harmony import */ var _getDaysInMonth_index_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../getDaysInMonth/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/getDaysInMonth/index.js");
-/* harmony import */ var _lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../_lib/requiredArgs/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/_lib/requiredArgs/index.js");
-
+/* harmony import */ var _lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../_lib/requiredArgs/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/_lib/requiredArgs/index.js");
 
 
 
@@ -71602,7 +72508,7 @@ __webpack_require__.r(__webpack_exports__);
  * - [Changes that are common for the whole library](https://github.com/date-fns/date-fns/blob/master/docs/upgradeGuide.md#Common-Changes).
  *
  * @param {Date|Number} date - the date to be changed
- * @param {Number} amount - the amount of months to be added
+ * @param {Number} amount - the amount of months to be added. Positive decimals will be rounded using `Math.floor`, decimals less than zero will be rounded using `Math.ceil`.
  * @returns {Date} the new date with the months added
  * @throws {TypeError} 2 arguments required
  *
@@ -71613,18 +72519,47 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 function addMonths(dirtyDate, dirtyAmount) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(2, arguments);
+  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(2, arguments);
   var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate);
   var amount = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyAmount);
-  var desiredMonth = date.getMonth() + amount;
-  var dateWithDesiredMonth = new Date(0);
-  dateWithDesiredMonth.setFullYear(date.getFullYear(), desiredMonth, 1);
-  dateWithDesiredMonth.setHours(0, 0, 0, 0);
-  var daysInMonth = Object(_getDaysInMonth_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dateWithDesiredMonth); // Set the last day of the new month
-  // if the original date was the last day of the longer month
 
-  date.setMonth(desiredMonth, Math.min(daysInMonth, date.getDate()));
-  return date;
+  if (isNaN(amount)) {
+    return new Date(NaN);
+  }
+
+  if (!amount) {
+    // If 0 months, no-op to avoid changing times in the hour before end of DST
+    return date;
+  }
+
+  var dayOfMonth = date.getDate(); // The JS Date object supports date math by accepting out-of-bounds values for
+  // month, day, etc. For example, new Date(2020, 1, 0) returns 31 Dec 2019 and
+  // new Date(2020, 13, 1) returns 1 Feb 2021.  This is *almost* the behavior we
+  // want except that dates will wrap around the end of a month, meaning that
+  // new Date(2020, 13, 31) will return 3 Mar 2021 not 28 Feb 2021 as desired. So
+  // we'll default to the end of the desired month by adding 1 to the desired
+  // month and using a date of 0 to back up one day to the end of the desired
+  // month.
+
+  var endOfDesiredMonth = new Date(date.getTime());
+  endOfDesiredMonth.setMonth(date.getMonth() + amount + 1, 0);
+  var daysInMonth = endOfDesiredMonth.getDate();
+
+  if (dayOfMonth >= daysInMonth) {
+    // If we're already at the end of the month, then this is the correct date
+    // and we're done.
+    return endOfDesiredMonth;
+  } else {
+    // Otherwise, we now know that setting the original day-of-month value won't
+    // cause an overflow, so set the desired day-of-month. Note that we can't
+    // just set the date of `endOfDesiredMonth` because that object may have had
+    // its time changed in the unusual case where where a DST transition was on
+    // the last day of the month and its local time was in the hour skipped or
+    // repeated next to a DST transition.  So we use `date` instead which is
+    // guaranteed to still have the original time.
+    date.setFullYear(endOfDesiredMonth.getFullYear(), endOfDesiredMonth.getMonth(), dayOfMonth);
+    return date;
+  }
 }
 
 /***/ }),
@@ -71658,7 +72593,7 @@ __webpack_require__.r(__webpack_exports__);
  * - [Changes that are common for the whole library](https://github.com/date-fns/date-fns/blob/master/docs/upgradeGuide.md#Common-Changes).
  *
  * @param {Date|Number} date - the date to be changed
- * @param {Number} amount - the amount of quarters to be added
+ * @param {Number} amount - the amount of quarters to be added. Positive decimals will be rounded using `Math.floor`, decimals less than zero will be rounded using `Math.ceil`.
  * @returns {Date} the new date with the quarters added
  * @throws {TypeError} 2 arguments required
  *
@@ -71706,7 +72641,7 @@ __webpack_require__.r(__webpack_exports__);
  * - [Changes that are common for the whole library](https://github.com/date-fns/date-fns/blob/master/docs/upgradeGuide.md#Common-Changes).
  *
  * @param {Date|Number} date - the date to be changed
- * @param {Number} amount - the amount of seconds to be added
+ * @param {Number} amount - the amount of seconds to be added. Positive decimals will be rounded using `Math.floor`, decimals less than zero will be rounded using `Math.ceil`.
  * @returns {Date} the new date with the seconds added
  * @throws {TypeError} 2 arguments required
  *
@@ -71753,7 +72688,7 @@ __webpack_require__.r(__webpack_exports__);
  * - [Changes that are common for the whole library](https://github.com/date-fns/date-fns/blob/master/docs/upgradeGuide.md#Common-Changes).
  *
  * @param {Date|Number} date - the date to be changed
- * @param {Number} amount - the amount of weeks to be added
+ * @param {Number} amount - the amount of weeks to be added. Positive decimals will be rounded using `Math.floor`, decimals less than zero will be rounded using `Math.ceil`.
  * @returns {Date} the new date with the weeks added
  * @throws {TypeError} 2 arguments required
  *
@@ -71801,7 +72736,7 @@ __webpack_require__.r(__webpack_exports__);
  * - [Changes that are common for the whole library](https://github.com/date-fns/date-fns/blob/master/docs/upgradeGuide.md#Common-Changes).
  *
  * @param {Date|Number} date - the date to be changed
- * @param {Number} amount - the amount of years to be added
+ * @param {Number} amount - the amount of years to be added. Positive decimals will be rounded using `Math.floor`, decimals less than zero will be rounded using `Math.ceil`.
  * @returns {Date} the new date with the years added
  * @throws {TypeError} 2 arguments required
  *
@@ -72774,19 +73709,41 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return differenceInDays; });
 /* harmony import */ var _toDate_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../toDate/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/toDate/index.js");
 /* harmony import */ var _differenceInCalendarDays_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../differenceInCalendarDays/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/differenceInCalendarDays/index.js");
-/* harmony import */ var _compareAsc_index_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../compareAsc/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/compareAsc/index.js");
-/* harmony import */ var _lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../_lib/requiredArgs/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/_lib/requiredArgs/index.js");
+/* harmony import */ var _lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../_lib/requiredArgs/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/_lib/requiredArgs/index.js");
 
 
+ // Like `compareAsc` but uses local time not UTC, which is needed
+// for accurate equality comparisons of UTC timestamps that end up
+// having the same representation in local time, e.g. one hour before
+// DST ends vs. the instant that DST ends.
 
+function compareLocalAsc(dateLeft, dateRight) {
+  var diff = dateLeft.getFullYear() - dateRight.getFullYear() || dateLeft.getMonth() - dateRight.getMonth() || dateLeft.getDate() - dateRight.getDate() || dateLeft.getHours() - dateRight.getHours() || dateLeft.getMinutes() - dateRight.getMinutes() || dateLeft.getSeconds() - dateRight.getSeconds() || dateLeft.getMilliseconds() - dateRight.getMilliseconds();
 
+  if (diff < 0) {
+    return -1;
+  } else if (diff > 0) {
+    return 1; // Return 0 if diff is 0; return NaN if diff is NaN
+  } else {
+    return diff;
+  }
+}
 /**
  * @name differenceInDays
  * @category Day Helpers
  * @summary Get the number of full days between the given dates.
  *
  * @description
- * Get the number of full day periods between the given dates.
+ * Get the number of full day periods between two dates. Fractional days are
+ * truncated towards zero.
+ *
+ * One "full day" is the distance between a local time in one day to the same
+ * local time on the next or previous day. A full day can sometimes be less than
+ * or more than 24 hours if a daylight savings change happens between two dates.
+ *
+ * To ignore DST and only measure exact 24-hour periods, use this instead:
+ * `Math.floor(differenceInHours(dateLeft, dateRight)/24)|0`.
+ *
  *
  * ### v2.0.0 breaking changes:
  *
@@ -72794,7 +73751,7 @@ __webpack_require__.r(__webpack_exports__);
  *
  * @param {Date|Number} dateLeft - the later date
  * @param {Date|Number} dateRight - the earlier date
- * @returns {Number} the number of full days
+ * @returns {Number} the number of full days according to the local timezone
  * @throws {TypeError} 2 arguments required
  *
  * @example
@@ -72805,25 +73762,37 @@ __webpack_require__.r(__webpack_exports__);
  *   new Date(2011, 6, 2, 23, 0)
  * )
  * //=> 365
- * // How many days are between
+ * // How many full days are between
  * // 2 July 2011 23:59:00 and 3 July 2011 00:01:00?
  * var result = differenceInDays(
  *   new Date(2011, 6, 3, 0, 1),
  *   new Date(2011, 6, 2, 23, 59)
  * )
  * //=> 0
+ * // How many full days are between
+ * // 1 March 2020 0:00 and 1 June 2020 0:00 ?
+ * // Note: because local time is used, the
+ * // result will always be 92 days, even in
+ * // time zones where DST starts and the
+ * // period has only 92*24-1 hours.
+ * var result = differenceInDays(
+ *   new Date(2020, 5, 1),
+ *   new Date(2020, 2, 1)
+ * )
+//=> 92
  */
 
+
 function differenceInDays(dirtyDateLeft, dirtyDateRight) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(2, arguments);
+  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(2, arguments);
   var dateLeft = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateLeft);
   var dateRight = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateRight);
-  var sign = Object(_compareAsc_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dateLeft, dateRight);
+  var sign = compareLocalAsc(dateLeft, dateRight);
   var difference = Math.abs(Object(_differenceInCalendarDays_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dateLeft, dateRight));
   dateLeft.setDate(dateLeft.getDate() - sign * difference); // Math.abs(diff in full days - diff in calendar days) === 1 if last calendar day is not full
   // If so, result must be decreased by 1 in absolute value
 
-  var isLastDayNotFull = Object(_compareAsc_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dateLeft, dateRight) === -sign;
+  var isLastDayNotFull = compareLocalAsc(dateLeft, dateRight) === -sign;
   var result = sign * (difference - isLastDayNotFull); // Prevent negative zero
 
   return result === 0 ? 0 : result;
@@ -73230,7 +74199,16 @@ __webpack_require__.r(__webpack_exports__);
  * @summary Get the number of full weeks between the given dates.
  *
  * @description
- * Get the number of full weeks between the given dates.
+ * Get the number of full weeks between two dates. Fractional weeks are
+ * truncated towards zero.
+ *
+ * One "full week" is the distance between a local time in one day to the same
+ * local time 7 days earlier or later. A full week can sometimes be less than
+ * or more than 7*24 hours if a daylight savings change happens between two dates.
+ *
+ * To ignore DST and only measure exact 7*24-hour periods, use this instead:
+ * `Math.floor(differenceInHours(dateLeft, dateRight)/(7*24))|0`.
+ *
  *
  * ### v2.0.0 breaking changes:
  *
@@ -73245,6 +74223,18 @@ __webpack_require__.r(__webpack_exports__);
  * // How many full weeks are between 5 July 2014 and 20 July 2014?
  * var result = differenceInWeeks(new Date(2014, 6, 20), new Date(2014, 6, 5))
  * //=> 2
+ *
+ * // How many full weeks are between
+ * // 1 March 2020 0:00 and 6 June 2020 0:00 ?
+ * // Note: because local time is used, the
+ * // result will always be 8 weeks (54 days),
+ * // even if DST starts and the period has
+ * // only 54*24-1 hours.
+ * var result = differenceInWeeks(
+ *   new Date(2020, 5, 1),
+ *   new Date(2020, 2, 6)
+ * )
+ * //=> 8
  */
 
 function differenceInWeeks(dirtyDateLeft, dirtyDateRight) {
@@ -73301,8 +74291,11 @@ function differenceInYears(dirtyDateLeft, dirtyDateRight) {
   var dateLeft = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateLeft);
   var dateRight = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateRight);
   var sign = Object(_compareAsc_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dateLeft, dateRight);
-  var difference = Math.abs(Object(_differenceInCalendarYears_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dateLeft, dateRight));
-  dateLeft.setFullYear(dateLeft.getFullYear() - sign * difference); // Math.abs(diff in full years - diff in calendar years) === 1 if last calendar year is not full
+  var difference = Math.abs(Object(_differenceInCalendarYears_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dateLeft, dateRight)); // Set both dates to a valid leap year for accurate comparison when dealing
+  // with leap days
+
+  dateLeft.setFullYear('1584');
+  dateRight.setFullYear('1584'); // Math.abs(diff in full years - diff in calendar years) === 1 if last calendar year is not full
   // If so, result must be decreased by 1 in absolute value
 
   var isLastYearNotFull = Object(_compareAsc_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dateLeft, dateRight) === -sign;
@@ -73417,6 +74410,81 @@ function eachDayOfInterval(dirtyInterval, options) {
 
 /***/ }),
 
+/***/ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/eachHourOfInterval/index.js":
+/*!********************************************************************************************!*\
+  !*** ./node_modules/vue2-datepicker/node_modules/date-fns/esm/eachHourOfInterval/index.js ***!
+  \********************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return eachHourOfInterval; });
+/* harmony import */ var _addHours_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../addHours/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/addHours/index.js");
+/* harmony import */ var _toDate_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../toDate/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/toDate/index.js");
+/* harmony import */ var _lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../_lib/requiredArgs/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/_lib/requiredArgs/index.js");
+
+
+
+/**
+ * @name eachHourOfInterval
+ * @category Interval Helpers
+ * @summary Return the array of hours within the specified time interval.
+ *
+ * @description
+ * Return the array of hours within the specified time interval.
+ *
+ * @param {Interval} interval - the interval. See [Interval]{@link docs/types/Interval}
+ * @param {Object} [options] - an object with options.
+ * @param {Number} [options.step=1] - the step to increment by. The value should be more than 1.
+ * @returns {Date[]} the array with starts of hours from the hour of the interval start to the hour of the interval end
+ * @throws {TypeError} 1 argument required
+ * @throws {RangeError} `options.step` must be a number greater than 1
+ * @throws {RangeError} The start of an interval cannot be after its end
+ * @throws {RangeError} Date in interval cannot be `Invalid Date`
+ *
+ * @example
+ * // Each hour between 6 October 2014, 12:00 and 10 October 2014, 15:00
+ * var result = eachHourOfInterval({
+ *   start: new Date(2014, 9, 6, 12),
+ *   end: new Date(2014, 9, 6, 15)
+ * })
+ * //=> [
+ * //   Mon Oct 06 2014 12:00:00,
+ * //   Mon Oct 06 2014 13:00:00,
+ * //   Mon Oct 06 2014 14:00:00,
+ * //   Mon Oct 06 2014 15:00:00
+ * // ]
+ */
+
+function eachHourOfInterval(dirtyInterval, options) {
+  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(1, arguments);
+  var interval = dirtyInterval || {};
+  var startDate = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(interval.start);
+  var endDate = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(interval.end);
+  var startTime = startDate.getTime();
+  var endTime = endDate.getTime(); // Throw an exception if start date is after end date or if any date is `Invalid Date`
+
+  if (!(startTime <= endTime)) {
+    throw new RangeError('Invalid interval');
+  }
+
+  var dates = [];
+  var currentDate = startDate;
+  currentDate.setMinutes(0, 0, 0);
+  var step = options && 'step' in options ? Number(options.step) : 1;
+  if (step < 1 || isNaN(step)) throw new RangeError('`options.step` must be a number greater than 1');
+
+  while (currentDate.getTime() <= endTime) {
+    dates.push(Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(currentDate));
+    currentDate = Object(_addHours_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(currentDate, step);
+  }
+
+  return dates;
+}
+
+/***/ }),
+
 /***/ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/eachMonthOfInterval/index.js":
 /*!*********************************************************************************************!*\
   !*** ./node_modules/vue2-datepicker/node_modules/date-fns/esm/eachMonthOfInterval/index.js ***!
@@ -73447,7 +74515,7 @@ __webpack_require__.r(__webpack_exports__);
  *
  * @example
  * // Each month between 6 February 2014 and 10 August 2014:
- * var result = eachDayOfInterval({
+ * var result = eachMonthOfInterval({
  *   start: new Date(2014, 1, 6),
  *   end: new Date(2014, 7, 10)
  * })
@@ -73484,6 +74552,78 @@ function eachMonthOfInterval(dirtyInterval) {
   }
 
   return dates;
+}
+
+/***/ }),
+
+/***/ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/eachQuarterOfInterval/index.js":
+/*!***********************************************************************************************!*\
+  !*** ./node_modules/vue2-datepicker/node_modules/date-fns/esm/eachQuarterOfInterval/index.js ***!
+  \***********************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return eachQuarterOfInterval; });
+/* harmony import */ var _addQuarters_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../addQuarters/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/addQuarters/index.js");
+/* harmony import */ var _startOfQuarter_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../startOfQuarter/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/startOfQuarter/index.js");
+/* harmony import */ var _toDate_index_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../toDate/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/toDate/index.js");
+/* harmony import */ var _lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../_lib/requiredArgs/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/_lib/requiredArgs/index.js");
+
+
+
+
+/**
+ * @name eachQuarterOfInterval
+ * @category Interval Helpers
+ * @summary Return the array of quarters within the specified time interval.
+ *
+ * @description
+ * Return the array of quarters within the specified time interval.
+ *
+ * @param {Interval} interval - the interval. See [Interval]{@link docs/types/Interval}
+ * @returns {Date[]} the array with starts of quarters from the quarter of the interval start to the quarter of the interval end
+ * @throws {TypeError} 1 argument required
+ * @throws {RangeError} The start of an interval cannot be after its end
+ * @throws {RangeError} Date in interval cannot be `Invalid Date`
+ *
+ * @example
+ * // Each quarter within interval 6 February 2014 - 10 August 2014:
+ * var result = eachQuarterOfInterval({
+ *   start: new Date(2014, 1, 6),
+ *   end: new Date(2014, 7, 10)
+ * })
+ * //=> [
+ * //   Wed Jan 01 2014 00:00:00,
+ * //   Tue Apr 01 2014 00:00:00,
+ * //   Tue Jul 01 2014 00:00:00,
+ * // ]
+ */
+
+function eachQuarterOfInterval(dirtyInterval) {
+  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(1, arguments);
+  var interval = dirtyInterval || {};
+  var startDate = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(interval.start);
+  var endDate = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(interval.end);
+  var endTime = endDate.getTime(); // Throw an exception if start date is after end date or if any date is `Invalid Date`
+
+  if (!(startDate.getTime() <= endTime)) {
+    throw new RangeError('Invalid interval');
+  }
+
+  var startDateQuarter = Object(_startOfQuarter_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(startDate);
+  var endDateQuarter = Object(_startOfQuarter_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(endDate);
+  endTime = endDateQuarter.getTime();
+  var quarters = [];
+  var currentQuarter = startDateQuarter;
+
+  while (currentQuarter.getTime() <= endTime) {
+    quarters.push(Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(currentQuarter));
+    currentQuarter = Object(_addQuarters_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(currentQuarter, 1);
+  }
+
+  return quarters;
 }
 
 /***/ }),
@@ -73789,7 +74929,7 @@ __webpack_require__.r(__webpack_exports__);
  *
  * @example
  * // Each year between 6 February 2014 and 10 August 2017:
- * var result = eachDayOfInterval({
+ * var result = eachYearOfInterval({
  *   start: new Date(2014, 1, 6),
  *   end: new Date(2017, 7, 10)
  * })
@@ -74329,7 +75469,7 @@ __webpack_require__.r(__webpack_exports__);
  * Return the end of tomorrow.
  *
  * > ⚠️ Please note that this function is not present in the FP submodule as
- * > it uses `Date.now()` internally hence impure and can't be safely curried.
+ * > it uses `new Date()` internally hence impure and can't be safely curried.
  *
  * ### v2.0.0 breaking changes:
  *
@@ -74493,7 +75633,7 @@ __webpack_require__.r(__webpack_exports__);
  * Return the end of yesterday.
  *
  * > ⚠️ Please note that this function is not present in the FP submodule as
- * > it uses `Date.now()` internally hence impure and can't be safely curried.
+ * > it uses `new Date()` internally hence impure and can't be safely curried.
  *
  * ### v2.0.0 breaking changes:
  *
@@ -74652,28 +75792,28 @@ var unescapedLatinCharacterRegExp = /[a-zA-Z]/;
  * |                                 | DD      | 01, 02, ..., 365, 366             | 9     |
  * |                                 | DDD     | 001, 002, ..., 365, 366           |       |
  * |                                 | DDDD    | ...                               | 3     |
- * | Day of week (formatting)        | E..EEE  | Mon, Tue, Wed, ..., Su            |       |
+ * | Day of week (formatting)        | E..EEE  | Mon, Tue, Wed, ..., Sun           |       |
  * |                                 | EEEE    | Monday, Tuesday, ..., Sunday      | 2     |
  * |                                 | EEEEE   | M, T, W, T, F, S, S               |       |
  * |                                 | EEEEEE  | Mo, Tu, We, Th, Fr, Su, Sa        |       |
  * | ISO day of week (formatting)    | i       | 1, 2, 3, ..., 7                   | 7     |
  * |                                 | io      | 1st, 2nd, ..., 7th                | 7     |
  * |                                 | ii      | 01, 02, ..., 07                   | 7     |
- * |                                 | iii     | Mon, Tue, Wed, ..., Su            | 7     |
+ * |                                 | iii     | Mon, Tue, Wed, ..., Sun           | 7     |
  * |                                 | iiii    | Monday, Tuesday, ..., Sunday      | 2,7   |
  * |                                 | iiiii   | M, T, W, T, F, S, S               | 7     |
  * |                                 | iiiiii  | Mo, Tu, We, Th, Fr, Su, Sa        | 7     |
  * | Local day of week (formatting)  | e       | 2, 3, 4, ..., 1                   |       |
  * |                                 | eo      | 2nd, 3rd, ..., 1st                | 7     |
  * |                                 | ee      | 02, 03, ..., 01                   |       |
- * |                                 | eee     | Mon, Tue, Wed, ..., Su            |       |
+ * |                                 | eee     | Mon, Tue, Wed, ..., Sun           |       |
  * |                                 | eeee    | Monday, Tuesday, ..., Sunday      | 2     |
  * |                                 | eeeee   | M, T, W, T, F, S, S               |       |
  * |                                 | eeeeee  | Mo, Tu, We, Th, Fr, Su, Sa        |       |
  * | Local day of week (stand-alone) | c       | 2, 3, 4, ..., 1                   |       |
  * |                                 | co      | 2nd, 3rd, ..., 1st                | 7     |
  * |                                 | cc      | 02, 03, ..., 01                   |       |
- * |                                 | ccc     | Mon, Tue, Wed, ..., Su            |       |
+ * |                                 | ccc     | Mon, Tue, Wed, ..., Sun           |       |
  * |                                 | cccc    | Monday, Tuesday, ..., Sunday      | 2     |
  * |                                 | ccccc   | M, T, W, T, F, S, S               |       |
  * |                                 | cccccc  | Mo, Tu, We, Th, Fr, Su, Sa        |       |
@@ -74694,7 +75834,7 @@ var unescapedLatinCharacterRegExp = /[a-zA-Z]/;
  * |                                 | HH      | 00, 01, 02, ..., 23               |       |
  * | Hour [0-11]                     | K       | 1, 2, ..., 11, 0                  |       |
  * |                                 | Ko      | 1st, 2nd, ..., 11th, 0th          | 7     |
- * |                                 | KK      | 1, 2, ..., 11, 0                  |       |
+ * |                                 | KK      | 01, 02, ..., 11, 00               |       |
  * | Hour [1-24]                     | k       | 24, 1, 2, ..., 23                 |       |
  * |                                 | ko      | 24th, 1st, 2nd, ..., 23rd         | 7     |
  * |                                 | kk      | 24, 01, 02, ..., 23               |       |
@@ -74852,10 +75992,10 @@ var unescapedLatinCharacterRegExp = /[a-zA-Z]/;
  * @throws {RangeError} `options.locale` must contain `formatLong` property
  * @throws {RangeError} `options.weekStartsOn` must be between 0 and 6
  * @throws {RangeError} `options.firstWeekContainsDate` must be between 1 and 7
- * @throws {RangeError} use `yyyy` instead of `YYYY` for formatting years; see: https://git.io/fxCyr
- * @throws {RangeError} use `yy` instead of `YY` for formatting years; see: https://git.io/fxCyr
- * @throws {RangeError} use `d` instead of `D` for formatting days of the month; see: https://git.io/fxCyr
- * @throws {RangeError} use `dd` instead of `DD` for formatting days of the month; see: https://git.io/fxCyr
+ * @throws {RangeError} use `yyyy` instead of `YYYY` for formatting years using [format provided] to the input [input provided]; see: https://git.io/fxCyr
+ * @throws {RangeError} use `yy` instead of `YY` for formatting years using [format provided] to the input [input provided]; see: https://git.io/fxCyr
+ * @throws {RangeError} use `d` instead of `D` for formatting days of the month using [format provided] to the input [input provided]; see: https://git.io/fxCyr
+ * @throws {RangeError} use `dd` instead of `DD` for formatting days of the month using [format provided] to the input [input provided]; see: https://git.io/fxCyr
  * @throws {RangeError} format string contains an unescaped latin alphabet character
  *
  * @example
@@ -74948,11 +76088,11 @@ function format(dirtyDate, dirtyFormatStr, dirtyOptions) {
 
     if (formatter) {
       if (!options.useAdditionalWeekYearTokens && Object(_lib_protectedTokens_index_js__WEBPACK_IMPORTED_MODULE_7__["isProtectedWeekYearToken"])(substring)) {
-        Object(_lib_protectedTokens_index_js__WEBPACK_IMPORTED_MODULE_7__["throwProtectedError"])(substring);
+        Object(_lib_protectedTokens_index_js__WEBPACK_IMPORTED_MODULE_7__["throwProtectedError"])(substring, dirtyFormatStr, dirtyDate);
       }
 
       if (!options.useAdditionalDayOfYearTokens && Object(_lib_protectedTokens_index_js__WEBPACK_IMPORTED_MODULE_7__["isProtectedDayOfYearToken"])(substring)) {
-        Object(_lib_protectedTokens_index_js__WEBPACK_IMPORTED_MODULE_7__["throwProtectedError"])(substring);
+        Object(_lib_protectedTokens_index_js__WEBPACK_IMPORTED_MODULE_7__["throwProtectedError"])(substring, dirtyFormatStr, dirtyDate);
       }
 
       return formatter(utcDate, substring, locale.localize, formatterOptions);
@@ -75601,6 +76741,202 @@ function formatDistanceToNow(dirtyDate, dirtyOptions) {
 
 /***/ }),
 
+/***/ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/formatDistanceToNowStrict/index.js":
+/*!***************************************************************************************************!*\
+  !*** ./node_modules/vue2-datepicker/node_modules/date-fns/esm/formatDistanceToNowStrict/index.js ***!
+  \***************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return formatDistanceToNowStrict; });
+/* harmony import */ var _formatDistanceStrict_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../formatDistanceStrict/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/formatDistanceStrict/index.js");
+/* harmony import */ var _lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../_lib/requiredArgs/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/_lib/requiredArgs/index.js");
+
+
+/**
+ * @name formatDistanceToNowStrict
+ * @category Common Helpers
+ * @summary Return the distance between the given date and now in words.
+ * @pure false
+ *
+ * @description
+ * Return the distance between the given dates in words, using strict units.
+ * This is like `formatDistance`, but does not use helpers like 'almost', 'over',
+ * 'less than' and the like.
+ *
+ * | Distance between dates | Result              |
+ * |------------------------|---------------------|
+ * | 0 ... 59 secs          | [0..59] seconds     |
+ * | 1 ... 59 mins          | [1..59] minutes     |
+ * | 1 ... 23 hrs           | [1..23] hours       |
+ * | 1 ... 29 days          | [1..29] days        |
+ * | 1 ... 11 months        | [1..11] months      |
+ * | 1 ... N years          | [1..N]  years       |
+ *
+ * @param {Date|Number} date - the given date
+ * @param {Object} [options] - an object with options.
+ * @param {Boolean} [options.addSuffix=false] - result indicates if the second date is earlier or later than the first
+ * @param {'second'|'minute'|'hour'|'day'|'month'|'year'} [options.unit] - if specified, will force a unit
+ * @param {'floor'|'ceil'|'round'} [options.roundingMethod='round'] - which way to round partial units
+ * @param {Locale} [options.locale=defaultLocale] - the locale object. See [Locale]{@link https://date-fns.org/docs/Locale}
+ * @returns {String} the distance in words
+ * @throws {TypeError} 1 argument required
+ * @throws {RangeError} `date` must not be Invalid Date
+ * @throws {RangeError} `options.locale` must contain `formatDistance` property
+ *
+ * @example
+ * // If today is 1 January 2015, what is the distance to 2 July 2014?
+ * var result = formatDistanceToNowStrict(
+ *   new Date(2014, 6, 2)
+ * )
+ * //=> '6 months'
+ *
+ * @example
+ * // If now is 1 January 2015 00:00:00,
+ * // what is the distance to 1 January 2015 00:00:15, including seconds?
+ * var result = formatDistanceToNowStrict(
+ *   new Date(2015, 0, 1, 0, 0, 15)
+ * )
+ * //=> '20 seconds'
+ *
+ * @example
+ * // If today is 1 January 2015,
+ * // what is the distance to 1 January 2016, with a suffix?
+ * var result = formatDistanceToNowStrict(
+ *   new Date(2016, 0, 1),
+ *   {addSuffix: true}
+ * )
+ * //=> 'in 1 year'
+ *
+ * @example
+ * // If today is 28 January 2015,
+ * // what is the distance to 1 January 2015, in months, rounded up??
+ * var result = formatDistanceToNowStrict(new Date(2015, 0, 1), {
+ *   unit: 'month',
+ *   roundingMethod: 'ceil'
+ * })
+ * //=> '1 month'
+ *
+ * @example
+ * // If today is 1 January 2015,
+ * // what is the distance to 1 August 2016 in Esperanto?
+ * var eoLocale = require('date-fns/locale/eo')
+ * var result = formatDistanceToNowStrict(
+ *   new Date(2016, 7, 1),
+ *   {locale: eoLocale}
+ * )
+ * //=> '1 jaro'
+ */
+
+function formatDistanceToNowStrict(dirtyDate, dirtyOptions) {
+  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+  return Object(_formatDistanceStrict_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate, Date.now(), dirtyOptions);
+}
+
+/***/ }),
+
+/***/ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/formatDuration/index.js":
+/*!****************************************************************************************!*\
+  !*** ./node_modules/vue2-datepicker/node_modules/date-fns/esm/formatDuration/index.js ***!
+  \****************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return formatDuration; });
+/* harmony import */ var _locale_en_US_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../locale/en-US/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/locale/en-US/index.js");
+
+var defaultFormat = ['years', 'months', 'weeks', 'days', 'hours', 'minutes', 'seconds'];
+/**
+ * @name formatDuration
+ * @category Common Helpers
+ * @summary Formats a duration in human-readable format
+ *
+ * @description
+ * Return human-readable duration string i.e. "9 months 2 days"
+ *
+ * @param {Duration} duration - the duration to format
+ * @param {Object} [options] - an object with options.
+
+ * @param {string[]} [options.format=['years', 'months', 'weeks', 'days', 'hours', 'minutes', 'seconds']] - the array of units to format
+ * @param {boolean} [options.zero=false] - should be zeros be included in the output?
+ * @param {string} [options.delimiter=' '] - delimiter string
+ * @param {Locale} [options.locale=defaultLocale] - the locale object. See [Locale]{@link https://date-fns.org/docs/Locale}
+ * @returns {string} the formatted date string
+ * @throws {TypeError} 1 argument required
+ *
+ * @example
+ * // Format full duration
+ * formatDuration({
+ *   years: 2,
+ *   months: 9,
+ *   weeks: 1,
+ *   days: 7,
+ *   hours: 5,
+ *   minutes: 9,
+ *   seconds: 30
+ * })
+ * //=> '2 years 9 months 1 week 7 days 5 hours 9 minutes 30 seconds
+ *
+ * @example
+ * // Format partial duration
+ * formatDuration({ months: 9, days: 2 })
+ * //=> '9 months 2 days'
+ *
+ * @example
+ * // Customize the format
+ * formatDuration(
+ *   {
+ *     years: 2,
+ *     months: 9,
+ *     weeks: 1,
+ *     days: 7,
+ *     hours: 5,
+ *     minutes: 9,
+ *     seconds: 30
+ *   },
+ *   { format: ['months', 'weeks'] }
+ * ) === '9 months 1 week'
+ *
+ * @example
+ * // Customize the zeros presence
+ * formatDuration({ years: 0, months: 9 })
+ * //=> '9 months'
+ * formatDuration({ years: 0, months: 9 }, null, { zero: true })
+ * //=> '0 years 9 months'
+ *
+ * @example
+ * // Customize the delimiter
+ * formatDuration({ years: 2, months: 9, weeks: 3 }, { delimiter: ', ' })
+ * //=> '2 years, 9 months, 3 weeks'
+ */
+
+function formatDuration(duration) {
+  var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+  if (arguments.length < 1) {
+    throw new TypeError("1 argument required, but only ".concat(arguments.length, " present"));
+  }
+
+  var format = options.format || defaultFormat;
+  var locale = options.locale || _locale_en_US_index_js__WEBPACK_IMPORTED_MODULE_0__["default"];
+  var zero = options.zero || false;
+  var delimiter = options.delimiter || ' ';
+  var result = format.reduce(function (acc, unit) {
+    var token = "x".concat(unit.replace(/(^.)/, function (m) {
+      return m.toUpperCase();
+    }));
+    var addChunk = typeof duration[unit] === 'number' && (zero || duration[unit]);
+    return addChunk ? acc.concat(locale.formatDistance(token, duration[unit])) : acc;
+  }, []).join(delimiter);
+  return result;
+}
+
+/***/ }),
+
 /***/ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/formatISO/index.js":
 /*!***********************************************************************************!*\
   !*** ./node_modules/vue2-datepicker/node_modules/date-fns/esm/formatISO/index.js ***!
@@ -75699,7 +77035,7 @@ function formatISO(dirtyDate, dirtyOptions) {
 
     if (offset !== 0) {
       var absoluteOffset = Math.abs(offset);
-      var hourOffset = Object(_lib_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(absoluteOffset / 60, 2);
+      var hourOffset = Object(_lib_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(Math.floor(absoluteOffset / 60), 2);
       var minuteOffset = Object(_lib_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(absoluteOffset % 60, 2); // If less than 0, the sign is +, because it is ahead of time.
 
       var sign = offset < 0 ? '+' : '-';
@@ -75830,6 +77166,65 @@ function formatISO9075(dirtyDate, dirtyOptions) {
 
 /***/ }),
 
+/***/ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/formatISODuration/index.js":
+/*!*******************************************************************************************!*\
+  !*** ./node_modules/vue2-datepicker/node_modules/date-fns/esm/formatISODuration/index.js ***!
+  \*******************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return formatISODuration; });
+/* harmony import */ var _lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../_lib/requiredArgs/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/_lib/requiredArgs/index.js");
+
+/**
+ * @name formatISODuration
+ * @category Common Helpers
+ * @summary Format a duration object according as ISO 8601 duration string
+ *
+ * @description
+ * Format a duration object according to the ISO 8601 duration standard (https://www.digi.com/resources/documentation/digidocs/90001437-13/reference/r_iso_8601_duration_format.htm)
+ *
+ * @param {Duration} duration - the duration to format
+ *
+ * @returns {String} The ISO 8601 duration string
+ * @throws {TypeError} Requires 1 argument
+ * @throws {Error} Argument must be an object
+ *
+ * @example
+ * // Format the given duration as ISO 8601 string
+ * formatISODuration({
+ *   years: 39,
+ *   months: 2,
+ *   days: 20,
+ *   hours: 7,
+ *   minutes: 5,
+ *   seconds: 0
+ * })
+ * //=> 'P39Y2M20DT0H0M0S'
+ */
+
+function formatISODuration(duration) {
+  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(1, arguments);
+  if (typeof duration !== 'object') throw new Error('Duration must be an object');
+  var _duration$years = duration.years,
+      years = _duration$years === void 0 ? 0 : _duration$years,
+      _duration$months = duration.months,
+      months = _duration$months === void 0 ? 0 : _duration$months,
+      _duration$days = duration.days,
+      days = _duration$days === void 0 ? 0 : _duration$days,
+      _duration$hours = duration.hours,
+      hours = _duration$hours === void 0 ? 0 : _duration$hours,
+      _duration$minutes = duration.minutes,
+      minutes = _duration$minutes === void 0 ? 0 : _duration$minutes,
+      _duration$seconds = duration.seconds,
+      seconds = _duration$seconds === void 0 ? 0 : _duration$seconds;
+  return "P".concat(years, "Y").concat(months, "M").concat(days, "DT").concat(hours, "H").concat(minutes, "M").concat(seconds, "S");
+}
+
+/***/ }),
+
 /***/ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/formatRFC3339/index.js":
 /*!***************************************************************************************!*\
   !*** ./node_modules/vue2-datepicker/node_modules/date-fns/esm/formatRFC3339/index.js ***!
@@ -75917,7 +77312,7 @@ function formatRFC3339(dirtyDate, dirtyOptions) {
 
   if (tzOffset !== 0) {
     var absoluteOffset = Math.abs(tzOffset);
-    var hourOffset = Object(_lib_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(absoluteOffset / 60, 2);
+    var hourOffset = Object(_lib_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(absoluteOffset / 60), 2);
     var minuteOffset = Object(_lib_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(absoluteOffset % 60, 2); // If less than 0, the sign is +, because it is ahead of time.
 
     var sign = tzOffset < 0 ? '+' : '-';
@@ -76222,7 +77617,7 @@ __webpack_require__.r(__webpack_exports__);
  * - [Changes that are common for the whole library](https://github.com/date-fns/date-fns/blob/master/docs/upgradeGuide.md#Common-Changes).
  *
  * @param {Date|Number} date - the given date
- * @returns {Number} the day of week
+ * @returns {0|1|2|3|4|5|6} the day of week, 0 represents Sunday
  * @throws {TypeError} 1 argument required
  *
  * @example
@@ -77495,7 +78890,7 @@ function getYear(dirtyDate) {
 /*!*************************************************************************!*\
   !*** ./node_modules/vue2-datepicker/node_modules/date-fns/esm/index.js ***!
   \*************************************************************************/
-/*! exports provided: add, addBusinessDays, addDays, addHours, addISOWeekYears, addMilliseconds, addMinutes, addMonths, addQuarters, addSeconds, addWeeks, addYears, areIntervalsOverlapping, closestIndexTo, closestTo, compareAsc, compareDesc, differenceInBusinessDays, differenceInCalendarDays, differenceInCalendarISOWeekYears, differenceInCalendarISOWeeks, differenceInCalendarMonths, differenceInCalendarQuarters, differenceInCalendarWeeks, differenceInCalendarYears, differenceInDays, differenceInHours, differenceInISOWeekYears, differenceInMilliseconds, differenceInMinutes, differenceInMonths, differenceInQuarters, differenceInSeconds, differenceInWeeks, differenceInYears, eachDayOfInterval, eachMonthOfInterval, eachWeekOfInterval, eachWeekendOfInterval, eachWeekendOfMonth, eachWeekendOfYear, eachYearOfInterval, endOfDay, endOfDecade, endOfHour, endOfISOWeek, endOfISOWeekYear, endOfMinute, endOfMonth, endOfQuarter, endOfSecond, endOfToday, endOfTomorrow, endOfWeek, endOfYear, endOfYesterday, format, formatDistance, formatDistanceStrict, formatDistanceToNow, formatISO, formatISO9075, formatRFC3339, formatRFC7231, formatRelative, fromUnixTime, getDate, getDay, getDayOfYear, getDaysInMonth, getDaysInYear, getDecade, getHours, getISODay, getISOWeek, getISOWeekYear, getISOWeeksInYear, getMilliseconds, getMinutes, getMonth, getOverlappingDaysInIntervals, getQuarter, getSeconds, getTime, getUnixTime, getWeek, getWeekOfMonth, getWeekYear, getWeeksInMonth, getYear, isAfter, isBefore, isDate, isEqual, isExists, isFirstDayOfMonth, isFriday, isFuture, isLastDayOfMonth, isLeapYear, isMonday, isPast, isSameDay, isSameHour, isSameISOWeek, isSameISOWeekYear, isSameMinute, isSameMonth, isSameQuarter, isSameSecond, isSameWeek, isSameYear, isSaturday, isSunday, isThisHour, isThisISOWeek, isThisMinute, isThisMonth, isThisQuarter, isThisSecond, isThisWeek, isThisYear, isThursday, isToday, isTomorrow, isTuesday, isValid, isWednesday, isWeekend, isWithinInterval, isYesterday, lastDayOfDecade, lastDayOfISOWeek, lastDayOfISOWeekYear, lastDayOfMonth, lastDayOfQuarter, lastDayOfWeek, lastDayOfYear, lightFormat, max, min, parse, parseISO, parseJSON, roundToNearestMinutes, set, setDate, setDay, setDayOfYear, setHours, setISODay, setISOWeek, setISOWeekYear, setMilliseconds, setMinutes, setMonth, setQuarter, setSeconds, setWeek, setWeekYear, setYear, startOfDay, startOfDecade, startOfHour, startOfISOWeek, startOfISOWeekYear, startOfMinute, startOfMonth, startOfQuarter, startOfSecond, startOfToday, startOfTomorrow, startOfWeek, startOfWeekYear, startOfYear, startOfYesterday, sub, subBusinessDays, subDays, subHours, subISOWeekYears, subMilliseconds, subMinutes, subMonths, subQuarters, subSeconds, subWeeks, subYears, toDate, maxTime, minTime */
+/*! exports provided: add, addBusinessDays, addDays, addHours, addISOWeekYears, addMilliseconds, addMinutes, addMonths, addQuarters, addSeconds, addWeeks, addYears, areIntervalsOverlapping, closestIndexTo, closestTo, compareAsc, compareDesc, differenceInBusinessDays, differenceInCalendarDays, differenceInCalendarISOWeekYears, differenceInCalendarISOWeeks, differenceInCalendarMonths, differenceInCalendarQuarters, differenceInCalendarWeeks, differenceInCalendarYears, differenceInDays, differenceInHours, differenceInISOWeekYears, differenceInMilliseconds, differenceInMinutes, differenceInMonths, differenceInQuarters, differenceInSeconds, differenceInWeeks, differenceInYears, eachDayOfInterval, eachHourOfInterval, eachMonthOfInterval, eachQuarterOfInterval, eachWeekOfInterval, eachWeekendOfInterval, eachWeekendOfMonth, eachWeekendOfYear, eachYearOfInterval, endOfDay, endOfDecade, endOfHour, endOfISOWeek, endOfISOWeekYear, endOfMinute, endOfMonth, endOfQuarter, endOfSecond, endOfToday, endOfTomorrow, endOfWeek, endOfYear, endOfYesterday, format, formatDistance, formatDistanceStrict, formatDistanceToNow, formatDistanceToNowStrict, formatDuration, formatISO, formatISO9075, formatISODuration, formatRFC3339, formatRFC7231, formatRelative, fromUnixTime, getDate, getDay, getDayOfYear, getDaysInMonth, getDaysInYear, getDecade, getHours, getISODay, getISOWeek, getISOWeekYear, getISOWeeksInYear, getMilliseconds, getMinutes, getMonth, getOverlappingDaysInIntervals, getQuarter, getSeconds, getTime, getUnixTime, getWeek, getWeekOfMonth, getWeekYear, getWeeksInMonth, getYear, intervalToDuration, isAfter, isBefore, isDate, isEqual, isExists, isFirstDayOfMonth, isFriday, isFuture, isLastDayOfMonth, isLeapYear, isMatch, isMonday, isPast, isSameDay, isSameHour, isSameISOWeek, isSameISOWeekYear, isSameMinute, isSameMonth, isSameQuarter, isSameSecond, isSameWeek, isSameYear, isSaturday, isSunday, isThisHour, isThisISOWeek, isThisMinute, isThisMonth, isThisQuarter, isThisSecond, isThisWeek, isThisYear, isThursday, isToday, isTomorrow, isTuesday, isValid, isWednesday, isWeekend, isWithinInterval, isYesterday, lastDayOfDecade, lastDayOfISOWeek, lastDayOfISOWeekYear, lastDayOfMonth, lastDayOfQuarter, lastDayOfWeek, lastDayOfYear, lightFormat, max, min, parse, parseISO, parseJSON, roundToNearestMinutes, set, setDate, setDay, setDayOfYear, setHours, setISODay, setISOWeek, setISOWeekYear, setMilliseconds, setMinutes, setMonth, setQuarter, setSeconds, setWeek, setWeekYear, setYear, startOfDay, startOfDecade, startOfHour, startOfISOWeek, startOfISOWeekYear, startOfMinute, startOfMonth, startOfQuarter, startOfSecond, startOfToday, startOfTomorrow, startOfWeek, startOfWeekYear, startOfYear, startOfYesterday, sub, subBusinessDays, subDays, subHours, subISOWeekYears, subMilliseconds, subMinutes, subMonths, subQuarters, subSeconds, subWeeks, subYears, toDate, maxTime, minTime */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -77608,469 +79003,490 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _eachDayOfInterval_index_js__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./eachDayOfInterval/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/eachDayOfInterval/index.js");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "eachDayOfInterval", function() { return _eachDayOfInterval_index_js__WEBPACK_IMPORTED_MODULE_35__["default"]; });
 
-/* harmony import */ var _eachMonthOfInterval_index_js__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./eachMonthOfInterval/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/eachMonthOfInterval/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "eachMonthOfInterval", function() { return _eachMonthOfInterval_index_js__WEBPACK_IMPORTED_MODULE_36__["default"]; });
+/* harmony import */ var _eachHourOfInterval_index_js__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./eachHourOfInterval/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/eachHourOfInterval/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "eachHourOfInterval", function() { return _eachHourOfInterval_index_js__WEBPACK_IMPORTED_MODULE_36__["default"]; });
 
-/* harmony import */ var _eachWeekOfInterval_index_js__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./eachWeekOfInterval/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/eachWeekOfInterval/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "eachWeekOfInterval", function() { return _eachWeekOfInterval_index_js__WEBPACK_IMPORTED_MODULE_37__["default"]; });
+/* harmony import */ var _eachMonthOfInterval_index_js__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./eachMonthOfInterval/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/eachMonthOfInterval/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "eachMonthOfInterval", function() { return _eachMonthOfInterval_index_js__WEBPACK_IMPORTED_MODULE_37__["default"]; });
 
-/* harmony import */ var _eachWeekendOfInterval_index_js__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./eachWeekendOfInterval/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/eachWeekendOfInterval/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "eachWeekendOfInterval", function() { return _eachWeekendOfInterval_index_js__WEBPACK_IMPORTED_MODULE_38__["default"]; });
+/* harmony import */ var _eachQuarterOfInterval_index_js__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./eachQuarterOfInterval/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/eachQuarterOfInterval/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "eachQuarterOfInterval", function() { return _eachQuarterOfInterval_index_js__WEBPACK_IMPORTED_MODULE_38__["default"]; });
 
-/* harmony import */ var _eachWeekendOfMonth_index_js__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./eachWeekendOfMonth/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/eachWeekendOfMonth/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "eachWeekendOfMonth", function() { return _eachWeekendOfMonth_index_js__WEBPACK_IMPORTED_MODULE_39__["default"]; });
+/* harmony import */ var _eachWeekOfInterval_index_js__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./eachWeekOfInterval/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/eachWeekOfInterval/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "eachWeekOfInterval", function() { return _eachWeekOfInterval_index_js__WEBPACK_IMPORTED_MODULE_39__["default"]; });
 
-/* harmony import */ var _eachWeekendOfYear_index_js__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./eachWeekendOfYear/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/eachWeekendOfYear/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "eachWeekendOfYear", function() { return _eachWeekendOfYear_index_js__WEBPACK_IMPORTED_MODULE_40__["default"]; });
+/* harmony import */ var _eachWeekendOfInterval_index_js__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./eachWeekendOfInterval/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/eachWeekendOfInterval/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "eachWeekendOfInterval", function() { return _eachWeekendOfInterval_index_js__WEBPACK_IMPORTED_MODULE_40__["default"]; });
 
-/* harmony import */ var _eachYearOfInterval_index_js__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./eachYearOfInterval/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/eachYearOfInterval/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "eachYearOfInterval", function() { return _eachYearOfInterval_index_js__WEBPACK_IMPORTED_MODULE_41__["default"]; });
+/* harmony import */ var _eachWeekendOfMonth_index_js__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./eachWeekendOfMonth/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/eachWeekendOfMonth/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "eachWeekendOfMonth", function() { return _eachWeekendOfMonth_index_js__WEBPACK_IMPORTED_MODULE_41__["default"]; });
 
-/* harmony import */ var _endOfDay_index_js__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./endOfDay/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/endOfDay/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "endOfDay", function() { return _endOfDay_index_js__WEBPACK_IMPORTED_MODULE_42__["default"]; });
+/* harmony import */ var _eachWeekendOfYear_index_js__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./eachWeekendOfYear/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/eachWeekendOfYear/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "eachWeekendOfYear", function() { return _eachWeekendOfYear_index_js__WEBPACK_IMPORTED_MODULE_42__["default"]; });
 
-/* harmony import */ var _endOfDecade_index_js__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./endOfDecade/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/endOfDecade/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "endOfDecade", function() { return _endOfDecade_index_js__WEBPACK_IMPORTED_MODULE_43__["default"]; });
+/* harmony import */ var _eachYearOfInterval_index_js__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./eachYearOfInterval/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/eachYearOfInterval/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "eachYearOfInterval", function() { return _eachYearOfInterval_index_js__WEBPACK_IMPORTED_MODULE_43__["default"]; });
 
-/* harmony import */ var _endOfHour_index_js__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ./endOfHour/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/endOfHour/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "endOfHour", function() { return _endOfHour_index_js__WEBPACK_IMPORTED_MODULE_44__["default"]; });
+/* harmony import */ var _endOfDay_index_js__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ./endOfDay/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/endOfDay/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "endOfDay", function() { return _endOfDay_index_js__WEBPACK_IMPORTED_MODULE_44__["default"]; });
 
-/* harmony import */ var _endOfISOWeek_index_js__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ./endOfISOWeek/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/endOfISOWeek/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "endOfISOWeek", function() { return _endOfISOWeek_index_js__WEBPACK_IMPORTED_MODULE_45__["default"]; });
+/* harmony import */ var _endOfDecade_index_js__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ./endOfDecade/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/endOfDecade/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "endOfDecade", function() { return _endOfDecade_index_js__WEBPACK_IMPORTED_MODULE_45__["default"]; });
 
-/* harmony import */ var _endOfISOWeekYear_index_js__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! ./endOfISOWeekYear/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/endOfISOWeekYear/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "endOfISOWeekYear", function() { return _endOfISOWeekYear_index_js__WEBPACK_IMPORTED_MODULE_46__["default"]; });
+/* harmony import */ var _endOfHour_index_js__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! ./endOfHour/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/endOfHour/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "endOfHour", function() { return _endOfHour_index_js__WEBPACK_IMPORTED_MODULE_46__["default"]; });
 
-/* harmony import */ var _endOfMinute_index_js__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ./endOfMinute/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/endOfMinute/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "endOfMinute", function() { return _endOfMinute_index_js__WEBPACK_IMPORTED_MODULE_47__["default"]; });
+/* harmony import */ var _endOfISOWeek_index_js__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ./endOfISOWeek/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/endOfISOWeek/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "endOfISOWeek", function() { return _endOfISOWeek_index_js__WEBPACK_IMPORTED_MODULE_47__["default"]; });
 
-/* harmony import */ var _endOfMonth_index_js__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! ./endOfMonth/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/endOfMonth/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "endOfMonth", function() { return _endOfMonth_index_js__WEBPACK_IMPORTED_MODULE_48__["default"]; });
+/* harmony import */ var _endOfISOWeekYear_index_js__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! ./endOfISOWeekYear/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/endOfISOWeekYear/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "endOfISOWeekYear", function() { return _endOfISOWeekYear_index_js__WEBPACK_IMPORTED_MODULE_48__["default"]; });
 
-/* harmony import */ var _endOfQuarter_index_js__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! ./endOfQuarter/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/endOfQuarter/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "endOfQuarter", function() { return _endOfQuarter_index_js__WEBPACK_IMPORTED_MODULE_49__["default"]; });
+/* harmony import */ var _endOfMinute_index_js__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! ./endOfMinute/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/endOfMinute/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "endOfMinute", function() { return _endOfMinute_index_js__WEBPACK_IMPORTED_MODULE_49__["default"]; });
 
-/* harmony import */ var _endOfSecond_index_js__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(/*! ./endOfSecond/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/endOfSecond/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "endOfSecond", function() { return _endOfSecond_index_js__WEBPACK_IMPORTED_MODULE_50__["default"]; });
+/* harmony import */ var _endOfMonth_index_js__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(/*! ./endOfMonth/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/endOfMonth/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "endOfMonth", function() { return _endOfMonth_index_js__WEBPACK_IMPORTED_MODULE_50__["default"]; });
 
-/* harmony import */ var _endOfToday_index_js__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! ./endOfToday/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/endOfToday/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "endOfToday", function() { return _endOfToday_index_js__WEBPACK_IMPORTED_MODULE_51__["default"]; });
+/* harmony import */ var _endOfQuarter_index_js__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! ./endOfQuarter/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/endOfQuarter/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "endOfQuarter", function() { return _endOfQuarter_index_js__WEBPACK_IMPORTED_MODULE_51__["default"]; });
 
-/* harmony import */ var _endOfTomorrow_index_js__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(/*! ./endOfTomorrow/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/endOfTomorrow/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "endOfTomorrow", function() { return _endOfTomorrow_index_js__WEBPACK_IMPORTED_MODULE_52__["default"]; });
+/* harmony import */ var _endOfSecond_index_js__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(/*! ./endOfSecond/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/endOfSecond/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "endOfSecond", function() { return _endOfSecond_index_js__WEBPACK_IMPORTED_MODULE_52__["default"]; });
 
-/* harmony import */ var _endOfWeek_index_js__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(/*! ./endOfWeek/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/endOfWeek/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "endOfWeek", function() { return _endOfWeek_index_js__WEBPACK_IMPORTED_MODULE_53__["default"]; });
+/* harmony import */ var _endOfToday_index_js__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(/*! ./endOfToday/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/endOfToday/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "endOfToday", function() { return _endOfToday_index_js__WEBPACK_IMPORTED_MODULE_53__["default"]; });
 
-/* harmony import */ var _endOfYear_index_js__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(/*! ./endOfYear/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/endOfYear/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "endOfYear", function() { return _endOfYear_index_js__WEBPACK_IMPORTED_MODULE_54__["default"]; });
+/* harmony import */ var _endOfTomorrow_index_js__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(/*! ./endOfTomorrow/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/endOfTomorrow/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "endOfTomorrow", function() { return _endOfTomorrow_index_js__WEBPACK_IMPORTED_MODULE_54__["default"]; });
 
-/* harmony import */ var _endOfYesterday_index_js__WEBPACK_IMPORTED_MODULE_55__ = __webpack_require__(/*! ./endOfYesterday/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/endOfYesterday/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "endOfYesterday", function() { return _endOfYesterday_index_js__WEBPACK_IMPORTED_MODULE_55__["default"]; });
+/* harmony import */ var _endOfWeek_index_js__WEBPACK_IMPORTED_MODULE_55__ = __webpack_require__(/*! ./endOfWeek/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/endOfWeek/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "endOfWeek", function() { return _endOfWeek_index_js__WEBPACK_IMPORTED_MODULE_55__["default"]; });
 
-/* harmony import */ var _format_index_js__WEBPACK_IMPORTED_MODULE_56__ = __webpack_require__(/*! ./format/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/format/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "format", function() { return _format_index_js__WEBPACK_IMPORTED_MODULE_56__["default"]; });
+/* harmony import */ var _endOfYear_index_js__WEBPACK_IMPORTED_MODULE_56__ = __webpack_require__(/*! ./endOfYear/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/endOfYear/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "endOfYear", function() { return _endOfYear_index_js__WEBPACK_IMPORTED_MODULE_56__["default"]; });
 
-/* harmony import */ var _formatDistance_index_js__WEBPACK_IMPORTED_MODULE_57__ = __webpack_require__(/*! ./formatDistance/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/formatDistance/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "formatDistance", function() { return _formatDistance_index_js__WEBPACK_IMPORTED_MODULE_57__["default"]; });
+/* harmony import */ var _endOfYesterday_index_js__WEBPACK_IMPORTED_MODULE_57__ = __webpack_require__(/*! ./endOfYesterday/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/endOfYesterday/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "endOfYesterday", function() { return _endOfYesterday_index_js__WEBPACK_IMPORTED_MODULE_57__["default"]; });
 
-/* harmony import */ var _formatDistanceStrict_index_js__WEBPACK_IMPORTED_MODULE_58__ = __webpack_require__(/*! ./formatDistanceStrict/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/formatDistanceStrict/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "formatDistanceStrict", function() { return _formatDistanceStrict_index_js__WEBPACK_IMPORTED_MODULE_58__["default"]; });
+/* harmony import */ var _format_index_js__WEBPACK_IMPORTED_MODULE_58__ = __webpack_require__(/*! ./format/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/format/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "format", function() { return _format_index_js__WEBPACK_IMPORTED_MODULE_58__["default"]; });
 
-/* harmony import */ var _formatDistanceToNow_index_js__WEBPACK_IMPORTED_MODULE_59__ = __webpack_require__(/*! ./formatDistanceToNow/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/formatDistanceToNow/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "formatDistanceToNow", function() { return _formatDistanceToNow_index_js__WEBPACK_IMPORTED_MODULE_59__["default"]; });
+/* harmony import */ var _formatDistance_index_js__WEBPACK_IMPORTED_MODULE_59__ = __webpack_require__(/*! ./formatDistance/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/formatDistance/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "formatDistance", function() { return _formatDistance_index_js__WEBPACK_IMPORTED_MODULE_59__["default"]; });
 
-/* harmony import */ var _formatISO_index_js__WEBPACK_IMPORTED_MODULE_60__ = __webpack_require__(/*! ./formatISO/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/formatISO/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "formatISO", function() { return _formatISO_index_js__WEBPACK_IMPORTED_MODULE_60__["default"]; });
+/* harmony import */ var _formatDistanceStrict_index_js__WEBPACK_IMPORTED_MODULE_60__ = __webpack_require__(/*! ./formatDistanceStrict/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/formatDistanceStrict/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "formatDistanceStrict", function() { return _formatDistanceStrict_index_js__WEBPACK_IMPORTED_MODULE_60__["default"]; });
 
-/* harmony import */ var _formatISO9075_index_js__WEBPACK_IMPORTED_MODULE_61__ = __webpack_require__(/*! ./formatISO9075/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/formatISO9075/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "formatISO9075", function() { return _formatISO9075_index_js__WEBPACK_IMPORTED_MODULE_61__["default"]; });
+/* harmony import */ var _formatDistanceToNow_index_js__WEBPACK_IMPORTED_MODULE_61__ = __webpack_require__(/*! ./formatDistanceToNow/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/formatDistanceToNow/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "formatDistanceToNow", function() { return _formatDistanceToNow_index_js__WEBPACK_IMPORTED_MODULE_61__["default"]; });
 
-/* harmony import */ var _formatRFC3339_index_js__WEBPACK_IMPORTED_MODULE_62__ = __webpack_require__(/*! ./formatRFC3339/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/formatRFC3339/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "formatRFC3339", function() { return _formatRFC3339_index_js__WEBPACK_IMPORTED_MODULE_62__["default"]; });
+/* harmony import */ var _formatDistanceToNowStrict_index_js__WEBPACK_IMPORTED_MODULE_62__ = __webpack_require__(/*! ./formatDistanceToNowStrict/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/formatDistanceToNowStrict/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "formatDistanceToNowStrict", function() { return _formatDistanceToNowStrict_index_js__WEBPACK_IMPORTED_MODULE_62__["default"]; });
 
-/* harmony import */ var _formatRFC7231_index_js__WEBPACK_IMPORTED_MODULE_63__ = __webpack_require__(/*! ./formatRFC7231/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/formatRFC7231/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "formatRFC7231", function() { return _formatRFC7231_index_js__WEBPACK_IMPORTED_MODULE_63__["default"]; });
+/* harmony import */ var _formatDuration_index_js__WEBPACK_IMPORTED_MODULE_63__ = __webpack_require__(/*! ./formatDuration/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/formatDuration/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "formatDuration", function() { return _formatDuration_index_js__WEBPACK_IMPORTED_MODULE_63__["default"]; });
 
-/* harmony import */ var _formatRelative_index_js__WEBPACK_IMPORTED_MODULE_64__ = __webpack_require__(/*! ./formatRelative/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/formatRelative/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "formatRelative", function() { return _formatRelative_index_js__WEBPACK_IMPORTED_MODULE_64__["default"]; });
+/* harmony import */ var _formatISO_index_js__WEBPACK_IMPORTED_MODULE_64__ = __webpack_require__(/*! ./formatISO/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/formatISO/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "formatISO", function() { return _formatISO_index_js__WEBPACK_IMPORTED_MODULE_64__["default"]; });
 
-/* harmony import */ var _fromUnixTime_index_js__WEBPACK_IMPORTED_MODULE_65__ = __webpack_require__(/*! ./fromUnixTime/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/fromUnixTime/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "fromUnixTime", function() { return _fromUnixTime_index_js__WEBPACK_IMPORTED_MODULE_65__["default"]; });
+/* harmony import */ var _formatISO9075_index_js__WEBPACK_IMPORTED_MODULE_65__ = __webpack_require__(/*! ./formatISO9075/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/formatISO9075/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "formatISO9075", function() { return _formatISO9075_index_js__WEBPACK_IMPORTED_MODULE_65__["default"]; });
 
-/* harmony import */ var _getDate_index_js__WEBPACK_IMPORTED_MODULE_66__ = __webpack_require__(/*! ./getDate/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/getDate/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getDate", function() { return _getDate_index_js__WEBPACK_IMPORTED_MODULE_66__["default"]; });
+/* harmony import */ var _formatISODuration_index_js__WEBPACK_IMPORTED_MODULE_66__ = __webpack_require__(/*! ./formatISODuration/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/formatISODuration/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "formatISODuration", function() { return _formatISODuration_index_js__WEBPACK_IMPORTED_MODULE_66__["default"]; });
 
-/* harmony import */ var _getDay_index_js__WEBPACK_IMPORTED_MODULE_67__ = __webpack_require__(/*! ./getDay/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/getDay/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getDay", function() { return _getDay_index_js__WEBPACK_IMPORTED_MODULE_67__["default"]; });
+/* harmony import */ var _formatRFC3339_index_js__WEBPACK_IMPORTED_MODULE_67__ = __webpack_require__(/*! ./formatRFC3339/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/formatRFC3339/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "formatRFC3339", function() { return _formatRFC3339_index_js__WEBPACK_IMPORTED_MODULE_67__["default"]; });
 
-/* harmony import */ var _getDayOfYear_index_js__WEBPACK_IMPORTED_MODULE_68__ = __webpack_require__(/*! ./getDayOfYear/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/getDayOfYear/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getDayOfYear", function() { return _getDayOfYear_index_js__WEBPACK_IMPORTED_MODULE_68__["default"]; });
+/* harmony import */ var _formatRFC7231_index_js__WEBPACK_IMPORTED_MODULE_68__ = __webpack_require__(/*! ./formatRFC7231/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/formatRFC7231/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "formatRFC7231", function() { return _formatRFC7231_index_js__WEBPACK_IMPORTED_MODULE_68__["default"]; });
 
-/* harmony import */ var _getDaysInMonth_index_js__WEBPACK_IMPORTED_MODULE_69__ = __webpack_require__(/*! ./getDaysInMonth/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/getDaysInMonth/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getDaysInMonth", function() { return _getDaysInMonth_index_js__WEBPACK_IMPORTED_MODULE_69__["default"]; });
+/* harmony import */ var _formatRelative_index_js__WEBPACK_IMPORTED_MODULE_69__ = __webpack_require__(/*! ./formatRelative/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/formatRelative/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "formatRelative", function() { return _formatRelative_index_js__WEBPACK_IMPORTED_MODULE_69__["default"]; });
 
-/* harmony import */ var _getDaysInYear_index_js__WEBPACK_IMPORTED_MODULE_70__ = __webpack_require__(/*! ./getDaysInYear/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/getDaysInYear/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getDaysInYear", function() { return _getDaysInYear_index_js__WEBPACK_IMPORTED_MODULE_70__["default"]; });
+/* harmony import */ var _fromUnixTime_index_js__WEBPACK_IMPORTED_MODULE_70__ = __webpack_require__(/*! ./fromUnixTime/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/fromUnixTime/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "fromUnixTime", function() { return _fromUnixTime_index_js__WEBPACK_IMPORTED_MODULE_70__["default"]; });
 
-/* harmony import */ var _getDecade_index_js__WEBPACK_IMPORTED_MODULE_71__ = __webpack_require__(/*! ./getDecade/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/getDecade/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getDecade", function() { return _getDecade_index_js__WEBPACK_IMPORTED_MODULE_71__["default"]; });
+/* harmony import */ var _getDate_index_js__WEBPACK_IMPORTED_MODULE_71__ = __webpack_require__(/*! ./getDate/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/getDate/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getDate", function() { return _getDate_index_js__WEBPACK_IMPORTED_MODULE_71__["default"]; });
 
-/* harmony import */ var _getHours_index_js__WEBPACK_IMPORTED_MODULE_72__ = __webpack_require__(/*! ./getHours/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/getHours/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getHours", function() { return _getHours_index_js__WEBPACK_IMPORTED_MODULE_72__["default"]; });
+/* harmony import */ var _getDay_index_js__WEBPACK_IMPORTED_MODULE_72__ = __webpack_require__(/*! ./getDay/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/getDay/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getDay", function() { return _getDay_index_js__WEBPACK_IMPORTED_MODULE_72__["default"]; });
 
-/* harmony import */ var _getISODay_index_js__WEBPACK_IMPORTED_MODULE_73__ = __webpack_require__(/*! ./getISODay/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/getISODay/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getISODay", function() { return _getISODay_index_js__WEBPACK_IMPORTED_MODULE_73__["default"]; });
+/* harmony import */ var _getDayOfYear_index_js__WEBPACK_IMPORTED_MODULE_73__ = __webpack_require__(/*! ./getDayOfYear/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/getDayOfYear/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getDayOfYear", function() { return _getDayOfYear_index_js__WEBPACK_IMPORTED_MODULE_73__["default"]; });
 
-/* harmony import */ var _getISOWeek_index_js__WEBPACK_IMPORTED_MODULE_74__ = __webpack_require__(/*! ./getISOWeek/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/getISOWeek/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getISOWeek", function() { return _getISOWeek_index_js__WEBPACK_IMPORTED_MODULE_74__["default"]; });
+/* harmony import */ var _getDaysInMonth_index_js__WEBPACK_IMPORTED_MODULE_74__ = __webpack_require__(/*! ./getDaysInMonth/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/getDaysInMonth/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getDaysInMonth", function() { return _getDaysInMonth_index_js__WEBPACK_IMPORTED_MODULE_74__["default"]; });
 
-/* harmony import */ var _getISOWeekYear_index_js__WEBPACK_IMPORTED_MODULE_75__ = __webpack_require__(/*! ./getISOWeekYear/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/getISOWeekYear/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getISOWeekYear", function() { return _getISOWeekYear_index_js__WEBPACK_IMPORTED_MODULE_75__["default"]; });
+/* harmony import */ var _getDaysInYear_index_js__WEBPACK_IMPORTED_MODULE_75__ = __webpack_require__(/*! ./getDaysInYear/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/getDaysInYear/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getDaysInYear", function() { return _getDaysInYear_index_js__WEBPACK_IMPORTED_MODULE_75__["default"]; });
 
-/* harmony import */ var _getISOWeeksInYear_index_js__WEBPACK_IMPORTED_MODULE_76__ = __webpack_require__(/*! ./getISOWeeksInYear/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/getISOWeeksInYear/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getISOWeeksInYear", function() { return _getISOWeeksInYear_index_js__WEBPACK_IMPORTED_MODULE_76__["default"]; });
+/* harmony import */ var _getDecade_index_js__WEBPACK_IMPORTED_MODULE_76__ = __webpack_require__(/*! ./getDecade/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/getDecade/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getDecade", function() { return _getDecade_index_js__WEBPACK_IMPORTED_MODULE_76__["default"]; });
 
-/* harmony import */ var _getMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_77__ = __webpack_require__(/*! ./getMilliseconds/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/getMilliseconds/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getMilliseconds", function() { return _getMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_77__["default"]; });
+/* harmony import */ var _getHours_index_js__WEBPACK_IMPORTED_MODULE_77__ = __webpack_require__(/*! ./getHours/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/getHours/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getHours", function() { return _getHours_index_js__WEBPACK_IMPORTED_MODULE_77__["default"]; });
 
-/* harmony import */ var _getMinutes_index_js__WEBPACK_IMPORTED_MODULE_78__ = __webpack_require__(/*! ./getMinutes/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/getMinutes/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getMinutes", function() { return _getMinutes_index_js__WEBPACK_IMPORTED_MODULE_78__["default"]; });
+/* harmony import */ var _getISODay_index_js__WEBPACK_IMPORTED_MODULE_78__ = __webpack_require__(/*! ./getISODay/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/getISODay/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getISODay", function() { return _getISODay_index_js__WEBPACK_IMPORTED_MODULE_78__["default"]; });
 
-/* harmony import */ var _getMonth_index_js__WEBPACK_IMPORTED_MODULE_79__ = __webpack_require__(/*! ./getMonth/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/getMonth/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getMonth", function() { return _getMonth_index_js__WEBPACK_IMPORTED_MODULE_79__["default"]; });
+/* harmony import */ var _getISOWeek_index_js__WEBPACK_IMPORTED_MODULE_79__ = __webpack_require__(/*! ./getISOWeek/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/getISOWeek/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getISOWeek", function() { return _getISOWeek_index_js__WEBPACK_IMPORTED_MODULE_79__["default"]; });
 
-/* harmony import */ var _getOverlappingDaysInIntervals_index_js__WEBPACK_IMPORTED_MODULE_80__ = __webpack_require__(/*! ./getOverlappingDaysInIntervals/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/getOverlappingDaysInIntervals/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getOverlappingDaysInIntervals", function() { return _getOverlappingDaysInIntervals_index_js__WEBPACK_IMPORTED_MODULE_80__["default"]; });
+/* harmony import */ var _getISOWeekYear_index_js__WEBPACK_IMPORTED_MODULE_80__ = __webpack_require__(/*! ./getISOWeekYear/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/getISOWeekYear/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getISOWeekYear", function() { return _getISOWeekYear_index_js__WEBPACK_IMPORTED_MODULE_80__["default"]; });
 
-/* harmony import */ var _getQuarter_index_js__WEBPACK_IMPORTED_MODULE_81__ = __webpack_require__(/*! ./getQuarter/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/getQuarter/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getQuarter", function() { return _getQuarter_index_js__WEBPACK_IMPORTED_MODULE_81__["default"]; });
+/* harmony import */ var _getISOWeeksInYear_index_js__WEBPACK_IMPORTED_MODULE_81__ = __webpack_require__(/*! ./getISOWeeksInYear/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/getISOWeeksInYear/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getISOWeeksInYear", function() { return _getISOWeeksInYear_index_js__WEBPACK_IMPORTED_MODULE_81__["default"]; });
 
-/* harmony import */ var _getSeconds_index_js__WEBPACK_IMPORTED_MODULE_82__ = __webpack_require__(/*! ./getSeconds/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/getSeconds/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getSeconds", function() { return _getSeconds_index_js__WEBPACK_IMPORTED_MODULE_82__["default"]; });
+/* harmony import */ var _getMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_82__ = __webpack_require__(/*! ./getMilliseconds/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/getMilliseconds/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getMilliseconds", function() { return _getMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_82__["default"]; });
 
-/* harmony import */ var _getTime_index_js__WEBPACK_IMPORTED_MODULE_83__ = __webpack_require__(/*! ./getTime/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/getTime/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getTime", function() { return _getTime_index_js__WEBPACK_IMPORTED_MODULE_83__["default"]; });
+/* harmony import */ var _getMinutes_index_js__WEBPACK_IMPORTED_MODULE_83__ = __webpack_require__(/*! ./getMinutes/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/getMinutes/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getMinutes", function() { return _getMinutes_index_js__WEBPACK_IMPORTED_MODULE_83__["default"]; });
 
-/* harmony import */ var _getUnixTime_index_js__WEBPACK_IMPORTED_MODULE_84__ = __webpack_require__(/*! ./getUnixTime/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/getUnixTime/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getUnixTime", function() { return _getUnixTime_index_js__WEBPACK_IMPORTED_MODULE_84__["default"]; });
+/* harmony import */ var _getMonth_index_js__WEBPACK_IMPORTED_MODULE_84__ = __webpack_require__(/*! ./getMonth/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/getMonth/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getMonth", function() { return _getMonth_index_js__WEBPACK_IMPORTED_MODULE_84__["default"]; });
 
-/* harmony import */ var _getWeek_index_js__WEBPACK_IMPORTED_MODULE_85__ = __webpack_require__(/*! ./getWeek/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/getWeek/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getWeek", function() { return _getWeek_index_js__WEBPACK_IMPORTED_MODULE_85__["default"]; });
+/* harmony import */ var _getOverlappingDaysInIntervals_index_js__WEBPACK_IMPORTED_MODULE_85__ = __webpack_require__(/*! ./getOverlappingDaysInIntervals/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/getOverlappingDaysInIntervals/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getOverlappingDaysInIntervals", function() { return _getOverlappingDaysInIntervals_index_js__WEBPACK_IMPORTED_MODULE_85__["default"]; });
 
-/* harmony import */ var _getWeekOfMonth_index_js__WEBPACK_IMPORTED_MODULE_86__ = __webpack_require__(/*! ./getWeekOfMonth/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/getWeekOfMonth/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getWeekOfMonth", function() { return _getWeekOfMonth_index_js__WEBPACK_IMPORTED_MODULE_86__["default"]; });
+/* harmony import */ var _getQuarter_index_js__WEBPACK_IMPORTED_MODULE_86__ = __webpack_require__(/*! ./getQuarter/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/getQuarter/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getQuarter", function() { return _getQuarter_index_js__WEBPACK_IMPORTED_MODULE_86__["default"]; });
 
-/* harmony import */ var _getWeekYear_index_js__WEBPACK_IMPORTED_MODULE_87__ = __webpack_require__(/*! ./getWeekYear/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/getWeekYear/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getWeekYear", function() { return _getWeekYear_index_js__WEBPACK_IMPORTED_MODULE_87__["default"]; });
+/* harmony import */ var _getSeconds_index_js__WEBPACK_IMPORTED_MODULE_87__ = __webpack_require__(/*! ./getSeconds/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/getSeconds/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getSeconds", function() { return _getSeconds_index_js__WEBPACK_IMPORTED_MODULE_87__["default"]; });
 
-/* harmony import */ var _getWeeksInMonth_index_js__WEBPACK_IMPORTED_MODULE_88__ = __webpack_require__(/*! ./getWeeksInMonth/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/getWeeksInMonth/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getWeeksInMonth", function() { return _getWeeksInMonth_index_js__WEBPACK_IMPORTED_MODULE_88__["default"]; });
+/* harmony import */ var _getTime_index_js__WEBPACK_IMPORTED_MODULE_88__ = __webpack_require__(/*! ./getTime/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/getTime/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getTime", function() { return _getTime_index_js__WEBPACK_IMPORTED_MODULE_88__["default"]; });
 
-/* harmony import */ var _getYear_index_js__WEBPACK_IMPORTED_MODULE_89__ = __webpack_require__(/*! ./getYear/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/getYear/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getYear", function() { return _getYear_index_js__WEBPACK_IMPORTED_MODULE_89__["default"]; });
+/* harmony import */ var _getUnixTime_index_js__WEBPACK_IMPORTED_MODULE_89__ = __webpack_require__(/*! ./getUnixTime/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/getUnixTime/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getUnixTime", function() { return _getUnixTime_index_js__WEBPACK_IMPORTED_MODULE_89__["default"]; });
 
-/* harmony import */ var _isAfter_index_js__WEBPACK_IMPORTED_MODULE_90__ = __webpack_require__(/*! ./isAfter/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isAfter/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isAfter", function() { return _isAfter_index_js__WEBPACK_IMPORTED_MODULE_90__["default"]; });
+/* harmony import */ var _getWeek_index_js__WEBPACK_IMPORTED_MODULE_90__ = __webpack_require__(/*! ./getWeek/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/getWeek/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getWeek", function() { return _getWeek_index_js__WEBPACK_IMPORTED_MODULE_90__["default"]; });
 
-/* harmony import */ var _isBefore_index_js__WEBPACK_IMPORTED_MODULE_91__ = __webpack_require__(/*! ./isBefore/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isBefore/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isBefore", function() { return _isBefore_index_js__WEBPACK_IMPORTED_MODULE_91__["default"]; });
+/* harmony import */ var _getWeekOfMonth_index_js__WEBPACK_IMPORTED_MODULE_91__ = __webpack_require__(/*! ./getWeekOfMonth/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/getWeekOfMonth/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getWeekOfMonth", function() { return _getWeekOfMonth_index_js__WEBPACK_IMPORTED_MODULE_91__["default"]; });
 
-/* harmony import */ var _isDate_index_js__WEBPACK_IMPORTED_MODULE_92__ = __webpack_require__(/*! ./isDate/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isDate/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isDate", function() { return _isDate_index_js__WEBPACK_IMPORTED_MODULE_92__["default"]; });
+/* harmony import */ var _getWeekYear_index_js__WEBPACK_IMPORTED_MODULE_92__ = __webpack_require__(/*! ./getWeekYear/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/getWeekYear/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getWeekYear", function() { return _getWeekYear_index_js__WEBPACK_IMPORTED_MODULE_92__["default"]; });
 
-/* harmony import */ var _isEqual_index_js__WEBPACK_IMPORTED_MODULE_93__ = __webpack_require__(/*! ./isEqual/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isEqual/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isEqual", function() { return _isEqual_index_js__WEBPACK_IMPORTED_MODULE_93__["default"]; });
+/* harmony import */ var _getWeeksInMonth_index_js__WEBPACK_IMPORTED_MODULE_93__ = __webpack_require__(/*! ./getWeeksInMonth/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/getWeeksInMonth/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getWeeksInMonth", function() { return _getWeeksInMonth_index_js__WEBPACK_IMPORTED_MODULE_93__["default"]; });
 
-/* harmony import */ var _isExists_index_js__WEBPACK_IMPORTED_MODULE_94__ = __webpack_require__(/*! ./isExists/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isExists/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isExists", function() { return _isExists_index_js__WEBPACK_IMPORTED_MODULE_94__["default"]; });
+/* harmony import */ var _getYear_index_js__WEBPACK_IMPORTED_MODULE_94__ = __webpack_require__(/*! ./getYear/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/getYear/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getYear", function() { return _getYear_index_js__WEBPACK_IMPORTED_MODULE_94__["default"]; });
 
-/* harmony import */ var _isFirstDayOfMonth_index_js__WEBPACK_IMPORTED_MODULE_95__ = __webpack_require__(/*! ./isFirstDayOfMonth/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isFirstDayOfMonth/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isFirstDayOfMonth", function() { return _isFirstDayOfMonth_index_js__WEBPACK_IMPORTED_MODULE_95__["default"]; });
+/* harmony import */ var _intervalToDuration_index_js__WEBPACK_IMPORTED_MODULE_95__ = __webpack_require__(/*! ./intervalToDuration/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/intervalToDuration/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "intervalToDuration", function() { return _intervalToDuration_index_js__WEBPACK_IMPORTED_MODULE_95__["default"]; });
 
-/* harmony import */ var _isFriday_index_js__WEBPACK_IMPORTED_MODULE_96__ = __webpack_require__(/*! ./isFriday/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isFriday/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isFriday", function() { return _isFriday_index_js__WEBPACK_IMPORTED_MODULE_96__["default"]; });
+/* harmony import */ var _isAfter_index_js__WEBPACK_IMPORTED_MODULE_96__ = __webpack_require__(/*! ./isAfter/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isAfter/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isAfter", function() { return _isAfter_index_js__WEBPACK_IMPORTED_MODULE_96__["default"]; });
 
-/* harmony import */ var _isFuture_index_js__WEBPACK_IMPORTED_MODULE_97__ = __webpack_require__(/*! ./isFuture/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isFuture/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isFuture", function() { return _isFuture_index_js__WEBPACK_IMPORTED_MODULE_97__["default"]; });
+/* harmony import */ var _isBefore_index_js__WEBPACK_IMPORTED_MODULE_97__ = __webpack_require__(/*! ./isBefore/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isBefore/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isBefore", function() { return _isBefore_index_js__WEBPACK_IMPORTED_MODULE_97__["default"]; });
 
-/* harmony import */ var _isLastDayOfMonth_index_js__WEBPACK_IMPORTED_MODULE_98__ = __webpack_require__(/*! ./isLastDayOfMonth/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isLastDayOfMonth/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isLastDayOfMonth", function() { return _isLastDayOfMonth_index_js__WEBPACK_IMPORTED_MODULE_98__["default"]; });
+/* harmony import */ var _isDate_index_js__WEBPACK_IMPORTED_MODULE_98__ = __webpack_require__(/*! ./isDate/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isDate/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isDate", function() { return _isDate_index_js__WEBPACK_IMPORTED_MODULE_98__["default"]; });
 
-/* harmony import */ var _isLeapYear_index_js__WEBPACK_IMPORTED_MODULE_99__ = __webpack_require__(/*! ./isLeapYear/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isLeapYear/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isLeapYear", function() { return _isLeapYear_index_js__WEBPACK_IMPORTED_MODULE_99__["default"]; });
+/* harmony import */ var _isEqual_index_js__WEBPACK_IMPORTED_MODULE_99__ = __webpack_require__(/*! ./isEqual/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isEqual/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isEqual", function() { return _isEqual_index_js__WEBPACK_IMPORTED_MODULE_99__["default"]; });
 
-/* harmony import */ var _isMonday_index_js__WEBPACK_IMPORTED_MODULE_100__ = __webpack_require__(/*! ./isMonday/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isMonday/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isMonday", function() { return _isMonday_index_js__WEBPACK_IMPORTED_MODULE_100__["default"]; });
+/* harmony import */ var _isExists_index_js__WEBPACK_IMPORTED_MODULE_100__ = __webpack_require__(/*! ./isExists/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isExists/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isExists", function() { return _isExists_index_js__WEBPACK_IMPORTED_MODULE_100__["default"]; });
 
-/* harmony import */ var _isPast_index_js__WEBPACK_IMPORTED_MODULE_101__ = __webpack_require__(/*! ./isPast/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isPast/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isPast", function() { return _isPast_index_js__WEBPACK_IMPORTED_MODULE_101__["default"]; });
+/* harmony import */ var _isFirstDayOfMonth_index_js__WEBPACK_IMPORTED_MODULE_101__ = __webpack_require__(/*! ./isFirstDayOfMonth/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isFirstDayOfMonth/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isFirstDayOfMonth", function() { return _isFirstDayOfMonth_index_js__WEBPACK_IMPORTED_MODULE_101__["default"]; });
 
-/* harmony import */ var _isSameDay_index_js__WEBPACK_IMPORTED_MODULE_102__ = __webpack_require__(/*! ./isSameDay/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isSameDay/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isSameDay", function() { return _isSameDay_index_js__WEBPACK_IMPORTED_MODULE_102__["default"]; });
+/* harmony import */ var _isFriday_index_js__WEBPACK_IMPORTED_MODULE_102__ = __webpack_require__(/*! ./isFriday/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isFriday/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isFriday", function() { return _isFriday_index_js__WEBPACK_IMPORTED_MODULE_102__["default"]; });
 
-/* harmony import */ var _isSameHour_index_js__WEBPACK_IMPORTED_MODULE_103__ = __webpack_require__(/*! ./isSameHour/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isSameHour/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isSameHour", function() { return _isSameHour_index_js__WEBPACK_IMPORTED_MODULE_103__["default"]; });
+/* harmony import */ var _isFuture_index_js__WEBPACK_IMPORTED_MODULE_103__ = __webpack_require__(/*! ./isFuture/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isFuture/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isFuture", function() { return _isFuture_index_js__WEBPACK_IMPORTED_MODULE_103__["default"]; });
 
-/* harmony import */ var _isSameISOWeek_index_js__WEBPACK_IMPORTED_MODULE_104__ = __webpack_require__(/*! ./isSameISOWeek/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isSameISOWeek/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isSameISOWeek", function() { return _isSameISOWeek_index_js__WEBPACK_IMPORTED_MODULE_104__["default"]; });
+/* harmony import */ var _isLastDayOfMonth_index_js__WEBPACK_IMPORTED_MODULE_104__ = __webpack_require__(/*! ./isLastDayOfMonth/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isLastDayOfMonth/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isLastDayOfMonth", function() { return _isLastDayOfMonth_index_js__WEBPACK_IMPORTED_MODULE_104__["default"]; });
 
-/* harmony import */ var _isSameISOWeekYear_index_js__WEBPACK_IMPORTED_MODULE_105__ = __webpack_require__(/*! ./isSameISOWeekYear/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isSameISOWeekYear/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isSameISOWeekYear", function() { return _isSameISOWeekYear_index_js__WEBPACK_IMPORTED_MODULE_105__["default"]; });
+/* harmony import */ var _isLeapYear_index_js__WEBPACK_IMPORTED_MODULE_105__ = __webpack_require__(/*! ./isLeapYear/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isLeapYear/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isLeapYear", function() { return _isLeapYear_index_js__WEBPACK_IMPORTED_MODULE_105__["default"]; });
 
-/* harmony import */ var _isSameMinute_index_js__WEBPACK_IMPORTED_MODULE_106__ = __webpack_require__(/*! ./isSameMinute/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isSameMinute/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isSameMinute", function() { return _isSameMinute_index_js__WEBPACK_IMPORTED_MODULE_106__["default"]; });
+/* harmony import */ var _isMatch_index_js__WEBPACK_IMPORTED_MODULE_106__ = __webpack_require__(/*! ./isMatch/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isMatch/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isMatch", function() { return _isMatch_index_js__WEBPACK_IMPORTED_MODULE_106__["default"]; });
 
-/* harmony import */ var _isSameMonth_index_js__WEBPACK_IMPORTED_MODULE_107__ = __webpack_require__(/*! ./isSameMonth/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isSameMonth/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isSameMonth", function() { return _isSameMonth_index_js__WEBPACK_IMPORTED_MODULE_107__["default"]; });
+/* harmony import */ var _isMonday_index_js__WEBPACK_IMPORTED_MODULE_107__ = __webpack_require__(/*! ./isMonday/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isMonday/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isMonday", function() { return _isMonday_index_js__WEBPACK_IMPORTED_MODULE_107__["default"]; });
 
-/* harmony import */ var _isSameQuarter_index_js__WEBPACK_IMPORTED_MODULE_108__ = __webpack_require__(/*! ./isSameQuarter/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isSameQuarter/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isSameQuarter", function() { return _isSameQuarter_index_js__WEBPACK_IMPORTED_MODULE_108__["default"]; });
+/* harmony import */ var _isPast_index_js__WEBPACK_IMPORTED_MODULE_108__ = __webpack_require__(/*! ./isPast/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isPast/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isPast", function() { return _isPast_index_js__WEBPACK_IMPORTED_MODULE_108__["default"]; });
 
-/* harmony import */ var _isSameSecond_index_js__WEBPACK_IMPORTED_MODULE_109__ = __webpack_require__(/*! ./isSameSecond/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isSameSecond/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isSameSecond", function() { return _isSameSecond_index_js__WEBPACK_IMPORTED_MODULE_109__["default"]; });
+/* harmony import */ var _isSameDay_index_js__WEBPACK_IMPORTED_MODULE_109__ = __webpack_require__(/*! ./isSameDay/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isSameDay/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isSameDay", function() { return _isSameDay_index_js__WEBPACK_IMPORTED_MODULE_109__["default"]; });
 
-/* harmony import */ var _isSameWeek_index_js__WEBPACK_IMPORTED_MODULE_110__ = __webpack_require__(/*! ./isSameWeek/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isSameWeek/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isSameWeek", function() { return _isSameWeek_index_js__WEBPACK_IMPORTED_MODULE_110__["default"]; });
+/* harmony import */ var _isSameHour_index_js__WEBPACK_IMPORTED_MODULE_110__ = __webpack_require__(/*! ./isSameHour/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isSameHour/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isSameHour", function() { return _isSameHour_index_js__WEBPACK_IMPORTED_MODULE_110__["default"]; });
 
-/* harmony import */ var _isSameYear_index_js__WEBPACK_IMPORTED_MODULE_111__ = __webpack_require__(/*! ./isSameYear/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isSameYear/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isSameYear", function() { return _isSameYear_index_js__WEBPACK_IMPORTED_MODULE_111__["default"]; });
+/* harmony import */ var _isSameISOWeek_index_js__WEBPACK_IMPORTED_MODULE_111__ = __webpack_require__(/*! ./isSameISOWeek/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isSameISOWeek/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isSameISOWeek", function() { return _isSameISOWeek_index_js__WEBPACK_IMPORTED_MODULE_111__["default"]; });
 
-/* harmony import */ var _isSaturday_index_js__WEBPACK_IMPORTED_MODULE_112__ = __webpack_require__(/*! ./isSaturday/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isSaturday/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isSaturday", function() { return _isSaturday_index_js__WEBPACK_IMPORTED_MODULE_112__["default"]; });
+/* harmony import */ var _isSameISOWeekYear_index_js__WEBPACK_IMPORTED_MODULE_112__ = __webpack_require__(/*! ./isSameISOWeekYear/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isSameISOWeekYear/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isSameISOWeekYear", function() { return _isSameISOWeekYear_index_js__WEBPACK_IMPORTED_MODULE_112__["default"]; });
 
-/* harmony import */ var _isSunday_index_js__WEBPACK_IMPORTED_MODULE_113__ = __webpack_require__(/*! ./isSunday/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isSunday/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isSunday", function() { return _isSunday_index_js__WEBPACK_IMPORTED_MODULE_113__["default"]; });
+/* harmony import */ var _isSameMinute_index_js__WEBPACK_IMPORTED_MODULE_113__ = __webpack_require__(/*! ./isSameMinute/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isSameMinute/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isSameMinute", function() { return _isSameMinute_index_js__WEBPACK_IMPORTED_MODULE_113__["default"]; });
 
-/* harmony import */ var _isThisHour_index_js__WEBPACK_IMPORTED_MODULE_114__ = __webpack_require__(/*! ./isThisHour/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isThisHour/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isThisHour", function() { return _isThisHour_index_js__WEBPACK_IMPORTED_MODULE_114__["default"]; });
+/* harmony import */ var _isSameMonth_index_js__WEBPACK_IMPORTED_MODULE_114__ = __webpack_require__(/*! ./isSameMonth/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isSameMonth/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isSameMonth", function() { return _isSameMonth_index_js__WEBPACK_IMPORTED_MODULE_114__["default"]; });
 
-/* harmony import */ var _isThisISOWeek_index_js__WEBPACK_IMPORTED_MODULE_115__ = __webpack_require__(/*! ./isThisISOWeek/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isThisISOWeek/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isThisISOWeek", function() { return _isThisISOWeek_index_js__WEBPACK_IMPORTED_MODULE_115__["default"]; });
+/* harmony import */ var _isSameQuarter_index_js__WEBPACK_IMPORTED_MODULE_115__ = __webpack_require__(/*! ./isSameQuarter/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isSameQuarter/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isSameQuarter", function() { return _isSameQuarter_index_js__WEBPACK_IMPORTED_MODULE_115__["default"]; });
 
-/* harmony import */ var _isThisMinute_index_js__WEBPACK_IMPORTED_MODULE_116__ = __webpack_require__(/*! ./isThisMinute/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isThisMinute/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isThisMinute", function() { return _isThisMinute_index_js__WEBPACK_IMPORTED_MODULE_116__["default"]; });
+/* harmony import */ var _isSameSecond_index_js__WEBPACK_IMPORTED_MODULE_116__ = __webpack_require__(/*! ./isSameSecond/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isSameSecond/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isSameSecond", function() { return _isSameSecond_index_js__WEBPACK_IMPORTED_MODULE_116__["default"]; });
 
-/* harmony import */ var _isThisMonth_index_js__WEBPACK_IMPORTED_MODULE_117__ = __webpack_require__(/*! ./isThisMonth/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isThisMonth/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isThisMonth", function() { return _isThisMonth_index_js__WEBPACK_IMPORTED_MODULE_117__["default"]; });
+/* harmony import */ var _isSameWeek_index_js__WEBPACK_IMPORTED_MODULE_117__ = __webpack_require__(/*! ./isSameWeek/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isSameWeek/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isSameWeek", function() { return _isSameWeek_index_js__WEBPACK_IMPORTED_MODULE_117__["default"]; });
 
-/* harmony import */ var _isThisQuarter_index_js__WEBPACK_IMPORTED_MODULE_118__ = __webpack_require__(/*! ./isThisQuarter/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isThisQuarter/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isThisQuarter", function() { return _isThisQuarter_index_js__WEBPACK_IMPORTED_MODULE_118__["default"]; });
+/* harmony import */ var _isSameYear_index_js__WEBPACK_IMPORTED_MODULE_118__ = __webpack_require__(/*! ./isSameYear/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isSameYear/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isSameYear", function() { return _isSameYear_index_js__WEBPACK_IMPORTED_MODULE_118__["default"]; });
 
-/* harmony import */ var _isThisSecond_index_js__WEBPACK_IMPORTED_MODULE_119__ = __webpack_require__(/*! ./isThisSecond/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isThisSecond/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isThisSecond", function() { return _isThisSecond_index_js__WEBPACK_IMPORTED_MODULE_119__["default"]; });
+/* harmony import */ var _isSaturday_index_js__WEBPACK_IMPORTED_MODULE_119__ = __webpack_require__(/*! ./isSaturday/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isSaturday/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isSaturday", function() { return _isSaturday_index_js__WEBPACK_IMPORTED_MODULE_119__["default"]; });
 
-/* harmony import */ var _isThisWeek_index_js__WEBPACK_IMPORTED_MODULE_120__ = __webpack_require__(/*! ./isThisWeek/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isThisWeek/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isThisWeek", function() { return _isThisWeek_index_js__WEBPACK_IMPORTED_MODULE_120__["default"]; });
+/* harmony import */ var _isSunday_index_js__WEBPACK_IMPORTED_MODULE_120__ = __webpack_require__(/*! ./isSunday/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isSunday/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isSunday", function() { return _isSunday_index_js__WEBPACK_IMPORTED_MODULE_120__["default"]; });
 
-/* harmony import */ var _isThisYear_index_js__WEBPACK_IMPORTED_MODULE_121__ = __webpack_require__(/*! ./isThisYear/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isThisYear/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isThisYear", function() { return _isThisYear_index_js__WEBPACK_IMPORTED_MODULE_121__["default"]; });
+/* harmony import */ var _isThisHour_index_js__WEBPACK_IMPORTED_MODULE_121__ = __webpack_require__(/*! ./isThisHour/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isThisHour/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isThisHour", function() { return _isThisHour_index_js__WEBPACK_IMPORTED_MODULE_121__["default"]; });
 
-/* harmony import */ var _isThursday_index_js__WEBPACK_IMPORTED_MODULE_122__ = __webpack_require__(/*! ./isThursday/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isThursday/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isThursday", function() { return _isThursday_index_js__WEBPACK_IMPORTED_MODULE_122__["default"]; });
+/* harmony import */ var _isThisISOWeek_index_js__WEBPACK_IMPORTED_MODULE_122__ = __webpack_require__(/*! ./isThisISOWeek/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isThisISOWeek/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isThisISOWeek", function() { return _isThisISOWeek_index_js__WEBPACK_IMPORTED_MODULE_122__["default"]; });
 
-/* harmony import */ var _isToday_index_js__WEBPACK_IMPORTED_MODULE_123__ = __webpack_require__(/*! ./isToday/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isToday/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isToday", function() { return _isToday_index_js__WEBPACK_IMPORTED_MODULE_123__["default"]; });
+/* harmony import */ var _isThisMinute_index_js__WEBPACK_IMPORTED_MODULE_123__ = __webpack_require__(/*! ./isThisMinute/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isThisMinute/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isThisMinute", function() { return _isThisMinute_index_js__WEBPACK_IMPORTED_MODULE_123__["default"]; });
 
-/* harmony import */ var _isTomorrow_index_js__WEBPACK_IMPORTED_MODULE_124__ = __webpack_require__(/*! ./isTomorrow/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isTomorrow/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isTomorrow", function() { return _isTomorrow_index_js__WEBPACK_IMPORTED_MODULE_124__["default"]; });
+/* harmony import */ var _isThisMonth_index_js__WEBPACK_IMPORTED_MODULE_124__ = __webpack_require__(/*! ./isThisMonth/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isThisMonth/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isThisMonth", function() { return _isThisMonth_index_js__WEBPACK_IMPORTED_MODULE_124__["default"]; });
 
-/* harmony import */ var _isTuesday_index_js__WEBPACK_IMPORTED_MODULE_125__ = __webpack_require__(/*! ./isTuesday/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isTuesday/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isTuesday", function() { return _isTuesday_index_js__WEBPACK_IMPORTED_MODULE_125__["default"]; });
+/* harmony import */ var _isThisQuarter_index_js__WEBPACK_IMPORTED_MODULE_125__ = __webpack_require__(/*! ./isThisQuarter/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isThisQuarter/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isThisQuarter", function() { return _isThisQuarter_index_js__WEBPACK_IMPORTED_MODULE_125__["default"]; });
 
-/* harmony import */ var _isValid_index_js__WEBPACK_IMPORTED_MODULE_126__ = __webpack_require__(/*! ./isValid/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isValid/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isValid", function() { return _isValid_index_js__WEBPACK_IMPORTED_MODULE_126__["default"]; });
+/* harmony import */ var _isThisSecond_index_js__WEBPACK_IMPORTED_MODULE_126__ = __webpack_require__(/*! ./isThisSecond/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isThisSecond/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isThisSecond", function() { return _isThisSecond_index_js__WEBPACK_IMPORTED_MODULE_126__["default"]; });
 
-/* harmony import */ var _isWednesday_index_js__WEBPACK_IMPORTED_MODULE_127__ = __webpack_require__(/*! ./isWednesday/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isWednesday/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isWednesday", function() { return _isWednesday_index_js__WEBPACK_IMPORTED_MODULE_127__["default"]; });
+/* harmony import */ var _isThisWeek_index_js__WEBPACK_IMPORTED_MODULE_127__ = __webpack_require__(/*! ./isThisWeek/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isThisWeek/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isThisWeek", function() { return _isThisWeek_index_js__WEBPACK_IMPORTED_MODULE_127__["default"]; });
 
-/* harmony import */ var _isWeekend_index_js__WEBPACK_IMPORTED_MODULE_128__ = __webpack_require__(/*! ./isWeekend/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isWeekend/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isWeekend", function() { return _isWeekend_index_js__WEBPACK_IMPORTED_MODULE_128__["default"]; });
+/* harmony import */ var _isThisYear_index_js__WEBPACK_IMPORTED_MODULE_128__ = __webpack_require__(/*! ./isThisYear/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isThisYear/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isThisYear", function() { return _isThisYear_index_js__WEBPACK_IMPORTED_MODULE_128__["default"]; });
 
-/* harmony import */ var _isWithinInterval_index_js__WEBPACK_IMPORTED_MODULE_129__ = __webpack_require__(/*! ./isWithinInterval/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isWithinInterval/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isWithinInterval", function() { return _isWithinInterval_index_js__WEBPACK_IMPORTED_MODULE_129__["default"]; });
+/* harmony import */ var _isThursday_index_js__WEBPACK_IMPORTED_MODULE_129__ = __webpack_require__(/*! ./isThursday/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isThursday/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isThursday", function() { return _isThursday_index_js__WEBPACK_IMPORTED_MODULE_129__["default"]; });
 
-/* harmony import */ var _isYesterday_index_js__WEBPACK_IMPORTED_MODULE_130__ = __webpack_require__(/*! ./isYesterday/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isYesterday/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isYesterday", function() { return _isYesterday_index_js__WEBPACK_IMPORTED_MODULE_130__["default"]; });
+/* harmony import */ var _isToday_index_js__WEBPACK_IMPORTED_MODULE_130__ = __webpack_require__(/*! ./isToday/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isToday/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isToday", function() { return _isToday_index_js__WEBPACK_IMPORTED_MODULE_130__["default"]; });
 
-/* harmony import */ var _lastDayOfDecade_index_js__WEBPACK_IMPORTED_MODULE_131__ = __webpack_require__(/*! ./lastDayOfDecade/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/lastDayOfDecade/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "lastDayOfDecade", function() { return _lastDayOfDecade_index_js__WEBPACK_IMPORTED_MODULE_131__["default"]; });
+/* harmony import */ var _isTomorrow_index_js__WEBPACK_IMPORTED_MODULE_131__ = __webpack_require__(/*! ./isTomorrow/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isTomorrow/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isTomorrow", function() { return _isTomorrow_index_js__WEBPACK_IMPORTED_MODULE_131__["default"]; });
 
-/* harmony import */ var _lastDayOfISOWeek_index_js__WEBPACK_IMPORTED_MODULE_132__ = __webpack_require__(/*! ./lastDayOfISOWeek/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/lastDayOfISOWeek/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "lastDayOfISOWeek", function() { return _lastDayOfISOWeek_index_js__WEBPACK_IMPORTED_MODULE_132__["default"]; });
+/* harmony import */ var _isTuesday_index_js__WEBPACK_IMPORTED_MODULE_132__ = __webpack_require__(/*! ./isTuesday/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isTuesday/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isTuesday", function() { return _isTuesday_index_js__WEBPACK_IMPORTED_MODULE_132__["default"]; });
 
-/* harmony import */ var _lastDayOfISOWeekYear_index_js__WEBPACK_IMPORTED_MODULE_133__ = __webpack_require__(/*! ./lastDayOfISOWeekYear/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/lastDayOfISOWeekYear/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "lastDayOfISOWeekYear", function() { return _lastDayOfISOWeekYear_index_js__WEBPACK_IMPORTED_MODULE_133__["default"]; });
+/* harmony import */ var _isValid_index_js__WEBPACK_IMPORTED_MODULE_133__ = __webpack_require__(/*! ./isValid/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isValid/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isValid", function() { return _isValid_index_js__WEBPACK_IMPORTED_MODULE_133__["default"]; });
 
-/* harmony import */ var _lastDayOfMonth_index_js__WEBPACK_IMPORTED_MODULE_134__ = __webpack_require__(/*! ./lastDayOfMonth/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/lastDayOfMonth/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "lastDayOfMonth", function() { return _lastDayOfMonth_index_js__WEBPACK_IMPORTED_MODULE_134__["default"]; });
+/* harmony import */ var _isWednesday_index_js__WEBPACK_IMPORTED_MODULE_134__ = __webpack_require__(/*! ./isWednesday/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isWednesday/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isWednesday", function() { return _isWednesday_index_js__WEBPACK_IMPORTED_MODULE_134__["default"]; });
 
-/* harmony import */ var _lastDayOfQuarter_index_js__WEBPACK_IMPORTED_MODULE_135__ = __webpack_require__(/*! ./lastDayOfQuarter/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/lastDayOfQuarter/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "lastDayOfQuarter", function() { return _lastDayOfQuarter_index_js__WEBPACK_IMPORTED_MODULE_135__["default"]; });
+/* harmony import */ var _isWeekend_index_js__WEBPACK_IMPORTED_MODULE_135__ = __webpack_require__(/*! ./isWeekend/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isWeekend/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isWeekend", function() { return _isWeekend_index_js__WEBPACK_IMPORTED_MODULE_135__["default"]; });
 
-/* harmony import */ var _lastDayOfWeek_index_js__WEBPACK_IMPORTED_MODULE_136__ = __webpack_require__(/*! ./lastDayOfWeek/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/lastDayOfWeek/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "lastDayOfWeek", function() { return _lastDayOfWeek_index_js__WEBPACK_IMPORTED_MODULE_136__["default"]; });
+/* harmony import */ var _isWithinInterval_index_js__WEBPACK_IMPORTED_MODULE_136__ = __webpack_require__(/*! ./isWithinInterval/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isWithinInterval/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isWithinInterval", function() { return _isWithinInterval_index_js__WEBPACK_IMPORTED_MODULE_136__["default"]; });
 
-/* harmony import */ var _lastDayOfYear_index_js__WEBPACK_IMPORTED_MODULE_137__ = __webpack_require__(/*! ./lastDayOfYear/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/lastDayOfYear/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "lastDayOfYear", function() { return _lastDayOfYear_index_js__WEBPACK_IMPORTED_MODULE_137__["default"]; });
+/* harmony import */ var _isYesterday_index_js__WEBPACK_IMPORTED_MODULE_137__ = __webpack_require__(/*! ./isYesterday/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isYesterday/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isYesterday", function() { return _isYesterday_index_js__WEBPACK_IMPORTED_MODULE_137__["default"]; });
 
-/* harmony import */ var _lightFormat_index_js__WEBPACK_IMPORTED_MODULE_138__ = __webpack_require__(/*! ./lightFormat/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/lightFormat/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "lightFormat", function() { return _lightFormat_index_js__WEBPACK_IMPORTED_MODULE_138__["default"]; });
+/* harmony import */ var _lastDayOfDecade_index_js__WEBPACK_IMPORTED_MODULE_138__ = __webpack_require__(/*! ./lastDayOfDecade/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/lastDayOfDecade/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "lastDayOfDecade", function() { return _lastDayOfDecade_index_js__WEBPACK_IMPORTED_MODULE_138__["default"]; });
 
-/* harmony import */ var _max_index_js__WEBPACK_IMPORTED_MODULE_139__ = __webpack_require__(/*! ./max/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/max/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "max", function() { return _max_index_js__WEBPACK_IMPORTED_MODULE_139__["default"]; });
+/* harmony import */ var _lastDayOfISOWeek_index_js__WEBPACK_IMPORTED_MODULE_139__ = __webpack_require__(/*! ./lastDayOfISOWeek/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/lastDayOfISOWeek/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "lastDayOfISOWeek", function() { return _lastDayOfISOWeek_index_js__WEBPACK_IMPORTED_MODULE_139__["default"]; });
 
-/* harmony import */ var _min_index_js__WEBPACK_IMPORTED_MODULE_140__ = __webpack_require__(/*! ./min/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/min/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "min", function() { return _min_index_js__WEBPACK_IMPORTED_MODULE_140__["default"]; });
+/* harmony import */ var _lastDayOfISOWeekYear_index_js__WEBPACK_IMPORTED_MODULE_140__ = __webpack_require__(/*! ./lastDayOfISOWeekYear/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/lastDayOfISOWeekYear/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "lastDayOfISOWeekYear", function() { return _lastDayOfISOWeekYear_index_js__WEBPACK_IMPORTED_MODULE_140__["default"]; });
 
-/* harmony import */ var _parse_index_js__WEBPACK_IMPORTED_MODULE_141__ = __webpack_require__(/*! ./parse/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/parse/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "parse", function() { return _parse_index_js__WEBPACK_IMPORTED_MODULE_141__["default"]; });
+/* harmony import */ var _lastDayOfMonth_index_js__WEBPACK_IMPORTED_MODULE_141__ = __webpack_require__(/*! ./lastDayOfMonth/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/lastDayOfMonth/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "lastDayOfMonth", function() { return _lastDayOfMonth_index_js__WEBPACK_IMPORTED_MODULE_141__["default"]; });
 
-/* harmony import */ var _parseISO_index_js__WEBPACK_IMPORTED_MODULE_142__ = __webpack_require__(/*! ./parseISO/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/parseISO/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "parseISO", function() { return _parseISO_index_js__WEBPACK_IMPORTED_MODULE_142__["default"]; });
+/* harmony import */ var _lastDayOfQuarter_index_js__WEBPACK_IMPORTED_MODULE_142__ = __webpack_require__(/*! ./lastDayOfQuarter/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/lastDayOfQuarter/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "lastDayOfQuarter", function() { return _lastDayOfQuarter_index_js__WEBPACK_IMPORTED_MODULE_142__["default"]; });
 
-/* harmony import */ var _parseJSON_index_js__WEBPACK_IMPORTED_MODULE_143__ = __webpack_require__(/*! ./parseJSON/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/parseJSON/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "parseJSON", function() { return _parseJSON_index_js__WEBPACK_IMPORTED_MODULE_143__["default"]; });
+/* harmony import */ var _lastDayOfWeek_index_js__WEBPACK_IMPORTED_MODULE_143__ = __webpack_require__(/*! ./lastDayOfWeek/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/lastDayOfWeek/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "lastDayOfWeek", function() { return _lastDayOfWeek_index_js__WEBPACK_IMPORTED_MODULE_143__["default"]; });
 
-/* harmony import */ var _roundToNearestMinutes_index_js__WEBPACK_IMPORTED_MODULE_144__ = __webpack_require__(/*! ./roundToNearestMinutes/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/roundToNearestMinutes/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "roundToNearestMinutes", function() { return _roundToNearestMinutes_index_js__WEBPACK_IMPORTED_MODULE_144__["default"]; });
+/* harmony import */ var _lastDayOfYear_index_js__WEBPACK_IMPORTED_MODULE_144__ = __webpack_require__(/*! ./lastDayOfYear/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/lastDayOfYear/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "lastDayOfYear", function() { return _lastDayOfYear_index_js__WEBPACK_IMPORTED_MODULE_144__["default"]; });
 
-/* harmony import */ var _set_index_js__WEBPACK_IMPORTED_MODULE_145__ = __webpack_require__(/*! ./set/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/set/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "set", function() { return _set_index_js__WEBPACK_IMPORTED_MODULE_145__["default"]; });
+/* harmony import */ var _lightFormat_index_js__WEBPACK_IMPORTED_MODULE_145__ = __webpack_require__(/*! ./lightFormat/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/lightFormat/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "lightFormat", function() { return _lightFormat_index_js__WEBPACK_IMPORTED_MODULE_145__["default"]; });
 
-/* harmony import */ var _setDate_index_js__WEBPACK_IMPORTED_MODULE_146__ = __webpack_require__(/*! ./setDate/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/setDate/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "setDate", function() { return _setDate_index_js__WEBPACK_IMPORTED_MODULE_146__["default"]; });
+/* harmony import */ var _max_index_js__WEBPACK_IMPORTED_MODULE_146__ = __webpack_require__(/*! ./max/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/max/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "max", function() { return _max_index_js__WEBPACK_IMPORTED_MODULE_146__["default"]; });
 
-/* harmony import */ var _setDay_index_js__WEBPACK_IMPORTED_MODULE_147__ = __webpack_require__(/*! ./setDay/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/setDay/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "setDay", function() { return _setDay_index_js__WEBPACK_IMPORTED_MODULE_147__["default"]; });
+/* harmony import */ var _min_index_js__WEBPACK_IMPORTED_MODULE_147__ = __webpack_require__(/*! ./min/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/min/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "min", function() { return _min_index_js__WEBPACK_IMPORTED_MODULE_147__["default"]; });
 
-/* harmony import */ var _setDayOfYear_index_js__WEBPACK_IMPORTED_MODULE_148__ = __webpack_require__(/*! ./setDayOfYear/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/setDayOfYear/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "setDayOfYear", function() { return _setDayOfYear_index_js__WEBPACK_IMPORTED_MODULE_148__["default"]; });
+/* harmony import */ var _parse_index_js__WEBPACK_IMPORTED_MODULE_148__ = __webpack_require__(/*! ./parse/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/parse/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "parse", function() { return _parse_index_js__WEBPACK_IMPORTED_MODULE_148__["default"]; });
 
-/* harmony import */ var _setHours_index_js__WEBPACK_IMPORTED_MODULE_149__ = __webpack_require__(/*! ./setHours/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/setHours/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "setHours", function() { return _setHours_index_js__WEBPACK_IMPORTED_MODULE_149__["default"]; });
+/* harmony import */ var _parseISO_index_js__WEBPACK_IMPORTED_MODULE_149__ = __webpack_require__(/*! ./parseISO/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/parseISO/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "parseISO", function() { return _parseISO_index_js__WEBPACK_IMPORTED_MODULE_149__["default"]; });
 
-/* harmony import */ var _setISODay_index_js__WEBPACK_IMPORTED_MODULE_150__ = __webpack_require__(/*! ./setISODay/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/setISODay/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "setISODay", function() { return _setISODay_index_js__WEBPACK_IMPORTED_MODULE_150__["default"]; });
+/* harmony import */ var _parseJSON_index_js__WEBPACK_IMPORTED_MODULE_150__ = __webpack_require__(/*! ./parseJSON/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/parseJSON/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "parseJSON", function() { return _parseJSON_index_js__WEBPACK_IMPORTED_MODULE_150__["default"]; });
 
-/* harmony import */ var _setISOWeek_index_js__WEBPACK_IMPORTED_MODULE_151__ = __webpack_require__(/*! ./setISOWeek/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/setISOWeek/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "setISOWeek", function() { return _setISOWeek_index_js__WEBPACK_IMPORTED_MODULE_151__["default"]; });
+/* harmony import */ var _roundToNearestMinutes_index_js__WEBPACK_IMPORTED_MODULE_151__ = __webpack_require__(/*! ./roundToNearestMinutes/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/roundToNearestMinutes/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "roundToNearestMinutes", function() { return _roundToNearestMinutes_index_js__WEBPACK_IMPORTED_MODULE_151__["default"]; });
 
-/* harmony import */ var _setISOWeekYear_index_js__WEBPACK_IMPORTED_MODULE_152__ = __webpack_require__(/*! ./setISOWeekYear/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/setISOWeekYear/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "setISOWeekYear", function() { return _setISOWeekYear_index_js__WEBPACK_IMPORTED_MODULE_152__["default"]; });
+/* harmony import */ var _set_index_js__WEBPACK_IMPORTED_MODULE_152__ = __webpack_require__(/*! ./set/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/set/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "set", function() { return _set_index_js__WEBPACK_IMPORTED_MODULE_152__["default"]; });
 
-/* harmony import */ var _setMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_153__ = __webpack_require__(/*! ./setMilliseconds/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/setMilliseconds/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "setMilliseconds", function() { return _setMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_153__["default"]; });
+/* harmony import */ var _setDate_index_js__WEBPACK_IMPORTED_MODULE_153__ = __webpack_require__(/*! ./setDate/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/setDate/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "setDate", function() { return _setDate_index_js__WEBPACK_IMPORTED_MODULE_153__["default"]; });
 
-/* harmony import */ var _setMinutes_index_js__WEBPACK_IMPORTED_MODULE_154__ = __webpack_require__(/*! ./setMinutes/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/setMinutes/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "setMinutes", function() { return _setMinutes_index_js__WEBPACK_IMPORTED_MODULE_154__["default"]; });
+/* harmony import */ var _setDay_index_js__WEBPACK_IMPORTED_MODULE_154__ = __webpack_require__(/*! ./setDay/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/setDay/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "setDay", function() { return _setDay_index_js__WEBPACK_IMPORTED_MODULE_154__["default"]; });
 
-/* harmony import */ var _setMonth_index_js__WEBPACK_IMPORTED_MODULE_155__ = __webpack_require__(/*! ./setMonth/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/setMonth/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "setMonth", function() { return _setMonth_index_js__WEBPACK_IMPORTED_MODULE_155__["default"]; });
+/* harmony import */ var _setDayOfYear_index_js__WEBPACK_IMPORTED_MODULE_155__ = __webpack_require__(/*! ./setDayOfYear/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/setDayOfYear/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "setDayOfYear", function() { return _setDayOfYear_index_js__WEBPACK_IMPORTED_MODULE_155__["default"]; });
 
-/* harmony import */ var _setQuarter_index_js__WEBPACK_IMPORTED_MODULE_156__ = __webpack_require__(/*! ./setQuarter/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/setQuarter/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "setQuarter", function() { return _setQuarter_index_js__WEBPACK_IMPORTED_MODULE_156__["default"]; });
+/* harmony import */ var _setHours_index_js__WEBPACK_IMPORTED_MODULE_156__ = __webpack_require__(/*! ./setHours/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/setHours/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "setHours", function() { return _setHours_index_js__WEBPACK_IMPORTED_MODULE_156__["default"]; });
 
-/* harmony import */ var _setSeconds_index_js__WEBPACK_IMPORTED_MODULE_157__ = __webpack_require__(/*! ./setSeconds/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/setSeconds/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "setSeconds", function() { return _setSeconds_index_js__WEBPACK_IMPORTED_MODULE_157__["default"]; });
+/* harmony import */ var _setISODay_index_js__WEBPACK_IMPORTED_MODULE_157__ = __webpack_require__(/*! ./setISODay/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/setISODay/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "setISODay", function() { return _setISODay_index_js__WEBPACK_IMPORTED_MODULE_157__["default"]; });
 
-/* harmony import */ var _setWeek_index_js__WEBPACK_IMPORTED_MODULE_158__ = __webpack_require__(/*! ./setWeek/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/setWeek/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "setWeek", function() { return _setWeek_index_js__WEBPACK_IMPORTED_MODULE_158__["default"]; });
+/* harmony import */ var _setISOWeek_index_js__WEBPACK_IMPORTED_MODULE_158__ = __webpack_require__(/*! ./setISOWeek/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/setISOWeek/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "setISOWeek", function() { return _setISOWeek_index_js__WEBPACK_IMPORTED_MODULE_158__["default"]; });
 
-/* harmony import */ var _setWeekYear_index_js__WEBPACK_IMPORTED_MODULE_159__ = __webpack_require__(/*! ./setWeekYear/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/setWeekYear/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "setWeekYear", function() { return _setWeekYear_index_js__WEBPACK_IMPORTED_MODULE_159__["default"]; });
+/* harmony import */ var _setISOWeekYear_index_js__WEBPACK_IMPORTED_MODULE_159__ = __webpack_require__(/*! ./setISOWeekYear/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/setISOWeekYear/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "setISOWeekYear", function() { return _setISOWeekYear_index_js__WEBPACK_IMPORTED_MODULE_159__["default"]; });
 
-/* harmony import */ var _setYear_index_js__WEBPACK_IMPORTED_MODULE_160__ = __webpack_require__(/*! ./setYear/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/setYear/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "setYear", function() { return _setYear_index_js__WEBPACK_IMPORTED_MODULE_160__["default"]; });
+/* harmony import */ var _setMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_160__ = __webpack_require__(/*! ./setMilliseconds/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/setMilliseconds/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "setMilliseconds", function() { return _setMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_160__["default"]; });
 
-/* harmony import */ var _startOfDay_index_js__WEBPACK_IMPORTED_MODULE_161__ = __webpack_require__(/*! ./startOfDay/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/startOfDay/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "startOfDay", function() { return _startOfDay_index_js__WEBPACK_IMPORTED_MODULE_161__["default"]; });
+/* harmony import */ var _setMinutes_index_js__WEBPACK_IMPORTED_MODULE_161__ = __webpack_require__(/*! ./setMinutes/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/setMinutes/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "setMinutes", function() { return _setMinutes_index_js__WEBPACK_IMPORTED_MODULE_161__["default"]; });
 
-/* harmony import */ var _startOfDecade_index_js__WEBPACK_IMPORTED_MODULE_162__ = __webpack_require__(/*! ./startOfDecade/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/startOfDecade/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "startOfDecade", function() { return _startOfDecade_index_js__WEBPACK_IMPORTED_MODULE_162__["default"]; });
+/* harmony import */ var _setMonth_index_js__WEBPACK_IMPORTED_MODULE_162__ = __webpack_require__(/*! ./setMonth/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/setMonth/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "setMonth", function() { return _setMonth_index_js__WEBPACK_IMPORTED_MODULE_162__["default"]; });
 
-/* harmony import */ var _startOfHour_index_js__WEBPACK_IMPORTED_MODULE_163__ = __webpack_require__(/*! ./startOfHour/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/startOfHour/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "startOfHour", function() { return _startOfHour_index_js__WEBPACK_IMPORTED_MODULE_163__["default"]; });
+/* harmony import */ var _setQuarter_index_js__WEBPACK_IMPORTED_MODULE_163__ = __webpack_require__(/*! ./setQuarter/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/setQuarter/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "setQuarter", function() { return _setQuarter_index_js__WEBPACK_IMPORTED_MODULE_163__["default"]; });
 
-/* harmony import */ var _startOfISOWeek_index_js__WEBPACK_IMPORTED_MODULE_164__ = __webpack_require__(/*! ./startOfISOWeek/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/startOfISOWeek/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "startOfISOWeek", function() { return _startOfISOWeek_index_js__WEBPACK_IMPORTED_MODULE_164__["default"]; });
+/* harmony import */ var _setSeconds_index_js__WEBPACK_IMPORTED_MODULE_164__ = __webpack_require__(/*! ./setSeconds/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/setSeconds/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "setSeconds", function() { return _setSeconds_index_js__WEBPACK_IMPORTED_MODULE_164__["default"]; });
 
-/* harmony import */ var _startOfISOWeekYear_index_js__WEBPACK_IMPORTED_MODULE_165__ = __webpack_require__(/*! ./startOfISOWeekYear/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/startOfISOWeekYear/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "startOfISOWeekYear", function() { return _startOfISOWeekYear_index_js__WEBPACK_IMPORTED_MODULE_165__["default"]; });
+/* harmony import */ var _setWeek_index_js__WEBPACK_IMPORTED_MODULE_165__ = __webpack_require__(/*! ./setWeek/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/setWeek/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "setWeek", function() { return _setWeek_index_js__WEBPACK_IMPORTED_MODULE_165__["default"]; });
 
-/* harmony import */ var _startOfMinute_index_js__WEBPACK_IMPORTED_MODULE_166__ = __webpack_require__(/*! ./startOfMinute/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/startOfMinute/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "startOfMinute", function() { return _startOfMinute_index_js__WEBPACK_IMPORTED_MODULE_166__["default"]; });
+/* harmony import */ var _setWeekYear_index_js__WEBPACK_IMPORTED_MODULE_166__ = __webpack_require__(/*! ./setWeekYear/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/setWeekYear/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "setWeekYear", function() { return _setWeekYear_index_js__WEBPACK_IMPORTED_MODULE_166__["default"]; });
 
-/* harmony import */ var _startOfMonth_index_js__WEBPACK_IMPORTED_MODULE_167__ = __webpack_require__(/*! ./startOfMonth/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/startOfMonth/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "startOfMonth", function() { return _startOfMonth_index_js__WEBPACK_IMPORTED_MODULE_167__["default"]; });
+/* harmony import */ var _setYear_index_js__WEBPACK_IMPORTED_MODULE_167__ = __webpack_require__(/*! ./setYear/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/setYear/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "setYear", function() { return _setYear_index_js__WEBPACK_IMPORTED_MODULE_167__["default"]; });
 
-/* harmony import */ var _startOfQuarter_index_js__WEBPACK_IMPORTED_MODULE_168__ = __webpack_require__(/*! ./startOfQuarter/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/startOfQuarter/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "startOfQuarter", function() { return _startOfQuarter_index_js__WEBPACK_IMPORTED_MODULE_168__["default"]; });
+/* harmony import */ var _startOfDay_index_js__WEBPACK_IMPORTED_MODULE_168__ = __webpack_require__(/*! ./startOfDay/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/startOfDay/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "startOfDay", function() { return _startOfDay_index_js__WEBPACK_IMPORTED_MODULE_168__["default"]; });
 
-/* harmony import */ var _startOfSecond_index_js__WEBPACK_IMPORTED_MODULE_169__ = __webpack_require__(/*! ./startOfSecond/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/startOfSecond/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "startOfSecond", function() { return _startOfSecond_index_js__WEBPACK_IMPORTED_MODULE_169__["default"]; });
+/* harmony import */ var _startOfDecade_index_js__WEBPACK_IMPORTED_MODULE_169__ = __webpack_require__(/*! ./startOfDecade/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/startOfDecade/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "startOfDecade", function() { return _startOfDecade_index_js__WEBPACK_IMPORTED_MODULE_169__["default"]; });
 
-/* harmony import */ var _startOfToday_index_js__WEBPACK_IMPORTED_MODULE_170__ = __webpack_require__(/*! ./startOfToday/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/startOfToday/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "startOfToday", function() { return _startOfToday_index_js__WEBPACK_IMPORTED_MODULE_170__["default"]; });
+/* harmony import */ var _startOfHour_index_js__WEBPACK_IMPORTED_MODULE_170__ = __webpack_require__(/*! ./startOfHour/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/startOfHour/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "startOfHour", function() { return _startOfHour_index_js__WEBPACK_IMPORTED_MODULE_170__["default"]; });
 
-/* harmony import */ var _startOfTomorrow_index_js__WEBPACK_IMPORTED_MODULE_171__ = __webpack_require__(/*! ./startOfTomorrow/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/startOfTomorrow/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "startOfTomorrow", function() { return _startOfTomorrow_index_js__WEBPACK_IMPORTED_MODULE_171__["default"]; });
+/* harmony import */ var _startOfISOWeek_index_js__WEBPACK_IMPORTED_MODULE_171__ = __webpack_require__(/*! ./startOfISOWeek/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/startOfISOWeek/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "startOfISOWeek", function() { return _startOfISOWeek_index_js__WEBPACK_IMPORTED_MODULE_171__["default"]; });
 
-/* harmony import */ var _startOfWeek_index_js__WEBPACK_IMPORTED_MODULE_172__ = __webpack_require__(/*! ./startOfWeek/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/startOfWeek/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "startOfWeek", function() { return _startOfWeek_index_js__WEBPACK_IMPORTED_MODULE_172__["default"]; });
+/* harmony import */ var _startOfISOWeekYear_index_js__WEBPACK_IMPORTED_MODULE_172__ = __webpack_require__(/*! ./startOfISOWeekYear/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/startOfISOWeekYear/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "startOfISOWeekYear", function() { return _startOfISOWeekYear_index_js__WEBPACK_IMPORTED_MODULE_172__["default"]; });
 
-/* harmony import */ var _startOfWeekYear_index_js__WEBPACK_IMPORTED_MODULE_173__ = __webpack_require__(/*! ./startOfWeekYear/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/startOfWeekYear/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "startOfWeekYear", function() { return _startOfWeekYear_index_js__WEBPACK_IMPORTED_MODULE_173__["default"]; });
+/* harmony import */ var _startOfMinute_index_js__WEBPACK_IMPORTED_MODULE_173__ = __webpack_require__(/*! ./startOfMinute/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/startOfMinute/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "startOfMinute", function() { return _startOfMinute_index_js__WEBPACK_IMPORTED_MODULE_173__["default"]; });
 
-/* harmony import */ var _startOfYear_index_js__WEBPACK_IMPORTED_MODULE_174__ = __webpack_require__(/*! ./startOfYear/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/startOfYear/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "startOfYear", function() { return _startOfYear_index_js__WEBPACK_IMPORTED_MODULE_174__["default"]; });
+/* harmony import */ var _startOfMonth_index_js__WEBPACK_IMPORTED_MODULE_174__ = __webpack_require__(/*! ./startOfMonth/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/startOfMonth/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "startOfMonth", function() { return _startOfMonth_index_js__WEBPACK_IMPORTED_MODULE_174__["default"]; });
 
-/* harmony import */ var _startOfYesterday_index_js__WEBPACK_IMPORTED_MODULE_175__ = __webpack_require__(/*! ./startOfYesterday/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/startOfYesterday/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "startOfYesterday", function() { return _startOfYesterday_index_js__WEBPACK_IMPORTED_MODULE_175__["default"]; });
+/* harmony import */ var _startOfQuarter_index_js__WEBPACK_IMPORTED_MODULE_175__ = __webpack_require__(/*! ./startOfQuarter/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/startOfQuarter/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "startOfQuarter", function() { return _startOfQuarter_index_js__WEBPACK_IMPORTED_MODULE_175__["default"]; });
 
-/* harmony import */ var _sub_index_js__WEBPACK_IMPORTED_MODULE_176__ = __webpack_require__(/*! ./sub/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/sub/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "sub", function() { return _sub_index_js__WEBPACK_IMPORTED_MODULE_176__["default"]; });
+/* harmony import */ var _startOfSecond_index_js__WEBPACK_IMPORTED_MODULE_176__ = __webpack_require__(/*! ./startOfSecond/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/startOfSecond/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "startOfSecond", function() { return _startOfSecond_index_js__WEBPACK_IMPORTED_MODULE_176__["default"]; });
 
-/* harmony import */ var _subBusinessDays_index_js__WEBPACK_IMPORTED_MODULE_177__ = __webpack_require__(/*! ./subBusinessDays/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/subBusinessDays/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "subBusinessDays", function() { return _subBusinessDays_index_js__WEBPACK_IMPORTED_MODULE_177__["default"]; });
+/* harmony import */ var _startOfToday_index_js__WEBPACK_IMPORTED_MODULE_177__ = __webpack_require__(/*! ./startOfToday/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/startOfToday/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "startOfToday", function() { return _startOfToday_index_js__WEBPACK_IMPORTED_MODULE_177__["default"]; });
 
-/* harmony import */ var _subDays_index_js__WEBPACK_IMPORTED_MODULE_178__ = __webpack_require__(/*! ./subDays/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/subDays/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "subDays", function() { return _subDays_index_js__WEBPACK_IMPORTED_MODULE_178__["default"]; });
+/* harmony import */ var _startOfTomorrow_index_js__WEBPACK_IMPORTED_MODULE_178__ = __webpack_require__(/*! ./startOfTomorrow/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/startOfTomorrow/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "startOfTomorrow", function() { return _startOfTomorrow_index_js__WEBPACK_IMPORTED_MODULE_178__["default"]; });
 
-/* harmony import */ var _subHours_index_js__WEBPACK_IMPORTED_MODULE_179__ = __webpack_require__(/*! ./subHours/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/subHours/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "subHours", function() { return _subHours_index_js__WEBPACK_IMPORTED_MODULE_179__["default"]; });
+/* harmony import */ var _startOfWeek_index_js__WEBPACK_IMPORTED_MODULE_179__ = __webpack_require__(/*! ./startOfWeek/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/startOfWeek/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "startOfWeek", function() { return _startOfWeek_index_js__WEBPACK_IMPORTED_MODULE_179__["default"]; });
 
-/* harmony import */ var _subISOWeekYears_index_js__WEBPACK_IMPORTED_MODULE_180__ = __webpack_require__(/*! ./subISOWeekYears/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/subISOWeekYears/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "subISOWeekYears", function() { return _subISOWeekYears_index_js__WEBPACK_IMPORTED_MODULE_180__["default"]; });
+/* harmony import */ var _startOfWeekYear_index_js__WEBPACK_IMPORTED_MODULE_180__ = __webpack_require__(/*! ./startOfWeekYear/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/startOfWeekYear/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "startOfWeekYear", function() { return _startOfWeekYear_index_js__WEBPACK_IMPORTED_MODULE_180__["default"]; });
 
-/* harmony import */ var _subMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_181__ = __webpack_require__(/*! ./subMilliseconds/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/subMilliseconds/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "subMilliseconds", function() { return _subMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_181__["default"]; });
+/* harmony import */ var _startOfYear_index_js__WEBPACK_IMPORTED_MODULE_181__ = __webpack_require__(/*! ./startOfYear/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/startOfYear/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "startOfYear", function() { return _startOfYear_index_js__WEBPACK_IMPORTED_MODULE_181__["default"]; });
 
-/* harmony import */ var _subMinutes_index_js__WEBPACK_IMPORTED_MODULE_182__ = __webpack_require__(/*! ./subMinutes/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/subMinutes/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "subMinutes", function() { return _subMinutes_index_js__WEBPACK_IMPORTED_MODULE_182__["default"]; });
+/* harmony import */ var _startOfYesterday_index_js__WEBPACK_IMPORTED_MODULE_182__ = __webpack_require__(/*! ./startOfYesterday/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/startOfYesterday/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "startOfYesterday", function() { return _startOfYesterday_index_js__WEBPACK_IMPORTED_MODULE_182__["default"]; });
 
-/* harmony import */ var _subMonths_index_js__WEBPACK_IMPORTED_MODULE_183__ = __webpack_require__(/*! ./subMonths/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/subMonths/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "subMonths", function() { return _subMonths_index_js__WEBPACK_IMPORTED_MODULE_183__["default"]; });
+/* harmony import */ var _sub_index_js__WEBPACK_IMPORTED_MODULE_183__ = __webpack_require__(/*! ./sub/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/sub/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "sub", function() { return _sub_index_js__WEBPACK_IMPORTED_MODULE_183__["default"]; });
 
-/* harmony import */ var _subQuarters_index_js__WEBPACK_IMPORTED_MODULE_184__ = __webpack_require__(/*! ./subQuarters/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/subQuarters/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "subQuarters", function() { return _subQuarters_index_js__WEBPACK_IMPORTED_MODULE_184__["default"]; });
+/* harmony import */ var _subBusinessDays_index_js__WEBPACK_IMPORTED_MODULE_184__ = __webpack_require__(/*! ./subBusinessDays/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/subBusinessDays/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "subBusinessDays", function() { return _subBusinessDays_index_js__WEBPACK_IMPORTED_MODULE_184__["default"]; });
 
-/* harmony import */ var _subSeconds_index_js__WEBPACK_IMPORTED_MODULE_185__ = __webpack_require__(/*! ./subSeconds/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/subSeconds/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "subSeconds", function() { return _subSeconds_index_js__WEBPACK_IMPORTED_MODULE_185__["default"]; });
+/* harmony import */ var _subDays_index_js__WEBPACK_IMPORTED_MODULE_185__ = __webpack_require__(/*! ./subDays/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/subDays/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "subDays", function() { return _subDays_index_js__WEBPACK_IMPORTED_MODULE_185__["default"]; });
 
-/* harmony import */ var _subWeeks_index_js__WEBPACK_IMPORTED_MODULE_186__ = __webpack_require__(/*! ./subWeeks/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/subWeeks/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "subWeeks", function() { return _subWeeks_index_js__WEBPACK_IMPORTED_MODULE_186__["default"]; });
+/* harmony import */ var _subHours_index_js__WEBPACK_IMPORTED_MODULE_186__ = __webpack_require__(/*! ./subHours/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/subHours/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "subHours", function() { return _subHours_index_js__WEBPACK_IMPORTED_MODULE_186__["default"]; });
 
-/* harmony import */ var _subYears_index_js__WEBPACK_IMPORTED_MODULE_187__ = __webpack_require__(/*! ./subYears/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/subYears/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "subYears", function() { return _subYears_index_js__WEBPACK_IMPORTED_MODULE_187__["default"]; });
+/* harmony import */ var _subISOWeekYears_index_js__WEBPACK_IMPORTED_MODULE_187__ = __webpack_require__(/*! ./subISOWeekYears/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/subISOWeekYears/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "subISOWeekYears", function() { return _subISOWeekYears_index_js__WEBPACK_IMPORTED_MODULE_187__["default"]; });
 
-/* harmony import */ var _toDate_index_js__WEBPACK_IMPORTED_MODULE_188__ = __webpack_require__(/*! ./toDate/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/toDate/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "toDate", function() { return _toDate_index_js__WEBPACK_IMPORTED_MODULE_188__["default"]; });
+/* harmony import */ var _subMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_188__ = __webpack_require__(/*! ./subMilliseconds/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/subMilliseconds/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "subMilliseconds", function() { return _subMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_188__["default"]; });
 
-/* harmony import */ var _constants_index_js__WEBPACK_IMPORTED_MODULE_189__ = __webpack_require__(/*! ./constants/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/constants/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "maxTime", function() { return _constants_index_js__WEBPACK_IMPORTED_MODULE_189__["maxTime"]; });
+/* harmony import */ var _subMinutes_index_js__WEBPACK_IMPORTED_MODULE_189__ = __webpack_require__(/*! ./subMinutes/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/subMinutes/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "subMinutes", function() { return _subMinutes_index_js__WEBPACK_IMPORTED_MODULE_189__["default"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "minTime", function() { return _constants_index_js__WEBPACK_IMPORTED_MODULE_189__["minTime"]; });
+/* harmony import */ var _subMonths_index_js__WEBPACK_IMPORTED_MODULE_190__ = __webpack_require__(/*! ./subMonths/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/subMonths/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "subMonths", function() { return _subMonths_index_js__WEBPACK_IMPORTED_MODULE_190__["default"]; });
+
+/* harmony import */ var _subQuarters_index_js__WEBPACK_IMPORTED_MODULE_191__ = __webpack_require__(/*! ./subQuarters/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/subQuarters/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "subQuarters", function() { return _subQuarters_index_js__WEBPACK_IMPORTED_MODULE_191__["default"]; });
+
+/* harmony import */ var _subSeconds_index_js__WEBPACK_IMPORTED_MODULE_192__ = __webpack_require__(/*! ./subSeconds/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/subSeconds/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "subSeconds", function() { return _subSeconds_index_js__WEBPACK_IMPORTED_MODULE_192__["default"]; });
+
+/* harmony import */ var _subWeeks_index_js__WEBPACK_IMPORTED_MODULE_193__ = __webpack_require__(/*! ./subWeeks/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/subWeeks/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "subWeeks", function() { return _subWeeks_index_js__WEBPACK_IMPORTED_MODULE_193__["default"]; });
+
+/* harmony import */ var _subYears_index_js__WEBPACK_IMPORTED_MODULE_194__ = __webpack_require__(/*! ./subYears/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/subYears/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "subYears", function() { return _subYears_index_js__WEBPACK_IMPORTED_MODULE_194__["default"]; });
+
+/* harmony import */ var _toDate_index_js__WEBPACK_IMPORTED_MODULE_195__ = __webpack_require__(/*! ./toDate/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/toDate/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "toDate", function() { return _toDate_index_js__WEBPACK_IMPORTED_MODULE_195__["default"]; });
+
+/* harmony import */ var _constants_index_js__WEBPACK_IMPORTED_MODULE_196__ = __webpack_require__(/*! ./constants/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/constants/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "maxTime", function() { return _constants_index_js__WEBPACK_IMPORTED_MODULE_196__["maxTime"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "minTime", function() { return _constants_index_js__WEBPACK_IMPORTED_MODULE_196__["minTime"]; });
 
 // This file is generated automatically by `scripts/build/indices.js`. Please, don't change it.
 
@@ -78263,6 +79679,119 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
+
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/intervalToDuration/index.js":
+/*!********************************************************************************************!*\
+  !*** ./node_modules/vue2-datepicker/node_modules/date-fns/esm/intervalToDuration/index.js ***!
+  \********************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return intervalToDuration; });
+/* harmony import */ var _compareAsc_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../compareAsc/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/compareAsc/index.js");
+/* harmony import */ var _differenceInYears_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../differenceInYears/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/differenceInYears/index.js");
+/* harmony import */ var _differenceInMonths_index_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../differenceInMonths/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/differenceInMonths/index.js");
+/* harmony import */ var _differenceInDays_index_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../differenceInDays/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/differenceInDays/index.js");
+/* harmony import */ var _differenceInHours_index_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../differenceInHours/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/differenceInHours/index.js");
+/* harmony import */ var _differenceInMinutes_index_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../differenceInMinutes/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/differenceInMinutes/index.js");
+/* harmony import */ var _differenceInSeconds_index_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../differenceInSeconds/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/differenceInSeconds/index.js");
+/* harmony import */ var _isValid_index_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../isValid/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isValid/index.js");
+/* harmony import */ var _lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../_lib/requiredArgs/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/_lib/requiredArgs/index.js");
+/* harmony import */ var _toDate_index_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../toDate/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/toDate/index.js");
+/* harmony import */ var _sub_index_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../sub/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/sub/index.js");
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * @name intervalToDuration
+ * @category Common Helpers
+ * @summary Convert interval to duration
+ *
+ * @description
+ * Convert a interval object to a duration object.
+ *
+ * @param {Interval} interval - the interval to convert to duration
+ *
+ * @returns {Duration} The duration Object
+ * @throws {TypeError} Requires 2 arguments
+ * @throws {RangeError} `start` must not be Invalid Date
+ * @throws {RangeError} `end` must not be Invalid Date
+ *
+ * @example
+ * // Get the duration between January 15, 1929 and April 4, 1968.
+ * intervalToDuration({
+ *   start: new Date(1929, 0, 15, 12, 0, 0),
+ *   end: new Date(1968, 3, 4, 19, 5, 0)
+ * })
+ * // => { years: 39, months: 2, days: 20, hours: 7, minutes: 5, seconds: 0 }
+ */
+
+function intervalToDuration(_ref) {
+  var start = _ref.start,
+      end = _ref.end;
+  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_8__["default"])(1, arguments);
+  var dateLeft = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_9__["default"])(start);
+  var dateRight = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_9__["default"])(end);
+
+  if (!Object(_isValid_index_js__WEBPACK_IMPORTED_MODULE_7__["default"])(dateLeft)) {
+    throw new RangeError('Start Date is invalid');
+  }
+
+  if (!Object(_isValid_index_js__WEBPACK_IMPORTED_MODULE_7__["default"])(dateRight)) {
+    throw new RangeError('End Date is invalid');
+  }
+
+  var duration = {
+    years: 0,
+    months: 0,
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0
+  };
+  var sign = Object(_compareAsc_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dateLeft, dateRight);
+  duration.years = Math.abs(Object(_differenceInYears_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dateLeft, dateRight));
+  var remainingMonths = Object(_sub_index_js__WEBPACK_IMPORTED_MODULE_10__["default"])(dateLeft, {
+    years: sign * duration.years
+  });
+  duration.months = Math.abs(Object(_differenceInMonths_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(remainingMonths, dateRight));
+  var remainingDays = Object(_sub_index_js__WEBPACK_IMPORTED_MODULE_10__["default"])(remainingMonths, {
+    months: sign * duration.months
+  });
+  duration.days = Math.abs(Object(_differenceInDays_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(remainingDays, dateRight));
+  var remainingHours = Object(_sub_index_js__WEBPACK_IMPORTED_MODULE_10__["default"])(remainingDays, {
+    days: sign * duration.days
+  });
+  duration.hours = Math.abs(Object(_differenceInHours_index_js__WEBPACK_IMPORTED_MODULE_4__["default"])(remainingHours, dateRight));
+  var remainingMinutes = Object(_sub_index_js__WEBPACK_IMPORTED_MODULE_10__["default"])(remainingHours, {
+    hours: sign * duration.hours
+  });
+  duration.minutes = Math.abs(Object(_differenceInMinutes_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(remainingMinutes, dateRight));
+  var remainingSeconds = Object(_sub_index_js__WEBPACK_IMPORTED_MODULE_10__["default"])(remainingMinutes, {
+    minutes: sign * duration.minutes
+  });
+  duration.seconds = Math.abs(Object(_differenceInSeconds_index_js__WEBPACK_IMPORTED_MODULE_6__["default"])(remainingSeconds, dateRight));
+  return duration;
+}
 
 /***/ }),
 
@@ -78730,6 +80259,322 @@ function isLeapYear(dirtyDate) {
   var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
   var year = date.getFullYear();
   return year % 400 === 0 || year % 4 === 0 && year % 100 !== 0;
+}
+
+/***/ }),
+
+/***/ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isMatch/index.js":
+/*!*********************************************************************************!*\
+  !*** ./node_modules/vue2-datepicker/node_modules/date-fns/esm/isMatch/index.js ***!
+  \*********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return isMatch; });
+/* harmony import */ var _parse_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../parse/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/parse/index.js");
+/* harmony import */ var _isValid_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../isValid/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/isValid/index.js");
+/* harmony import */ var _lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../_lib/requiredArgs/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/_lib/requiredArgs/index.js");
+
+
+
+/**
+ * @name isMatch
+ * @category Common Helpers
+ * @summary validates the date string against given formats
+ *
+ * @description
+ * Return the true if given date is string correct against the given format else
+ * will return false.
+ *
+ * > ⚠️ Please note that the `format` tokens differ from Moment.js and other libraries.
+ * > See: https://git.io/fxCyr
+ *
+ * The characters in the format string wrapped between two single quotes characters (') are escaped.
+ * Two single quotes in a row, whether inside or outside a quoted sequence, represent a 'real' single quote.
+ *
+ * Format of the format string is based on Unicode Technical Standard #35:
+ * https://www.unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table
+ * with a few additions (see note 5 below the table).
+ *
+ * Not all tokens are compatible. Combinations that don't make sense or could lead to bugs are prohibited
+ * and will throw `RangeError`. For example usage of 24-hour format token with AM/PM token will throw an exception:
+ *
+ * ```javascript
+ * isMatch('23 AM', 'HH a')
+ * //=> RangeError: The format string mustn't contain `HH` and `a` at the same time
+ * ```
+ *
+ * See the compatibility table: https://docs.google.com/spreadsheets/d/e/2PACX-1vQOPU3xUhplll6dyoMmVUXHKl_8CRDs6_ueLmex3SoqwhuolkuN3O05l4rqx5h1dKX8eb46Ul-CCSrq/pubhtml?gid=0&single=true
+ *
+ * Accepted format string patterns:
+ * | Unit                            |Prior| Pattern | Result examples                   | Notes |
+ * |---------------------------------|-----|---------|-----------------------------------|-------|
+ * | Era                             | 140 | G..GGG  | AD, BC                            |       |
+ * |                                 |     | GGGG    | Anno Domini, Before Christ        | 2     |
+ * |                                 |     | GGGGG   | A, B                              |       |
+ * | Calendar year                   | 130 | y       | 44, 1, 1900, 2017, 9999           | 4     |
+ * |                                 |     | yo      | 44th, 1st, 1900th, 9999999th      | 4,5   |
+ * |                                 |     | yy      | 44, 01, 00, 17                    | 4     |
+ * |                                 |     | yyy     | 044, 001, 123, 999                | 4     |
+ * |                                 |     | yyyy    | 0044, 0001, 1900, 2017            | 4     |
+ * |                                 |     | yyyyy   | ...                               | 2,4   |
+ * | Local week-numbering year       | 130 | Y       | 44, 1, 1900, 2017, 9000           | 4     |
+ * |                                 |     | Yo      | 44th, 1st, 1900th, 9999999th      | 4,5   |
+ * |                                 |     | YY      | 44, 01, 00, 17                    | 4,6   |
+ * |                                 |     | YYY     | 044, 001, 123, 999                | 4     |
+ * |                                 |     | YYYY    | 0044, 0001, 1900, 2017            | 4,6   |
+ * |                                 |     | YYYYY   | ...                               | 2,4   |
+ * | ISO week-numbering year         | 130 | R       | -43, 1, 1900, 2017, 9999, -9999   | 4,5   |
+ * |                                 |     | RR      | -43, 01, 00, 17                   | 4,5   |
+ * |                                 |     | RRR     | -043, 001, 123, 999, -999         | 4,5   |
+ * |                                 |     | RRRR    | -0043, 0001, 2017, 9999, -9999    | 4,5   |
+ * |                                 |     | RRRRR   | ...                               | 2,4,5 |
+ * | Extended year                   | 130 | u       | -43, 1, 1900, 2017, 9999, -999    | 4     |
+ * |                                 |     | uu      | -43, 01, 99, -99                  | 4     |
+ * |                                 |     | uuu     | -043, 001, 123, 999, -999         | 4     |
+ * |                                 |     | uuuu    | -0043, 0001, 2017, 9999, -9999    | 4     |
+ * |                                 |     | uuuuu   | ...                               | 2,4   |
+ * | Quarter (formatting)            | 120 | Q       | 1, 2, 3, 4                        |       |
+ * |                                 |     | Qo      | 1st, 2nd, 3rd, 4th                | 5     |
+ * |                                 |     | QQ      | 01, 02, 03, 04                    |       |
+ * |                                 |     | QQQ     | Q1, Q2, Q3, Q4                    |       |
+ * |                                 |     | QQQQ    | 1st quarter, 2nd quarter, ...     | 2     |
+ * |                                 |     | QQQQQ   | 1, 2, 3, 4                        | 4     |
+ * | Quarter (stand-alone)           | 120 | q       | 1, 2, 3, 4                        |       |
+ * |                                 |     | qo      | 1st, 2nd, 3rd, 4th                | 5     |
+ * |                                 |     | qq      | 01, 02, 03, 04                    |       |
+ * |                                 |     | qqq     | Q1, Q2, Q3, Q4                    |       |
+ * |                                 |     | qqqq    | 1st quarter, 2nd quarter, ...     | 2     |
+ * |                                 |     | qqqqq   | 1, 2, 3, 4                        | 3     |
+ * | Month (formatting)              | 110 | M       | 1, 2, ..., 12                     |       |
+ * |                                 |     | Mo      | 1st, 2nd, ..., 12th               | 5     |
+ * |                                 |     | MM      | 01, 02, ..., 12                   |       |
+ * |                                 |     | MMM     | Jan, Feb, ..., Dec                |       |
+ * |                                 |     | MMMM    | January, February, ..., December  | 2     |
+ * |                                 |     | MMMMM   | J, F, ..., D                      |       |
+ * | Month (stand-alone)             | 110 | L       | 1, 2, ..., 12                     |       |
+ * |                                 |     | Lo      | 1st, 2nd, ..., 12th               | 5     |
+ * |                                 |     | LL      | 01, 02, ..., 12                   |       |
+ * |                                 |     | LLL     | Jan, Feb, ..., Dec                |       |
+ * |                                 |     | LLLL    | January, February, ..., December  | 2     |
+ * |                                 |     | LLLLL   | J, F, ..., D                      |       |
+ * | Local week of year              | 100 | w       | 1, 2, ..., 53                     |       |
+ * |                                 |     | wo      | 1st, 2nd, ..., 53th               | 5     |
+ * |                                 |     | ww      | 01, 02, ..., 53                   |       |
+ * | ISO week of year                | 100 | I       | 1, 2, ..., 53                     | 5     |
+ * |                                 |     | Io      | 1st, 2nd, ..., 53th               | 5     |
+ * |                                 |     | II      | 01, 02, ..., 53                   | 5     |
+ * | Day of month                    |  90 | d       | 1, 2, ..., 31                     |       |
+ * |                                 |     | do      | 1st, 2nd, ..., 31st               | 5     |
+ * |                                 |     | dd      | 01, 02, ..., 31                   |       |
+ * | Day of year                     |  90 | D       | 1, 2, ..., 365, 366               | 7     |
+ * |                                 |     | Do      | 1st, 2nd, ..., 365th, 366th       | 5     |
+ * |                                 |     | DD      | 01, 02, ..., 365, 366             | 7     |
+ * |                                 |     | DDD     | 001, 002, ..., 365, 366           |       |
+ * |                                 |     | DDDD    | ...                               | 2     |
+ * | Day of week (formatting)        |  90 | E..EEE  | Mon, Tue, Wed, ..., Su            |       |
+ * |                                 |     | EEEE    | Monday, Tuesday, ..., Sunday      | 2     |
+ * |                                 |     | EEEEE   | M, T, W, T, F, S, S               |       |
+ * |                                 |     | EEEEEE  | Mo, Tu, We, Th, Fr, Su, Sa        |       |
+ * | ISO day of week (formatting)    |  90 | i       | 1, 2, 3, ..., 7                   | 5     |
+ * |                                 |     | io      | 1st, 2nd, ..., 7th                | 5     |
+ * |                                 |     | ii      | 01, 02, ..., 07                   | 5     |
+ * |                                 |     | iii     | Mon, Tue, Wed, ..., Su            | 5     |
+ * |                                 |     | iiii    | Monday, Tuesday, ..., Sunday      | 2,5   |
+ * |                                 |     | iiiii   | M, T, W, T, F, S, S               | 5     |
+ * |                                 |     | iiiiii  | Mo, Tu, We, Th, Fr, Su, Sa        | 5     |
+ * | Local day of week (formatting)  |  90 | e       | 2, 3, 4, ..., 1                   |       |
+ * |                                 |     | eo      | 2nd, 3rd, ..., 1st                | 5     |
+ * |                                 |     | ee      | 02, 03, ..., 01                   |       |
+ * |                                 |     | eee     | Mon, Tue, Wed, ..., Su            |       |
+ * |                                 |     | eeee    | Monday, Tuesday, ..., Sunday      | 2     |
+ * |                                 |     | eeeee   | M, T, W, T, F, S, S               |       |
+ * |                                 |     | eeeeee  | Mo, Tu, We, Th, Fr, Su, Sa        |       |
+ * | Local day of week (stand-alone) |  90 | c       | 2, 3, 4, ..., 1                   |       |
+ * |                                 |     | co      | 2nd, 3rd, ..., 1st                | 5     |
+ * |                                 |     | cc      | 02, 03, ..., 01                   |       |
+ * |                                 |     | ccc     | Mon, Tue, Wed, ..., Su            |       |
+ * |                                 |     | cccc    | Monday, Tuesday, ..., Sunday      | 2     |
+ * |                                 |     | ccccc   | M, T, W, T, F, S, S               |       |
+ * |                                 |     | cccccc  | Mo, Tu, We, Th, Fr, Su, Sa        |       |
+ * | AM, PM                          |  80 | a..aaa  | AM, PM                            |       |
+ * |                                 |     | aaaa    | a.m., p.m.                        | 2     |
+ * |                                 |     | aaaaa   | a, p                              |       |
+ * | AM, PM, noon, midnight          |  80 | b..bbb  | AM, PM, noon, midnight            |       |
+ * |                                 |     | bbbb    | a.m., p.m., noon, midnight        | 2     |
+ * |                                 |     | bbbbb   | a, p, n, mi                       |       |
+ * | Flexible day period             |  80 | B..BBB  | at night, in the morning, ...     |       |
+ * |                                 |     | BBBB    | at night, in the morning, ...     | 2     |
+ * |                                 |     | BBBBB   | at night, in the morning, ...     |       |
+ * | Hour [1-12]                     |  70 | h       | 1, 2, ..., 11, 12                 |       |
+ * |                                 |     | ho      | 1st, 2nd, ..., 11th, 12th         | 5     |
+ * |                                 |     | hh      | 01, 02, ..., 11, 12               |       |
+ * | Hour [0-23]                     |  70 | H       | 0, 1, 2, ..., 23                  |       |
+ * |                                 |     | Ho      | 0th, 1st, 2nd, ..., 23rd          | 5     |
+ * |                                 |     | HH      | 00, 01, 02, ..., 23               |       |
+ * | Hour [0-11]                     |  70 | K       | 1, 2, ..., 11, 0                  |       |
+ * |                                 |     | Ko      | 1st, 2nd, ..., 11th, 0th          | 5     |
+ * |                                 |     | KK      | 01, 02, ..., 11, 00               |       |
+ * | Hour [1-24]                     |  70 | k       | 24, 1, 2, ..., 23                 |       |
+ * |                                 |     | ko      | 24th, 1st, 2nd, ..., 23rd         | 5     |
+ * |                                 |     | kk      | 24, 01, 02, ..., 23               |       |
+ * | Minute                          |  60 | m       | 0, 1, ..., 59                     |       |
+ * |                                 |     | mo      | 0th, 1st, ..., 59th               | 5     |
+ * |                                 |     | mm      | 00, 01, ..., 59                   |       |
+ * | Second                          |  50 | s       | 0, 1, ..., 59                     |       |
+ * |                                 |     | so      | 0th, 1st, ..., 59th               | 5     |
+ * |                                 |     | ss      | 00, 01, ..., 59                   |       |
+ * | Seconds timestamp               |  40 | t       | 512969520                         |       |
+ * |                                 |     | tt      | ...                               | 2     |
+ * | Fraction of second              |  30 | S       | 0, 1, ..., 9                      |       |
+ * |                                 |     | SS      | 00, 01, ..., 99                   |       |
+ * |                                 |     | SSS     | 000, 0001, ..., 999               |       |
+ * |                                 |     | SSSS    | ...                               | 2     |
+ * | Milliseconds timestamp          |  20 | T       | 512969520900                      |       |
+ * |                                 |     | TT      | ...                               | 2     |
+ * | Timezone (ISO-8601 w/ Z)        |  10 | X       | -08, +0530, Z                     |       |
+ * |                                 |     | XX      | -0800, +0530, Z                   |       |
+ * |                                 |     | XXX     | -08:00, +05:30, Z                 |       |
+ * |                                 |     | XXXX    | -0800, +0530, Z, +123456          | 2     |
+ * |                                 |     | XXXXX   | -08:00, +05:30, Z, +12:34:56      |       |
+ * | Timezone (ISO-8601 w/o Z)       |  10 | x       | -08, +0530, +00                   |       |
+ * |                                 |     | xx      | -0800, +0530, +0000               |       |
+ * |                                 |     | xxx     | -08:00, +05:30, +00:00            | 2     |
+ * |                                 |     | xxxx    | -0800, +0530, +0000, +123456      |       |
+ * |                                 |     | xxxxx   | -08:00, +05:30, +00:00, +12:34:56 |       |
+ * | Long localized date             |  NA | P       | 05/29/1453                        | 5,8   |
+ * |                                 |     | PP      | May 29, 1453                      |       |
+ * |                                 |     | PPP     | May 29th, 1453                    |       |
+ * |                                 |     | PPPP    | Sunday, May 29th, 1453            | 2,5,8 |
+ * | Long localized time             |  NA | p       | 12:00 AM                          | 5,8   |
+ * |                                 |     | pp      | 12:00:00 AM                       |       |
+ * | Combination of date and time    |  NA | Pp      | 05/29/1453, 12:00 AM              |       |
+ * |                                 |     | PPpp    | May 29, 1453, 12:00:00 AM         |       |
+ * |                                 |     | PPPpp   | May 29th, 1453 at ...             |       |
+ * |                                 |     | PPPPpp  | Sunday, May 29th, 1453 at ...     | 2,5,8 |
+ * Notes:
+ * 1. "Formatting" units (e.g. formatting quarter) in the default en-US locale
+ *    are the same as "stand-alone" units, but are different in some languages.
+ *    "Formatting" units are declined according to the rules of the language
+ *    in the context of a date. "Stand-alone" units are always nominative singular.
+ *    In `format` function, they will produce different result:
+ *
+ *    `format(new Date(2017, 10, 6), 'do LLLL', {locale: cs}) //=> '6. listopad'`
+ *
+ *    `format(new Date(2017, 10, 6), 'do MMMM', {locale: cs}) //=> '6. listopadu'`
+ *
+ *    `isMatch` will try to match both formatting and stand-alone units interchangably.
+ *
+ * 2. Any sequence of the identical letters is a pattern, unless it is escaped by
+ *    the single quote characters (see below).
+ *    If the sequence is longer than listed in table:
+ *    - for numerical units (`yyyyyyyy`) `isMatch` will try to match a number
+ *      as wide as the sequence
+ *    - for text units (`MMMMMMMM`) `isMatch` will try to match the widest variation of the unit.
+ *      These variations are marked with "2" in the last column of the table.
+ *
+ * 3. `QQQQQ` and `qqqqq` could be not strictly numerical in some locales.
+ *    These tokens represent the shortest form of the quarter.
+ *
+ * 4. The main difference between `y` and `u` patterns are B.C. years:
+ *
+ *    | Year | `y` | `u` |
+ *    |------|-----|-----|
+ *    | AC 1 |   1 |   1 |
+ *    | BC 1 |   1 |   0 |
+ *    | BC 2 |   2 |  -1 |
+ *
+ *    Also `yy` will try to guess the century of two digit year by proximity with `referenceDate`:
+ *
+ *    `isMatch('50', 'yy') //=> true`
+ *
+ *    `isMatch('75', 'yy') //=> true`
+ *
+ *    while `uu` will use the year as is:
+ *
+ *    `isMatch('50', 'uu') //=> true`
+ *
+ *    `isMatch('75', 'uu') //=> true`
+ *
+ *    The same difference is true for local and ISO week-numbering years (`Y` and `R`),
+ *    except local week-numbering years are dependent on `options.weekStartsOn`
+ *    and `options.firstWeekContainsDate` (compare [setISOWeekYear]{@link https://date-fns.org/docs/setISOWeekYear}
+ *    and [setWeekYear]{@link https://date-fns.org/docs/setWeekYear}).
+ *
+ * 5. These patterns are not in the Unicode Technical Standard #35:
+ *    - `i`: ISO day of week
+ *    - `I`: ISO week of year
+ *    - `R`: ISO week-numbering year
+ *    - `o`: ordinal number modifier
+ *    - `P`: long localized date
+ *    - `p`: long localized time
+ *
+ * 6. `YY` and `YYYY` tokens represent week-numbering years but they are often confused with years.
+ *    You should enable `options.useAdditionalWeekYearTokens` to use them. See: https://git.io/fxCyr
+ *
+ * 7. `D` and `DD` tokens represent days of the year but they are ofthen confused with days of the month.
+ *    You should enable `options.useAdditionalDayOfYearTokens` to use them. See: https://git.io/fxCyr
+ *
+ * 8. `P+` tokens do not have a defined priority since they are merely aliases to other tokens based
+ *    on the given locale.
+ *
+ *    using `en-US` locale: `P` => `MM/dd/yyyy`
+ *    using `en-US` locale: `p` => `hh:mm a`
+ *    using `pt-BR` locale: `P` => `dd/MM/yyyy`
+ *    using `pt-BR` locale: `p` => `HH:mm`
+ *
+ * Values will be checked in the descending order of its unit's priority.
+ * Units of an equal priority overwrite each other in the order of appearance.
+ *
+ * If no values of higher priority are matched (e.g. when matching string 'January 1st' without a year),
+ * the values will be taken from today's using `new Date()` date which works as a context of parsing.
+ *
+ * The result may vary by locale.
+ *
+ * If `formatString` matches with `dateString` but does not provides tokens, `referenceDate` will be returned.
+ *
+ *
+ *
+ * @param {String} dateString - the date string to verify
+ * @param {String} formatString - the string of tokens
+ * @param {Object} [options] - an object with options.
+ * @param {Locale} [options.locale=defaultLocale] - the locale object. See [Locale]{@link https://date-fns.org/docs/Locale}
+ * @param {0|1|2|3|4|5|6} [options.weekStartsOn=0] - the index of the first day of the week (0 - Sunday)
+ * @param {1|2|3|4|5|6|7} [options.firstWeekContainsDate=1] - the day of January, which is always in the first week of the year
+ * @param {Boolean} [options.useAdditionalWeekYearTokens=false] - if true, allows usage of the week-numbering year tokens `YY` and `YYYY`;
+ *   see: https://git.io/fxCyr
+ * @param {Boolean} [options.useAdditionalDayOfYearTokens=false] - if true, allows usage of the day of year tokens `D` and `DD`;
+ *   see: https://git.io/fxCyr
+ * @returns {Boolean}
+ * @throws {TypeError} 2 arguments required
+ * @throws {RangeError} `options.weekStartsOn` must be between 0 and 6
+ * @throws {RangeError} `options.firstWeekContainsDate` must be between 1 and 7
+ * @throws {RangeError} `options.locale` must contain `match` property
+ * @throws {RangeError} use `yyyy` instead of `YYYY` for formatting years; see: https://git.io/fxCyr
+ * @throws {RangeError} use `yy` instead of `YY` for formatting years; see: https://git.io/fxCyr
+ * @throws {RangeError} use `d` instead of `D` for formatting days of the month; see: https://git.io/fxCyr
+ * @throws {RangeError} use `dd` instead of `DD` for formatting days of the month; see: https://git.io/fxCyr
+ * @throws {RangeError} format string contains an unescaped latin alphabet character
+ *
+ * @example
+ * // Match 11 February 2014 from middle-endian format:
+ * var result = isMatch('02/11/2014', 'MM/dd/yyyy')
+ * //=> true
+ *
+ * @example
+ * // Match 28th of February in Esperanto locale in the context of 2010 year:
+ * import eo from 'date-fns/locale/eo'
+ * var result = isMatch('28-a de februaro', "do 'de' MMMM", {
+ *   locale: eo
+ * })
+ * //=> true
+ */
+
+function isMatch(dateString, formatString, dirtyOptions) {
+  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(2, arguments);
+  return Object(_isValid_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(Object(_parse_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dateString, formatString, new Date(), dirtyOptions));
 }
 
 /***/ }),
@@ -80755,7 +82600,7 @@ var unescapedLatinCharacterRegExp = /[a-zA-Z]/;
  *
  * @example
  * var result = lightFormat(new Date(2014, 1, 11), 'yyyy-MM-dd')
- * //=> '1987-02-11'
+ * //=> '2014-02-11'
  */
 
 function lightFormat(dirtyDate, dirtyFormatStr) {
@@ -80889,11 +82734,11 @@ function buildMatchFn(args) {
 
     if (Object.prototype.toString.call(parsePatterns) === '[object Array]') {
       value = findIndex(parsePatterns, function (pattern) {
-        return pattern.test(string);
+        return pattern.test(matchedString);
       });
     } else {
       value = findKey(parsePatterns, function (pattern) {
-        return pattern.test(string);
+        return pattern.test(matchedString);
       });
     }
 
@@ -81001,6 +82846,14 @@ var formatDistanceLocale = {
   xDays: {
     one: '1 day',
     other: '{{count}} days'
+  },
+  aboutXWeeks: {
+    one: 'about 1 week',
+    other: 'about {{count}} weeks'
+  },
+  xWeeks: {
+    one: '1 week',
+    other: '{{count}} weeks'
   },
   aboutXMonths: {
     one: 'about 1 month',
@@ -82329,6 +84182,7 @@ var parsers = {
   // Day of the month
   d: {
     priority: 90,
+    subPriority: 1,
     parse: function (string, token, match, _options) {
       switch (token) {
         case 'd':
@@ -82364,6 +84218,7 @@ var parsers = {
   // Day of year
   D: {
     priority: 90,
+    subPriority: 1,
     parse: function (string, token, match, _options) {
       switch (token) {
         case 'D':
@@ -83268,28 +85123,28 @@ var unescapedLatinCharacterRegExp = /[a-zA-Z]/;
  * |                                 |     | DD      | 01, 02, ..., 365, 366             | 7     |
  * |                                 |     | DDD     | 001, 002, ..., 365, 366           |       |
  * |                                 |     | DDDD    | ...                               | 2     |
- * | Day of week (formatting)        |  90 | E..EEE  | Mon, Tue, Wed, ..., Su            |       |
+ * | Day of week (formatting)        |  90 | E..EEE  | Mon, Tue, Wed, ..., Sun           |       |
  * |                                 |     | EEEE    | Monday, Tuesday, ..., Sunday      | 2     |
  * |                                 |     | EEEEE   | M, T, W, T, F, S, S               |       |
  * |                                 |     | EEEEEE  | Mo, Tu, We, Th, Fr, Su, Sa        |       |
  * | ISO day of week (formatting)    |  90 | i       | 1, 2, 3, ..., 7                   | 5     |
  * |                                 |     | io      | 1st, 2nd, ..., 7th                | 5     |
  * |                                 |     | ii      | 01, 02, ..., 07                   | 5     |
- * |                                 |     | iii     | Mon, Tue, Wed, ..., Su            | 5     |
+ * |                                 |     | iii     | Mon, Tue, Wed, ..., Sun           | 5     |
  * |                                 |     | iiii    | Monday, Tuesday, ..., Sunday      | 2,5   |
  * |                                 |     | iiiii   | M, T, W, T, F, S, S               | 5     |
  * |                                 |     | iiiiii  | Mo, Tu, We, Th, Fr, Su, Sa        | 5     |
  * | Local day of week (formatting)  |  90 | e       | 2, 3, 4, ..., 1                   |       |
  * |                                 |     | eo      | 2nd, 3rd, ..., 1st                | 5     |
  * |                                 |     | ee      | 02, 03, ..., 01                   |       |
- * |                                 |     | eee     | Mon, Tue, Wed, ..., Su            |       |
+ * |                                 |     | eee     | Mon, Tue, Wed, ..., Sun           |       |
  * |                                 |     | eeee    | Monday, Tuesday, ..., Sunday      | 2     |
  * |                                 |     | eeeee   | M, T, W, T, F, S, S               |       |
  * |                                 |     | eeeeee  | Mo, Tu, We, Th, Fr, Su, Sa        |       |
  * | Local day of week (stand-alone) |  90 | c       | 2, 3, 4, ..., 1                   |       |
  * |                                 |     | co      | 2nd, 3rd, ..., 1st                | 5     |
  * |                                 |     | cc      | 02, 03, ..., 01                   |       |
- * |                                 |     | ccc     | Mon, Tue, Wed, ..., Su            |       |
+ * |                                 |     | ccc     | Mon, Tue, Wed, ..., Sun           |       |
  * |                                 |     | cccc    | Monday, Tuesday, ..., Sunday      | 2     |
  * |                                 |     | ccccc   | M, T, W, T, F, S, S               |       |
  * |                                 |     | cccccc  | Mo, Tu, We, Th, Fr, Su, Sa        |       |
@@ -83310,7 +85165,7 @@ var unescapedLatinCharacterRegExp = /[a-zA-Z]/;
  * |                                 |     | HH      | 00, 01, 02, ..., 23               |       |
  * | Hour [0-11]                     |  70 | K       | 1, 2, ..., 11, 0                  |       |
  * |                                 |     | Ko      | 1st, 2nd, ..., 11th, 0th          | 5     |
- * |                                 |     | KK      | 1, 2, ..., 11, 0                  |       |
+ * |                                 |     | KK      | 01, 02, ..., 11, 00               |       |
  * | Hour [1-24]                     |  70 | k       | 24, 1, 2, ..., 23                 |       |
  * |                                 |     | ko      | 24th, 1st, 2nd, ..., 23rd         | 5     |
  * |                                 |     | kk      | 24, 01, 02, ..., 23               |       |
@@ -83380,7 +85235,7 @@ var unescapedLatinCharacterRegExp = /[a-zA-Z]/;
  *    | BC 1 |   1 |   0 |
  *    | BC 2 |   2 |  -1 |
  *
- *    Also `yy` will try to guess the century of two digit year by proximity with `backupDate`:
+ *    Also `yy` will try to guess the century of two digit year by proximity with `referenceDate`:
  *
  *    `parse('50', 'yy', new Date(2018, 0, 1)) //=> Sat Jan 01 2050 00:00:00`
  *
@@ -83423,18 +85278,18 @@ var unescapedLatinCharacterRegExp = /[a-zA-Z]/;
  * Units of an equal priority overwrite each other in the order of appearance.
  *
  * If no values of higher priority are parsed (e.g. when parsing string 'January 1st' without a year),
- * the values will be taken from 3rd argument `backupDate` which works as a context of parsing.
+ * the values will be taken from 3rd argument `referenceDate` which works as a context of parsing.
  *
- * `backupDate` must be passed for correct work of the function.
- * If you're not sure which `backupDate` to supply, create a new instance of Date:
+ * `referenceDate` must be passed for correct work of the function.
+ * If you're not sure which `referenceDate` to supply, create a new instance of Date:
  * `parse('02/11/2014', 'MM/dd/yyyy', new Date())`
  * In this case parsing will be done in the context of the current date.
- * If `backupDate` is `Invalid Date` or a value not convertible to valid `Date`,
+ * If `referenceDate` is `Invalid Date` or a value not convertible to valid `Date`,
  * then `Invalid Date` will be returned.
  *
  * The result may vary by locale.
  *
- * If `formatString` matches with `dateString` but does not provides tokens, `backupDate` will be returned.
+ * If `formatString` matches with `dateString` but does not provides tokens, `referenceDate` will be returned.
  *
  * If parsing failed, `Invalid Date` will be returned.
  * Invalid Date is a Date, whose time value is NaN.
@@ -83458,7 +85313,7 @@ var unescapedLatinCharacterRegExp = /[a-zA-Z]/;
  *
  * @param {String} dateString - the string to parse
  * @param {String} formatString - the string of tokens
- * @param {Date|Number} backupDate - defines values missing from the parsed dateString
+ * @param {Date|Number} referenceDate - defines values missing from the parsed dateString
  * @param {Object} [options] - an object with options.
  * @param {Locale} [options.locale=defaultLocale] - the locale object. See [Locale]{@link https://date-fns.org/docs/Locale}
  * @param {0|1|2|3|4|5|6} [options.weekStartsOn=0] - the index of the first day of the week (0 - Sunday)
@@ -83472,10 +85327,10 @@ var unescapedLatinCharacterRegExp = /[a-zA-Z]/;
  * @throws {RangeError} `options.weekStartsOn` must be between 0 and 6
  * @throws {RangeError} `options.firstWeekContainsDate` must be between 1 and 7
  * @throws {RangeError} `options.locale` must contain `match` property
- * @throws {RangeError} use `yyyy` instead of `YYYY` for formatting years; see: https://git.io/fxCyr
- * @throws {RangeError} use `yy` instead of `YY` for formatting years; see: https://git.io/fxCyr
- * @throws {RangeError} use `d` instead of `D` for formatting days of the month; see: https://git.io/fxCyr
- * @throws {RangeError} use `dd` instead of `DD` for formatting days of the month; see: https://git.io/fxCyr
+ * @throws {RangeError} use `yyyy` instead of `YYYY` for formatting years using [format provided] to the input [input provided]; see: https://git.io/fxCyr
+ * @throws {RangeError} use `yy` instead of `YY` for formatting years using [format provided] to the input [input provided]; see: https://git.io/fxCyr
+ * @throws {RangeError} use `d` instead of `D` for formatting days of the month using [format provided] to the input [input provided]; see: https://git.io/fxCyr
+ * @throws {RangeError} use `dd` instead of `DD` for formatting days of the month using [format provided] to the input [input provided]; see: https://git.io/fxCyr
  * @throws {RangeError} format string contains an unescaped latin alphabet character
  *
  * @example
@@ -83492,7 +85347,7 @@ var unescapedLatinCharacterRegExp = /[a-zA-Z]/;
  * //=> Sun Feb 28 2010 00:00:00
  */
 
-function parse(dirtyDateString, dirtyFormatString, dirtyBackupDate, dirtyOptions) {
+function parse(dirtyDateString, dirtyFormatString, dirtyReferenceDate, dirtyOptions) {
   Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_9__["default"])(3, arguments);
   var dateString = String(dirtyDateString);
   var formatString = String(dirtyFormatString);
@@ -83521,7 +85376,7 @@ function parse(dirtyDateString, dirtyFormatString, dirtyBackupDate, dirtyOptions
 
   if (formatString === '') {
     if (dateString === '') {
-      return Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dirtyBackupDate);
+      return Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dirtyReferenceDate);
     } else {
       return new Date(NaN);
     }
@@ -83535,6 +85390,7 @@ function parse(dirtyDateString, dirtyFormatString, dirtyBackupDate, dirtyOptions
   };
   var setters = [{
     priority: TIMEZONE_UNIT_PRIORITY,
+    subPriority: -1,
     set: dateToSystemTimezone,
     index: 0
   }];
@@ -83555,11 +85411,11 @@ function parse(dirtyDateString, dirtyFormatString, dirtyBackupDate, dirtyOptions
     var token = tokens[i];
 
     if (!options.useAdditionalWeekYearTokens && Object(_lib_protectedTokens_index_js__WEBPACK_IMPORTED_MODULE_6__["isProtectedWeekYearToken"])(token)) {
-      Object(_lib_protectedTokens_index_js__WEBPACK_IMPORTED_MODULE_6__["throwProtectedError"])(token);
+      Object(_lib_protectedTokens_index_js__WEBPACK_IMPORTED_MODULE_6__["throwProtectedError"])(token, formatString, dirtyDateString);
     }
 
     if (!options.useAdditionalDayOfYearTokens && Object(_lib_protectedTokens_index_js__WEBPACK_IMPORTED_MODULE_6__["isProtectedDayOfYearToken"])(token)) {
-      Object(_lib_protectedTokens_index_js__WEBPACK_IMPORTED_MODULE_6__["throwProtectedError"])(token);
+      Object(_lib_protectedTokens_index_js__WEBPACK_IMPORTED_MODULE_6__["throwProtectedError"])(token, formatString, dirtyDateString);
     }
 
     var firstCharacter = token[0];
@@ -83599,6 +85455,7 @@ function parse(dirtyDateString, dirtyFormatString, dirtyBackupDate, dirtyOptions
 
       setters.push({
         priority: parser.priority,
+        subPriority: parser.subPriority || 0,
         set: parser.set,
         validate: parser.validate,
         value: parseResult.value,
@@ -83640,11 +85497,13 @@ function parse(dirtyDateString, dirtyFormatString, dirtyBackupDate, dirtyOptions
   }).map(function (priority) {
     return setters.filter(function (setter) {
       return setter.priority === priority;
-    }).reverse();
+    }).sort(function (a, b) {
+      return b.subPriority - a.subPriority;
+    });
   }).map(function (setterArray) {
     return setterArray[0];
   });
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dirtyBackupDate);
+  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dirtyReferenceDate);
 
   if (isNaN(date)) {
     return new Date(NaN);
@@ -83704,9 +85563,7 @@ function cleanEscapedString(input) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return parseISO; });
 /* harmony import */ var _lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../_lib/toInteger/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/_lib/toInteger/index.js");
-/* harmony import */ var _lib_getTimezoneOffsetInMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../_lib/getTimezoneOffsetInMilliseconds/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/_lib/getTimezoneOffsetInMilliseconds/index.js");
-/* harmony import */ var _lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../_lib/requiredArgs/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/_lib/requiredArgs/index.js");
-
+/* harmony import */ var _lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../_lib/requiredArgs/index.js */ "./node_modules/vue2-datepicker/node_modules/date-fns/esm/_lib/requiredArgs/index.js");
 
 
 var MILLISECONDS_IN_HOUR = 3600000;
@@ -83779,7 +85636,7 @@ var timezoneRegex = /^([+-])(\d{2})(?::?(\d{2}))?$/;
  */
 
 function parseISO(argument, dirtyOptions) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(1, arguments);
+  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
   var options = dirtyOptions || {};
   var additionalDigits = options.additionalDigits == null ? DEFAULT_ADDITIONAL_DIGITS : Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(options.additionalDigits);
 
@@ -83822,23 +85679,15 @@ function parseISO(argument, dirtyOptions) {
       return new Date(NaN);
     }
   } else {
-    var fullTime = timestamp + time;
-    var fullTimeDate = new Date(fullTime);
-    offset = Object(_lib_getTimezoneOffsetInMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(fullTimeDate); // Adjust time when it's coming from DST
+    var dirtyDate = new Date(timestamp + time); // js parsed string assuming it's in UTC timezone
+    // but we need it to be parsed in our timezone
+    // so we use utc values to build date in our timezone.
+    // Year values from 0 to 99 map to the years 1900 to 1999
+    // so set year explicitly with setFullYear.
 
-    var fullTimeDateDiffDay = new Date(fullTime);
-
-    if (offset > 0) {
-      fullTimeDateDiffDay.setDate(fullTimeDate.getDate() + 1);
-    } else {
-      fullTimeDateDiffDay.setDate(fullTimeDate.getDate() - 1);
-    }
-
-    var offsetDiff = Object(_lib_getTimezoneOffsetInMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(fullTimeDateDiffDay) - offset;
-
-    if (offsetDiff > 0) {
-      offset += offsetDiff;
-    }
+    var result = new Date(dirtyDate.getUTCFullYear(), dirtyDate.getUTCMonth(), dirtyDate.getUTCDate(), dirtyDate.getUTCHours(), dirtyDate.getUTCMinutes(), dirtyDate.getUTCSeconds(), dirtyDate.getUTCMilliseconds());
+    result.setFullYear(dirtyDate.getUTCFullYear());
+    return result;
   }
 
   return new Date(timestamp + time + offset);
@@ -83847,7 +85696,12 @@ function parseISO(argument, dirtyOptions) {
 function splitDateString(dateString) {
   var dateStrings = {};
   var array = dateString.split(patterns.dateTimeDelimiter);
-  var timeString;
+  var timeString; // The regex match should only return at maximum two array elements.
+  // [date], [time], or [date, time].
+
+  if (array.length > 2) {
+    return dateStrings;
+  }
 
   if (/:/.test(array[0])) {
     dateStrings.date = null;
@@ -84030,23 +85884,23 @@ __webpack_require__.r(__webpack_exports__);
  * a `Date` instance which can be used with other functions in the `date-fns` library.
  * The following formats are supported:
  *
- *     - `2000-03-15T05:20:10.123Z`: The output of `.toISOString()` and `JSON.stringify(new Date())`
- *     - `2000-03-15T05:20:10Z`: Without milliseconds
- *     - `2000-03-15T05:20:10+00:00`: With a zero offset, the default JSON encoded format in some other languages
- *     - `2000-03-15T05:20:10+0000`: With a zero offset without a colon
- *     - `2000-03-15T05:20:10`: Without a trailing 'Z' symbol
- *     - `2000-03-15T05:20:10.1234567`: Up to 7 digits in milliseconds field. Only first 3 are taken into account since JS does not allow fractional milliseconds
- *     - `2000-03-15 05:20:10`: With a space instead of a 'T' separator for APIs returning a SQL date without reformatting
+ * - `2000-03-15T05:20:10.123Z`: The output of `.toISOString()` and `JSON.stringify(new Date())`
+ * - `2000-03-15T05:20:10Z`: Without milliseconds
+ * - `2000-03-15T05:20:10+00:00`: With a zero offset, the default JSON encoded format in some other languages
+ * - `2000-03-15T05:20:10+0000`: With a zero offset without a colon
+ * - `2000-03-15T05:20:10`: Without a trailing 'Z' symbol
+ * - `2000-03-15T05:20:10.1234567`: Up to 7 digits in milliseconds field. Only first 3 are taken into account since JS does not allow fractional milliseconds
+ * - `2000-03-15 05:20:10`: With a space instead of a 'T' separator for APIs returning a SQL date without reformatting
  *
  * For convenience and ease of use these other input types are also supported
  * via [toDate]{@link https://date-fns.org/docs/toDate}:
  *
- *     - A `Date` instance will be cloned
- *     - A `number` will be treated as a timestamp
+ * - A `Date` instance will be cloned
+ * - A `number` will be treated as a timestamp
  *
  * Any other input type or invalid date strings will return an `Invalid Date`.
  *
- * @param {String|Number|Date} argument A fully formed ISO1806 date string to convert
+ * @param {String|Number|Date} argument A fully formed ISO8601 date string to convert
  * @returns {Date} the parsed date in the local time zone
  * @throws {TypeError} 1 argument required
  */
@@ -84089,7 +85943,7 @@ __webpack_require__.r(__webpack_exports__);
  * @summary Rounds the given date to the nearest minute
  *
  * @description
- * Rounds the given date to the nearest minute (or number of minutes). 
+ * Rounds the given date to the nearest minute (or number of minutes).
  * Rounds up when the given date is exactly between the nearest round minutes.
  *
  * ### v2.0.0 breaking changes:
@@ -84330,12 +86184,12 @@ __webpack_require__.r(__webpack_exports__);
  * @throws {RangeError} `options.weekStartsOn` must be between 0 and 6
  *
  * @example
- * // Set Sunday to 1 September 2014:
+ * // Set week day to Sunday, with the default weekStartsOn of Sunday:
  * var result = setDay(new Date(2014, 8, 1), 0)
  * //=> Sun Aug 31 2014 00:00:00
  *
  * @example
- * // If week starts with Monday, set Sunday to 1 September 2014:
+ * // Set week day to Sunday, with a weekStartsOn of Monday:
  * var result = setDay(new Date(2014, 8, 1), 0, { weekStartsOn: 1 })
  * //=> Sun Sep 07 2014 00:00:00
  */
@@ -84357,7 +86211,8 @@ function setDay(dirtyDate, dirtyDay, dirtyOptions) {
   var currentDay = date.getDay();
   var remainder = day % 7;
   var dayIndex = (remainder + 7) % 7;
-  var diff = (dayIndex < weekStartsOn ? 7 : 0) + day - currentDay;
+  var delta = 7 - weekStartsOn;
+  var diff = day < 0 || day > 6 ? day - (currentDay + delta) % 7 : (dayIndex + delta) % 7 - (currentDay + delta) % 7;
   return Object(_addDays_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(date, diff, options);
 }
 
@@ -85602,7 +87457,7 @@ __webpack_require__.r(__webpack_exports__);
  * Return the start of tomorrow.
  *
  * > ⚠️ Please note that this function is not present in the FP submodule as
- * > it uses `Date.now()` internally hence impure and can't be safely curried.
+ * > it uses `new Date()` internally hence impure and can't be safely curried.
  *
  * ### v2.0.0 breaking changes:
  *
@@ -85845,7 +87700,7 @@ __webpack_require__.r(__webpack_exports__);
  * Return the start of yesterday.
  *
  * > ⚠️ Please note that this function is not present in the FP submodule as
- * > it uses `Date.now()` internally hence impure and can't be safely curried.
+ * > it uses `new Date()` internally hence impure and can't be safely curried.
  *
  * ### v2.0.0 breaking changes:
  *
@@ -85894,18 +87749,19 @@ __webpack_require__.r(__webpack_exports__);
 /**
  * @name sub
  * @category Common Helpers
- * @summary Subtract the specified years, months, days, hours, minutes and seconds from the given date.
+ * @summary Subtract the specified years, months, weeks, days, hours, minutes and seconds from the given date.
  *
  * @description
- * Subtract the specified years, months, days, hours, minutes and seconds from the given date.
+ * Subtract the specified years, months, weeks, days, hours, minutes and seconds from the given date.
  *
  * @param {Date|Number} date - the date to be changed
- * @param {Duration} duration - the object with years, months, days, hours, minutes and seconds to be subtracted
+ * @param {Duration} duration - the object with years, months, weeks, days, hours, minutes and seconds to be subtracted
  *
  * | Key     | Description                        |
  * |---------|------------------------------------|
  * | years   | Amount of years to be subtracted   |
  * | months  | Amount of months to be subtracted  |
+ * | weeks   | Amount of weeks to be subtracted   |
  * | days    | Amount of days to be subtracted    |
  * | hours   | Amount of hours to be subtracted   |
  * | minutes | Amount of minutes to be subtracted |
@@ -85917,10 +87773,11 @@ __webpack_require__.r(__webpack_exports__);
  * @throws {TypeError} 2 arguments required
  *
  * @example
- * // Subtract the following duration from 8 June 2017 15:29:20
- * const result = sub(new Date(2017, 5, 8, 15, 29, 20), {
+ * // Subtract the following duration from 15 June 2017 15:29:20
+ * const result = sub(new Date(2017, 5, 15, 15, 29, 20), {
  *   years: 2,
  *   months: 9,
+ *   weeks: 1,
  *   days: 7,
  *   hours: 5,
  *   minutes: 9,
@@ -85934,14 +87791,15 @@ function sub(dirtyDate, duration) {
   if (!duration || typeof duration !== 'object') return new Date(NaN);
   var years = 'years' in duration ? Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_4__["default"])(duration.years) : 0;
   var months = 'months' in duration ? Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_4__["default"])(duration.months) : 0;
+  var weeks = 'weeks' in duration ? Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_4__["default"])(duration.weeks) : 0;
   var days = 'days' in duration ? Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_4__["default"])(duration.days) : 0;
   var hours = 'hours' in duration ? Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_4__["default"])(duration.hours) : 0;
   var minutes = 'minutes' in duration ? Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_4__["default"])(duration.minutes) : 0;
   var seconds = 'seconds' in duration ? Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_4__["default"])(duration.seconds) : 0; // Subtract years and months
 
-  var dateWithoutMonths = Object(_subMonths_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dirtyDate), months + years * 12); // Subtract days
+  var dateWithoutMonths = Object(_subMonths_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dirtyDate), months + years * 12); // Subtract weeks and days
 
-  var dateWithoutDays = Object(_subDays_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dateWithoutMonths, days); // Subtract hours, minutes and seconds
+  var dateWithoutDays = Object(_subDays_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dateWithoutMonths, days + weeks * 7); // Subtract hours, minutes and seconds
 
   var minutestoSub = minutes + hours * 60;
   var secondstoSub = seconds + minutestoSub * 60;
@@ -85977,7 +87835,7 @@ __webpack_require__.r(__webpack_exports__);
  * Substract the specified number of business days (mon - fri) to the given date, ignoring weekends.
  *
  * @param {Date|Number} date - the date to be changed
- * @param {Number} amount - the amount of business days to be subtracted
+ * @param {Number} amount - the amount of business days to be subtracted. Positive decimals will be rounded using `Math.floor`, decimals less than zero will be rounded using `Math.ceil`.
  * @returns {Date} the new date with the business days subtracted
  * @throws {TypeError} 2 arguments required
  *
@@ -86024,7 +87882,7 @@ __webpack_require__.r(__webpack_exports__);
  * - [Changes that are common for the whole library](https://github.com/date-fns/date-fns/blob/master/docs/upgradeGuide.md#Common-Changes).
  *
  * @param {Date|Number} date - the date to be changed
- * @param {Number} amount - the amount of days to be subtracted
+ * @param {Number} amount - the amount of days to be subtracted. Positive decimals will be rounded using `Math.floor`, decimals less than zero will be rounded using `Math.ceil`.
  * @returns {Date} the new date with the days subtracted
  * @throws {TypeError} 2 arguments required
  *
@@ -86071,7 +87929,7 @@ __webpack_require__.r(__webpack_exports__);
  * - [Changes that are common for the whole library](https://github.com/date-fns/date-fns/blob/master/docs/upgradeGuide.md#Common-Changes).
  *
  * @param {Date|Number} date - the date to be changed
- * @param {Number} amount - the amount of hours to be subtracted
+ * @param {Number} amount - the amount of hours to be subtracted. Positive decimals will be rounded using `Math.floor`, decimals less than zero will be rounded using `Math.ceil`.
  * @returns {Date} the new date with the hours subtracted
  * @throws {TypeError} 2 arguments required
  *
@@ -86125,7 +87983,7 @@ __webpack_require__.r(__webpack_exports__);
  *   locale-dependent week-numbering year helpers, e.g., `setWeekYear`.
  *
  * @param {Date|Number} date - the date to be changed
- * @param {Number} amount - the amount of ISO week-numbering years to be subtracted
+ * @param {Number} amount - the amount of ISO week-numbering years to be subtracted. Positive decimals will be rounded using `Math.floor`, decimals less than zero will be rounded using `Math.ceil`.
  * @returns {Date} the new date with the ISO week-numbering years subtracted
  * @throws {TypeError} 2 arguments required
  *
@@ -86172,7 +88030,7 @@ __webpack_require__.r(__webpack_exports__);
  * - [Changes that are common for the whole library](https://github.com/date-fns/date-fns/blob/master/docs/upgradeGuide.md#Common-Changes).
  *
  * @param {Date|Number} date - the date to be changed
- * @param {Number} amount - the amount of milliseconds to be subtracted
+ * @param {Number} amount - the amount of milliseconds to be subtracted. Positive decimals will be rounded using `Math.floor`, decimals less than zero will be rounded using `Math.ceil`.
  * @returns {Date} the new date with the milliseconds subtracted
  * @throws {TypeError} 2 arguments required
  *
@@ -86219,7 +88077,7 @@ __webpack_require__.r(__webpack_exports__);
  * - [Changes that are common for the whole library](https://github.com/date-fns/date-fns/blob/master/docs/upgradeGuide.md#Common-Changes).
  *
  * @param {Date|Number} date - the date to be changed
- * @param {Number} amount - the amount of minutes to be subtracted
+ * @param {Number} amount - the amount of minutes to be subtracted. Positive decimals will be rounded using `Math.floor`, decimals less than zero will be rounded using `Math.ceil`.
  * @returns {Date} the new date with the minutes subtracted
  * @throws {TypeError} 2 arguments required
  *
@@ -86266,7 +88124,7 @@ __webpack_require__.r(__webpack_exports__);
  * - [Changes that are common for the whole library](https://github.com/date-fns/date-fns/blob/master/docs/upgradeGuide.md#Common-Changes).
  *
  * @param {Date|Number} date - the date to be changed
- * @param {Number} amount - the amount of months to be subtracted
+ * @param {Number} amount - the amount of months to be subtracted. Positive decimals will be rounded using `Math.floor`, decimals less than zero will be rounded using `Math.ceil`.
  * @returns {Date} the new date with the months subtracted
  * @throws {TypeError} 2 arguments required
  *
@@ -86313,7 +88171,7 @@ __webpack_require__.r(__webpack_exports__);
  * - [Changes that are common for the whole library](https://github.com/date-fns/date-fns/blob/master/docs/upgradeGuide.md#Common-Changes).
  *
  * @param {Date|Number} date - the date to be changed
- * @param {Number} amount - the amount of quarters to be subtracted
+ * @param {Number} amount - the amount of quarters to be subtracted. Positive decimals will be rounded using `Math.floor`, decimals less than zero will be rounded using `Math.ceil`.
  * @returns {Date} the new date with the quarters subtracted
  * @throws {TypeError} 2 arguments required
  *
@@ -86360,7 +88218,7 @@ __webpack_require__.r(__webpack_exports__);
  * - [Changes that are common for the whole library](https://github.com/date-fns/date-fns/blob/master/docs/upgradeGuide.md#Common-Changes).
  *
  * @param {Date|Number} date - the date to be changed
- * @param {Number} amount - the amount of seconds to be subtracted
+ * @param {Number} amount - the amount of seconds to be subtracted. Positive decimals will be rounded using `Math.floor`, decimals less than zero will be rounded using `Math.ceil`.
  * @returns {Date} the new date with the seconds subtracted
  * @throws {TypeError} 2 arguments required
  *
@@ -86407,7 +88265,7 @@ __webpack_require__.r(__webpack_exports__);
  * - [Changes that are common for the whole library](https://github.com/date-fns/date-fns/blob/master/docs/upgradeGuide.md#Common-Changes).
  *
  * @param {Date|Number} date - the date to be changed
- * @param {Number} amount - the amount of weeks to be subtracted
+ * @param {Number} amount - the amount of weeks to be subtracted. Positive decimals will be rounded using `Math.floor`, decimals less than zero will be rounded using `Math.ceil`.
  * @returns {Date} the new date with the weeks subtracted
  * @throws {TypeError} 2 arguments required
  *
@@ -86454,7 +88312,7 @@ __webpack_require__.r(__webpack_exports__);
  * - [Changes that are common for the whole library](https://github.com/date-fns/date-fns/blob/master/docs/upgradeGuide.md#Common-Changes).
  *
  * @param {Date|Number} date - the date to be changed
- * @param {Number} amount - the amount of years to be subtracted
+ * @param {Number} amount - the amount of years to be subtracted. Positive decimals will be rounded using `Math.floor`, decimals less than zero will be rounded using `Math.ceil`.
  * @returns {Date} the new date with the years subtracted
  * @throws {TypeError} 2 arguments required
  *
@@ -86527,7 +88385,7 @@ function toDate(argument) {
   } else {
     if ((typeof argument === 'string' || argStr === '[object String]') && typeof console !== 'undefined') {
       // eslint-disable-next-line no-console
-      console.warn("Starting with v2.0.0-beta.1 date-fns doesn't accept strings as arguments. Please use `parseISO` to parse strings. See: https://git.io/fjule"); // eslint-disable-next-line no-console
+      console.warn("Starting with v2.0.0-beta.1 date-fns doesn't accept strings as date arguments. Please use `parseISO` to parse strings. See: https://git.io/fjule"); // eslint-disable-next-line no-console
 
       console.warn(new Error().stack);
     }
@@ -86995,7 +88853,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _style_loader_index_js_css_loader_index_js_ref_6_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_src_index_js_ref_6_2_vue_loader_lib_index_js_vue_loader_options_map_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../style-loader!../../../css-loader??ref--6-1!../../../vue-loader/lib/loaders/stylePostLoader.js!../../../postcss-loader/src??ref--6-2!../../../vue-loader/lib??vue-loader-options!./map.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./node_modules/vue2-google-maps/dist/components/map.vue?vue&type=style&index=0&lang=css&");
 /* harmony import */ var _style_loader_index_js_css_loader_index_js_ref_6_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_src_index_js_ref_6_2_vue_loader_lib_index_js_vue_loader_options_map_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_style_loader_index_js_css_loader_index_js_ref_6_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_src_index_js_ref_6_2_vue_loader_lib_index_js_vue_loader_options_map_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _style_loader_index_js_css_loader_index_js_ref_6_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_src_index_js_ref_6_2_vue_loader_lib_index_js_vue_loader_options_map_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _style_loader_index_js_css_loader_index_js_ref_6_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_src_index_js_ref_6_2_vue_loader_lib_index_js_vue_loader_options_map_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _style_loader_index_js_css_loader_index_js_ref_6_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_src_index_js_ref_6_2_vue_loader_lib_index_js_vue_loader_options_map_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _style_loader_index_js_css_loader_index_js_ref_6_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_src_index_js_ref_6_2_vue_loader_lib_index_js_vue_loader_options_map_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
  /* harmony default export */ __webpack_exports__["default"] = (_style_loader_index_js_css_loader_index_js_ref_6_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_src_index_js_ref_6_2_vue_loader_lib_index_js_vue_loader_options_map_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
@@ -87612,7 +89470,7 @@ exports.default = (0, _mapElementFactory2.default)({
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _placeInput_vue_vue_type_template_id_c1ab87be___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./placeInput.vue?vue&type=template&id=c1ab87be& */ "./node_modules/vue2-google-maps/dist/components/placeInput.vue?vue&type=template&id=c1ab87be&");
 /* harmony import */ var _placeInputImpl_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./placeInputImpl.js?vue&type=script&lang=js& */ "./node_modules/vue2-google-maps/dist/components/placeInputImpl.js?vue&type=script&lang=js&?bfef");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _placeInputImpl_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _placeInputImpl_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _placeInputImpl_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _placeInputImpl_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
 /* harmony import */ var _vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -87779,7 +89637,7 @@ exports.default = {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _placeInputImpl_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!./placeInputImpl.js?vue&type=script&lang=js& */ "./node_modules/vue2-google-maps/dist/components/placeInputImpl.js?vue&type=script&lang=js&?0c5e");
 /* harmony import */ var _placeInputImpl_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_placeInputImpl_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _placeInputImpl_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _placeInputImpl_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _placeInputImpl_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _placeInputImpl_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
  /* harmony default export */ __webpack_exports__["default"] = (_placeInputImpl_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
@@ -88147,7 +90005,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _style_loader_index_js_css_loader_index_js_ref_6_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_src_index_js_ref_6_2_vue_loader_lib_index_js_vue_loader_options_streetViewPanorama_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../style-loader!../../../css-loader??ref--6-1!../../../vue-loader/lib/loaders/stylePostLoader.js!../../../postcss-loader/src??ref--6-2!../../../vue-loader/lib??vue-loader-options!./streetViewPanorama.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./node_modules/vue2-google-maps/dist/components/streetViewPanorama.vue?vue&type=style&index=0&lang=css&");
 /* harmony import */ var _style_loader_index_js_css_loader_index_js_ref_6_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_src_index_js_ref_6_2_vue_loader_lib_index_js_vue_loader_options_streetViewPanorama_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_style_loader_index_js_css_loader_index_js_ref_6_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_src_index_js_ref_6_2_vue_loader_lib_index_js_vue_loader_options_streetViewPanorama_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _style_loader_index_js_css_loader_index_js_ref_6_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_src_index_js_ref_6_2_vue_loader_lib_index_js_vue_loader_options_streetViewPanorama_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _style_loader_index_js_css_loader_index_js_ref_6_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_src_index_js_ref_6_2_vue_loader_lib_index_js_vue_loader_options_streetViewPanorama_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _style_loader_index_js_css_loader_index_js_ref_6_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_src_index_js_ref_6_2_vue_loader_lib_index_js_vue_loader_options_streetViewPanorama_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _style_loader_index_js_css_loader_index_js_ref_6_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_src_index_js_ref_6_2_vue_loader_lib_index_js_vue_loader_options_streetViewPanorama_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
  /* harmony default export */ __webpack_exports__["default"] = (_style_loader_index_js_css_loader_index_js_ref_6_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_src_index_js_ref_6_2_vue_loader_lib_index_js_vue_loader_options_streetViewPanorama_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
@@ -89077,7 +90935,7 @@ exports.default = function (input) {
   !*** ./node_modules/vueperslides/dist/vueperslides.common.js ***!
   \***************************************************************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
 module.exports =
 /******/ (function(modules) { // webpackBootstrap
@@ -89454,10 +91312,10 @@ module.exports = function (exec, SKIP_CLOSING) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_vuetify_loader_lib_loader_js_ref_18_0_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_vueperslide_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("d14b");
-/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_vuetify_loader_lib_loader_js_ref_18_0_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_vueperslide_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_vuetify_loader_lib_loader_js_ref_18_0_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_vueperslide_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_vueperslide_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("4192");
+/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_vueperslide_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_vueperslide_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__);
 /* unused harmony reexport * */
- /* unused harmony default export */ var _unused_webpack_default_export = (_node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_vuetify_loader_lib_loader_js_ref_18_0_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_vueperslide_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0___default.a); 
+ /* unused harmony default export */ var _unused_webpack_default_export = (_node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_vueperslide_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
@@ -89781,13 +91639,6 @@ defineIterator(String, 'String', function (iterated) {
 
 /***/ }),
 
-/***/ "3f69":
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-
-/***/ }),
-
 /***/ "3f8c":
 /***/ (function(module, exports) {
 
@@ -89810,6 +91661,13 @@ $({ target: 'Array', proto: true, forced: [].forEach != forEach }, {
   forEach: forEach
 });
 
+
+/***/ }),
+
+/***/ "4192":
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
 
 /***/ }),
 
@@ -90197,7 +92055,7 @@ var store = __webpack_require__("c6cd");
 (module.exports = function (key, value) {
   return store[key] || (store[key] = value !== undefined ? value : {});
 })('versions', []).push({
-  version: '3.6.4',
+  version: '3.6.5',
   mode: IS_PURE ? 'pure' : 'global',
   copyright: '© 2020 Denis Pushkarev (zloirock.ru)'
 });
@@ -90362,10 +92220,10 @@ module.exports = function (originalArray, length) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_vuetify_loader_lib_loader_js_ref_18_0_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_vueperslides_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("3f69");
-/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_vuetify_loader_lib_loader_js_ref_18_0_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_vueperslides_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_vuetify_loader_lib_loader_js_ref_18_0_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_vueperslides_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_vueperslides_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("fe3f");
+/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_vueperslides_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_vueperslides_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__);
 /* unused harmony reexport * */
- /* unused harmony default export */ var _unused_webpack_default_export = (_node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_vuetify_loader_lib_loader_js_ref_18_0_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_vueperslides_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0___default.a); 
+ /* unused harmony default export */ var _unused_webpack_default_export = (_node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_vueperslides_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
@@ -90921,6 +92779,91 @@ module.exports = function (string, tag, attribute, value) {
 module.exports = function (it) {
   return typeof it === 'object' ? it !== null : typeof it === 'function';
 };
+
+
+/***/ }),
+
+/***/ "8875":
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// addapted from the document.currentScript polyfill by Adam Miller
+// MIT license
+// source: https://github.com/amiller-gh/currentScript-polyfill
+
+// added support for Firefox https://bugzilla.mozilla.org/show_bug.cgi?id=1620505
+
+(function (root, factory) {
+  if (true) {
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else {}
+}(typeof self !== 'undefined' ? self : this, function () {
+  function getCurrentScript () {
+    var descriptor = Object.getOwnPropertyDescriptor(document, 'currentScript')
+    // for chrome
+    if (!descriptor && 'currentScript' in document && document.currentScript) {
+      return document.currentScript
+    }
+
+    // for other browsers with native support for currentScript
+    if (descriptor && descriptor.get !== getCurrentScript && document.currentScript) {
+      return document.currentScript
+    }
+  
+    // IE 8-10 support script readyState
+    // IE 11+ & Firefox support stack trace
+    try {
+      throw new Error();
+    }
+    catch (err) {
+      // Find the second match for the "at" string to get file src url from stack.
+      var ieStackRegExp = /.*at [^(]*\((.*):(.+):(.+)\)$/ig,
+        ffStackRegExp = /@([^@]*):(\d+):(\d+)\s*$/ig,
+        stackDetails = ieStackRegExp.exec(err.stack) || ffStackRegExp.exec(err.stack),
+        scriptLocation = (stackDetails && stackDetails[1]) || false,
+        line = (stackDetails && stackDetails[2]) || false,
+        currentLocation = document.location.href.replace(document.location.hash, ''),
+        pageSource,
+        inlineScriptSourceRegExp,
+        inlineScriptSource,
+        scripts = document.getElementsByTagName('script'); // Live NodeList collection
+  
+      if (scriptLocation === currentLocation) {
+        pageSource = document.documentElement.outerHTML;
+        inlineScriptSourceRegExp = new RegExp('(?:[^\\n]+?\\n){0,' + (line - 2) + '}[^<]*<script>([\\d\\D]*?)<\\/script>[\\d\\D]*', 'i');
+        inlineScriptSource = pageSource.replace(inlineScriptSourceRegExp, '$1').trim();
+      }
+  
+      for (var i = 0; i < scripts.length; i++) {
+        // If ready state is interactive, return the script tag
+        if (scripts[i].readyState === 'interactive') {
+          return scripts[i];
+        }
+  
+        // If src matches, return the script tag
+        if (scripts[i].src === scriptLocation) {
+          return scripts[i];
+        }
+  
+        // If inline source matches, return the script tag
+        if (
+          scriptLocation === currentLocation &&
+          scripts[i].innerHTML &&
+          scripts[i].innerHTML.trim() === inlineScriptSource
+        ) {
+          return scripts[i];
+        }
+      }
+  
+      // If no match, return null
+      return null;
+    }
+  };
+
+  return getCurrentScript
+}));
 
 
 /***/ }),
@@ -92013,6 +93956,35 @@ module.exports = TO_STRING_TAG_SUPPORT ? {}.toString : function toString() {
 
 /***/ }),
 
+/***/ "b0c0":
+/***/ (function(module, exports, __webpack_require__) {
+
+var DESCRIPTORS = __webpack_require__("83ab");
+var defineProperty = __webpack_require__("9bf2").f;
+
+var FunctionPrototype = Function.prototype;
+var FunctionPrototypeToString = FunctionPrototype.toString;
+var nameRE = /^\s*function ([^ (]*)/;
+var NAME = 'name';
+
+// Function instances `.name` property
+// https://tc39.github.io/ecma262/#sec-function-instances-name
+if (DESCRIPTORS && !(NAME in FunctionPrototype)) {
+  defineProperty(FunctionPrototype, NAME, {
+    configurable: true,
+    get: function () {
+      try {
+        return FunctionPrototypeToString.call(this).match(nameRE)[1];
+      } catch (error) {
+        return '';
+      }
+    }
+  });
+}
+
+
+/***/ }),
+
 /***/ "b622":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -92414,13 +94386,6 @@ module.exports = function (namespace, method) {
     : path[namespace] && path[namespace][method] || global[namespace] && global[namespace][method];
 };
 
-
-/***/ }),
-
-/***/ "d14b":
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
 
 /***/ }),
 
@@ -93063,49 +95028,6 @@ module.exports = TO_STRING_TAG_SUPPORT ? classofRaw : function (it) {
 
 /***/ }),
 
-/***/ "f6fd":
-/***/ (function(module, exports) {
-
-// document.currentScript polyfill by Adam Miller
-
-// MIT license
-
-(function(document){
-  var currentScript = "currentScript",
-      scripts = document.getElementsByTagName('script'); // Live NodeList collection
-
-  // If browser needs currentScript polyfill, add get currentScript() to the document object
-  if (!(currentScript in document)) {
-    Object.defineProperty(document, currentScript, {
-      get: function(){
-
-        // IE 6-10 supports script readyState
-        // IE 10+ support stack trace
-        try { throw new Error(); }
-        catch (err) {
-
-          // Find the second match for the "at" string to get file src url from stack.
-          // Specifically works with the format of stack traces in IE.
-          var i, res = ((/.*at [^\(]*\((.*):.+:.+\)$/ig).exec(err.stack) || [false])[1];
-
-          // For all scripts on the page, if src matches or if ready state is interactive, return the script tag
-          for(i in scripts){
-            if(scripts[i].src == res || scripts[i].readyState == "interactive"){
-              return scripts[i];
-            }
-          }
-
-          // If no match, return null
-          return null;
-        }
-      }
-    });
-  }
-})(document);
-
-
-/***/ }),
-
 /***/ "f772":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -93125,34 +95047,43 @@ module.exports = function (key) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+// ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, "VueperSlides", function() { return /* reexport */ vueperslides; });
+__webpack_require__.d(__webpack_exports__, "VueperSlide", function() { return /* reexport */ vueperslide; });
 
 // CONCATENATED MODULE: ./node_modules/@vue/cli-service/lib/commands/build/setPublicPath.js
 // This file is imported into lib/wc client bundles.
 
 if (typeof window !== 'undefined') {
+  var currentScript = window.document.currentScript
   if (true) {
-    __webpack_require__("f6fd")
+    var getCurrentScript = __webpack_require__("8875")
+    currentScript = getCurrentScript()
+
+    // for backward compatibility, because previously we directly included the polyfill
+    if (!('currentScript' in document)) {
+      Object.defineProperty(document, 'currentScript', { get: getCurrentScript })
+    }
   }
 
-  var setPublicPath_i
-  if ((setPublicPath_i = window.document.currentScript) && (setPublicPath_i = setPublicPath_i.src.match(/(.+\/)[^/]+\.js(\?.*)?$/))) {
-    __webpack_require__.p = setPublicPath_i[1] // eslint-disable-line
+  var src = currentScript && currentScript.src.match(/(.+\/)[^/]+\.js(\?.*)?$/)
+  if (src) {
+    __webpack_require__.p = src[1] // eslint-disable-line
   }
 }
 
 // Indicate to webpack that this file can be concatenated
 /* harmony default export */ var setPublicPath = (null);
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"0e341e4e-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/pug-plain-loader!./node_modules/vuetify-loader/lib/loader.js??ref--18-0!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vueperslides/vueperslides.vue?vue&type=template&id=e6a1c7c4&lang=pug&
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{ref:"vueperslides",staticClass:"vueperslides",class:_vm.vueperslidesClasses,style:(_vm.vueperslidesStyles),attrs:{"aria-label":"Slideshow"}},[(_vm.slidesCount && _vm.conf.slideContentOutside === 'top')?_c('div',{staticClass:"vueperslide__content-wrapper vueperslide__content-wrapper--outside-top",class:_vm.conf.slideContentOutsideClass},[(_vm.currentSlide.contentSlot)?_c('vnodes',{attrs:{"vnodes":_vm.currentSlide.contentSlot}}):[(_vm.currentSlide.title)?_c('div',{staticClass:"vueperslide__title",domProps:{"innerHTML":_vm._s(_vm.currentSlide.title)}}):_vm._e(),(_vm.currentSlide.content)?_c('div',{staticClass:"vueperslide__content",domProps:{"innerHTML":_vm._s(_vm.currentSlide.content)}}):_vm._e()]],2):_vm._e(),_c('div',{staticClass:"vueperslides__inner"},[_c('div',{staticClass:"vueperslides__parallax-wrapper",style:(("padding-bottom: " + (_vm.conf.slideRatio * 100) + "%")),attrs:{"aria-live":"polite"}},[_c('div',{ref:"track",staticClass:"vueperslides__track",class:{ 'vueperslides__track--dragging': _vm.touch.dragging, 'vueperslides__track--mousedown': _vm.mouseDown },style:(_vm.trackStyles)},[_c('div',{staticClass:"vueperslides__track-inner",style:(_vm.trackInnerStyles)},[(_vm.isReady && _vm.conf.infinite && _vm.canSlide && _vm.lastSlide)?_c('vueper-slide',{staticClass:"vueperslide--clone",style:(_vm.lastSlide.style),attrs:{"clone":"","title":_vm.lastSlide.title,"content":_vm.lastSlide.content,"image":_vm.lastSlide.image,"link":_vm.lastSlide.link,"lazyloaded":_vm.lastSlide.loaded,"aria-hidden":"true"}},[(_vm.lastSlide.contentSlot)?_c('template',{slot:"content"},[_c('vnodes',{attrs:{"vnodes":_vm.lastSlide.contentSlot}})],1):_vm._e(),(_vm.conf.lazy && !_vm.lastSlide.loaded)?_c('template',{slot:"loader"},[_c('vnodes',{attrs:{"vnodes":_vm.lastSlide.loaderSlot}})],1):_vm._e()],2):_vm._e(),_vm._t("default",null,{"currentSlide":_vm.slides.current}),(_vm.isReady && _vm.conf.infinite && _vm.canSlide && _vm.firstSlide)?_c('vueper-slide',{staticClass:"vueperslide--clone",style:(_vm.firstSlide.style),attrs:{"clone":"","title":_vm.firstSlide.title,"content":_vm.firstSlide.content,"image":_vm.firstSlide.image,"link":_vm.firstSlide.link,"lazyloaded":_vm.firstSlide.loaded,"aria-hidden":"true"}},[(_vm.firstSlide.contentSlot)?_c('template',{slot:"content"},[_c('vnodes',{attrs:{"vnodes":_vm.firstSlide.contentSlot}})],1):_vm._e(),(_vm.conf.lazy && !_vm.firstSlide.loaded)?_c('template',{slot:"loader"},[_c('vnodes',{attrs:{"vnodes":_vm.firstSlide.loaderSlot}})],1):_vm._e()],2):_vm._e()],2)])]),(_vm.conf.pauseOnHover && _vm.$slots.pause)?_c('div',{staticClass:"vueperslides__paused"},[_vm._t("pause")],2):_vm._e(),(_vm.conf.progress)?_c('div',{staticClass:"vueperslides__progress"},[_vm._t("progress",[_c('div',{style:(("width: " + ((_vm.slides.current + 1) * 100 / _vm.slidesCount) + "%"))})],{"current":_vm.slides.current + 1,"total":_vm.slidesCount})],2):_vm._e(),(_vm.conf.fractions)?_c('div',{staticClass:"vueperslides__fractions"},[_vm._t("fraction",[_vm._v(_vm._s(((_vm.slides.current + 1) + " / " + _vm.slidesCount)))],{"current":_vm.slides.current + 1,"total":_vm.slidesCount})],2):_vm._e(),(_vm.conf.arrows && _vm.canSlide && !_vm.disable)?_c('div',{staticClass:"vueperslides__arrows",class:{ 'vueperslides__arrows--outside': _vm.conf.arrowsOutside }},[_c('button',{directives:[{name:"show",rawName:"v-show",value:(!_vm.arrowPrevDisabled),expression:"!arrowPrevDisabled"}],staticClass:"vueperslides__arrow vueperslides__arrow--prev",attrs:{"aria-label":"Previous"},on:{"click":function($event){return _vm.previous()},"keyup":[function($event){if(!$event.type.indexOf('key')&&_vm._k($event.keyCode,"left",37,$event.key,["Left","ArrowLeft"])){ return null; }if('button' in $event && $event.button !== 0){ return null; }return _vm.previous()},function($event){if(!$event.type.indexOf('key')&&_vm._k($event.keyCode,"right",39,$event.key,["Right","ArrowRight"])){ return null; }if('button' in $event && $event.button !== 2){ return null; }return _vm.next()}]}},[_vm._t("arrow-left",[_c('svg',{attrs:{"viewBox":"0 0 9 18"}},[_c('path',{attrs:{"stroke-linecap":"round","d":"m8 1 l-7 8 7 8"}})])])],2),_c('button',{directives:[{name:"show",rawName:"v-show",value:(!_vm.arrowNextDisabled),expression:"!arrowNextDisabled"}],staticClass:"vueperslides__arrow vueperslides__arrow--next",attrs:{"aria-label":"Next"},on:{"click":function($event){return _vm.next()},"keyup":[function($event){if(!$event.type.indexOf('key')&&_vm._k($event.keyCode,"left",37,$event.key,["Left","ArrowLeft"])){ return null; }if('button' in $event && $event.button !== 0){ return null; }return _vm.previous()},function($event){if(!$event.type.indexOf('key')&&_vm._k($event.keyCode,"right",39,$event.key,["Right","ArrowRight"])){ return null; }if('button' in $event && $event.button !== 2){ return null; }return _vm.next()}]}},[_vm._t("arrow-right",[_c('svg',{attrs:{"viewBox":"0 0 9 18"}},[_c('path',{attrs:{"stroke-linecap":"round","d":"m1 1 l7 8 -7 8"}})])])],2)]):_vm._e(),(_vm.conf.bullets && _vm.canSlide && !_vm.disable && !_vm.conf.bulletsOutside)?_c('div',{ref:"bullets",staticClass:"vueperslides__bullets",attrs:{"role":"tablist","aria-label":"Slideshow navigation"}},[_vm._t("bullets",_vm._l((_vm.bulletIndexes),function(slideIndex,i){return _c('button',{key:i,staticClass:"vueperslides__bullet",class:{ 'vueperslides__bullet--active': _vm.slides.current === slideIndex },attrs:{"role":"tab","aria-label":("Slide " + (i + 1))},on:{"click":function($event){return _vm.goToSlide(slideIndex)},"keyup":[function($event){if(!$event.type.indexOf('key')&&_vm._k($event.keyCode,"left",37,$event.key,["Left","ArrowLeft"])){ return null; }if('button' in $event && $event.button !== 0){ return null; }return _vm.previous()},function($event){if(!$event.type.indexOf('key')&&_vm._k($event.keyCode,"right",39,$event.key,["Right","ArrowRight"])){ return null; }if('button' in $event && $event.button !== 2){ return null; }return _vm.next()}]}},[_vm._t("bullet",[_c('div',{staticClass:"default"},[_c('span',[_vm._v(_vm._s(i + 1))])])],{"active":_vm.slides.current === slideIndex,"slideIndex":slideIndex,"index":i + 1})],2)}),{"currentSlide":_vm.slides.current,"bulletIndexes":_vm.bulletIndexes,"goToSlide":_vm.goToSlide,"previous":_vm.previous,"next":_vm.next})],2):_vm._e()]),(_vm.conf.bullets && _vm.canSlide && !_vm.disable && _vm.conf.bulletsOutside)?_c('div',{ref:"bullets",staticClass:"vueperslides__bullets vueperslides__bullets--outside",attrs:{"role":"tablist","aria-label":"Slideshow navigation"}},[_vm._t("bullets",_vm._l((_vm.bulletIndexes),function(slideIndex,i){return _c('button',{key:i,staticClass:"vueperslides__bullet",class:{ 'vueperslides__bullet--active': _vm.slides.current === slideIndex },attrs:{"role":"tab","aria-label":("Slide " + (i + 1))},on:{"click":function($event){return _vm.goToSlide(slideIndex)},"keyup":[function($event){if(!$event.type.indexOf('key')&&_vm._k($event.keyCode,"left",37,$event.key,["Left","ArrowLeft"])){ return null; }if('button' in $event && $event.button !== 0){ return null; }return _vm.previous()},function($event){if(!$event.type.indexOf('key')&&_vm._k($event.keyCode,"right",39,$event.key,["Right","ArrowRight"])){ return null; }if('button' in $event && $event.button !== 2){ return null; }return _vm.next()}]}},[_vm._t("bullet",[_c('div',{staticClass:"default"},[_c('span',[_vm._v(_vm._s(i + 1))])])],{"active":_vm.slides.current === slideIndex,"slideIndex":slideIndex,"index":i + 1})],2)}),{"currentSlide":_vm.slides.current,"bulletIndexes":_vm.bulletIndexes,"goToSlide":_vm.goToSlide,"previous":_vm.previous,"next":_vm.next})],2):_vm._e(),(_vm.slidesCount && _vm.conf.slideContentOutside === 'bottom')?_c('div',{staticClass:"vueperslide__content-wrapper vueperslide__content-wrapper--outside-bottom",class:_vm.conf.slideContentOutsideClass},[(_vm.currentSlide.contentSlot)?_c('vnodes',{attrs:{"vnodes":_vm.currentSlide.contentSlot}}):[(_vm.currentSlide.title)?_c('div',{staticClass:"vueperslide__title",domProps:{"innerHTML":_vm._s(_vm.currentSlide.title)}}):_vm._e(),(_vm.currentSlide.content)?_c('div',{staticClass:"vueperslide__content",domProps:{"innerHTML":_vm._s(_vm.currentSlide.content)}}):_vm._e()]],2):_vm._e()])}
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"29e41338-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/pug-plain-loader!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vueperslides/vueperslides.vue?vue&type=template&id=0122d70a&lang=pug&
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{ref:"vueperslides",staticClass:"vueperslides",class:_vm.vueperslidesClasses,style:(_vm.vueperslidesStyles),attrs:{"aria-label":"Slideshow"}},[(_vm.slidesCount && _vm.conf.slideContentOutside === 'top')?_c('div',{staticClass:"vueperslide__content-wrapper vueperslide__content-wrapper--outside-top",class:_vm.conf.slideContentOutsideClass},[(_vm.currentSlide.contentSlot)?_c('vnodes',{attrs:{"vnodes":_vm.currentSlide.contentSlot}}):[(_vm.currentSlide.title)?_c('div',{staticClass:"vueperslide__title",domProps:{"innerHTML":_vm._s(_vm.currentSlide.title)}}):_vm._e(),(_vm.currentSlide.content)?_c('div',{staticClass:"vueperslide__content",domProps:{"innerHTML":_vm._s(_vm.currentSlide.content)}}):_vm._e()]],2):_vm._e(),_c('div',{staticClass:"vueperslides__inner"},[_c('div',{staticClass:"vueperslides__parallax-wrapper",style:(("padding-bottom: " + (_vm.conf.slideRatio * 100) + "%")),attrs:{"aria-live":"polite"}},[_c('div',{ref:"track",staticClass:"vueperslides__track",class:{ 'vueperslides__track--dragging': _vm.touch.dragging, 'vueperslides__track--mousedown': _vm.mouseDown },style:(_vm.trackStyles)},[_c('div',{staticClass:"vueperslides__track-inner",style:(_vm.trackInnerStyles)},[_vm._t("default"),(_vm.isReady && _vm.conf.infinite && _vm.canSlide && _vm.lastSlide)?_c('vueper-slide',{staticClass:"vueperslide--clone vueperslide--clone-1",style:(_vm.lastSlide.style),attrs:{"clone":"","title":_vm.lastSlide.title,"content":_vm.lastSlide.content,"image":_vm.lastSlide.image,"link":_vm.lastSlide.link,"lazyloaded":_vm.lastSlide.loaded,"aria-hidden":"true"}},[(_vm.lastSlide.contentSlot)?_c('template',{slot:"content"},[_c('vnodes',{attrs:{"vnodes":_vm.lastSlide.contentSlot}})],1):_vm._e(),(_vm.conf.lazy && !_vm.lastSlide.loaded)?_c('template',{slot:"loader"},[_c('vnodes',{attrs:{"vnodes":_vm.lastSlide.loaderSlot}})],1):_vm._e()],2):_vm._e(),(_vm.isReady && _vm.conf.infinite && _vm.canSlide && _vm.firstSlide)?_c('vueper-slide',{staticClass:"vueperslide--clone vueperslide--clone-2",style:(_vm.firstSlide.style),attrs:{"clone":"","title":_vm.firstSlide.title,"content":_vm.firstSlide.content,"image":_vm.firstSlide.image,"link":_vm.firstSlide.link,"lazyloaded":_vm.firstSlide.loaded,"aria-hidden":"true"}},[(_vm.firstSlide.contentSlot)?_c('template',{slot:"content"},[_c('vnodes',{attrs:{"vnodes":_vm.firstSlide.contentSlot}})],1):_vm._e(),(_vm.conf.lazy && !_vm.firstSlide.loaded)?_c('template',{slot:"loader"},[_c('vnodes',{attrs:{"vnodes":_vm.firstSlide.loaderSlot}})],1):_vm._e()],2):_vm._e()],2)])]),(_vm.conf.pauseOnHover && _vm.$slots.pause)?_c('div',{staticClass:"vueperslides__paused"},[_vm._t("pause")],2):_vm._e(),(_vm.conf.progress)?_c('div',{staticClass:"vueperslides__progress"},[_vm._t("progress",[_c('div',{style:(("width: " + ((_vm.slides.current + 1) * 100 / _vm.slidesCount) + "%"))})],{"current":_vm.slides.current + 1,"total":_vm.slidesCount})],2):_vm._e(),(_vm.conf.fractions)?_c('div',{staticClass:"vueperslides__fractions"},[_vm._t("fraction",[_vm._v(_vm._s(((_vm.slides.current + 1) + " / " + _vm.slidesCount)))],{"current":_vm.slides.current + 1,"total":_vm.slidesCount})],2):_vm._e(),(_vm.conf.arrows && _vm.canSlide && !_vm.disable)?_c('div',{staticClass:"vueperslides__arrows",class:{ 'vueperslides__arrows--outside': _vm.conf.arrowsOutside }},[_c('button',{directives:[{name:"show",rawName:"v-show",value:(!_vm.arrowPrevDisabled),expression:"!arrowPrevDisabled"}],staticClass:"vueperslides__arrow vueperslides__arrow--prev",attrs:{"type":"button","aria-label":"Previous"},on:{"click":function($event){return _vm.previous()},"keyup":[function($event){if(!$event.type.indexOf('key')&&_vm._k($event.keyCode,"left",37,$event.key,["Left","ArrowLeft"])){ return null; }if('button' in $event && $event.button !== 0){ return null; }return _vm.previous()},function($event){if(!$event.type.indexOf('key')&&_vm._k($event.keyCode,"right",39,$event.key,["Right","ArrowRight"])){ return null; }if('button' in $event && $event.button !== 2){ return null; }return _vm.next()}]}},[_vm._t("arrow-left",[_c('svg',{attrs:{"viewBox":"0 0 9 18"}},[_c('path',{attrs:{"stroke-linecap":"round","d":"m8 1 l-7 8 7 8"}})])])],2),_c('button',{directives:[{name:"show",rawName:"v-show",value:(!_vm.arrowNextDisabled),expression:"!arrowNextDisabled"}],staticClass:"vueperslides__arrow vueperslides__arrow--next",attrs:{"type":"button","aria-label":"Next"},on:{"click":function($event){return _vm.next()},"keyup":[function($event){if(!$event.type.indexOf('key')&&_vm._k($event.keyCode,"left",37,$event.key,["Left","ArrowLeft"])){ return null; }if('button' in $event && $event.button !== 0){ return null; }return _vm.previous()},function($event){if(!$event.type.indexOf('key')&&_vm._k($event.keyCode,"right",39,$event.key,["Right","ArrowRight"])){ return null; }if('button' in $event && $event.button !== 2){ return null; }return _vm.next()}]}},[_vm._t("arrow-right",[_c('svg',{attrs:{"viewBox":"0 0 9 18"}},[_c('path',{attrs:{"stroke-linecap":"round","d":"m1 1 l7 8 -7 8"}})])])],2)]):_vm._e(),(_vm.conf.bullets && _vm.canSlide && !_vm.disable && !_vm.conf.bulletsOutside)?_c('div',{ref:"bullets",staticClass:"vueperslides__bullets",attrs:{"role":"tablist","aria-label":"Slideshow navigation"}},[_vm._t("bullets",_vm._l((_vm.bulletIndexes),function(slideIndex,i){return _c('button',{key:i,staticClass:"vueperslides__bullet",class:{ 'vueperslides__bullet--active': _vm.slides.current === slideIndex },attrs:{"type":"button","role":"tab","aria-label":("Slide " + (i + 1))},on:{"click":function($event){return _vm.goToSlide(slideIndex)},"keyup":[function($event){if(!$event.type.indexOf('key')&&_vm._k($event.keyCode,"left",37,$event.key,["Left","ArrowLeft"])){ return null; }if('button' in $event && $event.button !== 0){ return null; }return _vm.previous()},function($event){if(!$event.type.indexOf('key')&&_vm._k($event.keyCode,"right",39,$event.key,["Right","ArrowRight"])){ return null; }if('button' in $event && $event.button !== 2){ return null; }return _vm.next()}]}},[_vm._t("bullet",[_c('div',{staticClass:"default"},[_c('span',[_vm._v(_vm._s(i + 1))])])],{"active":_vm.slides.current === slideIndex,"slideIndex":slideIndex,"index":i + 1})],2)}),{"currentSlide":_vm.slides.current,"bulletIndexes":_vm.bulletIndexes,"goToSlide":_vm.goToSlide,"previous":_vm.previous,"next":_vm.next})],2):_vm._e()]),(_vm.conf.bullets && _vm.canSlide && !_vm.disable && _vm.conf.bulletsOutside)?_c('div',{ref:"bullets",staticClass:"vueperslides__bullets vueperslides__bullets--outside",attrs:{"role":"tablist","aria-label":"Slideshow navigation"}},[_vm._t("bullets",_vm._l((_vm.bulletIndexes),function(slideIndex,i){return _c('button',{key:i,staticClass:"vueperslides__bullet",class:{ 'vueperslides__bullet--active': _vm.slides.current === slideIndex },attrs:{"type":"button","role":"tab","aria-label":("Slide " + (i + 1))},on:{"click":function($event){return _vm.goToSlide(slideIndex)},"keyup":[function($event){if(!$event.type.indexOf('key')&&_vm._k($event.keyCode,"left",37,$event.key,["Left","ArrowLeft"])){ return null; }if('button' in $event && $event.button !== 0){ return null; }return _vm.previous()},function($event){if(!$event.type.indexOf('key')&&_vm._k($event.keyCode,"right",39,$event.key,["Right","ArrowRight"])){ return null; }if('button' in $event && $event.button !== 2){ return null; }return _vm.next()}]}},[_vm._t("bullet",[_c('div',{staticClass:"default"},[_c('span',[_vm._v(_vm._s(i + 1))])])],{"active":_vm.slides.current === slideIndex,"slideIndex":slideIndex,"index":i + 1})],2)}),{"currentSlide":_vm.slides.current,"bulletIndexes":_vm.bulletIndexes,"goToSlide":_vm.goToSlide,"previous":_vm.previous,"next":_vm.next})],2):_vm._e(),(_vm.slidesCount && _vm.conf.slideContentOutside === 'bottom')?_c('div',{staticClass:"vueperslide__content-wrapper vueperslide__content-wrapper--outside-bottom",class:_vm.conf.slideContentOutsideClass},[(_vm.currentSlide.contentSlot)?_c('vnodes',{attrs:{"vnodes":_vm.currentSlide.contentSlot}}):[(_vm.currentSlide.title)?_c('div',{staticClass:"vueperslide__title",domProps:{"innerHTML":_vm._s(_vm.currentSlide.title)}}):_vm._e(),(_vm.currentSlide.content)?_c('div',{staticClass:"vueperslide__content",domProps:{"innerHTML":_vm._s(_vm.currentSlide.content)}}):_vm._e()]],2):_vm._e()])}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/vueperslides/vueperslides.vue?vue&type=template&id=e6a1c7c4&lang=pug&
-
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.symbol.js
-var es_symbol = __webpack_require__("a4d3");
+// CONCATENATED MODULE: ./src/components/vueperslides/vueperslides.vue?vue&type=template&id=0122d70a&lang=pug&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.concat.js
 var es_array_concat = __webpack_require__("99af");
@@ -93160,17 +95091,11 @@ var es_array_concat = __webpack_require__("99af");
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.fill.js
 var es_array_fill = __webpack_require__("cb29");
 
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.filter.js
-var es_array_filter = __webpack_require__("4de4");
-
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.find.js
 var es_array_find = __webpack_require__("7db0");
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.find-index.js
 var es_array_find_index = __webpack_require__("c740");
-
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.for-each.js
-var es_array_for_each = __webpack_require__("4160");
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.includes.js
 var es_array_includes = __webpack_require__("caad");
@@ -93187,12 +95112,6 @@ var es_array_splice = __webpack_require__("a434");
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.number.constructor.js
 var es_number_constructor = __webpack_require__("a9e3");
 
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.object.get-own-property-descriptor.js
-var es_object_get_own_property_descriptor = __webpack_require__("e439");
-
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.object.get-own-property-descriptors.js
-var es_object_get_own_property_descriptors = __webpack_require__("dbb4");
-
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.object.keys.js
 var es_object_keys = __webpack_require__("b64b");
 
@@ -93207,6 +95126,102 @@ var es_string_replace = __webpack_require__("5319");
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.string.link.js
 var es_string_link = __webpack_require__("9911");
+
+// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/arrayLikeToArray.js
+function _arrayLikeToArray(arr, len) {
+  if (len == null || len > arr.length) len = arr.length;
+
+  for (var i = 0, arr2 = new Array(len); i < len; i++) {
+    arr2[i] = arr[i];
+  }
+
+  return arr2;
+}
+// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/arrayWithoutHoles.js
+
+function _arrayWithoutHoles(arr) {
+  if (Array.isArray(arr)) return _arrayLikeToArray(arr);
+}
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.symbol.js
+var es_symbol = __webpack_require__("a4d3");
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.symbol.description.js
+var es_symbol_description = __webpack_require__("e01a");
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.symbol.iterator.js
+var es_symbol_iterator = __webpack_require__("d28b");
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.from.js
+var es_array_from = __webpack_require__("a630");
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.object.to-string.js
+var es_object_to_string = __webpack_require__("d3b7");
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.string.iterator.js
+var es_string_iterator = __webpack_require__("3ca3");
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/web.dom-collections.iterator.js
+var web_dom_collections_iterator = __webpack_require__("ddb0");
+
+// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/iterableToArray.js
+
+
+
+
+
+
+
+function _iterableToArray(iter) {
+  if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter);
+}
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.slice.js
+var es_array_slice = __webpack_require__("fb6a");
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.function.name.js
+var es_function_name = __webpack_require__("b0c0");
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.regexp.to-string.js
+var es_regexp_to_string = __webpack_require__("25f0");
+
+// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js
+
+
+
+
+
+
+
+function _unsupportedIterableToArray(o, minLen) {
+  if (!o) return;
+  if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+  var n = Object.prototype.toString.call(o).slice(8, -1);
+  if (n === "Object" && o.constructor) n = o.constructor.name;
+  if (n === "Map" || n === "Set") return Array.from(o);
+  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
+}
+// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/nonIterableSpread.js
+function _nonIterableSpread() {
+  throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/toConsumableArray.js
+
+
+
+
+function _toConsumableArray(arr) {
+  return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();
+}
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.filter.js
+var es_array_filter = __webpack_require__("4de4");
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.for-each.js
+var es_array_for_each = __webpack_require__("4160");
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.object.get-own-property-descriptor.js
+var es_object_get_own_property_descriptor = __webpack_require__("e439");
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.object.get-own-property-descriptors.js
+var es_object_get_own_property_descriptors = __webpack_require__("dbb4");
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/web.dom-collections.for-each.js
 var web_dom_collections_for_each = __webpack_require__("159b");
@@ -93226,93 +95241,66 @@ function _defineProperty(obj, key, value) {
 
   return obj;
 }
-// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/arrayWithoutHoles.js
-function _arrayWithoutHoles(arr) {
-  if (Array.isArray(arr)) {
-    for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) {
-      arr2[i] = arr[i];
-    }
+// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/objectSpread2.js
 
-    return arr2;
+
+
+
+
+
+
+
+
+function ownKeys(object, enumerableOnly) {
+  var keys = Object.keys(object);
+
+  if (Object.getOwnPropertySymbols) {
+    var symbols = Object.getOwnPropertySymbols(object);
+    if (enumerableOnly) symbols = symbols.filter(function (sym) {
+      return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+    });
+    keys.push.apply(keys, symbols);
   }
+
+  return keys;
 }
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.symbol.description.js
-var es_symbol_description = __webpack_require__("e01a");
 
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.symbol.iterator.js
-var es_symbol_iterator = __webpack_require__("d28b");
+function _objectSpread2(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i] != null ? arguments[i] : {};
 
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.from.js
-var es_array_from = __webpack_require__("a630");
+    if (i % 2) {
+      ownKeys(Object(source), true).forEach(function (key) {
+        _defineProperty(target, key, source[key]);
+      });
+    } else if (Object.getOwnPropertyDescriptors) {
+      Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
+    } else {
+      ownKeys(Object(source)).forEach(function (key) {
+        Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+      });
+    }
+  }
 
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.iterator.js
-var es_array_iterator = __webpack_require__("e260");
-
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.object.to-string.js
-var es_object_to_string = __webpack_require__("d3b7");
-
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.regexp.to-string.js
-var es_regexp_to_string = __webpack_require__("25f0");
-
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.string.iterator.js
-var es_string_iterator = __webpack_require__("3ca3");
-
-// EXTERNAL MODULE: ./node_modules/core-js/modules/web.dom-collections.iterator.js
-var web_dom_collections_iterator = __webpack_require__("ddb0");
-
-// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/iterableToArray.js
-
-
-
-
-
-
-
-
-
-function _iterableToArray(iter) {
-  if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter);
+  return target;
 }
-// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/nonIterableSpread.js
-function _nonIterableSpread() {
-  throw new TypeError("Invalid attempt to spread non-iterable instance");
-}
-// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/toConsumableArray.js
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"29e41338-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/pug-plain-loader!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vueperslides/vueperslide.vue?vue&type=template&id=abe84c70&lang=pug&
+var vueperslidevue_type_template_id_abe84c70_lang_pug_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c(_vm.link ? 'a' : 'div',{tag:"div",staticClass:"vueperslide",class:_vm.slideClasses,style:(_vm.slideStyles),attrs:{"href":_vm.link && !_vm.justDragged ? _vm.link : false,"face":_vm.slideFace3d,"aria-hidden":_vm.slides.activeId === _vm._uid || _vm.isSlideVisible ? 'false' : 'true'},on:{"mouseenter":function($event){return _vm.$emit('mouse-enter', { slideIndex: _vm.slideIndex, title: _vm.title, content: _vm.content, image: _vm.image, link: _vm.link }, _vm.$el)},"mouseleave":function($event){return _vm.$emit('mouse-leave')}}},[(_vm.imageSrc && _vm.conf.slideImageInside)?_c('div',{staticClass:"vueperslide__image",style:(_vm.imageStyles)}):_vm._e(),(_vm.conf.slideContentOutside)?_c('div',{directives:[{name:"show",rawName:"v-show",value:(false),expression:"false"}]},[_vm._t("content",[_c('div',{staticClass:"vueperslide__content-wrapper"},[(_vm.title)?_c('div',{staticClass:"vueperslide__title",domProps:{"innerHTML":_vm._s(_vm.title)}}):_vm._e(),(_vm.content)?_c('div',{staticClass:"vueperslide__content",domProps:{"innerHTML":_vm._s(_vm.content)}}):_vm._e()])])],2):_vm._t("content",[_c('div',{staticClass:"vueperslide__content-wrapper"},[(_vm.title)?_c('div',{staticClass:"vueperslide__title",domProps:{"innerHTML":_vm._s(_vm.title)}}):_vm._e(),(_vm.content)?_c('div',{staticClass:"vueperslide__content",domProps:{"innerHTML":_vm._s(_vm.content)}}):_vm._e()])]),(_vm.conf.lazy && !_vm.loaded)?_c('div',{staticClass:"vueperslide__loader"},[_vm._t("loader")],2):_vm._e()],2)}
+var vueperslidevue_type_template_id_abe84c70_lang_pug_staticRenderFns = []
 
 
-
-function _toConsumableArray(arr) {
-  return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread();
-}
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"0e341e4e-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/pug-plain-loader!./node_modules/vuetify-loader/lib/loader.js??ref--18-0!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vueperslides/vueperslide.vue?vue&type=template&id=6c3bdc36&lang=pug&
-var vueperslidevue_type_template_id_6c3bdc36_lang_pug_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c(_vm.link ? 'a' : 'div',{tag:"div",staticClass:"vueperslide",class:_vm.slideClasses,style:(_vm.slideStyles),attrs:{"href":_vm.link && !_vm.justDragged ? _vm.link : false,"face":_vm.slideFace3d,"aria-hidden":_vm.$parent.slides.activeId === _vm._uid || _vm.isSlideVisible ? 'false' : 'true'},on:{"mouseenter":function($event){return _vm.$emit('mouse-enter', { slideIndex: _vm.slideIndex, title: _vm.title, content: _vm.content, image: _vm.image, link: _vm.link }, _vm.$el)},"mouseleave":function($event){return _vm.$emit('mouse-leave')}}},[(_vm.imageSrc && _vm.conf.slideImageInside)?_c('div',{staticClass:"vueperslide__image",style:(_vm.imageStyles)}):_vm._e(),(_vm.conf.slideContentOutside)?_c('div',{directives:[{name:"show",rawName:"v-show",value:(!_vm.conf.slideContentOutside),expression:"!conf.slideContentOutside"}]},[_vm._t("content",[_c('div',{staticClass:"vueperslide__content-wrapper"},[(_vm.title)?_c('div',{staticClass:"vueperslide__title",domProps:{"innerHTML":_vm._s(_vm.title)}}):_vm._e(),(_vm.content)?_c('div',{staticClass:"vueperslide__content",domProps:{"innerHTML":_vm._s(_vm.content)}}):_vm._e()])])],2):_vm._t("content",[_c('div',{staticClass:"vueperslide__content-wrapper"},[(_vm.title)?_c('div',{staticClass:"vueperslide__title",domProps:{"innerHTML":_vm._s(_vm.title)}}):_vm._e(),(_vm.content)?_c('div',{staticClass:"vueperslide__content",domProps:{"innerHTML":_vm._s(_vm.content)}}):_vm._e()])]),(_vm.conf.lazy && !_vm.loaded)?_c('div',{staticClass:"vueperslide__loader"},[_vm._t("loader")],2):_vm._e()],2)}
-var vueperslidevue_type_template_id_6c3bdc36_lang_pug_staticRenderFns = []
-
-
-// CONCATENATED MODULE: ./src/components/vueperslides/vueperslide.vue?vue&type=template&id=6c3bdc36&lang=pug&
+// CONCATENATED MODULE: ./src/components/vueperslides/vueperslide.vue?vue&type=template&id=abe84c70&lang=pug&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.object.values.js
 var es_object_values = __webpack_require__("07ac");
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/vuetify-loader/lib/loader.js??ref--18-0!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vueperslides/vueperslide.vue?vue&type=script&lang=js&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vueperslides/vueperslide.vue?vue&type=script&lang=js&
 
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 //
 //
@@ -93339,6 +95327,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 //
 //
 /* harmony default export */ var vueperslidevue_type_script_lang_js_ = ({
+  inject: ['slides', 'touch', 'updateSlide', 'addClone', 'addSlide', 'removeSlide'],
   props: {
     clone: {
       type: Boolean,
@@ -93377,9 +95366,84 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
       loaded: false
     };
   },
+  computed: {
+    conf: function conf() {
+      return this.$parent.conf;
+    },
+    slideClasses: function slideClasses() {
+      return {
+        'vueperslide--active': this.slides.activeId === this._uid,
+        'vueperslide--previous-slide': this.isPreviousSlide,
+        'vueperslide--next-slide': this.isNextSlide,
+        'vueperslide--visible': this.isSlideVisible,
+        'vueperslide--loading': this.conf.lazy && !this.loaded
+      };
+    },
+    slideStyles: function slideStyles() {
+      var _this$conf = this.conf,
+          visibleSlides = _this$conf.visibleSlides,
+          fade = _this$conf.fade,
+          slideImageInside = _this$conf.slideImageInside,
+          gap = _this$conf.gap,
+          gapPx = _this$conf.gapPx;
+      return _objectSpread2(_objectSpread2(_objectSpread2(_objectSpread2({}, !slideImageInside && this.imageSrc && {
+        backgroundImage: "url(\"".concat(this.imageSrc, "\")")
+      }), visibleSlides > 1 && {
+        width: (100 - (gap ? gap * (visibleSlides - 1) : 0)) / visibleSlides + '%'
+      }), visibleSlides > 1 && fade && {
+        left: this.slideIndex % visibleSlides / visibleSlides * 100 + '%'
+      }), gap && {
+        marginRight: gap + (gapPx ? 'px' : '%')
+      });
+    },
+    imageStyles: function imageStyles() {
+      return _objectSpread2({}, this.conf.slideImageInside && this.imageSrc && {
+        backgroundImage: "url(\"".concat(this.imageSrc, "\")")
+      });
+    },
+    slideFace3d: function slideFace3d() {
+      if (!this.conf['3d']) return false;
+      var faces = ['front', 'right', 'back', 'left'];
+      var prevSlideIndex = (this.slides.current - 1 + this.slidesCount) % this.slidesCount;
+      var nextSlideIndex = (this.slides.current + 1) % this.slidesCount;
+      if (this.slideIndex === prevSlideIndex) return faces[(4 + this.slides.current - 1) % 4];else if (this.slideIndex === nextSlideIndex) return faces[(this.slides.current + 1) % 4];
+      return faces[this.slideIndex % 4];
+    },
+    isPreviousSlide: function isPreviousSlide() {
+      if (!this.conf['3d']) return false;
+      var prevSlideIndex = (this.slides.current - 1 + this.slidesCount) % this.slidesCount;
+      return this._uid === this.slides.list[prevSlideIndex].id;
+    },
+    isNextSlide: function isNextSlide() {
+      if (!this.conf['3d']) return false;
+      var nextSlideIndex = (this.slides.current + 1) % this.slidesCount;
+      return this._uid === this.slides.list[nextSlideIndex].id;
+    },
+    isSlideVisible: function isSlideVisible() {
+      return this.slideIndex >= this.slides.firstVisible && this.slideIndex < this.slides.firstVisible + this.conf.visibleSlides;
+    },
+    slidesList: function slidesList() {
+      return this.slides.list.map(function (slide) {
+        return slide.id;
+      });
+    },
+    slidesCount: function slidesCount() {
+      return this.slidesList.length;
+    },
+    slideIndex: function slideIndex() {
+      return this.slidesList.indexOf(this._uid);
+    },
+    justDragged: function justDragged() {
+      return this.touch.justDragged;
+    },
+    shouldSkipUpdate: function shouldSkipUpdate() {
+      return this.clone || !this.conf.infinite || !this.conf.slideContentOutside && !this.conf.alwaysRefreshClones;
+    }
+  },
   methods: {
-    updateSlide: function updateSlide(props) {
-      this.$parent.updateSlide(this._uid, props);
+    updateThisSlide: function updateThisSlide(props) {
+      // Injected method.
+      this.updateSlide(this._uid, props);
     },
     // Only for lazy loading, this method is called from the Vueperslides component.
     loadImage: function loadImage() {
@@ -93412,8 +95476,8 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
   },
   created: function created() {
     this.imageSrc = this.conf.lazy ? '' : this.image;
-    if (this.clone) return;
-    this.$parent.addSlide({
+    if (this.clone) return this.addClone();
+    this.addSlide({
       id: this._uid,
       image: this.imageSrc,
       title: this.title,
@@ -93432,7 +95496,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
   },
   mounted: function mounted() {
     if (this.clone) return;
-    this.updateSlide({
+    this.updateThisSlide({
       contentSlot: this.$slots.content,
       loaderSlot: this.$slots.loader,
       // For lazy loading.
@@ -93441,119 +95505,48 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
   },
   beforeUpdate: function beforeUpdate() {
     if (this.shouldSkipUpdate || !Object.values(this.$slots).length) return;
-    this.updateSlide({
+    this.updateThisSlide({
       contentSlot: this.$slots.content,
       loaderSlot: this.$slots.loader,
       // For lazy loading.
       style: ((this.$el.attributes || {}).style || {}).value
     });
   },
+  destroyed: function destroyed() {
+    // When removing a slide programmatically, remove it from the list of slides.
+    if (!this.clone) this.removeSlide(this._uid);
+  },
   watch: {
     image: function image() {
-      // If the image of the slide is changed on the fly, update the clones.
+      // If the image of the slide is changed on the fly, notify VueperSlides to update the clones.
       // If lazy loading, unset the image until this slide is requested.
       this.imageSrc = this.conf.lazy && !this.isSlideVisible ? '' : this.image;
-      if (!this.clone) this.updateSlide({
-        image: this.imageSrc
-      });
+
+      if (!this.clone) {
+        this.updateThisSlide(_objectSpread2({
+          image: this.imageSrc
+        }, !this.conf.slideImageInside && {
+          style: this.slideStyles
+        }));
+      }
     },
     title: function title() {
-      if (!this.clone) this.updateSlide({
+      if (!this.clone) this.updateThisSlide({
         title: this.title
       });
     },
     content: function content() {
-      if (!this.clone) this.updateSlide({
+      if (!this.clone) this.updateThisSlide({
         content: this.content
       });
     },
     link: function link() {
-      if (!this.clone) this.updateSlide({
+      if (!this.clone) this.updateThisSlide({
         link: this.link
       });
     },
     lazyloaded: function lazyloaded() {
       if (this.clone) this.loaded = this.lazyloaded;
-    }
-  },
-  destroyed: function destroyed() {
-    // When removing a slide programmatically, remove it from the list of slides.
-    if (!this.clone) this.$parent.removeSlide(this._uid);
-  },
-  computed: {
-    conf: function conf() {
-      return this.$parent.conf;
-    },
-    slideClasses: function slideClasses() {
-      return {
-        'vueperslide--active': this.$parent.slides.activeId === this._uid,
-        'vueperslide--previous-slide': this.isPreviousSlide,
-        'vueperslide--next-slide': this.isNextSlide,
-        'vueperslide--visible': this.isSlideVisible,
-        'vueperslide--loading': this.conf.lazy && !this.loaded
-      };
-    },
-    slideStyles: function slideStyles() {
-      var _this$conf = this.conf,
-          visibleSlides = _this$conf.visibleSlides,
-          fade = _this$conf.fade,
-          slideImageInside = _this$conf.slideImageInside,
-          gap = _this$conf.gap,
-          gapPx = _this$conf.gapPx;
-      return _objectSpread({}, !slideImageInside && this.imageSrc && {
-        backgroundImage: "url(\"".concat(this.imageSrc, "\")")
-      }, {}, visibleSlides > 1 && {
-        width: (100 - (gap ? gap * (visibleSlides - 1) : 0)) / visibleSlides + '%'
-      }, {}, visibleSlides > 1 && fade && {
-        left: this.slideIndex % visibleSlides / visibleSlides * 100 + '%'
-      }, {}, gap && {
-        marginRight: gap + (gapPx ? 'px' : '%')
-      });
-    },
-    imageStyles: function imageStyles() {
-      return _objectSpread({}, this.conf.slideImageInside && this.imageSrc && {
-        backgroundImage: "url(\"".concat(this.imageSrc, "\")")
-      });
-    },
-    slideFace3d: function slideFace3d() {
-      if (!this.conf['3d']) return false;
-      var faces = ['front', 'right', 'back', 'left'];
-      var prevSlideIndex = (this.$parent.slides.current - 1 + this.slidesCount) % this.slidesCount;
-      var nextSlideIndex = (this.$parent.slides.current + 1) % this.slidesCount;
-      if (this.slideIndex === prevSlideIndex) return faces[(4 + this.$parent.slides.current - 1) % 4];else if (this.slideIndex === nextSlideIndex) return faces[(this.$parent.slides.current + 1) % 4];
-      return faces[this.slideIndex % 4];
-    },
-    isPreviousSlide: function isPreviousSlide() {
-      if (!this.conf['3d']) return false;
-      var prevSlideIndex = (this.$parent.slides.current - 1 + this.slidesCount) % this.slidesCount;
-      return this._uid === this.$parent.slides.list[prevSlideIndex].id;
-    },
-    isNextSlide: function isNextSlide() {
-      if (!this.conf['3d']) return false;
-      var nextSlideIndex = (this.$parent.slides.current + 1) % this.slidesCount;
-      return this._uid === this.$parent.slides.list[nextSlideIndex].id;
-    },
-    isSlideVisible: function isSlideVisible() {
-      var activeSlideUid = this.$parent.slides.activeId;
-      var activeSlideIndex = this.slidesList.indexOf(activeSlideUid);
-      return this.slideIndex >= activeSlideIndex && this.slideIndex < activeSlideIndex + this.conf.visibleSlides;
-    },
-    slidesList: function slidesList() {
-      return this.$parent.slides.list.map(function (slide) {
-        return slide.id;
-      });
-    },
-    slidesCount: function slidesCount() {
-      return this.slidesList.length;
-    },
-    slideIndex: function slideIndex() {
-      return this.slidesList.indexOf(this._uid);
-    },
-    justDragged: function justDragged() {
-      return this.$parent.touch.justDragged;
-    },
-    shouldSkipUpdate: function shouldSkipUpdate() {
-      return this.clone || !this.conf.infinite || !this.conf.slideContentOutside && !this.conf.alwaysRefreshClones;
     }
   }
 });
@@ -93627,7 +95620,12 @@ function normalizeComponent (
     options._ssrRegister = hook
   } else if (injectStyles) {
     hook = shadowMode
-      ? function () { injectStyles.call(this, this.$root.$options.shadowRoot) }
+      ? function () {
+        injectStyles.call(
+          this,
+          (options.functional ? this.parent : this).$root.$options.shadowRoot
+        )
+      }
       : injectStyles
   }
 
@@ -93636,7 +95634,7 @@ function normalizeComponent (
       // for template-only hot-reload because in that case the render fn doesn't
       // go through the normalizer
       options._injectStyles = hook
-      // register for functioal component in vue file
+      // register for functional component in vue file
       var originalRender = options.render
       options.render = function renderWithStyleInjection (h, context) {
         hook.call(context)
@@ -93668,8 +95666,8 @@ function normalizeComponent (
 
 var component = normalizeComponent(
   vueperslides_vueperslidevue_type_script_lang_js_,
-  vueperslidevue_type_template_id_6c3bdc36_lang_pug_render,
-  vueperslidevue_type_template_id_6c3bdc36_lang_pug_staticRenderFns,
+  vueperslidevue_type_template_id_abe84c70_lang_pug_render,
+  vueperslidevue_type_template_id_abe84c70_lang_pug_staticRenderFns,
   false,
   null,
   null,
@@ -93681,7 +95679,7 @@ var component = normalizeComponent(
 // EXTERNAL MODULE: ./src/components/vueperslides/styles.scss
 var styles = __webpack_require__("0b32");
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/vuetify-loader/lib/loader.js??ref--18-0!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vueperslides/vueperslides.vue?vue&type=script&lang=js&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vueperslides/vueperslides.vue?vue&type=script&lang=js&
 
 
 
@@ -93698,17 +95696,14 @@ var styles = __webpack_require__("0b32");
 
 
 
-
-
-
-
-
-
-
-function vueperslidesvue_type_script_lang_js_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function vueperslidesvue_type_script_lang_js_objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { vueperslidesvue_type_script_lang_js_ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { vueperslidesvue_type_script_lang_js_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -93861,6 +95856,20 @@ function vueperslidesvue_type_script_lang_js_objectSpread(target) { for (var i =
       }
     }
   },
+  provide: function provide() {
+    return {
+      // By design in Vue, provided variables are not reactive unless they are in an object.
+      // Objects.
+      conf: this.conf,
+      slides: this.slides,
+      touch: this.touch,
+      // Methods.
+      updateSlide: this.updateSlide,
+      addClone: this.addClone,
+      addSlide: this.addSlide,
+      removeSlide: this.removeSlide
+    };
+  },
   props: {
     alwaysRefreshClones: {
       type: Boolean,
@@ -93953,6 +95962,10 @@ function vueperslidesvue_type_script_lang_js_objectSpread(target) { for (var i =
       type: [Boolean, Number],
       default: false
     },
+    pageScrollingElement: {
+      type: String,
+      default: ''
+    },
     parallaxFixedContent: {
       type: Boolean,
       default: false
@@ -94011,8 +96024,11 @@ function vueperslidesvue_type_script_lang_js_objectSpread(target) { for (var i =
         list: [],
         activeId: null,
         current: 0,
+        // Index of current slide.
         // Don't loose the focused slide when changing breakpoint & slideMultiple > 1.
-        focus: 0
+        focus: 0,
+        firstVisible: 0 // The first visible slide on the left. Useful when visibleSlides > 1.
+
       },
       mouseDown: false,
       mouseOver: false,
@@ -94033,8 +96049,6 @@ function vueperslidesvue_type_script_lang_js_objectSpread(target) { for (var i =
         animated: false
       },
       autoplayTimer: null,
-      arrowPrevDisabled: false,
-      arrowNextDisabled: false,
       nextSlideIsClone: false,
       breakpointsData: {
         list: [],
@@ -94047,12 +96061,197 @@ function vueperslidesvue_type_script_lang_js_objectSpread(target) { for (var i =
       }
     };
   },
-  mounted: function mounted() {
-    this.init();
+  computed: {
+    // this.conf needs to be reactive so user can change a Vueper Slides option and everything gets updated.
+    conf: function conf() {
+      // Read config from the props then check if breakpoints are defined.
+      // If so override the config with the breakpoint ones.
+      var conf = _objectSpread2(_objectSpread2({}, this.$props), this.$props.breakpoints && this.$props.breakpoints[this.breakpointsData.current] || {}); // Overrides: once config from breakpoints is imported, we can use the `conf` object
+      // and be sure all the options are up to date.
+      // ------------------------------- //
+
+
+      conf.slideMultiple = conf.slideMultiple ? conf.visibleSlides : 1;
+      conf.gap = this.gap && parseInt(this.gap) || 0; // conf.gapPx = this.gap && this.gap.toString().includes('px')
+
+      if (conf.visibleSlides > 1) conf['3d'] = false;
+
+      if (conf.fade || conf.disableArrowsOnEdges || conf.visibleSlides > 1 || conf['3d']) {
+        conf.infinite = false;
+      } // Place arrows & bullets outside by default if visibleSlides > 1.
+
+
+      if (conf.visibleSlides > 1 && conf.arrowsOutside === null) conf.arrowsOutside = true;
+      if (conf.visibleSlides > 1 && conf.bulletsOutside === null) conf.bulletsOutside = true;
+      if (this.touch.enabled !== conf.touchable) this.toggleTouchableOption(conf.touchable);
+
+      if (conf.parallax && conf.parallaxFixedContent) {
+        conf.slideContentOutside = 'top';
+        conf.slideContentOutsideClass = 'parallax-fixed-content';
+      } // ------------------------------- //
+
+
+      return conf;
+    },
+    slidesCount: function slidesCount() {
+      return this.slides.list.length;
+    },
+    // The total number of gaps to subtract for current track translation.
+    // i.e. all the gaps on the left of the current slide.
+    gapsCount: function gapsCount() {
+      var _this$conf = this.conf,
+          fade = _this$conf.fade,
+          threeD = _this$conf['3d'],
+          slideMultiple = _this$conf.slideMultiple,
+          gap = _this$conf.gap;
+      if (!gap || fade || threeD) return 0;
+      if (this.multipleSlides1by1 && this.slides.current < this.preferredPosition) return 0; // nextSlideIsClone can only be 0 or 1 with infinite option.
+
+      if (!this.slides.current && this.nextSlideIsClone) return this.slidesCount;
+      if (this.nextSlideIsClone === 0) return -1;
+      var gapsCount = this.slides.current / slideMultiple - this.preferredPosition;
+
+      if (this.multipleSlides1by1 && this.slidePosAfterPreferred > 0) {
+        gapsCount -= this.slidePosAfterPreferred;
+      }
+
+      return gapsCount;
+    },
+    // The number of slides remaining on the right of the current slide.
+    slidesAfterCurrent: function slidesAfterCurrent() {
+      return this.slidesCount - (this.slides.current + 1);
+    },
+    // When visibleSlides > 1, the preferred position is the most center slide amongst the visible ones.
+    // If visibleSlides is an odd number the preferred position can never be at the center,
+    // so take the closest on the left side.
+    preferredPosition: function preferredPosition() {
+      return this.multipleSlides1by1 ? Math.ceil(this.conf.visibleSlides / 2) - 1 : 0;
+    },
+    slidePosAfterPreferred: function slidePosAfterPreferred() {
+      return this.conf.visibleSlides - this.preferredPosition - this.slidesAfterCurrent - 1;
+    },
+    multipleSlides1by1: function multipleSlides1by1() {
+      return this.conf.visibleSlides > 1 && this.conf.slideMultiple === 1;
+    },
+    touchEnabled: {
+      get: function get() {
+        return this.slidesCount > 1 && this.touch.enabled;
+      },
+      set: function set(value) {
+        this.touch.enabled = value;
+      }
+    },
+    canSlide: function canSlide() {
+      return this.slidesCount / this.conf.visibleSlides > 1;
+    },
+    firstSlide: function firstSlide() {
+      var slide = this.slidesCount ? this.slides.list[0] : {};
+
+      if (slide.style && typeof slide.style === 'string') {
+        slide.style = slide.style.replace(/width: ?\d+.*?;?/, '');
+      }
+
+      return slide;
+    },
+    lastSlide: function lastSlide() {
+      var slide = this.slidesCount ? this.slides.list[this.slidesCount - 1] : {};
+
+      if (slide.style && typeof slide.style === 'string') {
+        slide.style = slide.style.replace(/width: ?\d+.*?;?/, '');
+      }
+
+      return slide;
+    },
+    currentSlide: function currentSlide() {
+      var currentSlide = this.slidesCount && this.slides.list[this.slides.current] || {};
+
+      if (this.slides.current < this.slidesCount && currentSlide.id !== this.slides.activeId) {
+        this.goToSlide(this.slides.current, {
+          animation: false,
+          autoPlaying: true
+        });
+      }
+
+      return currentSlide;
+    },
+    vueperslidesClasses: function vueperslidesClasses() {
+      return {
+        'vueperslides--ready': this.isReady,
+        'vueperslides--fade': this.conf.fade,
+        'vueperslides--parallax': this.conf.parallax,
+        'vueperslides--slide-image-inside': this.conf.slideImageInside,
+        'vueperslides--touchable': this.touchEnabled && !this.disable,
+        'vueperslides--fixed-height': this.conf.fixedHeight,
+        'vueperslides--3d': this.conf['3d'],
+        'vueperslides--slide-multiple': this.conf.slideMultiple > 1,
+        'vueperslides--bullets-outside': this.conf.bulletsOutside,
+        'vueperslides--animated': this.transition.animated,
+        // While transitioning.
+        'vueperslides--no-animation': !this.isReady
+      };
+    },
+    vueperslidesStyles: function vueperslidesStyles() {
+      return /^-?\d/.test(this.conf.fixedHeight) ? "height: ".concat(this.conf.fixedHeight) : null;
+    },
+    trackStyles: function trackStyles() {
+      var styles = {};
+
+      if (this.conf.parallax) {
+        styles.transform = "translate3d(0, ".concat(this.parallaxData.translation, "%, 0)"); // Increase browser optimizations by allocating more machine resource.
+        // ! \\ To be used wisely so deactivate when not needed.
+
+        styles.willChange = this.parallaxData.isVisible ? 'transform' : 'auto';
+      }
+
+      return styles;
+    },
+    trackInnerStyles: function trackInnerStyles() {
+      var styles = {};
+      var _this$conf2 = this.conf,
+          fade = _this$conf2.fade,
+          threeD = _this$conf2['3d']; // Always override default transition (in CSS) if any transition.speed. But when
+      // this.transition.animated is false, the class `no-animation` is added forcing
+      // transition-duration 0ms in CSS.
+
+      styles.transitionDuration = "".concat(this.transition.speed, "ms");
+
+      if (threeD) {
+        var rotation = this.transition.currentTranslation * 90 / 100; // Following calculation is equivalent to:
+        // 'translateZ(slideshowWidth / 2) rotateY(' + rotation + 'deg)'
+        // but does not require a fixed width.
+
+        styles.transform = "rotateY(-90deg) translateX(-50%) rotateY(90deg) rotateY(".concat(rotation, "deg)");
+      } else if (!fade) {
+        styles.transform = "translate3d(".concat(this.transition.currentTranslation, "%, 0, 0)"); // Increase browser optimizations by allocating more machine resource.
+        // ! \\ To be used wisely so deactivate when not needed.
+
+        styles.willChange = this.touch.dragging || this.transition.animated ? 'transform' : 'auto';
+      }
+
+      return styles;
+    },
+    bulletIndexes: function bulletIndexes() {
+      var _this = this;
+
+      return Array(Math.ceil(this.slidesCount / this.conf.slideMultiple)).fill().map(function (v, i) {
+        return i * _this.conf.slideMultiple;
+      });
+    },
+    arrowPrevDisabled: function arrowPrevDisabled() {
+      return !this.slides.current && this.conf.disableArrowsOnEdges;
+    },
+    arrowNextDisabled: function arrowNextDisabled() {
+      var _this$conf3 = this.conf,
+          disableArrowsOnEdges = _this$conf3.disableArrowsOnEdges,
+          visibleSlides = _this$conf3.visibleSlides,
+          slideMultiple = _this$conf3.slideMultiple;
+      var lastSlide = this.slides.current + (slideMultiple > 1 && visibleSlides > 1 ? visibleSlides - 1 : 0);
+      return lastSlide === this.slidesCount - 1 && disableArrowsOnEdges;
+    }
   },
   methods: {
     init: function init() {
-      var _this = this;
+      var _this2 = this;
 
       this.container = this.$refs.vueperslides;
       this.touchEnabled = this.conf.touchable; // Store speed in extra variable because transition.speed can be set to 0,
@@ -94073,9 +96272,9 @@ function vueperslidesvue_type_script_lang_js_objectSpread(target) { for (var i =
       this.bindEvents(); // Give it a tick to be mounted in the DOM.
 
       this.$nextTick(function () {
-        _this.isReady = true;
+        _this2.isReady = true;
 
-        _this.emit('ready');
+        _this2.emit('ready');
       });
     },
     // Emit a named event outside the component with 2 possible parameters:
@@ -94151,7 +96350,7 @@ function vueperslidesvue_type_script_lang_js_objectSpread(target) { for (var i =
       } else this.updateTrackTranslation();
     },
     bindEvents: function bindEvents() {
-      var hasTouch = 'ontouchstart' in window; // Allow mouse or touch dragging slides.
+      var hasTouch = ('ontouchstart' in window); // Allow mouse or touch dragging slides.
 
       if (this.touchEnabled) this.toggleTouchableOption(true); // Pause autoplay on mouseover.
 
@@ -94168,9 +96367,14 @@ function vueperslidesvue_type_script_lang_js_objectSpread(target) { for (var i =
 
       if (this.conf.parallax) {
         // First render the onload translation.
-        this.refreshParallax(); // then add event listener.
+        this.refreshParallax(); // Then add event listener.
+        // The scrolling DOM element may be a different element than the HTML document.
 
-        document.addEventListener('scroll', this.onScroll);
+        if (this.pageScrollingElement) {
+          // Store the found DOM element in variable for fast access in onScroll().
+          this.parallaxData.scrollingEl = document.querySelector(this.pageScrollingElement);
+          this.parallaxData.scrollingEl.addEventListener('scroll', this.onScroll);
+        } else document.addEventListener('scroll', this.onScroll);
       }
     },
     // Recursively sum all the offsetTop values from current element up the tree until body.
@@ -94192,8 +96396,10 @@ function vueperslidesvue_type_script_lang_js_objectSpread(target) { for (var i =
       return this.parallaxData.slideshowOffsetTop;
     },
     onScroll: function onScroll() {
+      var scrollingEl = this.parallaxData.scrollingEl;
       var doc = document.documentElement;
-      var scrollTop = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0);
+      var scrollTop = 0;
+      if (scrollingEl) scrollTop = scrollingEl.scrollTop;else scrollTop = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0);
       var windowHeight = window.innerHeight || doc.clientHeight || document.body.clientHeight;
       var slideshowHeight = this.container.clientHeight;
       var slideshowTopOffset = this.getSlideshowOffsetTop(); // The distance between the bottom line of the current vueperslides slideshow and top of window.
@@ -94254,7 +96460,7 @@ function vueperslidesvue_type_script_lang_js_objectSpread(target) { for (var i =
       }
     },
     onMouseUp: function onMouseUp(e) {
-      var _this2 = this;
+      var _this3 = this;
 
       this.mouseDown = false; // If no mouse move there is nothing to do so don't go further.
 
@@ -94283,7 +96489,7 @@ function vueperslidesvue_type_script_lang_js_objectSpread(target) { for (var i =
 
       this.touch.justDragged = true;
       setTimeout(function () {
-        return _this2.touch.justDragged = false;
+        return _this3.touch.justDragged = false;
       }, 50);
       this.touch.lazyloadTriggered = false; // Reinit for the next drag.
     },
@@ -94300,43 +96506,37 @@ function vueperslidesvue_type_script_lang_js_objectSpread(target) { for (var i =
     },
 
     /**
-     * The translation of most cases, in other cases this can still be used as a base calc.
+     * The slides track translation of most cases, in other cases this can still be used as a base calc.
      */
     getBasicTranslation: function getBasicTranslation() {
-      var _this$conf = this.conf,
-          visibleSlides = _this$conf.visibleSlides,
-          infinite = _this$conf.infinite;
-      var translation = this.slides.current / visibleSlides; // A clone is prepended to the slides track.
-
-      if (infinite && this.canSlide) translation += 1 / visibleSlides;
-      return translation;
+      return this.slides.current / this.conf.visibleSlides;
     },
 
     /**
      * Update the current translation of the slides track - for sliding slideshows.
      * The resulting translation will be set in percentage and negative value.
      *
-     * @param {null | float} currentDragX: whether the slide track is being dragged and if so
+     * @param {null | float} currentMouseX whether the slide track is being dragged and if so
      *                                     the value of the current drag.
      */
     updateTrackTranslation: function updateTrackTranslation() {
       var currentMouseX = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
       var translation = this.getBasicTranslation();
-      var _this$conf2 = this.conf,
-          infinite = _this$conf2.infinite,
-          visibleSlides = _this$conf2.visibleSlides,
-          slideMultiple = _this$conf2.slideMultiple,
-          gap = _this$conf2.gap,
-          threeD = _this$conf2['3d'],
-          lazy = _this$conf2.lazy,
-          lazyLoadOnDrag = _this$conf2.lazyLoadOnDrag;
+      var _this$conf4 = this.conf,
+          infinite = _this$conf4.infinite,
+          visibleSlides = _this$conf4.visibleSlides,
+          slideMultiple = _this$conf4.slideMultiple,
+          gap = _this$conf4.gap,
+          threeD = _this$conf4['3d'],
+          lazy = _this$conf4.lazy,
+          lazyLoadOnDrag = _this$conf4.lazyLoadOnDrag; // nextSlideIsClone can be 0 or 1 or false.
 
       if (infinite && this.nextSlideIsClone !== false) {
-        translation = (this.nextSlideIsClone ? this.slidesCount + 1 : 0) / visibleSlides;
+        translation = (this.nextSlideIsClone ? this.slidesCount : -1) / visibleSlides;
       } // Add all the gaps to the translation except if current slide is first.
 
 
-      if (gap && this.nextSlideIsClone !== 0) {
+      if (gap) {
         translation += this.gapsCount / (visibleSlides / slideMultiple) * gap / 100;
       } // If dragging.
 
@@ -94371,19 +96571,16 @@ function vueperslidesvue_type_script_lang_js_objectSpread(target) { for (var i =
       // The translation is modified as user slides just to look nicer.
 
 
-      if (visibleSlides > 1 && slideMultiple === 1) {
-        // If not infinite sliding.
-        if (!infinite) {
-          // The preferred position is the most center slide amongst the visible ones,
-          // if `visibleSlides` is an odd number the preferred position can never be at the center,
-          // so take the closest on the left side.
-          var preferredPositionIsPassed = this.slidePosAfterPreferred > 0; // Subtract the first slides without translation, until we reach the preferred position.
+      if (this.multipleSlides1by1 && !infinite) {
+        // The preferred position is the most center slide amongst the visible ones,
+        // if `visibleSlides` is an odd number the preferred position can never be at the center,
+        // so take the closest on the left side.
+        var preferredPositionIsPassed = this.slidePosAfterPreferred > 0; // Subtract the first slides without translation, until we reach the preferred position.
 
-          var subtractFromTranslation = Math.min(this.preferredPosition, this.slides.current); // From next position after the preferred position.
+        var subtractFromTranslation = Math.min(this.preferredPosition, this.slides.current); // From next position after the preferred position.
 
-          if (preferredPositionIsPassed) subtractFromTranslation += this.slidePosAfterPreferred;
-          translation -= subtractFromTranslation / visibleSlides;
-        }
+        if (preferredPositionIsPassed) subtractFromTranslation += this.slidePosAfterPreferred;
+        translation -= subtractFromTranslation / visibleSlides;
       }
 
       this.transition.currentTranslation = -translation * 100;
@@ -94394,10 +96591,10 @@ function vueperslidesvue_type_script_lang_js_objectSpread(target) { for (var i =
       this.emit('autoplay-pause');
     },
     resumeAutoplay: function resumeAutoplay() {
-      var _this3 = this;
+      var _this4 = this;
 
       this.autoplayTimer = setTimeout(function () {
-        _this3.goToSlide(_this3.slides.current + _this3.conf.slideMultiple, {
+        _this4.goToSlide(_this4.slides.current + _this4.conf.slideMultiple, {
           autoPlaying: true
         });
       }, this.currentSlide.duration || this.conf.duration);
@@ -94414,23 +96611,35 @@ function vueperslidesvue_type_script_lang_js_objectSpread(target) { for (var i =
       this.goToSlide(this.slides.current + this.conf.slideMultiple);
     },
     refreshParallax: function refreshParallax() {
-      var _this4 = this;
+      var _this5 = this;
 
       setTimeout(function () {
-        _this4.onResize();
+        _this5.onResize();
 
-        _this4.onScroll();
+        _this5.onScroll();
       }, 100);
     },
 
     /**
-     * When visibleSlides > 1 and slideMultiple > 1, get the first visible slide from given index.
+     * When visibleSlides > 1, get the first visible slide from given index.
+     * The first visible slide may be before the given index (on the left).
      *
      * @param {number} index the slide index where to get the next visible one from.
      * @return {number} the first visible slide index.
      */
     getFirstVisibleSlide: function getFirstVisibleSlide(index) {
-      return Math.floor(index / this.conf.slideMultiple) * this.conf.slideMultiple;
+      var _this$conf5 = this.conf,
+          slideMultiple = _this$conf5.slideMultiple,
+          visibleSlides = _this$conf5.visibleSlides;
+      var firstVisible = this.slides.current;
+
+      if (visibleSlides > 1 && slideMultiple === visibleSlides) {
+        firstVisible = Math.floor(index / visibleSlides) * visibleSlides;
+      } else if (this.multipleSlides1by1) {
+        firstVisible = index - Math.min(index, this.preferredPosition) - Math.max(this.slidePosAfterPreferred, 0);
+      }
+
+      return firstVisible;
     },
     getSlideInRange: function getSlideInRange(index, autoPlaying) {
       var clone = false; // If infinite enabled, going out of range takes the first slide from the other end.
@@ -94463,7 +96672,7 @@ function vueperslidesvue_type_script_lang_js_objectSpread(target) { for (var i =
     // autoPlaying = going to the next slide from autoplay - no user intervention.
     // jumping = after reaching a clone, the callback jumps back to original slide with no animation.
     goToSlide: function goToSlide(index) {
-      var _this5 = this;
+      var _this6 = this;
 
       var _ref = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {},
           _ref$animation = _ref.animation,
@@ -94481,7 +96690,7 @@ function vueperslidesvue_type_script_lang_js_objectSpread(target) { for (var i =
       if (this.conf.autoplay && autoPlaying) this.pauseAutoplay();
       this.transition.animated = animation;
       setTimeout(function () {
-        return _this5.transition.animated = false;
+        return _this6.transition.animated = false;
       }, this.transitionSpeed); // Get the next slide index and whether it's a clone.
 
       var _this$getSlideInRange2 = this.getSlideInRange(index, autoPlaying),
@@ -94501,46 +96710,38 @@ function vueperslidesvue_type_script_lang_js_objectSpread(target) { for (var i =
       } // Emit event. First use of `goToSlide` is while init, so should not propagate an event.
 
 
-      if (this.isReady && !jumping && emit) {
-        this.emit('before-slide', true, nextSlide);
-      } // Disable arrows if `disableArrowsOnEdges` is on and there is no slide to go to on that end.
-
-
-      if (this.conf.arrows && this.conf.disableArrowsOnEdges) {
-        this.arrowPrevDisabled = nextSlide === 0 || nextSlide - this.conf.slideMultiple < 0;
-        this.arrowNextDisabled = nextSlide === this.slidesCount - 1 || nextSlide + this.conf.slideMultiple > this.slidesCount - 1;
-      } // Infinite sliding with cloned slides:
+      if (this.isReady && !jumping && emit) this.emit('before-slide', true, nextSlide); // Infinite sliding with cloned slides:
       // When reaching last slide and going next the cloned slide of the first slide
       // shows up, when the animation ends the real change to the first slide is done
       // immediately with no animation.
       // Same principle when going beyond first slide.
-
 
       if (nextSlideIsClone !== false) {
         // Gives clone id (0 or 1) or false.
         setTimeout(function () {
           // inside the callback, also check if it is not too late to apply next slide
           // (user may have slid fast multiple times) if so cancel callback.
-          var passedCloneBackward = index === -1 && _this5.slides.current !== _this5.slidesCount - 1;
-          var passedCloneForward = index === _this5.slidesCount && _this5.slides.current !== 0;
+          var passedCloneBackward = index === -1 && _this6.slides.current !== _this6.slidesCount - 1;
+          var passedCloneForward = index === _this6.slidesCount && _this6.slides.current !== 0;
           var tooLateToSetTimeout = passedCloneBackward || passedCloneForward;
 
           if (!tooLateToSetTimeout) {
-            _this5.transition.speed = 0;
+            _this6.transition.speed = 0;
 
-            _this5.goToSlide(nextSlideIsClone ? 0 : _this5.slidesCount - 1, {
+            _this6.goToSlide(nextSlideIsClone ? 0 : _this6.slidesCount - 1, {
               animation: false,
               jumping: true
             });
 
             setTimeout(function () {
-              return _this5.transition.speed = _this5.conf.transitionSpeed;
+              return _this6.transition.speed = _this6.conf.transitionSpeed;
             }, 50);
           }
         }, this.transition.speed - 50);
       }
 
-      this.slides.current = nextSlide; // Don't change the focus slide if calling goToSlide from breakpoint change.
+      this.slides.current = nextSlide;
+      this.slides.firstVisible = this.getFirstVisibleSlide(nextSlide); // Don't change the focus slide if calling goToSlide from breakpoint change.
       // The focused slide is to keep track which slide to snap to when switching
       // between 2 breakpoints that have multiple visible slides.
 
@@ -94565,12 +96766,32 @@ function vueperslidesvue_type_script_lang_js_objectSpread(target) { for (var i =
         if (this.isReady && this.conf.bullets && !autoPlaying && !jumping && this.$refs.bullets) {
           var bulletButtons = this.$refs.bullets.children;
           var activeBulletButton = bulletButtons && bulletButtons[this.slides.current / this.conf.slideMultiple];
-          if (activeBulletButton && activeBulletButton.nodeName.toLowerCase() === 'button') activeBulletButton.focus();
+
+          if (activeBulletButton && activeBulletButton.nodeName.toLowerCase() === 'button') {
+            // Prevent auto-scrolling to a slideshow that is not in viewport on bullet focus.
+            var scrollingDomEl = document.documentElement;
+            if (this.pageScrollingElement) scrollingDomEl = document.querySelector(this.pageScrollingElement);
+            var scrollTop = scrollingDomEl.scrollTop;
+            activeBulletButton.focus({
+              preventScroll: true
+            }); // Safari can't `preventScroll`, hence the scrollTop.
+
+            scrollingDomEl.scrollTop = scrollTop;
+          }
         }
       }
     },
     addSlide: function addSlide(newSlide) {
-      this.slides.list.push(newSlide);
+      this.slides.list.push(newSlide); // If the slideshow was initialized with no slides and with autoplay, resume the autoplay
+      // when the first slide is added.
+
+      if (this.isReady && this.slidesCount === 1 && this.conf.autoplay) this.resumeAutoplay();
+      return this.slidesCount;
+    },
+    addClone: function addClone(newSlide) {
+      // On adding clone, recalculate the current track translation.
+      // (case when starting in infinite mode with no slide until later loaded).
+      this.updateTrackTranslation();
       return this.slidesCount;
     },
     updateSlide: function updateSlide(slideId, newProps) {
@@ -94603,7 +96824,7 @@ function vueperslidesvue_type_script_lang_js_objectSpread(target) { for (var i =
     },
     // Lazy loading a slide image.
     loadSlide: function loadSlide(slide, index) {
-      var _this6 = this;
+      var _this7 = this;
 
       slide.loadImage().then(function (response) {
         var image = response.image,
@@ -94612,18 +96833,18 @@ function vueperslidesvue_type_script_lang_js_objectSpread(target) { for (var i =
         slide.image = image;
         slide.style = style;
 
-        _this6.$emit('image-loaded', _this6.getSlideData(index));
+        _this7.$emit('image-loaded', _this7.getSlideData(index));
       }, function () {
         slide.loaded = false;
 
-        _this6.$emit('image-failed', _this6.getSlideData(index));
+        _this7.$emit('image-failed', _this7.getSlideData(index));
       });
     },
     toggleTouchableOption: function toggleTouchableOption(isTouchable) {
       var track = this.$refs.track;
       if (!track) return;
       this.touchEnabled = isTouchable;
-      var hasTouch = 'ontouchstart' in window; // Touch enabled slideshow.
+      var hasTouch = ('ontouchstart' in window); // Touch enabled slideshow.
 
       if (isTouchable) {
         this.$refs.track.addEventListener(hasTouch ? 'touchstart' : 'mousedown', this.onMouseDown, {
@@ -94638,7 +96859,7 @@ function vueperslidesvue_type_script_lang_js_objectSpread(target) { for (var i =
       } else this.removeEventListeners();
     },
     removeEventListeners: function removeEventListeners() {
-      var hasTouch = 'ontouchstart' in window;
+      var hasTouch = ('ontouchstart' in window);
       this.$refs.track.removeEventListener(hasTouch ? 'touchstart' : 'mousedown', this.onMouseDown, {
         passive: !this.preventYScroll
       });
@@ -94650,171 +96871,18 @@ function vueperslidesvue_type_script_lang_js_objectSpread(target) { for (var i =
       });
     }
   },
+  mounted: function mounted() {
+    this.init();
+  },
   beforeDestroy: function beforeDestroy() {
     this.removeEventListeners();
+
+    if (this.pageScrollingElement) {
+      document.querySelector(this.pageScrollingElement).removeEventListener('scroll', this.onScroll);
+    } else document.removeEventListener('scroll', this.onScroll);
+
     document.removeEventListener('scroll', this.onScroll);
     window.removeEventListener('resize', this.onResize);
-  },
-  computed: {
-    // this.conf needs to be reactive so user can change a Vueper Slides option and everything gets updated.
-    conf: function conf() {
-      // Read config from the props then check if breakpoints are defined.
-      // If so override the config with the breakpoint ones.
-      var conf = vueperslidesvue_type_script_lang_js_objectSpread({}, this.$props, {}, this.$props.breakpoints && this.$props.breakpoints[this.breakpointsData.current] || {}); // Overrides: once config from breakpoints is imported, we can use the `conf` object
-      // and be sure all the options are up to date.
-      // ------------------------------- //
-
-
-      conf.slideMultiple = conf.slideMultiple ? conf.visibleSlides : 1;
-      conf.gap = this.gap && parseInt(this.gap) || 0; // conf.gapPx = this.gap && this.gap.toString().includes('px')
-
-      if (conf.visibleSlides > 1) conf['3d'] = false;
-
-      if (conf.fade || conf.disableArrowsOnEdges || conf.visibleSlides > 1 || conf['3d']) {
-        conf.infinite = false;
-      } // Place arrows & bullets outside by default if visibleSlides > 1.
-
-
-      if (conf.visibleSlides > 1 && conf.arrowsOutside === null) conf.arrowsOutside = true;
-      if (conf.visibleSlides > 1 && conf.bulletsOutside === null) conf.bulletsOutside = true;
-      if (this.touchEnabled !== conf.touchable) this.toggleTouchableOption(conf.touchable);
-
-      if (conf.parallax && conf.parallaxFixedContent) {
-        conf.slideContentOutside = 'top';
-        conf.slideContentOutsideClass = 'parallax-fixed-content';
-      } // ------------------------------- //
-
-
-      return conf;
-    },
-    slidesCount: function slidesCount() {
-      return this.slides.list.length;
-    },
-    gapsCount: function gapsCount() {
-      var _this$conf3 = this.conf,
-          fade = _this$conf3.fade,
-          threeD = _this$conf3['3d'],
-          infinite = _this$conf3.infinite,
-          slideMultiple = _this$conf3.slideMultiple,
-          gap = _this$conf3.gap;
-      if (!gap || fade || threeD) return 0;
-      if (this.multipleSlides1by1 && this.slides.current < this.preferredPosition) return 0;
-      if (!this.slides.current && this.nextSlideIsClone) return this.slidesCount + 1;
-      var gapsCount = this.slides.current / slideMultiple + (infinite ? 1 : 0) - this.preferredPosition;
-
-      if (this.multipleSlides1by1 && this.slidePosAfterPreferred > 0) {
-        gapsCount -= this.slidePosAfterPreferred;
-      }
-
-      return gapsCount;
-    },
-    slidesAfterCurrent: function slidesAfterCurrent() {
-      return this.slidesCount - (this.slides.current + 1);
-    },
-    // When visibleSlides > 1, the preferred position is the most center slide amongst the visible ones.
-    // If visibleSlides is an odd number the preferred position can never be at the center,
-    // so take the closest on the left side.
-    preferredPosition: function preferredPosition() {
-      return this.multipleSlides1by1 ? Math.ceil(this.conf.visibleSlides / 2) - 1 : 0;
-    },
-    slidePosAfterPreferred: function slidePosAfterPreferred() {
-      return this.conf.visibleSlides - this.preferredPosition - this.slidesAfterCurrent - 1;
-    },
-    multipleSlides1by1: function multipleSlides1by1() {
-      return this.conf.visibleSlides > 1 && this.conf.slideMultiple === 1;
-    },
-    touchEnabled: {
-      get: function get() {
-        return this.slidesCount > 1 && this.touchable;
-      },
-      set: function set() {}
-    },
-    canSlide: function canSlide() {
-      return this.slidesCount / this.conf.visibleSlides > 1;
-    },
-    firstSlide: function firstSlide() {
-      var slide = this.slidesCount ? this.slides.list[0] : {};
-      if (slide.style) slide.style = slide.style.replace(/width: ?\d+.*?;?/, '');
-      return slide;
-    },
-    lastSlide: function lastSlide() {
-      var slide = this.slidesCount ? this.slides.list[this.slidesCount - 1] : {};
-      if (slide.style) slide.style = slide.style.replace(/width: ?\d+.*?;?/, '');
-      return slide;
-    },
-    currentSlide: function currentSlide() {
-      var currentSlide = this.slidesCount && this.slides.list[this.slides.current] || {};
-
-      if (this.slides.current < this.slidesCount && currentSlide.id !== this.slides.activeId) {
-        this.goToSlide(this.slides.current, {
-          animation: false,
-          autoPlaying: true
-        });
-      }
-
-      return currentSlide;
-    },
-    vueperslidesClasses: function vueperslidesClasses() {
-      return {
-        'vueperslides--ready': this.isReady,
-        'vueperslides--fade': this.conf.fade,
-        'vueperslides--parallax': this.conf.parallax,
-        'vueperslides--slide-image-inside': this.conf.slideImageInside,
-        'vueperslides--touchable': this.touchEnabled && !this.disable,
-        'vueperslides--fixed-height': this.conf.fixedHeight,
-        'vueperslides--3d': this.conf['3d'],
-        'vueperslides--slide-multiple': this.conf.slideMultiple > 1,
-        'vueperslides--bullets-outside': this.conf.bulletsOutside,
-        'vueperslides--animated': this.transition.animated // While transitioning.
-
-      };
-    },
-    vueperslidesStyles: function vueperslidesStyles() {
-      return /^-?\d/.test(this.conf.fixedHeight) ? "height: ".concat(this.conf.fixedHeight) : null;
-    },
-    trackStyles: function trackStyles() {
-      var styles = {};
-
-      if (this.conf.parallax) {
-        styles.transform = "translate3d(0, ".concat(this.parallaxData.translation, "%, 0)"); // Increase browser optimizations by allocating more machine resource.
-        // ! \\ To be used wisely so deactivate when not needed.
-
-        styles.willChange = this.parallaxData.isVisible ? 'transform' : 'auto';
-      }
-
-      return styles;
-    },
-    trackInnerStyles: function trackInnerStyles() {
-      var styles = {};
-      var _this$conf4 = this.conf,
-          fade = _this$conf4.fade,
-          threeD = _this$conf4['3d']; // Prevent animation if VueperSlides is not yet ready (so that the first clone is not shown before ready).
-
-      styles.transitionDuration = (this.isReady ? this.transition.speed : 0) + 'ms';
-
-      if (threeD) {
-        var rotation = this.transition.currentTranslation * 90 / 100; // Following calculation is equivalent to:
-        // 'translateZ(slideshowWidth / 2) rotateY(' + rotation + 'deg)'
-        // but does not require a fixed width.
-
-        styles.transform = "rotateY(-90deg) translateX(-50%) rotateY(90deg) rotateY(".concat(rotation, "deg)");
-      } else if (!fade) {
-        var translation = this.transition.currentTranslation;
-        styles.transform = "translate3d(".concat(translation, "%, 0, 0)"); // Increase browser optimizations by allocating more machine resource.
-        // ! \\ To be used wisely so deactivate when not needed.
-
-        styles.willChange = this.touch.dragging || this.transition.animated ? 'transform' : 'auto';
-      }
-
-      return styles;
-    },
-    bulletIndexes: function bulletIndexes() {
-      var _this7 = this;
-
-      return Array(Math.ceil(this.slidesCount / this.conf.slideMultiple)).fill().map(function (v, i) {
-        return i * _this7.conf.slideMultiple;
-      });
-    }
   }
 });
 // CONCATENATED MODULE: ./src/components/vueperslides/vueperslides.vue?vue&type=script&lang=js&
@@ -94854,10 +96922,65 @@ if (typeof window !== 'undefined' && window.Vue) {
 
 
 // CONCATENATED MODULE: ./node_modules/@vue/cli-service/lib/commands/build/entry-lib-no-default.js
-/* concated harmony reexport VueperSlides */__webpack_require__.d(__webpack_exports__, "VueperSlides", function() { return vueperslides; });
-/* concated harmony reexport VueperSlide */__webpack_require__.d(__webpack_exports__, "VueperSlide", function() { return vueperslide; });
 
 
+
+
+/***/ }),
+
+/***/ "fb6a":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var $ = __webpack_require__("23e7");
+var isObject = __webpack_require__("861d");
+var isArray = __webpack_require__("e8b5");
+var toAbsoluteIndex = __webpack_require__("23cb");
+var toLength = __webpack_require__("50c4");
+var toIndexedObject = __webpack_require__("fc6a");
+var createProperty = __webpack_require__("8418");
+var wellKnownSymbol = __webpack_require__("b622");
+var arrayMethodHasSpeciesSupport = __webpack_require__("1dde");
+var arrayMethodUsesToLength = __webpack_require__("ae40");
+
+var HAS_SPECIES_SUPPORT = arrayMethodHasSpeciesSupport('slice');
+var USES_TO_LENGTH = arrayMethodUsesToLength('slice', { ACCESSORS: true, 0: 0, 1: 2 });
+
+var SPECIES = wellKnownSymbol('species');
+var nativeSlice = [].slice;
+var max = Math.max;
+
+// `Array.prototype.slice` method
+// https://tc39.github.io/ecma262/#sec-array.prototype.slice
+// fallback for not array-like ES3 strings and DOM objects
+$({ target: 'Array', proto: true, forced: !HAS_SPECIES_SUPPORT || !USES_TO_LENGTH }, {
+  slice: function slice(start, end) {
+    var O = toIndexedObject(this);
+    var length = toLength(O.length);
+    var k = toAbsoluteIndex(start, length);
+    var fin = toAbsoluteIndex(end === undefined ? length : end, length);
+    // inline `ArraySpeciesCreate` for usage native `Array#slice` where it's possible
+    var Constructor, result, n;
+    if (isArray(O)) {
+      Constructor = O.constructor;
+      // cross-realm fallback
+      if (typeof Constructor == 'function' && (Constructor === Array || isArray(Constructor.prototype))) {
+        Constructor = undefined;
+      } else if (isObject(Constructor)) {
+        Constructor = Constructor[SPECIES];
+        if (Constructor === null) Constructor = undefined;
+      }
+      if (Constructor === Array || Constructor === undefined) {
+        return nativeSlice.call(O, k, fin);
+      }
+    }
+    result = new (Constructor === undefined ? Array : Constructor)(max(fin - k, 0));
+    for (n = 0; k < fin; k++, n++) if (k in O) createProperty(result, n, O[k]);
+    result.length = n;
+    return result;
+  }
+});
 
 
 /***/ }),
@@ -94929,6 +97052,13 @@ module.exports = NATIVE_SYMBOL
   // eslint-disable-next-line no-undef
   && typeof Symbol.iterator == 'symbol';
 
+
+/***/ }),
+
+/***/ "fe3f":
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
 
 /***/ })
 
@@ -95086,7 +97216,8 @@ vue__WEBPACK_IMPORTED_MODULE_9___default.a.component('company', __webpack_requir
 vue__WEBPACK_IMPORTED_MODULE_9___default.a.component('detailed-company', __webpack_require__(/*! ./components/items/companies/detailedCompany.vue */ "./resources/js/components/items/companies/detailedCompany.vue")["default"]);
 vue__WEBPACK_IMPORTED_MODULE_9___default.a.component('c-modal', __webpack_require__(/*! ./components/items/modal/modal.vue */ "./resources/js/components/items/modal/modal.vue")["default"]);
 vue__WEBPACK_IMPORTED_MODULE_9___default.a.component('banners-gestion', __webpack_require__(/*! ./components/companies/gestion/BannersGestion.vue */ "./resources/js/components/companies/gestion/BannersGestion.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_9___default.a.component('company-highlight', __webpack_require__(/*! ./components/companies/creation/HighlightForm.vue */ "./resources/js/components/companies/creation/HighlightForm.vue")["default"]); // Ofertas
+vue__WEBPACK_IMPORTED_MODULE_9___default.a.component('company-highlight', __webpack_require__(/*! ./components/companies/creation/HighlightForm.vue */ "./resources/js/components/companies/creation/HighlightForm.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_9___default.a.component("company-select", __webpack_require__(/*! ./components/items/companies/select.vue */ "./resources/js/components/items/companies/select.vue")["default"]); // Ofertas
 
 vue__WEBPACK_IMPORTED_MODULE_9___default.a.component('offers-gestion', __webpack_require__(/*! ./components/offers/gestion/OffersGestion.vue */ "./resources/js/components/offers/gestion/OffersGestion.vue")["default"]);
 vue__WEBPACK_IMPORTED_MODULE_9___default.a.component('offer-creation', __webpack_require__(/*! ./components/offers/creation/CreationForm.vue */ "./resources/js/components/offers/creation/CreationForm.vue")["default"]);
@@ -95947,7 +98078,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader!../../../../../node_modules/css-loader??ref--6-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./index.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/forms/contact-form/index.vue?vue&type=style&index=0&lang=css&");
 /* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
  /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
@@ -96379,6 +98510,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_detailedCompany_vue_vue_type_template_id_b093bd22___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_detailedCompany_vue_vue_type_template_id_b093bd22___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/items/companies/select.vue":
+/*!************************************************************!*\
+  !*** ./resources/js/components/items/companies/select.vue ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _select_vue_vue_type_template_id_560da2ac___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./select.vue?vue&type=template&id=560da2ac& */ "./resources/js/components/items/companies/select.vue?vue&type=template&id=560da2ac&");
+/* harmony import */ var _select_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./select.vue?vue&type=script&lang=js& */ "./resources/js/components/items/companies/select.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _select_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _select_vue_vue_type_template_id_560da2ac___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _select_vue_vue_type_template_id_560da2ac___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/items/companies/select.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/items/companies/select.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/components/items/companies/select.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_select_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./select.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/items/companies/select.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_select_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/items/companies/select.vue?vue&type=template&id=560da2ac&":
+/*!*******************************************************************************************!*\
+  !*** ./resources/js/components/items/companies/select.vue?vue&type=template&id=560da2ac& ***!
+  \*******************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_select_vue_vue_type_template_id_560da2ac___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./select.vue?vue&type=template&id=560da2ac& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/items/companies/select.vue?vue&type=template&id=560da2ac&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_select_vue_vue_type_template_id_560da2ac___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_select_vue_vue_type_template_id_560da2ac___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -97069,7 +99269,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_personalFab_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./personalFab.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/items/personalFab.vue?vue&type=style&index=0&lang=css&");
 /* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_personalFab_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_personalFab_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_personalFab_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_personalFab_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_personalFab_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_personalFab_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
  /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_personalFab_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
@@ -98490,8 +100690,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\ConsultingME\colombia_internet\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\ConsultingME\colombia_internet\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\contratainternet.co\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\contratainternet.co\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),

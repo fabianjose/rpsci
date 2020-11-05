@@ -1,17 +1,14 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);.image-logo-banner {
-  max-width: 14rem;
-  max-height: 9rem;
+  max-width: 100%;
+  max-height: 70px;
 }
 
 .icon-btn-sm {
   height: 47px;
   width: 47px;
-  display: -webkit-box;
   display: flex;
-  -webkit-box-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-          justify-content: center;
+  align-items: center;
+  justify-content: center;
 }
 
 .ic-main {
@@ -38,22 +35,16 @@
   content: "";
   border-bottom: solid 3.5px #13293d;
   border-radius: 15px;
-  -webkit-transform: scaleX(0);
-          transform: scaleX(0);
-  -webkit-transition: -webkit-transform 250ms ease-in-out;
-  transition: -webkit-transform 250ms ease-in-out;
+  transform: scaleX(0);
   transition: transform 250ms ease-in-out;
-  transition: transform 250ms ease-in-out, -webkit-transform 250ms ease-in-out;
 }
 
 .nav-item-border.active:after {
-  -webkit-transform: scaleX(0.45);
-          transform: scaleX(0.45);
+  transform: scaleX(0.45);
 }
 
 .nav-item-border:hover:after {
-  -webkit-transform: scaleX(1);
-          transform: scaleX(1);
+  transform: scaleX(1);
 }
 
 @media (max-width: 767px) {
@@ -63,7 +54,6 @@
 }
 
 .bg-ic {
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(19, 41, 61, 0.8)), to(rgba(19, 41, 61, 0.8))), url(/images/main-bg.jpg?edbffaa28c5e5af0c5ed577b15531375);
   background: linear-gradient(to bottom, rgba(19, 41, 61, 0.8), rgba(19, 41, 61, 0.8)), url(/images/main-bg.jpg?edbffaa28c5e5af0c5ed577b15531375);
   background-repeat: no-repeat;
   background-size: 100%;
@@ -73,11 +63,8 @@
   -moz-background-size: cover;
   height: auto;
   padding: 2rem 1em;
-  -webkit-box-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-          justify-content: center;
-  display: -webkit-box;
+  align-items: center;
+  justify-content: center;
   display: flex;
 }
 
@@ -124,7 +111,7 @@
   padding-top: 8vh !important;
   width: 100%;
   min-height: 50vh;
-  background-color: white;
+  background-color: #ffffff !important;
 }
 
 .ic-logo-grey {
@@ -135,14 +122,10 @@
 .main-middle {
   min-height: 45%;
   width: auto;
-  display: -webkit-box;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-          flex-direction: column;
+  flex-direction: column;
   justify-content: space-around;
-  -webkit-box-align: center;
-          align-items: center;
+  align-items: center;
 }
 
 .about-section {
@@ -173,17 +156,12 @@
   content: "";
   border-bottom: solid 3.5px #cdcdcd;
   border-radius: 15px;
-  -webkit-transform: scaleX(0);
-          transform: scaleX(0);
-  -webkit-transition: -webkit-transform 250ms ease-in-out;
-  transition: -webkit-transform 250ms ease-in-out;
+  transform: scaleX(0);
   transition: transform 250ms ease-in-out;
-  transition: transform 250ms ease-in-out, -webkit-transform 250ms ease-in-out;
 }
 
 .about-title-container:after {
-  -webkit-transform: scaleX(0.45);
-          transform: scaleX(0.45);
+  transform: scaleX(0.45);
 }
 
 .has-search .form-control {
@@ -225,11 +203,8 @@
 
 .consult-card {
   background-color: #fff;
-  display: -webkit-box;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-          flex-direction: row;
+  flex-direction: row;
   border-radius: 50px;
   max-width: 80vw !important;
   border-width: 0 !important;
@@ -241,21 +216,15 @@
 
 .consult-card-modal {
   max-width: 80vw !important;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-          flex-direction: row;
-  display: -webkit-box;
+  flex-direction: row;
   display: flex;
-  -webkit-box-pack: center;
-          justify-content: center;
+  justify-content: center;
 }
 
 .consult-card-header {
-  display: -webkit-box;
   display: flex;
   flex-wrap: wrap;
-  -webkit-box-pack: center;
-          justify-content: center;
+  justify-content: center;
   border-bottom: solid 0.22rem #cdcdcd;
 }
 
@@ -290,17 +259,13 @@
 }
 
 .consult-card-fields {
-  display: -webkit-box;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-          flex-direction: row;
+  flex-direction: row;
 }
 
 .form-consulting-field {
   border-bottom-right-radius: 50px;
-  -webkit-box-pack: center;
-          justify-content: center;
+  justify-content: center;
 }
 
 .form-consulting-input {
@@ -318,12 +283,8 @@
   content: "";
   border-bottom: solid 3.5px #e6e6e6;
   border-radius: 15px;
-  -webkit-transform: scaleX(0.25);
-          transform: scaleX(0.25);
-  -webkit-transition: -webkit-transform 250ms ease-in-out;
-  transition: -webkit-transform 250ms ease-in-out;
+  transform: scaleX(0.25);
   transition: transform 250ms ease-in-out;
-  transition: transform 250ms ease-in-out, -webkit-transform 250ms ease-in-out;
 }
 
 .form-consulting-title {
@@ -423,12 +384,8 @@
   content: "";
   border-bottom: solid 3.5px #9b9b9b;
   border-radius: 5px;
-  -webkit-transform: scaleX(0.25);
-          transform: scaleX(0.25);
-  -webkit-transition: -webkit-transform 250ms ease-in-out;
-  transition: -webkit-transform 250ms ease-in-out;
+  transform: scaleX(0.25);
   transition: transform 250ms ease-in-out;
-  transition: transform 250ms ease-in-out, -webkit-transform 250ms ease-in-out;
 }
 
 .high-companies-carousel {
@@ -456,12 +413,8 @@
   content: "";
   border-bottom: solid 3.5px #cdcdcd;
   border-radius: 5px;
-  -webkit-transform: scaleX(0.25);
-          transform: scaleX(0.25);
-  -webkit-transition: -webkit-transform 250ms ease-in-out;
-  transition: -webkit-transform 250ms ease-in-out;
+  transform: scaleX(0.25);
   transition: transform 250ms ease-in-out;
-  transition: transform 250ms ease-in-out, -webkit-transform 250ms ease-in-out;
 }
 
 .high-plans-carousel {
@@ -499,12 +452,9 @@
 .offer-card-header {
   padding: 1.2rem;
   height: 160px;
-  display: -webkit-box;
   display: flex;
-  -webkit-box-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .offer-card-separator {
@@ -513,13 +463,9 @@
 }
 
 .offer-card-content {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-          flex-direction: column;
-  -webkit-box-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: center;
-          align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
   text-align: center;
   padding: 1rem;
   color: #13293d;
@@ -550,15 +496,11 @@
 }
 
 .offer-card-footer {
-  display: -webkit-box;
   display: flex;
   padding: 0 1rem;
   padding-bottom: 1rem;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-          flex-direction: column;
-  -webkit-box-align: center;
-          align-items: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .offer-card-btn {
@@ -571,7 +513,6 @@
 
 .nosotros-title {
   min-height: 50vh;
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(19, 41, 61, 0.8)), to(rgba(19, 41, 61, 0.8))), url(/images/nosotros-bg.jpg?19b0dcc137c7a27ad415d163b4f13c04);
   background: linear-gradient(to bottom, rgba(19, 41, 61, 0.8), rgba(19, 41, 61, 0.8)), url(/images/nosotros-bg.jpg?19b0dcc137c7a27ad415d163b4f13c04);
   background-repeat: no-repeat;
   background-size: 100%;
@@ -599,12 +540,8 @@
   padding-top: 5px;
   border-bottom: solid 3.5px #20adf4;
   border-radius: 5px;
-  -webkit-transform: scaleX(0.25);
-          transform: scaleX(0.25);
-  -webkit-transition: -webkit-transform 250ms ease-in-out;
-  transition: -webkit-transform 250ms ease-in-out;
+  transform: scaleX(0.25);
   transition: transform 250ms ease-in-out;
-  transition: transform 250ms ease-in-out, -webkit-transform 250ms ease-in-out;
 }
 
 .mision-title {
@@ -628,12 +565,8 @@
   padding-top: 5px;
   border-bottom: solid 3.5px #e6e6e6;
   border-radius: 5px;
-  -webkit-transform: scaleX(0.25);
-          transform: scaleX(0.25);
-  -webkit-transition: -webkit-transform 250ms ease-in-out;
-  transition: -webkit-transform 250ms ease-in-out;
+  transform: scaleX(0.25);
   transition: transform 250ms ease-in-out;
-  transition: transform 250ms ease-in-out, -webkit-transform 250ms ease-in-out;
 }
 
 .img-nosotros-services {
@@ -659,7 +592,6 @@
 
 .contacto-title {
   min-height: 40vh;
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(19, 41, 61, 0.8)), to(rgba(19, 41, 61, 0.8))), url(/images/contacta-bg.jpg?348012bed6dbf0b129a4cbd40fb39392);
   background: linear-gradient(to bottom, rgba(19, 41, 61, 0.8), rgba(19, 41, 61, 0.8)), url(/images/contacta-bg.jpg?348012bed6dbf0b129a4cbd40fb39392);
   background-repeat: no-repeat;
   background-size: 100%;
@@ -671,6 +603,10 @@
 
 .contacto-title-text {
   font-size: 48px;
+}
+
+.contacto-main-content {
+  padding-bottom: 3rem;
 }
 
 .contacto-main-content span {
@@ -695,12 +631,8 @@
   padding-top: 5px;
   border-bottom: solid 3.5px #20adf4;
   border-radius: 5px;
-  -webkit-transform: scaleX(0.25);
-          transform: scaleX(0.25);
-  -webkit-transition: -webkit-transform 250ms ease-in-out;
-  transition: -webkit-transform 250ms ease-in-out;
+  transform: scaleX(0.25);
   transition: transform 250ms ease-in-out;
-  transition: transform 250ms ease-in-out, -webkit-transform 250ms ease-in-out;
 }
 
 .contacto-card-label {
@@ -869,12 +801,8 @@
   content: "";
   border-bottom: solid 3.5px #cdcdcd;
   border-radius: 5px;
-  -webkit-transform: scaleX(0.35);
-          transform: scaleX(0.35);
-  -webkit-transition: -webkit-transform 250ms ease-in-out;
-  transition: -webkit-transform 250ms ease-in-out;
+  transform: scaleX(0.35);
   transition: transform 250ms ease-in-out;
-  transition: transform 250ms ease-in-out, -webkit-transform 250ms ease-in-out;
 }
 
 .main-form-title {
@@ -959,12 +887,22 @@
 }
 
 .counters-container {
-  display: -webkit-box;
   display: flex;
-  padding: 1.4rem;
+  padding: 1.4rem 0;
   margin-top: 1rem;
   flex-wrap: wrap;
   justify-content: space-around;
+}
+
+.counter-value {
+  font-size: 2rem;
+}
+
+.whatsapp {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  width: 100px;
 }
 
 @font-face {

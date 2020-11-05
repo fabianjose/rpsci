@@ -29,7 +29,7 @@
 
   <aside class="sidebar main-sidebar sidebar-dark-primary elevation-4">
     <a href="/dashboard" class="brand-link ">
-      <img src="{{ asset('images/logo-blanco.png') }}" alt="Contrata Internet" style="height: 55px!important;" class="img-fluid" style="opacity: .8">
+      <img src="{{ asset('images/LOGO3BLANCO.png') }}" alt="Contrata Internet" style="height: 55px!important;" class="img-fluid" style="opacity: .8">
     </a>
 
     <div class="sidebar">

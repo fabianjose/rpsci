@@ -1,10 +1,10 @@
 <template>
-    <div class="d-flex flex-row w-100 flex-wrap justify-content-around">
+    <div class="d-flex flex-row w-100 flex-wrap py-2 pb-5 justify-content-around">
 
-        <div class="col-10 col-xl-6">
-            <div class="card card-info" id="municipalitiesAccordion">
-                <a class="card-header collapsed" @click="active=!active" data-parent="#municipalitiesAccordion"
-                href="#MunicipalitiesOfferList" aria-expanded="false" data-toggle="collapse">
+        <div v-if="departments&&departments.length" class="col-10 col-xl-6">
+            <div class="card card-info" id="departmentsDetailedAccordion">
+                <a class="card-header collapsed" @click="active=!active" data-parent="#departmentsDetailedAccordion"
+                href="#departmentsDetailedOfferList" aria-expanded="false" data-toggle="collapse">
                 <h3 class="card-title col-10">Departamentos</h3>
                 <div class="card-tools">
                     <button type="button" class="btn btn-tool ml-auto " >
@@ -12,7 +12,7 @@
                     </button>
                 </div>
                 </a>
-                <div id="MunicipalitiesOfferList" class="panel-collapse in collapse" >
+                <div id="departmentsDetailedOfferList" class="panel-collapse in collapse" >
                     <div class="card-body w-100">
                     
                         <div class="d-flex justify-content-around w-100 flex-wrap">
@@ -28,7 +28,7 @@
             </div>
         </div>
 
-        <div class="col-10 col-xl-6">
+        <div v-if="municipalities&&municipalities.length" class="col-10 col-xl-6">
             <div class="card card-info" id="municipalitiesAccordion">
                 <a class="card-header collapsed" @click="active2=!active2" data-parent="#municipalitiesAccordion"
                 href="#MunicipalitiesOfferList" aria-expanded="false" data-toggle="collapse">

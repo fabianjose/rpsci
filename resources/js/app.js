@@ -38,6 +38,8 @@ Vue.component('c-modal', require('./components/items/modal/modal.vue').default);
 Vue.component('banners-gestion', require('./components/companies/gestion/BannersGestion.vue').default);
 Vue.component('company-highlight', require('./components/companies/creation/HighlightForm.vue').default);
 
+Vue.component("company-select", require("./components/items/companies/select.vue").default);
+
 
 // Ofertas
 Vue.component('offers-gestion', require('./components/offers/gestion/OffersGestion.vue').default);

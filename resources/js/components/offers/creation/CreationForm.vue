@@ -11,31 +11,36 @@
 
       <div id="collapseOne" class="panel-collapse in collapse" >
         <div class="card-body">
+  
           <div class="d-flex flex-row w-100 justify-content-around flex-wrap">
+
             <div class="form-group col-xl-6 col-lg-6 col-md-6 col-12">
-              <label>Empresa</label>
-              <select class="custom-select" v-model="company">
-                <option value="" class="d-none" selected>Empresa</option>
-                <option v-for="(company,index) in companies" :key="index" :value="company.name">{{company.name}}</option>
-              </select>
-              <!-- <autocomplete-vue
-              v-model="company"
-              url="/api/companies"
-              requestType="get"
-              placeholder="Empresa"
-              property="name"
-              :required="true"
-              inputClass="form-control"
-              ></autocomplete-vue> -->
+            <label>Empresa</label>
+            <select class="custom-select" v-model="company">
+              <option value="" class="d-none" selected>Empresa</option>
+              <option v-for="(company,index) in companies" :key="index" :value="company.name">{{company.name}}</option>
+            </select>
+            <!-- 
+            <autocomplete-vue
+            v-model="company"
+            url="/api/companies"
+            requestType="get"
+            placeholder="Empresa"
+            property="name"
+            :required="true"
+            inputClass="form-control"
+            ></autocomplete-vue> 
+            -->
             </div>
+
+          <!--<company-select @company="setCompany" :companies="companies" ></company-select>-->
+          
             <div class="form-group col-xl-6 col-lg-6 col-md-6 col-12">
               <label>Servicio</label>
               <select @change="getFields" class="custom-select" v-model="service">
                 <option :value="service.id" v-for="service in services" :key="service.id">{{service.name}}</option>
               </select>
             </div>
-          </div>
-          <div class="d-flex flex-row w-100 justify-content-around flex-wrap my-3" v-if="fields.length">
             <div class="form-group col-xl-4 col-lg-4 col-md-6 col-12" v-for="(field,index) in fields" :key="index" >
               <label>{{field.name+(field.unit?" ("+field.unit+")":"")}}</label>
               <input v-model="fieldsValues[index]" class="form-control">
@@ -103,7 +108,7 @@ export default {
       company: "",
       departments: [],
       municipalities: [],
-      type: "private",
+      type: null,
       tariff: "",
       benefits: "",
       service: null,
@@ -151,6 +156,10 @@ export default {
         this.fields=res.data
       }).catch(err=>toastr.error("error al obtener los campos del servicio"))
     },
+
+    /*setCompany(company){
+      this.company=company.name
+    },*/
 
     async createOffer(){
       let continueCreation=true;

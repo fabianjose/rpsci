@@ -66,6 +66,7 @@
               <option :value="null">Todos</option>
               <option value="private">Hogar</option>
               <option value="company">Empresa</option>
+              
             </select>
           </div>
           <div class="form-group col-xl-4 col-lg-4 col-md-6 col-12">

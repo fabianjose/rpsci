@@ -1,7 +1,7 @@
-<template>
+<template  >
     <div class="high-plans py-4 pb-5 px-2">
-      <div class="d-flex w-100 justify-content-center mt-3">
-        <h4 class="high-plans-color high-plans-title">Planes destacados</h4>
+      <div class="d-flex w-100 justify-content-center mt-3" >
+        <h4 class="high-plans-color high-plans-title"  >Planes destacados</h4>
       </div>
       <vueper-slides
         v-if="offers.length"
@@ -10,7 +10,7 @@
         ref="plansSlider"
         :bullets="false"
         :autoplay="offers.length>1?true:false"
-        :duration="2000"
+        :duration="5000"
         :visible-slides="offers.length<3?offers.length:3"
         :slide-ratio="0.4"
         :dragging-distance="70"
@@ -33,6 +33,8 @@
 
     </div>
 </template>
+
+
 
 <script>
 export default {
@@ -90,7 +92,6 @@ export default {
           autoplay: true
         }
       },
-      locationDenied:false,
 
       inCapital:false,
 
@@ -114,17 +115,25 @@ export default {
   },
   methods:{
     initGeo(){
-      navigator.geolocation.getCurrentPosition(location=>{
-        console.log("location ", location);
-        this.latLng="&latlng="+location.coords.latitude;
-        this.latLng+=","+location.coords.longitude;
-        this.callGmap();
-      },err=>{
-        console.log("error ", err)
-        this.locationDenied=true;
-        //this.department=""
-        this.refreshData();
-      },{timeout:10000})
+      if ("geolocation" in navigator) {
+
+        navigator.geolocation.getCurrentPosition(location=>{
+          console.log("location ", location);
+          this.latLng="&latlng="+location.coords.latitude;
+          this.latLng+=","+location.coords.longitude;
+          this.callGmap();
+        },err=>{
+          console.log("error ", err)
+          //this.department=""
+          this.refreshData();
+        },{timeout:10000})
+
+      } else {
+
+        this.refreshDefault();
+
+      }
+      
 
     },
 

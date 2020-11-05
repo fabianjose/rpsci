@@ -1,6 +1,9 @@
 @extends("layouts.landing")
 
 @section("content-page")
+<meta name="keywords" content="contrata internet, contratar internet, internet hogar,
+    internet satelital, internet para hogares, internet wifi, internet banda ancha,
+    internet para negocios, internet para empresas">
 <div class="d-flex flex-column nosotros-main w-100">
 	<div class="d-flex justify-content-end align-items-end w-100 nosotros-title p-5">
 		<h2 class="text-uppercase font-weight-bold text-white nosotros-title-text">Nosotros</h2>
