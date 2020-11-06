@@ -3424,6 +3424,9 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['errors'],
   data: function data() {
@@ -44508,14 +44511,13 @@ var render = function() {
         "div",
         {
           staticClass:
-            "d-flex flex-row flex-wrap col-10 col-xl-8 pb-4 mx-auto justify-content-center"
+            "d-flex flex-row flex-wrap col mx-auto justify-content-center"
         },
         [
           _c(
             "div",
             {
-              staticClass:
-                " text-center custom-control custom-radio col-10 col-sm-10 col-md-6 col-lg-6 col-xl-6 mx-0",
+              staticClass: " form-group custom-control custom-radio col-2",
               on: {
                 click: function($event) {
                   _vm.offerType = "private"
@@ -44543,8 +44545,7 @@ var render = function() {
           _c(
             "div",
             {
-              staticClass:
-                " text-center custom-control custom-radio col-10 col-sm-10 col-md-6 col-lg-6 col-xl-6 mx-0",
+              staticClass: " form-group custom-control custom-radio col-2",
               on: {
                 click: function($event) {
                   _vm.offerType = "company"
@@ -44571,10 +44572,7 @@ var render = function() {
           _vm._v(" "),
           _c(
             "div",
-            {
-              staticClass:
-                "form-group has-search ci-select-container col-md-6 col-sm-10 col-lg-4"
-            },
+            { staticClass: "form-group has-search ci-select-container col-2" },
             [
               _c("span", { staticClass: "fa fa-tv form-control-feedback " }),
               _vm._v(" "),
@@ -44629,92 +44627,26 @@ var render = function() {
             ]
           ),
           _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "form-group has-search col-md-6 col-sm-10 col-lg-4"
-            },
-            [
-              _c("span", {
-                staticClass: "fas fa-map-marker-alt form-control-feedback "
-              }),
-              _vm._v(" "),
-              _c(
-                "select",
-                {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.department,
-                      expression: "department"
-                    }
-                  ],
-                  staticClass: "custom-select ci-select rounded-pill",
-                  on: {
-                    change: [
-                      function($event) {
-                        var $$selectedVal = Array.prototype.filter
-                          .call($event.target.options, function(o) {
-                            return o.selected
-                          })
-                          .map(function(o) {
-                            var val = "_value" in o ? o._value : o.value
-                            return val
-                          })
-                        _vm.department = $event.target.multiple
-                          ? $$selectedVal
-                          : $$selectedVal[0]
-                      },
-                      _vm.getMunicipalities
-                    ]
+          _c("div", { staticClass: "form-group has-search col-2" }, [
+            _c("span", {
+              staticClass: "fas fa-map-marker-alt form-control-feedback "
+            }),
+            _vm._v(" "),
+            _c(
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.department,
+                    expression: "department"
                   }
-                },
-                [
-                  _c(
-                    "option",
-                    {
-                      staticClass: "d-none",
-                      attrs: { value: "", selected: "" }
-                    },
-                    [_vm._v("Departamento")]
-                  ),
-                  _vm._v(" "),
-                  _vm._l(_vm.departments, function(department, index) {
-                    return _c(
-                      "option",
-                      { key: index, domProps: { value: department.name } },
-                      [_vm._v(_vm._s(department.name))]
-                    )
-                  })
                 ],
-                2
-              )
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "form-group has-search col-md-6 col-sm-10 col-lg-4"
-            },
-            [
-              _c("span", { staticClass: "fa fa-city form-control-feedback " }),
-              _vm._v(" "),
-              _c(
-                "select",
-                {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.municipality,
-                      expression: "municipality"
-                    }
-                  ],
-                  staticClass: "custom-select ci-select rounded-pill",
-                  on: {
-                    change: function($event) {
+                staticClass: "custom-select ci-select rounded-pill",
+                on: {
+                  change: [
+                    function($event) {
                       var $$selectedVal = Array.prototype.filter
                         .call($event.target.options, function(o) {
                           return o.selected
@@ -44723,50 +44655,95 @@ var render = function() {
                           var val = "_value" in o ? o._value : o.value
                           return val
                         })
-                      _vm.municipality = $event.target.multiple
+                      _vm.department = $event.target.multiple
                         ? $$selectedVal
                         : $$selectedVal[0]
-                    }
-                  }
-                },
-                [
-                  _c(
-                    "option",
-                    {
-                      staticClass: "d-none",
-                      attrs: { value: "", selected: "" }
                     },
-                    [_vm._v("Municipio")]
-                  ),
-                  _vm._v(" "),
-                  _vm._l(_vm.municipalities, function(municipality, index) {
-                    return _c(
-                      "option",
-                      { key: index, domProps: { value: municipality.name } },
-                      [_vm._v(_vm._s(municipality.name))]
-                    )
-                  })
+                    _vm.getMunicipalities
+                  ]
+                }
+              },
+              [
+                _c(
+                  "option",
+                  { staticClass: "d-none", attrs: { value: "", selected: "" } },
+                  [_vm._v("Departamento")]
+                ),
+                _vm._v(" "),
+                _vm._l(_vm.departments, function(department, index) {
+                  return _c(
+                    "option",
+                    { key: index, domProps: { value: department.name } },
+                    [_vm._v(_vm._s(department.name))]
+                  )
+                })
+              ],
+              2
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group has-search col-3" }, [
+            _c("span", { staticClass: "fa fa-city form-control-feedback " }),
+            _vm._v(" "),
+            _c(
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.municipality,
+                    expression: "municipality"
+                  }
                 ],
-                2
-              )
-            ]
-          )
-        ]
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass: "col-10 col-md-8 col-lg-6 col-xl-6 mx-auto pb-1",
-          on: { click: _vm.search }
-        },
-        [
-          _c("i", { staticClass: "fa fa-search icon-btn" }),
+                staticClass: "custom-select ci-select rounded-pill",
+                on: {
+                  change: function($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function(o) {
+                        return o.selected
+                      })
+                      .map(function(o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.municipality = $event.target.multiple
+                      ? $$selectedVal
+                      : $$selectedVal[0]
+                  }
+                }
+              },
+              [
+                _c(
+                  "option",
+                  { staticClass: "d-none", attrs: { value: "", selected: "" } },
+                  [_vm._v("Municipio")]
+                ),
+                _vm._v(" "),
+                _vm._l(_vm.municipalities, function(municipality, index) {
+                  return _c(
+                    "option",
+                    { key: index, domProps: { value: municipality.name } },
+                    [_vm._v(_vm._s(municipality.name))]
+                  )
+                })
+              ],
+              2
+            )
+          ]),
           _vm._v(" "),
           _c(
-            "button",
-            { staticClass: "btn btn-block btn-dark-blue rounded-pill" },
-            [_vm._v("\n                Buscar\n            ")]
+            "div",
+            { staticClass: "form-group col-1", on: { click: _vm.search } },
+            [
+              _c("i", { staticClass: "fa fa-search icon-btn" }),
+              _vm._v(" "),
+              _c(
+                "button",
+                { staticClass: "btn btn-block btn-dark-blue rounded-pill" },
+                [_vm._v("\n                      Buscar\n                  ")]
+              )
+            ]
           )
         ]
       )
