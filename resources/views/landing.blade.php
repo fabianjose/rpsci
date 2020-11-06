@@ -71,13 +71,13 @@
                     @endif
                 </div>
             </div>
-            <section class="section-search container" style="min-height: 400px; ">
+            <section class="section-search" style="min-height: 400px; ">
                 <div class="row justify-content-center">
                     <div class="col-3 text-right">
                         ¡Pulsa el Botón y Encuentra
                     </div>
                     <div class="col-1 text-center" >
-                        <button>Hola</button>
+                        <button class="btn-rounded">Hola</button>
                     </div>
                     <div class="col-3 text-left btn">
                         el proveedor recomendado!
@@ -87,19 +87,42 @@
                  <high-plans></high-plans>
              </div>
             </section>
+            <section class="section-form" style="background: rgb(0,194,214);min-height: 400px;padding-top: 27%;  border-radius: 27% 27% 0 0px;">
+
+                    <div class="row container justify-content-center">
+                        <div class="col-4">
+                            <h2 class="text-white">Resolvemos todo con una llamada</h2>
+                        </div>
+                        <div class="col-5">
+                            <input  type="" name=""/>
+                             <input type="" name=""/>
+                              <input type="" name=""/>
+                        </div>
+                        <div class="col-3">
+                            <button class="btn text-white">ENVIAR</button>
+                        </div>
+                    </div>
+                
+                
+            </section>
+
             <div class="bg-ic d-flex flex-row justify-content-around flex-wrap align-items-center">
                 <config-counters :counters="{{json_encode($configs)}}" class="col-10 col-sm-10 col-md-7 col-lg-7 col-xl-7"></config-counters>
             </div>
+            <section class="section-blog">
+                <h1 class="text-center">Nuestras Publicaciones de Blog</h1>
+                
+            </section>
         </div>
 
 
 
-        <div class="high-companies pt-4 pb-5 px-4">
+        <!--div class="high-companies pt-4 pb-5 px-4">
           <div class="d-flex w-100 align-items-center flex-column">
             <h4 class="high-companies-color high-companies-title text-center">Prestadores de Servicio</h4>
             <companies-slider />
           </div>
-        </div>
+        </div-->
      
        
 
