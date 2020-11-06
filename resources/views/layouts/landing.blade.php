@@ -91,12 +91,12 @@
 
         <div class="footer-bg">
           <div class="d-flex flex-column align-items-center">
-            <div class="mt-3">
-              <img src="{{asset('images/LOGO3BLANCO.png')}}" class="footer-img">
+          
+            <div class="d-flex w-100 flex-wrap justify-content-bewtween">
+              <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 my-2">
+                   <div class="text-center">
+              <img src="{{asset('images/fondo_azul_contrata.jpg')}}" class="img-responsive" style="max-width: 100%;">
             </div>
-            <div class="d-flex w-100 footer-links flex-wrap justify-content-bewtween">
-              <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 my-2 footer-link-border">
-                <h5 class="footer-title-color font-weight-bold">SERVICIOS DISPONIBLES</h5>
                 <ul class="footer-list p-2">
                   <li>-internet satelital
                   </li>
@@ -115,7 +115,10 @@
 
                 </ul>
               </div>
-              <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 footer-link-border my-2">
+              <div class="col-xl-8 col-lg-8 col-md-10 col-sm-10 col-12  my-2">
+                <div class="row">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12  my-2">
+
                 <h5 class="footer-title-color font-weight-bold">MAPA DE SITIO</h5>
                 <ul class="footer-list p-2">
                   <a href="/"><li>-Inicio</li></a>
@@ -123,13 +126,15 @@
                   <a href="/contacto"><li>-Contacto</li></a>
                   <a href="https://contratainternet.speedtestcustom.com/"><li>-Prueba de Velocidad</li></a>
                 </ul>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12  my-2">
+                  <h5 class="footer-title-color font-weight-bold">PONTE EN CONTACTO</h5>
+                  <ul class="footer-list p-2">
+                    <li>-Correo Electrónico: contacto@contratainternet.co</li>
+                    <li>-PBX: +57 (1) 7868510</li>
+                  </ul>
+                </div>
               </div>
-              <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 footer-link-border my-2">
-                <h5 class="footer-title-color font-weight-bold">PONTE EN CONTACTO</h5>
-                <ul class="footer-list p-2">
-                  <li>-Correo Electrónico: contacto@contratainternet.co</li>
-                  <li>-PBX: +57 (1) 7868510</li>
-                </ul>
               </div>
             </div>
           </div>
