@@ -3424,29 +3424,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['errors'],
   data: function data() {
@@ -44526,16 +44503,72 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "main-middle" }, [
-    _c("div", { staticClass: "main-search-form py-3 px-1 mt-3" }, [
-      _vm._m(0),
-      _vm._v(" "),
+    _c("div", { staticClass: "main-search-form py-3 px-1 mt-3 row" }, [
       _c(
         "div",
         {
           staticClass:
-            "d-flex flex-row flex-wrap justify-content-around py-3 pt-4 px-1"
+            "d-flex flex-row flex-wrap col-10 col-xl-8 pb-4 mx-auto justify-content-center"
         },
         [
+          _c(
+            "div",
+            {
+              staticClass:
+                " text-center custom-control custom-radio col-10 col-sm-10 col-md-6 col-lg-6 col-xl-6 mx-0",
+              on: {
+                click: function($event) {
+                  _vm.offerType = "private"
+                }
+              }
+            },
+            [
+              _c("input", {
+                staticClass: "custom-control-input",
+                attrs: { type: "radio", id: "privateOffer" },
+                domProps: { checked: _vm.offerType == "private" }
+              }),
+              _vm._v(" "),
+              _c(
+                "label",
+                {
+                  staticClass: "custom-control-label",
+                  attrs: { for: "privateOffer" }
+                },
+                [_vm._v("Hogar")]
+              )
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass:
+                " text-center custom-control custom-radio col-10 col-sm-10 col-md-6 col-lg-6 col-xl-6 mx-0",
+              on: {
+                click: function($event) {
+                  _vm.offerType = "company"
+                }
+              }
+            },
+            [
+              _c("input", {
+                staticClass: "custom-control-input",
+                attrs: { type: "radio", id: "companyOffer" },
+                domProps: { checked: _vm.offerType == "company" }
+              }),
+              _vm._v(" "),
+              _c(
+                "label",
+                {
+                  staticClass: "custom-control-label",
+                  attrs: { for: "companyOffer" }
+                },
+                [_vm._v("Empresa")]
+              )
+            ]
+          ),
+          _vm._v(" "),
           _c(
             "div",
             {
@@ -44724,73 +44757,6 @@ var render = function() {
       _c(
         "div",
         {
-          staticClass:
-            "d-flex flex-row flex-wrap col-10 col-sm-10 col-lg-8 col-xl-8 pb-4 mx-auto justify-content-center"
-        },
-        [
-          _c(
-            "div",
-            {
-              staticClass:
-                " text-center custom-control custom-radio col-10 col-sm-10 col-md-6 col-lg-6 col-xl-6 mx-0",
-              on: {
-                click: function($event) {
-                  _vm.offerType = "private"
-                }
-              }
-            },
-            [
-              _c("input", {
-                staticClass: "custom-control-input",
-                attrs: { type: "radio", id: "privateOffer" },
-                domProps: { checked: _vm.offerType == "private" }
-              }),
-              _vm._v(" "),
-              _c(
-                "label",
-                {
-                  staticClass: "custom-control-label",
-                  attrs: { for: "privateOffer" }
-                },
-                [_vm._v("Hogar")]
-              )
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass:
-                " text-center custom-control custom-radio col-10 col-sm-10 col-md-6 col-lg-6 col-xl-6 mx-0",
-              on: {
-                click: function($event) {
-                  _vm.offerType = "company"
-                }
-              }
-            },
-            [
-              _c("input", {
-                staticClass: "custom-control-input",
-                attrs: { type: "radio", id: "companyOffer" },
-                domProps: { checked: _vm.offerType == "company" }
-              }),
-              _vm._v(" "),
-              _c(
-                "label",
-                {
-                  staticClass: "custom-control-label",
-                  attrs: { for: "companyOffer" }
-                },
-                [_vm._v("Empresa")]
-              )
-            ]
-          )
-        ]
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
           staticClass: "col-10 col-md-8 col-lg-6 col-xl-6 mx-auto pb-1",
           on: { click: _vm.search }
         },
@@ -44807,27 +44773,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass:
-          "main-form-title-container text-center justify-content-center pt-2 py-1 px-3"
-      },
-      [
-        _c(
-          "h6",
-          { staticClass: "main-form-title font-weight-bold text-center" },
-          [_vm._v("Encuentra el servicio que deseas")]
-        )
-      ]
-    )
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
