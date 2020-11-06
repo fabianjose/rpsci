@@ -73,27 +73,26 @@
                     @endif
                 </div>
             </div>
-            <section class="section-search mb-3" style="min-height: 400px; ">
+            <section class="section-search mb-3" style="min-height: 400px; padding-top: 15%;margin-top: -15%;">
                 <div class="row justify-content-center">
                     <div class="col-3 text-right">
                         ¡Pulsa el Botón y Encuentra
                     </div>
-                    <div class="col-1 text-center" >
+                    <div class="col-2 text-center" >
                         <a class="btn-rounded">
 
-                        <img  src="{{ asset('images/button_contratainternet.jpg') }}">
+                        <img  src="{{ asset('images/button_contrata_internet.jpg') }}" style="max-width: 100%;">
                         </a>
                     </div>
                     <div class="col-3 text-left btn">
                         el proveedor recomendado!
                     </div>
                 </div>
-                </div>
                 <div class=" justify-content-center container" id="planes-destacados" >
                  <high-plans></high-plans>
              </div>
             </section>
-            <section class="section-form" style="background: rgb(0,194,214);min-height: 400px;padding-top: 15%;  border-radius: 27% 27% 0 0px;">
+            <section class="section-form" style="background: rgb(0,194,214);min-height: 400px;padding-top: 15%;  border-radius: 27% 27% 0 0px;margin-top: -15%;">
 
                     <div class="row  justify-content-center  pb-5">
                         <div class="col-3 text-center">
