@@ -5,13 +5,13 @@
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="{{asset('images/main-bg.jpg')}}" class="d-block w-100" alt="...">
+      <img src="{{asset('images/main-bg.png')}}" class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="{{asset('images/main-bg.jpg')}}" class="d-block w-100" alt="...">
+      <img src="{{asset('images/main-bg.png')}}" class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="{{asset('images/main-bg.jpg')}}" class="d-block w-100" alt="...">
+      <img src="{{asset('images/main-bg.png')}}" class="d-block w-100" alt="...">
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -29,8 +29,10 @@
 
             
             <div class="about-section" style="background: transparent;">
-                <div class="d-flex flex-column about-sub py-5 p-3">
-                    <div class="d-flex flex-row flex-wrap justify-content-center py-3">
+                <div class="d-flex flex-column about-sub py-5 p-3" style="padding-left: 70px;
+    padding-right: 70px;">
+                    <div class="d-flex flex-row flex-wrap justify-content-center py-3"  style="    margin-top: -50px; padding-left: 70px;
+    padding-right: 70px;">
                         <div class="col-8 col-sm-3 col-md-3 col-lg-3 p-2 my-2">
                             <div class="row align-items-start justify-content-center text-white">
                                 <div class="rounded-circle about-number p-1 mb-2 text-center bg-dark-blue">1</div>
