@@ -134,6 +134,10 @@ a {
   background-color: #ffffff !important;
 }
 
+.section-search {
+  background: url(/images/fondo_satelite.jpg?14e35b3065fb09f40e303931427ca4d0);
+}
+
 .ic-logo-grey {
   max-width: 220px;
   padding: 5px 10px;

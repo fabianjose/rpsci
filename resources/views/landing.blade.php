@@ -29,7 +29,7 @@
 
             
             <div class="about-section" style="background: transparent;">
-                <div class="d-flex flex-column about-sub py-5">
+                <div class="d-flex flex-column about-sub py-5 p-3">
                     <div class="d-flex flex-row flex-wrap justify-content-center py-3">
                         <div class="col-8 col-sm-3 col-md-3 col-lg-3 p-2 my-2">
                             <div class="row align-items-start justify-content-center text-white">
@@ -42,7 +42,7 @@
                         <div class="col-8 col-sm-3 col-md-3 col-lg-3 p-2 my-2">
                             <div class="row align-items-start justify-content-center text-white">
                                 <div class="rounded-circle about-number p-1 mb-2 text-center bg-dark-blue">2</div>
-                                <p class="col-12 col-md-8 col-lg-8 about-text mb-2 mt-1">
+                                <p class="col-12 col-md-8 col-lg-8 about-text mb-2 mt-1  bg-dark">
                                     Seleccione el tipo de servicio
                                 </p>
                             </div>
@@ -50,15 +50,15 @@
                         <div class="col-8 col-sm-3 col-md-3 col-lg-3 p-2 my-2">
                             <div class="row align-items-start justify-content-center text-white">
                                 <div class="rounded-circle about-number p-1 mb-2 text-center bg-dark-blue">3</div>
-                                <p class="col-12 col-md-8 col-lg-8 about-text mb-2 mt-1">
+                                <p class="col-12 col-md-8 col-lg-8 about-text mb-2 mt-1  bg-dark">
                                    Selecciona Departamento y Municipìo
                                 </p>
                             </div>
                         </div>
                         <div class="col-8 col-sm-3 col-md-3 col-lg-3 p-2 my-2">
-                            <div class="row align-items-start justify-content-around text-white">
-                                <div class="rounded-circle about-number p-1 mb-2 text-center bg-dark-blue">1</div>
-                                <p class="col-12 col-md-8 col-lg-8 about-text mb-2 mt-1">
+                            <div class="row align-items-start justify-content-center text-white">
+                                <div class="rounded-circle about-number p-1 mb-2 text-center bg-dark-blue">4</div>
+                                <p class="col-12 col-md-8 col-lg-8 about-text mb-2 mt-1  bg-dark">
                                    Encuentra la Mejor Opción
                                 </p>
                             </div>
@@ -71,6 +71,22 @@
                     @endif
                 </div>
             </div>
+            <section class="section-search container" style="min-height: 400px; ">
+                <div class="row justify-content-center">
+                    <div class="col-3 text-right">
+                        ¡Pulsa el Botón y Encuentra
+                    </div>
+                    <div class="col-1 text-center" >
+                        <button>Hola</button>
+                    </div>
+                    <div class="col-3 text-left btn">
+                        el proveedor recomendado!
+                    </div>
+                </div>
+                <div class="row justify-content-center container" id="planes-destacados">
+                 <high-plans></high-plans>
+             </div>
+            </section>
             <div class="bg-ic d-flex flex-row justify-content-around flex-wrap align-items-center">
                 <config-counters :counters="{{json_encode($configs)}}" class="col-10 col-sm-10 col-md-7 col-lg-7 col-xl-7"></config-counters>
             </div>
@@ -84,9 +100,8 @@
             <companies-slider />
           </div>
         </div>
-        <div  id="planes_destacados">
-        </div>
-        <high-plans></high-plans>
+     
+       
 
 </div>
 @stop
