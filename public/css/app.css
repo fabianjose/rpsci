@@ -12,7 +12,7 @@
 }
 
 .ic-main {
-  font-size: 1rem;
+  font-size: 0.97rem;
   /*    color: $dark-blue;*/
   text-align: center;
 }
@@ -23,16 +23,16 @@ a {
 
 .i-c-fab {
   padding: 3px;
-  border-radius: 30%;
+  border-radius: 25%;
   color: white;
 }
 
 .ic-bg-main {
-  background-color: #00c2d6;
+  background-color:  #00c2d6;
 }
 
 .ic-logo {
-  max-height: 80px;
+  max-height: 100%;
 }
 
 .nav-btn {
