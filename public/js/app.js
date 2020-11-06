@@ -3019,11 +3019,11 @@ __webpack_require__.r(__webpack_exports__);
     /*verifyCaptcha(captcha){
         this.captcha=captcha;
     },
-     onCaptchaError(err){
+      onCaptchaError(err){
         console.log("error captcha ", err)
         toastr.error("error en la validación del captcha, comprueba tu conexión a internet e intenta nuevamente")
     },
-     onCaptchaExpired(err){
+      onCaptchaExpired(err){
         console.log("error captcha ", err)
         toastr.error("el captcha se expiró, intente nuevamente")
     },*/
@@ -3131,11 +3131,11 @@ __webpack_require__.r(__webpack_exports__);
     verifyCaptcha(captcha){
         this.captcha=captcha;
     },
-     onCaptchaError(err){
+      onCaptchaError(err){
         console.log("error captcha ", err)
         toastr.error("error en la validación del captcha, comprueba tu conexión a internet e intenta nuevamente")
     },
-     onCaptchaExpired(err){
+      onCaptchaExpired(err){
         console.log("error captcha ", err)
         toastr.error("el captcha se expiró, intente nuevamente")
     },*/
@@ -4091,6 +4091,7 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
 //
 //
 //
@@ -9579,7 +9580,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.v-captcha{\n    transform: scale(0.7);\n    -webkit-transform: scale(0.7);\n    transform-origin: 0 0;\n    -webkit-transform-origin: 0 0;\n}\n@media (max-width:350px) {\n.v-captcha{\n        transform: scale(0.6);\n        -webkit-transform: scale(0.6);\n}\n}\n\n", ""]);
+exports.push([module.i, "\n.v-captcha{\r\n    transform: scale(0.7);\r\n    -webkit-transform: scale(0.7);\r\n    transform-origin: 0 0;\r\n    -webkit-transform-origin: 0 0;\n}\n@media (max-width:350px) {\n.v-captcha{\r\n        transform: scale(0.6);\r\n        -webkit-transform: scale(0.6);\n}\n}\r\n\r\n", ""]);
 
 // exports
 
@@ -45311,7 +45312,9 @@ var render = function() {
                   [
                     _c("span", { staticClass: "text-center pr-1" }, [
                       _vm._v(
-                        "\n                " + _vm._s(item) + "\n              "
+                        "\r\n                " +
+                          _vm._s(item) +
+                          "\r\n              "
                       )
                     ])
                   ]
@@ -45417,7 +45420,7 @@ var render = function() {
                   [
                     _c("h6", { staticClass: "text-lg" }, [
                       _vm._v(
-                        "\n              " + _vm._s(fieldValue.value) + " "
+                        "\r\n              " + _vm._s(fieldValue.value) + " "
                       ),
                       _vm.fields[k3].unit
                         ? _c("span", [_vm._v(_vm._s(_vm.fields[k3].unit))])
@@ -45436,9 +45439,9 @@ var render = function() {
                 [
                   _c("h6", { staticClass: "text-sm" }, [
                     _vm._v(
-                      "\n              " +
+                      "\r\n              " +
                         _vm._s(offer.benefits) +
-                        "\n            "
+                        "\r\n            "
                     )
                   ])
                 ]
@@ -45548,7 +45551,9 @@ var render = function() {
                   [
                     _c("span", { staticClass: "text-center pr-1" }, [
                       _vm._v(
-                        "\n                " + _vm._s(item) + "\n              "
+                        "\r\n                " +
+                          _vm._s(item) +
+                          "\r\n              "
                       )
                     ])
                   ]
@@ -45889,9 +45894,10 @@ var render = function() {
                 id: "offer-cards",
                 bullets: false,
                 autoplay: _vm.offers.length > 1 ? true : false,
+                gap: 3,
                 duration: 5000,
                 "visible-slides": _vm.offers.length < 3 ? _vm.offers.length : 3,
-                "slide-ratio": 0.4,
+                "slide-ratio": 1 / 4,
                 "dragging-distance": 70,
                 arrows: false,
                 breakpoints: _vm.breakpoints
@@ -46175,7 +46181,7 @@ var render = function() {
             },
             on: { click: _vm.emitContact }
           },
-          [_vm._v("\n        CONTACTAR\n      ")]
+          [_vm._v("\n        ADQUIÉRELO\n      ")]
         )
       ])
     ])
@@ -51914,7 +51920,7 @@ var render = function() {
                               _c("a", { staticClass: "float-right" }, [
                                 _vm._v(
                                   _vm._s(_vm.getFieldType(field.type)) +
-                                    "\n                              "
+                                    "\r\n                              "
                                 ),
                                 _c(
                                   "button",
@@ -100636,8 +100642,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\rpsci\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\rpsci\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\RPCS_SOLUTIONS\rpsci\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\RPCS_SOLUTIONS\rpsci\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),

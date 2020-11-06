@@ -12,7 +12,7 @@
 }
 
 .ic-main {
-  font-size: 0.97rem;
+  font-size: 1rem;
   /*    color: $dark-blue;*/
   text-align: center;
 }
@@ -32,7 +32,7 @@ a {
 }
 
 .ic-logo {
-  max-height: 100%;
+  max-height: 80px;
 }
 
 .nav-btn {
@@ -150,8 +150,6 @@ a {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  padding-left: 70px;
-    padding-right: 70px;
 }
 
 .about-section {
@@ -170,7 +168,6 @@ a {
   font-size: 0.85rem;
   color: #13293d;
   padding: 4px;
-  border-radius: 20px;
 }
 
 .about-title {
@@ -355,6 +352,13 @@ a {
   max-height: 120px;
   -o-object-fit: contain;
      object-fit: contain;
+}
+
+.offer-card-separator {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 0.1rem;
 }
 
 .btn-dark-blue {
@@ -813,13 +817,7 @@ a {
 .main-search-form {
   height: auto;
   background-color: white;
-  /*box-shadow: 0px 0px 24px 0px rgba(0, 194, 214, 0.35);*/
-  border-radius: 20px;
-  border:solid 4px ;
-
-  border-color: #0ddbf5;
-
-  
+  box-shadow: 0px 0px 24px 0px rgba(0, 194, 214, 0.35);
 }
 
 @media (max-width: 768px) {
