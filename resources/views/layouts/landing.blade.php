@@ -13,41 +13,17 @@
     azteca comunicaciones, HughesNet, ETB, Voip, telefonia en la nube, central virtual">
 
     <div class="content">
-        <div class="ic-bg-main w-100 py-2 px-4" >
-            <div class="container  justify-content-end" style="text-align: center;">
-
-
-
-            <div style="border:solid 1px;" class="row">
-                <div style="border:solid 1px;" class="col-6">
-
-                            <p>correo electronico: contacto@contratainternet.co</p>
+        <div class=" w-100 py-2 px-4" >
+            <div class="d-flex justify-content-end" style="color: #606060;">
+              <!--  <a href=""> <i class="fab fa-facebook-f i-c-main mx-2 text-white text-lg"></i>  </a> -->
+                <div style="padding: 5px; border:   1px solid rgb(12,207,244) ;">Correo Electrónico: contacto@contratainternet.co</div>
+                <div  style="padding: 5px;    border: 1px solid rgb(12,207,244);">PBX: +57 123 123 123</div>
+                <div  style="padding: 5px;    border: 1px solid rgb(12,207,244);">
+                  Siguenos: <a href="https://www.facebook.com/colombiainternet/" class="  i-c-fab ic-bg-main"> <i class="fab fa-facebook-f mx-2 ic-bg-main text-md"></i> </a> 
+                  <a href="https://www.instagram.com/contratainternet.co/?hl=es-la" class="  i-c-fab ic-bg-main"> <i class="fab fa-instagram  mx-2 ic-bg-main  text-md"></i> </a>
+                  <a href="https://www.instagram.com/contratainternet.co/?hl=es-la" class="  i-c-fab ic-bg-main"> <i class="fab fa-linkedin mx-2   text-md"></i> </a>
                 </div>
-                <div style="border:solid 1px;" class="col-3">
-                            <p>pbx sadas asdasd  asdas</p>
 
-                </div>
-                <div style="border:solid 1px;" class="col-3">
-
-                    <div class="row">
-                        <div class="col">
-                            <p style="color:white">siguenos:</p>
-
-                        </div>
-                        <div class="col">
- <!--  <a href=""> <i class="fab fa-facebook-f i-c-main mx-2 text-white text-lg"></i>  </a> -->
- <a href="https://www.facebook.com/colombiainternet/"> <i class="fab fa-facebook-f i-c-main mx-2 text-white text-lg"></i> </a> 
- <a href="https://www.instagram.com/contratainternet.co/?hl=es-la"> <i class="fab fa-instagram i-c-main mx-2 text-white text-lg"></i> </a>  
- <a href="https://www.instagram.com/contratainternet.co/?hl=es-la"> <i class="fab fa-linkedin i-c-main mx-2 text-white text-lg"></i> </a>  
-
-                        </div>
-                    </div>
-                   
-                </div>
-            </div>
-
-
-             
             </div>
 
 
@@ -79,7 +55,7 @@
                     <li class="nav-item">
                         <a class="nav-link nav-item-border {{Route::current()->uri=='/'?'active':''}}" href="https://contratainternet.co/etb/">
                             <h6 class="ic-main font-weight-bold">
-                                Oferta especial del 
+                                Oferta especial del mes
                             </h6>
                         </a>
                     </li>
@@ -105,28 +81,11 @@
                             </h6>
                         </a>
                     </li>
-                    <!-- <li class="nav-item">
-                        <a class="nav-link nav-item-border {{strpos(Route::current()->uri,'blog')>-1?'active':''}}" href="/blog">
-                            <h6 class="ic-main font-weight-bold">
-                                Blog
-                            </h6>
-                        </a>
-                    </li> -->
-                    <li class="nav-item">
-                        <a class="nav-link nav-item-border {{strpos(Route::current()->uri,'contacto')>-1?'active':''}}" href="/contacto">
-                            <h6 class="ic-main font-weight-bold">
-                                Contacto
-                            </h6>
-                        </a>
-                    </li>
                    
                 </ul>
               </div>
 
         </nav>
-
-
-
 
         @yield('content-page')
 
@@ -175,9 +134,7 @@
             </div>
           </div>
         </div>
-        <div class="d-flex w-100 justify-content-center align-items-center footer-footer">
-          <span class="footer-title-color">Derechos Reservados 2020 - Desarrollado por <a href="">NextScale®</a></span>
-        </div>
+ 
 
         <div class="whatsapp">
             <a target="_blank"href="https://api.whatsapp.com/send?phone=573212120281&text=hola, me gustaria saber de los planes"> <img src="{{asset('/images/whatsapp.png')}}" width="67" height="67"> </a>

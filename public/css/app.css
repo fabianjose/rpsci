@@ -13,21 +13,38 @@
 
 .ic-main {
   font-size: 1rem;
-  color: #13293d;
+  /*    color: $dark-blue;*/
   text-align: center;
 }
 
+a {
+  color: #00c2d6;
+}
+
+.i-c-fab {
+  padding: 3px;
+  border-radius: 30%;
+  color: white;
+}
+
 .ic-bg-main {
-  background-color: #20adf4;
+  background-color: #00c2d6;
 }
 
 .ic-logo {
-  max-height: 40px;
+  max-height: 80px;
 }
 
 .nav-btn {
   font-size: 20px;
   color: #13293d;
+}
+
+.navbar-light .navbar-nav .active > .nav-link,
+.navbar-light .navbar-nav .nav-link.active,
+.navbar-light .navbar-nav .nav-link.show,
+.navbar-light .navbar-nav .show > .nav-link {
+  color: #00c2d6;
 }
 
 .nav-item-border:after {
@@ -54,7 +71,7 @@
 }
 
 .bg-ic {
-  background: linear-gradient(to bottom, rgba(19, 41, 61, 0.8), rgba(19, 41, 61, 0.8)), url(/images/main-bg.jpg?edbffaa28c5e5af0c5ed577b15531375);
+  background: linear-gradient(to bottom, rgba(19, 41, 61, 0.8), rgba(19, 41, 61, 0.8)), url(/images/fondo_switch.jpg?bdd900f51ec26d13f42d23f8b5f2f82a);
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: center center;
@@ -73,7 +90,7 @@
 }
 
 .bg-main-blue {
-  background-color: #20adf4;
+  background-color: #00c2d6;
 }
 
 .bg-main-pink {
@@ -82,6 +99,9 @@
 
 .main-section-bg {
   padding-bottom: 5vh;
+  position: relative;
+  background: transparent;
+  margin-top: -20%;
 }
 
 .high-companies {
@@ -92,7 +112,7 @@
 
 .footer-bg {
   min-height: 35vh;
-  background-color: #3e3e3e;
+  background: linear-gradient(to bottom, rgba(0, 194, 214, 0.8), rgba(0, 194, 214, 0.8)), url(/images/fondo_signal.jpg?d47b689077795af54a745eee62009098);
   padding: 20px 100px;
 }
 
@@ -135,14 +155,15 @@
 }
 
 .about-number {
-  width: 4rem;
-  height: 4rem;
-  font-size: 2.5rem;
+  width: 2rem;
+  height: 2rem;
+  font-size: 1.25rem;
 }
 
 .about-text {
   font-size: 0.85rem;
   color: #13293d;
+  padding: 4px;
 }
 
 .about-title {
@@ -197,7 +218,7 @@
 }
 
 .stars-container {
-  color: #20adf4;
+  color: #00c2d6;
   font-size: 13px;
 }
 
@@ -340,7 +361,7 @@
 }
 
 .btn-main-blue {
-  background-color: #20adf4;
+  background-color: #00c2d6;
   color: white;
 }
 
@@ -538,14 +559,14 @@
   display: block;
   content: "";
   padding-top: 5px;
-  border-bottom: solid 3.5px #20adf4;
+  border-bottom: solid 3.5px #00c2d6;
   border-radius: 5px;
   transform: scaleX(0.25);
   transition: transform 250ms ease-in-out;
 }
 
 .mision-title {
-  color: #20adf4;
+  color: #00c2d6;
   font-size: 1.3rem;
 }
 
@@ -622,14 +643,14 @@
 }
 
 .contacto-card-title {
-  color: #20adf4;
+  color: #00c2d6;
 }
 
 .contacto-card-title::after {
   display: block;
   content: "";
   padding-top: 5px;
-  border-bottom: solid 3.5px #20adf4;
+  border-bottom: solid 3.5px #00c2d6;
   border-radius: 5px;
   transform: scaleX(0.25);
   transition: transform 250ms ease-in-out;
@@ -783,11 +804,9 @@
 }
 
 .main-search-form {
-  width: 680px;
   height: auto;
-  border-radius: 60px;
-  background-color: #e6e6e6;
-  box-shadow: 0px 0px 24px 0px rgba(30, 30, 30, 0.35);
+  background-color: white;
+  box-shadow: 0px 0px 24px 0px rgba(0, 194, 214, 0.35);
 }
 
 @media (max-width: 768px) {
@@ -806,7 +825,7 @@
 }
 
 .main-form-title {
-  color: #20adf4;
+  color: #00c2d6;
   font-size: 1.3rem;
 }
 
@@ -843,7 +862,7 @@
 }
 
 .text-main-blue {
-  color: #20adf4;
+  color: #00c2d6;
 }
 
 .text-dark-blue {
@@ -913,6 +932,16 @@
 @font-face {
   font-family: montserrat-regular;
   src: url(/fonts/Montserrat-Regular.otf?92db9a0772b3732e6d686fec3711af42);
+}
+
+@font-face {
+  font-famili: heebo-regular;
+  src: url(/fonts/Heebo-Regular.ttf?3f5fef64b9bb3ef6ded20c917f3082f7);
+}
+
+@font-face {
+  font-famili: work-sans-regular;
+  src: url(/fonts/WorkSans-Regular.ttf?6f916ce8ada5d5facf5ad4e1266a486d);
 }
 
 .mts-regular {

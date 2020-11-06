@@ -34,9 +34,22 @@
     src: url("./../assets/fonts/Montserrat-Regular.otf");
 }
 
+
+@font-face{
+	font-famili: heebo-regular;
+	src: url("./../assets/fonts/Heebo-Regular.ttf");
+}
+@font-face{
+	font-famili: work-sans-regular;
+	src: url("./../assets/fonts/WorkSans-Regular.ttf");
+}
+
 .mts-regular{
     font-family: montserrat-regular!important;
 }
+
+
+
 
 body{
     scroll-behavior: smooth;

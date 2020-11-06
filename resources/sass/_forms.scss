@@ -5,13 +5,11 @@
 }
 
 .main-search-form{
-    width:680px;
     height:auto;
-    border-radius:60px;
-    background-color: $main-gray;
-    -webkit-box-shadow: 0px 0px 24px 0px rgba(30,30,30,0.35);
-    -moz-box-shadow: 0px 0px 24px 0px rgba(30,30,30,0.35);
-    box-shadow: 0px 0px 24px 0px rgba(30,30,30,0.35);
+    background-color: white;
+    -webkit-box-shadow: 0px 0px 24px 0px rgb(0,194,214,0.35);
+    -moz-box-shadow: 0px 0px 24px 0px rgb(0,194,214,0.35);
+    box-shadow: 0px 0px 24px 0px rgb(0,194,214,0.35);
 }
 
 @media (max-width:768px){

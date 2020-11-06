@@ -1,8 +1,17 @@
 
 .ic-main{
     font-size: 1rem;
-    color: $dark-blue;
+/*    color: $dark-blue;*/
     text-align: center;
+}
+
+a{
+    color: $main-blue;
+}
+.i-c-fab{
+    padding: 3px;
+    border-radius: 30%;
+    color: white;
 }
 
 .ic-bg-main{
@@ -10,14 +19,17 @@
 }
 
 .ic-logo{
-    max-height: 40px;
+    max-height: 80px;
 }
 
 .nav-btn{
     font-size: 20px;
     color: $dark-blue;
 }
-
+  
+.navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link {
+    color: $main-blue;
+}
 .nav-item-border:after {
     display:block;
     content: '';
