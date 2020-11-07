@@ -10,9 +10,10 @@
         ref="plansSlider"
         :bullets="false"
         :autoplay="offers.length>1?true:false"
+        :gap = "3"
         :duration="5000"
         :visible-slides="offers.length<3?offers.length:3"
-        :slide-ratio="0.4"
+        :slide-ratio="1 / 4"
         :dragging-distance="70"
         :arrows="false"
         :breakpoints="breakpoints" >
