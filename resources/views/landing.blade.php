@@ -29,8 +29,8 @@
 
             
             <div class="about-section" style="background: transparent;">
-                <div class="d-flex flex-column about-sub py-5 p-3" style="padding-left: 70px;
-    padding-right: 70px;">
+                <div class="d-flex flex-column about-sub py-5 p-3" style="padding-left: 80px;
+    padding-right: 80px;">
                     <div class="d-flex flex-row flex-wrap justify-content-center py-3"  style="    margin-top: -50px; padding-left: 70px;
     padding-right: 70px;">
                         <div class="col-8 col-sm-3 col-md-3 col-lg-3 p-2 my-2">
@@ -134,3 +134,6 @@
 
 </div>
 @stop
+
+
+

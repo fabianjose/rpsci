@@ -3019,11 +3019,11 @@ __webpack_require__.r(__webpack_exports__);
     /*verifyCaptcha(captcha){
         this.captcha=captcha;
     },
-      onCaptchaError(err){
+     onCaptchaError(err){
         console.log("error captcha ", err)
         toastr.error("error en la validación del captcha, comprueba tu conexión a internet e intenta nuevamente")
     },
-      onCaptchaExpired(err){
+     onCaptchaExpired(err){
         console.log("error captcha ", err)
         toastr.error("el captcha se expiró, intente nuevamente")
     },*/
@@ -3131,11 +3131,11 @@ __webpack_require__.r(__webpack_exports__);
     verifyCaptcha(captcha){
         this.captcha=captcha;
     },
-      onCaptchaError(err){
+     onCaptchaError(err){
         console.log("error captcha ", err)
         toastr.error("error en la validación del captcha, comprueba tu conexión a internet e intenta nuevamente")
     },
-      onCaptchaExpired(err){
+     onCaptchaExpired(err){
         console.log("error captcha ", err)
         toastr.error("el captcha se expiró, intente nuevamente")
     },*/
@@ -3376,6 +3376,25 @@ function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o =
 
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -9583,7 +9602,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.v-captcha{\r\n    transform: scale(0.7);\r\n    -webkit-transform: scale(0.7);\r\n    transform-origin: 0 0;\r\n    -webkit-transform-origin: 0 0;\n}\n@media (max-width:350px) {\n.v-captcha{\r\n        transform: scale(0.6);\r\n        -webkit-transform: scale(0.6);\n}\n}\r\n\r\n", ""]);
+exports.push([module.i, "\n.v-captcha{\n    transform: scale(0.7);\n    -webkit-transform: scale(0.7);\n    transform-origin: 0 0;\n    -webkit-transform-origin: 0 0;\n}\n@media (max-width:350px) {\n.v-captcha{\n        transform: scale(0.6);\n        -webkit-transform: scale(0.6);\n}\n}\n\n", ""]);
 
 // exports
 
@@ -44507,73 +44526,20 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "main-middle" }, [
-    _c("div", { staticClass: "main-search-form py-3 px-1 mt-3 row" }, [
+    _c("div", { staticClass: "main-search-form py-3 px-1 mt-3" }, [
       _c(
         "div",
         {
           staticClass:
-            "d-flex flex-row flex-wrap col mx-auto justify-content-center"
+            "d-flex flex-row flex-wrap justify-content-around py-3 pt-4 px-1"
         },
         [
           _c(
             "div",
             {
-              staticClass: " form-group custom-control custom-radio col-2",
-              on: {
-                click: function($event) {
-                  _vm.offerType = "private"
-                }
-              }
+              staticClass:
+                "form-group has-search ci-select-container col-md-6 col-sm-10 col-lg-4"
             },
-            [
-              _c("input", {
-                staticClass: "custom-control-input",
-                attrs: { type: "radio", id: "privateOffer" },
-                domProps: { checked: _vm.offerType == "private" }
-              }),
-              _vm._v(" "),
-              _c(
-                "label",
-                {
-                  staticClass: "custom-control-label",
-                  attrs: { for: "privateOffer" }
-                },
-                [_vm._v("Hogar")]
-              )
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: " form-group custom-control custom-radio col-2",
-              on: {
-                click: function($event) {
-                  _vm.offerType = "company"
-                }
-              }
-            },
-            [
-              _c("input", {
-                staticClass: "custom-control-input",
-                attrs: { type: "radio", id: "companyOffer" },
-                domProps: { checked: _vm.offerType == "company" }
-              }),
-              _vm._v(" "),
-              _c(
-                "label",
-                {
-                  staticClass: "custom-control-label",
-                  attrs: { for: "companyOffer" }
-                },
-                [_vm._v("Empresa")]
-              )
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "form-group has-search ci-select-container col-2" },
             [
               _c("span", { staticClass: "fa fa-tv form-control-feedback " }),
               _vm._v(" "),
@@ -44628,26 +44594,92 @@ var render = function() {
             ]
           ),
           _vm._v(" "),
-          _c("div", { staticClass: "form-group has-search col-2" }, [
-            _c("span", {
-              staticClass: "fas fa-map-marker-alt form-control-feedback "
-            }),
-            _vm._v(" "),
-            _c(
-              "select",
-              {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.department,
-                    expression: "department"
+          _c(
+            "div",
+            {
+              staticClass: "form-group has-search col-md-6 col-sm-10 col-lg-4"
+            },
+            [
+              _c("span", {
+                staticClass: "fas fa-map-marker-alt form-control-feedback "
+              }),
+              _vm._v(" "),
+              _c(
+                "select",
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.department,
+                      expression: "department"
+                    }
+                  ],
+                  staticClass: "custom-select ci-select rounded-pill",
+                  on: {
+                    change: [
+                      function($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function(o) {
+                            return o.selected
+                          })
+                          .map(function(o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.department = $event.target.multiple
+                          ? $$selectedVal
+                          : $$selectedVal[0]
+                      },
+                      _vm.getMunicipalities
+                    ]
                   }
+                },
+                [
+                  _c(
+                    "option",
+                    {
+                      staticClass: "d-none",
+                      attrs: { value: "", selected: "" }
+                    },
+                    [_vm._v("Departamento")]
+                  ),
+                  _vm._v(" "),
+                  _vm._l(_vm.departments, function(department, index) {
+                    return _c(
+                      "option",
+                      { key: index, domProps: { value: department.name } },
+                      [_vm._v(_vm._s(department.name))]
+                    )
+                  })
                 ],
-                staticClass: "custom-select ci-select rounded-pill",
-                on: {
-                  change: [
-                    function($event) {
+                2
+              )
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "form-group has-search col-md-6 col-sm-10 col-lg-4"
+            },
+            [
+              _c("span", { staticClass: "fa fa-city form-control-feedback " }),
+              _vm._v(" "),
+              _c(
+                "select",
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.municipality,
+                      expression: "municipality"
+                    }
+                  ],
+                  staticClass: "custom-select ci-select rounded-pill",
+                  on: {
+                    change: function($event) {
                       var $$selectedVal = Array.prototype.filter
                         .call($event.target.options, function(o) {
                           return o.selected
@@ -44656,95 +44688,117 @@ var render = function() {
                           var val = "_value" in o ? o._value : o.value
                           return val
                         })
-                      _vm.department = $event.target.multiple
+                      _vm.municipality = $event.target.multiple
                         ? $$selectedVal
                         : $$selectedVal[0]
+                    }
+                  }
+                },
+                [
+                  _c(
+                    "option",
+                    {
+                      staticClass: "d-none",
+                      attrs: { value: "", selected: "" }
                     },
-                    _vm.getMunicipalities
-                  ]
-                }
-              },
-              [
-                _c(
-                  "option",
-                  { staticClass: "d-none", attrs: { value: "", selected: "" } },
-                  [_vm._v("Departamento")]
-                ),
-                _vm._v(" "),
-                _vm._l(_vm.departments, function(department, index) {
-                  return _c(
-                    "option",
-                    { key: index, domProps: { value: department.name } },
-                    [_vm._v(_vm._s(department.name))]
-                  )
-                })
-              ],
-              2
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group has-search col-3" }, [
-            _c("span", { staticClass: "fa fa-city form-control-feedback " }),
-            _vm._v(" "),
-            _c(
-              "select",
-              {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.municipality,
-                    expression: "municipality"
-                  }
+                    [_vm._v("Municipio")]
+                  ),
+                  _vm._v(" "),
+                  _vm._l(_vm.municipalities, function(municipality, index) {
+                    return _c(
+                      "option",
+                      { key: index, domProps: { value: municipality.name } },
+                      [_vm._v(_vm._s(municipality.name))]
+                    )
+                  })
                 ],
-                staticClass: "custom-select ci-select rounded-pill",
-                on: {
-                  change: function($event) {
-                    var $$selectedVal = Array.prototype.filter
-                      .call($event.target.options, function(o) {
-                        return o.selected
-                      })
-                      .map(function(o) {
-                        var val = "_value" in o ? o._value : o.value
-                        return val
-                      })
-                    _vm.municipality = $event.target.multiple
-                      ? $$selectedVal
-                      : $$selectedVal[0]
-                  }
+                2
+              )
+            ]
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass:
+            "d-flex flex-row flex-wrap col-10 col-sm-10 col-lg-8 col-xl-8 pb-4 mx-auto justify-content-center"
+        },
+        [
+          _c(
+            "div",
+            {
+              staticClass:
+                " text-center custom-control custom-radio col-10 col-sm-10 col-md-6 col-lg-6 col-xl-6 mx-0",
+              on: {
+                click: function($event) {
+                  _vm.offerType = "private"
                 }
-              },
-              [
-                _c(
-                  "option",
-                  { staticClass: "d-none", attrs: { value: "", selected: "" } },
-                  [_vm._v("Municipio")]
-                ),
-                _vm._v(" "),
-                _vm._l(_vm.municipalities, function(municipality, index) {
-                  return _c(
-                    "option",
-                    { key: index, domProps: { value: municipality.name } },
-                    [_vm._v(_vm._s(municipality.name))]
-                  )
-                })
-              ],
-              2
-            )
-          ]),
+              }
+            },
+            [
+              _c("input", {
+                staticClass: "custom-control-input",
+                attrs: { type: "radio", id: "privateOffer" },
+                domProps: { checked: _vm.offerType == "private" }
+              }),
+              _vm._v(" "),
+              _c(
+                "label",
+                {
+                  staticClass: "custom-control-label",
+                  attrs: { for: "privateOffer" }
+                },
+                [_vm._v("Hogar")]
+              )
+            ]
+          ),
           _vm._v(" "),
           _c(
             "div",
-            { staticClass: "form-group col-1", on: { click: _vm.search } },
+            {
+              staticClass:
+                " text-center custom-control custom-radio col-10 col-sm-10 col-md-6 col-lg-6 col-xl-6 mx-0",
+              on: {
+                click: function($event) {
+                  _vm.offerType = "company"
+                }
+              }
+            },
             [
-              _c("i", { staticClass: "fa fa-search icon-btn" }),
+              _c("input", {
+                staticClass: "custom-control-input",
+                attrs: { type: "radio", id: "companyOffer" },
+                domProps: { checked: _vm.offerType == "company" }
+              }),
               _vm._v(" "),
               _c(
-                "button",
-                { staticClass: "btn btn-block btn-dark-blue rounded-pill" },
-                [_vm._v("\n                      Buscar\n                  ")]
+                "label",
+                {
+                  staticClass: "custom-control-label",
+                  attrs: { for: "companyOffer" }
+                },
+                [_vm._v("Empresa")]
               )
             ]
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "col-10 col-md-8 col-lg-6 col-xl-6 mx-auto pb-1",
+          on: { click: _vm.search }
+        },
+        [
+          _c("i", { staticClass: "fa fa-search icon-btn" }),
+          _vm._v(" "),
+          _c(
+            "button",
+            { staticClass: "btn btn-block btn-dark-blue rounded-pill" },
+            [_vm._v("\n                Buscar\n            ")]
           )
         ]
       )
@@ -45289,9 +45343,7 @@ var render = function() {
                   [
                     _c("span", { staticClass: "text-center pr-1" }, [
                       _vm._v(
-                        "\r\n                " +
-                          _vm._s(item) +
-                          "\r\n              "
+                        "\n                " + _vm._s(item) + "\n              "
                       )
                     ])
                   ]
@@ -45397,7 +45449,7 @@ var render = function() {
                   [
                     _c("h6", { staticClass: "text-lg" }, [
                       _vm._v(
-                        "\r\n              " + _vm._s(fieldValue.value) + " "
+                        "\n              " + _vm._s(fieldValue.value) + " "
                       ),
                       _vm.fields[k3].unit
                         ? _c("span", [_vm._v(_vm._s(_vm.fields[k3].unit))])
@@ -45416,9 +45468,9 @@ var render = function() {
                 [
                   _c("h6", { staticClass: "text-sm" }, [
                     _vm._v(
-                      "\r\n              " +
+                      "\n              " +
                         _vm._s(offer.benefits) +
-                        "\r\n            "
+                        "\n            "
                     )
                   ])
                 ]
@@ -45528,9 +45580,7 @@ var render = function() {
                   [
                     _c("span", { staticClass: "text-center pr-1" }, [
                       _vm._v(
-                        "\r\n                " +
-                          _vm._s(item) +
-                          "\r\n              "
+                        "\n                " + _vm._s(item) + "\n              "
                       )
                     ])
                   ]
@@ -51897,7 +51947,7 @@ var render = function() {
                               _c("a", { staticClass: "float-right" }, [
                                 _vm._v(
                                   _vm._s(_vm.getFieldType(field.type)) +
-                                    "\r\n                              "
+                                    "\n                              "
                                 ),
                                 _c(
                                   "button",
@@ -100619,8 +100669,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\RPCS_SOLUTIONS\rpsci\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\RPCS_SOLUTIONS\rpsci\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\rpsci\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\rpsci\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),
