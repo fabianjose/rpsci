@@ -73,7 +73,7 @@
                     @endif
                 </div>
             </div>
-            <section class="section-search mb-3" style="min-height: 400px; padding-top: 15%;margin-top: -15%;">
+            <section class="section-search mb-3" style="min-height: 400px; padding-top: 15%;margin-top: -8%;">
                 <div class="row justify-content-center">
                     <div class="col-3 text-right">
                         ¡Pulsa el Botón y Encuentra

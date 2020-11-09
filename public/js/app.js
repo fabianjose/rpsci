@@ -3437,15 +3437,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['errors'],
   data: function data() {
@@ -44538,7 +44529,65 @@ var render = function() {
             "div",
             {
               staticClass:
-                "form-group has-search ci-select-container col-md-6 col-sm-10 col-lg-4"
+                " text-center custom-control custom-radio form-group has-search col-md-6 col-sm-10 col-lg-1",
+              on: {
+                click: function($event) {
+                  _vm.offerType = "private"
+                }
+              }
+            },
+            [
+              _c("input", {
+                staticClass: "custom-control-input",
+                attrs: { type: "radio", id: "privateOffer" },
+                domProps: { checked: _vm.offerType == "private" }
+              }),
+              _vm._v(" "),
+              _c(
+                "label",
+                {
+                  staticClass: "custom-control-label",
+                  attrs: { for: "privateOffer" }
+                },
+                [_vm._v("Hogar")]
+              )
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass:
+                " text-center custom-control custom-radio form-group has-search col-md-6 col-sm-10 col-lg-2",
+              on: {
+                click: function($event) {
+                  _vm.offerType = "company"
+                }
+              }
+            },
+            [
+              _c("input", {
+                staticClass: "custom-control-input",
+                attrs: { type: "radio", id: "companyOffer" },
+                domProps: { checked: _vm.offerType == "company" }
+              }),
+              _vm._v(" "),
+              _c(
+                "label",
+                {
+                  staticClass: "custom-control-label",
+                  attrs: { for: "companyOffer" }
+                },
+                [_vm._v("Empresa")]
+              )
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass:
+                "form-group has-search ci-select-container col-md-6 col-sm-10 col-lg-2"
             },
             [
               _c("span", { staticClass: "fa fa-tv form-control-feedback " }),
@@ -44597,7 +44646,7 @@ var render = function() {
           _c(
             "div",
             {
-              staticClass: "form-group has-search col-md-6 col-sm-10 col-lg-4"
+              staticClass: "form-group has-search col-md-6 col-sm-10 col-lg-3"
             },
             [
               _c("span", {
@@ -44661,7 +44710,7 @@ var render = function() {
           _c(
             "div",
             {
-              staticClass: "form-group has-search col-md-6 col-sm-10 col-lg-4"
+              staticClass: "form-group has-search col-md-6 col-sm-10 col-lg-2"
             },
             [
               _c("span", { staticClass: "fa fa-city form-control-feedback " }),
@@ -44715,90 +44764,21 @@ var render = function() {
                 2
               )
             ]
-          )
-        ]
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass:
-            "d-flex flex-row flex-wrap col-10 col-sm-10 col-lg-8 col-xl-8 pb-4 mx-auto justify-content-center"
-        },
-        [
-          _c(
-            "div",
-            {
-              staticClass:
-                " text-center custom-control custom-radio col-10 col-sm-10 col-md-6 col-lg-6 col-xl-6 mx-0",
-              on: {
-                click: function($event) {
-                  _vm.offerType = "private"
-                }
-              }
-            },
-            [
-              _c("input", {
-                staticClass: "custom-control-input",
-                attrs: { type: "radio", id: "privateOffer" },
-                domProps: { checked: _vm.offerType == "private" }
-              }),
-              _vm._v(" "),
-              _c(
-                "label",
-                {
-                  staticClass: "custom-control-label",
-                  attrs: { for: "privateOffer" }
-                },
-                [_vm._v("Hogar")]
-              )
-            ]
           ),
           _vm._v(" "),
           _c(
             "div",
             {
-              staticClass:
-                " text-center custom-control custom-radio col-10 col-sm-10 col-md-6 col-lg-6 col-xl-6 mx-0",
-              on: {
-                click: function($event) {
-                  _vm.offerType = "company"
-                }
-              }
+              staticClass: "form-group has-search col-md-6 col-sm-10 col-lg-2",
+              on: { click: _vm.search }
             },
             [
-              _c("input", {
-                staticClass: "custom-control-input",
-                attrs: { type: "radio", id: "companyOffer" },
-                domProps: { checked: _vm.offerType == "company" }
-              }),
+              _c("i", { staticClass: "fa fa-search icon-btn" }),
               _vm._v(" "),
-              _c(
-                "label",
-                {
-                  staticClass: "custom-control-label",
-                  attrs: { for: "companyOffer" }
-                },
-                [_vm._v("Empresa")]
-              )
+              _c("button", { staticClass: "btn btn-danger" }, [
+                _vm._v("\n                Buscar\n            ")
+              ])
             ]
-          )
-        ]
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass: "col-10 col-md-8 col-lg-6 col-xl-6 mx-auto pb-1",
-          on: { click: _vm.search }
-        },
-        [
-          _c("i", { staticClass: "fa fa-search icon-btn" }),
-          _vm._v(" "),
-          _c(
-            "button",
-            { staticClass: "btn btn-block btn-dark-blue rounded-pill" },
-            [_vm._v("\n                Buscar\n            ")]
           )
         ]
       )
