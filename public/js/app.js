@@ -44529,7 +44529,7 @@ var render = function() {
             "div",
             {
               staticClass:
-                " text-center custom-control custom-radio form-group has-search col-md-6 col-sm-10 col-lg-1",
+                " text-center custom-control custom-radio form-group has-search col-md-6 col-sm-10 col-lg-2",
               on: {
                 click: function($event) {
                   _vm.offerType = "private"
@@ -44769,15 +44769,20 @@ var render = function() {
           _c(
             "div",
             {
-              staticClass: "form-group has-search col-md-6 col-sm-10 col-lg-2",
+              staticClass: "form-group has-search col-md-6 col-sm-10 col-lg-1",
               on: { click: _vm.search }
             },
             [
               _c("i", { staticClass: "fa fa-search icon-btn" }),
               _vm._v(" "),
-              _c("button", { staticClass: "btn btn-danger" }, [
-                _vm._v("\n                Buscar\n            ")
-              ])
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-danger",
+                  staticStyle: { "border-radius": "100px" }
+                },
+                [_vm._v("\n                  \n            ")]
+              )
             ]
           )
         ]

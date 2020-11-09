@@ -91,7 +91,7 @@ a {
 }
 
 .bg-dark-blue {
-  background-color: #13293d;
+  background-color: #595959;
 }
 
 .bg-main-blue {
@@ -166,7 +166,6 @@ a {
 .about-number {
   width: 2rem;
   height: 2rem;
-  font-size: 1.25rem;
 }
 
 .about-text {
@@ -829,7 +828,7 @@ a {
   width: 80%;
   border-width: 3px;
   border-style: solid;
-  border-color: blue;
+  border-color: #00ffda;
 }
 
 @media (max-width: 768px) {
