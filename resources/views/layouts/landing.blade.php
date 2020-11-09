@@ -1,6 +1,7 @@
 @extends('layouts.app')
-
 @section('content')
+
+
     <meta name="description" content=""/>
 <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200&display=swap" rel="stylesheet">
 <meta name="keywords" content="contrata internet, contratar internet, internet hogar,
@@ -16,26 +17,58 @@
 
 
     <div class="content">
-        <div class=" w-100 py-2 px-4" >
+        <div class=" w-100 py-2 px-4" style="content:" >
             <div class="d-flex justify-content-end" style="color: #606060;">
               <!--  <a href=""> <i class="fab fa-facebook-f i-c-main mx-2 text-white text-lg"></i>  </a> -->
 
                 
-                <div style="padding: 5px; border:   1px solid rgb(12,207,244) ; font-family: 'Work Sans', sans-serif; ">Correo Electrónico: contacto@contratainternet.co</div>
+                <div   style="padding: 5px; border: 1px solid rgb(12,207,244) ; font-family: 'Work Sans', sans-serif;  ">Correo Electrónico: contacto@contratainternet.co</div>
 
-                <div  style="padding: 5px;    border: 1px solid rgb(12,207,244); font-family: 'Work Sans', sans-serif;">PBX: +57 123 123 123</div>
+                <div    style="padding: 5px;    border: 1px solid rgb(12,207,244); font-family: 'Work Sans', sans-serif;">PBX: +57 123 123 123</div>
 
-                <div  style="padding: 5px;    border: 1px solid rgb(12,207,244); font-family: 'Work Sans', sans-serif;">Siguenos: 
+                <div    style="padding: 5px;    border: 1px solid rgb(12,207,244); font-family: 'Work Sans', sans-serif;">Siguenos: 
                   <a href="https://www.facebook.com/colombiainternet/" class=" i-c-fab ic-bg-main"> <i  class="fab fa-facebook-f mx-2 ic-bg-main text-md"></i> </a> 
                   <a href="https://www.instagram.com/contratainternet.co/?hl=es-la" class="  i-c-fab ic-bg-main"> <i class="fab fa-instagram  mx-2 ic-bg-main  text-md"></i> </a>
                   <a href="https://www.instagram.com/contratainternet.co/?hl=es-la" class="  i-c-fab ic-bg-main"> <i class="fab fa-linkedin mx-2   text-md"></i> </a>
                 </div>
 
             </div>
-
-
-
         </div>
+
+        <div class="content2">
+        <div class=" w-100 py-2 px-4"  style="display:">
+
+        <div class="d-flex " style="color: #606060; ">
+              <!--  <a href=""> <i class="fab fa-facebook-f i-c-main mx-2 text-white text-lg"></i>  </a> -->
+
+                
+                <div    style="padding: 5px; border:   1px solid rgb(12,207,244) ; font-family: 'Work Sans', sans-serif; width: 100%;  ">Correo Electrónico:contacto@contratainternet.co</div>
+
+              
+
+            </div>
+            <div class="d-flex ;" style="color: #606060; ">
+              <!--  <a href=""> <i class="fab fa-facebook-f i-c-main mx-2 text-white text-lg"></i>  </a> -->
+
+                
+
+                <div    style="width: 100%; padding: 10px;    border: 1px solid rgb(12,207,244); font-family: 'Work Sans', sans-serif;">PBX: +57 123 123 123</div>
+
+                <div    style="width: 100%; padding: 5px;    border: 1px solid rgb(12,207,244); font-family: 'Work Sans', sans-serif; text-align: center;">
+                  <a href="https://www.facebook.com/colombiainternet/" class=" i-c-fab ic-bg-main"> <i  class="fab fa-facebook-f mx-2 ic-bg-main text-md"></i> </a> 
+                  <a href="https://www.instagram.com/contratainternet.co/?hl=es-la" class="  i-c-fab ic-bg-main"> <i class="fab fa-instagram  mx-2 ic-bg-main  text-md"></i> </a>
+                  <a href="https://www.instagram.com/contratainternet.co/?hl=es-la" class="  i-c-fab ic-bg-main"> <i class="fab fa-linkedin mx-2   text-md"></i> </a>
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+
+
+
         <nav class="main-header navbar-light navbar navbar-expand-md mx-auto py-3 px-1 align-items-center" style="background-color:white; height: 80px;">
             <ul  class="navbar-nav ml-3">
                 <a class="nav-item" href="/"  style="margin-top: -22px;">
