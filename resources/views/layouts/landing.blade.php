@@ -1,6 +1,7 @@
 @extends('layouts.app')
-
 @section('content')
+
+
     <meta name="description" content=""/>
 <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200&display=swap" rel="stylesheet">
 <meta name="keywords" content="contrata internet, contratar internet, internet hogar,
@@ -12,24 +13,63 @@
     telefonia ip, telefonia movil, voz sobre ip, telefonos grandStream, internexa, 
     azteca comunicaciones, HughesNet, ETB, Voip, telefonia en la nube, central virtual">
 
+
+
+
     <div class="content">
-        <div class=" w-100 py-2 px-4" >
+        <div  class=" w-100 py-2 px-4" style="display:in-line" >
             <div class="d-flex justify-content-end" style="color: #606060;">
               <!--  <a href=""> <i class="fab fa-facebook-f i-c-main mx-2 text-white text-lg"></i>  </a> -->
-                <div style="padding: 5px; border:   1px solid rgb(12,207,244) ; font-family: 'Work Sans', sans-serif; ">Correo Electrónico: contacto@contratainternet.co</div>
-                <div  style="padding: 5px;    border: 1px solid rgb(12,207,244); font-family: 'Work Sans', sans-serif;">PBX: +57 123 123 123</div>
-                <div  style="padding: 5px;    border: 1px solid rgb(12,207,244); font-family: 'Work Sans', sans-serif;">Siguenos: 
+
+                
+                <div   style="padding: 5px; border: 1px solid rgb(12,207,244) ; font-family: 'Work Sans', sans-serif;  ">Correo Electrónico: contacto@contratainternet.co</div>
+
+                <div    style="padding: 5px;    border: 1px solid rgb(12,207,244); font-family: 'Work Sans', sans-serif;">PBX: +57 123 123 123</div>
+
+                <div    style="padding: 5px;    border: 1px solid rgb(12,207,244); font-family: 'Work Sans', sans-serif;">Siguenos: 
                   <a href="https://www.facebook.com/colombiainternet/" class=" i-c-fab ic-bg-main"> <i  class="fab fa-facebook-f mx-2 ic-bg-main text-md"></i> </a> 
                   <a href="https://www.instagram.com/contratainternet.co/?hl=es-la" class="  i-c-fab ic-bg-main"> <i class="fab fa-instagram  mx-2 ic-bg-main  text-md"></i> </a>
                   <a href="https://www.instagram.com/contratainternet.co/?hl=es-la" class="  i-c-fab ic-bg-main"> <i class="fab fa-linkedin mx-2   text-md"></i> </a>
                 </div>
 
             </div>
-
-
-
         </div>
-        <nav class="main-header navbar-light navbar navbar-expand-md mx-auto py-3 px-1 align-items-center" style="background-color:white; height: 70px;">
+
+        <div  class="content2">
+        <div  class=" w-100 py-2 px-4"  style="display:none">
+
+        <div class="d-flex " style="color: #606060; ">
+              <!--  <a href=""> <i class="fab fa-facebook-f i-c-main mx-2 text-white text-lg"></i>  </a> -->
+
+                
+                <div    style="padding: 5px; border:   1px solid rgb(12,207,244) ; font-family: 'Work Sans', sans-serif; width: 100%;  ">Correo Electrónico:contacto@contratainternet.co</div>
+
+              
+
+            </div>
+            <div class="d-flex ;" style="color: #606060; ">
+              <!--  <a href=""> <i class="fab fa-facebook-f i-c-main mx-2 text-white text-lg"></i>  </a> -->
+
+                
+
+                <div    style="width: 100%; padding: 10px;    border: 1px solid rgb(12,207,244); font-family: 'Work Sans', sans-serif;">PBX: +57 123 123 123</div>
+
+                <div    style="width: 100%; padding: 5px;    border: 1px solid rgb(12,207,244); font-family: 'Work Sans', sans-serif; text-align: center;">
+                  <a href="https://www.facebook.com/colombiainternet/" class=" i-c-fab ic-bg-main"> <i  class="fab fa-facebook-f mx-2 ic-bg-main text-md"></i> </a> 
+                  <a href="https://www.instagram.com/contratainternet.co/?hl=es-la" class="  i-c-fab ic-bg-main"> <i class="fab fa-instagram  mx-2 ic-bg-main  text-md"></i> </a>
+                  <a href="https://www.instagram.com/contratainternet.co/?hl=es-la" class="  i-c-fab ic-bg-main"> <i class="fab fa-linkedin mx-2   text-md"></i> </a>
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+
+
+
+        <nav class="main-header navbar-light navbar navbar-expand-md mx-auto py-3 px-1 align-items-center" style="background-color:white; height: 80px;">
             <ul  class="navbar-nav ml-3">
                 <a class="nav-item" href="/"  style="margin-top: -22px;">
                     <img class="ic-logo" src="{{ asset('images/LOGO5COLORH258.png') }}"  alt="">
@@ -97,8 +137,8 @@
                    <div class="text-center">
               <img src="{{asset('images/fondo_azul_contrata.jpg')}}" class="img-responsive" style="max-width: 100%;">
             </div>
-                <ul class="footer-list p-2">
-                  <li>-internet satelital
+                <ul class="footer-list p-2 text-center">
+                  <li> <p style="font-size:24px">¡Te conectamos al mundo!</p>
                   </li>
 
                   <li>-Internet
@@ -119,17 +159,30 @@
                 <div class="row">
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12  my-2">
 
-                <h5 class="footer-title-color font-weight-bold">MAPA DE SITIO</h5>
-                <ul class="footer-list p-2">
-                  <a href="/"><li>-Inicio</li></a>
-                  <a href="/nosotros"><li>-Nosotros</li></a>
-                  <a href="/contacto"><li>-Contacto</li></a>
-                  <a href="https://contratainternet.speedtestcustom.com/"><li>-Prueba de Velocidad</li></a>
+                <h5 class="footer-title-color font-weight-bold text-center">Servicios Disponible</h5>
+                <ul class="footer-list p-2 text-center">
+                  <li>-internet satelital
+                  </li>
+
+                  <li>-Internet
+                  </li>
+
+                  <li>-Telefonia ip
+                  </li>
+
+                  <li>-MPLS
+                  </li>
+
+                  <li>-Television
+                  </li>
+
                 </ul>
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12  my-2">
                   <h5 class="footer-title-color font-weight-bold">PONTE EN CONTACTO</h5>
                   <ul class="footer-list p-2">
+
+                  <h1>formulario</h1>
                     <li>-Correo Electrónico: contacto@contratainternet.co</li>
                     <li>-PBX: +57 (1) 7868510</li>
                   </ul>

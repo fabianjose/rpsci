@@ -29,14 +29,14 @@
 
             
             <div class="about-section" style="background: transparent;">
-                <div class="d-flex flex-column about-sub py-5 p-3" style="padding-left: 70px;
-    padding-right: 70px;">
-                    <div class="d-flex flex-row flex-wrap justify-content-center py-3"  style="    margin-top: -50px; padding-left: 70px;
-    padding-right: 70px;">
+                <div class="d-flex flex-column about-sub py-5 p-3" style="padding-left: 100px;
+    padding-right: 100px;">
+                    <div class="d-flex flex-row flex-wrap justify-content-center py-3"  style="    margin-top: -50px; padding-left: 100px;
+    padding-right: 100px;">
                         <div class="col-8 col-sm-3 col-md-3 col-lg-3 p-2 my-2">
                             <div class="row align-items-start justify-content-center text-white">
                                 <div class="rounded-circle about-number p-1 mb-2 text-center bg-dark-blue">1</div>
-                                <p class="col-12 col-md-8 col-lg-8 about-text mb-2 mt-1  bg-dark" >
+                                <p class="btn" class="col-12 col-md-8 col-lg-8 about-text mb-2 mt-1" style="font-size:11px; background-color:#565656; color:white" >
                                    Selecciona Hogar o Empresa
                                 </p>
                             </div>
@@ -44,7 +44,7 @@
                         <div class="col-8 col-sm-3 col-md-3 col-lg-3 p-2 my-2">
                             <div class="row align-items-start justify-content-center text-white">
                                 <div class="rounded-circle about-number p-1 mb-2 text-center bg-dark-blue">2</div>
-                                <p class="col-12 col-md-8 col-lg-8 about-text mb-2 mt-1  bg-dark">
+                                <p class="btn" class="col-12 col-md-8 col-lg-8 about-text mb-2 mt-1" style="font-size:11px; background-color:#565656; color:white" >
                                     Seleccione el tipo de servicio
                                 </p>
                             </div>
@@ -52,7 +52,7 @@
                         <div class="col-8 col-sm-3 col-md-3 col-lg-3 p-2 my-2">
                             <div class="row align-items-start justify-content-center text-white">
                                 <div class="rounded-circle about-number p-1 mb-2 text-center bg-dark-blue">3</div>
-                                <p class="col-12 col-md-8 col-lg-8 about-text mb-2 mt-1  bg-dark">
+                                <p class="btn" class="col-12 col-md-8 col-lg-8 about-text mb-2 mt-1" style="font-size:11px; background-color:#565656; color:white" >
                                    Selecciona Departamento y Municipìo
                                 </p>
                             </div>
@@ -60,7 +60,7 @@
                         <div class="col-8 col-sm-3 col-md-3 col-lg-3 p-2 my-2">
                             <div class="row align-items-start justify-content-center text-white">
                                 <div class="rounded-circle about-number p-1 mb-2 text-center bg-dark-blue">4</div>
-                                <p class="col-12 col-md-8 col-lg-8 about-text mb-2 mt-1  bg-dark">
+                                <p class="btn" class="col-12 col-md-8 col-lg-8 about-text mb-2 mt-1" style="font-size:11px; background-color:#565656; color:white"  >
                                    Encuentra la Mejor Opción
                                 </p>
                             </div>
@@ -73,7 +73,7 @@
                     @endif
                 </div>
             </div>
-            <section class="section-search mb-3" style="min-height: 400px; padding-top: 15%;margin-top: -15%;">
+            <section class="section-search mb-3" style="min-height: 400px; padding-top: 15%;margin-top: -8%;">
                 <div class="row justify-content-center">
                     <div class="col-3 text-right">
                         ¡Pulsa el Botón y Encuentra
@@ -93,22 +93,22 @@
              </div>
             </section>
             <section class="section-form" style="background: rgb(0,194,214);min-height: 400px;padding-top: 15%;  border-radius: 27% 27% 0 0px;margin-top: -15%;">
-
-                    <div class="row  justify-content-center  pb-5">
-                        <div class="col-3 text-center">
-                            <h2 class="text-white ">Resolvemos todo con una llamada</h2>
-                            <h1 class="text-white">¡Contáctanos!</h1>
+                       
+                    <div class="row  justify-content-center  pb-5  " style="align-items: center;">
+                        <div class="col-12 col-sm-3 text-center">
+                            <h5 class="text-white ">Resolvemos todas tus <br> dudas en una llamada</h5>
+                            <h2 class="text-white">¡Contáctanos!</h2>
                         </div>
-                        <div class="col-4 px-3">
-                            <input class="form-control mt-1  p-2"  type="" name=""/>
-                             <input  class="form-control  mt-1 p-2" type="" name=""/>
-                              <input  class="form-control  mt-1 p-2" type="" name=""/>
+                        <div class="col-12 col-sm-4 px-3">
+                             <input id="text-form" class="form-control mt-1  p-2"  type="text" name="" placeholder="Nombre"/>
+                             <input id="text-form"  class="form-control  mt-1 p-2" type="text" name="" placeholder="Celular"/>
+                             <input id="text-form"  class="form-control  mt-1 p-2" type="text" name="" placeholder="Email"/>
                         </div>
-                        <div class="col-3">
-                            <button class="btn text-white" style="background: rgb(13,217,244);font-size: 36px;">ENVIAR</button>
+                        <div class="col-12 col-sm-3">
+                            <button id="btn-enviar" class="btn text-white" style="background: rgb(13,217,244);font-size: 25px;">ENVIAR</button>
                         </div>
                     </div>
-                
+
                 
             </section>
 
@@ -134,3 +134,6 @@
 
 </div>
 @stop
+
+
+

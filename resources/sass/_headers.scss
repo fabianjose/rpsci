@@ -19,7 +19,7 @@ a{
 }
 
 .ic-logo{
-    max-height: 80px;
+    max-height: 100px;
 }
 
 .nav-btn{
@@ -52,4 +52,9 @@ a{
     }
 
     
+}
+
+.navbar-expand-md .navbar-nav .nav-link {
+    padding-right: 1rem;
+    padding-left: 0.75rem;
 }
