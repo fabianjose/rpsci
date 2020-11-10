@@ -93,22 +93,22 @@
              </div>
             </section>
             <section class="section-form" style="background: rgb(0,194,214);min-height: 400px;padding-top: 15%;  border-radius: 27% 27% 0 0px;margin-top: -15%;">
-
-                    <div class="row  justify-content-center  pb-5">
-                        <div class="col-3 text-center">
-                            <h2 class="text-white ">Resolvemos todo con una llamada</h2>
-                            <h1 class="text-white">¡Contáctanos!</h1>
+                       
+                    <div class="row  justify-content-center  pb-5  " style="align-items: center;">
+                        <div class="col-12 col-sm-3 text-center">
+                            <h5 class="text-white ">Resolvemos todas tus <br> dudas en una llamada</h5>
+                            <h2 class="text-white">¡Contáctanos!</h2>
                         </div>
-                        <div class="col-4 px-3">
-                            <input class="form-control mt-1  p-2"  type="" name=""/>
-                             <input  class="form-control  mt-1 p-2" type="" name=""/>
-                              <input  class="form-control  mt-1 p-2" type="" name=""/>
+                        <div class="col-12 col-sm-4 px-3">
+                             <input id="text-form" class="form-control mt-1  p-2"  type="text" name="" placeholder="Nombre"/>
+                             <input id="text-form"  class="form-control  mt-1 p-2" type="text" name="" placeholder="Celular"/>
+                             <input id="text-form"  class="form-control  mt-1 p-2" type="text" name="" placeholder="Email"/>
                         </div>
-                        <div class="col-3">
-                            <button class="btn text-white" style="background: rgb(13,217,244);font-size: 36px;">ENVIAR</button>
+                        <div class="col-12 col-sm-3">
+                            <button id="btn-enviar" class="btn text-white" style="background: rgb(13,217,244);font-size: 25px;">ENVIAR</button>
                         </div>
                     </div>
-                
+
                 
             </section>
 

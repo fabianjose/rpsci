@@ -24,7 +24,10 @@
     .main-search-form{
         width:65%;        
     }
+
 }
+
+
 
 .main-form-title-container:after {
     display: block;
@@ -72,3 +75,14 @@
     }
     
 }
+
+#btn-enviar{
+    
+    -webkit-box-shadow: 1px 5px 8px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 5px 8px 0px rgba(0,0,0,0.75);
+    box-shadow: 1px 5px 8px 0px rgba(0,0,0,0.75);
+}
+#text-form::placeholder {
+    font-family: 'Work Sans', sans-serif;
+    font-style: italic;
+  }

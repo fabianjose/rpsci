@@ -17,7 +17,7 @@
 
 
     <div class="content">
-        <div class=" w-100 py-2 px-4" style="content:" >
+        <div  class=" w-100 py-2 px-4" style="display:in-line" >
             <div class="d-flex justify-content-end" style="color: #606060;">
               <!--  <a href=""> <i class="fab fa-facebook-f i-c-main mx-2 text-white text-lg"></i>  </a> -->
 
@@ -35,8 +35,8 @@
             </div>
         </div>
 
-        <div class="content2">
-        <div class=" w-100 py-2 px-4"  style="display:">
+        <div  class="content2">
+        <div  class=" w-100 py-2 px-4"  style="display:none">
 
         <div class="d-flex " style="color: #606060; ">
               <!--  <a href=""> <i class="fab fa-facebook-f i-c-main mx-2 text-white text-lg"></i>  </a> -->
@@ -137,8 +137,8 @@
                    <div class="text-center">
               <img src="{{asset('images/fondo_azul_contrata.jpg')}}" class="img-responsive" style="max-width: 100%;">
             </div>
-                <ul class="footer-list p-2">
-                  <li>-internet satelital
+                <ul class="footer-list p-2 text-center">
+                  <li> <p style="font-size:24px">¡Te conectamos al mundo!</p>
                   </li>
 
                   <li>-Internet
@@ -159,17 +159,30 @@
                 <div class="row">
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12  my-2">
 
-                <h5 class="footer-title-color font-weight-bold">MAPA DE SITIO</h5>
-                <ul class="footer-list p-2">
-                  <a href="/"><li>-Inicio</li></a>
-                  <a href="/nosotros"><li>-Nosotros</li></a>
-                  <a href="/contacto"><li>-Contacto</li></a>
-                  <a href="https://contratainternet.speedtestcustom.com/"><li>-Prueba de Velocidad</li></a>
+                <h5 class="footer-title-color font-weight-bold text-center">Servicios Disponible</h5>
+                <ul class="footer-list p-2 text-center">
+                  <li>-internet satelital
+                  </li>
+
+                  <li>-Internet
+                  </li>
+
+                  <li>-Telefonia ip
+                  </li>
+
+                  <li>-MPLS
+                  </li>
+
+                  <li>-Television
+                  </li>
+
                 </ul>
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12  my-2">
                   <h5 class="footer-title-color font-weight-bold">PONTE EN CONTACTO</h5>
                   <ul class="footer-list p-2">
+
+                  <h1>formulario</h1>
                     <li>-Correo Electrónico: contacto@contratainternet.co</li>
                     <li>-PBX: +57 (1) 7868510</li>
                   </ul>

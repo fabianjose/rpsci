@@ -883,6 +883,25 @@ a {
   }
 }
 
+#btn-enviar {
+  box-shadow: 1px 5px 8px 0px rgba(0, 0, 0, 0.75);
+}
+
+#text-form::-moz-placeholder {
+  font-family: "Work Sans", sans-serif;
+  font-style: italic;
+}
+
+#text-form:-ms-input-placeholder {
+  font-family: "Work Sans", sans-serif;
+  font-style: italic;
+}
+
+#text-form::placeholder {
+  font-family: "Work Sans", sans-serif;
+  font-style: italic;
+}
+
 .text-main-blue {
   color: #00c2d6;
 }
