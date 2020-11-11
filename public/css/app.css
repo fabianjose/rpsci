@@ -494,8 +494,9 @@ a {
 }
 
 .offer-card-separator {
-  width: 100%;
-  height: 0.8rem;
+  width: 80%;
+  height: 0.1rem;
+  background: #00c2d6;
 }
 
 .offer-card-content {
@@ -541,6 +542,8 @@ a {
 
 .offer-card-btn {
   font-size: 1rem;
+  background: #00c2d6;
+  color: white;
 }
 
 .nosotros-main {
@@ -965,25 +968,28 @@ a {
   width: 100px;
 }
 
-@font-face {
-  font-family: montserrat-bold;
-  src: url(/fonts/Montserrat-Bold.otf?9c71d42b6a840ecfda8fc555040a1c76);
+/*
+
+
+@font-face{
+    font-family: work-sans-light;
+    src: url("./../assets/fonts/WorkSans-Light.ttf");
+}
+@font-face{
+    font-family: montserrat-bold;
+    src: url("./../assets/fonts/Montserrat-Bold.otf");
 }
 
-@font-face {
-  font-family: montserrat-regular;
-  src: url(/fonts/Montserrat-Regular.otf?92db9a0772b3732e6d686fec3711af42);
+@font-face{
+    font-family: montserrat-regular;
+    src: url("./../assets/fonts/Montserrat-Regular.otf");
 }
 
-@font-face {
-  font-famili: heebo-regular;
-  src: url(/fonts/Heebo-Regular.ttf?3f5fef64b9bb3ef6ded20c917f3082f7);
-}
 
-@font-face {
-  font-famili: work-sans-regular;
-  src: url(/fonts/WorkSans-Regular.ttf?6f916ce8ada5d5facf5ad4e1266a486d);
-}
+@font-face{
+	font-famili: heebo-regular;
+	src: url("./../assets/fonts/Heebo-Regular.ttf");
+}*/
 
 .mts-regular {
   font-family: montserrat-regular !important;
@@ -991,7 +997,7 @@ a {
 
 body {
   scroll-behavior: smooth;
-  font-family: montserrat-bold;
+  font-family: "Heebo regular";
   word-break: break-word;
   box-sizing: content-box;
 }

@@ -24,6 +24,14 @@
 // Bootstrap
 //@import '~bootstrap/scss/bootstrap';
 
+
+/*
+
+
+@font-face{
+    font-family: work-sans-light;
+    src: url("./../assets/fonts/WorkSans-Light.ttf");
+}
 @font-face{
     font-family: montserrat-bold;
     src: url("./../assets/fonts/Montserrat-Bold.otf");
@@ -38,11 +46,7 @@
 @font-face{
 	font-famili: heebo-regular;
 	src: url("./../assets/fonts/Heebo-Regular.ttf");
-}
-@font-face{
-	font-famili: work-sans-regular;
-	src: url("./../assets/fonts/WorkSans-Regular.ttf");
-}
+}*/
 
 .mts-regular{
     font-family: montserrat-regular!important;
@@ -53,7 +57,7 @@
 
 body{
     scroll-behavior: smooth;
-    font-family: montserrat-bold;
+    font-family: "Heebo regular";
     word-break: break-word;    
     box-sizing: content-box;
 }

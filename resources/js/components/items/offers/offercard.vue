@@ -18,8 +18,8 @@
     <div class="offer-card-footer">
       <div class="col-10">
         <button @click="emitContact" data-toggle="modal" data-target="#modalConsultOffer"
-          :class="'btn btn-block text-white offer-card-btn rounded-pill '+(index%2?'bg-main-blue':'bg-main-pink')">
-          CONTACTAR
+          :class="'btn btn-block text-white offer-card-btn'">
+          ADQUIÉRELO
         </button>
       </div>
     </div>

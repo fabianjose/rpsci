@@ -3,7 +3,7 @@
 
 
     <meta name="description" content=""/>
-<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,600;0,700;1,200&display=swap" rel="stylesheet">
 <meta name="keywords" content="contrata internet, contratar internet, internet hogar,
     internet satelital, internet para hogares, internet wifi, internet banda ancha,
     internet para negocios, internet para empresas, internet empresas, internet fibra optica,
@@ -160,29 +160,13 @@
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12  my-2">
 
                 <h5 class="footer-title-color font-weight-bold text-center">Servicios Disponible</h5>
-                <ul class="footer-list p-2 text-center">
-                  <li>-internet satelital
-                  </li>
-
-                  <li>-Internet
-                  </li>
-
-                  <li>-Telefonia ip
-                  </li>
-
-                  <li>-MPLS
-                  </li>
-
-                  <li>-Television
-                  </li>
-
-                </ul>
+                
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12  my-2">
                   <h5 class="footer-title-color font-weight-bold">PONTE EN CONTACTO</h5>
                   <ul class="footer-list p-2">
 
-                  <h1>formulario</h1>
+                  <h1 class="text-white">formulario</h1>
                     <li>-Correo Electrónico: contacto@contratainternet.co</li>
                     <li>-PBX: +57 (1) 7868510</li>
                   </ul>
