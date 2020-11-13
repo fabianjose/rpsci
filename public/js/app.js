@@ -4140,9 +4140,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -45898,8 +45895,6 @@ var render = function() {
     "div",
     { staticClass: "high-plans py-4 pb-5 px-2" },
     [
-      _vm._m(0),
-      _vm._v(" "),
       _vm.offers.length
         ? _c(
             "vueper-slides",
@@ -45976,22 +45971,7 @@ var render = function() {
     1
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "d-flex w-100 justify-content-center mt-3" },
-      [
-        _c("h4", { staticClass: "high-plans-color high-plans-title" }, [
-          _vm._v("Planes destacados")
-        ])
-      ]
-    )
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -46141,65 +46121,70 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "offer-card d-flex flex-column" }, [
-    _c("div", { staticClass: "offer-card-header" }, [
-      _c("img", {
-        staticClass: "h-100 img-fluid",
-        attrs: {
-          src: _vm.baseUrl + "/storage/" + _vm.offer.company_logo,
-          alt: "logo"
-        }
-      })
-    ]),
-    _vm._v(" "),
-    _c("div", {
-      class:
-        "offer-card-separator " +
-        (_vm.index % 2 ? "bg-main-blue" : "bg-main-pink")
-    }),
-    _vm._v(" "),
-    _c("div", { staticClass: "offer-card-content" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("h6", { staticClass: "col-12 offer-card-title" }, [
-          _vm._v(_vm._s(_vm.offer.company_name))
-        ])
+  return _c(
+    "div",
+    { staticClass: "offer-card d-flex flex-column text-heebo" },
+    [
+      _c("div", { staticClass: "offer-card-header" }, [
+        _c("img", {
+          staticClass: "h-100 img-fluid",
+          attrs: {
+            src: _vm.baseUrl + "/storage/" + _vm.offer.company_logo,
+            alt: "logo"
+          }
+        })
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "row" }, [
-        _c(
-          "h6",
-          {
-            staticClass: "col-12 offer-card-benefits text-wrap",
-            staticStyle: { "font-family": "Montserrat-regular" }
-          },
-          [_vm._v(_vm._s(_vm.offer.benefits))]
-        )
-      ]),
+      _c("div", {
+        class:
+          "offer-card-separator " +
+          (_vm.index % 2 ? "bg-main-blue" : "bg-main-pink")
+      }),
       _vm._v(" "),
-      _c("div", { staticClass: "row" }, [
-        _c("h5", { staticClass: "col-12 offer-card-price" }, [
-          _vm._v("$ " + _vm._s(_vm.showPrice(_vm.offer.tariff)))
-        ])
-      ])
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "offer-card-footer" }, [
-      _c("div", { staticClass: "col-10" }, [
-        _c(
-          "button",
-          {
-            class: "btn btn-block text-white offer-card-btn",
-            attrs: {
-              "data-toggle": "modal",
-              "data-target": "#modalConsultOffer"
+      _c("div", { staticClass: "offer-card-content" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("h6", { staticClass: "col-12 offer-card-title" }, [
+            _vm._v(_vm._s(_vm.offer.company_name))
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row" }, [
+          _c(
+            "h6",
+            {
+              staticClass: "col-12 offer-card-benefits text-wrap text-heebo",
+              staticStyle: { color: "#606060" }
             },
-            on: { click: _vm.emitContact }
-          },
-          [_vm._v("\n        ADQUIÉRELO\n      ")]
-        )
+            [_vm._v(_vm._s(_vm.offer.benefits))]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row" }, [
+          _c("h5", { staticClass: "col-12 offer-card-price" }, [
+            _vm._v("$ " + _vm._s(_vm.showPrice(_vm.offer.tariff)))
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "offer-card-footer" }, [
+        _c("div", { staticClass: "col-10" }, [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-block text-white offer-card-btn",
+              staticStyle: { "font-weight": "800" },
+              attrs: {
+                "data-toggle": "modal",
+                "data-target": "#modalConsultOffer"
+              },
+              on: { click: _vm.emitContact }
+            },
+            [_vm._v("\n        ADQUIÉRELO\n      ")]
+          )
+        ])
       ])
-    ])
-  ])
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
