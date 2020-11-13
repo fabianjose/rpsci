@@ -75,16 +75,18 @@
             </div>
             <section class="section-search mb-3" style="min-height: 400px; padding-top: 15%;margin-top: -8%;">
                 <div class="row justify-content-center">
-                    <div class="col-3 text-right">
+                    <div class="col-3 text-right text-ws" style="font-weight: 600;color: #184156;margin-top: auto;
+margin-bottom: auto;">
                         ¡Pulsa el Botón y Encuentra
                     </div>
-                    <div class="col-2 text-center" >
+                    <div class="col-2 text-center " >
                         <a class="btn-rounded">
 
                         <img  src="{{ asset('images/button_contrata_internet.jpg') }}" style="max-width: 100%;">
                         </a>
                     </div>
-                    <div class="col-3 text-left btn">
+                    <div class="col-3 text-left text-ws" style="font-weight: 600;color: #184156;margin-top: auto;
+margin-bottom: auto;" >
                         el proveedor recomendado!
                     </div>
                 </div>
@@ -115,8 +117,8 @@
             <div class="bg-ic d-flex flex-row justify-content-around flex-wrap align-items-center">
                 <config-counters :counters="{{json_encode($configs)}}" class="col-10 col-sm-10 col-md-7 col-lg-7 col-xl-7"></config-counters>
             </div>
-            <section class="section-blog">
-                <h1 class="text-center">Nuestras Publicaciones de Blog</h1>
+            <section class="section-blog" style="padding-top: 3rem;">
+                <h1 class="text-center text-ws" style="font-weight: 800;">Nuestras Publicaciones de Blog</h1>
                 
             </section>
         </div>

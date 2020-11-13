@@ -13,6 +13,7 @@
 
 .ic-main {
   font-size: 1rem;
+  font-family: "Work Sans", sans-serif;
   /*    color: $dark-blue;*/
   text-align: center;
 }
@@ -911,6 +912,14 @@ a {
 
 .text-dark-blue {
   color: #13293d;
+}
+
+.text-ws {
+  font-family: "Work Sans", sans-serif;
+}
+
+.text-heebo {
+  font-family: "Heebo", sans-serif;
 }
 
 .text-dark-gray {

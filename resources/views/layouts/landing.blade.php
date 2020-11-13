@@ -1,9 +1,9 @@
 @extends('layouts.app')
 @section('content')
-
-
     <meta name="description" content=""/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,600;0,700;1,200&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <meta name="keywords" content="contrata internet, contratar internet, internet hogar,
     internet satelital, internet para hogares, internet wifi, internet banda ancha,
     internet para negocios, internet para empresas, internet empresas, internet fibra optica,
@@ -42,7 +42,7 @@
               <!--  <a href=""> <i class="fab fa-facebook-f i-c-main mx-2 text-white text-lg"></i>  </a> -->
 
                 
-                <div    style="padding: 5px; border:   1px solid rgb(12,207,244) ; font-family: 'Work Sans', sans-serif; width: 100%;  ">Correo Electrónico:contacto@contratainternet.co</div>
+                <div    style="padding: 5px; border:   1px solid rgb(12,207,244) ; font-family: 'Work Sans', sans-serif; width: 100%; font-weight: 300; ">Correo Electrónico:contacto@contratainternet.co</div>
 
               
 
@@ -52,7 +52,7 @@
 
                 
 
-                <div    style="width: 100%; padding: 10px;    border: 1px solid rgb(12,207,244); font-family: 'Work Sans', sans-serif;">PBX: +57 123 123 123</div>
+                <div    style="width: 100%; padding: 10px; font-weight: 300;   border: 1px solid rgb(12,207,244); font-family: 'Work Sans', sans-serif;">PBX: +57 123 123 123</div>
 
                 <div    style="width: 100%; padding: 5px;    border: 1px solid rgb(12,207,244); font-family: 'Work Sans', sans-serif; text-align: center;">
                   <a href="https://www.facebook.com/colombiainternet/" class=" i-c-fab ic-bg-main"> <i  class="fab fa-facebook-f mx-2 ic-bg-main text-md"></i> </a> 
