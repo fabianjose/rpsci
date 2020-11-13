@@ -133,14 +133,20 @@
           <div class="d-flex flex-column align-items-center">
           
             <div class="d-flex w-100 flex-wrap justify-content-bewtween">
-              <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 my-2">
+              <div class="col-xl-4 col-lg-4 col-md-5 col-sm-6 col-12 my-2">
                    <div class="text-center">
-              <img src="{{asset('images/fondo_azul_contrata.jpg')}}" class="img-responsive" style="max-width: 100%;">
+              <img src="{{asset('images/fondo_azul_contrata.png')}}" class="img-responsive text-center" style="max-width: 100%;">
             </div>
-                <ul class="footer-list p-2 text-center">
-                  <li> <p style="font-size:24px">¡Te conectamos al mundo!</p>
-                  </li>
-
+               
+                  <h3 class="text-ws text-center text-gray" style="font-size:16px;font-weight: 700;color: #D6D8DB;">¡Te conectamos al mundo!</h3>
+                  
+ 
+              </div>
+              <div class="col-xl-8 col-lg-8 col-md-7 col-sm-10 col-12  my-2">
+                <div class="row">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12  my-2">
+                  <h3>SERVICIOS DISPONIBLES</h3>
+                  <ul class="footer-list p-2 text-center">
                   <li>-Internet
                   </li>
 
@@ -154,16 +160,10 @@
                   </li>
 
                 </ul>
-              </div>
-              <div class="col-xl-8 col-lg-8 col-md-10 col-sm-10 col-12  my-2">
-                <div class="row">
-                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12  my-2">
 
-                <h5 class="footer-title-color font-weight-bold text-center">Servicios Disponible</h5>
-                
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12  my-2">
-                  <h5 class="footer-title-color font-weight-bold">PONTE EN CONTACTO</h5>
+                  <h5 class="footer-title-color font-weight-bold text-ws text-white">FORMULARIO DE CONTACTO</h5>
                   <ul class="footer-list p-2">
 
                   <h1 class="text-white">formulario</h1>
