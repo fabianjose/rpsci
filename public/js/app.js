@@ -2868,7 +2868,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["counters"],
   mounted: function mounted() {
@@ -43474,11 +43473,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "d-flex flex-column mt-4" }, [
-    _c("h5", { staticClass: "text-white text-center" }, [
-      _vm._v("Las mejores ofertas en servicios de telecomunicaciones")
-    ]),
-    _vm._v(" "),
+  return _c("div", { staticClass: "d-flex flex-column mt-4 " }, [
     _c(
       "div",
       { staticClass: "counters-container" },
@@ -44513,7 +44508,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "main-middle" }, [
+  return _c("div", { staticClass: "main-middle text-ws" }, [
     _c("div", { staticClass: "main-search-form py-3 px-1 mt-3" }, [
       _c(
         "div",
@@ -45211,13 +45206,26 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "d-flex flex-column align-items-center" }, [
-    _c("h2", { staticClass: "text-center text-white counter-value" }, [
-      _vm._v("+" + _vm._s(_vm.showPrice(_vm.getCounterValue(_vm.counterValue))))
-    ]),
+    _c(
+      "h2",
+      {
+        staticClass: "text-center text-white counter-value text-heebo",
+        staticStyle: { "font-weight": "700" }
+      },
+      [
+        _vm._v(
+          "+" + _vm._s(_vm.showPrice(_vm.getCounterValue(_vm.counterValue)))
+        )
+      ]
+    ),
     _vm._v(" "),
     _c(
       "h6",
-      { staticClass: "text-center mt-2 text-sm text-white counter-label" },
+      {
+        staticClass:
+          "text-center mt-2 text-sm text-white text-ws counter-label",
+        staticStyle: { "font-weight": "400" }
+      },
       [_vm._v(_vm._s(_vm.counter.label))]
     )
   ])

@@ -1,6 +1,6 @@
 
 <template>
-    <div class="main-middle" >
+    <div class="main-middle text-ws" >
         <div class="main-search-form py-3 px-1 mt-3" >
            
             <div class="d-flex flex-row flex-wrap justify-content-around py-3 pt-4 px-1">
