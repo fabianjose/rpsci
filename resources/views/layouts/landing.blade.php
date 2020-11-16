@@ -133,44 +133,60 @@
           <div class="d-flex flex-column align-items-center">
           
             <div class="d-flex w-100 flex-wrap justify-content-bewtween">
-              <div class="col-xl-4 col-lg-4 col-md-5 col-sm-6 col-12 my-2">
+              <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 my-2">
                    <div class="text-center">
               <img src="{{asset('images/fondo_azul_contrata.png')}}" class="img-responsive text-center" style="max-width: 100%;">
+             
             </div>
                
                   <h3 class="text-ws text-center text-gray" style="font-size:16px;font-weight: 700;color: #D6D8DB;">¡Te conectamos al mundo!</h3>
                   
- 
+  <div class="text-center text-white pt-4">
+              <a style="box-shadow: black 2px 2px 6px;" href="https://www.facebook.com/colombiainternet/" class=" i-c-fab ic-bg-main mx-1"> <i  class="fab fa-facebook-f mx-2 ic-bg-main text-md"></i> </a> 
+                  <a href="https://www.instagram.com/contratainternet.co/?hl=es-la" class="  i-c-fab ic-bg-main  mx-1" style="box-shadow: black 2px 2px 6px;"> <i class="fab fa-instagram  mx-2 ic-bg-main  text-md"></i> </a>
+                  <a style="box-shadow: black 2px 2px 6px;" href="https://www.instagram.com/contratainternet.co/?hl=es-la" class="  i-c-fab ic-bg-main  mx-1"> <i class="fab fa-linkedin mx-2   text-md"></i> </a>
+
               </div>
-              <div class="col-xl-8 col-lg-8 col-md-7 col-sm-10 col-12  my-2">
-                <div class="row">
+              <ul class="list-unstyled text-ws footer-title-color mt-2">
+                <li class="list-item" style="font-variant: bold; font-size: 12px;">Correo Electrónico: contacto@contratainternet.co</li>
+                    <li class="list-item" style="font-variant: bold; font-size: 12px;">PBX: +57 (1) 7868510</li>
+             </ul>
+              </div>
+              <div class="col-xl-8 col-lg-8 col-md-8 col-sm-10 col-12  my-2 ">
+                <div class="row container">
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12  my-2">
-                  <h3>SERVICIOS DISPONIBLES</h3>
-                  <ul class="footer-list p-2 text-center">
-                  <li>-Internet
+                  <h5 class="footer-title-color text-center text-ws font-weight-bold" style="font-weight: bold;">SERVICIOS DISPONIBLES</h5>
+                  <ul class="footer-title-color font-weight-bold text-ws mt-2 list-unstyled" style="font-size: 1.25rem;">
+                  <li class="">INTERNET
                   </li>
 
-                  <li>-Telefonia ip
+                  <li class="footer-title-color font-weight-bold text-ws" style="font-size: 1.25rem;">TELEFONÍA IP
                   </li>
 
-                  <li>-MPLS
+                  <li class="footer-title-color font-weight-bold text-ws" style="font-size: 1.25rem;">MPLS
                   </li>
 
-                  <li>-Television
+                  <li class="footer-title-color font-weight-bold text-ws" style="font-size: 1.25rem;">TELEVISIÓN
                   </li>
 
                 </ul>
 
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12  my-2">
-                  <h5 class="footer-title-color font-weight-bold text-ws text-white">FORMULARIO DE CONTACTO</h5>
+                  <h5 class="footer-title-color font-weight-bold text-ws ">FORMULARIO DE CONTACTO</h5>
                   <ul class="footer-list p-2">
-
-                  <h1 class="text-white">formulario</h1>
-                    <li>-Correo Electrónico: contacto@contratainternet.co</li>
-                    <li>-PBX: +57 (1) 7868510</li>
                   </ul>
                 </div>
+              </div>
+              <div class="row">
+                <ul class="list-inline">
+                  <li class="list-inline-item text-item-list nav-link nav-item-border  "  style="display: inline-block;"><a href="" class="text-ws ">Planes de Internet</a></li>
+                  <li class="list-inline-item text-item-list nav-link nav-item-border  {{Route::current()->uri=='/'?'active':''}}" style="display: inline-block;"><a href="" class="text-ws text-white"  style="display: inline-block;">Oferta Especial del Mes</a></li>
+                  <li class="list-inline-item text-item-list nav-link nav-item-border  " style="display: inline-block;"><a href="" class="text-ws ">Prueba de Velocidad</a></li>
+                  <li class="list-inline-item text-item-list nav-link nav-item-border  {{Route::current()->uri=='nosotros'?'active':''}}" style="display: inline-block;"><a href="" class="text-ws ">Nosotros</a></li>
+                  <li class="list-inline-item text-item-list nav-link nav-item-border  {{Route::current()->uri=='blog'?'active':''}}" style="display: inline-block;"><a href="" class="text-ws ">Blog</a></li>
+                </ul>
+                </ul>
               </div>
               </div>
             </div>
