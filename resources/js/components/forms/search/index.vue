@@ -5,14 +5,14 @@
            
             <div class="d-flex flex-row flex-wrap justify-content-around py-3 pt-4 px-1">
                
-               <div class=" text-center custom-control custom-radio form-group has-search col-md-6 col-sm-10 col-lg-2" @click="offerType='private';" >
+               <div class=" text-center text-heebo custom-control custom-radio form-group has-search col-md-6 col-sm-10 col-lg-2" @click="offerType='private';" >
                     <input type="radio" class="custom-control-input" :checked="offerType=='private'" id="privateOffer" >
-                    <label class="custom-control-label" for="privateOffer">Hogar</label>
+                    <label class="custom-control-label" style="font-weight: medium;color: #606060;" for="privateOffer">Hogar</label>
                 </div>
 
-                <div class=" text-center custom-control custom-radio form-group has-search col-md-6 col-sm-10 col-lg-2" @click="offerType='company';" >
+                <div class=" text-center text-heebo custom-control custom-radio form-group has-search col-md-6 col-sm-10 col-lg-2" @click="offerType='company';" >
                     <input type="radio" class="custom-control-input" :checked="offerType=='company'" id="companyOffer">
-                    <label class="custom-control-label" for="companyOffer">Empresa</label>
+                    <label class="custom-control-label" style="font-weight: medium;color: #606060;" for="companyOffer">Empresa</label>
                 </div>
                 <div class="form-group has-search ci-select-container col-md-6 col-sm-10 col-lg-2">
                     <span class="fa fa-tv form-control-feedback "></span>
@@ -35,7 +35,7 @@
 
                 <div class="form-group has-search col-md-6 col-sm-10 col-lg-2">
                     <span class="fa fa-city form-control-feedback "></span>
-                    <select class="custom-select ci-select rounded-pill" v-model="municipality">
+                    <select class="custom-select ci-select" v-model="municipality">
                       <option value="" class="d-none" selected>Municipio</option>
                       <option v-for="(municipality,index) in municipalities" :key="index" :value="municipality.name">{{municipality.name}}</option>
                     </select>

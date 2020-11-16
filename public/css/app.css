@@ -440,10 +440,12 @@ a {
 .vueperslide--active {
   height: 105%;
   padding-top: 5%;
+  transition: height 1s;
 }
 
 .vueperslide--active .offer-card {
   height: 450px;
+  transition: height 1s;
 }
 
 #offer-cards .vueperslides__inner .vueperslides__parallax-wrapper {
@@ -834,13 +836,13 @@ a {
 
 .main-search-form {
   height: auto;
-  background-color: white;
-  border-image-source: linear-gradient(to top, #00ffda, #06D1FC 100%);
+  background: white;
   border-image-slice: 1;
   border-radius: 20px;
   width: 80%;
-  border-width: 3px;
-  border-style: solid;
+  box-shadow: 0 3px 3px #06D1FC, ease-in-out 0 2px 2px #00FFDA;
+  border-color: #00FFDA;
+  border: 3px solid #00FFDA;
 }
 
 @media (max-width: 768px) {

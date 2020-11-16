@@ -44523,7 +44523,7 @@ var render = function() {
             "div",
             {
               staticClass:
-                " text-center custom-control custom-radio form-group has-search col-md-6 col-sm-10 col-lg-2",
+                " text-center text-heebo custom-control custom-radio form-group has-search col-md-6 col-sm-10 col-lg-2",
               on: {
                 click: function($event) {
                   _vm.offerType = "private"
@@ -44541,6 +44541,7 @@ var render = function() {
                 "label",
                 {
                   staticClass: "custom-control-label",
+                  staticStyle: { "font-weight": "medium", color: "#606060" },
                   attrs: { for: "privateOffer" }
                 },
                 [_vm._v("Hogar")]
@@ -44552,7 +44553,7 @@ var render = function() {
             "div",
             {
               staticClass:
-                " text-center custom-control custom-radio form-group has-search col-md-6 col-sm-10 col-lg-2",
+                " text-center text-heebo custom-control custom-radio form-group has-search col-md-6 col-sm-10 col-lg-2",
               on: {
                 click: function($event) {
                   _vm.offerType = "company"
@@ -44570,6 +44571,7 @@ var render = function() {
                 "label",
                 {
                   staticClass: "custom-control-label",
+                  staticStyle: { "font-weight": "medium", color: "#606060" },
                   attrs: { for: "companyOffer" }
                 },
                 [_vm._v("Empresa")]
@@ -44720,7 +44722,7 @@ var render = function() {
                       expression: "municipality"
                     }
                   ],
-                  staticClass: "custom-select ci-select rounded-pill",
+                  staticClass: "custom-select ci-select",
                   on: {
                     change: function($event) {
                       var $$selectedVal = Array.prototype.filter

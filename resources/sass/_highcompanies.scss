@@ -23,9 +23,11 @@
 .vueperslide--active{
   height: 105%;
   padding-top: 5%;
+   transition: height 1s;
 }
 
 .vueperslide--active .offer-card{
   height: 450px;
+   transition: height 1s;
 
 }
