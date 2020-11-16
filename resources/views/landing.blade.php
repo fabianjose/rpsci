@@ -73,9 +73,9 @@
                     @endif
                 </div>
             </div>
-            <section class="section-search mb-3" style="min-height: 400px; padding-top: 15%;margin-top: -8%;">
+            <section class="section-search mb-3" style="min-height: 500px; padding-top: 15%;margin-top: -8%;">
                 <div class="row justify-content-center">
-                    <div class="col-3 text-right text-ws" style="font-weight: 600;color: #184156;margin-top: auto;
+                    <div class="col-3 text-right text-ws" style="font-weight: 600;color: #184156;margin-top: auto;font-size: 1.25rem;
 margin-bottom: auto;">
                         ¡Pulsa el Botón y Encuentra
                     </div>
@@ -85,12 +85,12 @@ margin-bottom: auto;">
                         <img  src="{{ asset('images/button_contrata_internet.jpg') }}" style="max-width: 100%;">
                         </a>
                     </div>
-                    <div class="col-3 text-left text-ws" style="font-weight: 600;color: #184156;margin-top: auto;
+                    <div class="col-3 text-left text-ws" style="font-weight: 600;color: #184156;margin-top: auto;font-size: 1.25rem;
 margin-bottom: auto;" >
                         el proveedor recomendado!
                     </div>
                 </div>
-                <div class=" justify-content-center container" id="planes-destacados" >
+                <div class=" justify-content-center container p-3" id="planes-destacados" >
                  <high-plans></high-plans>
              </div>
             </section>
@@ -98,9 +98,10 @@ margin-bottom: auto;" >
                        
                     <div class="row  justify-content-center  pb-5  " style="align-items: center;">
                         <div class="col-12 col-sm-3 text-center">
-                            <h5 class="text-white ">Resolvemos todas tus <br> dudas en una llamada</h5>
-                            <h2 class="text-white">¡Contáctanos!</h2>
+                            <h5 class="text-white text-ws" style="font-weight: bold;">Resolvemos todas tus <br> dudas en una llamada</h5>
+                            <h2 class="text-white text-ws" style="font-weight: bold;">¡Contáctanos!</h2>
                         </div>
+
                         <div class="col-12 col-sm-4 px-3">
                              <input id="text-form" class="form-control mt-1  p-2"  type="text" name="" placeholder="Nombre"/>
                              <input id="text-form"  class="form-control  mt-1 p-2" type="text" name="" placeholder="Celular"/>
@@ -122,15 +123,6 @@ margin-bottom: auto;" >
                 
             </section>
         </div>
-
-
-
-        <!--div class="high-companies pt-4 pb-5 px-4">
-          <div class="d-flex w-100 align-items-center flex-column">
-            <h4 class="high-companies-color high-companies-title text-center">Prestadores de Servicio</h4>
-            <companies-slider />
-          </div>
-        </div-->
      
        
 

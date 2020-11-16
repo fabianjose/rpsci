@@ -437,6 +437,14 @@ a {
   max-height: 100px;
 }
 
+.vueperslide--active {
+  height: 110%;
+}
+
+.vueperslide--active .offer-card {
+  height: 500px;
+}
+
 #offer-cards .vueperslides__inner .vueperslides__parallax-wrapper {
   padding-bottom: 500px !important;
 }

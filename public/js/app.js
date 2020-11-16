@@ -2639,6 +2639,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -43176,8 +43177,9 @@ var render = function() {
       ref: "companiesSlider",
       staticClass: "no-shadow high-companies-carousel mt-4 text-center",
       attrs: {
-        autoplay: true,
-        duration: 2000,
+        autoplay: false,
+        "slide-multiple": "false",
+        duration: 1000,
         bullets: false,
         arrows: false,
         "visible-slides": _vm.companies.length < 4 ? _vm.companies.length : 4,
