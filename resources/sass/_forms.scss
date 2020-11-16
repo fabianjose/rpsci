@@ -7,15 +7,13 @@
 .main-search-form{
     height:auto;
     background-color: white;
-  /*  -webkit-box-shadow: 0px 0px 24px 0px rgb(0,194,214,0.35);
-    -moz-box-shadow: 0px 0px 24px 0px rgb(0,194,214,0.35);
-    box-shadow: 0px 0px 24px 0px rgb(0,194,214,0.35);*/
+border-image-source: linear-gradient(to top,  #00ffda,#06D1FC 100%);
+    border-image-slice: 1;
 
     border-radius: 20px;
     width: 80%;
     border-width: 3px;
   border-style: solid;
-  border-color: #00ffda;
   
    
 }
@@ -26,8 +24,6 @@
     }
 
 }
-
-
 
 .main-form-title-container:after {
     display: block;

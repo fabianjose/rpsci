@@ -16,7 +16,7 @@
                 </div>
                 <div class="form-group has-search ci-select-container col-md-6 col-sm-10 col-lg-2">
                     <span class="fa fa-tv form-control-feedback "></span>
-                    <select class="custom-select ci-select rounded-pill" v-model="service">
+                    <select class="custom-select ci-select" v-model="service">
                         <option value="" class="d-none" selected>Servicio</option>
                         <option v-for="(service,index) in services" :key="index"
                             :value="service.name">{{service.name}}
@@ -26,7 +26,7 @@
 
                 <div class="form-group has-search col-md-6 col-sm-10 col-lg-3">
                     <span class="fas fa-map-marker-alt form-control-feedback "></span>
-                    <select class="custom-select ci-select rounded-pill" v-model="department" @change="getMunicipalities">
+                    <select class="custom-select ci-select" v-model="department" @change="getMunicipalities">
                       <option value="" class="d-none" selected>Departamento</option>
                       <option v-for="(department,index) in departments" :key="index" :value="department.name">{{department.name}}</option>
                     </select>
@@ -46,8 +46,8 @@
                   
                 
                  <div class="form-group has-search col-md-6 col-sm-10 col-lg-1" @click="search" >
-                <i class="fa fa-search icon-btn">  </i>
-                <button class="btn btn-danger" style="border-radius:100px">
+                <i class="fa fa-search icon-btn" style="color: gray; background-color: transparent;">  </i>
+                <button class="btn " style="border-radius:100px; box-shadow: 0px 0px 2px 1px black,-1px 1px 2px 1px #00FFDA ;">
                    &nbsp;&nbsp;&nbsp;
                 </button>
             </div>

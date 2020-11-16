@@ -44595,7 +44595,7 @@ var render = function() {
                       expression: "service"
                     }
                   ],
-                  staticClass: "custom-select ci-select rounded-pill",
+                  staticClass: "custom-select ci-select",
                   on: {
                     change: function($event) {
                       var $$selectedVal = Array.prototype.filter
@@ -44656,7 +44656,7 @@ var render = function() {
                       expression: "department"
                     }
                   ],
-                  staticClass: "custom-select ci-select rounded-pill",
+                  staticClass: "custom-select ci-select",
                   on: {
                     change: [
                       function($event) {
@@ -44765,13 +44765,23 @@ var render = function() {
               on: { click: _vm.search }
             },
             [
-              _c("i", { staticClass: "fa fa-search icon-btn" }),
+              _c("i", {
+                staticClass: "fa fa-search icon-btn",
+                staticStyle: {
+                  color: "gray",
+                  "background-color": "transparent"
+                }
+              }),
               _vm._v(" "),
               _c(
                 "button",
                 {
-                  staticClass: "btn btn-danger",
-                  staticStyle: { "border-radius": "100px" }
+                  staticClass: "btn ",
+                  staticStyle: {
+                    "border-radius": "100px",
+                    "box-shadow":
+                      "0px 0px 2px 1px black,-1px 1px 2px 1px #00FFDA"
+                  }
                 },
                 [_vm._v("\n                  \n            ")]
               )
