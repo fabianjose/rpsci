@@ -1075,13 +1075,22 @@ a {
 }*/
 
 .mts-regular {
-  font-family: montserrat-regular !important;
+  font-family: "Work Sans", sans-serif;
 }
 
 body {
   scroll-behavior: smooth;
-  font-family: "Heebo regular";
+  font-family: "Work Sans", sans-serif;
   word-break: break-word;
   box-sizing: content-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Heebo", sans-serif;
 }
 
