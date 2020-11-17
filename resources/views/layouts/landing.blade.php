@@ -175,18 +175,11 @@
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12  my-2">
                   <h5 class="footer-title-color font-weight-bold text-ws ">FORMULARIO DE CONTACTO</h5>
                   <ul class="footer-list p-2">
-
-              
+                  <li><input type="text" placeholder="NOMBRE" class="form-control form-control-footer" name=""/></li>
+                   <li><input type="email" placeholder="EMAIL"  class="form-control form-control-footer" name=""/></li>
+                    <li><textarea placeholder="MENSAJE" class="form-control form-control-footer" name=""></textarea> </li>
+                     <li><button class="btn btn-footer mt-2 ">ENVIAR MENSAJE</button></li>
                   </ul>
-                   <div class="col-12 col-sm-12 px-3">
-                             <input id="text-form" class="form-control mt-1  p-2"  type="text" name="" placeholder="Nombre"/>
-                             <input id="text-form"  class="form-control  mt-1 p-2" type="text" name="" placeholder="Celular"/>
-                             <input id="text-form"  class="form-control  mt-1 p-2" type="text" name="" placeholder="Email"/>
-                        </div>
-                        <div class="col-12 col-sm-12">
-                            <button id="btn-enviar2" class="btn text-white" style="background: rgb(13,217,244);font-size: 15px;">Enviar mensaje</button>
-                        </div>
-              
                 </div>
               </div>
               <div class="row">

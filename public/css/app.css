@@ -405,6 +405,14 @@ a {
   color: #cdcdcd;
 }
 
+.btn-footer {
+  background-color: #0DD9F5;
+  font-family: "Work Sans", sans-serif;
+  font-weight: bold;
+  color: white;
+  box-shadow: black 2px 2px 6px;
+}
+
 .autocomplete__suggestions {
   z-index: 3 !important;
 }
@@ -930,6 +938,31 @@ a {
 #text-form::placeholder {
   font-family: "Work Sans", sans-serif;
   font-style: italic;
+}
+
+.form-control-footer {
+  margin-top: 3px;
+}
+
+.form-control-footer::-moz-placeholder {
+  color: #9B999F;
+  font-family: "Work Sans", sans-serif;
+  font-style: italic;
+  font-weight: lighter;
+}
+
+.form-control-footer:-ms-input-placeholder {
+  color: #9B999F;
+  font-family: "Work Sans", sans-serif;
+  font-style: italic;
+  font-weight: lighter;
+}
+
+.form-control-footer::placeholder {
+  color: #9B999F;
+  font-family: "Work Sans", sans-serif;
+  font-style: italic;
+  font-weight: lighter;
 }
 
 .text-main-blue {

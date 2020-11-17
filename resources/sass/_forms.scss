@@ -95,3 +95,12 @@ margin-top: 5px;
     font-family: 'Work Sans', sans-serif;
     font-style: italic;
   }
+.form-control-footer{
+    margin-top: 3px;
+}
+.form-control-footer::placeholder{
+    color: #9B999F;
+    font-family: 'Work Sans', sans-serif;
+    font-style: italic;
+    font-weight: lighter;
+}

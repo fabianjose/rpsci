@@ -11,6 +11,4 @@ class Service extends Model{
     'fields',
     'trash'
   ];
-
-
 }
