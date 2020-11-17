@@ -78,3 +78,12 @@ box-shadow: 0 3px 3px #06D1FC, ease-in-out 0 2px 2px #00FFDA ;
     font-family: 'Work Sans', sans-serif;
     font-style: italic;
   }
+.form-control-footer{
+    margin-top: 3px;
+}
+.form-control-footer::placeholder{
+    color: #9B999F;
+    font-family: 'Work Sans', sans-serif;
+    font-style: italic;
+    font-weight: lighter;
+}
