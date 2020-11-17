@@ -133,9 +133,9 @@
           <div class="d-flex flex-column align-items-center">
           
             <div class="d-flex w-100 flex-wrap justify-content-bewtween">
-              <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 my-2" style="text-align: center;">
+              <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 my-3" style="text-align: center;">
                    <div class="text-center">
-              <img src="{{asset('images/fondo_azul_contrata.png')}}" class="img-responsive text-center" style="max-width: 80%;">
+              <img src="{{asset('images/fondo_azul_contrata.png')}}" class="img-responsive text-center" style="max-width: 100%;">
              
             </div>
                
@@ -148,7 +148,7 @@
 
               </div>
               <ul class="list-unstyled text-ws footer-title-color mt-2">
-                <li class="list-item" style="font-variant: bold; font-size: 12px;">Correo Electrónico: contacto@contratainternet.co</li>
+                <li class="list-item" style="font-variant: bold; font-size: 18px;">contacto@contratainternet.co</li>
                     <li class="list-item" style="font-variant: bold; font-size: 12px;">PBX: +57 (1) 7868510</li>
              </ul>
               </div>
@@ -173,7 +173,7 @@
 
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12  my-2">
-                  <h5 class="footer-title-color font-weight-bold text-ws ">FORMULARIO DE CONTACTO</h5>
+                  <h5 class="footer-title-color font-weight-bold text-ws " style="text-align: center;">FORMULARIO DE CONTACTO</h5>
                   <ul class="footer-list p-2">
                   <li><input type="text" placeholder="NOMBRE" class="form-control form-control-footer" name=""/></li>
                    <li><input type="email" placeholder="EMAIL"  class="form-control form-control-footer" name=""/></li>

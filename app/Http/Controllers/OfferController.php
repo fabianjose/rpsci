@@ -30,7 +30,7 @@ class OfferController extends Controller{
       "fields_values.*.field_id"=> "required|exists:fields,id",
       'tariff' => ['required', 'integer', "min:0.1" , "max:9999999999"],
       'points' => ['integer','min:0,max:5'],
-      'type' => ['nullable', 'in:private,company'],
+      'type' => ['nullable', 'in:private,company,isp,pyme'],
       'departments' => ['nullable', 'json'],
       'departments.*' => ["string|exists:departments,name"],
       'municipalities' => ['nullable', 'json'],

@@ -37,7 +37,7 @@
                             <div class="row align-items-start justify-content-center text-white">
                                 <div class="rounded-circle about-number p-1 mb-1 text-center bg-dark-blue">1</div>
                                 <p class="btn" class="col-12 col-md-8 col-lg-8 about-text  mt-1" style="font-size:11px; background-color:#565656; color:white" >
-                                   Selecciona Hogar o Empresa
+                                   Selecciona Hogar,Empresa,Isp o Pyme
                                 </p>
                             </div>
                         </div>

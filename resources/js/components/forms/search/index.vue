@@ -5,15 +5,15 @@
            
             <div class="d-flex flex-row flex-wrap justify-content-around py-3 pt-4 px-1">
                
-               <div class=" text-center text-heebo custom-control custom-radio form-group has-search col-md-6 col-sm-10 col-lg-1" @click="offerType='private';" >
-                    <input type="radio" class="custom-control-input" :checked="offerType=='isp'" id="privateOffer" >
-                    <label class="custom-control-label" style="font-weight: medium;color: #606060;" for="privateOffer">ISP</label>
+               <div class=" text-center text-heebo custom-control custom-radio form-group has-search col-md-6 col-sm-10 col-lg-1" @click="offerType='isp';" >
+                    <input type="radio" class="custom-control-input" :checked="offerType=='isp'" id="ispOffer" >
+                    <label class="custom-control-label" style="font-weight: medium;color: #606060;" for="ispOffer">ISP</label>
                 </div>
-                <div class=" text-center text-heebo custom-control custom-radio form-group has-search col-md-6 col-sm-10 col-lg-1" @click="offerType='otra';" >
-                    <input type="radio" class="custom-control-input" :checked="offerType=='Pyme'" id="privateOffer" >
-                    <label class="custom-control-label" style="font-weight: medium;color: #606060;" for="privateOffer">Pyme</label>
+                <div class=" text-center text-heebo custom-control custom-radio form-group has-search col-md-6 col-sm-10 col-lg-1" @click="offerType='Pyme';" >
+                    <input type="radio" class="custom-control-input" :checked="offerType=='Pyme'" id="pymeOffer" >
+                    <label class="custom-control-label" style="font-weight: medium;color: #606060;" for="pymeOffer">Pyme</label>
                 </div>
-                <div class=" text-center text-heebo custom-control custom-radio form-group has-search col-md-6 col-sm-10 col-lg-1" @click="offerType='isp';" >
+                <div class=" text-center text-heebo custom-control custom-radio form-group has-search col-md-6 col-sm-10 col-lg-1" @click="offerType='private';" >
                     <input type="radio" class="custom-control-input" :checked="offerType=='private'" id="privateOffer" >
                     <label class="custom-control-label" style="font-weight: medium;color: #606060;" for="privateOffer">Hogar</label>
                 </div>

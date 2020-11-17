@@ -6336,6 +6336,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['services'],
   data: function data() {
@@ -44537,14 +44539,14 @@ var render = function() {
                 " text-center text-heebo custom-control custom-radio form-group has-search col-md-6 col-sm-10 col-lg-1",
               on: {
                 click: function($event) {
-                  _vm.offerType = "private"
+                  _vm.offerType = "isp"
                 }
               }
             },
             [
               _c("input", {
                 staticClass: "custom-control-input",
-                attrs: { type: "radio", id: "privateOffer" },
+                attrs: { type: "radio", id: "ispOffer" },
                 domProps: { checked: _vm.offerType == "isp" }
               }),
               _vm._v(" "),
@@ -44553,7 +44555,7 @@ var render = function() {
                 {
                   staticClass: "custom-control-label",
                   staticStyle: { "font-weight": "medium", color: "#606060" },
-                  attrs: { for: "privateOffer" }
+                  attrs: { for: "ispOffer" }
                 },
                 [_vm._v("ISP")]
               )
@@ -44567,14 +44569,14 @@ var render = function() {
                 " text-center text-heebo custom-control custom-radio form-group has-search col-md-6 col-sm-10 col-lg-1",
               on: {
                 click: function($event) {
-                  _vm.offerType = "otra"
+                  _vm.offerType = "Pyme"
                 }
               }
             },
             [
               _c("input", {
                 staticClass: "custom-control-input",
-                attrs: { type: "radio", id: "privateOffer" },
+                attrs: { type: "radio", id: "pymeOffer" },
                 domProps: { checked: _vm.offerType == "Pyme" }
               }),
               _vm._v(" "),
@@ -44583,7 +44585,7 @@ var render = function() {
                 {
                   staticClass: "custom-control-label",
                   staticStyle: { "font-weight": "medium", color: "#606060" },
-                  attrs: { for: "privateOffer" }
+                  attrs: { for: "pymeOffer" }
                 },
                 [_vm._v("Pyme")]
               )
@@ -44597,7 +44599,7 @@ var render = function() {
                 " text-center text-heebo custom-control custom-radio form-group has-search col-md-6 col-sm-10 col-lg-1",
               on: {
                 click: function($event) {
-                  _vm.offerType = "isp"
+                  _vm.offerType = "private"
                 }
               }
             },
@@ -49497,6 +49499,14 @@ var render = function() {
                           _vm._v(" "),
                           _c("option", { attrs: { value: "company" } }, [
                             _vm._v("Empresa")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "isp" } }, [
+                            _vm._v("ISP")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "pyme" } }, [
+                            _vm._v("Pyme")
                           ])
                         ]
                       )

@@ -492,6 +492,7 @@ a {
   border-radius: 40px;
   background-color: white;
   box-shadow: 0px 0px 3px 0px #606060;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
 }
 
 @media (max-width: 450px) {
@@ -547,6 +548,7 @@ a {
   font-size: 1rem;
   height: 90px;
   overflow-y: visible;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
 
 .offer-card-logo {
