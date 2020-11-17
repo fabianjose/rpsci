@@ -6336,6 +6336,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['services'],
   data: function data() {
@@ -44541,8 +44543,8 @@ var render = function() {
             [
               _c("input", {
                 staticClass: "custom-control-input",
-                attrs: { type: "radio", id: "privateOffer" },
-                domProps: { checked: _vm.offerType == "private" }
+                attrs: { type: "radio", id: "ispOffer" },
+                domProps: { checked: _vm.offerType == "ips" }
               }),
               _vm._v(" "),
               _c(
@@ -44550,7 +44552,7 @@ var render = function() {
                 {
                   staticClass: "custom-control-label",
                   staticStyle: { "font-weight": "medium", color: "#606060" },
-                  attrs: { for: "privateOffer" }
+                  attrs: { for: "ispOffer" }
                 },
                 [_vm._v("isp")]
               )
@@ -44564,15 +44566,15 @@ var render = function() {
                 " text-center text-heebo custom-control custom-radio form-group has-search col-md-6 col-sm-10 col-lg-1",
               on: {
                 click: function($event) {
-                  _vm.offerType = "private"
+                  _vm.offerType = "other"
                 }
               }
             },
             [
               _c("input", {
                 staticClass: "custom-control-input",
-                attrs: { type: "radio", id: "privateOffer" },
-                domProps: { checked: _vm.offerType == "private" }
+                attrs: { type: "radio", id: "otherOffer" },
+                domProps: { checked: _vm.offerType == "other" }
               }),
               _vm._v(" "),
               _c(
@@ -49494,6 +49496,14 @@ var render = function() {
                           _vm._v(" "),
                           _c("option", { attrs: { value: "company" } }, [
                             _vm._v("Empresa")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "isp" } }, [
+                            _vm._v("ISP")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "others" } }, [
+                            _vm._v("Otro")
                           ])
                         ]
                       )

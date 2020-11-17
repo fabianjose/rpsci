@@ -70,6 +70,8 @@
                 <option :value="null" selected>Todos</option>
                 <option value="private">Hogar</option>
                 <option value="company">Empresa</option>
+                <option value="isp">ISP</option>
+                <option value="other">Otro</option>
               </select>
             </div>
             <div class="form-group col-xl-4 col-lg-4 col-md-6 col-12">
