@@ -452,7 +452,7 @@ a {
 }
 
 .vueperslide--active .offer-card {
-  height: 450px;
+  height: 500px;
   transition: height 1s;
 }
 
