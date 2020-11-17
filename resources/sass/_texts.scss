@@ -6,6 +6,15 @@
     color: $dark-blue;
 }
 
+
+.text-ws{
+   font-family: 'Work Sans', sans-serif;
+}
+
+
+.text-heebo{
+    font-family: 'Heebo', sans-serif;
+}
 .text-dark-gray{
     color: $dark-gray;
 }
@@ -36,6 +45,20 @@
     
 }
 
+
+.text-item-list{
+    font-size: 1.25rem;
+    font-weight: bold;
+    font-family: "Work Sans", sans-serif;
+    color: #D6D8DB;
+}
+.text-item-list a{
+    font-size: 0.8rem;
+    font-weight: bold;
+    font-family: "Work Sans", sans-serif;
+    text-transform: uppercase;
+    color: #D6D8DB;
+}
 .offer-table-label{
     font-size: .7rem;
 }

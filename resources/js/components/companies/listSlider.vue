@@ -1,9 +1,10 @@
 <template>
   <vueper-slides
     class="no-shadow high-companies-carousel mt-4 text-center"
-    :autoplay="true"
+    :autoplay="false"
+    slide-multiple="false"
     ref="companiesSlider"
-    :duration="2000"
+    :duration="1000"
     :bullets="false"
     :arrows="false"
     :visible-slides="(companies.length < 4)?companies.length:4"
@@ -29,7 +30,7 @@ export default {
       breakpoints:{
         1200: {
           visibleSlides:3,
-          slideRatio:0.15
+          slideRatio:0.15,
         },
         900: {
           visibleSlides:2,

@@ -31,11 +31,11 @@
             <div class="about-section" style="background: transparent;">
                 <div class="d-flex flex-column about-sub py-5 p-3" style="padding-left: 100px;
     padding-right: 100px;">
-                    <div class="d-flex flex-row flex-wrap justify-content-center py-3"  style="    margin-top: -50px; padding-left: 100px;
+                    <div class="d-flex flex-row flex-wrap justify-content-center py-2 text-heebo"  style="    margin-top: -50px; padding-left: 100px;
     padding-right: 100px;">
                         <div class="col-8 col-sm-3 col-md-3 col-lg-3 p-2 my-2">
                             <div class="row align-items-start justify-content-center text-white">
-                                <div class="rounded-circle about-number p-1 mb-2 text-center bg-dark-blue">1</div>
+                                <div class="rounded-circle about-number p-1 mb-1 text-center bg-dark-blue">1</div>
                                 <p class="btn" class="col-12 col-md-8 col-lg-8 about-text mb-2 mt-1" style="font-size:11px; background-color:#565656; color:white" >
                                    Selecciona Hogar o Empresa
                                 </p>
@@ -43,7 +43,7 @@
                         </div>
                         <div class="col-8 col-sm-3 col-md-3 col-lg-3 p-2 my-2">
                             <div class="row align-items-start justify-content-center text-white">
-                                <div class="rounded-circle about-number p-1 mb-2 text-center bg-dark-blue">2</div>
+                                <div class="rounded-circle about-number p-1 mb-1 text-center bg-dark-blue">2</div>
                                 <p class="btn" class="col-12 col-md-8 col-lg-8 about-text mb-2 mt-1" style="font-size:11px; background-color:#565656; color:white" >
                                     Seleccione el tipo de servicio
                                 </p>
@@ -51,7 +51,7 @@
                         </div>
                         <div class="col-8 col-sm-3 col-md-3 col-lg-3 p-2 my-2">
                             <div class="row align-items-start justify-content-center text-white">
-                                <div class="rounded-circle about-number p-1 mb-2 text-center bg-dark-blue">3</div>
+                                <div class="rounded-circle about-number p-1 mb-1 text-center bg-dark-blue">3</div>
                                 <p class="btn" class="col-12 col-md-8 col-lg-8 about-text mb-2 mt-1" style="font-size:11px; background-color:#565656; color:white" >
                                    Selecciona Departamento y Municipìo
                                 </p>
@@ -59,7 +59,7 @@
                         </div>
                         <div class="col-8 col-sm-3 col-md-3 col-lg-3 p-2 my-2">
                             <div class="row align-items-start justify-content-center text-white">
-                                <div class="rounded-circle about-number p-1 mb-2 text-center bg-dark-blue">4</div>
+                                <div class="rounded-circle about-number p-1 mb-1 text-center bg-dark-blue">4</div>
                                 <p class="btn" class="col-12 col-md-8 col-lg-8 about-text mb-2 mt-1" style="font-size:11px; background-color:#565656; color:white"  >
                                    Encuentra la Mejor Opción
                                 </p>
@@ -73,22 +73,24 @@
                     @endif
                 </div>
             </div>
-            <section class="section-search mb-3" style="min-height: 400px; padding-top: 15%;margin-top: -8%;">
+            <section class="section-search mb-3" style="min-height: 500px; padding-top: 15%;margin-top: -8%;">
                 <div class="row justify-content-center">
-                    <div class="col-3 text-right">
-                        ¡Pulsa el Botón y Encuentra
+                    <div class="col-3 text-right text-ws" style="font-weight: 600;color: #184156;margin-top: auto;font-size: 1.25rem;
+margin-bottom: auto;">
+                        ¡Pulsa el Botón y <br> Encuentra
                     </div>
-                    <div class="col-2 text-center" >
+                    <div class="col-2 text-center " >
                         <a class="btn-rounded">
 
                         <img  src="{{ asset('images/button_contrata_internet.jpg') }}" style="max-width: 100%;">
                         </a>
                     </div>
-                    <div class="col-3 text-left btn">
-                        el proveedor recomendado!
+                    <div class="col-3 text-left text-ws" style="font-weight: 600;color: #184156;margin-top: auto;font-size: 1.25rem;
+margin-bottom: auto;" >
+                        el proveedor <br> recomendado!
                     </div>
                 </div>
-                <div class=" justify-content-center container" id="planes-destacados" >
+                <div class=" justify-content-center container p-3" id="planes-destacados" >
                  <high-plans></high-plans>
              </div>
             </section>
@@ -96,9 +98,10 @@
                        
                     <div class="row  justify-content-center  pb-5  " style="align-items: center;">
                         <div class="col-12 col-sm-3 text-center">
-                            <h5 class="text-white ">Resolvemos todas tus <br> dudas en una llamada</h5>
-                            <h2 class="text-white">¡Contáctanos!</h2>
+                            <h5 class="text-white text-ws" style="font-weight: bold; font-size:25px ">Resolvemos todas tus <br> dudas en una llamada</h5>
+                            <h2 class="text-white text-ws" style="font-weight: bold;font-size:30px ">¡Contáctanos!</h2>
                         </div>
+
                         <div class="col-12 col-sm-4 px-3">
                              <input id="text-form" class="form-control mt-1  p-2"  type="text" name="" placeholder="Nombre"/>
                              <input id="text-form"  class="form-control  mt-1 p-2" type="text" name="" placeholder="Celular"/>
@@ -115,20 +118,11 @@
             <div class="bg-ic d-flex flex-row justify-content-around flex-wrap align-items-center">
                 <config-counters :counters="{{json_encode($configs)}}" class="col-10 col-sm-10 col-md-7 col-lg-7 col-xl-7"></config-counters>
             </div>
-            <section class="section-blog">
-                <h1 class="text-center">Nuestras Publicaciones de Blog</h1>
+            <section class="section-blog" style="padding-top: 3rem;">
+                <h1 class="text-center text-ws" style="font-weight: 800;">Nuestras Publicaciones de Blog</h1>
                 
             </section>
         </div>
-
-
-
-        <!--div class="high-companies pt-4 pb-5 px-4">
-          <div class="d-flex w-100 align-items-center flex-column">
-            <h4 class="high-companies-color high-companies-title text-center">Prestadores de Servicio</h4>
-            <companies-slider />
-          </div>
-        </div-->
      
        
 

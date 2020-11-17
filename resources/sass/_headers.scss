@@ -1,6 +1,7 @@
 
 .ic-main{
     font-size: 1rem;
+    font-family: 'Work Sans', sans-serif;
 /*    color: $dark-blue;*/
     text-align: center;
 }
@@ -51,10 +52,19 @@ a{
         display: none;
     }
 
+    .section-form{
+        text-align: center;
+        
+    }
+    #btn-enviar{
+        
+        margin-top: 20px;
+    }
+
     
 }
 
 .navbar-expand-md .navbar-nav .nav-link {
     padding-right: 1rem;
-    padding-left: 0.75rem;
+    padding-left: 2.3rem;
 }
