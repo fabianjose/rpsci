@@ -73,7 +73,24 @@ box-shadow: 0 3px 3px #06D1FC, ease-in-out 0 2px 2px #00FFDA ;
     -webkit-box-shadow: 1px 5px 8px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 1px 5px 8px 0px rgba(0,0,0,0.75);
     box-shadow: 1px 5px 8px 0px rgba(0,0,0,0.75);
+    font-family: 'Work Sans', sans-serif;
 }
+
+
+#btn-enviar2{
+    
+    -webkit-box-shadow: 1px 5px 8px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 5px 8px 0px rgba(0,0,0,0.75);
+    box-shadow: 1px 5px 8px 0px rgba(0,0,0,0.75);
+    font-family: 'Work Sans', sans-serif;
+    
+margin-left: 9px;
+margin-top: 5px;
+}
+
+
+
+
 #text-form::placeholder {
     font-family: 'Work Sans', sans-serif;
     font-style: italic;

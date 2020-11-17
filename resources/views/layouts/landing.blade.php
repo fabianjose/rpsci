@@ -22,7 +22,7 @@
               <!--  <a href=""> <i class="fab fa-facebook-f i-c-main mx-2 text-white text-lg"></i>  </a> -->
 
                 
-                <div   style="padding: 5px; border: 1px solid rgb(12,207,244) ; font-family: 'Work Sans', sans-serif;  ">Correo Electrónico: contacto@contratainternet.co</div>
+                <div  style="padding: 5px; border: 1px solid rgb(12,207,244) ; font-family: 'Work Sans', sans-serif" >Correo Electrónico: contacto@contratainternet.co</div>
 
                 <div    style="padding: 5px;    border: 1px solid rgb(12,207,244); font-family: 'Work Sans', sans-serif;">PBX: +57 123 123 123</div>
 
@@ -133,9 +133,9 @@
           <div class="d-flex flex-column align-items-center">
           
             <div class="d-flex w-100 flex-wrap justify-content-bewtween">
-              <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 my-2">
+              <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 my-2" style="text-align: center;">
                    <div class="text-center">
-              <img src="{{asset('images/fondo_azul_contrata.png')}}" class="img-responsive text-center" style="max-width: 100%;">
+              <img src="{{asset('images/fondo_azul_contrata.png')}}" class="img-responsive text-center" style="max-width: 80%;">
              
             </div>
                
@@ -155,7 +155,7 @@
               <div class="col-xl-8 col-lg-8 col-md-8 col-sm-10 col-12  my-2 ">
                 <div class="row container">
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12  my-2">
-                  <h5 class="footer-title-color text-center text-ws font-weight-bold" style="font-weight: bold;">SERVICIOS DISPONIBLES</h5>
+                  <h5 class="footer-title-color text-left text-ws font-weight-bold" style="font-weight: bold;">SERVICIOS DISPONIBLES</h5>
                   <ul class="footer-title-color font-weight-bold text-ws mt-2 list-unstyled" style="font-size: 1.25rem;">
                   <li class="">INTERNET
                   </li>

@@ -77,7 +77,7 @@
                 <div class="row justify-content-center">
                     <div class="col-3 text-right text-ws" style="font-weight: 600;color: #184156;margin-top: auto;font-size: 1.25rem;
 margin-bottom: auto;">
-                        ¡Pulsa el Botón y Encuentra
+                        ¡Pulsa el Botón y <br> Encuentra
                     </div>
                     <div class="col-2 text-center " >
                         <a class="btn-rounded">
@@ -87,7 +87,7 @@ margin-bottom: auto;">
                     </div>
                     <div class="col-3 text-left text-ws" style="font-weight: 600;color: #184156;margin-top: auto;font-size: 1.25rem;
 margin-bottom: auto;" >
-                        el proveedor recomendado!
+                        el proveedor <br> recomendado!
                     </div>
                 </div>
                 <div class=" justify-content-center container p-3" id="planes-destacados" >
@@ -98,8 +98,8 @@ margin-bottom: auto;" >
                        
                     <div class="row  justify-content-center  pb-5  " style="align-items: center;">
                         <div class="col-12 col-sm-3 text-center">
-                            <h5 class="text-white text-ws" style="font-weight: bold;">Resolvemos todas tus <br> dudas en una llamada</h5>
-                            <h2 class="text-white text-ws" style="font-weight: bold;">¡Contáctanos!</h2>
+                            <h5 class="text-white text-ws" style="font-weight: bold; font-size:25px ">Resolvemos todas tus <br> dudas en una llamada</h5>
+                            <h2 class="text-white text-ws" style="font-weight: bold;font-size:30px ">¡Contáctanos!</h2>
                         </div>
 
                         <div class="col-12 col-sm-4 px-3">
