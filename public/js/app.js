@@ -44536,7 +44536,7 @@ var render = function() {
                 " text-center text-heebo custom-control custom-radio form-group has-search col-md-6 col-sm-10 col-lg-1",
               on: {
                 click: function($event) {
-                  _vm.offerType = "private"
+                  _vm.offerType = "isp"
                 }
               }
             },
@@ -44582,7 +44582,7 @@ var render = function() {
                 {
                   staticClass: "custom-control-label",
                   staticStyle: { "font-weight": "medium", color: "#606060" },
-                  attrs: { for: "privateOffer" }
+                  attrs: { for: "otherOffer" }
                 },
                 [_vm._v("otra")]
               )
@@ -49502,7 +49502,7 @@ var render = function() {
                             _vm._v("ISP")
                           ]),
                           _vm._v(" "),
-                          _c("option", { attrs: { value: "others" } }, [
+                          _c("option", { attrs: { value: "other" } }, [
                             _vm._v("Otro")
                           ])
                         ]
