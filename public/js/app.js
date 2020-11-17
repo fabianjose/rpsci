@@ -46242,7 +46242,7 @@ var render = function() {
           "h6",
           {
             staticClass: "col-12 offer-card-benefits text-wrap",
-            staticStyle: { "font-family": "Montserrat-regular" }
+            staticStyle: { "font-family": "heebo" }
           },
           [_vm._v(_vm._s(_vm.offer.benefits))]
         )
