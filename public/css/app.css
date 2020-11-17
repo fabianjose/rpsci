@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);@import url(https://fonts.googleapis.com/css2?family=Work+Sans:wght@500&display=swap);.image-logo-banner {
+@import url(https://fonts.googleapis.com/css?family=Nunito);@import url(https://fonts.googleapis.com/css2?family=Work+Sans:wght@500&display=swap);@import url(https://fonts.googleapis.com/css2?family=Heebo&display=swap);.image-logo-banner {
   max-width: 100%;
   max-height: 70px;
 }
@@ -457,6 +457,7 @@ a {
   height: 105%;
   padding-top: 5%;
   transition: height 1s;
+  margin-top: -80px;
 }
 
 .vueperslide--active .offer-card {
@@ -548,7 +549,6 @@ a {
   font-size: 1rem;
   height: 90px;
   overflow-y: visible;
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
 
 .offer-card-logo {

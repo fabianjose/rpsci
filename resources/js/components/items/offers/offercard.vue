@@ -9,7 +9,7 @@
         <h6 class="col-12 offer-card-title">{{offer.company_name}}</h6>
       </div>
       <div class="row">
-        <h6 class="col-12 offer-card-benefits text-wrap" style="font-family:Montserrat-regular">{{offer.benefits}}</h6>
+        <h6 class="col-12 offer-card-benefits text-wrap" style="font-family:heebo">{{offer.benefits}}</h6>
       </div> 
       <div class="row">
         <h5 class="col-12 offer-card-price">$ {{showPrice(offer.tariff)}}</h5>
