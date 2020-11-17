@@ -44544,7 +44544,7 @@ var render = function() {
               _c("input", {
                 staticClass: "custom-control-input",
                 attrs: { type: "radio", id: "ispOffer" },
-                domProps: { checked: _vm.offerType == "ips" }
+                domProps: { checked: _vm.offerType == "isp" }
               }),
               _vm._v(" "),
               _c(
@@ -44554,7 +44554,7 @@ var render = function() {
                   staticStyle: { "font-weight": "medium", color: "#606060" },
                   attrs: { for: "ispOffer" }
                 },
-                [_vm._v("isp")]
+                [_vm._v("ISP")]
               )
             ]
           ),
@@ -44566,15 +44566,15 @@ var render = function() {
                 " text-center text-heebo custom-control custom-radio form-group has-search col-md-6 col-sm-10 col-lg-1",
               on: {
                 click: function($event) {
-                  _vm.offerType = "other"
+                  _vm.offerType = "Pyme"
                 }
               }
             },
             [
               _c("input", {
                 staticClass: "custom-control-input",
-                attrs: { type: "radio", id: "otherOffer" },
-                domProps: { checked: _vm.offerType == "other" }
+                attrs: { type: "radio", id: "pymeOffer" },
+                domProps: { checked: _vm.offerType == "Pyme" }
               }),
               _vm._v(" "),
               _c(
@@ -44582,9 +44582,9 @@ var render = function() {
                 {
                   staticClass: "custom-control-label",
                   staticStyle: { "font-weight": "medium", color: "#606060" },
-                  attrs: { for: "otherOffer" }
+                  attrs: { for: "pymeOffer" }
                 },
-                [_vm._v("otra")]
+                [_vm._v("Pyme")]
               )
             ]
           ),
@@ -49502,8 +49502,8 @@ var render = function() {
                             _vm._v("ISP")
                           ]),
                           _vm._v(" "),
-                          _c("option", { attrs: { value: "other" } }, [
-                            _vm._v("Otro")
+                          _c("option", { attrs: { value: "pyme" } }, [
+                            _vm._v("Pyme")
                           ])
                         ]
                       )
