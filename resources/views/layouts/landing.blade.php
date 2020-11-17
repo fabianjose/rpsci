@@ -175,6 +175,10 @@
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12  my-2">
                   <h5 class="footer-title-color font-weight-bold text-ws ">FORMULARIO DE CONTACTO</h5>
                   <ul class="footer-list p-2">
+                  <li><input type="text" placeholder="NOMBRE" class="form-control" name=""/></li>
+                   <li><input type="email" placeholder="EMAIL" class="form-control" name=""/></li>
+                    <li><textarea placeholder="MENSAJE" class="form-control" name=""></textarea> </li>
+                     <li><button class="btn ">ENVIAR MENSAJE</button></li>
                   </ul>
                 </div>
               </div>
