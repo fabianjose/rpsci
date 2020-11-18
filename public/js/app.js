@@ -4161,7 +4161,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       consultMode: false,
       breakpoints: {
         1200: {
-          visibleSlides: 4,
+          visibleSlides: 3,
           slideRatio: 0.55
         },
         900: {
@@ -45337,10 +45337,7 @@ var render = function() {
   return _c("div", { staticClass: "d-flex flex-column align-items-center" }, [
     _c(
       "h2",
-      {
-        staticClass: "text-center text-white counter-value text-heebo",
-        staticStyle: { "font-weight": "700" }
-      },
+      { staticClass: "text-center text-white counter-value text-heebo" },
       [
         _vm._v(
           "+" + _vm._s(_vm.showPrice(_vm.getCounterValue(_vm.counterValue)))
@@ -45351,9 +45348,7 @@ var render = function() {
     _c(
       "h6",
       {
-        staticClass:
-          "text-center mt-2 text-sm text-white text-ws counter-label",
-        staticStyle: { "font-weight": "400" }
+        staticClass: "text-center mt-2 text-sm text-white text-ws counter-label"
       },
       [_vm._v(_vm._s(_vm.counter.label))]
     )

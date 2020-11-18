@@ -5,13 +5,13 @@
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="{{asset('images/main-bg2.jpg')}}" class="d-block w-100" alt="...">
+      <img src="{{asset('images/fondo2.png')}}" class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="{{asset('images/main-bg2.jpg')}}" class="d-block w-100" alt="...">
+      <img src="{{asset('images/fondo2.png')}}" class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="{{asset('images/main-bg2.jpg')}}" class="d-block w-100" alt="...">
+      <img src="{{asset('images/fondo2.png')}}" class="d-block w-100" alt="...">
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -70,9 +70,17 @@
                     @else
                     <search-form />
                     @endif
+                    
                 </div>
+                <section>
+                <div class="bg-ic d-flex flex-row justify-content-around flex-wrap align-items-center" style="z-index:3">
+                          <config-counters :counters="{{json_encode($configs)}}" class="col-10 col-sm-10 col-md-7 col-lg-7 col-xl-7"></config-counters>
+                     </div>
+                </section>
+             
             </div>
-            <section class="section-search mb-3" style="min-height: 500px; padding-top: 15%;margin-top: -8%;">
+            
+            <section class="section-search mb-3" style="min-height: 500px; padding-top: 0%;margin-top: 0%;">
                 
                     
                 <div class=" justify-content-center container p-3" id="planes-destacados" >
@@ -100,13 +108,12 @@
                 
             </section>
 
-            <div class="bg-ic d-flex flex-row justify-content-around flex-wrap align-items-center">
-                <config-counters :counters="{{json_encode($configs)}}" class="col-10 col-sm-10 col-md-7 col-lg-7 col-xl-7"></config-counters>
-            </div>
+          
             <section class="section-blog" style="padding-top: 3rem;">
                 <h1 class="text-center text-ws" style="font-weight: 800;">Nuestras Publicaciones de Blog</h1>
                 
             </section>
+           
         </div>
      
        

@@ -165,6 +165,9 @@ a {
   align-items: center;
   justify-content: center;
   display: flex;
+  z-index: 3;
+  margin-top: -124px;
+  height: 300px;
 }
 
 .bg-dark-blue {
@@ -1135,13 +1138,17 @@ a {
 .counters-container {
   display: flex;
   padding: 1.4rem 0;
-  margin-top: 1rem;
+  margin-top: 3rem;
   flex-wrap: wrap;
   justify-content: space-around;
 }
 
 .counter-value {
-  font-size: 2rem;
+  font-size: 3rem;
+}
+
+.counter-label {
+  font-size: 1.3rem !important;
 }
 
 .whatsapp {

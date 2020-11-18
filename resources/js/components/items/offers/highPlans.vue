@@ -44,7 +44,7 @@ export default {
       consultMode:false,
       breakpoints:{
         1200: {
-          visibleSlides:4,
+          visibleSlides:3,
           slideRatio:0.55
         },
         900: {
