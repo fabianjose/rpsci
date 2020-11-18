@@ -46383,7 +46383,8 @@ var staticRenderFns = [
           staticStyle: {
             "font-family": "'Heebo'",
             color: "#5b5b5f",
-            "margin-top": "-18px"
+            "margin-top": "-18px",
+            "font-weight": "800"
           }
         },
         [_vm._v("30 Mbps")]
@@ -46411,7 +46412,8 @@ var staticRenderFns = [
           staticStyle: {
             "font-family": "'Heebo'",
             color: "#5b5b5f",
-            "margin-top": "-19px"
+            "margin-top": "-19px",
+            "font-weight": "800"
           }
         },
         [_vm._v("174 Canales")]
@@ -46439,7 +46441,8 @@ var staticRenderFns = [
           staticStyle: {
             "font-family": "'Heebo'",
             color: "#5b5b5f",
-            "margin-top": "-19px"
+            "margin-top": "-19px",
+            "font-weight": "800"
           }
         },
         [_vm._v("ILIMITADA")]

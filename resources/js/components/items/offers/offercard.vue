@@ -14,7 +14,7 @@
        <!--  <h6 class="col-12 offer-card-benefits text-wrap" style="font-family:heebo">{{offer.benefits}}</h6>-->
         <p class="col-12" style="font-family: 'Heebo';    margin-top: -9px; color:#88868b">velocidad</p>
         <!-- <h6 class="col-12 offer-card-title">{{offer.company_name}}</h6>  ACA VA EL VALOR DE LA VELOCIDAD -->
-        <h1 class="col-12 " style="font-family: 'Heebo';    color: #5b5b5f;    margin-top: -18px;">30 Mbps</h1>
+        <h1 class="col-12 " style="font-family: 'Heebo';    color: #5b5b5f;    margin-top: -18px; font-weight: 800;">30 Mbps</h1>
       </div> 
           <div :class="'offer-card-separator '+(index%2?'bg-main-blue':'bg-main-pink')"></div>
 
@@ -22,7 +22,7 @@
        <!--  <h6 class="col-12 offer-card-benefits text-wrap" style="font-family:heebo">{{offer.benefits}}</h6>-->
         <p class="col-12 " style="font-family: 'Heebo';    color:#88868b">Cantidad de Canales</p>
         <!-- <h6 class="col-12 offer-card-title">{{offer.company_name}}</h6>  ACA VA EL VALOR DE CANALES DE BASE DEDATOS -->
-        <h1 class="col-12 " style="font-family: 'Heebo';    color: #5b5b5f;     margin-top: -19px;    ">174 Canales</h1>
+        <h1 class="col-12 " style="font-family: 'Heebo';    color: #5b5b5f;     margin-top: -19px;  font-weight: 800;   ">174 Canales</h1>
       </div> 
 
          <div :class="'offer-card-separator '+(index%2?'bg-main-blue':'bg-main-pink')"></div>
@@ -31,7 +31,7 @@
        <!--  <h6 class="col-12 offer-card-benefits text-wrap" style="font-family:heebo">{{offer.benefits}}</h6>-->
         <p class="col-12 " style="font-family: 'Heebo';    color:#88868b">Telefonia</p>
         <!-- <h6 class="col-12 offer-card-title">{{offer.company_name}}</h6>  ACA VA EL VALOR DE CANALES DE BASE DEDATOS -->
-        <h1 class="col-12 " style="font-family: 'Heebo';    color: #5b5b5f;     margin-top: -19px;  ">ILIMITADA</h1>
+        <h1 class="col-12 " style="font-family: 'Heebo';    color: #5b5b5f;     margin-top: -19px; font-weight: 800;  ">ILIMITADA</h1>
       </div> 
         <div class="row"  style="    padding-left: 30px;  padding-right:30px; margin-top: ;">
              <h6 class="col-12 offer-card-title">descuento del 50% 4 meses</h6>  
