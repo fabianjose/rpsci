@@ -74,22 +74,8 @@
                 </div>
             </div>
             <section class="section-search mb-3" style="min-height: 500px; padding-top: 15%;margin-top: -8%;">
-                <div class="row justify-content-center">
-                    <div class="col-3 text-right text-ws" style="font-weight: 600;color: #184156;margin-top: auto;font-size: 1.25rem;
-margin-bottom: auto;">
-                        ¡Pulsa el Botón y <br> Encuentra
-                    </div>
-                    <div class="col-2 text-center " >
-                        <a class="btn-rounded">
-
-                        <img  src="{{ asset('images/button_contrata_internet.jpg') }}" style="max-width: 100%;">
-                        </a>
-                    </div>
-                    <div class="col-3 text-left text-ws" style="font-weight: 600;color: #184156;margin-top: auto;font-size: 1.25rem;
-margin-bottom: auto;" >
-                        el proveedor <br> recomendado!
-                    </div>
-                </div>
+                
+                    
                 <div class=" justify-content-center container p-3" id="planes-destacados" >
                  <high-plans></high-plans>
              </div>

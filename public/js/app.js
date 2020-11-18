@@ -3445,6 +3445,10 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['errors'],
   data: function data() {
@@ -44525,6 +44529,128 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "main-middle text-ws" }, [
     _c("div", { staticClass: "main-search-form py-3 px-1 mt-3" }, [
+      _c("div", { staticClass: "row text-center" }, [
+        _c(
+          "div",
+          {
+            staticClass:
+              " text-center text-heebo custom-control custom-radio form-group has-search col",
+            on: {
+              click: function($event) {
+                _vm.offerType = "isp"
+              }
+            }
+          },
+          [
+            _c("input", {
+              staticClass: "custom-control-input",
+              attrs: { type: "radio", id: "ispOffer" },
+              domProps: { checked: _vm.offerType == "isp" }
+            }),
+            _vm._v(" "),
+            _c(
+              "label",
+              {
+                staticClass: "custom-control-label",
+                staticStyle: { "font-weight": "medium", color: "#606060" },
+                attrs: { for: "ispOffer" }
+              },
+              [_vm._v("ISP")]
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass:
+              " text-center text-heebo custom-control custom-radio form-group has-search col",
+            on: {
+              click: function($event) {
+                _vm.offerType = "Pyme"
+              }
+            }
+          },
+          [
+            _c("input", {
+              staticClass: "custom-control-input",
+              attrs: { type: "radio", id: "pymeOffer" },
+              domProps: { checked: _vm.offerType == "Pyme" }
+            }),
+            _vm._v(" "),
+            _c(
+              "label",
+              {
+                staticClass: "custom-control-label",
+                staticStyle: { "font-weight": "medium", color: "#606060" },
+                attrs: { for: "pymeOffer" }
+              },
+              [_vm._v("Pyme")]
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass:
+              " text-center text-heebo custom-control custom-radio form-group has-search col",
+            on: {
+              click: function($event) {
+                _vm.offerType = "private"
+              }
+            }
+          },
+          [
+            _c("input", {
+              staticClass: "custom-control-input",
+              attrs: { type: "radio", id: "privateOffer" },
+              domProps: { checked: _vm.offerType == "private" }
+            }),
+            _vm._v(" "),
+            _c(
+              "label",
+              {
+                staticClass: "custom-control-label",
+                staticStyle: { "font-weight": "medium", color: "#606060" },
+                attrs: { for: "privateOffer" }
+              },
+              [_vm._v("Hogar")]
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass:
+              " text-center text-heebo custom-control custom-radio form-group has-search col",
+            on: {
+              click: function($event) {
+                _vm.offerType = "company"
+              }
+            }
+          },
+          [
+            _c("input", {
+              staticClass: "custom-control-input",
+              attrs: { type: "radio", id: "companyOffer" },
+              domProps: { checked: _vm.offerType == "company" }
+            }),
+            _vm._v(" "),
+            _c(
+              "label",
+              {
+                staticClass: "custom-control-label",
+                staticStyle: { "font-weight": "medium", color: "#606060" },
+                attrs: { for: "companyOffer" }
+              },
+              [_vm._v("Empresa")]
+            )
+          ]
+        )
+      ]),
+      _vm._v(" "),
       _c(
         "div",
         {
@@ -44536,127 +44662,7 @@ var render = function() {
             "div",
             {
               staticClass:
-                " text-center text-heebo custom-control custom-radio form-group has-search col-md-6 col-sm-10 col-lg-1",
-              on: {
-                click: function($event) {
-                  _vm.offerType = "isp"
-                }
-              }
-            },
-            [
-              _c("input", {
-                staticClass: "custom-control-input",
-                attrs: { type: "radio", id: "ispOffer" },
-                domProps: { checked: _vm.offerType == "isp" }
-              }),
-              _vm._v(" "),
-              _c(
-                "label",
-                {
-                  staticClass: "custom-control-label",
-                  staticStyle: { "font-weight": "medium", color: "#606060" },
-                  attrs: { for: "ispOffer" }
-                },
-                [_vm._v("ISP")]
-              )
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass:
-                " text-center text-heebo custom-control custom-radio form-group has-search col-md-6 col-sm-10 col-lg-1",
-              on: {
-                click: function($event) {
-                  _vm.offerType = "Pyme"
-                }
-              }
-            },
-            [
-              _c("input", {
-                staticClass: "custom-control-input",
-                attrs: { type: "radio", id: "pymeOffer" },
-                domProps: { checked: _vm.offerType == "Pyme" }
-              }),
-              _vm._v(" "),
-              _c(
-                "label",
-                {
-                  staticClass: "custom-control-label",
-                  staticStyle: { "font-weight": "medium", color: "#606060" },
-                  attrs: { for: "pymeOffer" }
-                },
-                [_vm._v("Pyme")]
-              )
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass:
-                " text-center text-heebo custom-control custom-radio form-group has-search col-md-6 col-sm-10 col-lg-1",
-              on: {
-                click: function($event) {
-                  _vm.offerType = "private"
-                }
-              }
-            },
-            [
-              _c("input", {
-                staticClass: "custom-control-input",
-                attrs: { type: "radio", id: "privateOffer" },
-                domProps: { checked: _vm.offerType == "private" }
-              }),
-              _vm._v(" "),
-              _c(
-                "label",
-                {
-                  staticClass: "custom-control-label",
-                  staticStyle: { "font-weight": "medium", color: "#606060" },
-                  attrs: { for: "privateOffer" }
-                },
-                [_vm._v("Hogar")]
-              )
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass:
-                " text-center text-heebo custom-control custom-radio form-group has-search col-md-6 col-sm-10 col-lg-2",
-              on: {
-                click: function($event) {
-                  _vm.offerType = "company"
-                }
-              }
-            },
-            [
-              _c("input", {
-                staticClass: "custom-control-input",
-                attrs: { type: "radio", id: "companyOffer" },
-                domProps: { checked: _vm.offerType == "company" }
-              }),
-              _vm._v(" "),
-              _c(
-                "label",
-                {
-                  staticClass: "custom-control-label",
-                  staticStyle: { "font-weight": "medium", color: "#606060" },
-                  attrs: { for: "companyOffer" }
-                },
-                [_vm._v("Empresa")]
-              )
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass:
-                "form-group has-search ci-select-container col-md-6 col-sm-10 col-lg-2"
+                "form-group has-search ci-select-container col-md-6 col-sm-10 col-lg-3"
             },
             [
               _c("span", { staticClass: "fa fa-tv form-control-feedback " }),
@@ -44715,7 +44721,7 @@ var render = function() {
           _c(
             "div",
             {
-              staticClass: "form-group has-search col-md-6 col-sm-10 col-lg-2"
+              staticClass: "form-group has-search col-md-6 col-sm-10 col-lg-4"
             },
             [
               _c("span", {
@@ -44779,7 +44785,7 @@ var render = function() {
           _c(
             "div",
             {
-              staticClass: "form-group has-search col-md-6 col-sm-10 col-lg-2"
+              staticClass: "form-group has-search col-md-6 col-sm-10 col-lg-4"
             },
             [
               _c("span", { staticClass: "fa fa-city form-control-feedback " }),

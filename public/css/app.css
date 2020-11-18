@@ -151,6 +151,7 @@ a {
 
 .section-search {
   background: url(/images/fondo_satelite.jpg?14e35b3065fb09f40e303931427ca4d0);
+  background-repeat: round;
 }
 
 .ic-logo-grey {
@@ -1082,7 +1083,7 @@ a {
 
 body {
   scroll-behavior: smooth;
-  font-family: "Heebo";
+  font-family: "Heebo regular";
   word-break: break-word;
   box-sizing: content-box;
 }

@@ -2,27 +2,31 @@
 <template>
     <div class="main-middle text-ws" >
         <div class="main-search-form py-3 px-1 mt-3" >
-           
-            <div class="d-flex flex-row flex-wrap justify-content-around py-3 pt-4 px-1">
-               
-               <div class=" text-center text-heebo custom-control custom-radio form-group has-search col-md-6 col-sm-10 col-lg-1" @click="offerType='isp';" >
+
+          <div class="row text-center">
+              <div class=" text-center text-heebo custom-control custom-radio form-group has-search col" @click="offerType='isp';" >
                     <input type="radio" class="custom-control-input" :checked="offerType=='isp'" id="ispOffer" >
                     <label class="custom-control-label" style="font-weight: medium;color: #606060;" for="ispOffer">ISP</label>
                 </div>
-                <div class=" text-center text-heebo custom-control custom-radio form-group has-search col-md-6 col-sm-10 col-lg-1" @click="offerType='Pyme';" >
+                <div class=" text-center text-heebo custom-control custom-radio form-group has-search col" @click="offerType='Pyme';" >
                     <input type="radio" class="custom-control-input" :checked="offerType=='Pyme'" id="pymeOffer" >
                     <label class="custom-control-label" style="font-weight: medium;color: #606060;" for="pymeOffer">Pyme</label>
                 </div>
-                <div class=" text-center text-heebo custom-control custom-radio form-group has-search col-md-6 col-sm-10 col-lg-1" @click="offerType='private';" >
+                <div class=" text-center text-heebo custom-control custom-radio form-group has-search col" @click="offerType='private';" >
                     <input type="radio" class="custom-control-input" :checked="offerType=='private'" id="privateOffer" >
                     <label class="custom-control-label" style="font-weight: medium;color: #606060;" for="privateOffer">Hogar</label>
                 </div>
 
-                <div class=" text-center text-heebo custom-control custom-radio form-group has-search col-md-6 col-sm-10 col-lg-2" @click="offerType='company';" >
+                <div class=" text-center text-heebo custom-control custom-radio form-group has-search col" @click="offerType='company';" >
                     <input type="radio" class="custom-control-input" :checked="offerType=='company'" id="companyOffer">
                     <label class="custom-control-label" style="font-weight: medium;color: #606060;" for="companyOffer">Empresa</label>
                 </div>
-                <div class="form-group has-search ci-select-container col-md-6 col-sm-10 col-lg-2">
+          </div>
+           
+            <div class="d-flex flex-row flex-wrap justify-content-around py-3 pt-4 px-1">
+               
+             
+                <div class="form-group has-search ci-select-container col-md-6 col-sm-10 col-lg-3">
                     <span class="fa fa-tv form-control-feedback "></span>
                     <select class="custom-select ci-select" v-model="service">
                         <option value="" class="d-none" selected>Servicio</option>
@@ -32,7 +36,7 @@
                     </select>
                 </div>
 
-                <div class="form-group has-search col-md-6 col-sm-10 col-lg-2">
+                <div class="form-group has-search col-md-6 col-sm-10 col-lg-4">
                     <span class="fas fa-map-marker-alt form-control-feedback "></span>
                     <select class="custom-select ci-select" v-model="department" @change="getMunicipalities">
                       <option value="" class="d-none" selected>Departamento</option>
@@ -41,7 +45,7 @@
                  
                 </div>
 
-                <div class="form-group has-search col-md-6 col-sm-10 col-lg-2">
+                <div class="form-group has-search col-md-6 col-sm-10 col-lg-4">
                     <span class="fa fa-city form-control-feedback "></span>
                     <select class="custom-select ci-select" v-model="municipality">
                       <option value="" class="d-none" selected>Municipio</option>
