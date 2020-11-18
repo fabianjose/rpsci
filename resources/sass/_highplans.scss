@@ -1,6 +1,7 @@
 
 #offer-cards .vueperslides__inner .vueperslides__parallax-wrapper{
-  padding-bottom: 500px!important;
+  padding-bottom: 520px!important;
+  padding-top: 40px;
 }
 
 .high-plans-color{
@@ -23,12 +24,14 @@
   width:300px;
  /* height:480px;*/
 
-  border-radius:40px;
+  border-radius:24px;
   background-color: white;
   -webkit-box-shadow: 0px 0px 3px 0px #606060;
   -moz-box-shadow: 0px 0px 3px 0px #606060;
   box-shadow: 0px 0px 3px 0px #606060;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  border: solid 1px;
+  border-color:#7fe0e9;
 }
 
 @media(max-width:450px){
@@ -60,7 +63,7 @@
 
 .offer-card-header{
   padding: 1.2rem;
-  height: 160px;
+  height: 120px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -68,7 +71,7 @@
 
 .offer-card-separator{
   width: 80%;
-  height: .1rem;
+  height: 1px;
   background: rgb(0,194,214);
 }
 
@@ -82,8 +85,20 @@
 }
 
 .offer-card-title{
-  margin-bottom: 1.5rem;
-  font-size: 1.5rem;
+  font-size: 15px;
+  background: rgb(0,255,218);
+  background: linear-gradient(90deg, rgba(0,255,218,1) 0%, rgba(6,209,252,1) 100%);
+  border-radius: 3px;
+  font-family: 'Heebo', sans-serif;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  font-weight: bold;
+ 
+
+
+}
+.rounded-pill {
+  border-radius: 5px !important;
 }
 .offer-card-benefits{
   margin-bottom: .5rem;
@@ -99,8 +114,11 @@
 }
 
 .offer-card-price{
-  font-size: 1.3rem;
+  font-size: 33px;
   word-break: break-all;
+  font-family: "Heebo", sans-serif;
+  margin-top: -20px;
+  color: #434040;
 }
 
 .offer-card-footer{
@@ -112,7 +130,11 @@
 }
 
 .offer-card-btn{
-  font-size: 1rem;
+  font-size: 25px;
   background: $main-blue;
   color: white;
+  font-family: 'Heebo';
+  font-weight: bold;
+  margin-top: -20px;
+
 }

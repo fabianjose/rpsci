@@ -11,8 +11,19 @@
   justify-content: center;
 }
 
+.fila-de-botones-sobre-buscador {
+  margin-top: -50px;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+.grid-header2 {
+  display: none;
+  font-size: 13px;
+}
+
 .ic-main {
-  font-size: 1rem;
+  font-size: 1.27rem;
   font-family: "Work Sans", sans-serif;
   /*    color: $dark-blue;*/
   text-align: center;
@@ -33,7 +44,7 @@ a {
 }
 
 .ic-logo {
-  max-height: 100px;
+  width: 99%;
 }
 
 .nav-btn {
@@ -65,7 +76,64 @@ a {
   transform: scaleX(1);
 }
 
+.texto-header {
+  padding: 5px;
+  border: 1px solid #0ccff4;
+  font-family: "Work Sans", sans-serif;
+  font-size: 20px;
+}
+
+@media (max-width: 1300px) {
+  .ic-main {
+    font-size: 1rem;
+    font-family: "Work Sans", sans-serif;
+    /*    color: $dark-blue;*/
+    text-align: center;
+  }
+
+  .texto-header {
+    padding: 5px;
+    border: 1px solid #0ccff4;
+    font-family: "Work Sans", sans-serif;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 1140px) {
+  .ic-main {
+    font-size: 0.8rem;
+    font-family: "Work Sans", sans-serif;
+    /*    color: $dark-blue;*/
+    text-align: center;
+  }
+
+  .texto-header {
+    padding: 5px;
+    border: 1px solid #0ccff4;
+    font-family: "Work Sans", sans-serif;
+    font-size: 13px;
+  }
+}
+
 @media (max-width: 767px) {
+  .fila-de-botones-sobre-buscador {
+    margin-top: 43px;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .botones-sobre-buscador {
+    background-color: transparent;
+  }
+
+  .grid-header1 {
+    display: none;
+  }
+
+  .grid-header2 {
+    display: inline;
+  }
+
   .nav-item-border:after {
     display: none;
   }
@@ -202,6 +270,20 @@ a {
 
 .about-title-container:after {
   transform: scaleX(0.45);
+}
+
+@media (max-width: 767px) {
+  .about-number {
+    width: 2rem;
+    height: 2rem;
+    background-color: #00c2d6;
+  }
+
+  .texto-btn {
+    font-size: 11px;
+    background-color: transparent;
+    color: black;
+  }
 }
 
 .has-search .form-control {
@@ -455,19 +537,16 @@ a {
 }
 
 .vueperslide--active {
-  height: 105%;
-  padding-top: 5%;
   transition: height 1s;
-  margin-top: -80px;
 }
 
 .vueperslide--active .offer-card {
-  height: 500px;
   transition: height 1s;
 }
 
 #offer-cards .vueperslides__inner .vueperslides__parallax-wrapper {
-  padding-bottom: 500px !important;
+  padding-bottom: 520px !important;
+  padding-top: 40px;
 }
 
 .high-plans-color {
@@ -491,10 +570,12 @@ a {
 .offer-card {
   width: 300px;
   /* height:480px;*/
-  border-radius: 40px;
+  border-radius: 24px;
   background-color: white;
   box-shadow: 0px 0px 3px 0px #606060;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  border: solid 1px;
+  border-color: #7fe0e9;
 }
 
 @media (max-width: 450px) {
@@ -519,7 +600,7 @@ a {
 
 .offer-card-header {
   padding: 1.2rem;
-  height: 160px;
+  height: 120px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -527,7 +608,7 @@ a {
 
 .offer-card-separator {
   width: 80%;
-  height: 0.1rem;
+  height: 1px;
   background: #00c2d6;
 }
 
@@ -541,8 +622,18 @@ a {
 }
 
 .offer-card-title {
-  margin-bottom: 1.5rem;
-  font-size: 1.5rem;
+  font-size: 15px;
+  background: #00ffda;
+  background: linear-gradient(90deg, #00ffda 0%, #06d1fc 100%);
+  border-radius: 3px;
+  font-family: "Heebo", sans-serif;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  font-weight: bold;
+}
+
+.rounded-pill {
+  border-radius: 5px !important;
 }
 
 .offer-card-benefits {
@@ -560,8 +651,11 @@ a {
 }
 
 .offer-card-price {
-  font-size: 1.3rem;
+  font-size: 33px;
   word-break: break-all;
+  font-family: "Heebo", sans-serif;
+  margin-top: -20px;
+  color: #434040;
 }
 
 .offer-card-footer {
@@ -573,9 +667,12 @@ a {
 }
 
 .offer-card-btn {
-  font-size: 1rem;
+  font-size: 25px;
   background: #00c2d6;
   color: white;
+  font-family: "Heebo";
+  font-weight: bold;
+  margin-top: -20px;
 }
 
 .nosotros-main {

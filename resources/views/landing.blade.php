@@ -5,13 +5,13 @@
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="{{asset('images/main-bg.png')}}" class="d-block w-100" alt="...">
+      <img src="{{asset('images/main-bg2.jpg')}}" class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="{{asset('images/main-bg.png')}}" class="d-block w-100" alt="...">
+      <img src="{{asset('images/main-bg2.jpg')}}" class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="{{asset('images/main-bg.png')}}" class="d-block w-100" alt="...">
+      <img src="{{asset('images/main-bg2.jpg')}}" class="d-block w-100" alt="...">
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -31,36 +31,35 @@
             <div class="about-section" style="background: transparent;">
                 <div class="d-flex flex-column about-sub p-3" style="padding-left: 100px;
     padding-right: 100px;">
-                    <div class="d-flex flex-row flex-wrap justify-content-center  text-heebo"  style="    margin-top: -50px; padding-left: 100px;
-    padding-right: 100px;">
-                        <div class="col-8 col-sm-3 col-md-3 col-lg-3 p-2 my-2">
+                    <div class="fila-de-botones-sobre-buscador d-flex flex-row flex-wrap justify-content-center  text-heebo" >
+                        <div class="botones-sobre-buscador col-6 col-sm-3 col-md-3 col-lg-3 p-2 my-2">
                             <div class="row align-items-start justify-content-center text-white">
                                 <div class="rounded-circle about-number p-1 mb-1 text-center bg-dark-blue">1</div>
-                                <p class="btn" class="col-12 col-md-8 col-lg-8 about-text  mt-1" style="font-size:11px; background-color:#565656; color:white" >
+                                <p class="btn" class="col-12 col-md-8 col-lg-8 about-text  mt-1" class="texto-btn"  >
                                    Selecciona Hogar,Empresa,Isp o Pyme
                                 </p>
                             </div>
                         </div>
-                        <div class="col-8 col-sm-3 col-md-3 col-lg-3 p-2 my-2">
+                        <div class="botones-sobre-buscador col-6 col-sm-3 col-md-3 col-lg-3 p-2 my-2">
                             <div class="row align-items-start justify-content-center text-white">
                                 <div class="rounded-circle about-number p-1 mb-1 text-center bg-dark-blue">2</div>
-                                <p class="btn" class="col-12 col-md-8 col-lg-8 about-text mt-1" style="font-size:11px; background-color:#565656; color:white" >
+                                <p class="btn" class="col-12 col-md-8 col-lg-8 about-text mt-1" class="texto-btn" >
                                     Seleccione el tipo de servicio
                                 </p>
                             </div>
                         </div>
-                        <div class="col-8 col-sm-3 col-md-3 col-lg-3 p-2 my-2">
+                        <div class="botones-sobre-buscador col-6 col-sm-3 col-md-3 col-lg-3 p-2 my-2">
                             <div class="row align-items-start justify-content-center text-white">
                                 <div class="rounded-circle about-number p-1 mb-1 text-center bg-dark-blue">3</div>
-                                <p class="btn" class="col-12 col-md-8 col-lg-8 about-text mt-1" style="font-size:11px; background-color:#565656; color:white" >
+                                <p class="btn" class="col-12 col-md-8 col-lg-8 about-text mt-1" class="texto-btn"  >
                                    Selecciona Departamento y Municipìo
                                 </p>
                             </div>
                         </div>
-                        <div class="col-8 col-sm-3 col-md-3 col-lg-3 p-2 my-2">
+                        <div class="botones-sobre-buscador col-6 col-sm-3 col-md-3 col-lg-3 p-2 my-2">
                             <div class="row align-items-start justify-content-center text-white">
                                 <div class="rounded-circle about-number p-1 mb-1 text-center bg-dark-blue">4</div>
-                                <p class="btn" class="col-12 col-md-8 col-lg-8 about-text  mt-1" style="font-size:11px; background-color:#565656; color:white"  >
+                                <p class="btn" class="col-12 col-md-8 col-lg-8 about-text  mt-1" class="texto-btn"   >
                                    Encuentra la Mejor Opción
                                 </p>
                             </div>
