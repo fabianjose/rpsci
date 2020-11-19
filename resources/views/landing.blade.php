@@ -35,23 +35,24 @@
                         <div class="botones-sobre-buscador col-6 col-sm-3 col-md-3 col-lg-3 p-2 my-2">
                             <div class="row align-items-start justify-content-center text-white">
                                 <div class="rounded-circle about-number p-1 mb-1 text-center bg-dark-blue">1</div>
-                                <p class="btn" class="col-12 col-md-8 col-lg-8 about-text  mt-1" class="texto-btn"  >
-                                   Selecciona Hogar,Empresa,Isp o Pyme
+                                <p class="btn btn-1" class="col-12 col-md-8 col-lg-8 about-text  mt-1" class="texto-btn"  >
+                                    
+                                   Selecciona el uso
                                 </p>
                             </div>
                         </div>
                         <div class="botones-sobre-buscador col-6 col-sm-3 col-md-3 col-lg-3 p-2 my-2">
                             <div class="row align-items-start justify-content-center text-white">
                                 <div class="rounded-circle about-number p-1 mb-1 text-center bg-dark-blue">2</div>
-                                <p class="btn" class="col-12 col-md-8 col-lg-8 about-text mt-1" class="texto-btn" >
-                                    Seleccione el tipo de servicio
+                                <p class="btn btn-1" class="col-12 col-md-8 col-lg-8 about-text mt-1" class="texto-btn" >
+                                    Selecciona el tipo de servicio
                                 </p>
                             </div>
                         </div>
                         <div class="botones-sobre-buscador col-6 col-sm-3 col-md-3 col-lg-3 p-2 my-2">
                             <div class="row align-items-start justify-content-center text-white">
                                 <div class="rounded-circle about-number p-1 mb-1 text-center bg-dark-blue">3</div>
-                                <p class="btn" class="col-12 col-md-8 col-lg-8 about-text mt-1" class="texto-btn"  >
+                                <p class="btn btn-1" class="col-12 col-md-8 col-lg-8 about-text mt-1" class="texto-btn"  >
                                    Selecciona Departamento y Municipìo
                                 </p>
                             </div>
@@ -59,7 +60,7 @@
                         <div class="botones-sobre-buscador col-6 col-sm-3 col-md-3 col-lg-3 p-2 my-2">
                             <div class="row align-items-start justify-content-center text-white">
                                 <div class="rounded-circle about-number p-1 mb-1 text-center bg-dark-blue">4</div>
-                                <p class="btn" class="col-12 col-md-8 col-lg-8 about-text  mt-1" class="texto-btn"   >
+                                <p class="btn btn-1" class="col-12 col-md-8 col-lg-8 about-text  mt-1" class="texto-btn"   >
                                    Encuentra la Mejor Opción
                                 </p>
                             </div>
@@ -72,7 +73,7 @@
                     @endif
                     
                 </div>
-                <section>
+                <section class="contador1">
                 <div class="bg-ic d-flex flex-row justify-content-around flex-wrap align-items-center" style="z-index:3">
                           <config-counters :counters="{{json_encode($configs)}}" class="col-10 col-sm-10 col-md-7 col-lg-7 col-xl-7"></config-counters>
                      </div>
@@ -87,12 +88,12 @@
                  <high-plans></high-plans>
              </div>
             </section>
-            <section class="section-form" style="background: rgb(0,194,214);min-height: 400px;padding-top: 15%;  border-radius: 27% 27% 0 0px;margin-top: -15%;">
+            <section class="section-form formulario-centro" >
                        
                     <div class="row  justify-content-center  pb-5  " style="align-items: center;">
                         <div class="col-12 col-sm-3 text-center">
-                            <h5 class="text-white text-ws" style="font-weight: bold; font-size:25px ">Resolvemos todas tus <br> dudas en una llamada</h5>
-                            <h2 class="text-white text-ws" style="font-weight: bold;font-size:30px ">¡Contáctanos!</h2>
+                            <h5 class="text-white text-ws texto-formulario-centro1" >Resolvemos todas tus <br> dudas en una llamada</h5>
+                            <h2 class="text-white text-ws texto-formulario-centro2">¡Contáctanos!</h2>
                         </div>
 
                         <div class="col-12 col-sm-4 px-3">
@@ -107,6 +108,12 @@
 
                 
             </section>
+
+            <section class="contador2" style="margin-top: 0px;">
+                <div class="bg-ic2 d-flex flex-row justify-content-around flex-wrap align-items-center" style="z-index:3">
+                          <config-counters :counters="{{json_encode($configs)}}" class="col-10 col-sm-10 col-md-7 col-lg-7 col-xl-7"></config-counters>
+                     </div>
+                </section>
 
           
             <section class="section-blog" style="padding-top: 3rem;">

@@ -1,5 +1,3 @@
-.fila-de-botones-sobre-buscador{   margin-top: -50px; padding-left: 100px;
-padding-right: 100px;}
 
 .grid-header2{
     display: none;
@@ -56,7 +54,7 @@ a{
 
 .texto-header{
    padding: 5px; 
-   border: 1px solid rgb(12,207,244) ;
+   /*border: 1px solid rgb(12,207,244) ;*/
    font-family: 'Work Sans', sans-serif;
    font-size:20px
 }
@@ -72,7 +70,7 @@ a{
 
     .texto-header{
         padding: 5px; 
-        border: 1px solid rgb(12,207,244) ;
+       /* border: 1px solid rgb(12,207,244) ;*/
         font-family: 'Work Sans', sans-serif;
         font-size:16px
      }
@@ -91,7 +89,7 @@ a{
 
     .texto-header{
         padding: 5px; 
-        border: 1px solid rgb(12,207,244) ;
+      /*  border: 1px solid rgb(12,207,244) ;*/
         font-family: 'Work Sans', sans-serif;
         font-size:13px
      }
@@ -99,19 +97,11 @@ a{
 
 }
 
+
 @media (max-width: 767px){
 
 
-    .fila-de-botones-sobre-buscador{
-    margin-top: 43px;
-    padding-left: 0px;
-    padding-right:0px;
-    }
-    .botones-sobre-buscador{
-        background-color: transparent;
-    }
-
-
+   
 
     .grid-header1{
         display: none;
@@ -126,6 +116,7 @@ a{
 
     .section-form{
         text-align: center;
+        margin-top: -38%;
         
     }
     #btn-enviar{

@@ -27,9 +27,9 @@
                 <div  class="texto-header">PBX:+57 (1) 7868510</div>
 
                 <div  class="texto-header">Siguenos: 
-                  <a href="https://www.facebook.com/colombiainternet/" class=" i-c-fab ic-bg-main"> <i  class="fab fa-facebook-f mx-2 ic-bg-main text-md"></i> </a> 
-                  <a href="https://www.instagram.com/contratainternet.co/?hl=es-la" class="  i-c-fab ic-bg-main"> <i class="fab fa-instagram  mx-2 ic-bg-main  text-md"></i> </a>
-                  <a href="https://www.instagram.com/contratainternet.co/?hl=es-la" class="  i-c-fab ic-bg-main"> <i class="fab fa-linkedin mx-2   text-md"></i> </a>
+                  <a href="https://www.facebook.com/colombiainternet/" class=" "> <span> <img src="/images/Iconos_redes-11.png"                   height=35px; alt=""> </span>   </a> 
+                  <a href="https://www.instagram.com/contratainternet.co/?hl=es-la" class="  "> <span> <img src="/images/Iconos_redes-12.png"     height=35px;  alt=""> </span>   </a>
+                  <a href="https://www.instagram.com/contratainternet.co/?hl=es-la" class="  "> <span> <img src="/images/Iconos_redes-13.png"     height=35px;  alt=""> </span>  </a>
                 </div>
 
             </div>
@@ -55,9 +55,9 @@
                 <div    style="width: 100%; padding: 10px; font-weight: 300;   border: 1px solid rgb(12,207,244); font-family: 'Work Sans', sans-serif;">PBX:+57 (1) 7868510)</div>
 
                 <div    style="width: 100%; padding: 5px;    border: 1px solid rgb(12,207,244); font-family: 'Work Sans', sans-serif; text-align: center;">
-                  <a href="https://www.facebook.com/colombiainternet/" class=" i-c-fab ic-bg-main"> <i  class="fab fa-facebook-f mx-2 ic-bg-main text-md"></i> </a> 
-                  <a href="https://www.instagram.com/contratainternet.co/?hl=es-la" class="  i-c-fab ic-bg-main"> <i class="fab fa-instagram  mx-2 ic-bg-main  text-md"></i> </a>
-                  <a href="https://www.instagram.com/contratainternet.co/?hl=es-la" class="  i-c-fab ic-bg-main"> <i class="fab fa-linkedin mx-2   text-md"></i> </a>
+                  <a href="https://www.facebook.com/colombiainternet/">  <img src="/images/Iconos_redes-12.png"     height=35px;  alt=""> </span> </a> 
+                  <a href="https://www.instagram.com/contratainternet.co/?hl=es-la" >  <img src="/images/Iconos_redes-12.png"     height=35px;  alt=""> </span> </i> </a>
+                  <a href="https://www.instagram.com/contratainternet.co/?hl=es-la" >  <img src="/images/Iconos_redes-12.png"     height=35px;  alt=""> </span> </a>
                 </div>
 
             </div>
@@ -133,7 +133,9 @@
           <div class="d-flex flex-column align-items-center">
           
             <div class="d-flex w-100 flex-wrap justify-content-bewtween">
-              <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 my-3" style="text-align: center;">
+
+
+              <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 " style="text-align: center;">
                    <div class="text-center">
               <img src="{{asset('images/fondo_azul_contrata.png')}}" class="img-responsive text-center" style="max-width: 100%;">
              
@@ -142,9 +144,11 @@
                   <h3 class="text-ws text-center text-gray" style="font-size:16px;font-weight: 700;color: #D6D8DB;">¡Te conectamos al mundo!</h3>
                   
   <div class="text-center text-white pt-4">
-              <a style="box-shadow: black 2px 2px 6px;" href="https://www.facebook.com/colombiainternet/" class=" i-c-fab ic-bg-main mx-1"> <i  class="fab fa-facebook-f mx-2 ic-bg-main text-md"></i> </a> 
-                  <a href="https://www.instagram.com/contratainternet.co/?hl=es-la" class="  i-c-fab ic-bg-main  mx-1" style="box-shadow: black 2px 2px 6px;"> <i class="fab fa-instagram  mx-2 ic-bg-main  text-md"></i> </a>
-                  <a style="box-shadow: black 2px 2px 6px;" href="https://www.instagram.com/contratainternet.co/?hl=es-la" class="  i-c-fab ic-bg-main  mx-1"> <i class="fab fa-linkedin mx-2   text-md"></i> </a>
+    <div class="textos-logos-footer">
+
+    <a style="" href="https://www.facebook.com/colombiainternet/" >  <img src="/images/Iconos_redes-11.png"     height=35px;  alt=""> </span> </a> 
+                  <a href="https://www.instagram.com/contratainternet.co/?hl=es-la" class="  i-c-fab ic-bg-main  mx-1" >  <img src="/images/Iconos_redes-12.png"     height=35px;  alt=""> </span>  </a>
+                  <a style="" href="https://www.instagram.com/contratainternet.co/?hl=es-la">  <img src="/images/Iconos_redes-13.png"     height=35px;  alt=""> </span> </a>
 
               </div>
               <ul class="list-unstyled text-ws footer-title-color mt-2">
@@ -152,9 +156,16 @@
                     <li class="list-item" style="font-variant: bold; font-size: 12px;">PBX: +57 (1) 7868510</li>
              </ul>
               </div>
+
+    </div>
+             
+
               <div class="col-xl-8 col-lg-8 col-md-8 col-sm-10 col-12  my-2 ">
+
+
                 <div class="row container">
-                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12  my-2">
+
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12  my-2  order-2  ">
                   <h5 class="footer-title-color text-left text-ws font-weight-bold" style="font-weight: bold;">SERVICIOS DISPONIBLES</h5>
                   <ul class="footer-title-color font-weight-bold text-ws mt-2 list-unstyled" style="font-size: 1.25rem;">
                   <li class="">INTERNET
@@ -172,7 +183,7 @@
                 </ul>
 
                 </div>
-                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12  my-2">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12  my-2  order-1  order-sm-12 ">
                   <h5 class="footer-title-color font-weight-bold text-ws " style="text-align: center;">FORMULARIO DE CONTACTO</h5>
                   <ul class="footer-list p-2">
                   <li><input type="text" placeholder="NOMBRE" class="form-control form-control-footer" name=""/></li>
@@ -182,6 +193,8 @@
                   </ul>
                 </div>
               </div>
+
+
               <div class="row">
                 <ul class="list-inline">
                   <li class="list-inline-item text-item-list nav-link nav-item-border  "  style="display: inline-block;"><a href="" class="text-ws ">Planes de Internet</a></li>
@@ -192,6 +205,9 @@
                 </ul>
                 </ul>
               </div>
+
+
+
               </div>
             </div>
           </div>

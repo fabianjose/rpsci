@@ -13,3 +13,13 @@
 .counter-label{
     font-size: 1.3rem!important;
 }
+
+
+@media (max-width: 767px){ 
+
+.counter-label{
+    font-family: 'Heebo';
+    font-weight: 100;
+}
+
+}

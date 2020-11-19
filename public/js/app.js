@@ -3449,6 +3449,15 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['errors'],
   data: function data() {
@@ -44564,24 +44573,24 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "main-middle text-ws" }, [
-    _c("div", { staticClass: "main-search-form py-3 px-1 mt-3" }, [
-      _c("div", { staticClass: "row text-center" }, [
+    _c("div", { staticClass: "main-search-form py-1 px-1 mt-3" }, [
+      _c("div", { staticClass: "row text-center fila-iconos-buscador" }, [
         _c(
           "div",
           {
             staticClass:
-              " text-center text-heebo custom-control custom-radio form-group has-search col",
+              " text-center text-heebo custom-control custom-radio form-group has-search col-6 col-sm-3",
             on: {
               click: function($event) {
-                _vm.offerType = "isp"
+                _vm.offerType = "private"
               }
             }
           },
           [
             _c("input", {
-              staticClass: "custom-control-input",
-              attrs: { type: "radio", id: "ispOffer" },
-              domProps: { checked: _vm.offerType == "isp" }
+              staticClass: "custom-control-input ",
+              attrs: { type: "radio", id: "privateOffer" },
+              domProps: { checked: _vm.offerType == "private" }
             }),
             _vm._v(" "),
             _c(
@@ -44589,10 +44598,12 @@ var render = function() {
               {
                 staticClass: "custom-control-label",
                 staticStyle: { "font-weight": "medium", color: "#606060" },
-                attrs: { for: "ispOffer" }
+                attrs: { for: "privateOffer" }
               },
-              [_vm._v("ISP")]
-            )
+              [_vm._v("Hogar  ")]
+            ),
+            _vm._v(" "),
+            _vm._m(0)
           ]
         ),
         _vm._v(" "),
@@ -44600,7 +44611,7 @@ var render = function() {
           "div",
           {
             staticClass:
-              " text-center text-heebo custom-control custom-radio form-group has-search col",
+              " text-center text-heebo custom-control custom-radio form-group has-search col-6 col-sm-3",
             on: {
               click: function($event) {
                 _vm.offerType = "Pyme"
@@ -44609,7 +44620,7 @@ var render = function() {
           },
           [
             _c("input", {
-              staticClass: "custom-control-input",
+              staticClass: "custom-control-input ",
               attrs: { type: "radio", id: "pymeOffer" },
               domProps: { checked: _vm.offerType == "Pyme" }
             }),
@@ -44622,37 +44633,9 @@ var render = function() {
                 attrs: { for: "pymeOffer" }
               },
               [_vm._v("Pyme")]
-            )
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass:
-              " text-center text-heebo custom-control custom-radio form-group has-search col",
-            on: {
-              click: function($event) {
-                _vm.offerType = "private"
-              }
-            }
-          },
-          [
-            _c("input", {
-              staticClass: "custom-control-input",
-              attrs: { type: "radio", id: "privateOffer" },
-              domProps: { checked: _vm.offerType == "private" }
-            }),
+            ),
             _vm._v(" "),
-            _c(
-              "label",
-              {
-                staticClass: "custom-control-label",
-                staticStyle: { "font-weight": "medium", color: "#606060" },
-                attrs: { for: "privateOffer" }
-              },
-              [_vm._v("Hogar")]
-            )
+            _vm._m(1)
           ]
         ),
         _vm._v(" "),
@@ -44660,7 +44643,7 @@ var render = function() {
           "div",
           {
             staticClass:
-              " text-center text-heebo custom-control custom-radio form-group has-search col",
+              " text-center text-heebo custom-control custom-radio form-group has-search col-6 col-sm-3",
             on: {
               click: function($event) {
                 _vm.offerType = "company"
@@ -44669,7 +44652,7 @@ var render = function() {
           },
           [
             _c("input", {
-              staticClass: "custom-control-input",
+              staticClass: "custom-control-input ",
               attrs: { type: "radio", id: "companyOffer" },
               domProps: { checked: _vm.offerType == "company" }
             }),
@@ -44682,16 +44665,62 @@ var render = function() {
                 attrs: { for: "companyOffer" }
               },
               [_vm._v("Empresa")]
-            )
+            ),
+            _vm._v(" "),
+            _vm._m(2)
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass:
+              " text-center text-heebo custom-control custom-radio form-group has-search col-6 col-sm-3",
+            on: {
+              click: function($event) {
+                _vm.offerType = "isp"
+              }
+            }
+          },
+          [
+            _c("input", {
+              staticClass: "custom-control-input ",
+              attrs: { type: "radio", id: "ispOffer" },
+              domProps: { checked: _vm.offerType == "isp" }
+            }),
+            _vm._v(" "),
+            _c(
+              "label",
+              {
+                staticClass: "custom-control-label",
+                staticStyle: { "font-weight": "medium", color: "#606060" },
+                attrs: { for: "ispOffer" }
+              },
+              [_vm._v("ISP")]
+            ),
+            _vm._v(" "),
+            _vm._m(3)
           ]
         )
       ]),
+      _vm._v(" "),
+      _c("div", {
+        class: " " + (_vm.index % 2 ? "bg-main-blue" : "bg-main-pink"),
+        staticStyle: {
+          width: "73%",
+          height: "1px",
+          background: "#585e5e",
+          "margin-left": "67px"
+        }
+      }),
+      _vm._v(" "),
+      _c("br"),
       _vm._v(" "),
       _c(
         "div",
         {
           staticClass:
-            "d-flex flex-row flex-wrap justify-content-around py-3 pt-4 px-1"
+            "d-flex flex-row flex-wrap justify-content-around borde-caja-buscador"
         },
         [
           _c(
@@ -44701,8 +44730,6 @@ var render = function() {
                 "form-group has-search ci-select-container col-md-6 col-sm-10 col-lg-3"
             },
             [
-              _c("span", { staticClass: "fa fa-tv form-control-feedback " }),
-              _vm._v(" "),
               _c(
                 "select",
                 {
@@ -44745,7 +44772,11 @@ var render = function() {
                     return _c(
                       "option",
                       { key: index, domProps: { value: service.name } },
-                      [_vm._v(_vm._s(service.name) + "\n                    ")]
+                      [
+                        _vm._v(
+                          _vm._s(service.name) + "\n                        "
+                        )
+                      ]
                     )
                   })
                 ],
@@ -44760,10 +44791,6 @@ var render = function() {
               staticClass: "form-group has-search col-md-6 col-sm-10 col-lg-4"
             },
             [
-              _c("span", {
-                staticClass: "fas fa-map-marker-alt form-control-feedback "
-              }),
-              _vm._v(" "),
               _c(
                 "select",
                 {
@@ -44824,8 +44851,6 @@ var render = function() {
               staticClass: "form-group has-search col-md-6 col-sm-10 col-lg-4"
             },
             [
-              _c("span", { staticClass: "fa fa-city form-control-feedback " }),
-              _vm._v(" "),
               _c(
                 "select",
                 {
@@ -44880,30 +44905,14 @@ var render = function() {
           _c(
             "div",
             {
-              staticClass: "form-group has-search col-md-6 col-sm-10 col-lg-1",
+              staticClass: "form-group has-search col-md-6 col-sm-10 col-lg-1 ",
               on: { click: _vm.search }
             },
             [
-              _c("i", {
-                staticClass: "fa fa-search icon-btn",
-                staticStyle: {
-                  color: "gray",
-                  "background-color": "transparent"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass: "btn ",
-                  staticStyle: {
-                    "border-radius": "100px",
-                    "box-shadow":
-                      "0px 0px 2px 1px black,-1px 1px 2px 1px #00FFDA"
-                  }
-                },
-                [_vm._v("\n                  \n            ")]
-              )
+              _c("img", {
+                staticClass: "lupa",
+                attrs: { src: "images/Iconos_lupa-14.png", alt: "" }
+              })
             ]
           )
         ]
@@ -44911,7 +44920,52 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", [
+      _c("img", {
+        staticStyle: { "margin-top": "-14px" },
+        attrs: { src: "images/Iconos-11.png", height: "35px", alt: "" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", [
+      _c("img", {
+        staticStyle: { "margin-top": "-14px" },
+        attrs: { src: "images/Iconos-12.png", height: "35px", alt: "" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", [
+      _c("img", {
+        staticStyle: { "margin-top": "-14px" },
+        attrs: { src: "images/Iconos-13.png", height: "35px", alt: "" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", [
+      _c("img", {
+        staticStyle: { "margin-top": "-14px" },
+        attrs: { src: "images/Iconos-14.png", height: "35px", alt: "" }
+      })
+    ])
+  }
+]
 render._withStripped = true
 
 
