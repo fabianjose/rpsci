@@ -13,10 +13,14 @@
     align-items: center;
     justify-content: center;
     display: flex;
+    z-index: 3;
+    margin-top: -124px;
+   
+    height: 300px;
 }
 
 .bg-dark-blue{
-  background-color: #595959;
+  background-color: #3d3c3c63;
 
 }
 
@@ -65,4 +69,5 @@
 
 .section-search{
   background: url("./../assets/images/fondo_satelite.jpg");
+  background-repeat: round;
 }

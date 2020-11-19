@@ -8,10 +8,10 @@
         :bullets="false"
         :autoplay="offers.length>1?true:false"
         :gap = "3"
-        :duration="5000"
+        :duration="10000000"
         :visible-slides="offers.length<3?offers.length:3"
         :slide-ratio="1 / 4"
-        :dragging-distance="70"
+        :dragging-distance="40"
         :arrows="false"
         :breakpoints="breakpoints" >
         <vueper-slide v-for="(offer,index) in offers" :key="index" class="align-self-center">

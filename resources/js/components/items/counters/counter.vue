@@ -1,7 +1,7 @@
 <template>
     <div class="d-flex flex-column align-items-center">
-        <h2 class="text-center text-white counter-value text-heebo" style="font-weight: 700;">+{{showPrice(getCounterValue(counterValue))}}</h2>
-        <h6 class="text-center mt-2 text-sm text-white text-ws counter-label" style="font-weight: 400;">{{counter.label}}</h6>
+        <h2 class="text-center text-white counter-value text-heebo" style="">+{{showPrice(getCounterValue(counterValue))}}</h2>
+        <h6 class="text-center mt-2 text-sm text-white text-ws counter-label" style="">{{counter.label}}</h6>
     </div>
 </template>
 

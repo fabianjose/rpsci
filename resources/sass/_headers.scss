@@ -1,9 +1,14 @@
 
+.grid-header2{
+    display: none;
+    font-size: 13px;
+}
 .ic-main{
-    font-size: 1rem;
+    font-size: 1.27rem;
     font-family: 'Work Sans', sans-serif;
 /*    color: $dark-blue;*/
     text-align: center;
+
 }
 
 a{
@@ -20,7 +25,8 @@ a{
 }
 
 .ic-logo{
-    max-height: 100px;
+   
+    width: 99%;
 }
 
 .nav-btn{
@@ -46,7 +52,63 @@ a{
 
 .nav-item-border:hover:after { transform: scaleX(1); }
 
+.texto-header{
+   padding: 5px; 
+   /*border: 1px solid rgb(12,207,244) ;*/
+   font-family: 'Work Sans', sans-serif;
+   font-size:20px
+}
+
+@media (max-width: 1300px){
+    .ic-main{
+        font-size: 1rem;
+        font-family: 'Work Sans', sans-serif;
+    /*    color: $dark-blue;*/
+        text-align: center;
+    
+    }
+
+    .texto-header{
+        padding: 5px; 
+       /* border: 1px solid rgb(12,207,244) ;*/
+        font-family: 'Work Sans', sans-serif;
+        font-size:16px
+     }
+     
+
+}
+
+@media (max-width: 1140px){
+    .ic-main{
+        font-size: 0.8rem;
+        font-family: 'Work Sans', sans-serif;
+    /*    color: $dark-blue;*/
+        text-align: center;
+    
+    }
+
+    .texto-header{
+        padding: 5px; 
+      /*  border: 1px solid rgb(12,207,244) ;*/
+        font-family: 'Work Sans', sans-serif;
+        font-size:13px
+     }
+     
+
+}
+
+
 @media (max-width: 767px){
+
+
+   
+
+    .grid-header1{
+        display: none;
+    }
+    .grid-header2{
+        display: inline;
+    }
     
     .nav-item-border:after {
         display: none;
@@ -54,6 +116,7 @@ a{
 
     .section-form{
         text-align: center;
+        margin-top: -38%;
         
     }
     #btn-enviar{

@@ -23,7 +23,7 @@
 
 .about-number{
     width: 2rem;
-    height: 2rem;
+    height: 2rem;  
    
 }
 
@@ -51,3 +51,19 @@
 .about-title-container:after{
     transform: scaleX(0.45);
 }
+
+.texto-btn{
+    font-size:11px;
+    background-color:transparent;
+    color:#ffffff !important;
+}
+
+
+@media (max-width: 1200px){
+
+  
+    }
+@media (max-width: 767px){
+
+}
+

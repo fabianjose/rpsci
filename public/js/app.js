@@ -3445,6 +3445,19 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['errors'],
   data: function data() {
@@ -4438,6 +4451,42 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -44521,143 +44570,163 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "main-middle text-ws" }, [
-    _c("div", { staticClass: "main-search-form py-3 px-1 mt-3" }, [
+    _c("div", { staticClass: "main-search-form py-1 px-1 mt-3" }, [
+      _c("div", { staticClass: "row text-center fila-iconos-buscador" }, [
+        _c(
+          "div",
+          {
+            staticClass:
+              " text-center text-heebo custom-control custom-radio form-group has-search col-6 col-sm-3",
+            on: {
+              click: function($event) {
+                _vm.offerType = "private"
+              }
+            }
+          },
+          [
+            _c("input", {
+              staticClass: "custom-control-input ",
+              attrs: { type: "radio", id: "privateOffer" },
+              domProps: { checked: _vm.offerType == "private" }
+            }),
+            _vm._v(" "),
+            _c(
+              "label",
+              {
+                staticClass: "custom-control-label",
+                staticStyle: { "font-weight": "medium", color: "#606060" },
+                attrs: { for: "privateOffer" }
+              },
+              [_vm._v("Hogar  ")]
+            ),
+            _vm._v(" "),
+            _vm._m(0)
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass:
+              " text-center text-heebo custom-control custom-radio form-group has-search col-6 col-sm-3",
+            on: {
+              click: function($event) {
+                _vm.offerType = "Pyme"
+              }
+            }
+          },
+          [
+            _c("input", {
+              staticClass: "custom-control-input ",
+              attrs: { type: "radio", id: "pymeOffer" },
+              domProps: { checked: _vm.offerType == "Pyme" }
+            }),
+            _vm._v(" "),
+            _c(
+              "label",
+              {
+                staticClass: "custom-control-label",
+                staticStyle: { "font-weight": "medium", color: "#606060" },
+                attrs: { for: "pymeOffer" }
+              },
+              [_vm._v("Pyme")]
+            ),
+            _vm._v(" "),
+            _vm._m(1)
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass:
+              " text-center text-heebo custom-control custom-radio form-group has-search col-6 col-sm-3",
+            on: {
+              click: function($event) {
+                _vm.offerType = "company"
+              }
+            }
+          },
+          [
+            _c("input", {
+              staticClass: "custom-control-input ",
+              attrs: { type: "radio", id: "companyOffer" },
+              domProps: { checked: _vm.offerType == "company" }
+            }),
+            _vm._v(" "),
+            _c(
+              "label",
+              {
+                staticClass: "custom-control-label",
+                staticStyle: { "font-weight": "medium", color: "#606060" },
+                attrs: { for: "companyOffer" }
+              },
+              [_vm._v("Empresa")]
+            ),
+            _vm._v(" "),
+            _vm._m(2)
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass:
+              " text-center text-heebo custom-control custom-radio form-group has-search col-6 col-sm-3",
+            on: {
+              click: function($event) {
+                _vm.offerType = "isp"
+              }
+            }
+          },
+          [
+            _c("input", {
+              staticClass: "custom-control-input ",
+              attrs: { type: "radio", id: "ispOffer" },
+              domProps: { checked: _vm.offerType == "isp" }
+            }),
+            _vm._v(" "),
+            _c(
+              "label",
+              {
+                staticClass: "custom-control-label",
+                staticStyle: { "font-weight": "medium", color: "#606060" },
+                attrs: { for: "ispOffer" }
+              },
+              [_vm._v("ISP")]
+            ),
+            _vm._v(" "),
+            _vm._m(3)
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", {
+        class: " " + (_vm.index % 2 ? "bg-main-blue" : "bg-main-pink"),
+        staticStyle: {
+          width: "73%",
+          height: "1px",
+          background: "#585e5e",
+          "margin-left": "67px"
+        }
+      }),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
       _c(
         "div",
         {
           staticClass:
-            "d-flex flex-row flex-wrap justify-content-around py-3 pt-4 px-1"
+            "d-flex flex-row flex-wrap justify-content-around borde-caja-buscador"
         },
         [
           _c(
             "div",
             {
               staticClass:
-                " text-center text-heebo custom-control custom-radio form-group has-search col-md-6 col-sm-10 col-lg-1",
-              on: {
-                click: function($event) {
-                  _vm.offerType = "isp"
-                }
-              }
+                "form-group has-search ci-select-container col-md-6 col-sm-10 col-lg-3"
             },
             [
-              _c("input", {
-                staticClass: "custom-control-input",
-                attrs: { type: "radio", id: "ispOffer" },
-                domProps: { checked: _vm.offerType == "isp" }
-              }),
-              _vm._v(" "),
-              _c(
-                "label",
-                {
-                  staticClass: "custom-control-label",
-                  staticStyle: { "font-weight": "medium", color: "#606060" },
-                  attrs: { for: "ispOffer" }
-                },
-                [_vm._v("ISP")]
-              )
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass:
-                " text-center text-heebo custom-control custom-radio form-group has-search col-md-6 col-sm-10 col-lg-1",
-              on: {
-                click: function($event) {
-                  _vm.offerType = "Pyme"
-                }
-              }
-            },
-            [
-              _c("input", {
-                staticClass: "custom-control-input",
-                attrs: { type: "radio", id: "pymeOffer" },
-                domProps: { checked: _vm.offerType == "Pyme" }
-              }),
-              _vm._v(" "),
-              _c(
-                "label",
-                {
-                  staticClass: "custom-control-label",
-                  staticStyle: { "font-weight": "medium", color: "#606060" },
-                  attrs: { for: "pymeOffer" }
-                },
-                [_vm._v("Pyme")]
-              )
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass:
-                " text-center text-heebo custom-control custom-radio form-group has-search col-md-6 col-sm-10 col-lg-1",
-              on: {
-                click: function($event) {
-                  _vm.offerType = "private"
-                }
-              }
-            },
-            [
-              _c("input", {
-                staticClass: "custom-control-input",
-                attrs: { type: "radio", id: "privateOffer" },
-                domProps: { checked: _vm.offerType == "private" }
-              }),
-              _vm._v(" "),
-              _c(
-                "label",
-                {
-                  staticClass: "custom-control-label",
-                  staticStyle: { "font-weight": "medium", color: "#606060" },
-                  attrs: { for: "privateOffer" }
-                },
-                [_vm._v("Hogar")]
-              )
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass:
-                " text-center text-heebo custom-control custom-radio form-group has-search col-md-6 col-sm-10 col-lg-2",
-              on: {
-                click: function($event) {
-                  _vm.offerType = "company"
-                }
-              }
-            },
-            [
-              _c("input", {
-                staticClass: "custom-control-input",
-                attrs: { type: "radio", id: "companyOffer" },
-                domProps: { checked: _vm.offerType == "company" }
-              }),
-              _vm._v(" "),
-              _c(
-                "label",
-                {
-                  staticClass: "custom-control-label",
-                  staticStyle: { "font-weight": "medium", color: "#606060" },
-                  attrs: { for: "companyOffer" }
-                },
-                [_vm._v("Empresa")]
-              )
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass:
-                "form-group has-search ci-select-container col-md-6 col-sm-10 col-lg-2"
-            },
-            [
-              _c("span", { staticClass: "fa fa-tv form-control-feedback " }),
-              _vm._v(" "),
               _c(
                 "select",
                 {
@@ -44700,7 +44769,11 @@ var render = function() {
                     return _c(
                       "option",
                       { key: index, domProps: { value: service.name } },
-                      [_vm._v(_vm._s(service.name) + "\n                    ")]
+                      [
+                        _vm._v(
+                          _vm._s(service.name) + "\n                        "
+                        )
+                      ]
                     )
                   })
                 ],
@@ -44712,13 +44785,9 @@ var render = function() {
           _c(
             "div",
             {
-              staticClass: "form-group has-search col-md-6 col-sm-10 col-lg-2"
+              staticClass: "form-group has-search col-md-6 col-sm-10 col-lg-4"
             },
             [
-              _c("span", {
-                staticClass: "fas fa-map-marker-alt form-control-feedback "
-              }),
-              _vm._v(" "),
               _c(
                 "select",
                 {
@@ -44776,11 +44845,9 @@ var render = function() {
           _c(
             "div",
             {
-              staticClass: "form-group has-search col-md-6 col-sm-10 col-lg-2"
+              staticClass: "form-group has-search col-md-6 col-sm-10 col-lg-4"
             },
             [
-              _c("span", { staticClass: "fa fa-city form-control-feedback " }),
-              _vm._v(" "),
               _c(
                 "select",
                 {
@@ -44835,30 +44902,14 @@ var render = function() {
           _c(
             "div",
             {
-              staticClass: "form-group has-search col-md-6 col-sm-10 col-lg-1",
+              staticClass: "form-group has-search col-md-6 col-sm-10 col-lg-1 ",
               on: { click: _vm.search }
             },
             [
-              _c("i", {
-                staticClass: "fa fa-search icon-btn",
-                staticStyle: {
-                  color: "gray",
-                  "background-color": "transparent"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass: "btn ",
-                  staticStyle: {
-                    "border-radius": "100px",
-                    "box-shadow":
-                      "0px 0px 2px 1px black,-1px 1px 2px 1px #00FFDA"
-                  }
-                },
-                [_vm._v("\n                  \n            ")]
-              )
+              _c("img", {
+                staticClass: "lupa",
+                attrs: { src: "images/Iconos_lupa-14.png", alt: "" }
+              })
             ]
           )
         ]
@@ -44866,7 +44917,52 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", [
+      _c("img", {
+        staticStyle: { "margin-top": "-14px" },
+        attrs: { src: "images/Iconos-11.png", height: "35px", alt: "" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", [
+      _c("img", {
+        staticStyle: { "margin-top": "-14px" },
+        attrs: { src: "images/Iconos-12.png", height: "35px", alt: "" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", [
+      _c("img", {
+        staticStyle: { "margin-top": "-14px" },
+        attrs: { src: "images/Iconos-13.png", height: "35px", alt: "" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", [
+      _c("img", {
+        staticStyle: { "margin-top": "-14px" },
+        attrs: { src: "images/Iconos-14.png", height: "35px", alt: "" }
+      })
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -45292,10 +45388,7 @@ var render = function() {
   return _c("div", { staticClass: "d-flex flex-column align-items-center" }, [
     _c(
       "h2",
-      {
-        staticClass: "text-center text-white counter-value text-heebo",
-        staticStyle: { "font-weight": "700" }
-      },
+      { staticClass: "text-center text-white counter-value text-heebo" },
       [
         _vm._v(
           "+" + _vm._s(_vm.showPrice(_vm.getCounterValue(_vm.counterValue)))
@@ -45306,9 +45399,7 @@ var render = function() {
     _c(
       "h6",
       {
-        staticClass:
-          "text-center mt-2 text-sm text-white text-ws counter-label",
-        staticStyle: { "font-weight": "400" }
+        staticClass: "text-center mt-2 text-sm text-white text-ws counter-label"
       },
       [_vm._v(_vm._s(_vm.counter.label))]
     )
@@ -45998,10 +46089,10 @@ var render = function() {
                 bullets: false,
                 autoplay: _vm.offers.length > 1 ? true : false,
                 gap: 3,
-                duration: 5000,
+                duration: 10000000,
                 "visible-slides": _vm.offers.length < 3 ? _vm.offers.length : 3,
                 "slide-ratio": 1 / 4,
-                "dragging-distance": 70,
+                "dragging-distance": 40,
                 arrows: false,
                 breakpoints: _vm.breakpoints
               }
@@ -46216,7 +46307,7 @@ var render = function() {
   return _c("div", { staticClass: "offer-card d-flex flex-column" }, [
     _c("div", { staticClass: "offer-card-header" }, [
       _c("img", {
-        staticClass: "h-100 img-fluid",
+        staticClass: "h-100 ",
         attrs: {
           src: _vm.baseUrl + "/storage/" + _vm.offer.company_logo,
           alt: "logo"
@@ -46231,22 +46322,36 @@ var render = function() {
     }),
     _vm._v(" "),
     _c("div", { staticClass: "offer-card-content" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("h6", { staticClass: "col-12 offer-card-title" }, [
-          _vm._v(_vm._s(_vm.offer.company_name))
-        ])
-      ]),
+      _vm._m(0),
       _vm._v(" "),
-      _c("div", { staticClass: "row" }, [
-        _c(
-          "h6",
-          {
-            staticClass: "col-12 offer-card-benefits text-wrap",
-            staticStyle: { "font-family": "heebo" }
-          },
-          [_vm._v(_vm._s(_vm.offer.benefits))]
-        )
-      ]),
+      _vm._m(1),
+      _vm._v(" "),
+      _c("div", {
+        class:
+          "offer-card-separator " +
+          (_vm.index % 2 ? "bg-main-blue" : "bg-main-pink")
+      }),
+      _vm._v(" "),
+      _vm._m(2),
+      _vm._v(" "),
+      _c("div", {
+        class:
+          "offer-card-separator " +
+          (_vm.index % 2 ? "bg-main-blue" : "bg-main-pink")
+      }),
+      _vm._v(" "),
+      _vm._m(3),
+      _vm._v(" "),
+      _vm._m(4),
+      _vm._v(" "),
+      _c(
+        "p",
+        {
+          staticClass: "col-12 ",
+          staticStyle: { "font-family": "'Heebo'", color: "#88868b" }
+        },
+        [_vm._v("Desde")]
+      ),
       _vm._v(" "),
       _c("div", { staticClass: "row" }, [
         _c("h5", { staticClass: "col-12 offer-card-price" }, [
@@ -46257,25 +46362,161 @@ var render = function() {
     _vm._v(" "),
     _c("div", { staticClass: "offer-card-footer" }, [
       _c("div", { staticClass: "col-10" }, [
-        _c(
-          "button",
-          {
-            class:
-              "btn btn-block text-white offer-card-btn rounded-pill " +
-              (_vm.index % 2 ? "bg-main-blue" : "bg-main-pink"),
-            attrs: {
-              "data-toggle": "modal",
-              "data-target": "#modalConsultOffer"
+        _c("div", [
+          _c(
+            "button",
+            {
+              class:
+                "btn  text-white offer-card-btn rounded-pill " +
+                (_vm.index % 2 ? "bg-main-blue" : "bg-main-pink"),
+              attrs: {
+                "data-toggle": "modal",
+                "data-target": "#modalConsultOffer"
+              },
+              on: { click: _vm.emitContact }
             },
-            on: { click: _vm.emitContact }
-          },
-          [_vm._v("\n        ADQUIÉRELO\n      ")]
-        )
+            [_vm._v("\n        ADQUIÉRELO\n      ")]
+          )
+        ])
       ])
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "row",
+        staticStyle: {
+          "padding-left": "30px",
+          "padding-right": "30px",
+          "margin-top": "-12px"
+        }
+      },
+      [
+        _c("h6", { staticClass: "col-12 offer-card-title" }, [
+          _vm._v("Fibra Optica")
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row text-center" }, [
+      _c(
+        "p",
+        {
+          staticClass: "col-12",
+          staticStyle: {
+            "font-family": "'Heebo'",
+            "margin-top": "-9px",
+            color: "#88868b"
+          }
+        },
+        [_vm._v("velocidad")]
+      ),
+      _vm._v(" "),
+      _c(
+        "h1",
+        {
+          staticClass: "col-12 ",
+          staticStyle: {
+            "font-family": "'Heebo'",
+            color: "#5b5b5f",
+            "margin-top": "-18px",
+            "font-weight": "800"
+          }
+        },
+        [_vm._v("30 Mbps")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row text-center" }, [
+      _c(
+        "p",
+        {
+          staticClass: "col-12 ",
+          staticStyle: { "font-family": "'Heebo'", color: "#88868b" }
+        },
+        [_vm._v("Cantidad de Canales")]
+      ),
+      _vm._v(" "),
+      _c(
+        "h1",
+        {
+          staticClass: "col-12 ",
+          staticStyle: {
+            "font-family": "'Heebo'",
+            color: "#5b5b5f",
+            "margin-top": "-19px",
+            "font-weight": "800"
+          }
+        },
+        [_vm._v("174 Canales")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row text-center" }, [
+      _c(
+        "p",
+        {
+          staticClass: "col-12 ",
+          staticStyle: { "font-family": "'Heebo'", color: "#88868b" }
+        },
+        [_vm._v("Telefonia")]
+      ),
+      _vm._v(" "),
+      _c(
+        "h1",
+        {
+          staticClass: "col-12 ",
+          staticStyle: {
+            "font-family": "'Heebo'",
+            color: "#5b5b5f",
+            "margin-top": "-19px",
+            "font-weight": "800"
+          }
+        },
+        [_vm._v("ILIMITADA")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "row",
+        staticStyle: {
+          "padding-left": "30px",
+          "padding-right": "30px",
+          "margin-top": ""
+        }
+      },
+      [
+        _c("h6", { staticClass: "col-12 offer-card-title" }, [
+          _vm._v("descuento del 50% 4 meses")
+        ])
+      ]
+    )
+  }
+]
 render._withStripped = true
 
 
