@@ -20,7 +20,11 @@ class Offer extends Model{
     'municipalities',
     'highlighted',
     'highlighted_expiration',
-    'trash'
+    'canales',
+    'descuentos',
+    'telefonia',
+    'tecnologia',
+    
   ];
 
   public static function getFromAll($company=null,$service=null,$highlighted=false,$type=null){
@@ -40,6 +44,11 @@ class Offer extends Model{
         
     }
     
+    if($company){
+      
+       $canales->where("offers.canales", $company);  
+      
+    } 
     if($company){
       
       $offers->where("offers.company", $company);  
