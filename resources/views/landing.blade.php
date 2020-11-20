@@ -4,14 +4,14 @@
 <div>
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="{{asset('images/fondo2.png')}}" class="d-block w-100" alt="...">
+    <div class="carousel-item active " >
+      <img id="carrusel-img-1"  src="{{asset('images/fondo2.png')}}" class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="{{asset('images/fondo2.png')}}" class="d-block w-100" alt="...">
+      <img id="carrusel-img-2" src="{{asset('images/fondo2.png')}}" class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="{{asset('images/fondo2.png')}}" class="d-block w-100" alt="...">
+      <img id="carrusel-img-3" src="{{asset('images/fondo2.png')}}" class="d-block w-100" alt="...">
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">

@@ -36,7 +36,7 @@
              
                 <div class="form-group has-search ci-select-container col-md-6 col-sm-10 col-lg-3">
                   
-                    <select class="custom-select ci-select" v-model="service">
+                    <select  class="custom-select ci-select "  v-model="service">
                         <option value="" class="d-none" selected>Servicio</option>
                         <option v-for="(service,index) in services" :key="index"
                             :value="service.name">{{service.name}}

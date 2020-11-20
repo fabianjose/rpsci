@@ -44741,7 +44741,7 @@ var render = function() {
                       expression: "service"
                     }
                   ],
-                  staticClass: "custom-select ci-select",
+                  staticClass: "custom-select ci-select ",
                   on: {
                     change: function($event) {
                       var $$selectedVal = Array.prototype.filter
