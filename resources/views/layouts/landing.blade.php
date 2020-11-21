@@ -42,7 +42,7 @@
               <!--  <a href=""> <i class="fab fa-facebook-f i-c-main mx-2 text-white text-lg"></i>  </a> -->
 
                 
-                <div    style="padding: 5px; border:   1px solid rgb(12,207,244) ; font-family: 'Work Sans', sans-serif; width: 100%; font-weight: 300; ">Correo Electrónico:contacto@contratainternet.co</div>
+                <div class="text-center"   style="padding: 5px; font-family: 'Work Sans', sans-serif; width: 100%; font-weight: 300; ">Correo Electrónico:contacto@contratainternet.co</div>
 
               
 
@@ -52,12 +52,12 @@
 
                 
 
-                <div    style="width: 100%; padding: 10px; font-weight: 300;   border: 1px solid rgb(12,207,244); font-family: 'Work Sans', sans-serif;">PBX:+57 (1) 7868510)</div>
+                <div   style="width: 100%; padding: 10px; font-weight: 300; text-align: end;    font-family: 'Work Sans', sans-serif;">PBX:+57 (1) 7868510)</div>
 
-                <div    style="width: 100%; padding: 5px;    border: 1px solid rgb(12,207,244); font-family: 'Work Sans', sans-serif; text-align: center;">
-                  <a href="https://www.facebook.com/colombiainternet/">  <img src="/images/Iconos_redes-12.png"     height=35px;  alt=""> </span> </a> 
+                <div    style="width: 100%; padding: 5px;    font-family: 'Work Sans', sans-serif;">
+                  <a href="https://www.facebook.com/colombiainternet/">  <img src="/images/Iconos_redes-11.png"     height=35px;  alt=""> </span> </a> 
                   <a href="https://www.instagram.com/contratainternet.co/?hl=es-la" >  <img src="/images/Iconos_redes-12.png"     height=35px;  alt=""> </span> </i> </a>
-                  <a href="https://www.instagram.com/contratainternet.co/?hl=es-la" >  <img src="/images/Iconos_redes-12.png"     height=35px;  alt=""> </span> </a>
+                  <a href="https://www.instagram.com/contratainternet.co/?hl=es-la" >  <img src="/images/Iconos_redes-13.png"     height=35px;  alt=""> </span> </a>
                 </div>
 
             </div>
@@ -69,9 +69,9 @@
 
 
 
-        <nav class="main-header navbar-light navbar navbar-expand-md mx-auto py-3 px-1 align-items-center" style="background-color:white; height: 80px;">
-            <ul  class="navbar-nav ml-3">
-                <a class="nav-item" href="/"  style="margin-top: -22px;">
+        <nav class="  main-header navbar-light navbar navbar-expand-md mx-auto py-3 px-1 align-items-center header-posicion " style="background-color:white; height: 80px;">
+            <ul  class="navbar-nav ml-3 ">
+                <a class="nav-item  " href="/"  style="margin-top: -22px;">
                     <img class="ic-logo" src="{{ asset('images/LOGO5COLORH258.png') }}"  alt="">
                 </a>
             </ul>
@@ -83,7 +83,7 @@
                 <i class="fas fa-bars"></i>
             </a>
             <div id="responsive-menu" class="navbar-collapse collapse ml-auto mr-0"  style="margin-top: 37px;">
-                <ul class="navbar-nav ml-auto mr-x3 " style="margin-top: -30px;">
+                <ul class="navbar-nav ml-auto mr-x3 " style="margin-top: -30px; background-color:white;">
 
                 <li class="nav-item">
                         <a class="nav-link nav-item-border" href="#planes_destacados">
@@ -126,6 +126,9 @@
               </div>
 
         </nav>
+
+
+     
 
         @yield('content-page')
 
@@ -195,7 +198,7 @@
               </div>
 
 
-              <div class="row">
+              <div class="footer-movil" class="row">
                 <ul class="list-inline">
                   <li class="list-inline-item text-item-list nav-link nav-item-border  "  style="display: inline-block;"><a href="" class="text-ws ">Planes de Internet</a></li>
                   <li class="list-inline-item text-item-list nav-link nav-item-border  {{Route::current()->uri=='/'?'active':''}}" style="display: inline-block;"><a href="" class="text-ws text-white"  style="display: inline-block;">Oferta Especial del Mes</a></li>

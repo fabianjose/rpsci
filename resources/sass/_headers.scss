@@ -25,7 +25,7 @@ a{
 }
 
 .ic-logo{
-   
+    margin-left: 33px;
     width: 99%;
 }
 
@@ -101,6 +101,10 @@ a{
 @media (max-width: 767px){
 
 
+    .ic-logo{
+        margin-left: 0px;
+        width: 99%;
+    }
    
 
     .grid-header1{

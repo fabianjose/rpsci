@@ -50,10 +50,22 @@
  background-size: cover;
   padding: 20px 100px;
 }
-
+.section-search{
+  background: url("./../assets/images/fondo_satelite.jpg");
+  background-repeat: round;
+}
 @media(max-width:768px){
+
+  .section-search{
+    background: white;
+ 
+}
   .footer-bg{
     padding: 20px 1rem;
+  }
+
+  .bg-main-pink{
+    background: white !important;
   }
 }
 .footer-footer{
@@ -67,7 +79,4 @@
   background-color: #ffffff!important;
 }
 
-.section-search{
-  background: url("./../assets/images/fondo_satelite.jpg");
-  background-repeat: round;
-}
+

@@ -40,6 +40,7 @@ a {
 }
 
 .ic-logo {
+  margin-left: 33px;
   width: 99%;
 }
 
@@ -112,6 +113,11 @@ a {
 }
 
 @media (max-width: 767px) {
+  .ic-logo {
+    margin-left: 0px;
+    width: 99%;
+  }
+
   .grid-header1 {
     display: none;
   }
@@ -189,9 +195,22 @@ a {
   padding: 20px 100px;
 }
 
+.section-search {
+  background: url(/images/fondo_satelite.jpg?14e35b3065fb09f40e303931427ca4d0);
+  background-repeat: round;
+}
+
 @media (max-width: 768px) {
+  .section-search {
+    background: white;
+  }
+
   .footer-bg {
     padding: 20px 1rem;
+  }
+
+  .bg-main-pink {
+    background: white !important;
   }
 }
 
@@ -205,11 +224,6 @@ a {
   width: 100%;
   min-height: 50vh;
   background-color: #ffffff !important;
-}
-
-.section-search {
-  background: url(/images/fondo_satelite.jpg?14e35b3065fb09f40e303931427ca4d0);
-  background-repeat: round;
 }
 
 .ic-logo-grey {
@@ -966,6 +980,8 @@ a {
 .ci-select {
   padding-left: 2.375rem !important;
   color: gray;
+  /* background-image: url("images/PaginaWEBFlechas.png");
+   background-size: 17px;;*/
 }
 
 .has-search .form-control-feedback {
@@ -1249,7 +1265,7 @@ a {
   }
 
   .fila-de-botones-sobre-buscador {
-    margin-top: 43px;
+    margin-top: 54px;
     padding-left: 9px;
     padding-right: 0px;
   }
@@ -1357,8 +1373,12 @@ a {
 
 @media (max-width: 767px) {
   .formulario-centro {
+    margin-left: -25px;
+    margin-right: -25px;
     margin-top: -38%;
-    padding-top: 15%;
+    padding-top: 20%;
+    padding-left: 38px;
+    padding-right: 38px;
     border-radius: 15% 15% 0 0px;
   }
 
@@ -1380,6 +1400,28 @@ a {
     margin-top: -3rem;
     flex-wrap: wrap;
     justify-content: space-around;
+  }
+}
+
+@media (max-width: 755px) {
+  .header-posicion {
+    margin-top: -22px;
+  }
+
+  .footer-movil {
+    display: none;
+  }
+
+  #carrusel-img-1 {
+    content: url(/images/PaginaWEBContratainternet_Mobile-03.jpg?d71e65eaead706692d6ce4368a145111);
+  }
+
+  #carrusel-img-2 {
+    content: url(/images/PaginaWEBContratainternet_Mobile-03.jpg?d71e65eaead706692d6ce4368a145111);
+  }
+
+  #carrusel-img-3 {
+    content: url(/images/PaginaWEBContratainternet_Mobile-03.jpg?d71e65eaead706692d6ce4368a145111);
   }
 }
 

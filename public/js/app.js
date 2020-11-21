@@ -4515,6 +4515,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['offer', 'index'],
   data: function data() {
@@ -44738,7 +44745,7 @@ var render = function() {
                       expression: "service"
                     }
                   ],
-                  staticClass: "custom-select ci-select",
+                  staticClass: "custom-select ci-select ",
                   on: {
                     change: function($event) {
                       var $$selectedVal = Array.prototype.filter
@@ -46332,7 +46339,30 @@ var render = function() {
           (_vm.index % 2 ? "bg-main-blue" : "bg-main-pink")
       }),
       _vm._v(" "),
-      _vm._m(2),
+      _c("div", { staticClass: "row text-center" }, [
+        _c(
+          "p",
+          {
+            staticClass: "col-12 ",
+            staticStyle: { "font-family": "'Heebo'", color: "#88868b" }
+          },
+          [_vm._v("Cantidad de Canales")]
+        ),
+        _vm._v(" "),
+        _c(
+          "h1",
+          {
+            staticClass: "col-12 ",
+            staticStyle: {
+              "font-family": "'Heebo'",
+              color: "#5b5b5f",
+              "margin-top": "-19px",
+              "font-weight": "800"
+            }
+          },
+          [_vm._v(" " + _vm._s(_vm.offer.canales))]
+        )
+      ]),
       _vm._v(" "),
       _c("div", {
         class:
@@ -46340,9 +46370,9 @@ var render = function() {
           (_vm.index % 2 ? "bg-main-blue" : "bg-main-pink")
       }),
       _vm._v(" "),
-      _vm._m(3),
+      _vm._m(2),
       _vm._v(" "),
-      _vm._m(4),
+      _vm._m(3),
       _vm._v(" "),
       _c(
         "p",
@@ -46375,7 +46405,7 @@ var render = function() {
               },
               on: { click: _vm.emitContact }
             },
-            [_vm._v("\n        ADQUIÉRELO\n      ")]
+            [_vm._v("\n          ADQUIÉRELO\n        ")]
           )
         ])
       ])
@@ -46433,36 +46463,7 @@ var staticRenderFns = [
             "font-weight": "800"
           }
         },
-        [_vm._v("30 Mbps")]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row text-center" }, [
-      _c(
-        "p",
-        {
-          staticClass: "col-12 ",
-          staticStyle: { "font-family": "'Heebo'", color: "#88868b" }
-        },
-        [_vm._v("Cantidad de Canales")]
-      ),
-      _vm._v(" "),
-      _c(
-        "h1",
-        {
-          staticClass: "col-12 ",
-          staticStyle: {
-            "font-family": "'Heebo'",
-            color: "#5b5b5f",
-            "margin-top": "-19px",
-            "font-weight": "800"
-          }
-        },
-        [_vm._v("174 Canales")]
+        [_vm._v(" \n\n10 Mbps\n           ")]
       )
     ])
   },

@@ -109,6 +109,10 @@ class OfferController extends Controller{
       "type",
       "departments",
       "municipalities",
+      "canales",
+      "telefonia",
+      "descuento",
+      "tecnologia"
     ];
 
     $service=Service::find($offer->service);
