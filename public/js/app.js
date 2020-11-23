@@ -3346,6 +3346,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["fields"],
   data: function data() {
@@ -4501,9 +4503,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
 //
 //
 //
@@ -45043,7 +45042,33 @@ var render = function() {
         _vm._v(" "),
         _vm._m(3),
         _vm._v(" "),
-        _vm._m(4),
+        _c("div", { staticClass: "form-horizontal my-2 col-12 flex-wrap" }, [
+          _vm._m(4),
+          _vm._v(" "),
+          _c("p"),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "collapse", attrs: { id: "collapseVelocidad" } },
+            [
+              _c(
+                "div",
+                { staticClass: "card card-body" },
+                _vm._l(_vm.arrayVelocity, function(value, name) {
+                  return _c("div", [
+                    _c("label"),
+                    _vm._v(" "),
+                    _c("input", {
+                      staticClass: "form-control",
+                      attrs: { type: "checkbox", name: "" }
+                    })
+                  ])
+                }),
+                0
+              )
+            ]
+          )
+        ]),
         _vm._v(" "),
         _vm._m(5),
         _vm._v(" "),
@@ -45380,38 +45405,22 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-horizontal my-2 col-12 flex-wrap" }, [
-      _c(
-        "h4",
-        {
-          attrs: {
-            type: "button",
-            "data-toggle": "collapse",
-            "data-target": "#collapseVelocidad",
-            "aria-expanded": "false",
-            "aria-controls": "collapseVelocidad"
-          }
-        },
-        [
-          _vm._v("\n    Velocidad   "),
-          _c("span", [_c("i", { staticClass: "fas fa-angle-down" })])
-        ]
-      ),
-      _vm._v(" "),
-      _c("p"),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "collapse", attrs: { id: "collapseVelocidad" } },
-        [
-          _c("div", { staticClass: "card card-body" }, [
-            _vm._v(
-              "\n    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.\n  "
-            )
-          ])
-        ]
-      )
-    ])
+    return _c(
+      "h4",
+      {
+        attrs: {
+          type: "button",
+          "data-toggle": "collapse",
+          "data-target": "#collapseVelocidad",
+          "aria-expanded": "false",
+          "aria-controls": "collapseVelocidad"
+        }
+      },
+      [
+        _vm._v("\n    Velocidad   "),
+        _c("span", [_c("i", { staticClass: "fas fa-angle-down" })])
+      ]
+    )
   },
   function() {
     var _vm = this
@@ -45438,11 +45447,7 @@ var staticRenderFns = [
       _c("p"),
       _vm._v(" "),
       _c("div", { staticClass: "collapse", attrs: { id: "collapsePrecio" } }, [
-        _c("div", { staticClass: "card card-body" }, [
-          _vm._v(
-            "\n    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.\n  "
-          )
-        ])
+        _c("div", { staticClass: "card card-body" })
       ])
     ])
   }
@@ -47268,7 +47273,26 @@ var render = function() {
     }),
     _vm._v(" "),
     _c("div", { staticClass: "offer-card-content" }, [
-      _vm._m(0),
+      _c(
+        "div",
+        {
+          staticClass: "row",
+          staticStyle: {
+            "padding-left": "30px",
+            "padding-right": "30px",
+            "margin-top": "-12px"
+          }
+        },
+        [
+          _c("h6", { staticClass: "col-12 offer-card-title" }, [
+            _vm._v(
+              "\n       \n       " +
+                _vm._s(_vm.offer.fields_values[0].value) +
+                " \n       \n       "
+            )
+          ])
+        ]
+      ),
       _vm._v(" "),
       _c("div", { staticClass: "row text-center" }, [
         _c(
@@ -47296,9 +47320,11 @@ var render = function() {
             }
           },
           [
-            _c("h6", [
-              _vm._v(" " + _vm._s(_vm.offer.fields_values) + "\n             ")
-            ])
+            _vm._v(
+              " \n \n             \n            " +
+                _vm._s(_vm.offer.fields_values[1].value) +
+                " \n          \n    \n"
+            )
           ]
         )
       ]),
@@ -47340,9 +47366,9 @@ var render = function() {
           (_vm.index % 2 ? "bg-main-blue" : "bg-main-pink")
       }),
       _vm._v(" "),
-      _vm._m(1),
+      _vm._m(0),
       _vm._v(" "),
-      _vm._m(2),
+      _vm._m(1),
       _vm._v(" "),
       _c(
         "p",
@@ -47383,27 +47409,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "row",
-        staticStyle: {
-          "padding-left": "30px",
-          "padding-right": "30px",
-          "margin-top": "-12px"
-        }
-      },
-      [
-        _c("h6", { staticClass: "col-12 offer-card-title" }, [
-          _vm._v("Fibra Optica")
-        ])
-      ]
-    )
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -83412,8 +83417,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\RPCS_SOLUTIONS\rpsci\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\RPCS_SOLUTIONS\rpsci\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\Nueva carpeta\rpsci\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\Nueva carpeta\rpsci\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),
