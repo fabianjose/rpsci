@@ -8,7 +8,11 @@
     <div class="offer-card-content">
       <div class="row" style="    padding-left: 30px;  padding-right:30px; margin-top: -12px;">
        <!-- <h6 class="col-12 offer-card-title">{{offer.company_name}}</h6> -->
-       <h6 class="col-12 offer-card-title">Fibra Optica</h6>       
+       <h6 class="col-12 offer-card-title">
+         
+         {{offer.fields_values[0].value}} 
+         
+         </h6>       
       </div>
       <div class="row text-center">
        <!--  <h6 class="col-12 offer-card-benefits text-wrap" style="font-family:heebo">{{offer.benefits}}</h6>-->
@@ -16,17 +20,10 @@
         <!-- <h6 class="col-12 offer-card-title">{{offer.company_name}}</h6>  ACA VA EL VALOR DE LA VELOCIDAD -->
         <h1 class="col-12 " style="font-family: 'Heebo';    color: #5b5b5f;    margin-top: -18px; font-weight: 800;"> 
    
-   
-            
-              <h6> {{offer.fields_values}}
-               </h6>
+               
+              {{offer.fields_values[1].value}} 
             
       
-        
-           
-
-       
-
   </h1>
          
 
