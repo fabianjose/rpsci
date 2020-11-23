@@ -15,9 +15,22 @@
         <p class="col-12" style="font-family: 'Heebo';    margin-top: -9px; color:#88868b">velocidad</p>
         <!-- <h6 class="col-12 offer-card-title">{{offer.company_name}}</h6>  ACA VA EL VALOR DE LA VELOCIDAD -->
         <h1 class="col-12 " style="font-family: 'Heebo';    color: #5b5b5f;    margin-top: -18px; font-weight: 800;"> 
+   
+   
+            
+              <h6> {{offer.fields_values}}
+               </h6>
+            
+      
+        
+           
 
-10 Mbps
-           </h1>
+       
+
+  </h1>
+         
+
+          
 
 
 

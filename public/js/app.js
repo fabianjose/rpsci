@@ -4522,6 +4522,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['offer', 'index'],
   data: function data() {
@@ -46310,218 +46325,8 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "offer-card d-flex flex-column" }, [
-    _c("div", { staticClass: "offer-card-header" }, [
-      _c("img", {
-        staticClass: "h-100 ",
-        attrs: {
-          src: _vm.baseUrl + "/storage/" + _vm.offer.company_logo,
-          alt: "logo"
-        }
-      })
-    ]),
-    _vm._v(" "),
-    _c("div", {
-      class:
-        "offer-card-separator " +
-        (_vm.index % 2 ? "bg-main-blue" : "bg-main-pink")
-    }),
-    _vm._v(" "),
-    _c("div", { staticClass: "offer-card-content" }, [
-      _vm._m(0),
-      _vm._v(" "),
-      _vm._m(1),
-      _vm._v(" "),
-      _c("div", {
-        class:
-          "offer-card-separator " +
-          (_vm.index % 2 ? "bg-main-blue" : "bg-main-pink")
-      }),
-      _vm._v(" "),
-      _c("div", { staticClass: "row text-center" }, [
-        _c(
-          "p",
-          {
-            staticClass: "col-12 ",
-            staticStyle: { "font-family": "'Heebo'", color: "#88868b" }
-          },
-          [_vm._v("Cantidad de Canales")]
-        ),
-        _vm._v(" "),
-        _c(
-          "h1",
-          {
-            staticClass: "col-12 ",
-            staticStyle: {
-              "font-family": "'Heebo'",
-              color: "#5b5b5f",
-              "margin-top": "-19px",
-              "font-weight": "800"
-            }
-          },
-          [_vm._v(" " + _vm._s(_vm.offer.canales))]
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", {
-        class:
-          "offer-card-separator " +
-          (_vm.index % 2 ? "bg-main-blue" : "bg-main-pink")
-      }),
-      _vm._v(" "),
-      _vm._m(2),
-      _vm._v(" "),
-      _vm._m(3),
-      _vm._v(" "),
-      _c(
-        "p",
-        {
-          staticClass: "col-12 ",
-          staticStyle: { "font-family": "'Heebo'", color: "#88868b" }
-        },
-        [_vm._v("Desde")]
-      ),
-      _vm._v(" "),
-      _c("div", { staticClass: "row" }, [
-        _c("h5", { staticClass: "col-12 offer-card-price" }, [
-          _vm._v("$ " + _vm._s(_vm.showPrice(_vm.offer.tariff)))
-        ])
-      ])
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "offer-card-footer" }, [
-      _c("div", { staticClass: "col-10" }, [
-        _c("div", [
-          _c(
-            "button",
-            {
-              class:
-                "btn  text-white offer-card-btn rounded-pill " +
-                (_vm.index % 2 ? "bg-main-blue" : "bg-main-pink"),
-              attrs: {
-                "data-toggle": "modal",
-                "data-target": "#modalConsultOffer"
-              },
-              on: { click: _vm.emitContact }
-            },
-            [_vm._v("\n          ADQUIÉRELO\n        ")]
-          )
-        ])
-      ])
-    ])
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "row",
-        staticStyle: {
-          "padding-left": "30px",
-          "padding-right": "30px",
-          "margin-top": "-12px"
-        }
-      },
-      [
-        _c("h6", { staticClass: "col-12 offer-card-title" }, [
-          _vm._v("Fibra Optica")
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row text-center" }, [
-      _c(
-        "p",
-        {
-          staticClass: "col-12",
-          staticStyle: {
-            "font-family": "'Heebo'",
-            "margin-top": "-9px",
-            color: "#88868b"
-          }
-        },
-        [_vm._v("velocidad")]
-      ),
-      _vm._v(" "),
-      _c(
-        "h1",
-        {
-          staticClass: "col-12 ",
-          staticStyle: {
-            "font-family": "'Heebo'",
-            color: "#5b5b5f",
-            "margin-top": "-18px",
-            "font-weight": "800"
-          }
-        },
-        [_vm._v(" \n\n10 Mbps\n           ")]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row text-center" }, [
-      _c(
-        "p",
-        {
-          staticClass: "col-12 ",
-          staticStyle: { "font-family": "'Heebo'", color: "#88868b" }
-        },
-        [_vm._v("Telefonia")]
-      ),
-      _vm._v(" "),
-      _c(
-        "h1",
-        {
-          staticClass: "col-12 ",
-          staticStyle: {
-            "font-family": "'Heebo'",
-            color: "#5b5b5f",
-            "margin-top": "-19px",
-            "font-weight": "800"
-          }
-        },
-        [_vm._v("ILIMITADA")]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "row",
-        staticStyle: {
-          "padding-left": "30px",
-          "padding-right": "30px",
-          "margin-top": ""
-        }
-      },
-      [
-        _c("h6", { staticClass: "col-12 offer-card-title" }, [
-          _vm._v("descuento del 50% 4 meses")
-        ])
-      ]
-    )
-  }
-]
-render._withStripped = true
+var render = function () {}
+var staticRenderFns = []
 
 
 
