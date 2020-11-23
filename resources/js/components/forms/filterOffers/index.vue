@@ -1,59 +1,60 @@
-<template>
+<template> 
+  <div class="card card-primary filter-card mb-5">
+    <div class="card-body d-flex flex-column align-items-center pt-4">
+      <h5 class="filter-card-title font-weight-bold text-center"><i class="fas fa-filter"></i>  Filtra tu búsqueda</h5>
 
-<div id="accordion">
-  <div class="card">
-    <div class="card-header" id="headingOne">
-      <h5 class="mb-0">
-        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          Collapsible Group Item #1
-        </button>
-      </h5>
-    </div>
 
-    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-      <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
-    </div>
+      <p>
+<div class="form-horizontal my-2 col-12 flex-wrap">
+  <h4 class="" type="button" data-toggle="collapse" data-target="#collapseProveedor" aria-expanded="false" aria-controls="collapseProveedor">
+    Proveedor <span><i class="fas fa-angle-down"></i></span>
+  </h4> 
+  <div v-for="(value, name) in providers">
+  {{ name }}: {{ value }}
+</div>
+</p>
+<div class="collapse" id="collapseProveedor">
+  <div class="card card-body">
+   <input type="checkbox" name="">
   </div>
-  <div class="card">
-    <div class="card-header" id="headingTwo">
-      <h5 class="mb-0">
-        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          Collapsible Group Item #2
-        </button>
-      </h5>
-    </div>
-    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-      <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
-    </div>
+</div>
+</div>
+<div class="form-horizontal my-2 col-12 flex-wrap">
+  <h4 class="" type="button" data-toggle="collapse" data-target="#collapseTecnologia" aria-expanded="false" aria-controls="collapseTecnologia">
+    Tecnología  <span><i class="fas fa-angle-down"></i></span>
+  </h4>
+</p>
+<div class="collapse" id="collapseTecnologia">
+  <div class="card card-body">
+    
   </div>
-  <div class="card">
-    <div class="card-header" id="headingThree">
-      <h5 class="mb-0">
-        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          Collapsible Group Item #3
-        </button>
-      </h5>
-    </div>
-    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-      <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
+</div>
+</div>
+
+<div class="form-horizontal my-2 col-12 flex-wrap">
+  <h4 class="" type="button" data-toggle="collapse" data-target="#collapseVelocidad" aria-expanded="false" aria-controls="collapseVelocidad">
+    Velocidad   <span><i class="fas fa-angle-down"></i></span>
+  </h4>
+</p>
+<div class="collapse" id="collapseVelocidad">
+  <div class="card card-body">
+    <div v-for="(value, name) in arrayVelocity">
+      <label></label>
+      <input class="form-control" type="checkbox" name="">
     </div>
   </div>
 </div>
-
-
-
-
-
-  
-  <div class="card card-primary filter-card mb-5">
-    <div class="card-body d-flex flex-column align-items-center pt-4">
-      <h5 class="filter-card-title font-weight-bold text-center">Filtra tu búsqueda</h5>
+</div>
+<div class="form-horizontal my-2 col-12 flex-wrap">
+  <h4 class="" type="button" data-toggle="collapse" data-target="#collapsePrecio" aria-expanded="false" aria-controls="collapseExample">
+    Precio   <span><i class="fas fa-angle-down"></i></span>
+  </h4>
+</p>
+<div class="collapse" id="collapsePrecio">
+  <div class="card card-body">
+  </div>
+</div>
+</div>
       <div class="d-flex flex-column w-100 py-3 px-1">
         <div class="d-flex flex-row w-100 justify-content-around flex-wrap">
 
