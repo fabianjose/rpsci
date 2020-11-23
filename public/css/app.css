@@ -568,7 +568,7 @@ a {
   /* height:480px;*/
   border-radius: 24px;
   background-color: white;
-  box-shadow: 0px 0px 3px 0px #606060;
+  box-shadow: 0px 0px 4px 2px #606060;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
   border: solid 1px;
   border-color: #7fe0e9;
@@ -676,7 +676,7 @@ a {
 }
 
 .nosotros-title {
-  min-height: 50vh;
+  min-height: 15vh;
   background: linear-gradient(to bottom, rgba(19, 41, 61, 0.8), rgba(19, 41, 61, 0.8)), url(/images/nosotros-bg.jpg?19b0dcc137c7a27ad415d163b4f13c04);
   background-repeat: no-repeat;
   background-size: 100%;
@@ -954,7 +954,7 @@ a {
 
 @media (max-width: 768px) {
   .main-search-form {
-    width: 65%;
+    width: 100%;
   }
 }
 
@@ -993,7 +993,7 @@ a {
 
 @media (max-width: 767px) {
   .main-search-form {
-    width: 80%;
+    width: 100%;
   }
 }
 
@@ -1248,7 +1248,29 @@ a {
   }
 }
 
+@media (max-width: 411x) {
+  .lupa {
+    margin-top: 0px;
+    margin-left: 129px;
+    height: 77px;
+  }
+}
+
+@media (max-width: 375x) {
+  .lupa {
+    margin-top: 0px;
+    margin-left: 109px;
+    height: 77px;
+  }
+}
+
 @media (max-width: 768px) {
+  .lupa {
+    margin-top: 0px;
+    margin-left: 116px;
+    height: 77px;
+  }
+
   span.text0-botones::before {
     content: ‘\a ’;
     white-space: pre;
@@ -1368,13 +1390,13 @@ a {
 
 @media (max-width: 767px) {
   .formulario-centro {
-    margin-left: -25px;
-    margin-right: -25px;
-    margin-top: -38%;
-    padding-top: 20%;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: -51%;
+    padding-top: 30%;
     padding-left: 38px;
     padding-right: 38px;
-    border-radius: 15% 15% 0 0px;
+    border-radius: 12% 12% 0 0px;
   }
 
   .texto-formulario-centro1 {
@@ -1398,6 +1420,20 @@ a {
   }
 }
 
+.titulo-nosotros {
+  font-family: "Heebo";
+  color: #7f7f7f;
+  font-size: 56px;
+}
+
+.texto-nosotros {
+  text-align: justify;
+  padding-left: 73px;
+  padding-right: 73px;
+  font-size: 20px;
+  font-family: "Heebo";
+}
+
 @media (max-width: 755px) {
   .header-posicion {
     margin-top: -22px;
@@ -1417,6 +1453,18 @@ a {
 
   #carrusel-img-3 {
     content: url(/images/PaginaWEBContratainternet_Mobile-03.jpg?d71e65eaead706692d6ce4368a145111);
+  }
+
+  .texto-nosotros {
+    text-align: justify;
+    padding-left: 0px;
+    padding-right: 0px;
+    font-size: 20px;
+    font-family: "Heebo";
+  }
+
+  .titulo-nosotros {
+    font-size: 41px;
   }
 }
 

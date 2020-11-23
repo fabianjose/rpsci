@@ -1,4 +1,19 @@
 
+.titulo-nosotros{
+    
+    font-family: "Heebo";
+    color: #7f7f7f;
+    font-size: 56px;
+}
+
+.texto-nosotros{
+    text-align: justify;
+    padding-left: 73px;
+    padding-right: 73px;
+    font-size: 20px;
+    font-family:'Heebo';
+}
+
 @media (max-width: 755px){
     .header-posicion{
         margin-top: -22px;
@@ -19,10 +34,23 @@
    #carrusel-img-3{
     content:url("resources/assets/images/PaginaWEBContratainternet_Mobile-03.jpg");
    }
-  
+   .texto-nosotros{
+    text-align: justify;
+    padding-left: 0px;
+    padding-right: 0px;
+    font-size: 20px;
+    font-family:'Heebo';
+}
 
+.titulo-nosotros{
+    font-size: 41px;
+    
+}
 }
 
 
 
+@media (min-width: 755px){
+
+}
 

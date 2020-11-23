@@ -117,9 +117,33 @@
            
 
 }
+
+@media (max-width: 411x){
+
+    .lupa{
+        margin-top: 0px;
+        margin-left: 129px;
+        height: 77px;
+    }
+
+}
+
+@media (max-width: 375x){
+
+    .lupa{
+        margin-top: 0px;
+        margin-left: 109px;
+        height: 77px;
+    }
+
+}
 @media (max-width: 768px){
 
-
+.lupa{
+    margin-top: 0px;
+    margin-left: 116px;
+    height: 77px;
+}
     span.text0-botones::before { content: ‘\A’; white-space: pre;}
 
     .borde-caja-buscador{
