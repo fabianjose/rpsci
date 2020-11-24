@@ -6,16 +6,18 @@
 
       <p>
 <div class="form-horizontal my-2 col-12 flex-wrap">
-  <h4 class="" type="button" data-toggle="collapse" data-target="#collapseProveedor" aria-expanded="false" aria-controls="collapseProveedor">
-    Proveedor <span><i class="fas fa-angle-down"></i></span>
+  <h4 class="btn-block" type="button" data-toggle="collapse" data-target="#collapseProveedor" aria-expanded="false" aria-controls="collapseProveedor">
+    Proveedor <span><i class="fas fa-angle-down" style="margin-left: auto;"></i></span>
   </h4> 
-  <div v-for="(value, name) in providers">
-  {{ name }}: {{ value }}
-</div>
+
 </p>
 <div class="collapse" id="collapseProveedor">
   <div class="card card-body">
-   <input type="checkbox" name="">
+    <div v-for="(value, name) in providers">
+
+       <label>{{value.name}}</label>
+      <input type="checkbox" :name="value.id">
+    </div>
   </div>
 </div>
 </div>
@@ -105,7 +107,7 @@
 <script>
 export default {
 
-  props:["fields"],
+  props:["fields","providers"],
 
   data(){
     return{

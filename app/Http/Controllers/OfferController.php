@@ -303,6 +303,25 @@ class OfferController extends Controller{
     'services.name as service_name'
     );
 
+    $providers = DB::table('companies')
+    ->where('companies.trash',0)
+    ->join("offers",'offers.company','companies.id')
+    ->where('offers.trash',0)
+    ->where(function($query) use($data){
+      $query->where("offers.type", $data["offer_type"])
+      ->orWhere("offers.type", null);
+    })
+    ->where('service',$service->id)
+    ->where(function($query) use($department){
+      $query->where('departments', "like" ,'%'.$department->name.'%')
+      ->orWhere("departments",null);
+    })
+    ->where(function($query) use($municipality){
+      $query->where('municipalities', "like" ,'%'.$municipality->name.'%')
+      ->orWhere("municipalities",null);
+    })
+    ->select("*")->distinct();
+    $providers = $providers->get();
     if (!$offers) return response()->json(["errorMessage"=>'No se encontraron ofertas disponibles'],404);
 
     if($request->input("from")&&is_numeric($request->input("from"))){
@@ -349,7 +368,7 @@ class OfferController extends Controller{
     $last_page= max((int) ceil(count($offersArray) / 10), 1);
 
     if(!$request->ajax()){
-      return view("pages.planComparator")->with(["pagination"=> $paginator,"fields"=>$fields, "query"=>$query, "last_page"=>$last_page]);
+      return view("pages.planComparator")->with(["pagination"=> $paginator,"fields"=>$fields, "query"=>$query,"providers"=>$providers, "last_page"=>$last_page]);
     }
 
     return response()->json(["pagination"=>$paginator, "fields"=>$fields, "query"=>$query, "last_page"=>$last_page], 200);

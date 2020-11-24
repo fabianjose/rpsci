@@ -27,7 +27,10 @@
 }
 
 .offers-pagination-item{
-    border-bottom: solid .2rem $mid-gray;
+    border-radius: 20px;
+    border-color: $main-blue;
+    border-width: 3px;
+    border: solid;
 }
 
 .stars-container{
