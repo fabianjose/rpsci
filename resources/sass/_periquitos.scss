@@ -7,11 +7,13 @@
 }
 
 .texto-nosotros{
-    text-align: justify;
+  
     padding-left: 73px;
     padding-right: 73px;
     font-size: 20px;
     font-family:'Heebo';
+    text-align: initial;
+    line-height: 100%;
 }
 
 @media (max-width: 755px){
@@ -35,11 +37,12 @@
     content:url("resources/assets/images/PaginaWEBContratainternet_Mobile-03.jpg");
    }
    .texto-nosotros{
-    text-align: justify;
+    text-align: initial;
     padding-left: 0px;
     padding-right: 0px;
     font-size: 20px;
     font-family:'Heebo';
+    line-height: 100%;
 }
 
 .titulo-nosotros{
