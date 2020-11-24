@@ -120,6 +120,31 @@
                 <h1 class="text-center text-ws" style="font-weight: 800;">Nuestras Publicaciones de Blog</h1>
                 
             </section>
+
+            <section id="blog" class="container">
+<?php 
+	$url = "https://contratainternet.co/blog/wp-json/wp/v2/posts?_embed"; $ch = curl_init($url);  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	$post = curl_exec($ch);
+	$post = json_decode($post,true);
+?>
+				<div class="row" >
+					<div class="col-12 col-md-4" style="text-align: -webkit-center;">
+				<div class="thumbnail" style="width: 100%; background-position:center;height: 300px;background-size: cover; background-image: url('<?=$post[0]["_embedded"]["wp:featuredmedia"][0]["source_url"] ?>');" alt=""></div> 
+						<br> 
+						<?php  print_r($post[0]["excerpt"]["rendered"]);?>
+					</div>
+					<div class="col-12 col-md-4" style="text-align: -webkit-center;">
+						<div class="thumbnail" style="width: 100%;background-position:center;background-size: cover; height: 300px; background-image: url('<?=$post[1]["_embedded"]["wp:featuredmedia"][0]["source_url"] ?>');" alt=""></div>
+						<br> 
+						<?php  print_r($post[1]["excerpt"]["rendered"]);?>
+					</div>
+					<div class="col-12 col-md-4" style="text-align: -webkit-center;">
+						<div class="thumbnail" style="width: 100%; background-position:center;height: 300px;background-size: cover; background-image: url('<?=$post[2]["_embedded"]["wp:featuredmedia"][0]["source_url"] ?>');" alt=""></div>
+						<br> 
+						<?php print_r($post[2]["excerpt"]["rendered"]);?>
+					</div>
+				</div>
+			</section>
            
         </div>
      
