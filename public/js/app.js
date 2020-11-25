@@ -4030,6 +4030,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["items", "fields", "lastpage", "currentpage"],
   data: function data() {
@@ -6474,6 +6477,21 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['services'],
   data: function data() {
@@ -6485,12 +6503,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       municipalities: [],
       type: null,
       tariff: "",
-      benefits: "",
+      benefits: 0,
       service: null,
       points: 0,
       fields: [],
       fieldsValues: [],
-      companies: []
+      companies: [],
+      tipo_plan_logos: ""
     };
   },
   mounted: function mounted() {
@@ -6578,6 +6597,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 fd.append("benefits", _this3.benefits);
                 fd.append("service", _this3.service);
                 fd.append("points", _this3.points);
+                fd.append("tipo_plan_logos", _this3.tipo_plan_logos);
                 fd.append("fields_values", valuesArray.length ? JSON.stringify(valuesArray) : null);
                 loader = _this3.$loading.show();
                 axios.post(baseUrl + '/api/offer', fd).then(function (res) {
@@ -6589,6 +6609,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   _this3.type = "private";
                   _this3.tariff = "";
                   _this3.benefits = "";
+                  _this3.tipo_plan_logos = 0;
                   _this3.service = null;
                   _this3.points = 0;
                   _this3.fields_values = [];
@@ -6630,7 +6651,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   return loader.hide();
                 });
 
-              case 18:
+              case 19:
               case "end":
                 return _context.stop();
             }
@@ -46499,7 +46520,9 @@ var render = function() {
                     }
                   }),
                   _vm._v(" "),
-                  _vm._m(3, true)
+                  offer.tipo_plan_logos == 0
+                    ? _c("div", [_vm._m(3, true)])
+                    : _vm._e()
                 ]
               ),
               _vm._v(" "),
@@ -46797,7 +46820,7 @@ var staticRenderFns = [
       },
       [
         _c("img", {
-          attrs: { src: "/images/service-5.png", width: "30%", alt: "" }
+          attrs: { src: "/images/service-2.png", width: "30%", alt: "" }
         })
       ]
     )
@@ -50730,6 +50753,61 @@ var render = function() {
                         "form-group col-xl-4 col-lg-4 col-md-6 col-12"
                     },
                     [
+                      _c("label", [
+                        _vm._v(
+                          "\n           Tipo de plan para logo\n          "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "select",
+                        {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.tipo_plan_logos,
+                              expression: "tipo_plan_logos"
+                            }
+                          ],
+                          staticClass: "custom-select",
+                          on: {
+                            change: function($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function(o) {
+                                  return o.selected
+                                })
+                                .map(function(o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.tipo_plan_logos = $event.target.multiple
+                                ? $$selectedVal
+                                : $$selectedVal[0]
+                            }
+                          }
+                        },
+                        [
+                          _c(
+                            "option",
+                            { attrs: { value: "0", selected: "" } },
+                            [_vm._v("internet")]
+                          ),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "1" } }, [
+                            _vm._v("duo")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "2" } }, [
+                            _vm._v("trio")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "3" } }, [
+                            _vm._v("vozip")
+                          ])
+                        ]
+                      ),
+                      _vm._v(" "),
                       _c("label", [
                         _vm._v("\n            Puntuacion\n          ")
                       ]),

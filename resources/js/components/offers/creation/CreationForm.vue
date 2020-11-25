@@ -54,6 +54,7 @@
             </div>
           </div>
 
+
           <zone-custom-selection @departments="setDepartments" @municipalities="setMunicipalities" 
           ref="zoneSelectRef" ></zone-custom-selection>
 
@@ -74,7 +75,21 @@
                 <option value="pyme">Pyme</option>
               </select>
             </div>
+
+
+             
             <div class="form-group col-xl-4 col-lg-4 col-md-6 col-12">
+
+                 <label>
+               Tipo de plan para logo
+              </label>
+              <select class="custom-select" v-model="tipo_plan_logos">
+                <option value="0" selected>internet</option>
+                <option value="1">duo</option>
+                <option value="2">trio</option>
+                 <option value="3">vozip</option>
+           
+              </select>
               <label>
                 Puntuacion
               </label>
@@ -112,12 +127,13 @@ export default {
       municipalities: [],
       type: null,
       tariff: "",
-      benefits: "",
+      benefits: 0,
       service: null,
       points: 0,
       fields: [],
       fieldsValues: [],
       companies: [],
+      tipo_plan_logos:"",
       
     }
   },
@@ -191,6 +207,7 @@ export default {
       fd.append("benefits", this.benefits);
       fd.append("service", this.service);
       fd.append("points", this.points);
+       fd.append("tipo_plan_logos", this.tipo_plan_logos);
       fd.append("fields_values", valuesArray.length?JSON.stringify(valuesArray):null);
 
       let loader = this.$loading.show();
@@ -205,6 +222,7 @@ export default {
         this.type = "private";
         this.tariff = "";
         this.benefits = "";
+        this.tipo_plan_logos = 0;
         this.service = null;
         this.points = 0;
         this.fields_values = [];

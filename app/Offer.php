@@ -24,6 +24,7 @@ class Offer extends Model{
     'descuentos',
     'telefonia',
     'tecnologia',
+    'tipo_plan_logos',
     
   ];
 
