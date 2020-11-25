@@ -4014,6 +4014,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["items", "fields", "lastpage", "currentpage"],
   data: function data() {
@@ -46421,77 +46437,6 @@ var render = function() {
           "div",
           {
             staticClass:
-              "d-flex flex-row w-100 justify-content-around py-3 pb-5 align-items-center p-2"
-          },
-          [
-            _c(
-              "button",
-              {
-                staticClass:
-                  "col-2 col-md-1 col-lg-1 col-xl-1 d-flex justify-content-center align-items-center page-item rounded-pill btn btn-light",
-                attrs: { disabled: _vm.currentpage == 1 },
-                on: { click: _vm.setPage }
-              },
-              [_c("i", { staticClass: "fas fa-arrow-left" })]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass:
-                  "d-flex flex-row justify-content-center col-8 col-lg-6 col-xl-6"
-              },
-              _vm._l(_vm.compLastpage, function(item, k1) {
-                return _c(
-                  "button",
-                  {
-                    key: k1,
-                    class:
-                      "mx-2 d-flex justify-content-center align-items-center btn btn-sm py-2 text-white rounded-pill page-item" +
-                      (_vm.currentpage == item
-                        ? " bg-main-blue"
-                        : " bg-dark-blue"),
-                    on: {
-                      click: function($event) {
-                        return _vm.setPage(item)
-                      }
-                    }
-                  },
-                  [
-                    _c("span", { staticClass: "text-center pr-1" }, [
-                      _vm._v(
-                        "\r\n                " +
-                          _vm._s(item) +
-                          "\r\n              "
-                      )
-                    ])
-                  ]
-                )
-              }),
-              0
-            ),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass:
-                  "col-2 col-md-1 col-lg-1 col-xl-1 d-flex justify-content-center align-items-center page-item rounded-pill btn btn-light",
-                attrs: { disabled: _vm.currentpage == _vm.compLastpage },
-                on: {
-                  click: function($event) {
-                    return _vm.setPage(_vm.currentpage)
-                  }
-                }
-              },
-              [_c("i", { staticClass: "fas fa-arrow-right" })]
-            )
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass:
               "d-flex flex-row w-100 justify-content-around mb-2 mt-3"
           },
           [
@@ -46513,7 +46458,11 @@ var render = function() {
                       staticClass:
                         "text-center p-2 offer-table-label w-100 text-white mx-auto bg-dark-blue rounded-pill  p-1 text-wrap "
                     },
-                    [_vm._v(_vm._s(field.name))]
+                    [
+                      _c("p", { staticClass: "text-tabla-detalles" }, [
+                        _vm._v(" " + _vm._s(field.name) + " ")
+                      ])
+                    ]
                   )
                 ]
               )
@@ -46550,33 +46499,82 @@ var render = function() {
                     }
                   }),
                   _vm._v(" "),
-                  _c("h6", { staticClass: "text-dark-blue pt-2" }, [
-                    _vm._v(_vm._s(offer.company_name))
+                  _vm._m(3, true)
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "'text-wrap col-xl-2 col-lg-3 text-center flex-column align-items-center justify-content-center d-xl-flex hidden-md hidden-xs hidden-sm '+(!k3?'d-lg-flex':'hidden-lg')"
+                },
+                [
+                  offer.fields_values[0].value == "Satelital"
+                    ? _c("div", [
+                        _c("img", {
+                          attrs: {
+                            src: "/images/service-4.png",
+                            width: "30%",
+                            alt: ""
+                          }
+                        })
+                      ])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  offer.fields_values[0].value == "Fibra Optica" ||
+                  offer.fields_values[0].value == "Fibra optica"
+                    ? _c("div", [
+                        _c("img", {
+                          attrs: {
+                            src: "/images/Fibra.png",
+                            width: "30%",
+                            alt: ""
+                          }
+                        })
+                      ])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _c("h6", { staticClass: "text-lg" }, [
+                    _c(
+                      "span",
+                      {
+                        staticStyle: {
+                          "font-family": "'Heebo'",
+                          "font-size": "1.59rem!important",
+                          color: "#7f7f7f"
+                        }
+                      },
+                      [_vm._v(" " + _vm._s(offer.fields_values[0].value) + " ")]
+                    )
                   ])
                 ]
               ),
               _vm._v(" "),
-              _vm._l(offer.fields_values, function(fieldValue, k3) {
-                return _c(
-                  "div",
-                  {
-                    key: k3,
-                    class:
-                      "text-wrap col-xl-2 col-lg-3 text-center flex-column align-items-center justify-content-center d-xl-flex hidden-md hidden-xs hidden-sm " +
-                      (!k3 ? "d-lg-flex" : "hidden-lg")
-                  },
-                  [
-                    _c("h6", { staticClass: "text-lg" }, [
-                      _vm._v(
-                        "\r\n              " + _vm._s(fieldValue.value) + " "
-                      ),
-                      _vm.fields[k3].unit
-                        ? _c("span", [_vm._v(_vm._s(_vm.fields[k3].unit))])
-                        : _vm._e()
-                    ])
-                  ]
-                )
-              }),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "'text-wrap col-xl-2 col-lg-3 text-center flex-column align-items-center justify-content-center d-xl-flex hidden-md hidden-xs hidden-sm '+(!k3?'d-lg-flex':'hidden-lg')"
+                },
+                [
+                  _vm._m(4, true),
+                  _vm._v(" "),
+                  _c("h6", { staticClass: "text-lg" }, [
+                    _c(
+                      "span",
+                      {
+                        staticStyle: {
+                          "font-family": "'Heebo'",
+                          "font-size": "1.59rem!important",
+                          color: "#7f7f7f"
+                        }
+                      },
+                      [_vm._v(" " + _vm._s(offer.fields_values[1].value) + " ")]
+                    )
+                  ])
+                ]
+              ),
               _vm._v(" "),
               _c(
                 "div",
@@ -46650,8 +46648,7 @@ var render = function() {
                   ])
                 ]
               )
-            ],
-            2
+            ]
           )
         }),
         _vm._v(" "),
@@ -46743,7 +46740,7 @@ var staticRenderFns = [
           staticClass:
             "text-center p-2 offer-table-label w-100 text-white mx-auto bg-dark-blue rounded-pill  p-1 text-wrap "
         },
-        [_vm._v("PROVEEDOR")]
+        [_c("p", { staticClass: "text-tabla-detalles" }, [_vm._v("Proveedor")])]
       )
     ])
   },
@@ -46764,7 +46761,11 @@ var staticRenderFns = [
             staticClass:
               "text-center p-2 offer-table-label w-100 text-white mx-auto bg-dark-blue rounded-pill  p-1 text-wrap "
           },
-          [_vm._v("DESCRIPCION")]
+          [
+            _c("p", { staticClass: "text-tabla-detalles" }, [
+              _vm._v("  Descripcion ")
+            ])
+          ]
         )
       ]
     )
@@ -46780,8 +46781,35 @@ var staticRenderFns = [
           staticClass:
             "text-center p-2 offer-table-label w-100 text-white mx-auto bg-dark-blue rounded-pill p-1 text-wrap "
         },
-        [_vm._v("PRECIO")]
+        [_c("p", { staticClass: "text-tabla-detalles" }, [_vm._v("   Precio")])]
       )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "h6",
+      {
+        staticClass: "text-dark-blue pt-2",
+        staticStyle: { "text-align": "center" }
+      },
+      [
+        _c("img", {
+          attrs: { src: "/images/service-5.png", width: "30%", alt: "" }
+        })
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("img", {
+        attrs: { src: "/images/icono-ondas.png", width: "30%", alt: "" }
+      })
     ])
   }
 ]
