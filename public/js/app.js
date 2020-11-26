@@ -4033,6 +4033,29 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["items", "fields", "lastpage", "currentpage"],
   data: function data() {
@@ -6492,6 +6515,35 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['services'],
   data: function data() {
@@ -6509,7 +6561,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       fields: [],
       fieldsValues: [],
       companies: [],
-      tipo_plan_logos: ""
+      tipo_plan_logos: "",
+      tegnologia: "",
+      telefonia: ""
     };
   },
   mounted: function mounted() {
@@ -6597,6 +6651,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 fd.append("benefits", _this3.benefits);
                 fd.append("service", _this3.service);
                 fd.append("points", _this3.points);
+                fd.append("tecnologia", _this3.tecnologia);
+                fd.append("telefonia", _this3.telefonia);
                 fd.append("tipo_plan_logos", _this3.tipo_plan_logos);
                 fd.append("fields_values", valuesArray.length ? JSON.stringify(valuesArray) : null);
                 loader = _this3.$loading.show();
@@ -6610,6 +6666,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   _this3.tariff = "";
                   _this3.benefits = "";
                   _this3.tipo_plan_logos = 0;
+                  _this3.tecnologia = 0;
+                  _this3.telefonia = 0;
                   _this3.service = null;
                   _this3.points = 0;
                   _this3.fields_values = [];
@@ -6651,7 +6709,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   return loader.hide();
                 });
 
-              case 19:
+              case 21:
               case "end":
                 return _context.stop();
             }
@@ -46522,6 +46580,28 @@ var render = function() {
                   _vm._v(" "),
                   offer.tipo_plan_logos == 0
                     ? _c("div", [_vm._m(3, true)])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  offer.tipo_plan_logos == 1
+                    ? _c("div", [_vm._m(4, true)])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  offer.tipo_plan_logos == 2
+                    ? _c("div", [_vm._m(5, true)])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  offer.tipo_plan_logos != 0 &&
+                  offer.tipo_plan_logos != 1 &&
+                  offer.tipo_plan_logos != 2
+                    ? _c("div", [
+                        _c("img", {
+                          attrs: {
+                            src: "/images/google.jpg",
+                            width: "30%",
+                            alt: ""
+                          }
+                        })
+                      ])
                     : _vm._e()
                 ]
               ),
@@ -46533,7 +46613,19 @@ var render = function() {
                     "'text-wrap col-xl-2 col-lg-3 text-center flex-column align-items-center justify-content-center d-xl-flex hidden-md hidden-xs hidden-sm '+(!k3?'d-lg-flex':'hidden-lg')"
                 },
                 [
-                  offer.fields_values[0].value == "Satelital"
+                  offer.tecnologia == 0
+                    ? _c("div", [
+                        _c("img", {
+                          attrs: {
+                            src: "/images/Fibra.png",
+                            width: "30%",
+                            alt: ""
+                          }
+                        })
+                      ])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  offer.tecnologia == 1
                     ? _c("div", [
                         _c("img", {
                           attrs: {
@@ -46545,12 +46637,38 @@ var render = function() {
                       ])
                     : _vm._e(),
                   _vm._v(" "),
-                  offer.fields_values[0].value == "Fibra Optica" ||
-                  offer.fields_values[0].value == "Fibra optica"
+                  offer.tecnologia == 2
                     ? _c("div", [
                         _c("img", {
                           attrs: {
                             src: "/images/Fibra.png",
+                            width: "30%",
+                            alt: ""
+                          }
+                        })
+                      ])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  offer.tecnologia == 3
+                    ? _c("div", [
+                        _c("img", {
+                          attrs: {
+                            src: "/images/service-4.png",
+                            width: "30%",
+                            alt: ""
+                          }
+                        })
+                      ])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  offer.tecnologia != 0 &&
+                  offer.tecnologia != 1 &&
+                  offer.tecnologia != 2 &&
+                  offer.tecnologia != 3
+                    ? _c("div", [
+                        _c("img", {
+                          attrs: {
+                            src: "/images/google.jpg",
                             width: "30%",
                             alt: ""
                           }
@@ -46581,7 +46699,7 @@ var render = function() {
                     "'text-wrap col-xl-2 col-lg-3 text-center flex-column align-items-center justify-content-center d-xl-flex hidden-md hidden-xs hidden-sm '+(!k3?'d-lg-flex':'hidden-lg')"
                 },
                 [
-                  _vm._m(4, true),
+                  _vm._m(6, true),
                   _vm._v(" "),
                   _c("h6", { staticClass: "text-lg" }, [
                     _c(
@@ -46821,6 +46939,40 @@ var staticRenderFns = [
       [
         _c("img", {
           attrs: { src: "/images/service-2.png", width: "30%", alt: "" }
+        })
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "h6",
+      {
+        staticClass: "text-dark-blue pt-2",
+        staticStyle: { "text-align": "center" }
+      },
+      [
+        _c("img", {
+          attrs: { src: "/images/Icono-duo.png", width: "30%", alt: "" }
+        })
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "h6",
+      {
+        staticClass: "text-dark-blue pt-2",
+        staticStyle: { "text-align": "center" }
+      },
+      [
+        _c("img", {
+          attrs: { src: "/images/Iconotrio.png", width: "30%", alt: "" }
         })
       ]
     )
@@ -50675,7 +50827,52 @@ var render = function() {
                             _vm.tariff = $event.target.value
                           }
                         }
-                      })
+                      }),
+                      _vm._v(" "),
+                      _c("label", { staticStyle: { color: "red" } }, [
+                        _vm._v("\n           telefonia\n          ")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "select",
+                        {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.telefonia,
+                              expression: "telefonia"
+                            }
+                          ],
+                          staticClass: "custom-select",
+                          on: {
+                            change: function($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function(o) {
+                                  return o.selected
+                                })
+                                .map(function(o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.telefonia = $event.target.multiple
+                                ? $$selectedVal
+                                : $$selectedVal[0]
+                            }
+                          }
+                        },
+                        [
+                          _c(
+                            "option",
+                            { attrs: { value: "0", selected: "" } },
+                            [_vm._v("N/A")]
+                          ),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "1" } }, [
+                            _vm._v("Ilimitada")
+                          ])
+                        ]
+                      )
                     ]
                   ),
                   _vm._v(" "),
@@ -50867,7 +51064,64 @@ var render = function() {
                         ]
                       ),
                       _vm._v(" "),
-                      _vm._m(0)
+                      _vm._m(0),
+                      _vm._v(" "),
+                      _c("label", { staticStyle: { color: "red" } }, [
+                        _vm._v("\n           confirma Tecnologia\n          ")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "select",
+                        {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.tecnologia,
+                              expression: "tecnologia"
+                            }
+                          ],
+                          staticClass: "custom-select",
+                          on: {
+                            change: function($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function(o) {
+                                  return o.selected
+                                })
+                                .map(function(o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.tecnologia = $event.target.multiple
+                                ? $$selectedVal
+                                : $$selectedVal[0]
+                            }
+                          }
+                        },
+                        [
+                          _c(
+                            "option",
+                            { attrs: { value: "0", selected: "" } },
+                            [_vm._v("Fibra optica")]
+                          ),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "1" } }, [
+                            _vm._v("Satelital")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "2" } }, [
+                            _vm._v("FTTH")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "3" } }, [
+                            _vm._v("Cobre")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "4" } }, [
+                            _vm._v("Radio")
+                          ])
+                        ]
+                      )
                     ]
                   )
                 ]

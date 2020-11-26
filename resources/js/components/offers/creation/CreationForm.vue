@@ -44,6 +44,7 @@
             <div class="form-group col-xl-4 col-lg-4 col-md-6 col-12" v-for="(field,index) in fields" :key="index" >
               <label>{{field.name+(field.unit?" ("+field.unit+")":"")}}</label>
               <input v-model="fieldsValues[index]" class="form-control">
+               
             </div>
           </div>
 
@@ -64,7 +65,20 @@
             <div class="form-group col-xl-4 col-lg-4 col-md-6 col-12">
               <label>Tarifa</label>
               <input v-model="tariff" class="form-control">
+
+               <label style="color:red">
+               telefonia
+              </label>
+              <select class="custom-select" v-model="telefonia">
+                <option value="0" selected>N/A</option>
+                <option value="1">Ilimitada</option>
+                
+           
+              </select>
             </div>
+
+
+
             <div class="form-group col-xl-4 col-lg-4 col-md-6 col-12">
               <label>Tipo</label>
               <select class="custom-select" v-model="type">
@@ -104,7 +118,22 @@
                 <p class="text-muted text-sm mb-1" >
                   <span class="text-danger">*</span> Este campo es opcional.
                 </p>
+
+                
+                 <label style="color:red">
+               confirma Tecnologia
+              </label>
+              <select class="custom-select" v-model="tecnologia">
+                <option value="0" selected>Fibra optica</option>
+                <option value="1">Satelital</option>
+                <option value="2">FTTH</option>
+                 <option value="3">Cobre</option>
+                 <option value="4">Radio</option>
+           
+              </select>
             </div>
+
+            
           </div>
         </div>
 
@@ -134,6 +163,8 @@ export default {
       fieldsValues: [],
       companies: [],
       tipo_plan_logos:"",
+      tegnologia:"",
+      telefonia:"",
       
     }
   },
@@ -207,6 +238,9 @@ export default {
       fd.append("benefits", this.benefits);
       fd.append("service", this.service);
       fd.append("points", this.points);
+      fd.append("tecnologia", this.tecnologia);
+            fd.append("telefonia", this.telefonia);
+
        fd.append("tipo_plan_logos", this.tipo_plan_logos);
       fd.append("fields_values", valuesArray.length?JSON.stringify(valuesArray):null);
 
@@ -223,6 +257,8 @@ export default {
         this.tariff = "";
         this.benefits = "";
         this.tipo_plan_logos = 0;
+        this.tecnologia = 0;
+        this.telefonia = 0;
         this.service = null;
         this.points = 0;
         this.fields_values = [];

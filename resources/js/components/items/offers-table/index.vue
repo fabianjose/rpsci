@@ -29,6 +29,16 @@
                     <div   v-if="offer.tipo_plan_logos == 0 ">
             <h6 class="text-dark-blue pt-2" style="text-align: center;"> <img src="/images/service-2.png" width="30%" alt=""> </h6> 
                     </div>
+                    <div   v-if="offer.tipo_plan_logos == 1 ">
+            <h6 class="text-dark-blue pt-2" style="text-align: center;"> <img src="/images/Icono-duo.png" width="30%" alt=""> </h6> 
+                    </div>
+                    <div   v-if="offer.tipo_plan_logos == 2 ">
+            <h6 class="text-dark-blue pt-2" style="text-align: center;"> <img src="/images/Iconotrio.png" width="30%" alt=""> </h6> 
+                    </div>
+
+                    <div   v-if="offer.tipo_plan_logos != 0 && offer.tipo_plan_logos != 1 && offer.tipo_plan_logos != 2">
+                    <img src="/images/google.jpg" width="30%" alt="">
+              </div>
 
             <!--<h6 class="text-dark-blue pt-2">{{offer.company_name}}</h6> -->
           </div>
@@ -36,15 +46,28 @@
 
               
           <div  class="'text-wrap col-xl-2 col-lg-3 text-center flex-column align-items-center justify-content-center d-xl-flex hidden-md hidden-xs hidden-sm '+(!k3?'d-lg-flex':'hidden-lg')">
-              <div   v-if="offer.fields_values[0].value == 'Satelital' ">
-                    <img src="/images/service-4.png" width="30%" alt="">
-              </div>
-               <div   v-if="offer.fields_values[0].value == 'Fibra Optica' ||  offer.fields_values[0].value == 'Fibra optica'  ">
+               
+               
+               <div   v-if="offer.tecnologia == 0">
                     <img src="/images/Fibra.png" width="30%" alt="">
               </div>
+              <div   v-if="offer.tecnologia == 1 ">
+                    <img src="/images/service-4.png" width="30%" alt="">
+              </div>
+              <div   v-if="offer.tecnologia == 2">
+                    <img src="/images/Fibra.png" width="30%" alt="">
+              </div>
+              <div   v-if="offer.tecnologia == 3 ">
+                    <img src="/images/service-4.png" width="30%" alt="">
+              </div>
+
+                <div   v-if="offer.tecnologia != 0 && offer.tecnologia != 1 && offer.tecnologia != 2 && offer.tecnologia != 3  ">
+                    <img src="/images/google.jpg" width="30%" alt="">
+              </div>
+              
               
 
-            <h6 class="text-lg">
+            <h6 class="text-lg"> 
 
             
 
