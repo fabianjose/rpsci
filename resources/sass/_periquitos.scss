@@ -6,6 +6,11 @@
     font-size: 56px;
 }
 
+.texto-resultado-busqueda-banner{
+    line-height : 0px;     
+    font-weight: 300;
+}
+
 .texto-nosotros{
   
     padding-left: 73px;
@@ -17,8 +22,12 @@
 }
 
 @media (max-width: 755px){
+
+   
+
     .header-posicion{
         margin-top: -22px;
+
 
     }
 
@@ -53,7 +62,18 @@
 
 
 
-@media (min-width: 755px){
-
+@media (min-width: 1200px) {
+    .texto-resultado-busqueda-banner{
+        line-height : 12px;     
+       
+    }
+    
+}
+@media (min-width: 1226px) {
+    .texto-resultado-busqueda-banner{
+        line-height : 0px;     
+       
+    }
+    
 }
 

@@ -313,6 +313,8 @@ a {
 .offers-pagination-item {
   border-radius: 20px;
   border-color: #00c2d6;
+  text-align: center;
+  padding-top: 10px;
   border: solid 1px;
   border-color: #0cd9f4;
 }
@@ -1432,6 +1434,11 @@ a {
   font-size: 56px;
 }
 
+.texto-resultado-busqueda-banner {
+  line-height: 0px;
+  font-weight: 300;
+}
+
 .texto-nosotros {
   padding-left: 73px;
   padding-right: 73px;
@@ -1473,6 +1480,18 @@ a {
 
   .titulo-nosotros {
     font-size: 41px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .texto-resultado-busqueda-banner {
+    line-height: 12px;
+  }
+}
+
+@media (min-width: 1226px) {
+  .texto-resultado-busqueda-banner {
+    line-height: 0px;
   }
 }
 

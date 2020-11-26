@@ -49,20 +49,20 @@
                
                
                <div   v-if="offer.tecnologia == 0">
-                    <img src="/images/Fibra.png" width="30%" alt="">
+                    <img style="transform: rotate(90deg);" src="/images/Fibra.png" width="50%" alt="">
               </div>
               <div   v-if="offer.tecnologia == 1 ">
-                    <img src="/images/service-4.png" width="30%" alt="">
+                    <img src="/images/service-4.png" width="50%" alt="">
               </div>
               <div   v-if="offer.tecnologia == 2">
-                    <img src="/images/Fibra.png" width="30%" alt="">
+                    <img src="/images/Fibra.png" width="50%" alt="">
               </div>
               <div   v-if="offer.tecnologia == 3 ">
-                    <img src="/images/service-4.png" width="30%" alt="">
+                    <img src="/images/service-4.png" width="50%" alt="">
               </div>
 
                 <div   v-if="offer.tecnologia != 0 && offer.tecnologia != 1 && offer.tecnologia != 2 && offer.tecnologia != 3  ">
-                    <img src="/images/google.jpg" width="30%" alt="">
+                    <img src="/images/google.jpg" width="50%" alt="">
               </div>
               
               
@@ -71,34 +71,46 @@
 
             
 
-            <span style="font-family: 'Heebo';      font-size: 1.59rem!important;     color: #7f7f7f;"> {{offer.fields_values[0].value}} </span> 
+            <span style="font-family: 'Heebo';      font-size: 1.59rem!important;     color: rgb(91, 87, 87);"> {{offer.fields_values[0].value}} </span> 
             </h6>
           </div>
 
-           <div  class="'text-wrap col-xl-2 col-lg-3 text-center flex-column align-items-center justify-content-center d-xl-flex hidden-md hidden-xs hidden-sm '+(!k3?'d-lg-flex':'hidden-lg')">
+           <div  class="'text-wrap col-2   col-xl-2 col-lg-3 text-center flex-column align-items-center justify-content-center d-xl-flex hidden-md  hidden-sm '+(!k3?'d-lg-flex':'hidden-lg')">
              <div  >
                     <img src="/images/icono-ondas.png" width="30%" alt="">
               </div>
             <h6 class="text-lg">
               
-           <span style="font-family: 'Heebo';     font-size: 1.59rem!important;      color: #7f7f7f;"> {{offer.fields_values[1].value}} </span> 
+           <span style="font-family: 'Heebo';     font-size: 1.59rem!important;      color: rgb(91, 87, 87);"> {{offer.fields_values[1].value}} <br> Mbps </span>
             </h6>
           </div>
 
 
-          <div class="text-wrap col-xl-2 col-lg-3 col-md-4 col-sm-4 text-center flex-column align-items-center justify-content-center d-xl-flex d-lg-flex d-md-flex hidden-xs hidden-sm">
-            <h6 class="text-sm">
-              {{offer.benefits}}
-            </h6>
+          <div class="text-wrap  col-2 col-xl-2 col-lg-3 col-md-4 col-sm-4 text-center flex-column align-items-center justify-content-center d-xl-flex d-lg-flex d-md-flex  hidden-sm">
+
+            <h5 style="font-family: Heebo;
+    font-size: 16px;
+    color: rgb(91, 87, 87);
+    font-weight: 800;" >HBO + 1 mes Gratis</h5> 
+            <div >
+              <h6 style="font-weight: 300;">130 Canales TV</h6> 
+            <h6 style="line-height : 0px; font-weight: 300;">Telefonia Ilimitada</h6> 
+            <h6 style="font-weight: 300;">1.3.4.5 Meses Gratis</h6> 
+            </div>
+            
+
+           <!--  <h6 class="text-sm">              
+             {{offer.benefits}}
+            </h6>-->
           </div>
 
           <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 py-2 text-center d-flex flex-column align-items-center justify-content-center">
-            <h6 class="text-dark-blue offer-table-price text-wrap-all">$ {{showPrice(offer.tariff)}}</h6>
+            <h6 class="text-dark-blue offer-table-price text-wrap-all" style="color: rgb(91, 87, 87);">$ {{showPrice(offer.tariff)}}</h6>
             <div class="stars-container flex-row justify-content-center mb-2">
-              <i v-for="(starCount,k4) in 5" :key="k4" :class="(starCount>offer.points?'far':'fas')+' fa-star'"></i>
+            <!--  <i v-for="(starCount,k4) in 5" :key="k4" :class="(starCount>offer.points?'far':'fas')+' fa-star'"></i>-->
             </div>
             <div class="d-flex flex-row">
-              <button type="button" data-toggle="modal" @click="emitConsult(k)" data-target="#modalConsultOffer" class="btn btn-sm btn-main-blue rounded-pill mx-1 px-1">Consultar</button>
+              <button type="button" data-toggle="modal" @click="emitConsult(k)" data-target="#modalConsultOffer" class="btn btn-lx btn-lg btn-main-blue rounded-pill mx-1 px-1 text-uppercase img-fluid" style="font-family: 'Heebo'; background:#0bdcf3; box-shadow: black 0px 1px 6px;">Consultar</button>
               <!--
                 <button type="button" data-toggle="modal" @click="emitView(k)" data-target="#offerView" class="btn btn-sm btn-main-pink rounded-pill mx-1 hidden-xl hidden-xl-xl"><i class="fas fa-eye"></i></button>
               -->
@@ -115,7 +127,9 @@
               </span>
             </button>
           </div>
-          <button :disabled="currentpage==compLastpage" @click="setPage(currentpage)" class="col-2 col-md-1 col-lg-1 col-xl-1 d-flex justify-content-center align-items-center page-item rounded-pill btn btn-light"><i class="fas fa-arrow-right"></i></button>
+          <button :disabled="currentpage==compLastpage" @click="setPage(currentpage)" class="col-2 col-md-1 col-lg-1 col-xl-1 d-flex justify-content-center align-items-center page-item rounded-pill btn btn-light">
+            
+            <i class="fas fa-arrow-right"></i></button>
         </div>
 
       </div>

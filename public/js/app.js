@@ -4056,6 +4056,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["items", "fields", "lastpage", "currentpage"],
   data: function data() {
@@ -46616,9 +46630,10 @@ var render = function() {
                   offer.tecnologia == 0
                     ? _c("div", [
                         _c("img", {
+                          staticStyle: { transform: "rotate(90deg)" },
                           attrs: {
                             src: "/images/Fibra.png",
-                            width: "30%",
+                            width: "50%",
                             alt: ""
                           }
                         })
@@ -46630,7 +46645,7 @@ var render = function() {
                         _c("img", {
                           attrs: {
                             src: "/images/service-4.png",
-                            width: "30%",
+                            width: "50%",
                             alt: ""
                           }
                         })
@@ -46642,7 +46657,7 @@ var render = function() {
                         _c("img", {
                           attrs: {
                             src: "/images/Fibra.png",
-                            width: "30%",
+                            width: "50%",
                             alt: ""
                           }
                         })
@@ -46654,7 +46669,7 @@ var render = function() {
                         _c("img", {
                           attrs: {
                             src: "/images/service-4.png",
-                            width: "30%",
+                            width: "50%",
                             alt: ""
                           }
                         })
@@ -46669,7 +46684,7 @@ var render = function() {
                         _c("img", {
                           attrs: {
                             src: "/images/google.jpg",
-                            width: "30%",
+                            width: "50%",
                             alt: ""
                           }
                         })
@@ -46683,7 +46698,7 @@ var render = function() {
                         staticStyle: {
                           "font-family": "'Heebo'",
                           "font-size": "1.59rem!important",
-                          color: "#7f7f7f"
+                          color: "rgb(91, 87, 87)"
                         }
                       },
                       [_vm._v(" " + _vm._s(offer.fields_values[0].value) + " ")]
@@ -46696,7 +46711,7 @@ var render = function() {
                 "div",
                 {
                   staticClass:
-                    "'text-wrap col-xl-2 col-lg-3 text-center flex-column align-items-center justify-content-center d-xl-flex hidden-md hidden-xs hidden-sm '+(!k3?'d-lg-flex':'hidden-lg')"
+                    "'text-wrap col-2   col-xl-2 col-lg-3 text-center flex-column align-items-center justify-content-center d-xl-flex hidden-md  hidden-sm '+(!k3?'d-lg-flex':'hidden-lg')"
                 },
                 [
                   _vm._m(6, true),
@@ -46708,31 +46723,22 @@ var render = function() {
                         staticStyle: {
                           "font-family": "'Heebo'",
                           "font-size": "1.59rem!important",
-                          color: "#7f7f7f"
+                          color: "rgb(91, 87, 87)"
                         }
                       },
-                      [_vm._v(" " + _vm._s(offer.fields_values[1].value) + " ")]
+                      [
+                        _vm._v(
+                          " " + _vm._s(offer.fields_values[1].value) + " "
+                        ),
+                        _c("br"),
+                        _vm._v(" Mbps ")
+                      ]
                     )
                   ])
                 ]
               ),
               _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "text-wrap col-xl-2 col-lg-3 col-md-4 col-sm-4 text-center flex-column align-items-center justify-content-center d-xl-flex d-lg-flex d-md-flex hidden-xs hidden-sm"
-                },
-                [
-                  _c("h6", { staticClass: "text-sm" }, [
-                    _vm._v(
-                      "\r\n              " +
-                        _vm._s(offer.benefits) +
-                        "\r\n            "
-                    )
-                  ])
-                ]
-              ),
+              _vm._m(7, true),
               _vm._v(" "),
               _c(
                 "div",
@@ -46745,34 +46751,28 @@ var render = function() {
                     "h6",
                     {
                       staticClass:
-                        "text-dark-blue offer-table-price text-wrap-all"
+                        "text-dark-blue offer-table-price text-wrap-all",
+                      staticStyle: { color: "rgb(91, 87, 87)" }
                     },
                     [_vm._v("$ " + _vm._s(_vm.showPrice(offer.tariff)))]
                   ),
                   _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass:
-                        "stars-container flex-row justify-content-center mb-2"
-                    },
-                    _vm._l(5, function(starCount, k4) {
-                      return _c("i", {
-                        key: k4,
-                        class:
-                          (starCount > offer.points ? "far" : "fas") +
-                          " fa-star"
-                      })
-                    }),
-                    0
-                  ),
+                  _c("div", {
+                    staticClass:
+                      "stars-container flex-row justify-content-center mb-2"
+                  }),
                   _vm._v(" "),
                   _c("div", { staticClass: "d-flex flex-row" }, [
                     _c(
                       "button",
                       {
                         staticClass:
-                          "btn btn-sm btn-main-blue rounded-pill mx-1 px-1",
+                          "btn btn-lx btn-lg btn-main-blue rounded-pill mx-1 px-1 text-uppercase img-fluid",
+                        staticStyle: {
+                          "font-family": "'Heebo'",
+                          background: "#0bdcf3",
+                          "box-shadow": "black 0px 1px 6px"
+                        },
                         attrs: {
                           type: "button",
                           "data-toggle": "modal",
@@ -46986,6 +46986,48 @@ var staticRenderFns = [
         attrs: { src: "/images/icono-ondas.png", width: "30%", alt: "" }
       })
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass:
+          "text-wrap  col-2 col-xl-2 col-lg-3 col-md-4 col-sm-4 text-center flex-column align-items-center justify-content-center d-xl-flex d-lg-flex d-md-flex  hidden-sm"
+      },
+      [
+        _c(
+          "h5",
+          {
+            staticStyle: {
+              "font-family": "Heebo",
+              "font-size": "16px",
+              color: "rgb(91, 87, 87)",
+              "font-weight": "800"
+            }
+          },
+          [_vm._v("HBO + 1 mes Gratis")]
+        ),
+        _vm._v(" "),
+        _c("div", [
+          _c("h6", { staticStyle: { "font-weight": "300" } }, [
+            _vm._v("130 Canales TV")
+          ]),
+          _vm._v(" "),
+          _c(
+            "h6",
+            { staticStyle: { "line-height": "0px", "font-weight": "300" } },
+            [_vm._v("Telefonia Ilimitada")]
+          ),
+          _vm._v(" "),
+          _c("h6", { staticStyle: { "font-weight": "300" } }, [
+            _vm._v("1.3.4.5 Meses Gratis")
+          ])
+        ])
+      ]
+    )
   }
 ]
 render._withStripped = true
