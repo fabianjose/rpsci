@@ -46708,7 +46708,6 @@ var render = function() {
                         ? _c("div", [
                             _c("img", {
                               staticClass: "logo-tecnologia",
-                              staticStyle: { transform: "rotate(90deg)" },
                               attrs: { src: "/images/Fibra.png", alt: "" }
                             })
                           ])
@@ -46760,6 +46759,7 @@ var render = function() {
                         {
                           staticStyle: {
                             "font-family": "'Heebo'",
+                            "margin-top": "4px",
                             "font-size": "1.59rem!important",
                             color: "rgb(91, 87, 87)"
                           }
@@ -47138,7 +47138,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "icono-ondas" }, [
       _c("img", {
-        attrs: { src: "/images/icono-ondas.png", width: "30%", alt: "" }
+        attrs: { src: "/images/icono-ondas.png", width: "35%", alt: "" }
       })
     ])
   },

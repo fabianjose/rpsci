@@ -77,7 +77,7 @@
                             
                               <div class="bloque-tecnologia">
                             <div   v-if="offer.tecnologia == 0">
-                                  <img class="logo-tecnologia" style="transform: rotate(90deg);" src="/images/Fibra.png"  alt="">
+                                  <img class="logo-tecnologia" src="/images/Fibra.png"  alt="">
                             </div>
                             <div   v-if="offer.tecnologia == 1 ">
                                   <img class="logo-tecnologia" src="/images/service-4.png" alt="">
@@ -95,7 +95,7 @@
                             </div>
 
                              <h6 class="text-lg">
-                                <span style="font-family: 'Heebo';      font-size: 1.59rem!important;     color: rgb(91, 87, 87);"> {{offer.fields_values[0].value}} </span> 
+                                <span style="font-family: 'Heebo';  margin-top: 4px;    font-size: 1.59rem!important;     color: rgb(91, 87, 87);"> {{offer.fields_values[0].value}} </span> 
                                               
                                                      
 
@@ -114,7 +114,7 @@
                   <div class=" tecnologia-movil  text-center p-2 offer-table-label w-100 text-white mx-auto bg-dark-blue rounded-pill p-1 text-wrap " >   <p class="text-tabla-detalles" style="margin-top: -68px;">  Velocidad</p> </div>
 
                     <div class="icono-ondas"  >
-                            <img src="/images/icono-ondas.png" width="30%" alt="">
+                            <img src="/images/icono-ondas.png" width="35%" alt="">
                       </div>
                     <h6 class="text-lg">
                       

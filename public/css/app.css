@@ -1428,6 +1428,19 @@ a {
   }
 }
 
+.bloque-tecnologia {
+  margin-top: -7px;
+}
+
+.logo-tecnologia {
+  width: 77px;
+  margin-top: -31px;
+}
+
+.logo-movil-planes {
+  width: 126px;
+}
+
 .bloque-3 {
   margin-top: 55px;
 }
@@ -1476,6 +1489,11 @@ a {
 }
 
 @media (max-width: 755px) {
+  .logo-tecnologia {
+    width: 41px;
+    margin-top: -31px;
+  }
+
   .header-posicion {
     margin-top: -22px;
   }
@@ -1511,18 +1529,33 @@ a {
 }
 
 @media (min-width: 1200px) {
+  .logo-tecnologia {
+    width: 77px;
+    margin-top: -31px;
+  }
+
   .texto-resultado-busqueda-banner {
     line-height: 12px;
   }
 }
 
 @media (min-width: 1226px) {
+  .logo-tecnologia {
+    width: 77px;
+    margin-top: -31px;
+  }
+
   .texto-resultado-busqueda-banner {
     line-height: 0px;
   }
 }
 
 @media (max-width: 500px) and (min-width: 360px) {
+  .logo-tecnologia {
+    width: 41px;
+    margin-top: -31px;
+  }
+
   .bloque-proveedor-precios {
     display: none !important;
   }
@@ -1566,9 +1599,9 @@ a {
   }
 
   .logo-movil-planes {
-    margin-left: 274px;
+    margin-left: 190px;
     margin-top: -313px;
-    width: 30%;
+    width: 87%;
   }
 
   .tegnologia-movil {
@@ -1597,6 +1630,11 @@ a {
 }
 
 @media (max-width: 500px) and (min-width: 375px) {
+  .logo-tecnologia {
+    width: 41px;
+    margin-top: -31px;
+  }
+
   .bloque-proveedor-precios {
     display: none !important;
   }
@@ -1640,9 +1678,9 @@ a {
   }
 
   .logo-movil-planes {
-    margin-left: 289px;
+    margin-left: 208px;
     margin-top: -313px;
-    width: 30%;
+    width: 81%;
   }
 
   .tegnologia-movil {
@@ -1671,6 +1709,11 @@ a {
 }
 
 @media (max-width: 500px) and (min-width: 411px) {
+  .logo-tecnologia {
+    width: 41px;
+    margin-top: -31px;
+  }
+
   .bloque-proveedor-precios {
     display: none !important;
   }
@@ -1714,9 +1757,9 @@ a {
   }
 
   .logo-movil-planes {
-    margin-left: 319px;
+    margin-left: 242px;
     margin-top: -313px;
-    width: 30%;
+    width: 71%;
   }
 
   .tegnologia-movil {
@@ -1745,6 +1788,11 @@ a {
 }
 
 @media (max-width: 500px) and (min-width: 499px) {
+  .logo-tecnologia {
+    width: 41px;
+    margin-top: -31px;
+  }
+
   .bloque-proveedor-precios {
     display: none !important;
   }
