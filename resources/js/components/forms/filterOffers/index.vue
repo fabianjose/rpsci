@@ -2,7 +2,7 @@
   <div class="card card-primary filter-card mb-5">
     <div class="card-body d-flex flex-column align-items-center pt-4">
       <h5 class="filter-card-title font-weight-bold text-center">
-        <i class="fas fa-filter"></i>  Filtra tu búsqueda</h5>
+        <i class="fas fa-filter"></i>Filtra tu búsqueda</h5>
 <div class="form-horizontal my-2 col-12 flex-wrap">
   <h4 class="btn-block" type="button" data-toggle="collapse" data-target="#collapseProveedor" aria-expanded="false" aria-controls="collapseProveedor">
     Proveedor <span><i class="fas fa-angle-down" style="margin-left: auto;"></i></span>
@@ -11,7 +11,7 @@
 </p>
 <div class="collapse" id="collapseProveedor">
   <div class="card card-body">
-    <div v-for="(value, name) in providers">
+    <div v-for="(value) in providers">
 
        <label>{{value.name}}</label>
       <input type="checkbox" :name="value.id" v-model="checked_providers">
@@ -26,10 +26,10 @@
 </p>
 <div class="collapse" id="collapseTecnologia">
   <div class="card card-body">
-        <div v-for="(value, name) in technologies">
+        <div v-for="(value) in technologies">
 
        <label>{{value.value}}</label>
-      <input type="checkbox" :name="value.id" v-model="checked_technologies">
+      <input type="checkbox" :value="value.value" v-model="checked_technologies">
     </div>
   </div>
 </div>
@@ -42,10 +42,10 @@
 </p>
 <div class="collapse" id="collapseVelocidad">
   <div class="card card-body">
-        <div v-for="(value, name) in speeds">
+        <div v-for="(value) in speeds">
 
        <label>{{value.value}}</label>
-      <input type="checkbox" :name="value.id" v-model="checked_speeds">
+      <input type="checkbox" :value="value.value" v-model="checked_speeds">
     </div>
   </div>
 </div>
@@ -111,14 +111,18 @@ export default {
   props:["fields","providers","max_price", "min_price","technologies","speeds"],
 
   data(){
+      checked_speeds:[]
+      checked_technologies:[]
+      checked_providers:[]
+
     return{
       orderBy:"tariff",
       fromPrice:null,
       toPrice:null,
       orderBySort:"desc",
-      checked_speeds:null,
-      checked_technologies:null,
-      checked_providers:null
+      checked_speeds:[],
+      checked_technologies:[],
+      checked_providers:[]
 
     }
   },
