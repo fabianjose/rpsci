@@ -3350,8 +3350,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ["fields", "providers"],
+  props: ["fields", "providers", "max_price", "min_price", "technologies", "speeds"],
   data: function data() {
     return {
       orderBy: "tariff",
@@ -3362,6 +3363,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     emitFilter: function emitFilter() {
+      //  console.log(this.te);
+      return;
       var searchKey = "";
 
       if (this.orderBy) {
@@ -3430,15 +3433,6 @@ function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o =
 
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -6887,6 +6881,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -6901,19 +6897,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ["pagination", "fields", "query", "lastpage", "providers"],
+  props: ["pagination", "fields", "query", "lastpage", "providers", "technologies", "max_price", "min_price", "speeds"],
   data: function data() {
-    return {
+    var _ref;
+
+    return _ref = {
       compPagination: this.pagination,
       compFields: this.fields,
       compLastpage: this.lastpage,
       compProviders: this.providers,
-      customFilters: null,
-      pageIndex: "&page=1",
-      currentItem: null,
-      viewMode: false,
-      consultMode: false
-    };
+      compTechnologies: this.technologies,
+      compSpeeds: this.speeds,
+      compMaxPrice: this.max_price
+    }, _defineProperty(_ref, "compMaxPrice", this.min_price), _defineProperty(_ref, "customFilters", null), _defineProperty(_ref, "pageIndex", "&page=1"), _defineProperty(_ref, "currentItem", null), _defineProperty(_ref, "viewMode", false), _defineProperty(_ref, "consultMode", false), _ref;
   },
   mounted: function mounted() {
     console.log("wi pagination", this.pagination);
@@ -45170,7 +45166,6 @@ var render = function() {
       [
         _vm._m(0),
         _vm._v(" "),
-        _c("p"),
         _c("div", { staticClass: "form-horizontal my-2 col-12 flex-wrap" }, [
           _vm._m(1),
           _vm._v(" "),
@@ -45196,7 +45191,30 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
-        _vm._m(2),
+        _c("div", { staticClass: "form-horizontal my-2 col-12 flex-wrap" }, [
+          _vm._m(2),
+          _vm._v(" "),
+          _c("p"),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "collapse", attrs: { id: "collapseTecnologia" } },
+            [
+              _c(
+                "div",
+                { staticClass: "card card-body" },
+                _vm._l(_vm.technologies, function(value, name) {
+                  return _c("div", [
+                    _c("label", [_vm._v(_vm._s(value.value))]),
+                    _vm._v(" "),
+                    _c("input", { attrs: { type: "checkbox", name: value.id } })
+                  ])
+                }),
+                0
+              )
+            ]
+          )
+        ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-horizontal my-2 col-12 flex-wrap" }, [
           _vm._m(3),
@@ -45210,14 +45228,11 @@ var render = function() {
               _c(
                 "div",
                 { staticClass: "card card-body" },
-                _vm._l(_vm.arrayVelocity, function(value, name) {
+                _vm._l(_vm.speeds, function(value, name) {
                   return _c("div", [
-                    _c("label"),
+                    _c("label", [_vm._v(_vm._s(value.value))]),
                     _vm._v(" "),
-                    _c("input", {
-                      staticClass: "form-control",
-                      attrs: { type: "checkbox", name: "" }
-                    })
+                    _c("input", { attrs: { type: "checkbox", name: value.id } })
                   ])
                 }),
                 0
@@ -45522,32 +45537,22 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-horizontal my-2 col-12 flex-wrap" }, [
-      _c(
-        "h4",
-        {
-          attrs: {
-            type: "button",
-            "data-toggle": "collapse",
-            "data-target": "#collapseTecnologia",
-            "aria-expanded": "false",
-            "aria-controls": "collapseTecnologia"
-          }
-        },
-        [
-          _vm._v("\n    Tecnología  "),
-          _c("span", [_c("i", { staticClass: "fas fa-angle-down" })])
-        ]
-      ),
-      _vm._v(" "),
-      _c("p"),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "collapse", attrs: { id: "collapseTecnologia" } },
-        [_c("div", { staticClass: "card card-body" })]
-      )
-    ])
+    return _c(
+      "h4",
+      {
+        attrs: {
+          type: "button",
+          "data-toggle": "collapse",
+          "data-target": "#collapseTecnologia",
+          "aria-expanded": "false",
+          "aria-controls": "collapseTecnologia"
+        }
+      },
+      [
+        _vm._v("\n    Tecnología  "),
+        _c("span", [_c("i", { staticClass: "fas fa-angle-down" })])
+      ]
+    )
   },
   function() {
     var _vm = this
@@ -51567,7 +51572,14 @@ var render = function() {
             { staticClass: "filterCard col-10 col-lg-4 col-xl-3" },
             [
               _c("filter-card", {
-                attrs: { fields: _vm.compFields, providers: _vm.compProviders },
+                attrs: {
+                  fields: _vm.compFields,
+                  technologies: _vm.compTechnologies,
+                  speeds: _vm.compSpeeds,
+                  max_price: _vm.compMaxPrice,
+                  min_price: _vm.compMinPrice,
+                  providers: _vm.compProviders
+                },
                 on: { customFiltering: _vm.refreshData }
               })
             ],
@@ -83352,14 +83364,15 @@ __webpack_require__.r(__webpack_exports__);
 /*!*********************************************************!*\
   !*** ./resources/js/components/offers/filter/index.vue ***!
   \*********************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _index_vue_vue_type_template_id_d7c4bd10___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.vue?vue&type=template&id=d7c4bd10& */ "./resources/js/components/offers/filter/index.vue?vue&type=template&id=d7c4bd10&");
 /* harmony import */ var _index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index.vue?vue&type=script&lang=js& */ "./resources/js/components/offers/filter/index.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -83389,7 +83402,7 @@ component.options.__file = "resources/js/components/offers/filter/index.vue"
 /*!**********************************************************************************!*\
   !*** ./resources/js/components/offers/filter/index.vue?vue&type=script&lang=js& ***!
   \**********************************************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -83918,8 +83931,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\Nueva carpeta\rpsci\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\Nueva carpeta\rpsci\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\RPCS_SOLUTIONS\rpsci\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\RPCS_SOLUTIONS\rpsci\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),

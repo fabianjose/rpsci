@@ -1,10 +1,8 @@
 <template> 
   <div class="card card-primary filter-card mb-5">
     <div class="card-body d-flex flex-column align-items-center pt-4">
-      <h5 class="filter-card-title font-weight-bold text-center"><i class="fas fa-filter"></i>  Filtra tu búsqueda</h5>
-
-
-      <p>
+      <h5 class="filter-card-title font-weight-bold text-center">
+        <i class="fas fa-filter"></i>  Filtra tu búsqueda</h5>
 <div class="form-horizontal my-2 col-12 flex-wrap">
   <h4 class="btn-block" type="button" data-toggle="collapse" data-target="#collapseProveedor" aria-expanded="false" aria-controls="collapseProveedor">
     Proveedor <span><i class="fas fa-angle-down" style="margin-left: auto;"></i></span>
@@ -28,7 +26,11 @@
 </p>
 <div class="collapse" id="collapseTecnologia">
   <div class="card card-body">
-    
+        <div v-for="(value, name) in technologies">
+
+       <label>{{value.value}}</label>
+      <input type="checkbox" :name="value.id">
+    </div>
   </div>
 </div>
 </div>
@@ -40,9 +42,10 @@
 </p>
 <div class="collapse" id="collapseVelocidad">
   <div class="card card-body">
-    <div v-for="(value, name) in arrayVelocity">
-      <label></label>
-      <input class="form-control" type="checkbox" name="">
+        <div v-for="(value, name) in speeds">
+
+       <label>{{value.value}}</label>
+      <input type="checkbox" :name="value.id">
     </div>
   </div>
 </div>
@@ -68,7 +71,6 @@
               <option v-for="(field, k) in compFields" :key="k" :value="k+1" v-if="field.type=='numeric'" class="text-capitalize">{{field.name}}</option>
             </select>
           </div>
-
           <div class="form-group my-2 col-12 " v-if="orderBy">
             <label for="sortBy" class="filter-card-label">Orden:</label>
             <select class="custom-select " id="sortBy" v-model="orderBySort">
@@ -76,7 +78,6 @@
               <option :value="'desc'" >Descendente</option>
             </select>
           </div>
-
         </div>
         <div class="form-horizontal my-2 col-12 flex-wrap">
           <span class="filter-card-label mb-2">Rango de precios</span>
@@ -107,7 +108,7 @@
 <script>
 export default {
 
-  props:["fields","providers"],
+  props:["fields","providers","max_price", "min_price","technologies","speeds"],
 
   data(){
     return{
@@ -120,18 +121,16 @@ export default {
 
   methods:{
     emitFilter(){
+    //  console.log(this.te);
+      return;
       let searchKey="";
       if(this.orderBy){
         searchKey+="&sortBy="+this.orderBy;
         if(this.orderBySort=="desc") searchKey+="&sortByDesc=true";
       }
-
       if(this.fromPrice&&this.fromPrice!=""){
-        
         if(!isNaN(this.fromPrice)) searchKey+="&from="+parseFloat(this.fromPrice);
-
         else return toastr.error("El campo 'Desde' es de valor numérico")
-        
       }
 
       if(this.toPrice&&this.toPrice!=""){

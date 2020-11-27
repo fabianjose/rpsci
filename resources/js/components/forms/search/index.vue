@@ -61,19 +61,10 @@
                     </select>
                
                 </div>
-                
-      
-                  
-                
                  <div class="form-group has-search col-md-6 col-sm-10 col-lg-1 " @click="search" >
                  <img class="lupa"  src="images/Iconos_lupa-14.png"  alt=""> 
                    </div>
-                
-               
-           
             </div>
-
-           
           </div>
             
     </div>

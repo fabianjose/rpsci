@@ -173,19 +173,13 @@ class OfferController extends Controller{
     'services.name as service_name'
     )
     ->first();
-
     $offers=Offer::joinFields(array( $offer ));
-
     $offer=$offers[0];
-
     if(!$request->ajax()){
       if (!$offer) return response()->json('Oferta no encontrada',404);
-      
       return view("pages.detailedOffer")->with(["offer"=>$offer]);
     }
-
     if (!$offer) return response()->json('Oferta no encontrada',404);
-
 		return response()->json($offer, 200);
 	}
 
@@ -235,11 +229,8 @@ class OfferController extends Controller{
      $highlights= DB::table('highlights')->where("offer", $offer->id)->get();
 
      if(!$highlights) array_push($offersAll,$offer);
-     
      else{
-        
         $pushArray=true;
-       
         foreach ($highlights as $highlight) {
           if($highlight->department==$department->id
             &&$highlight->municipality==$municipality->id
@@ -305,7 +296,7 @@ class OfferController extends Controller{
 
     $providers = DB::table('companies')
     ->where('companies.trash',0)
-    ->join("offers",'offers.company','companies.id')
+    ->leftJoin("offers",'offers.company','=','companies.id')
     ->where('offers.trash',0)
     ->where(function($query) use($data){
       $query->where("offers.type", $data["offer_type"])
@@ -320,8 +311,72 @@ class OfferController extends Controller{
       $query->where('municipalities', "like" ,'%'.$municipality->name.'%')
       ->orWhere("municipalities",null);
     })
-    ->select("*")->distinct();
+    ->select("companies.name","companies.id")->distinct();
     $providers = $providers->get();
+
+    $technologies =  DB::table('fields')
+    ->join("fields_values", "fields.id", "=","fields_values.field_id")
+    ->join("offers","fields_values.offer_id","=","offers.id")
+    ->join("companies","offers.company",'=',"companies.id")
+    ->where('offers.trash',0)
+    ->where("fields.id",'=','3')
+     ->where(function($query) use($data){
+      $query->where("offers.type", $data["offer_type"])
+      ->orWhere("offers.type", null);
+    })
+    ->where('service',$service->id)
+    ->where(function($query) use($department){
+      $query->where('departments', "like" ,'%'.$department->name.'%')
+      ->orWhere("departments",null);
+    })
+    ->where(function($query) use($municipality){
+      $query->where('municipalities', "like" ,'%'.$municipality->name.'%')
+      ->orWhere("municipalities",null);
+    })
+    ->select("fields_values.value")->distinct()->get();
+ 
+
+
+    $speeds =  DB::table('fields')
+    ->join("fields_values", "fields.id", "=","fields_values.field_id")
+    ->join("offers","fields_values.offer_id","=","offers.id")
+    ->join("companies","offers.company",'=',"companies.id")
+    ->where('offers.trash',0)
+    ->where("fields.id",'=','4')
+     ->where(function($query) use($data){
+      $query->where("offers.type", $data["offer_type"])
+      ->orWhere("offers.type", null);
+    })
+    ->where('service',$service->id)
+    ->where(function($query) use($department){
+      $query->where('departments', "like" ,'%'.$department->name.'%')
+      ->orWhere("departments",null);
+    })
+    ->where(function($query) use($municipality){
+      $query->where('municipalities', "like" ,'%'.$municipality->name.'%')
+      ->orWhere("municipalities",null);
+    })
+    ->select("fields_values.value")->distinct()->get();
+ 
+    $price = DB::table("offers")
+        ->where('offers.trash',0)
+      ->where(function($query) use($data){
+      $query->where("offers.type", $data["offer_type"])
+      ->orWhere("offers.type", null);
+    })
+    ->where('service',$service->id)
+    ->where(function($query) use($department){
+      $query->where('departments', "like" ,'%'.$department->name.'%')
+      ->orWhere("departments",null);
+    })
+    ->where(function($query) use($municipality){
+      $query->where('municipalities', "like" ,'%'.$municipality->name.'%')
+      ->orWhere("municipalities",null);
+    });
+    $max_price = $price->max("tariff");
+    $min_price = $price->min("tariff");
+    
+
     if (!$offers) return response()->json(["errorMessage"=>'No se encontraron ofertas disponibles'],404);
 
     if($request->input("from")&&is_numeric($request->input("from"))){
@@ -366,12 +421,23 @@ class OfferController extends Controller{
     $paginator = new Paginator(array_slice($offersArray,(($page-1)*10),10), 10,$page);
 
     $last_page= max((int) ceil(count($offersArray) / 10), 1);
-
+    $range_price = array($min_price,$max_price );
     if(!$request->ajax()){
-      return view("pages.planComparator")->with(["pagination"=> $paginator,"fields"=>$fields, "query"=>$query,"providers"=>$providers, "last_page"=>$last_page]);
+      return view("pages.planComparator")->with(
+        ["pagination"=> $paginator,
+        "fields"=>$fields, "query"=>$query,
+        "providers"=>$providers,
+        "technologies" =>$technologies,
+        "speeds" => $speeds,
+        "min_price"=> $min_price,
+        "max_price" => $max_price,
+        "last_page"=>$last_page]);
     }
 
-    return response()->json(["pagination"=>$paginator, "fields"=>$fields, "query"=>$query, "last_page"=>$last_page], 200);
+    return response()->json(["pagination"=>$paginator,
+     "fields"=>$fields,
+      "query"=>$query, 
+      "last_page"=>$last_page], 200);
 
   }
 

@@ -2,7 +2,7 @@
     <div class="planComparator-bg py-4 px-lg-4 px-md-4">
         <div class="d-flex flex-row h-100 w-100 flex-wrap justify-content-around align-items-start">
             <div class="filterCard col-10 col-lg-4 col-xl-3">
-                <filter-card @customFiltering="refreshData" :fields="compFields" :providers="compProviders" />
+                <filter-card @customFiltering="refreshData" :fields="compFields" :technologies="compTechnologies" :speeds="compSpeeds" :max_price="compMaxPrice" :min_price="compMinPrice"  :providers="compProviders" />
             </div>
             <filter-table @consultItem="consultItem" @viewItem="viewItem" @pageSwitch="changePage" :fields="compFields" :items="compPagination.data" :currentpage="compPagination.current_page" :lastpage="compLastpage" ></filter-table>
         </div>
@@ -13,7 +13,7 @@
 
 <script>
 export default {
-    props:["pagination", "fields", "query", "lastpage","providers"],
+    props:["pagination", "fields", "query", "lastpage","providers","technologies","max_price","min_price","speeds"],
 
     data(){
         return {
@@ -21,6 +21,10 @@ export default {
             compFields:this.fields,
             compLastpage:this.lastpage,
             compProviders:this.providers,
+            compTechnologies: this.technologies,
+            compSpeeds: this.speeds,
+            compMaxPrice: this.max_price,
+            compMaxPrice: this.min_price,
             customFilters:null,
             pageIndex:"&page=1",
             currentItem:null,
@@ -36,18 +40,14 @@ export default {
     methods:{
 
         consultItem(index){
-
             this.currentItem= this.pagination.data[index];
-            
             this.consultMode=true;
             this.viewMode=false;
 
         },
 
         viewItem(index){
-
             this.currentItem= this.pagination.data[index];
-
             this.viewMode=true;
             this.consultMode=false;
 
