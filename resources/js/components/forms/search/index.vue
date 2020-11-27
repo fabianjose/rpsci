@@ -62,7 +62,7 @@
                
                 </div>
                 
-                
+      
                   
                 
                  <div class="form-group has-search col-md-6 col-sm-10 col-lg-1 " @click="search" >
@@ -147,9 +147,6 @@ export default {
       axios.get(baseUrl+'/api/municipalities/'+this.department)
       .then(res=>{
         console.log(res);
-        // console.log(this.$refs);
-        // if(!this.hideMunicipality) this.$refs.municipalitiesList.setEntries(res.data)
-        // else this.$emit("newMunicipalities", res.data);
         this.municipalities = res.data;
       }).catch(err=>{
         console.log("ERROR FROM SERVER ", err,err.response);
