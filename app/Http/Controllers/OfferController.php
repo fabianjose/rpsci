@@ -333,7 +333,7 @@ class OfferController extends Controller{
       $query->where('municipalities', "like" ,'%'.$municipality->name.'%')
       ->orWhere("municipalities",null);
     })
-    ->select("fields_values.value")->distinct()->get();
+    ->select("fields_values.value", "fields_values.id")->distinct()->get();
  
 
 

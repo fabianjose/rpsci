@@ -14,7 +14,7 @@
     <div v-for="(value, name) in providers">
 
        <label>{{value.name}}</label>
-      <input type="checkbox" :name="value.id">
+      <input type="checkbox" :name="value.id" v-model="checked_providers">
     </div>
   </div>
 </div>
@@ -29,7 +29,7 @@
         <div v-for="(value, name) in technologies">
 
        <label>{{value.value}}</label>
-      <input type="checkbox" :name="value.id">
+      <input type="checkbox" :name="value.id" v-model="checked_technologies">
     </div>
   </div>
 </div>
@@ -37,7 +37,7 @@
 
 <div class="form-horizontal my-2 col-12 flex-wrap">
   <h4 class="" type="button" data-toggle="collapse" data-target="#collapseVelocidad" aria-expanded="false" aria-controls="collapseVelocidad">
-    Velocidad   <span><i class="fas fa-angle-down"></i></span>
+    Velocidad<span><i class="fas fa-angle-down"></i></span>
   </h4>
 </p>
 <div class="collapse" id="collapseVelocidad">
@@ -45,7 +45,7 @@
         <div v-for="(value, name) in speeds">
 
        <label>{{value.value}}</label>
-      <input type="checkbox" :name="value.id">
+      <input type="checkbox" :name="value.id" v-model="checked_speeds">
     </div>
   </div>
 </div>
@@ -116,13 +116,16 @@ export default {
       fromPrice:null,
       toPrice:null,
       orderBySort:"desc",
+      checked_speeds:null,
+      checked_technologies:null,
+      checked_providers:null
+
     }
   },
 
   methods:{
     emitFilter(){
-    //  console.log(this.te);
-      return;
+ 
       let searchKey="";
       if(this.orderBy){
         searchKey+="&sortBy="+this.orderBy;
