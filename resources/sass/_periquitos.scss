@@ -1,9 +1,23 @@
+.bloque-proveedor-precios{
+}
+.bloque-3{
+    margin-top: 55px;
+}
+.btn-adquierelo{
+    font-family: 'Heebo';
+     background:#0bdcf3;
+     box-shadow: black 0px 1px 6p;
+}
 .logo-mb{
     max-height:130px;
 }
+.tecnologia-movil{
+    display: none;
+}
 
 .logo-tecnologia{
-    width:50%;
+    width: 41px;
+    margin-top: -31px;
 }
 
 .tegnologia-movil{
@@ -88,23 +102,47 @@
     
 }
 
-@media (max-width: 360px) {
+@media (max-width: 500px){ 
+
+
+@media (min-width: 360px) {
+.bloque-proveedor-precios{
+display: none !important;
+}
+    .bloque-3{
+        margin-top: 0px;
+    }
+  .texto-hbo{
+    margin-top: -14px;
+  }
+    .tecnologia-movil{
+        display: inline;
+        
+    }
+    .bloque-tecnologia{
+        margin-top: -50px;
+    }
+    
 
     .logo-mb{
         margin-top: 0px;
-        width: 129px;
+        width: 110px;
     }
     .hbo{
         margin-top: 125px;
     }
-    .logo-tecnologia{
-        width:40%;
-    }
+   
 
     .offer-card-separator10{
         width: 80%;
         height: 1px;
-        background: rgb(0,194,214) !important;
+        background: #0bdcf3 !important;
+      }
+      .offer-card-separator11{
+        width: 80%;
+        height: 1px;
+        background: #0bdcf3 !important;
+        margin-left: 18px;
       }
     .logo-mb{
    
@@ -113,9 +151,9 @@
 
     .logo-movil-planes{
        
-        margin-left: 303px;
-        margin-top: -179px;
-        width: 19%;
+        margin-left: 274px;
+        margin-top: -313px;
+        width: 30%;
 
     }
     .tegnologia-movil{
@@ -132,12 +170,13 @@
     }
 
     
-    .ondas{
-        margin-top: 170px;
+    .icono-ondas{
+        margin-top: -52px;
     }
 
     .precio-movil{
-        margin-top: 20px;
+        font-size: 27px;
+        margin-top:0px;
        
     }
     .logo-ondas{
@@ -146,6 +185,279 @@
     .texto-velocidad{
        
     }
+    .btn-adquierelo{
+        font-family: 'Heebo';
+         background:#0bdcf3;
+         box-shadow: black 0px 1px 6p;
+         margin-top: -48px;
+    }
+}
+
+@media (min-width: 375px) {
+    .bloque-proveedor-precios{
+    display: none !important;
+    }
+        .bloque-3{
+            margin-top: 0px;
+        }
+      .texto-hbo{
+        margin-top: -14px;
+      }
+        .tecnologia-movil{
+            display: inline;
+            
+        }
+        .bloque-tecnologia{
+            margin-top: -50px;
+        }
+        
+    
+        .logo-mb{
+            margin-top: 0px;
+            width: 110px;
+        }
+        .hbo{
+            margin-top: 125px;
+        }
+       
+    
+        .offer-card-separator10{
+            width: 80%;
+            height: 1px;
+            background: #0bdcf3 !important;
+          }
+          .offer-card-separator11{
+            width: 80%;
+            height: 1px;
+            background: #0bdcf3 !important;
+            margin-left: 18px;
+          }
+        .logo-mb{
+       
+        
+        }
+    
+        .logo-movil-planes{
+           
+            margin-left: 289px;
+            margin-top: -313px;
+            width: 30%;
+    
+        }
+        .tegnologia-movil{
+             display: block;
+        }
+    
+        .consultar-movil{
+        
+        }
+    
+        .beneficio-movil{
+            margin-top: 85px;
+    
+        }
+    
+        
+        .icono-ondas{
+            margin-top: -52px;
+        }
+    
+        .precio-movil{
+            font-size: 27px;
+            margin-top:0px;
+           
+        }
+        .logo-ondas{
+           
+        }
+        .texto-velocidad{
+           
+        }
+        .btn-adquierelo{
+            font-family: 'Heebo';
+             background:#0bdcf3;
+             box-shadow: black 0px 1px 6p;
+             margin-top: -48px;
+        }
+    }
+    
+
+@media (min-width: 411px) {
+    .bloque-proveedor-precios{
+    display: none !important;
+    }
+        .bloque-3{
+            margin-top: 0px;
+        }
+      .texto-hbo{
+        margin-top: -14px;
+      }
+        .tecnologia-movil{
+            display: inline;
+            
+        }
+        .bloque-tecnologia{
+            margin-top: -50px;
+        }
+        
+    
+        .logo-mb{
+            margin-top: 0px;
+            width: 110px;
+        }
+        .hbo{
+            margin-top: 125px;
+        }
+       
+    
+        .offer-card-separator10{
+            width: 80%;
+            height: 1px;
+            background: #0bdcf3 !important;
+          }
+          .offer-card-separator11{
+            width: 80%;
+            height: 1px;
+            background: #0bdcf3 !important;
+            margin-left: 18px;
+          }
+        .logo-mb{
+       
+        
+        }
+    
+        .logo-movil-planes{
+           
+            margin-left: 319px;
+            margin-top: -313px;
+            width: 30%;
+    
+        }
+        .tegnologia-movil{
+             display: block;
+        }
+    
+        .consultar-movil{
+        
+        }
+    
+        .beneficio-movil{
+            margin-top: 85px;
+    
+        }
+    
+        
+        .icono-ondas{
+            margin-top: -52px;
+        }
+    
+        .precio-movil{
+            font-size: 27px;
+            margin-top:0px;
+           
+        }
+        .logo-ondas{
+           
+        }
+        .texto-velocidad{
+           
+        }
+        .btn-adquierelo{
+            font-family: 'Heebo';
+             background:#0bdcf3;
+             box-shadow: black 0px 1px 6p;
+             margin-top: -48px;
+        }
+    }
+
+    @media (min-width: 499px) {
+        .bloque-proveedor-precios{
+        display: none !important;
+        }
+            .bloque-3{
+                margin-top: 0px;
+            }
+          .texto-hbo{
+            margin-top: -14px;
+          }
+            .tecnologia-movil{
+                display: inline;
+                
+            }
+            .bloque-tecnologia{
+                margin-top: -50px;
+            }
+            
+        
+            .logo-mb{
+                margin-top: 0px;
+                width: 110px;
+            }
+            .hbo{
+                margin-top: 125px;
+            }
+           
+        
+            .offer-card-separator10{
+                width: 80%;
+                height: 1px;
+                background: #0bdcf3 !important;
+              }
+              .offer-card-separator11{
+                width: 80%;
+                height: 1px;
+                background: #0bdcf3 !important;
+                margin-left: 18px;
+              }
+            .logo-mb{
+           
+            
+            }
+        
+            .logo-movil-planes{
+               
+                margin-left: 392px;
+                margin-top: -313px;
+                width: 30%;
+        
+            }
+            .tegnologia-movil{
+                 display: block;
+            }
+        
+            .consultar-movil{
+            
+            }
+        
+            .beneficio-movil{
+                margin-top: 85px;
+        
+            }
+        
+            
+            .icono-ondas{
+                margin-top: -52px;
+            }
+        
+            .precio-movil{
+                font-size: 27px;
+                margin-top:0px;
+               
+            }
+            .logo-ondas{
+               
+            }
+            .texto-velocidad{
+               
+            }
+            .btn-adquierelo{
+                font-family: 'Heebo';
+                 background:#0bdcf3;
+                 box-shadow: black 0px 1px 6p;
+                 margin-top: -48px;
+            }
+        }
+
 }
 
 
