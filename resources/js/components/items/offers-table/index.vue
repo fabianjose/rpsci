@@ -37,62 +37,63 @@
 
 
 
-                  <div class=" col-6      col-xl-2 col-lg-3 col-md-4 col-sm-4  d-flex flex-column align-items-center justify-content-center">
-                    <img :src="baseUrl+'/storage/'+offer.company_logo" class="img-fluid p-2 logo-mb" >
+                  <div class="col-6 order-1   order-sm-1     col-xl-2 col-lg-3 col-md-4 col-sm-4  d-flex flex-column align-items-center justify-content-center">
+                    
+                    
+                           <img :src="baseUrl+'/storage/'+offer.company_logo" class="img-fluid p-2 logo-mb" >
+                   <br>
+               
 
                         <div :class="'offer-card-separator10 '+(index%2?'bg-main-blue':'bg-main-pink')"></div>
 
+                        <div>
+                                    <div class="  text-center p-2 offer-table-label w-100 text-white mx-auto bg-dark-blue rounded-pill p-1 text-wrap ">   <p class="text-tabla-detalles" >  tegnologia</p> </div>
+                        </div>
+
 
                             <div   v-if="offer.tipo_plan_logos == 0 ">
-                    <h6 class="text-dark-blue pt-2" style="text-align: center;"> <img src="/images/service-2.png" width="30%" alt=""> </h6> 
+                    <h6 class="text-dark-blue pt-2" style="text-align: center;"> <img class="logo-movil-planes" src="/images/service-2.png" width="30%" alt=""> </h6> 
                             </div>
                             <div   v-if="offer.tipo_plan_logos == 1 ">
-                    <h6 class="text-dark-blue pt-2" style="text-align: center;"> <img src="/images/Icono-duo.png" width="30%" alt=""> </h6> 
+                    <h6 class="text-dark-blue pt-2" style="text-align: center;"> <img class="logo-movil-planes" src="/images/Icono-duo.png" width="30%" alt=""> </h6> 
                             </div>
                             <div   v-if="offer.tipo_plan_logos == 2 ">
-                    <h6 class="text-dark-blue pt-2" style="text-align: center;"> <img src="/images/Iconotrio.png" width="30%" alt=""> </h6> 
+                    <h6 class="text-dark-blue pt-2" style="text-align: center;"> <img class="logo-movil-planes" src="/images/Icono-trio.png" width="30%" alt=""> </h6> 
                             </div>
 
                             <div   v-if="offer.tipo_plan_logos != 0 && offer.tipo_plan_logos != 1 && offer.tipo_plan_logos != 2">
-                            <img src="/images/google.jpg" width="30%" alt="">
+                            <img class="logo-movil-planes"  src="/images/Icono-trio.png" width="30%" alt="">
                       </div>
 
                     <!--<h6 class="text-dark-blue pt-2">{{offer.company_name}}</h6> -->
                   </div>
                       
-
                       
-                  <div  class="' col-6           text-wrap col-xl-2 col-lg-3 text-center flex-column align-items-center justify-content-center d-xl-flex hidden-md hidden-xs hidden-sm '+(!k3?'d-lg-flex':'hidden-lg')">
+                  <div  class="col-6 order-3   order-sm-2    text-wrap col-xl-2 col-lg-3 text-center flex-column align-items-center justify-content-center   ">
                       
                       
                       <div   v-if="offer.tecnologia == 0">
-                            <img style="transform: rotate(90deg);" src="/images/Fibra.png" width="50%" alt="">
+                            <img class="logo-tecnologia" style="transform: rotate(90deg);" src="/images/Fibra.png"  alt="">
                       </div>
                       <div   v-if="offer.tecnologia == 1 ">
-                            <img src="/images/service-4.png" width="50%" alt="">
+                            <img class="logo-tecnologia" src="/images/service-4.png" alt="">
                       </div>
                       <div   v-if="offer.tecnologia == 2">
-                            <img src="/images/Fibra.png" width="50%" alt="">
+                            <img class="logo-tecnologia" src="/images/Fibra.png" alt="">
                       </div>
                       <div   v-if="offer.tecnologia == 3 ">
-                            <img src="/images/service-4.png" width="50%" alt="">
+                            <img class="logo-tecnologia" src="/images/service-4.png" alt="">
                       </div>
-
-                        <div   v-if="offer.tecnologia != 0 && offer.tecnologia != 1 && offer.tecnologia != 2 && offer.tecnologia != 3  ">
-                            <img src="/images/google.jpg" width="50%" alt="">
+                      <div   v-if="offer.tecnologia != 0 && offer.tecnologia != 1 && offer.tecnologia != 2 && offer.tecnologia != 3  ">
+                            <img class="logo-tecnologia" src="/images/google.jpg" alt="">
                       </div>
                       
                       
 
-                    <h6 class="text-lg"> 
-
-                    
-
-                    <span style="font-family: 'Heebo';      font-size: 1.59rem!important;     color: rgb(91, 87, 87);"> {{offer.fields_values[0].value}} </span> 
-                    </h6>
+                    <h6 class="text-lg"> <span style="font-family: 'Heebo';      font-size: 1.59rem!important;     color: rgb(91, 87, 87);"> {{offer.fields_values[0].value}} </span> </h6>
                   </div>
 
-                  <div  class=" col-6             'text-wrap col-2   col-xl-2 col-lg-3 text-center flex-column align-items-center justify-content-center d-xl-flex hidden-md  hidden-sm '+(!k3?'d-lg-flex':'hidden-lg')">
+                  <div  class="col-6 order-5   order-sm-3           'text-wrap col-2   col-xl-2 col-lg-3 text-center flex-column align-items-center justify-content-center d-xl-flex hidden-md  hidden-sm '+(!k3?'d-lg-flex':'hidden-lg')">
                     <div  >
                             <img src="/images/icono-ondas.png" width="30%" alt="">
                       </div>
@@ -102,13 +103,18 @@
                     </h6>
                   </div>
 
+                  <div class="col-6 order-2  order-sm-4         text-wrap  col-2 col-xl-2 col-lg-3 col-md-4 col-sm-4 text-center flex-column align-items-center justify-content-center d-xl-flex d-lg-flex d-md-flex  hidden-sm">
+                        
+                        <div class="hbo">
 
-                  <div class="  col-6            text-wrap  col-2 col-xl-2 col-lg-3 col-md-4 col-sm-4 text-center flex-column align-items-center justify-content-center d-xl-flex d-lg-flex d-md-flex  hidden-sm">
 
                     <h5 style="font-family: Heebo;
             font-size: 16px;
             color: rgb(91, 87, 87);
             font-weight: 800;" >HBO + 1 mes Gratis</h5> 
+
+                        </div>
+
                     <div >
                       <h6 style="font-weight: 300;">130 Canales TV</h6> 
                     <h6 style="line-height : 0px; font-weight: 300;">Telefonia Ilimitada</h6> 
@@ -121,8 +127,12 @@
                     </h6>-->
                   </div>
 
-                  <div class="  col-6           col-xl-2 col-lg-3 col-md-4 col-sm-4 py-2 text-center d-flex flex-column align-items-center justify-content-center">
-                    <h6 class="text-dark-blue offer-table-price text-wrap-all" style="color: rgb(91, 87, 87);">$ {{showPrice(offer.tariff)}}</h6>
+                  <div class="col-6 order-4  order-sm-5         col-xl-2 col-lg-3 col-md-4 col-sm-4 py-2 text-center d-flex flex-column align-items-center justify-content-center">
+                     <div class="precio-movil">
+
+                  
+                    <h6 class="text-dark-blue offer-table-price text-wrap-all " style="color: rgb(91, 87, 87);">$ {{showPrice(offer.tariff)}}</h6>
+                      </div>
                     <div class="stars-container flex-row justify-content-center mb-2">
                     <!--  <i v-for="(starCount,k4) in 5" :key="k4" :class="(starCount>offer.points?'far':'fas')+' fa-star'"></i>-->
                     </div>
@@ -130,7 +140,8 @@
                      
                     </div>
                   </div>
-                  <div class="  col-6           col-xl-2 col-lg-3 col-md-4 col-sm-4 py-2 text-center d-flex flex-column align-items-center justify-content-center">
+
+                  <div class="col-6 order-6   order-sm-6         col-xl-2 col-lg-3 col-md-4 col-sm-4 py-2 text-center d-flex flex-column align-items-center justify-content-center">
                     <div class="stars-container flex-row justify-content-center mb-2">
                     <!--  <i v-for="(starCount,k4) in 5" :key="k4" :class="(starCount>offer.points?'far':'fas')+' fa-star'"></i>-->
                     </div>

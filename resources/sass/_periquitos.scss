@@ -2,6 +2,10 @@
     max-height:130px;
 }
 
+.logo-tecnologia{
+    width:50%;
+}
+
 .tegnologia-movil{
     display: none;
 }
@@ -86,6 +90,17 @@
 
 @media (max-width: 360px) {
 
+    .logo-mb{
+        margin-top: 0px;
+        width: 129px;
+    }
+    .hbo{
+        margin-top: 125px;
+    }
+    .logo-tecnologia{
+        width:40%;
+    }
+
     .offer-card-separator10{
         width: 80%;
         height: 1px;
@@ -98,7 +113,9 @@
 
     .logo-movil-planes{
        
-        
+        margin-left: 303px;
+        margin-top: -179px;
+        width: 19%;
 
     }
     .tegnologia-movil{
@@ -120,7 +137,7 @@
     }
 
     .precio-movil{
-        margin-top: 190px;
+        margin-top: 20px;
        
     }
     .logo-ondas{
