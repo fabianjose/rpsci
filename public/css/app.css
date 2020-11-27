@@ -1428,6 +1428,14 @@ a {
   }
 }
 
+.logo-mb {
+  max-height: 130px;
+}
+
+.tegnologia-movil {
+  display: none;
+}
+
 .titulo-nosotros {
   font-family: "Heebo";
   color: #7f7f7f;
@@ -1492,6 +1500,30 @@ a {
 @media (min-width: 1226px) {
   .texto-resultado-busqueda-banner {
     line-height: 0px;
+  }
+}
+
+@media (max-width: 360px) {
+  .offer-card-separator10 {
+    width: 80%;
+    height: 1px;
+    background: #00c2d6 !important;
+  }
+
+  .tegnologia-movil {
+    display: block;
+  }
+
+  .beneficio-movil {
+    margin-top: 85px;
+  }
+
+  .ondas {
+    margin-top: 170px;
+  }
+
+  .precio-movil {
+    margin-top: 190px;
   }
 }
 

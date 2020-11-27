@@ -1,3 +1,10 @@
+.logo-mb{
+    max-height:130px;
+}
+
+.tegnologia-movil{
+    display: none;
+}
 
 .titulo-nosotros{
     
@@ -76,4 +83,52 @@
     }
     
 }
+
+@media (max-width: 360px) {
+
+    .offer-card-separator10{
+        width: 80%;
+        height: 1px;
+        background: rgb(0,194,214) !important;
+      }
+    .logo-mb{
+   
+    
+    }
+
+    .logo-movil-planes{
+       
+        
+
+    }
+    .tegnologia-movil{
+         display: block;
+    }
+
+    .consultar-movil{
+    
+    }
+
+    .beneficio-movil{
+        margin-top: 85px;
+
+    }
+
+    
+    .ondas{
+        margin-top: 170px;
+    }
+
+    .precio-movil{
+        margin-top: 190px;
+       
+    }
+    .logo-ondas{
+       
+    }
+    .texto-velocidad{
+       
+    }
+}
+
 
