@@ -23,8 +23,13 @@
         </div>
 
         <div v-for="(offer,k) in compItems" :key="k" class="d-flex w-100 justify-content-around my-1 mb-3 offer offers-pagination-item pb-3">
+
+
           <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 d-flex flex-column align-items-center justify-content-center">
-            <img :src="baseUrl+'/storage/'+offer.company_logo" class="img-fluid p-2" style="max-height:130px;">
+            <img :src="baseUrl+'/storage/'+offer.company_logo" class="img-fluid p-2 logo-mb" >
+
+                <div :class="'offer-card-separator10 '+(index%2?'bg-main-blue':'bg-main-pink')"></div>
+
 
                     <div   v-if="offer.tipo_plan_logos == 0 ">
             <h6 class="text-dark-blue pt-2" style="text-align: center;"> <img src="/images/service-2.png" width="30%" alt=""> </h6> 

@@ -1428,6 +1428,10 @@ a {
   }
 }
 
+.logo-mb {
+  max-height: 130px;
+}
+
 .titulo-nosotros {
   font-family: "Heebo";
   color: #7f7f7f;
@@ -1492,6 +1496,20 @@ a {
 @media (min-width: 1226px) {
   .texto-resultado-busqueda-banner {
     line-height: 0px;
+  }
+}
+
+@media (max-width: 360px) {
+  .offer-card-separator10 {
+    width: 80%;
+    height: 1px;
+    background: #00c2d6;
+  }
+
+  .logo-mb {
+    max-height: 91px;
+    margin-top: -138px;
+    margin-left: 69px;
   }
 }
 

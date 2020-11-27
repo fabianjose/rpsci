@@ -4070,6 +4070,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["items", "fields", "lastpage", "currentpage"],
   data: function data() {
@@ -46585,11 +46590,16 @@ var render = function() {
                 },
                 [
                   _c("img", {
-                    staticClass: "img-fluid p-2",
-                    staticStyle: { "max-height": "130px" },
+                    staticClass: "img-fluid p-2 logo-mb",
                     attrs: {
                       src: _vm.baseUrl + "/storage/" + offer.company_logo
                     }
+                  }),
+                  _vm._v(" "),
+                  _c("div", {
+                    class:
+                      "offer-card-separator10 " +
+                      (_vm.index % 2 ? "bg-main-blue" : "bg-main-pink")
                   }),
                   _vm._v(" "),
                   offer.tipo_plan_logos == 0
