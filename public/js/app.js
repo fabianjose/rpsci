@@ -3590,10 +3590,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       var _this3 = this;
 
       axios.get(baseUrl + '/api/municipalities/' + this.department).then(function (res) {
-        console.log(res); // console.log(this.$refs);
-        // if(!this.hideMunicipality) this.$refs.municipalitiesList.setEntries(res.data)
-        // else this.$emit("newMunicipalities", res.data);
-
+        console.log(res);
         _this3.municipalities = res.data;
       })["catch"](function (err) {
         console.log("ERROR FROM SERVER ", err, err.response);
@@ -3932,6 +3929,31 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -46568,7 +46590,9 @@ var render = function() {
             _vm._v(" "),
             _vm._m(1),
             _vm._v(" "),
-            _vm._m(2)
+            _vm._m(2),
+            _vm._v(" "),
+            _vm._m(3)
           ],
           2
         ),
@@ -46582,223 +46606,245 @@ var render = function() {
                 "d-flex w-100 justify-content-around my-1 mb-3 offer offers-pagination-item pb-3"
             },
             [
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 d-flex flex-column align-items-center justify-content-center"
-                },
-                [
-                  _c("img", {
-                    staticClass: "img-fluid p-2 logo-mb",
-                    attrs: {
-                      src: _vm.baseUrl + "/storage/" + offer.company_logo
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("div", {
-                    class:
-                      "offer-card-separator10 " +
-                      (_vm.index % 2 ? "bg-main-blue" : "bg-main-pink")
-                  }),
-                  _vm._v(" "),
-                  offer.tipo_plan_logos == 0
-                    ? _c("div", [_vm._m(3, true)])
-                    : _vm._e(),
-                  _vm._v(" "),
-                  offer.tipo_plan_logos == 1
-                    ? _c("div", [_vm._m(4, true)])
-                    : _vm._e(),
-                  _vm._v(" "),
-                  offer.tipo_plan_logos == 2
-                    ? _c("div", [_vm._m(5, true)])
-                    : _vm._e(),
-                  _vm._v(" "),
-                  offer.tipo_plan_logos != 0 &&
-                  offer.tipo_plan_logos != 1 &&
-                  offer.tipo_plan_logos != 2
-                    ? _c("div", [
-                        _c("img", {
-                          attrs: {
-                            src: "/images/google.jpg",
-                            width: "30%",
-                            alt: ""
-                          }
-                        })
-                      ])
-                    : _vm._e()
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "'text-wrap col-xl-2 col-lg-3 text-center flex-column align-items-center justify-content-center d-xl-flex hidden-md hidden-xs hidden-sm '+(!k3?'d-lg-flex':'hidden-lg')"
-                },
-                [
-                  offer.tecnologia == 0
-                    ? _c("div", [
-                        _c("img", {
-                          staticStyle: { transform: "rotate(90deg)" },
-                          attrs: {
-                            src: "/images/Fibra.png",
-                            width: "50%",
-                            alt: ""
-                          }
-                        })
-                      ])
-                    : _vm._e(),
-                  _vm._v(" "),
-                  offer.tecnologia == 1
-                    ? _c("div", [
-                        _c("img", {
-                          attrs: {
-                            src: "/images/service-4.png",
-                            width: "50%",
-                            alt: ""
-                          }
-                        })
-                      ])
-                    : _vm._e(),
-                  _vm._v(" "),
-                  offer.tecnologia == 2
-                    ? _c("div", [
-                        _c("img", {
-                          attrs: {
-                            src: "/images/Fibra.png",
-                            width: "50%",
-                            alt: ""
-                          }
-                        })
-                      ])
-                    : _vm._e(),
-                  _vm._v(" "),
-                  offer.tecnologia == 3
-                    ? _c("div", [
-                        _c("img", {
-                          attrs: {
-                            src: "/images/service-4.png",
-                            width: "50%",
-                            alt: ""
-                          }
-                        })
-                      ])
-                    : _vm._e(),
-                  _vm._v(" "),
-                  offer.tecnologia != 0 &&
-                  offer.tecnologia != 1 &&
-                  offer.tecnologia != 2 &&
-                  offer.tecnologia != 3
-                    ? _c("div", [
-                        _c("img", {
-                          attrs: {
-                            src: "/images/google.jpg",
-                            width: "50%",
-                            alt: ""
-                          }
-                        })
-                      ])
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _c("h6", { staticClass: "text-lg" }, [
-                    _c(
-                      "span",
-                      {
-                        staticStyle: {
-                          "font-family": "'Heebo'",
-                          "font-size": "1.59rem!important",
-                          color: "rgb(91, 87, 87)"
-                        }
-                      },
-                      [_vm._v(" " + _vm._s(offer.fields_values[0].value) + " ")]
-                    )
-                  ])
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "'text-wrap col-2   col-xl-2 col-lg-3 text-center flex-column align-items-center justify-content-center d-xl-flex hidden-md  hidden-sm '+(!k3?'d-lg-flex':'hidden-lg')"
-                },
-                [
-                  _vm._m(6, true),
-                  _vm._v(" "),
-                  _c("h6", { staticClass: "text-lg" }, [
-                    _c(
-                      "span",
-                      {
-                        staticStyle: {
-                          "font-family": "'Heebo'",
-                          "font-size": "1.59rem!important",
-                          color: "rgb(91, 87, 87)"
-                        }
-                      },
-                      [
-                        _vm._v(
-                          " " + _vm._s(offer.fields_values[1].value) + " "
-                        ),
-                        _c("br"),
-                        _vm._v(" Mbps ")
-                      ]
-                    )
-                  ])
-                ]
-              ),
-              _vm._v(" "),
-              _vm._m(7, true),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 py-2 text-center d-flex flex-column align-items-center justify-content-center"
-                },
-                [
-                  _c(
-                    "h6",
-                    {
-                      staticClass:
-                        "text-dark-blue offer-table-price text-wrap-all",
-                      staticStyle: { color: "rgb(91, 87, 87)" }
-                    },
-                    [_vm._v("$ " + _vm._s(_vm.showPrice(offer.tariff)))]
-                  ),
-                  _vm._v(" "),
-                  _c("div", {
+              _c("div", { staticClass: "row" }, [
+                _c(
+                  "div",
+                  {
                     staticClass:
-                      "stars-container flex-row justify-content-center mb-2"
-                  }),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "d-flex flex-row" }, [
+                      " col-6      col-xl-2 col-lg-3 col-md-4 col-sm-4  d-flex flex-column align-items-center justify-content-center"
+                  },
+                  [
+                    _c("img", {
+                      staticClass: "img-fluid p-2 logo-mb",
+                      attrs: {
+                        src: _vm.baseUrl + "/storage/" + offer.company_logo
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("div", {
+                      class:
+                        "offer-card-separator10 " +
+                        (_vm.index % 2 ? "bg-main-blue" : "bg-main-pink")
+                    }),
+                    _vm._v(" "),
+                    offer.tipo_plan_logos == 0
+                      ? _c("div", [_vm._m(4, true)])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    offer.tipo_plan_logos == 1
+                      ? _c("div", [_vm._m(5, true)])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    offer.tipo_plan_logos == 2
+                      ? _c("div", [_vm._m(6, true)])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    offer.tipo_plan_logos != 0 &&
+                    offer.tipo_plan_logos != 1 &&
+                    offer.tipo_plan_logos != 2
+                      ? _c("div", [
+                          _c("img", {
+                            attrs: {
+                              src: "/images/google.jpg",
+                              width: "30%",
+                              alt: ""
+                            }
+                          })
+                        ])
+                      : _vm._e()
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "' col-6           text-wrap col-xl-2 col-lg-3 text-center flex-column align-items-center justify-content-center d-xl-flex hidden-md hidden-xs hidden-sm '+(!k3?'d-lg-flex':'hidden-lg')"
+                  },
+                  [
+                    offer.tecnologia == 0
+                      ? _c("div", [
+                          _c("img", {
+                            staticStyle: { transform: "rotate(90deg)" },
+                            attrs: {
+                              src: "/images/Fibra.png",
+                              width: "50%",
+                              alt: ""
+                            }
+                          })
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    offer.tecnologia == 1
+                      ? _c("div", [
+                          _c("img", {
+                            attrs: {
+                              src: "/images/service-4.png",
+                              width: "50%",
+                              alt: ""
+                            }
+                          })
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    offer.tecnologia == 2
+                      ? _c("div", [
+                          _c("img", {
+                            attrs: {
+                              src: "/images/Fibra.png",
+                              width: "50%",
+                              alt: ""
+                            }
+                          })
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    offer.tecnologia == 3
+                      ? _c("div", [
+                          _c("img", {
+                            attrs: {
+                              src: "/images/service-4.png",
+                              width: "50%",
+                              alt: ""
+                            }
+                          })
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    offer.tecnologia != 0 &&
+                    offer.tecnologia != 1 &&
+                    offer.tecnologia != 2 &&
+                    offer.tecnologia != 3
+                      ? _c("div", [
+                          _c("img", {
+                            attrs: {
+                              src: "/images/google.jpg",
+                              width: "50%",
+                              alt: ""
+                            }
+                          })
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _c("h6", { staticClass: "text-lg" }, [
+                      _c(
+                        "span",
+                        {
+                          staticStyle: {
+                            "font-family": "'Heebo'",
+                            "font-size": "1.59rem!important",
+                            color: "rgb(91, 87, 87)"
+                          }
+                        },
+                        [
+                          _vm._v(
+                            " " + _vm._s(offer.fields_values[0].value) + " "
+                          )
+                        ]
+                      )
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      " col-6             'text-wrap col-2   col-xl-2 col-lg-3 text-center flex-column align-items-center justify-content-center d-xl-flex hidden-md  hidden-sm '+(!k3?'d-lg-flex':'hidden-lg')"
+                  },
+                  [
+                    _vm._m(7, true),
+                    _vm._v(" "),
+                    _c("h6", { staticClass: "text-lg" }, [
+                      _c(
+                        "span",
+                        {
+                          staticStyle: {
+                            "font-family": "'Heebo'",
+                            "font-size": "1.59rem!important",
+                            color: "rgb(91, 87, 87)"
+                          }
+                        },
+                        [
+                          _vm._v(
+                            " " + _vm._s(offer.fields_values[1].value) + " "
+                          ),
+                          _c("br"),
+                          _vm._v(" Mbps ")
+                        ]
+                      )
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _vm._m(8, true),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "  col-6           col-xl-2 col-lg-3 col-md-4 col-sm-4 py-2 text-center d-flex flex-column align-items-center justify-content-center"
+                  },
+                  [
                     _c(
-                      "button",
+                      "h6",
                       {
                         staticClass:
-                          "btn btn-lx btn-lg btn-main-blue rounded-pill mx-1 px-1 text-uppercase img-fluid",
-                        staticStyle: {
-                          "font-family": "'Heebo'",
-                          background: "#0bdcf3",
-                          "box-shadow": "black 0px 1px 6px"
-                        },
-                        attrs: {
-                          type: "button",
-                          "data-toggle": "modal",
-                          "data-target": "#modalConsultOffer"
-                        },
-                        on: {
-                          click: function($event) {
-                            return _vm.emitConsult(k)
-                          }
-                        }
+                          "text-dark-blue offer-table-price text-wrap-all",
+                        staticStyle: { color: "rgb(91, 87, 87)" }
                       },
-                      [_vm._v("Consultar")]
-                    )
-                  ])
-                ]
-              )
+                      [_vm._v("$ " + _vm._s(_vm.showPrice(offer.tariff)))]
+                    ),
+                    _vm._v(" "),
+                    _c("div", {
+                      staticClass:
+                        "stars-container flex-row justify-content-center mb-2"
+                    }),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "d-flex flex-row" })
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "  col-6           col-xl-2 col-lg-3 col-md-4 col-sm-4 py-2 text-center d-flex flex-column align-items-center justify-content-center"
+                  },
+                  [
+                    _c("div", {
+                      staticClass:
+                        "stars-container flex-row justify-content-center mb-2"
+                    }),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "d-flex flex-row" }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass:
+                            "btn btn-lx btn-lg btn-main-blue rounded-pill mx-1 px-1 text-uppercase img-fluid",
+                          staticStyle: {
+                            "font-family": "'Heebo'",
+                            background: "#0bdcf3",
+                            "box-shadow": "black 0px 1px 6px"
+                          },
+                          attrs: {
+                            type: "button",
+                            "data-toggle": "modal",
+                            "data-target": "#modalConsultOffer"
+                          },
+                          on: {
+                            click: function($event) {
+                              return _vm.emitConsult(k)
+                            }
+                          }
+                        },
+                        [_vm._v("Consultar")]
+                      )
+                    ])
+                  ]
+                )
+              ])
             ]
           )
         }),
@@ -46940,6 +46986,21 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-xl-2 col-lg-3 col-md-4 px-1" }, [
+      _c(
+        "div",
+        {
+          staticClass:
+            "text-center p-2 offer-table-label w-100 text-white mx-auto bg-dark-blue rounded-pill p-1 text-wrap "
+        },
+        [_c("p", { staticClass: "text-tabla-detalles" })]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
     return _c(
       "h6",
       {
@@ -47005,7 +47066,7 @@ var staticRenderFns = [
       "div",
       {
         staticClass:
-          "text-wrap  col-2 col-xl-2 col-lg-3 col-md-4 col-sm-4 text-center flex-column align-items-center justify-content-center d-xl-flex d-lg-flex d-md-flex  hidden-sm"
+          "  col-6            text-wrap  col-2 col-xl-2 col-lg-3 col-md-4 col-sm-4 text-center flex-column align-items-center justify-content-center d-xl-flex d-lg-flex d-md-flex  hidden-sm"
       },
       [
         _c(

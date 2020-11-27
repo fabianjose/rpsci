@@ -1432,6 +1432,10 @@ a {
   max-height: 130px;
 }
 
+.tegnologia-movil {
+  display: none;
+}
+
 .titulo-nosotros {
   font-family: "Heebo";
   color: #7f7f7f;
@@ -1503,13 +1507,23 @@ a {
   .offer-card-separator10 {
     width: 80%;
     height: 1px;
-    background: #00c2d6;
+    background: #00c2d6 !important;
   }
 
-  .logo-mb {
-    max-height: 91px;
-    margin-top: -138px;
-    margin-left: 69px;
+  .tegnologia-movil {
+    display: block;
+  }
+
+  .beneficio-movil {
+    margin-top: 85px;
+  }
+
+  .ondas {
+    margin-top: 170px;
+  }
+
+  .precio-movil {
+    margin-top: 190px;
   }
 }
 

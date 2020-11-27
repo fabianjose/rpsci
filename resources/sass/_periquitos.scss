@@ -1,6 +1,11 @@
 .logo-mb{
     max-height:130px;
 }
+
+.tegnologia-movil{
+    display: none;
+}
+
 .titulo-nosotros{
     
     font-family: "Heebo";
@@ -84,15 +89,46 @@
     .offer-card-separator10{
         width: 80%;
         height: 1px;
-        background: rgb(0,194,214);
+        background: rgb(0,194,214) !important;
       }
     .logo-mb{
-        max-height: 91px;
-        margin-top: -138px;
-        margin-left: 69px;
+   
     
     }
+
+    .logo-movil-planes{
+       
+        
+
+    }
+    .tegnologia-movil{
+         display: block;
+    }
+
+    .consultar-movil{
     
+    }
+
+    .beneficio-movil{
+        margin-top: 85px;
+
+    }
+
+    
+    .ondas{
+        margin-top: 170px;
+    }
+
+    .precio-movil{
+        margin-top: 190px;
+       
+    }
+    .logo-ondas{
+       
+    }
+    .texto-velocidad{
+       
+    }
 }
 
 
