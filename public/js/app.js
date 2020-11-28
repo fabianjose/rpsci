@@ -4091,6 +4091,37 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["items", "fields", "lastpage", "currentpage"],
   data: function data() {
@@ -46562,7 +46593,7 @@ var render = function() {
           "div",
           {
             staticClass:
-              "d-flex flex-row w-100 justify-content-around mb-2 mt-3"
+              "d-flex flex-row w-100 justify-content-around mb-2 mt-3 bloque-proveedor-precios"
           },
           [
             _vm._m(0),
@@ -46616,7 +46647,7 @@ var render = function() {
                   "div",
                   {
                     staticClass:
-                      " col-6      col-xl-2 col-lg-3 col-md-4 col-sm-4  d-flex flex-column align-items-center justify-content-center"
+                      "col-6 order-1   order-sm-1     col-xl-2 col-lg-3 col-md-4 col-sm-4  d-flex flex-column align-items-center justify-content-center"
                   },
                   [
                     _c("img", {
@@ -46626,22 +46657,26 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
                     _c("div", {
                       class:
                         "offer-card-separator10 " +
                         (_vm.index % 2 ? "bg-main-blue" : "bg-main-pink")
                     }),
                     _vm._v(" "),
-                    offer.tipo_plan_logos == 0
-                      ? _c("div", [_vm._m(4, true)])
-                      : _vm._e(),
+                    _vm._m(4, true),
                     _vm._v(" "),
-                    offer.tipo_plan_logos == 1
+                    offer.tipo_plan_logos == 0
                       ? _c("div", [_vm._m(5, true)])
                       : _vm._e(),
                     _vm._v(" "),
-                    offer.tipo_plan_logos == 2
+                    offer.tipo_plan_logos == 1
                       ? _c("div", [_vm._m(6, true)])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    offer.tipo_plan_logos == 2
+                      ? _c("div", [_vm._m(7, true)])
                       : _vm._e(),
                     _vm._v(" "),
                     offer.tipo_plan_logos != 0 &&
@@ -46649,8 +46684,9 @@ var render = function() {
                     offer.tipo_plan_logos != 2
                       ? _c("div", [
                           _c("img", {
+                            staticClass: "logo-movil-planes",
                             attrs: {
-                              src: "/images/google.jpg",
+                              src: "/images/Icono-trio.png",
                               width: "30%",
                               alt: ""
                             }
@@ -46664,72 +46700,58 @@ var render = function() {
                   "div",
                   {
                     staticClass:
-                      "' col-6           text-wrap col-xl-2 col-lg-3 text-center flex-column align-items-center justify-content-center d-xl-flex hidden-md hidden-xs hidden-sm '+(!k3?'d-lg-flex':'hidden-lg')"
+                      "col-6 order-3   order-sm-2    text-wrap col-xl-2 col-lg-3 text-center flex-column align-items-center justify-content-center bloque-3   "
                   },
                   [
-                    offer.tecnologia == 0
-                      ? _c("div", [
-                          _c("img", {
-                            staticStyle: { transform: "rotate(90deg)" },
-                            attrs: {
-                              src: "/images/Fibra.png",
-                              width: "50%",
-                              alt: ""
-                            }
-                          })
-                        ])
-                      : _vm._e(),
-                    _vm._v(" "),
-                    offer.tecnologia == 1
-                      ? _c("div", [
-                          _c("img", {
-                            attrs: {
-                              src: "/images/service-4.png",
-                              width: "50%",
-                              alt: ""
-                            }
-                          })
-                        ])
-                      : _vm._e(),
-                    _vm._v(" "),
-                    offer.tecnologia == 2
-                      ? _c("div", [
-                          _c("img", {
-                            attrs: {
-                              src: "/images/Fibra.png",
-                              width: "50%",
-                              alt: ""
-                            }
-                          })
-                        ])
-                      : _vm._e(),
-                    _vm._v(" "),
-                    offer.tecnologia == 3
-                      ? _c("div", [
-                          _c("img", {
-                            attrs: {
-                              src: "/images/service-4.png",
-                              width: "50%",
-                              alt: ""
-                            }
-                          })
-                        ])
-                      : _vm._e(),
-                    _vm._v(" "),
-                    offer.tecnologia != 0 &&
-                    offer.tecnologia != 1 &&
-                    offer.tecnologia != 2 &&
-                    offer.tecnologia != 3
-                      ? _c("div", [
-                          _c("img", {
-                            attrs: {
-                              src: "/images/google.jpg",
-                              width: "50%",
-                              alt: ""
-                            }
-                          })
-                        ])
-                      : _vm._e(),
+                    _c("div", { staticClass: "bloque-tecnologia" }, [
+                      offer.tecnologia == 0
+                        ? _c("div", [
+                            _c("img", {
+                              staticClass: "logo-tecnologia",
+                              attrs: { src: "/images/Fibra.png", alt: "" }
+                            })
+                          ])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      offer.tecnologia == 1
+                        ? _c("div", [
+                            _c("img", {
+                              staticClass: "logo-tecnologia",
+                              attrs: { src: "/images/service-4.png", alt: "" }
+                            })
+                          ])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      offer.tecnologia == 2
+                        ? _c("div", [
+                            _c("img", {
+                              staticClass: "logo-tecnologia",
+                              attrs: { src: "/images/Fibra.png", alt: "" }
+                            })
+                          ])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      offer.tecnologia == 3
+                        ? _c("div", [
+                            _c("img", {
+                              staticClass: "logo-tecnologia",
+                              attrs: { src: "/images/service-4.png", alt: "" }
+                            })
+                          ])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      offer.tecnologia != 0 &&
+                      offer.tecnologia != 1 &&
+                      offer.tecnologia != 2 &&
+                      offer.tecnologia != 3
+                        ? _c("div", [
+                            _c("img", {
+                              staticClass: "logo-tecnologia",
+                              attrs: { src: "/images/google.jpg", alt: "" }
+                            })
+                          ])
+                        : _vm._e()
+                    ]),
                     _vm._v(" "),
                     _c("h6", { staticClass: "text-lg" }, [
                       _c(
@@ -46737,6 +46759,7 @@ var render = function() {
                         {
                           staticStyle: {
                             "font-family": "'Heebo'",
+                            "margin-top": "4px",
                             "font-size": "1.59rem!important",
                             color: "rgb(91, 87, 87)"
                           }
@@ -46747,6 +46770,14 @@ var render = function() {
                           )
                         ]
                       )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "raya-azul" }, [
+                      _c("div", {
+                        class:
+                          "offer-card-separator11 " +
+                          (_vm.index % 2 ? "bg-main-blue" : "bg-main-pink")
+                      })
                     ])
                   ]
                 ),
@@ -46755,10 +46786,12 @@ var render = function() {
                   "div",
                   {
                     staticClass:
-                      " col-6             'text-wrap col-2   col-xl-2 col-lg-3 text-center flex-column align-items-center justify-content-center d-xl-flex hidden-md  hidden-sm '+(!k3?'d-lg-flex':'hidden-lg')"
+                      "col-6 order-5   order-sm-3           'text-wrap col-2   col-xl-2 col-lg-3 text-center flex-column align-items-center justify-content-center d-xl-flex hidden-md  hidden-sm '+(!k3?'d-lg-flex':'hidden-lg')"
                   },
                   [
-                    _vm._m(7, true),
+                    _vm._m(8, true),
+                    _vm._v(" "),
+                    _vm._m(9, true),
                     _vm._v(" "),
                     _c("h6", { staticClass: "text-lg" }, [
                       _c(
@@ -46772,34 +46805,36 @@ var render = function() {
                         },
                         [
                           _vm._v(
-                            " " + _vm._s(offer.fields_values[1].value) + " "
-                          ),
-                          _c("br"),
-                          _vm._v(" Mbps ")
+                            " " +
+                              _vm._s(offer.fields_values[1].value) +
+                              "  Mbps "
+                          )
                         ]
                       )
                     ])
                   ]
                 ),
                 _vm._v(" "),
-                _vm._m(8, true),
+                _vm._m(10, true),
                 _vm._v(" "),
                 _c(
                   "div",
                   {
                     staticClass:
-                      "  col-6           col-xl-2 col-lg-3 col-md-4 col-sm-4 py-2 text-center d-flex flex-column align-items-center justify-content-center"
+                      "col-6 order-4  order-sm-5         col-xl-2 col-lg-3 col-md-4 col-sm-4 py-2 text-center d-flex flex-column align-items-center justify-content-center"
                   },
                   [
-                    _c(
-                      "h6",
-                      {
-                        staticClass:
-                          "text-dark-blue offer-table-price text-wrap-all",
-                        staticStyle: { color: "rgb(91, 87, 87)" }
-                      },
-                      [_vm._v("$ " + _vm._s(_vm.showPrice(offer.tariff)))]
-                    ),
+                    _c("div", { staticClass: "precio-movil" }, [
+                      _c(
+                        "h6",
+                        {
+                          staticClass:
+                            "text-dark-blue offer-table-price text-wrap-all precio-movil",
+                          staticStyle: { color: "rgb(91, 87, 87)" }
+                        },
+                        [_vm._v("$ " + _vm._s(_vm.showPrice(offer.tariff)))]
+                      )
+                    ]),
                     _vm._v(" "),
                     _c("div", {
                       staticClass:
@@ -46814,7 +46849,7 @@ var render = function() {
                   "div",
                   {
                     staticClass:
-                      "  col-6           col-xl-2 col-lg-3 col-md-4 col-sm-4 py-2 text-center d-flex flex-column align-items-center justify-content-center"
+                      "col-6 order-6   order-sm-6         col-xl-2 col-lg-3 col-md-4 col-sm-4 py-2 text-center d-flex flex-column align-items-center justify-content-center"
                   },
                   [
                     _c("div", {
@@ -46827,12 +46862,7 @@ var render = function() {
                         "button",
                         {
                           staticClass:
-                            "btn btn-lx btn-lg btn-main-blue rounded-pill mx-1 px-1 text-uppercase img-fluid",
-                          staticStyle: {
-                            "font-family": "'Heebo'",
-                            background: "#0bdcf3",
-                            "box-shadow": "black 0px 1px 6px"
-                          },
+                            "btn-adquierelo btn btn-lx btn-lg btn-main-blue rounded-pill mx-1 px-1 text-uppercase img-fluid",
                           attrs: {
                             type: "button",
                             "data-toggle": "modal",
@@ -46844,7 +46874,7 @@ var render = function() {
                             }
                           }
                         },
-                        [_vm._v("Consultar")]
+                        [_vm._v("ADQUIERELO")]
                       )
                     ])
                   ]
@@ -47006,6 +47036,30 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+    return _c("div", [
+      _c(
+        "div",
+        {
+          staticClass:
+            " tecnologia-movil  text-center p-2 offer-table-label w-100 text-white mx-auto bg-dark-blue rounded-pill p-1 text-wrap "
+        },
+        [
+          _c(
+            "p",
+            {
+              staticClass: "text-tabla-detalles",
+              staticStyle: { "margin-top": "-20px" }
+            },
+            [_vm._v("  Tecnologia")]
+          )
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
     return _c(
       "h6",
       {
@@ -47014,6 +47068,7 @@ var staticRenderFns = [
       },
       [
         _c("img", {
+          staticClass: "logo-movil-planes",
           attrs: { src: "/images/service-2.png", width: "30%", alt: "" }
         })
       ]
@@ -47031,6 +47086,7 @@ var staticRenderFns = [
       },
       [
         _c("img", {
+          staticClass: "logo-movil-planes",
           attrs: { src: "/images/Icono-duo.png", width: "30%", alt: "" }
         })
       ]
@@ -47048,7 +47104,8 @@ var staticRenderFns = [
       },
       [
         _c("img", {
-          attrs: { src: "/images/Iconotrio.png", width: "30%", alt: "" }
+          staticClass: "logo-movil-planes",
+          attrs: { src: "/images/Icono-trio.png", width: "30%", alt: "" }
         })
       ]
     )
@@ -47057,9 +47114,31 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
+    return _c(
+      "div",
+      {
+        staticClass:
+          " tecnologia-movil  text-center p-2 offer-table-label w-100 text-white mx-auto bg-dark-blue rounded-pill p-1 text-wrap "
+      },
+      [
+        _c(
+          "p",
+          {
+            staticClass: "text-tabla-detalles",
+            staticStyle: { "margin-top": "-68px" }
+          },
+          [_vm._v("  Velocidad")]
+        )
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "icono-ondas" }, [
       _c("img", {
-        attrs: { src: "/images/icono-ondas.png", width: "30%", alt: "" }
+        attrs: { src: "/images/icono-ondas.png", width: "35%", alt: "" }
       })
     ])
   },
@@ -47071,21 +47150,42 @@ var staticRenderFns = [
       "div",
       {
         staticClass:
-          "  col-6            text-wrap  col-2 col-xl-2 col-lg-3 col-md-4 col-sm-4 text-center flex-column align-items-center justify-content-center d-xl-flex d-lg-flex d-md-flex  hidden-sm"
+          "col-6 order-2  order-sm-4         text-wrap  col-2 col-xl-2 col-lg-3 col-md-4 col-sm-4 text-center flex-column align-items-center justify-content-center d-xl-flex d-lg-flex d-md-flex  hidden-sm"
       },
       [
-        _c(
-          "h5",
-          {
-            staticStyle: {
-              "font-family": "Heebo",
-              "font-size": "16px",
-              color: "rgb(91, 87, 87)",
-              "font-weight": "800"
-            }
-          },
-          [_vm._v("HBO + 1 mes Gratis")]
-        ),
+        _c("div", { staticClass: "hbo" }, [
+          _c(
+            "div",
+            {
+              staticClass:
+                " tecnologia-movil  text-center p-2 offer-table-label w-100 text-white mx-auto bg-dark-blue rounded-pill p-1 text-wrap "
+            },
+            [
+              _c(
+                "p",
+                {
+                  staticClass: "text-tabla-detalles",
+                  staticStyle: { "margin-top": "-50px" }
+                },
+                [_vm._v("  Beneficios")]
+              )
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "h5",
+            {
+              staticClass: "texto-hbo",
+              staticStyle: {
+                "font-family": "Heebo",
+                "font-size": "16px",
+                color: "rgb(91, 87, 87)",
+                "font-weight": "800"
+              }
+            },
+            [_vm._v("HBO + 1 mes Gratis")]
+          )
+        ]),
         _vm._v(" "),
         _c("div", [
           _c("h6", { staticStyle: { "font-weight": "300" } }, [
@@ -83337,15 +83437,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!*********************************************************!*\
   !*** ./resources/js/components/offers/filter/index.vue ***!
   \*********************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _index_vue_vue_type_template_id_d7c4bd10___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.vue?vue&type=template&id=d7c4bd10& */ "./resources/js/components/offers/filter/index.vue?vue&type=template&id=d7c4bd10&");
 /* harmony import */ var _index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index.vue?vue&type=script&lang=js& */ "./resources/js/components/offers/filter/index.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -83375,7 +83474,7 @@ component.options.__file = "resources/js/components/offers/filter/index.vue"
 /*!**********************************************************************************!*\
   !*** ./resources/js/components/offers/filter/index.vue?vue&type=script&lang=js& ***!
   \**********************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -83904,8 +84003,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\RPCS_SOLUTIONS\rpsci\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\RPCS_SOLUTIONS\rpsci\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\Nueva carpeta\rpsci\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\Nueva carpeta\rpsci\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),
