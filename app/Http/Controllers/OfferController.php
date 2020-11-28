@@ -255,6 +255,15 @@ class OfferController extends Controller{
       'department' => ['required', 'exists:departments,name'],
       'municipality' => ['required', 'exists:municipalities,name'],
     ]);
+    if(isset($data["technologies"])){
+      $data["technologies"] = explode(",",$data["technologies"]);
+    }
+    if(isset($data["speeds"])){
+      $data["speeds"] = explode(",",$data["speeds"]);
+    }
+    if(isset($data["providers"])){
+      $data["providers"] = explode(",",$data["providers"]);
+    }
     if ($validation->fails()){
       if($request->ajax()){
         return response()->json($validation->errors(), 400);
@@ -288,6 +297,37 @@ class OfferController extends Controller{
     })
     ->join('companies','companies.id','offers.company')
     ->join('services', 'services.id','offers.service')
+    ->join('fields_values as ft','ft.offer_id','offers.id')
+    ->where(function($query) use($data){
+      if(isset($data['technologies']))
+      foreach ($data['technologies'] as  $k => $t) {
+       if($k = 0) $query->where('ft.value',"like","%$t%")
+        ->where('ft.field_id','=','3')
+        ->where('ft.trash',0);
+        else $query->orWhere('ft.value',"like","%$t%")
+        ->where('ft.field_id','=','3')
+        ->where('ft.trash',0);
+      }
+    })
+    ->join('fields_values as fs','fs.offer_id','offers.id')
+    ->where(function($query) use($data){
+      if(isset($data['speeds']))
+      foreach ($data['speeds'] as $k => $t) {
+        if($k == 0 )$query->where('fs.value',"like","%$t%")
+        ->where('fs.field_id','=','4')
+         ->where('fs.trash',0);
+        else $query->orWhere('fs.value',"like","%$t%")
+        ->where('fs.field_id','=','4')
+         ->where('fs.trash',0);
+      }
+    })
+    ->where(function($query) use($data){
+      if(isset($data['providers']))
+      foreach ($data['providers'] as  $k => $t) {
+       if($k = 0) $query->where('companies.id',"=","$t");
+       else  $query->orWhere('companies.id',"=","$t");
+      }
+    })
     ->select('offers.*',
     'companies.name as company_name',
     'companies.logo as company_logo',
@@ -387,8 +427,7 @@ class OfferController extends Controller{
       $offers->where("offers.tariff", "<=", $request->input("to"));
     }
 
-    $offers=$offers->get();
-
+    $offers=$offers->distinct()->get();
     $offers=Offer::joinFields($offers->toArray());
 
     $fields=DB::table("fields")->where("service_id", $service->id)
@@ -478,7 +517,7 @@ class OfferController extends Controller{
     'companies.logo as company_logo',
     'services.name as service_name',
     'highlights.highlighted_expiration as highlighted_expiration'
-    )->get();
+    )->distinct()->get();
 
     
     

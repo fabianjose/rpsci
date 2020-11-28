@@ -12,9 +12,8 @@
 <div class="collapse" id="collapseProveedor">
   <div class="card card-body">
     <div v-for="(value) in providers">
-
        <label>{{value.name}}</label>
-      <input type="checkbox" :name="value.id" v-model="checked_providers">
+      <input type="checkbox" :value="value.id" v-model="checked_providers">
     </div>
   </div>
 </div>
@@ -111,10 +110,6 @@ export default {
   props:["fields","providers","max_price", "min_price","technologies","speeds"],
 
   data(){
-      checked_speeds:[]
-      checked_technologies:[]
-      checked_providers:[]
-
     return{
       orderBy:"tariff",
       fromPrice:null,
@@ -140,14 +135,23 @@ export default {
         else return toastr.error("El campo 'Desde' es de valor numérico")
       }
 
-      if(this.toPrice&&this.toPrice!=""){
+     /* if(this.toPrice&&this.toPrice!=""){
         
         if(!isNaN(this.toPrice)) searchKey+="&to="+parseFloat(this.toPrice);
 
         else return toastr.error("El campo 'Hasta' es de valor numérico")
         
+      }*/
+      if(this.checked_technologies.lenght != 0){
+        searchKey+="&technologies="+this.checked_technologies;
       }
-
+      if(this.checked_speeds.lenght != 0){
+        searchKey+="&speeds="+this.checked_speeds;
+      }
+      if(this.checked_technologies.lenght != 0){
+        searchKey+="&providers="+this.checked_providers;
+      }
+      console.log(searchKey);
       this.$emit("customFiltering", searchKey);
 
     },

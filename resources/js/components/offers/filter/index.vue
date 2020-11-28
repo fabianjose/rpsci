@@ -24,7 +24,7 @@ export default {
             compTechnologies: this.technologies,
             compSpeeds: this.speeds,
             compMaxPrice: this.max_price,
-            compMaxPrice: this.min_price,
+            compMinPrice: this.min_price,
             customFilters:null,
             pageIndex:"&page=1",
             currentItem:null,
