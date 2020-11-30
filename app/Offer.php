@@ -25,6 +25,10 @@ class Offer extends Model{
     'telefonia',
     'tecnologia',
     'tipo_plan_logos',
+    'titulo1',
+    'titulo2',
+    'titulo3',
+    'titulo4',
     
   ];
 

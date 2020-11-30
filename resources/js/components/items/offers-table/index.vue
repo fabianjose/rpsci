@@ -131,14 +131,14 @@
                     <h5 style="font-family: Heebo;
             font-size: 16px;
             color: rgb(91, 87, 87);
-            font-weight: 800;" class="texto-hbo" >HBO + 1 mes Gratis</h5> 
+            font-weight: 800;" class="texto-hbo" >{{offer.titulo1}}</h5> 
 
                         </div>
 
                     <div >
-                      <h6 style="font-weight: 300;">130 Canales TV</h6> 
-                    <h6 style="line-height : 0px; font-weight: 300;">Telefonia Ilimitada</h6> 
-                    <h6 style="font-weight: 300;">1.3.4.5 Meses Gratis</h6> 
+                      <h6 style="font-weight: 300;">{{offer.titulo2}}</h6> 
+                    <h6 style="line-height : 0px; font-weight: 300;">{{offer.titulo3}}</h6> 
+                    <h6 style="font-weight: 300;">{{offer.titulo4}}</h6> 
                     </div>
                     
 

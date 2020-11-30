@@ -48,12 +48,36 @@
             </div>
           </div>
 
-          <div class="d-flex flex-row w-100 justify-content-around flex-wrap my-3">
-            <div class="form-group col-12">
+        <div class="d-flex flex-row w-100 justify-content-around flex-wrap my-3" >
+            <div class="form-group col-12" style="display:none">
               <label>Descripcion</label>
               <textarea class="form-control" rows="3" placeholder="Descripcion..." v-model="benefits" style="resize: none;"></textarea>
             </div>
           </div>
+
+          <div class="d-flex flex-row w-100 justify-content-around flex-wrap my-3">
+            <div class="form-group col-3">
+              <label>Titulo 1 (max 18 caracteres)</label>
+              <input type="text" name="" id="" class="form-control" maxlength="18" placeholder="Ingresa primera descripcion" v-model="titulo1" >
+             
+            </div>
+             <div class="form-group col-3">
+              <label>Titulo 2 (max 21 caracteres)</label>
+              <input type="text" name="" id="" class="form-control" maxlength="21" placeholder="Ingresa segunda descripcion" v-model="titulo2" >
+             
+            </div>
+             <div class="form-group col-3">
+              <label>Titulo 3 (max 21 caracteres)</label>
+              <input type="text" name="" id="" class="form-control" maxlength="21" placeholder="Ingresa tercera descripcion" v-model="titulo3" >
+             
+            </div>
+             <div class="form-group col-3">
+              <label>Titulo 4 (max 21 caracteres)</label>
+              <input type="text" name="" id="" class="form-control" maxlength="21" placeholder="Ingresa cuarta descripcion" v-model="titulo4" >
+             
+              </div>
+          </div>
+
 
 
           <zone-custom-selection @departments="setDepartments" @municipalities="setMunicipalities" 
@@ -63,7 +87,7 @@
 
           <div class="d-flex flex-row w-100 justify-content-around flex-wrap my-3">
             <div class="form-group col-xl-4 col-lg-4 col-md-6 col-12">
-              <label>Tarifa</label>
+              <label>Valor del servicio en pesos (sin puntos, comas o simbolos)</label>
               <input v-model="tariff" class="form-control">
 
                <label style="color:red">
@@ -72,15 +96,23 @@
               <select class="custom-select" v-model="telefonia">
                 <option value="0" selected>N/A</option>
                 <option value="1">Ilimitada</option>
-                
-           
               </select>
+
+
+
+            
+             
+              <div class="form-group ">
+              <label style="color:red">Cantidad de Canales</label>
+              <input type="text" name="" id="" class="form-control" value="N/A" maxlength="21" v-model="canales" >
+             
+              </div>
             </div>
 
 
 
-            <div class="form-group col-xl-4 col-lg-4 col-md-6 col-12">
-              <label>Tipo</label>
+            <div class="form-group ">
+              <label>Selecciones El tipo de cliente <br> para este servicio</label>
               <select class="custom-select" v-model="type">
                 <option :value="null" selected>Todos</option>
                 <option value="private">Hogar</option>
@@ -156,8 +188,13 @@ export default {
       municipalities: [],
       type: null,
       tariff: "",
-      benefits: 0,
+      benefits: 1234512345123456,
       service: null,
+      titulo1:"" ,
+      titulo2:"" ,
+      titulo3:"" ,
+      titulo4:"" ,
+      canales:"" ,
       points: 0,
       fields: [],
       fieldsValues: [],
@@ -236,6 +273,11 @@ export default {
       if(this.type) fd.append("type", this.type);
       fd.append("tariff", parseInt(this.tariff));
       fd.append("benefits", this.benefits);
+      fd.append("titulo1", this.titulo1);
+      fd.append("titulo2", this.titulo2);
+      fd.append("titulo3", this.titulo3);
+      fd.append("titulo4", this.titulo4);
+      fd.append("canales", this.canales);
       fd.append("service", this.service);
       fd.append("points", this.points);
       fd.append("tecnologia", this.tecnologia);
@@ -256,6 +298,11 @@ export default {
         this.type = "private";
         this.tariff = "";
         this.benefits = "";
+        this.titulo1 = "";
+        this.titulo2 = "";
+        this.titulo3 = "";
+        this.titulo4 = "";
+        this.canales = "";
         this.tipo_plan_logos = 0;
         this.tecnologia = 0;
         this.telefonia = 0;

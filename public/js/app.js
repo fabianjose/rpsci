@@ -3019,11 +3019,11 @@ __webpack_require__.r(__webpack_exports__);
     /*verifyCaptcha(captcha){
         this.captcha=captcha;
     },
-      onCaptchaError(err){
+     onCaptchaError(err){
         console.log("error captcha ", err)
         toastr.error("error en la validación del captcha, comprueba tu conexión a internet e intenta nuevamente")
     },
-      onCaptchaExpired(err){
+     onCaptchaExpired(err){
         console.log("error captcha ", err)
         toastr.error("el captcha se expiró, intente nuevamente")
     },*/
@@ -3131,11 +3131,11 @@ __webpack_require__.r(__webpack_exports__);
     verifyCaptcha(captcha){
         this.captcha=captcha;
     },
-      onCaptchaError(err){
+     onCaptchaError(err){
         console.log("error captcha ", err)
         toastr.error("error en la validación del captcha, comprueba tu conexión a internet e intenta nuevamente")
     },
-      onCaptchaExpired(err){
+     onCaptchaExpired(err){
         console.log("error captcha ", err)
         toastr.error("el captcha se expiró, intente nuevamente")
     },*/
@@ -3350,7 +3350,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["fields", "providers", "max_price", "min_price", "technologies", "speeds"],
   data: function data() {
@@ -3358,13 +3357,14 @@ __webpack_require__.r(__webpack_exports__);
       orderBy: "tariff",
       fromPrice: null,
       toPrice: null,
-      orderBySort: "desc"
+      orderBySort: "desc",
+      checked_speeds: [],
+      checked_technologies: [],
+      checked_providers: []
     };
   },
   methods: {
     emitFilter: function emitFilter() {
-      //  console.log(this.te);
-      return;
       var searchKey = "";
 
       if (this.orderBy) {
@@ -3375,11 +3375,27 @@ __webpack_require__.r(__webpack_exports__);
       if (this.fromPrice && this.fromPrice != "") {
         if (!isNaN(this.fromPrice)) searchKey += "&from=" + parseFloat(this.fromPrice);else return toastr.error("El campo 'Desde' es de valor numérico");
       }
+      /* if(this.toPrice&&this.toPrice!=""){
+         
+         if(!isNaN(this.toPrice)) searchKey+="&to="+parseFloat(this.toPrice);
+          else return toastr.error("El campo 'Hasta' es de valor numérico")
+         
+       }*/
 
-      if (this.toPrice && this.toPrice != "") {
-        if (!isNaN(this.toPrice)) searchKey += "&to=" + parseFloat(this.toPrice);else return toastr.error("El campo 'Hasta' es de valor numérico");
+
+      if (this.checked_technologies.lenght != 0) {
+        searchKey += "&technologies=" + this.checked_technologies;
       }
 
+      if (this.checked_speeds.lenght != 0) {
+        searchKey += "&speeds=" + this.checked_speeds;
+      }
+
+      if (this.checked_technologies.lenght != 0) {
+        searchKey += "&providers=" + this.checked_providers;
+      }
+
+      console.log(searchKey);
       this.$emit("customFiltering", searchKey);
     }
   },
@@ -4180,6 +4196,33 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -6610,6 +6653,38 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['services'],
   data: function data() {
@@ -6621,8 +6696,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       municipalities: [],
       type: null,
       tariff: "",
-      benefits: 0,
+      benefits: 1234512345123456,
       service: null,
+      titulo1: "",
+      titulo2: "",
+      titulo3: "",
+      titulo4: "",
+      canales: "",
       points: 0,
       fields: [],
       fieldsValues: [],
@@ -6715,6 +6795,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 if (_this3.type) fd.append("type", _this3.type);
                 fd.append("tariff", parseInt(_this3.tariff));
                 fd.append("benefits", _this3.benefits);
+                fd.append("titulo1", _this3.titulo1);
+                fd.append("titulo2", _this3.titulo2);
+                fd.append("titulo3", _this3.titulo3);
+                fd.append("titulo4", _this3.titulo4);
+                fd.append("canales", _this3.canales);
                 fd.append("service", _this3.service);
                 fd.append("points", _this3.points);
                 fd.append("tecnologia", _this3.tecnologia);
@@ -6731,6 +6816,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   _this3.type = "private";
                   _this3.tariff = "";
                   _this3.benefits = "";
+                  _this3.titulo1 = "";
+                  _this3.titulo2 = "";
+                  _this3.titulo3 = "";
+                  _this3.titulo4 = "";
+                  _this3.canales = "";
                   _this3.tipo_plan_logos = 0;
                   _this3.tecnologia = 0;
                   _this3.telefonia = 0;
@@ -6775,7 +6865,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   return loader.hide();
                 });
 
-              case 21:
+              case 26:
               case "end":
                 return _context.stop();
             }
@@ -6901,8 +6991,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 //
 //
 //
@@ -6919,17 +7007,21 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["pagination", "fields", "query", "lastpage", "providers", "technologies", "max_price", "min_price", "speeds"],
   data: function data() {
-    var _ref;
-
-    return _ref = {
+    return {
       compPagination: this.pagination,
       compFields: this.fields,
       compLastpage: this.lastpage,
       compProviders: this.providers,
       compTechnologies: this.technologies,
       compSpeeds: this.speeds,
-      compMaxPrice: this.max_price
-    }, _defineProperty(_ref, "compMaxPrice", this.min_price), _defineProperty(_ref, "customFilters", null), _defineProperty(_ref, "pageIndex", "&page=1"), _defineProperty(_ref, "currentItem", null), _defineProperty(_ref, "viewMode", false), _defineProperty(_ref, "consultMode", false), _ref;
+      compMaxPrice: this.max_price,
+      compMinPrice: this.min_price,
+      customFilters: null,
+      pageIndex: "&page=1",
+      currentItem: null,
+      viewMode: false,
+      consultMode: false
+    };
   },
   mounted: function mounted() {
     console.log("wi pagination", this.pagination);
@@ -9887,7 +9979,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.v-captcha{\r\n    transform: scale(0.7);\r\n    -webkit-transform: scale(0.7);\r\n    transform-origin: 0 0;\r\n    -webkit-transform-origin: 0 0;\n}\n@media (max-width:350px) {\n.v-captcha{\r\n        transform: scale(0.6);\r\n        -webkit-transform: scale(0.6);\n}\n}\r\n\r\n", ""]);
+exports.push([module.i, "\n.v-captcha{\n    transform: scale(0.7);\n    -webkit-transform: scale(0.7);\n    transform-origin: 0 0;\n    -webkit-transform-origin: 0 0;\n}\n@media (max-width:350px) {\n.v-captcha{\n        transform: scale(0.6);\n        -webkit-transform: scale(0.6);\n}\n}\n\n", ""]);
 
 // exports
 
@@ -45198,11 +45290,49 @@ var render = function() {
               _c(
                 "div",
                 { staticClass: "card card-body" },
-                _vm._l(_vm.providers, function(value, name) {
+                _vm._l(_vm.providers, function(value) {
                   return _c("div", [
                     _c("label", [_vm._v(_vm._s(value.name))]),
                     _vm._v(" "),
-                    _c("input", { attrs: { type: "checkbox", name: value.id } })
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.checked_providers,
+                          expression: "checked_providers"
+                        }
+                      ],
+                      attrs: { type: "checkbox" },
+                      domProps: {
+                        value: value.id,
+                        checked: Array.isArray(_vm.checked_providers)
+                          ? _vm._i(_vm.checked_providers, value.id) > -1
+                          : _vm.checked_providers
+                      },
+                      on: {
+                        change: function($event) {
+                          var $$a = _vm.checked_providers,
+                            $$el = $event.target,
+                            $$c = $$el.checked ? true : false
+                          if (Array.isArray($$a)) {
+                            var $$v = value.id,
+                              $$i = _vm._i($$a, $$v)
+                            if ($$el.checked) {
+                              $$i < 0 &&
+                                (_vm.checked_providers = $$a.concat([$$v]))
+                            } else {
+                              $$i > -1 &&
+                                (_vm.checked_providers = $$a
+                                  .slice(0, $$i)
+                                  .concat($$a.slice($$i + 1)))
+                            }
+                          } else {
+                            _vm.checked_providers = $$c
+                          }
+                        }
+                      }
+                    })
                   ])
                 }),
                 0
@@ -45223,11 +45353,49 @@ var render = function() {
               _c(
                 "div",
                 { staticClass: "card card-body" },
-                _vm._l(_vm.technologies, function(value, name) {
+                _vm._l(_vm.technologies, function(value) {
                   return _c("div", [
                     _c("label", [_vm._v(_vm._s(value.value))]),
                     _vm._v(" "),
-                    _c("input", { attrs: { type: "checkbox", name: value.id } })
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.checked_technologies,
+                          expression: "checked_technologies"
+                        }
+                      ],
+                      attrs: { type: "checkbox" },
+                      domProps: {
+                        value: value.value,
+                        checked: Array.isArray(_vm.checked_technologies)
+                          ? _vm._i(_vm.checked_technologies, value.value) > -1
+                          : _vm.checked_technologies
+                      },
+                      on: {
+                        change: function($event) {
+                          var $$a = _vm.checked_technologies,
+                            $$el = $event.target,
+                            $$c = $$el.checked ? true : false
+                          if (Array.isArray($$a)) {
+                            var $$v = value.value,
+                              $$i = _vm._i($$a, $$v)
+                            if ($$el.checked) {
+                              $$i < 0 &&
+                                (_vm.checked_technologies = $$a.concat([$$v]))
+                            } else {
+                              $$i > -1 &&
+                                (_vm.checked_technologies = $$a
+                                  .slice(0, $$i)
+                                  .concat($$a.slice($$i + 1)))
+                            }
+                          } else {
+                            _vm.checked_technologies = $$c
+                          }
+                        }
+                      }
+                    })
                   ])
                 }),
                 0
@@ -45248,11 +45416,49 @@ var render = function() {
               _c(
                 "div",
                 { staticClass: "card card-body" },
-                _vm._l(_vm.speeds, function(value, name) {
+                _vm._l(_vm.speeds, function(value) {
                   return _c("div", [
                     _c("label", [_vm._v(_vm._s(value.value))]),
                     _vm._v(" "),
-                    _c("input", { attrs: { type: "checkbox", name: value.id } })
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.checked_speeds,
+                          expression: "checked_speeds"
+                        }
+                      ],
+                      attrs: { type: "checkbox" },
+                      domProps: {
+                        value: value.value,
+                        checked: Array.isArray(_vm.checked_speeds)
+                          ? _vm._i(_vm.checked_speeds, value.value) > -1
+                          : _vm.checked_speeds
+                      },
+                      on: {
+                        change: function($event) {
+                          var $$a = _vm.checked_speeds,
+                            $$el = $event.target,
+                            $$c = $$el.checked ? true : false
+                          if (Array.isArray($$a)) {
+                            var $$v = value.value,
+                              $$i = _vm._i($$a, $$v)
+                            if ($$el.checked) {
+                              $$i < 0 &&
+                                (_vm.checked_speeds = $$a.concat([$$v]))
+                            } else {
+                              $$i > -1 &&
+                                (_vm.checked_speeds = $$a
+                                  .slice(0, $$i)
+                                  .concat($$a.slice($$i + 1)))
+                            }
+                          } else {
+                            _vm.checked_speeds = $$c
+                          }
+                        }
+                      }
+                    })
                   ])
                 }),
                 0
@@ -45520,10 +45726,7 @@ var staticRenderFns = [
     return _c(
       "h5",
       { staticClass: "filter-card-title font-weight-bold text-center" },
-      [
-        _c("i", { staticClass: "fas fa-filter" }),
-        _vm._v("  Filtra tu búsqueda")
-      ]
+      [_c("i", { staticClass: "fas fa-filter" }), _vm._v("Filtra tu búsqueda")]
     )
   },
   function() {
@@ -45590,7 +45793,7 @@ var staticRenderFns = [
         }
       },
       [
-        _vm._v("\n    Velocidad   "),
+        _vm._v("\n    Velocidad"),
         _c("span", [_c("i", { staticClass: "fas fa-angle-down" })])
       ]
     )
@@ -46815,7 +47018,53 @@ var render = function() {
                   ]
                 ),
                 _vm._v(" "),
-                _vm._m(10, true),
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "col-6 order-2  order-sm-4         text-wrap  col-2 col-xl-2 col-lg-3 col-md-4 col-sm-4 text-center flex-column align-items-center justify-content-center d-xl-flex d-lg-flex d-md-flex  hidden-sm"
+                  },
+                  [
+                    _c("div", { staticClass: "hbo" }, [
+                      _vm._m(10, true),
+                      _vm._v(" "),
+                      _c(
+                        "h5",
+                        {
+                          staticClass: "texto-hbo",
+                          staticStyle: {
+                            "font-family": "Heebo",
+                            "font-size": "16px",
+                            color: "rgb(91, 87, 87)",
+                            "font-weight": "800"
+                          }
+                        },
+                        [_vm._v(_vm._s(offer.titulo1))]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", [
+                      _c("h6", { staticStyle: { "font-weight": "300" } }, [
+                        _vm._v(_vm._s(offer.titulo2))
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "h6",
+                        {
+                          staticStyle: {
+                            "line-height": "0px",
+                            "font-weight": "300"
+                          }
+                        },
+                        [_vm._v(_vm._s(offer.titulo3))]
+                      ),
+                      _vm._v(" "),
+                      _c("h6", { staticStyle: { "font-weight": "300" } }, [
+                        _vm._v(_vm._s(offer.titulo4))
+                      ])
+                    ])
+                  ]
+                ),
                 _vm._v(" "),
                 _c(
                   "div",
@@ -46928,9 +47177,7 @@ var render = function() {
                   [
                     _c("span", { staticClass: "text-center pr-1" }, [
                       _vm._v(
-                        "\r\n                " +
-                          _vm._s(item) +
-                          "\r\n              "
+                        "\n                " + _vm._s(item) + "\n              "
                       )
                     ])
                   ]
@@ -47150,58 +47397,17 @@ var staticRenderFns = [
       "div",
       {
         staticClass:
-          "col-6 order-2  order-sm-4         text-wrap  col-2 col-xl-2 col-lg-3 col-md-4 col-sm-4 text-center flex-column align-items-center justify-content-center d-xl-flex d-lg-flex d-md-flex  hidden-sm"
+          " tecnologia-movil  text-center p-2 offer-table-label w-100 text-white mx-auto bg-dark-blue rounded-pill p-1 text-wrap "
       },
       [
-        _c("div", { staticClass: "hbo" }, [
-          _c(
-            "div",
-            {
-              staticClass:
-                " tecnologia-movil  text-center p-2 offer-table-label w-100 text-white mx-auto bg-dark-blue rounded-pill p-1 text-wrap "
-            },
-            [
-              _c(
-                "p",
-                {
-                  staticClass: "text-tabla-detalles",
-                  staticStyle: { "margin-top": "-50px" }
-                },
-                [_vm._v("  Beneficios")]
-              )
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "h5",
-            {
-              staticClass: "texto-hbo",
-              staticStyle: {
-                "font-family": "Heebo",
-                "font-size": "16px",
-                color: "rgb(91, 87, 87)",
-                "font-weight": "800"
-              }
-            },
-            [_vm._v("HBO + 1 mes Gratis")]
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", [
-          _c("h6", { staticStyle: { "font-weight": "300" } }, [
-            _vm._v("130 Canales TV")
-          ]),
-          _vm._v(" "),
-          _c(
-            "h6",
-            { staticStyle: { "line-height": "0px", "font-weight": "300" } },
-            [_vm._v("Telefonia Ilimitada")]
-          ),
-          _vm._v(" "),
-          _c("h6", { staticStyle: { "font-weight": "300" } }, [
-            _vm._v("1.3.4.5 Meses Gratis")
-          ])
-        ])
+        _c(
+          "p",
+          {
+            staticClass: "text-tabla-detalles",
+            staticStyle: { "margin-top": "-50px" }
+          },
+          [_vm._v("  Beneficios")]
+        )
       ]
     )
   }
@@ -47299,6 +47505,62 @@ var render = function() {
                     _vm._v(" "),
                     _c("a", { staticClass: "float-right" }, [
                       _vm._v("$ " + _vm._s(_vm.showPrice(_vm.offer.tariff)))
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("li", { staticClass: "list-group-item" }, [
+                    _c("b", [_vm._v("Promocion item #1")]),
+                    _vm._v(" "),
+                    _c("a", { staticClass: "float-right" }, [
+                      _vm._v(_vm._s(_vm.offer.titulo1))
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("li", { staticClass: "list-group-item" }, [
+                    _c("b", [_vm._v("Promocion item #2")]),
+                    _vm._v(" "),
+                    _c("a", { staticClass: "float-right" }, [
+                      _vm._v(_vm._s(_vm.offer.titulo2))
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("li", { staticClass: "list-group-item" }, [
+                    _c("b", [_vm._v("Promocion item #3")]),
+                    _vm._v(" "),
+                    _c("a", { staticClass: "float-right" }, [
+                      _vm._v(_vm._s(_vm.offer.titulo3))
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("li", { staticClass: "list-group-item" }, [
+                    _c("b", [_vm._v("Promocion item #4")]),
+                    _vm._v(" "),
+                    _c("a", { staticClass: "float-right" }, [
+                      _vm._v(_vm._s(_vm.offer.titulo4))
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("li", { staticClass: "list-group-item" }, [
+                    _c("b", [_vm._v("Tecnologia para logo")]),
+                    _vm._v(" "),
+                    _c("a", { staticClass: "float-right" }, [
+                      _vm._v(_vm._s(_vm.offer.tipo_plan_logos))
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("li", { staticClass: "list-group-item" }, [
+                    _c("b", [_vm._v("Tecnologia para logo")]),
+                    _vm._v(" "),
+                    _c("a", { staticClass: "float-right" }, [
+                      _vm._v(_vm._s(_vm.offer.telefonia))
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("li", { staticClass: "list-group-item" }, [
+                    _c("b", [_vm._v("Canales")]),
+                    _vm._v(" "),
+                    _c("a", { staticClass: "float-right" }, [
+                      _vm._v(_vm._s(_vm.offer.canales))
                     ])
                   ]),
                   _vm._v(" "),
@@ -50973,28 +51235,172 @@ var render = function() {
                     "d-flex flex-row w-100 justify-content-around flex-wrap my-3"
                 },
                 [
-                  _c("div", { staticClass: "form-group col-12" }, [
-                    _c("label", [_vm._v("Descripcion")]),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "form-group col-12",
+                      staticStyle: { display: "none" }
+                    },
+                    [
+                      _c("label", [_vm._v("Descripcion")]),
+                      _vm._v(" "),
+                      _c("textarea", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.benefits,
+                            expression: "benefits"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        staticStyle: { resize: "none" },
+                        attrs: { rows: "3", placeholder: "Descripcion..." },
+                        domProps: { value: _vm.benefits },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.benefits = $event.target.value
+                          }
+                        }
+                      })
+                    ]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "d-flex flex-row w-100 justify-content-around flex-wrap my-3"
+                },
+                [
+                  _c("div", { staticClass: "form-group col-3" }, [
+                    _c("label", [_vm._v("Titulo 1 (max 18 caracteres)")]),
                     _vm._v(" "),
-                    _c("textarea", {
+                    _c("input", {
                       directives: [
                         {
                           name: "model",
                           rawName: "v-model",
-                          value: _vm.benefits,
-                          expression: "benefits"
+                          value: _vm.titulo1,
+                          expression: "titulo1"
                         }
                       ],
                       staticClass: "form-control",
-                      staticStyle: { resize: "none" },
-                      attrs: { rows: "3", placeholder: "Descripcion..." },
-                      domProps: { value: _vm.benefits },
+                      attrs: {
+                        type: "text",
+                        name: "",
+                        id: "",
+                        maxlength: "18",
+                        placeholder: "Ingresa primera descripcion"
+                      },
+                      domProps: { value: _vm.titulo1 },
                       on: {
                         input: function($event) {
                           if ($event.target.composing) {
                             return
                           }
-                          _vm.benefits = $event.target.value
+                          _vm.titulo1 = $event.target.value
+                        }
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group col-3" }, [
+                    _c("label", [_vm._v("Titulo 2 (max 21 caracteres)")]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.titulo2,
+                          expression: "titulo2"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "text",
+                        name: "",
+                        id: "",
+                        maxlength: "21",
+                        placeholder: "Ingresa segunda descripcion"
+                      },
+                      domProps: { value: _vm.titulo2 },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.titulo2 = $event.target.value
+                        }
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group col-3" }, [
+                    _c("label", [_vm._v("Titulo 3 (max 21 caracteres)")]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.titulo3,
+                          expression: "titulo3"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "text",
+                        name: "",
+                        id: "",
+                        maxlength: "21",
+                        placeholder: "Ingresa tercera descripcion"
+                      },
+                      domProps: { value: _vm.titulo3 },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.titulo3 = $event.target.value
+                        }
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group col-3" }, [
+                    _c("label", [_vm._v("Titulo 4 (max 21 caracteres)")]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.titulo4,
+                          expression: "titulo4"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "text",
+                        name: "",
+                        id: "",
+                        maxlength: "21",
+                        placeholder: "Ingresa cuarta descripcion"
+                      },
+                      domProps: { value: _vm.titulo4 },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.titulo4 = $event.target.value
                         }
                       }
                     })
@@ -51024,7 +51430,11 @@ var render = function() {
                         "form-group col-xl-4 col-lg-4 col-md-6 col-12"
                     },
                     [
-                      _c("label", [_vm._v("Tarifa")]),
+                      _c("label", [
+                        _vm._v(
+                          "Valor del servicio en pesos (sin puntos, comas o simbolos)"
+                        )
+                      ]),
                       _vm._v(" "),
                       _c("input", {
                         directives: [
@@ -51090,76 +51500,103 @@ var render = function() {
                             _vm._v("Ilimitada")
                           ])
                         ]
-                      )
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass:
-                        "form-group col-xl-4 col-lg-4 col-md-6 col-12"
-                    },
-                    [
-                      _c("label", [_vm._v("Tipo")]),
+                      ),
                       _vm._v(" "),
-                      _c(
-                        "select",
-                        {
+                      _c("div", { staticClass: "form-group " }, [
+                        _c("label", { staticStyle: { color: "red" } }, [
+                          _vm._v("Cantidad de Canales")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
                           directives: [
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.type,
-                              expression: "type"
+                              value: _vm.canales,
+                              expression: "canales"
                             }
                           ],
-                          staticClass: "custom-select",
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            name: "",
+                            id: "",
+                            value: "N/A",
+                            maxlength: "21"
+                          },
+                          domProps: { value: _vm.canales },
                           on: {
-                            change: function($event) {
-                              var $$selectedVal = Array.prototype.filter
-                                .call($event.target.options, function(o) {
-                                  return o.selected
-                                })
-                                .map(function(o) {
-                                  var val = "_value" in o ? o._value : o.value
-                                  return val
-                                })
-                              _vm.type = $event.target.multiple
-                                ? $$selectedVal
-                                : $$selectedVal[0]
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.canales = $event.target.value
                             }
                           }
-                        },
-                        [
-                          _c(
-                            "option",
-                            {
-                              attrs: { selected: "" },
-                              domProps: { value: null }
-                            },
-                            [_vm._v("Todos")]
-                          ),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "private" } }, [
-                            _vm._v("Hogar")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "company" } }, [
-                            _vm._v("Empresa")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "isp" } }, [
-                            _vm._v("ISP")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "pyme" } }, [
-                            _vm._v("Pyme")
-                          ])
-                        ]
-                      )
+                        })
+                      ])
                     ]
                   ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group " }, [
+                    _vm._m(0),
+                    _vm._v(" "),
+                    _c(
+                      "select",
+                      {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.type,
+                            expression: "type"
+                          }
+                        ],
+                        staticClass: "custom-select",
+                        on: {
+                          change: function($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function(o) {
+                                return o.selected
+                              })
+                              .map(function(o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
+                            _vm.type = $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          }
+                        }
+                      },
+                      [
+                        _c(
+                          "option",
+                          {
+                            attrs: { selected: "" },
+                            domProps: { value: null }
+                          },
+                          [_vm._v("Todos")]
+                        ),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "private" } }, [
+                          _vm._v("Hogar")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "company" } }, [
+                          _vm._v("Empresa")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "isp" } }, [
+                          _vm._v("ISP")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "pyme" } }, [
+                          _vm._v("Pyme")
+                        ])
+                      ]
+                    )
+                  ]),
                   _vm._v(" "),
                   _c(
                     "div",
@@ -51282,7 +51719,7 @@ var render = function() {
                         ]
                       ),
                       _vm._v(" "),
-                      _vm._m(0),
+                      _vm._m(1),
                       _vm._v(" "),
                       _c("label", { staticStyle: { color: "red" } }, [
                         _vm._v("\n           confirma Tecnologia\n          ")
@@ -51365,6 +51802,16 @@ var render = function() {
   )
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _vm._v("Selecciones El tipo de cliente "),
+      _c("br"),
+      _vm._v(" para este servicio")
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -53786,7 +54233,7 @@ var render = function() {
                               _c("a", { staticClass: "float-right" }, [
                                 _vm._v(
                                   _vm._s(_vm.getFieldType(field.type)) +
-                                    "\r\n                              "
+                                    "\n                              "
                                 ),
                                 _c(
                                   "button",
@@ -84003,8 +84450,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\Nueva carpeta\rpsci\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\Nueva carpeta\rpsci\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/fabianespejo/Desktop/rpsci/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/fabianespejo/Desktop/rpsci/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),
