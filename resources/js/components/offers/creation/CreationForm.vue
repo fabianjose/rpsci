@@ -111,7 +111,7 @@
 
 
 
-            <div class="form-group ">
+            <div class="form-group col-3 ">
               <label>Selecciones El tipo de cliente <br> para este servicio</label>
               <select class="custom-select" v-model="type">
                 <option :value="null" selected>Todos</option>

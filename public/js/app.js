@@ -3019,11 +3019,11 @@ __webpack_require__.r(__webpack_exports__);
     /*verifyCaptcha(captcha){
         this.captcha=captcha;
     },
-     onCaptchaError(err){
+      onCaptchaError(err){
         console.log("error captcha ", err)
         toastr.error("error en la validación del captcha, comprueba tu conexión a internet e intenta nuevamente")
     },
-     onCaptchaExpired(err){
+      onCaptchaExpired(err){
         console.log("error captcha ", err)
         toastr.error("el captcha se expiró, intente nuevamente")
     },*/
@@ -3131,11 +3131,11 @@ __webpack_require__.r(__webpack_exports__);
     verifyCaptcha(captcha){
         this.captcha=captcha;
     },
-     onCaptchaError(err){
+      onCaptchaError(err){
         console.log("error captcha ", err)
         toastr.error("error en la validación del captcha, comprueba tu conexión a internet e intenta nuevamente")
     },
-     onCaptchaExpired(err){
+      onCaptchaExpired(err){
         console.log("error captcha ", err)
         toastr.error("el captcha se expiró, intente nuevamente")
     },*/
@@ -3378,7 +3378,7 @@ __webpack_require__.r(__webpack_exports__);
       /* if(this.toPrice&&this.toPrice!=""){
          
          if(!isNaN(this.toPrice)) searchKey+="&to="+parseFloat(this.toPrice);
-          else return toastr.error("El campo 'Hasta' es de valor numérico")
+           else return toastr.error("El campo 'Hasta' es de valor numérico")
          
        }*/
 
@@ -9979,7 +9979,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.v-captcha{\n    transform: scale(0.7);\n    -webkit-transform: scale(0.7);\n    transform-origin: 0 0;\n    -webkit-transform-origin: 0 0;\n}\n@media (max-width:350px) {\n.v-captcha{\n        transform: scale(0.6);\n        -webkit-transform: scale(0.6);\n}\n}\n\n", ""]);
+exports.push([module.i, "\n.v-captcha{\r\n    transform: scale(0.7);\r\n    -webkit-transform: scale(0.7);\r\n    transform-origin: 0 0;\r\n    -webkit-transform-origin: 0 0;\n}\n@media (max-width:350px) {\n.v-captcha{\r\n        transform: scale(0.6);\r\n        -webkit-transform: scale(0.6);\n}\n}\r\n\r\n", ""]);
 
 // exports
 
@@ -47177,7 +47177,9 @@ var render = function() {
                   [
                     _c("span", { staticClass: "text-center pr-1" }, [
                       _vm._v(
-                        "\n                " + _vm._s(item) + "\n              "
+                        "\r\n                " +
+                          _vm._s(item) +
+                          "\r\n              "
                       )
                     ])
                   ]
@@ -51538,7 +51540,7 @@ var render = function() {
                     ]
                   ),
                   _vm._v(" "),
-                  _c("div", { staticClass: "form-group " }, [
+                  _c("div", { staticClass: "form-group col-3 " }, [
                     _vm._m(0),
                     _vm._v(" "),
                     _c(
@@ -54233,7 +54235,7 @@ var render = function() {
                               _c("a", { staticClass: "float-right" }, [
                                 _vm._v(
                                   _vm._s(_vm.getFieldType(field.type)) +
-                                    "\n                              "
+                                    "\r\n                              "
                                 ),
                                 _c(
                                   "button",
@@ -84450,8 +84452,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/fabianespejo/Desktop/rpsci/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/fabianespejo/Desktop/rpsci/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\Nueva carpeta\rpsci\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\Nueva carpeta\rpsci\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),
