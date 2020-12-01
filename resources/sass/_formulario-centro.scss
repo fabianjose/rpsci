@@ -1,3 +1,9 @@
+.counters-container {
+    z-index: 0;
+   
+}
+
+
 .bg-ic2{
     background:
     linear-gradient(to bottom, rgba($dark-blue,80%),rgba($dark-blue,80%)),url("./../assets/images/fondo_switch.jpg");
@@ -67,7 +73,7 @@
 
                 .counters-container {
                     display: flex;
-                    /* padding: 1.4rem 0; */
+                   /*  padding: 0.1rem 0; */
                     margin-top: -3rem;
                     flex-wrap: wrap;
                     justify-content: space-around;
