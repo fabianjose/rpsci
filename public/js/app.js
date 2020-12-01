@@ -48054,7 +48054,26 @@ var render = function() {
       _vm._v(" "),
       _vm._m(0),
       _vm._v(" "),
-      _vm._m(1),
+      _c(
+        "div",
+        {
+          staticClass: "row",
+          staticStyle: {
+            "padding-left": "30px",
+            "padding-right": "30px",
+            "margin-top": ""
+          }
+        },
+        [
+          _c("h6", { staticClass: "col-12 offer-card-title" }, [
+            _vm._v(_vm._s(_vm.offer.titulo1)),
+            _c("br"),
+            _vm._v(_vm._s(_vm.offer.titulo2)),
+            _c("br"),
+            _vm._v(_vm._s(_vm.offer.titulo3))
+          ])
+        ]
+      ),
       _vm._v(" "),
       _c(
         "p",
@@ -48123,27 +48142,6 @@ var staticRenderFns = [
         [_vm._v("ILIMITADA")]
       )
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "row",
-        staticStyle: {
-          "padding-left": "30px",
-          "padding-right": "30px",
-          "margin-top": ""
-        }
-      },
-      [
-        _c("h6", { staticClass: "col-12 offer-card-title" }, [
-          _vm._v("descuento del 50% 4 meses")
-        ])
-      ]
-    )
   }
 ]
 render._withStripped = true
