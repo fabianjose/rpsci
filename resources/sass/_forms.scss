@@ -5,6 +5,7 @@
 }
 
 .main-search-form{
+    z-index: 10;
     height:auto;
     background: white;
     border-image-slice: 1;
@@ -16,8 +17,10 @@ box-shadow: 0 3px 3px #06D1FC, ease-in-out 0 2px 2px #00FFDA ;
 }
 @media (max-width:768px){
     .main-search-form{
-        width:100%;        
+        width:100%;
+          z-index: 10;      
     }
+
 
 }
 

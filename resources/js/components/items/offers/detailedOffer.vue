@@ -30,6 +30,33 @@
             <li class="list-group-item">
               <b>Tarifa</b> <a class="float-right">$ {{showPrice(offer.tariff)}}</a>
             </li>
+             <li class="list-group-item">
+              <b>Promocion item #1</b> <a class="float-right">{{offer.titulo1}}</a>
+            </li>
+             <li class="list-group-item">
+              <b>Promocion item #2</b> <a class="float-right">{{offer.titulo2}}</a>
+            </li>
+             <li class="list-group-item">
+              <b>Promocion item #3</b> <a class="float-right">{{offer.titulo3}}</a>
+            </li>
+             <li class="list-group-item">
+              <b>Promocion item #4</b> <a class="float-right">{{offer.titulo4}}</a>
+            </li>
+
+             <li class="list-group-item">
+              <b>Tecnologia para logo</b> <a class="float-right">{{offer.tipo_plan_logos}}</a>
+            </li>
+
+             <li class="list-group-item">
+              <b>Tecnologia para logo</b> <a class="float-right">{{offer.telefonia}}</a>
+            </li>
+              <li class="list-group-item">
+              <b>Canales</b> <a class="float-right">{{offer.canales}}</a>
+            </li>
+
+
+
+
 
             <li class="list-group-item">
               <b>Puntuación</b> <a class="float-right">{{offer.points}}</a>

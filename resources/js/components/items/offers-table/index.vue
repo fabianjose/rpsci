@@ -73,11 +73,11 @@
                   </div>
                       
                       
-                  <div  class="col-6 order-3   order-sm-2    text-wrap col-xl-2 col-lg-3 text-center flex-column align-items-center justify-content-center bloque-3   ">
+                  <div  class="col-6 order-3   order-sm-2    text-wrap col-xl-2 col-lg-3 text-center flex-column align-items-center justify-content-center bloque-3">
                             
                               <div class="bloque-tecnologia">
                             <div   v-if="offer.tecnologia == 0">
-                                  <img class="logo-tecnologia" src="/images/Fibra.png"  alt="">
+                                  <img class="logo-tecnologia" src="/images/Fibra1.png"  alt="" style="transform: rotate(90deg);">
                             </div>
                             <div   v-if="offer.tecnologia == 1 ">
                                   <img class="logo-tecnologia" src="/images/service-4.png" alt="">
@@ -124,21 +124,15 @@
 
                   <div class="col-6 order-2  order-sm-4         text-wrap  col-2 col-xl-2 col-lg-3 col-md-4 col-sm-4 text-center flex-column align-items-center justify-content-center d-xl-flex d-lg-flex d-md-flex  hidden-sm">
                         
-                        <div class="hbo">
-                                                                          <div class=" tecnologia-movil  text-center p-2 offer-table-label w-100 text-white mx-auto bg-dark-blue rounded-pill p-1 text-wrap " >   <p class="text-tabla-detalles" style="margin-top: -50px;">  Beneficios</p> </div>
-
-
-                    <h5 style="font-family: Heebo;
-            font-size: 16px;
-            color: rgb(91, 87, 87);
-            font-weight: 800;" class="texto-hbo" >HBO + 1 mes Gratis</h5> 
-
-                        </div>
+                    <div class="hbo">
+                    <div class=" tecnologia-movil  text-center p-2 offer-table-label w-100 text-white mx-auto bg-dark-blue rounded-pill p-1 text-wrap " >   <p class="text-tabla-detalles" style="margin-top: -50px;">  Beneficios</p> </div>
+                    <h5 style="font-family: Heebo;font-size: 16px;color: rgb(91, 87, 87); font-weight: 800;" class="texto-hbo" >{{offer.titulo1}}</h5> 
+                  </div>
 
                     <div >
-                      <h6 style="font-weight: 300;">130 Canales TV</h6> 
-                    <h6 style="line-height : 0px; font-weight: 300;">Telefonia Ilimitada</h6> 
-                    <h6 style="font-weight: 300;">1.3.4.5 Meses Gratis</h6> 
+                      <h6 style="font-weight: 300;">{{offer.titulo2}}</h6> 
+                    <h6 style="line-height : 0px; font-weight: 300;">{{offer.titulo3}}</h6> 
+                    <h6 style="font-weight: 300;">{{offer.titulo4}}</h6> 
                     </div>
                     
 
@@ -151,7 +145,7 @@
                      <div class="precio-movil">
 
                   
-                    <h6 class="text-dark-blue offer-table-price text-wrap-all precio-movil" style="color: rgb(91, 87, 87);">$ {{showPrice(offer.tariff)}}</h6>
+                    <h6 class="text-dark-blue offer-table-price text-wrap-all precio-movil" style="color: rgb(91, 87, 87); margin-top: 30px;">$ {{showPrice(offer.tariff)}}</h6>
                       </div>
                     <div class="stars-container flex-row justify-content-center mb-2">
                     <!--  <i v-for="(starCount,k4) in 5" :key="k4" :class="(starCount>offer.points?'far':'fas')+' fa-star'"></i>-->
