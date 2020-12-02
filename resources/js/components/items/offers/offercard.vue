@@ -21,7 +21,7 @@
         <h1 class="col-12 " style="font-family: 'Heebo';    color: #5b5b5f;    margin-top: -18px; font-weight: 800;"> 
    
                
-              {{offer.fields_values[1].value}} 
+              {{offer.fields_values[1].value}} Mbps
             
       
   </h1>
@@ -50,9 +50,32 @@
         <!-- <h6 class="col-12 offer-card-title">{{offer.company_name}}</h6>  ACA VA EL VALOR DE CANALES DE BASE DEDATOS -->
         <h1 class="col-12 " style="font-family: 'Heebo';    color: #5b5b5f;     margin-top: -19px; font-weight: 800;  ">ILIMITADA</h1>
       </div> 
+
+       <div   v-if="offer.titulo1!=NULL && offer.titulo2!=NULL && offer.titulo3!=NULL">
+                                 
+                         
         <div class="row"  style="    padding-left: 30px;  padding-right:30px; margin-top: ;">
              <h6 class="col-12 offer-card-title">{{offer.titulo1}}<br>{{offer.titulo2}}<br>{{offer.titulo3}}</h6>  
         </div>
+
+           </div>
+
+           <div   v-if="offer.titulo1!=NULL && offer.titulo2!=NULL && offer.titulo3==NULL">
+                                 
+                         
+        <div class="row"  style="    padding-left: 30px;  padding-right:30px; margin-top: ;">
+             <h6 class="col-12 offer-card-title">{{offer.titulo1}}<br>{{offer.titulo2}}<br><br></h6>  
+        </div>
+
+           </div>
+            <div   v-if="offer.titulo1!=NULL && offer.titulo2==NULL && offer.titulo3==NULL">
+                                 
+                         
+        <div class="row"  style="    padding-left: 30px;  padding-right:30px; margin-top: ;">
+             <h6 class="col-12 offer-card-title" style="font"><br>{{offer.titulo1}}<br><br></h6>  
+        </div>
+
+           </div>
                   
     <p class="col-12 " style="font-family: 'Heebo';    color:#88868b">Desde</p>
 

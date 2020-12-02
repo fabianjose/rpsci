@@ -124,21 +124,15 @@
 
                   <div class="col-6 order-2  order-sm-4         text-wrap  col-2 col-xl-2 col-lg-3 col-md-4 col-sm-4 text-center flex-column align-items-center justify-content-center d-xl-flex d-lg-flex d-md-flex  hidden-sm">
                         
-                        <div class="hbo">
-                                                                          <div class=" tecnologia-movil  text-center p-2 offer-table-label w-100 text-white mx-auto bg-dark-blue rounded-pill p-1 text-wrap " >   <p class="text-tabla-detalles" style="margin-top: -50px;">  Beneficios</p> </div>
-
-
-                    <h5 style="font-family: Heebo;
-            font-size: 16px;
-            color: rgb(91, 87, 87);
-            font-weight: 800;" class="texto-hbo" >{{offer.titulo1}}</h5> 
-
-                        </div>
+                    <div class="hbo">
+                    <div class=" tecnologia-movil  text-center p-2 offer-table-label w-100 text-white mx-auto bg-dark-blue rounded-pill p-1 text-wrap " >   <p class="text-tabla-detalles" style="margin-top: -50px;">  Beneficios</p> </div>
+                    <h5 style="font-family: Heebo;font-size: 16px;color: rgb(91, 87, 87); font-weight: 800;" class="texto-hbo" >{{offer.titulo1}}</h5> 
+                  </div>
 
                     <div >
                       <h6 style="font-weight: 300;">{{offer.titulo2}}</h6> 
                     <h6 style="line-height : 0px; font-weight: 300;">{{offer.titulo3}}</h6> 
-                    <h6 style="font-weight: 300;">{{offer.titulo4}}texto de prueba1</h6> 
+                    <h6 style="font-weight: 300;">{{offer.titulo4}}</h6> 
                     </div>
                     
 

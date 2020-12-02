@@ -4132,12 +4132,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["items", "fields", "lastpage", "currentpage"],
   data: function data() {
@@ -4656,6 +4650,29 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -47061,7 +47078,7 @@ var render = function() {
                       ),
                       _vm._v(" "),
                       _c("h6", { staticStyle: { "font-weight": "300" } }, [
-                        _vm._v(_vm._s(offer.titulo4) + "texto de prueba1")
+                        _vm._v(_vm._s(offer.titulo4))
                       ])
                     ])
                   ]
@@ -48013,7 +48030,7 @@ var render = function() {
             _vm._v(
               " \n \n             \n            " +
                 _vm._s(_vm.offer.fields_values[1].value) +
-                " \n          \n    \n"
+                " Mbps\n          \n    \n"
             )
           ]
         )
@@ -48058,26 +48075,89 @@ var render = function() {
       _vm._v(" "),
       _vm._m(0),
       _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass: "row",
-          staticStyle: {
-            "padding-left": "30px",
-            "padding-right": "30px",
-            "margin-top": ""
-          }
-        },
-        [
-          _c("h6", { staticClass: "col-12 offer-card-title" }, [
-            _vm._v(_vm._s(_vm.offer.titulo1)),
-            _c("br"),
-            _vm._v(_vm._s(_vm.offer.titulo2)),
-            _c("br"),
-            _vm._v(_vm._s(_vm.offer.titulo3))
+      _vm.offer.titulo1 != _vm.NULL &&
+      _vm.offer.titulo2 != _vm.NULL &&
+      _vm.offer.titulo3 != _vm.NULL
+        ? _c("div", [
+            _c(
+              "div",
+              {
+                staticClass: "row",
+                staticStyle: {
+                  "padding-left": "30px",
+                  "padding-right": "30px",
+                  "margin-top": ""
+                }
+              },
+              [
+                _c("h6", { staticClass: "col-12 offer-card-title" }, [
+                  _vm._v(_vm._s(_vm.offer.titulo1)),
+                  _c("br"),
+                  _vm._v(_vm._s(_vm.offer.titulo2)),
+                  _c("br"),
+                  _vm._v(_vm._s(_vm.offer.titulo3))
+                ])
+              ]
+            )
           ])
-        ]
-      ),
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.offer.titulo1 != _vm.NULL &&
+      _vm.offer.titulo2 != _vm.NULL &&
+      _vm.offer.titulo3 == _vm.NULL
+        ? _c("div", [
+            _c(
+              "div",
+              {
+                staticClass: "row",
+                staticStyle: {
+                  "padding-left": "30px",
+                  "padding-right": "30px",
+                  "margin-top": ""
+                }
+              },
+              [
+                _c("h6", { staticClass: "col-12 offer-card-title" }, [
+                  _vm._v(_vm._s(_vm.offer.titulo1)),
+                  _c("br"),
+                  _vm._v(_vm._s(_vm.offer.titulo2)),
+                  _c("br"),
+                  _c("br")
+                ])
+              ]
+            )
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.offer.titulo1 != _vm.NULL &&
+      _vm.offer.titulo2 == _vm.NULL &&
+      _vm.offer.titulo3 == _vm.NULL
+        ? _c("div", [
+            _c(
+              "div",
+              {
+                staticClass: "row",
+                staticStyle: {
+                  "padding-left": "30px",
+                  "padding-right": "30px",
+                  "margin-top": ""
+                }
+              },
+              [
+                _c(
+                  "h6",
+                  { staticClass: "col-12 offer-card-title", staticStyle: {} },
+                  [
+                    _c("br"),
+                    _vm._v(_vm._s(_vm.offer.titulo1)),
+                    _c("br"),
+                    _c("br")
+                  ]
+                )
+              ]
+            )
+          ])
+        : _vm._e(),
       _vm._v(" "),
       _c(
         "p",
