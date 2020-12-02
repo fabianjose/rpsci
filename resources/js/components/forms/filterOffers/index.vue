@@ -4,11 +4,12 @@
       <h5 class="filter-card-title font-weight-bold text-center">
         <i class="fas fa-filter"></i>Filtra tu búsqueda</h5>
 <div class="form-horizontal my-2 col-12 flex-wrap">
-  <h4 class="btn-block" type="button" data-toggle="collapse" data-target="#collapseProveedor" aria-expanded="false" aria-controls="collapseProveedor">
-    Proveedor <span><i class="fas fa-angle-down" style="margin-left: auto;"></i></span>
-  </h4> 
+  <div  type="button" data-toggle="collapse" data-target="#collapseProveedor" aria-expanded="false" aria-controls="collapseProveedor" style="display:flex;justify-content: space-between;">
+  <h4 class="btn-block">
+    Proveedor   </h4> <span><i class="fas fa-angle-down" style="margin-left: auto;"></i></span>
+ 
 
-</p>
+</div>
 <div class="collapse" id="collapseProveedor">
   <div class="card card-body">
     <div v-for="(value) in providers">
@@ -19,10 +20,13 @@
 </div>
 </div>
 <div class="form-horizontal my-2 col-12 flex-wrap">
-  <h4 class="" type="button" data-toggle="collapse" data-target="#collapseTecnologia" aria-expanded="false" aria-controls="collapseTecnologia">
-    Tecnología  <span><i class="fas fa-angle-down"></i></span>
-  </h4>
-</p>
+<div  type="button" data-toggle="collapse" data-target="#collapseTecnologia" aria-expanded="false" aria-controls="collapseTecnologia"  style="display:flex;justify-content: space-between;">
+  <h4 class="">
+    Tecnología
+</h4>
+        <span><i class="fas fa-angle-down"></i></span>
+ 
+</div>
 <div class="collapse" id="collapseTecnologia">
   <div class="card card-body">
         <div v-for="(value) in technologies">
@@ -36,25 +40,29 @@
 </div>
 
 <div class="form-horizontal my-2 col-12 flex-wrap">
-  <h4 class="" type="button" data-toggle="collapse" data-target="#collapseVelocidad" aria-expanded="false" aria-controls="collapseVelocidad">
-    Velocidad<span><i class="fas fa-angle-down"></i></span>
-  </h4>
+  <div type="button" data-toggle="collapse" data-target="#collapseVelocidad" aria-expanded="false" aria-controls="collapseVelocidad" style="display:flex;justify-content: space-between;">
+  <h4 class="" >
+    Velocidad
+</h4>
+    <span><i class="fas fa-angle-down"></i></span>
+  </div>
 </p>
 <div class="collapse" id="collapseVelocidad">
   <div class="card card-body">
         <div v-for="(value) in speeds">
 
-      
       <input type="checkbox" :value="value.value" v-model="checked_speeds">
        <label>{{value.value}}</label>
     </div>
   </div>
 </div>
 </div>
-<div class="form-horizontal my-2 col-12 flex-wrap">
-  <h4 class="" type="button" data-toggle="collapse" data-target="#collapsePrecio" aria-expanded="false" aria-controls="collapseExample">
-    Precio<span><i class="fas fa-angle-down"></i></span>
-  </h4>
+<div class="form-horizontal my-2 col-12 flex-wrap" >
+  <div  type="button" data-toggle="collapse" data-target="#collapsePrecio" aria-expanded="false" aria-controls="collapseExample" style="display:flex;justify-content: space-between;">
+  <h4>
+    Precio
+  </h4><span><i class="fas fa-angle-down text-right"></i></span>
+  </div>
 </p>
 <div class="collapse" id="collapsePrecio">
   <div class="card card-body">
