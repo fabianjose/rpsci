@@ -12,8 +12,8 @@
 <div class="collapse" id="collapseProveedor">
   <div class="card card-body">
     <div v-for="(value) in providers">
-       <label>{{value.name}}</label>
       <input type="checkbox" :value="value.id" v-model="checked_providers">
+       <label>{{value.name}}</label>
     </div>
   </div>
 </div>
@@ -27,8 +27,9 @@
   <div class="card card-body">
         <div v-for="(value) in technologies">
 
-       <label>{{value.value}}</label>
+       
       <input type="checkbox" :value="value.value" v-model="checked_technologies">
+      <label>{{value.value}}</label>
     </div>
   </div>
 </div>
@@ -43,22 +44,22 @@
   <div class="card card-body">
         <div v-for="(value) in speeds">
 
-       <label>{{value.value}}</label>
+      
       <input type="checkbox" :value="value.value" v-model="checked_speeds">
+       <label>{{value.value}}</label>
     </div>
   </div>
 </div>
 </div>
 <div class="form-horizontal my-2 col-12 flex-wrap">
   <h4 class="" type="button" data-toggle="collapse" data-target="#collapsePrecio" aria-expanded="false" aria-controls="collapseExample">
-    Precio   <span><i class="fas fa-angle-down"></i></span>
+    Precio<span><i class="fas fa-angle-down"></i></span>
   </h4>
 </p>
 <div class="collapse" id="collapsePrecio">
   <div class="card card-body">
   <vue-slider
       v-model="value"
-      :width= 'auto'
       :order="true"
       :min="min_price"
       :max="max_price"
