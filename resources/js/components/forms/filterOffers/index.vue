@@ -87,19 +87,6 @@
             </select>
           </div>
         </div>
-        <div class="form-horizontal my-2 col-12 flex-wrap">
-          <span class="filter-card-label mb-2">Rango de precios</span>
-          <div class="form-group d-flex flex-row my-2 flex-wrap">
-            <div class="form-group has-search col-12 col-sm-6 col-md-6 my-2 col-lg-12 col-xl-12 d-flex align-items-center">
-              <span class="fas fa-dollar-sign form-control-feedback "></span>
-              <input class="form-control  rounded-input" placeholder="Desde" type="numeric" v-model="fromPrice">
-            </div>
-            <div class="form-group has-search col-12 col-sm-6 col-md-6 my-2 col-lg-12 col-xl-12 d-flex align-items-center">
-              <span class="fas fa-dollar-sign form-control-feedback "></span>
-              <input class="form-control rounded-input" placeholder="Hasta" type="numeric" v-model="toPrice">
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   <div data-role="main" class="ui-content">
@@ -140,15 +127,16 @@ export default {
   methods:{
     emitFilter(){
       //console.log(max_price);
-      return;
+     // return;
       let searchKey="";
       if(this.orderBy){
         searchKey+="&sortBy="+this.orderBy;
         if(this.orderBySort=="desc") searchKey+="&sortByDesc=true";
       }
-      if(this.fromPrice&&this.fromPrice!=""){
-        if(!isNaN(this.fromPrice)) searchKey+="&from="+parseFloat(this.fromPrice);
-        else return toastr.error("El campo 'Desde' es de valor numérico")
+      if(this.value[0]&&this.value[1]!=""){
+        if(!isNaN(this.value[0])) searchKey+="&from="+parseFloat(this.value[0]);
+        if(!isNaN(this.value[1])) searchKey+="&to="+parseFloat(this.value[1]);
+    //    else return toastr.error("El campo 'Desde' es de valor numérico")
       }
 
      /* if(this.toPrice&&this.toPrice!=""){

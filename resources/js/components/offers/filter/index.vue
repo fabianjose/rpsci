@@ -34,7 +34,7 @@ export default {
     },
 
     mounted(){
-        console.log("wi pagination", this.pagination);
+   //     console.log("wi pagination", this.pagination);
     },
 
     methods:{
