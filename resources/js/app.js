@@ -111,7 +111,8 @@ Vue.component('vue-recaptcha', VueRecaptcha);
 
 import VueResource from 'vue-resource';
 Vue.use(VueResource);
-
+import VueSlider from 'vue-slider-component'
+import 'vue-slider-component/theme/default.css'
 //Loader usado
 import Loading from 'vue-loading-overlay';
 import 'vue-loading-overlay/dist/vue-loading.css';
@@ -134,7 +135,7 @@ Vue.component('vueper-slide', VueperSlide);
 
 import Vue from 'vue'
 import * as VueGoogleMaps from 'vue2-google-maps'
- 
+Vue.component('vue-slider',VueSlider);
 Vue.use(VueGoogleMaps, {
   load: {
     key: "AIzaSyBL0ZT5AWyMHUGkuGVuSbqHwZx_3dr6MU0",
@@ -166,6 +167,6 @@ if (jwtToken) {
 const app = new Vue({
     el: '#app',
     components:{
-        /** */
+       
     }
 });

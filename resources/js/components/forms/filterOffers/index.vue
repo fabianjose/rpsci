@@ -56,6 +56,15 @@
 </p>
 <div class="collapse" id="collapsePrecio">
   <div class="card card-body">
+  <vue-slider
+      v-model="value"
+      :width= 'auto'
+      :order="true"
+      :min="min_price"
+      :max="max_price"
+      :interval="1"
+      :tooltip-formatter="formatter2"
+    ></vue-slider>
   </div>
 </div>
 </div>
@@ -93,6 +102,11 @@
         </div>
       </div>
     </div>
+  <div data-role="main" class="ui-content">
+
+
+
+  </div>
     <div class="card-footer d-flex justify-content-center pb-4">
       <div class="col-lg-8 col-md-10 col-sm-10">
         <i class="fa fa-search icon-btn"></i>
@@ -117,14 +131,16 @@ export default {
       orderBySort:"desc",
       checked_speeds:[],
       checked_technologies:[],
-      checked_providers:[]
-
+      checked_providers:[],
+      value: [0,100000],
+      formatter2: v => `$${('' + (v)).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}`
     }
   },
 
   methods:{
     emitFilter(){
- 
+      //console.log(max_price);
+      return;
       let searchKey="";
       if(this.orderBy){
         searchKey+="&sortBy="+this.orderBy;
