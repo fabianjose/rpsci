@@ -73,11 +73,11 @@
                   </div>
                       
                       
-                  <div  class="col-6 order-3   order-sm-2    text-wrap col-xl-2 col-lg-3 text-center flex-column align-items-center justify-content-center bloque-3   ">
+                  <div  class="col-6 order-3   order-sm-2    text-wrap col-xl-2 col-lg-3 text-center flex-column align-items-center justify-content-center bloque-3">
                             
                               <div class="bloque-tecnologia">
                             <div   v-if="offer.tecnologia == 0">
-                                  <img class="logo-tecnologia" src="/images/Fibra.png"  alt="">
+                                  <img class="logo-tecnologia" src="/images/Fibra1.png"  alt="" style="transform: rotate(90deg);">
                             </div>
                             <div   v-if="offer.tecnologia == 1 ">
                                   <img class="logo-tecnologia" src="/images/service-4.png" alt="">
@@ -138,7 +138,7 @@
                     <div >
                       <h6 style="font-weight: 300;">{{offer.titulo2}}</h6> 
                     <h6 style="line-height : 0px; font-weight: 300;">{{offer.titulo3}}</h6> 
-                    <h6 style="font-weight: 300;">{{offer.titulo4}}</h6> 
+                    <h6 style="font-weight: 300;">{{offer.titulo4}}texto de prueba1</h6> 
                     </div>
                     
 
@@ -151,7 +151,7 @@
                      <div class="precio-movil">
 
                   
-                    <h6 class="text-dark-blue offer-table-price text-wrap-all precio-movil" style="color: rgb(91, 87, 87);">$ {{showPrice(offer.tariff)}}</h6>
+                    <h6 class="text-dark-blue offer-table-price text-wrap-all precio-movil" style="color: rgb(91, 87, 87); margin-top: 30px;">$ {{showPrice(offer.tariff)}}</h6>
                       </div>
                     <div class="stars-container flex-row justify-content-center mb-2">
                     <!--  <i v-for="(starCount,k4) in 5" :key="k4" :class="(starCount>offer.points?'far':'fas')+' fa-star'"></i>-->

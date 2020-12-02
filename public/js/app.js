@@ -46903,7 +46903,7 @@ var render = function() {
                   "div",
                   {
                     staticClass:
-                      "col-6 order-3   order-sm-2    text-wrap col-xl-2 col-lg-3 text-center flex-column align-items-center justify-content-center bloque-3   "
+                      "col-6 order-3   order-sm-2    text-wrap col-xl-2 col-lg-3 text-center flex-column align-items-center justify-content-center bloque-3"
                   },
                   [
                     _c("div", { staticClass: "bloque-tecnologia" }, [
@@ -46911,7 +46911,8 @@ var render = function() {
                         ? _c("div", [
                             _c("img", {
                               staticClass: "logo-tecnologia",
-                              attrs: { src: "/images/Fibra.png", alt: "" }
+                              staticStyle: { transform: "rotate(90deg)" },
+                              attrs: { src: "/images/Fibra1.png", alt: "" }
                             })
                           ])
                         : _vm._e(),
@@ -47060,7 +47061,7 @@ var render = function() {
                       ),
                       _vm._v(" "),
                       _c("h6", { staticStyle: { "font-weight": "300" } }, [
-                        _vm._v(_vm._s(offer.titulo4))
+                        _vm._v(_vm._s(offer.titulo4) + "texto de prueba1")
                       ])
                     ])
                   ]
@@ -47079,7 +47080,10 @@ var render = function() {
                         {
                           staticClass:
                             "text-dark-blue offer-table-price text-wrap-all precio-movil",
-                          staticStyle: { color: "rgb(91, 87, 87)" }
+                          staticStyle: {
+                            color: "rgb(91, 87, 87)",
+                            "margin-top": "30px"
+                          }
                         },
                         [_vm._v("$ " + _vm._s(_vm.showPrice(offer.tariff)))]
                       )
