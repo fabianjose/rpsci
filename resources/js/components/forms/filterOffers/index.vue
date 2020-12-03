@@ -51,8 +51,8 @@
     <vue-slider
       v-model="value"
       :order="true"
-      :min="1"
-      :max="100"
+      :min="speeds.mins"
+      :max="speeds.maxs"
       :interval="1"
       :tooltip-formatter="formatter2"
     > </vue-slider>
@@ -115,10 +115,9 @@ export default {
       fromPrice:null,
       toPrice:null,
       orderBySort:"desc",
-      checked_speeds:[],
       checked_technologies:[],
       checked_providers:[],
-      value: [1,100],
+      value: [this.speeds.mins,this.speeds.maxs],
       patron:new RegExp(/\d{1,3}(?:,\d{3})*(?:\.\d+)?/),
       formatter2: v => `${('' + (v)).replace(/\B(?=(\d{3})+(?!\d))/g, ',')} Mbps`
     }
@@ -149,9 +148,9 @@ export default {
       if(this.checked_technologies.lenght != 0){
         searchKey+="&technologies="+this.checked_technologies;
       }
-      if(this.checked_speeds.lenght != 0){
-        searchKey+="&speeds="+this.checked_speeds;
-      }
+        searchKey+="&mins="+this.value[0];
+        searchKey+="&maxs="+this.value[1];
+      
       if(this.checked_technologies.lenght != 0){
         searchKey+="&providers="+this.checked_providers;
       }
