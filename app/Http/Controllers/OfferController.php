@@ -399,7 +399,6 @@ class OfferController extends Controller{
     });
     $max_price = $price->max("tariff");
     $min_price = $price->min("tariff");
-    
 
     if (!$offers) return response()->json(["errorMessage"=>'No se encontraron ofertas disponibles'],404);
 

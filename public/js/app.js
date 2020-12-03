@@ -3361,10 +3361,9 @@ __webpack_require__.r(__webpack_exports__);
       fromPrice: null,
       toPrice: null,
       orderBySort: "desc",
-      checked_speeds: [],
       checked_technologies: [],
       checked_providers: [],
-      value: [1, 100],
+      value: [this.speeds.mins, this.speeds.maxs],
       patron: new RegExp(/\d{1,3}(?:,\d{3})*(?:\.\d+)?/),
       formatter2: function formatter2(v) {
         return "".concat(('' + v).replace(/\B(?=(\d{3})+(?!\d))/g, ','), " Mbps");
@@ -3387,21 +3386,21 @@ __webpack_require__.r(__webpack_exports__);
       //    else return toastr.error("El campo 'Desde' es de valor numérico")
         }*/
 
-      /* if(this.toPrice&&this.toPrice!=""){
-         
-         if(!isNaN(this.toPrice)) searchKey+="&to="+parseFloat(this.toPrice);
-           else return toastr.error("El campo 'Hasta' es de valor numérico")
-         
-       }*/
 
+      if (this.fromPrice && this.fromPrice != "") {
+        if (!isNaN(this.fromPrice)) searchKey += "&from=" + parseFloat(this.fromPrice);else return toastr.error("El campo 'Desde' es de valor numérico");
+      }
+
+      if (this.toPrice && this.toPrice != "") {
+        if (!isNaN(this.toPrice)) searchKey += "&to=" + parseFloat(this.toPrice);else return toastr.error("El campo 'Hasta' es de valor numérico");
+      }
 
       if (this.checked_technologies.lenght != 0) {
         searchKey += "&technologies=" + this.checked_technologies;
       }
 
-      if (this.checked_speeds.lenght != 0) {
-        searchKey += "&speeds=" + this.checked_speeds;
-      }
+      searchKey += "&mins=" + this.value[0];
+      searchKey += "&maxs=" + this.value[1];
 
       if (this.checked_technologies.lenght != 0) {
         searchKey += "&providers=" + this.checked_providers;
@@ -45543,8 +45542,8 @@ var render = function() {
                     _c("vue-slider", {
                       attrs: {
                         order: true,
-                        min: 1,
-                        max: 100,
+                        min: _vm.speeds.mins,
+                        max: _vm.speeds.maxs,
                         interval: 1,
                         "tooltip-formatter": _vm.formatter2
                       },
@@ -45741,7 +45740,7 @@ var staticRenderFns = [
           {
             staticClass: "btn-block",
             staticStyle: {
-              color: "#616161",
+              color: "#606060",
               "font-family": "'Work Sans'",
               "font-weight": "500"
             }
@@ -45782,12 +45781,8 @@ var staticRenderFns = [
         _c(
           "h4",
           {
-            staticClass: "btn-block",
-            staticStyle: {
-              color: "#616161",
-              "font-family": "'Work Sans'",
-              "font-weight": "500"
-            }
+            staticClass: "btn-block text-ws",
+            staticStyle: { color: "#606060", "font-weight": "500" }
           },
           [_vm._v("  Tecnología   ")]
         ),
@@ -84623,8 +84618,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\Nueva carpeta\rpsci\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\Nueva carpeta\rpsci\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\RPCS_SOLUTIONS\rpsci\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\RPCS_SOLUTIONS\rpsci\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),
