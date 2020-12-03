@@ -584,6 +584,4 @@ class OfferController extends Controller{
 		if (!$offer->save()) return response()->json('Error en la base de datos',500);
 		return response()->json('Oferta eliminada satisfactoriamente', 200);
   }
-
-
 }
