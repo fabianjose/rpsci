@@ -2,31 +2,31 @@
   <div class="card card-primary filter-card mb-5">
     <div class="card-body d-flex flex-column align-items-center pt-4">
       <h5 class="filter-card-title font-weight-bold text-center">
-        <i class="fas fa-filter"></i>Filtra tu búsqueda</h5>
-<div class="form-horizontal my-2 col-12 flex-wrap">
+        <i class="fas fa-filter" style="color:#606060"></i>Filtro de búsqueda</h5> <br>
+<div class="form-horizontal my-2 col-12 flex-wrap" >
   <div  type="button" data-toggle="collapse" data-target="#collapseProveedor" aria-expanded="false" aria-controls="collapseProveedor" style="display:flex;justify-content: space-between;">
-  <h4 class="btn-block">
-    Proveedor   </h4> <span><i class="fas fa-angle-down" style="margin-left: auto;"></i></span>
- 
-
+  <h4 class="btn-block" style="color:#616161; font-family:'Work Sans'; font-weight: 500;">  Proveedor   </h4> <span><i class="fas fa-angle-down" style="margin-left: auto; font-size: 33px;   color: #afaeb4;"></i></span>
 </div>
+<hr style="bcolor:#f7f7f7">
+
+
+
 <div class="collapse" id="collapseProveedor">
-  <div class="card card-body">
+  <div class="card card-body" style="background-color: #f7f7f7;">
     <div v-for="(value) in providers">
       <input type="checkbox" :value="value.id" v-model="checked_providers">
-       <label>{{value.name}}</label>
+       <label style="font-weight: lighter;  font-family: 'Heebo';" >{{value.name}}</label>
     </div>
   </div>
 </div>
 </div>
+
 <div class="form-horizontal my-2 col-12 flex-wrap">
 <div  type="button" data-toggle="collapse" data-target="#collapseTecnologia" aria-expanded="false" aria-controls="collapseTecnologia"  style="display:flex;justify-content: space-between;">
-  <h4 class="">
-    Tecnología
-</h4>
-        <span><i class="fas fa-angle-down"></i></span>
+ <h4 class="btn-block" style="color:#616161; font-family:'Work Sans'; font-weight: 500;">  Tecnología   </h4> <span><i class="fas fa-angle-down" style="margin-left: auto; font-size: 33px;   color: #afaeb4;"></i></span>    
  
 </div>
+  <hr>
 <div class="collapse" id="collapseTecnologia">
   <div class="card card-body">
         <div v-for="(value) in technologies">
@@ -41,12 +41,9 @@
 
 <div class="form-horizontal my-2 col-12 flex-wrap">
   <div type="button" data-toggle="collapse" data-target="#collapseVelocidad" aria-expanded="false" aria-controls="collapseVelocidad" style="display:flex;justify-content: space-between;">
-  <h4 class="" >
-    Velocidad
-</h4>
-    <span><i class="fas fa-angle-down"></i></span>
+ <h4 class="btn-block" style="color:#616161; font-family:'Work Sans'; font-weight: 500;">  Velocidad   </h4> <span><i class="fas fa-angle-down" style="margin-left: auto; font-size: 33px;   color: #afaeb4;"></i></span>
   </div>
-</p>
+</p><hr>
 <div class="collapse" id="collapseVelocidad">
   <div class="card card-body">
         <div v-for="(value) in speeds">
@@ -57,26 +54,38 @@
   </div>
 </div>
 </div>
+
 <div class="form-horizontal my-2 col-12 flex-wrap" >
   <div  type="button" data-toggle="collapse" data-target="#collapsePrecio" aria-expanded="false" aria-controls="collapseExample" style="display:flex;justify-content: space-between;">
-  <h4>
-    Precio
-  </h4><span><i class="fas fa-angle-down text-right"></i></span>
+ <h4 class="btn-block" style="color:#616161">  Precio   </h4> <span><i class="fas fa-angle-down" style="margin-left: auto; font-size: 33px;   color: #afaeb4;"></i></span>
+
   </div>
-</p>
+</p><hr>
 <div class="collapse" id="collapsePrecio">
   <div class="card card-body">
+   <div class="row">
+     <div class="col">
+        <span>{{min_price}} </span>
+     </div>
+     <div class="col">
+       <span style="">{{parseFloat(parserFloat)}}</span> 
+     </div>
+   </div>
+    
   <vue-slider
+  
       v-model="value"
       :order="true"
       :min="min_price"
       :max="max_price"
       :interval="1"
       :tooltip-formatter="formatter2"
-    ></vue-slider>
+    > </vue-slider>
   </div>
 </div>
 </div>
+
+
       <div class="d-flex flex-column w-100 py-3 px-1">
         <div class="d-flex flex-row w-100 justify-content-around flex-wrap">
 
@@ -98,8 +107,9 @@
         </div>
       </div>
     </div>
-  <div data-role="main" class="ui-content">
 
+   
+  <div data-role="main" class="ui-content">
 
 
   </div>

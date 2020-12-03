@@ -80,16 +80,16 @@
                                   <img class="logo-tecnologia" src="/images/Fibra1.png"  alt="" style="transform: rotate(90deg);">
                             </div>
                             <div   v-if="offer.tecnologia == 1 ">
-                                  <img class="logo-tecnologia" src="/images/service-4.png" alt="">
+                                  <img class="logo-tecnologia" src="/images/satelital11.png" alt="">
                             </div>
                             <div   v-if="offer.tecnologia == 2">
-                                  <img class="logo-tecnologia" src="/images/Fibra.png" alt="">
+                                  <img class="logo-tecnologia" src="/images/ftth.png" alt="">
                             </div>
                             <div   v-if="offer.tecnologia == 3 ">
-                                  <img class="logo-tecnologia" src="/images/service-4.png" alt="">
+                                  <img class="logo-tecnologia" src="/images/cobre.png" alt="">
                             </div>
                             <div   v-if="offer.tecnologia != 0 && offer.tecnologia != 1 && offer.tecnologia != 2 && offer.tecnologia != 3  ">
-                                  <img class="logo-tecnologia" src="/images/google.jpg" alt="">
+                                  <img class="logo-tecnologia" src="/images/radio.jpg" alt="">
                             </div>
                             
                             </div>
@@ -114,7 +114,7 @@
                   <div class=" tecnologia-movil  text-center p-2 offer-table-label w-100 text-white mx-auto bg-dark-blue rounded-pill p-1 text-wrap " >   <p class="text-tabla-detalles" style="margin-top: -68px;">  Velocidad</p> </div>
 
                     <div class="icono-ondas"  >
-                            <img src="/images/icono-ondas.png" width="35%" alt="">
+                            <img src="/images/icono-ondas.png" width="42%" alt="">
                       </div>
                     <h6 class="text-lg">
                       

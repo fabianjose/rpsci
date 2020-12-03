@@ -223,7 +223,7 @@ a {
   padding-top: 8vh !important;
   width: 100%;
   min-height: 50vh;
-  background-color: #ffffff !important;
+  background-color: #f7f7f7 !important;
 }
 
 .ic-logo-grey {
@@ -311,6 +311,7 @@ a {
 }
 
 .offers-pagination-item {
+  background-color: white;
   border-radius: 20px;
   border-color: #00c2d6;
   text-align: center;
@@ -859,6 +860,10 @@ a {
 .footer-footer span {
   color: rgba(126, 126, 126, 0.7);
   font-size: 12px;
+}
+
+.filter-card {
+  background-color: #f7f7f7;
 }
 
 .filter-card-title {
@@ -1447,6 +1452,7 @@ a {
 
 .logo-movil-planes {
   width: 126px;
+  margin-top: -72px;
 }
 
 .bloque-3 {
