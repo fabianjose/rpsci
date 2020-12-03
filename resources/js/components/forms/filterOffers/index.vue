@@ -29,7 +29,7 @@
         <div class="collapse" id="collapseTecnologia">
           <div class="card card-body" style="background-color: #f7f7f7;">
             <div v-for="(value) in technologies">
-              <input type="checkbox" :value="value.value" v-model="checked_technologies">
+              <input type="checkbox" :value="value.type" v-model="checked_technologies">
                <label class="text-ws" style="color: #606060" v-if="value.type == 0 ">Fibra</label>
                <label class="text-ws" style="color: #606060"   v-if="value.type == 1 ">
            Satelital</label>
@@ -134,11 +134,11 @@ export default {
         searchKey+="&sortBy="+this.orderBy;
         if(this.orderBySort=="desc") searchKey+="&sortByDesc=true";
       }
-      if(this.value[0]&&this.value[1]!=""){
+    /*  if(this.value[0]&&this.value[1]!=""){
         if(!isNaN(this.value[0])) searchKey+="&from="+parseFloat(this.value[0]);
         if(!isNaN(this.value[1])) searchKey+="&to="+parseFloat(this.value[1]);
     //    else return toastr.error("El campo 'Desde' es de valor numérico")
-      }
+      }*/
 
      /* if(this.toPrice&&this.toPrice!=""){
         
