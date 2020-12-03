@@ -2,8 +2,9 @@
   <div class="card card-primary filter-card mb-5 p-3" style="box-shadow: none;">
     <div class="card-body d-flex flex-column align-items-center   pt-4" style="box-shadow: none;">
       <div class="d-flex flex-column justify-content-between" style="width: 100%;">
-      <i class="fas fa-filter" style="color:#606060;display: inline-block;"></i>
-      <h4 class="filter-card-title font-weight-bold text-center" style="align-self: center;" >
+      
+      <h4  class="filter-card-title font-weight-bold text-center" style="align-self: center;" >
+        <i class="fas fa-filter" style="color:#606060;display: inline-block;">    </i>
         Filtro de búsqueda</h4>
      </div>
          <br>
@@ -74,15 +75,17 @@
  <h4 class="btn-block" style="color:#616161">  Precio   </h4> <span><i class="fas fa-angle-down" style="margin-left: auto; font-size: 33px;   color: #afaeb4;"></i></span>
 
   </div>
-</p>
-<div class="collapse" id="collapsePrecio">
-  <div class="card card-body" style="background-color: #f7f7f7;">
 
-     <div class="form-group my-2 col-12 " v-if="orderBy">
-            <input class="form-control" id="precio_bajo" v-model="fromPrice" placeholder="Desde">
-            <input class="form-control" id="precio_bajo" v-model="toPrice" placeholder="Hasta">
+<div class="collapse" id="collapsePrecio">
+  <div class="card card-body" style="background-color: #f7f7f7;" v-if="orderBy">
+
+            <input class="form-control" style="    border-radius: 9px;
+" id="precio_bajo" v-model="fromPrice" placeholder=" $ Desde">
+            <br>
+            <input class="form-control" style="    border-radius: 9px;
+" id="precio_bajo" v-model="toPrice" placeholder=" $ Hasta">
                 
-      </div>
+      
  
   </div>
 </div>

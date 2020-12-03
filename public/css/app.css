@@ -461,6 +461,10 @@ a {
   margin-top: -8px;
 }
 
+.card {
+  box-shadow: none;
+}
+
 .btn-dark-blue {
   background-color: #13293d;
   color: white;

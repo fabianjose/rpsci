@@ -128,7 +128,11 @@
 	$post = json_decode($post,true);
 ?>
 				<div class="row" >
-					<div class="col-12 col-md-4" style="text-align: -webkit-center;">
+
+
+                    <div class="col-12 col-md-4" style="text-align: -webkit-center;">
+                    
+
 				<div class="thumbnail" style="width: 100%; background-position:center;height: 300px;background-size: cover; background-image: url('<?=$post[0]["_embedded"]["wp:featuredmedia"][0]["source_url"] ?>');" alt=""></div> 
                       <div class="fondo-blog">
                       
@@ -136,10 +140,16 @@
                       <?php print_r($post[0]["title"]["rendered"]);?>
                       </div> 
                         <br>                         
-						<div class="texto-blog">
+						<div class="texto-blog limitado ">
                             
-                        <?php  print_r($post[0]["excerpt"]["rendered"]);?>
+                    <span> <?php  print_r($post[0]["excerpt"]["rendered"]);?> </span>   
                         </div>
+                        <br>
+                        <a href="<?php print_r($post[0]["link"]);?>">  <p>Leer mas</p>  </a> 
+
+
+
+                      
 
 					</div>
                       </div>
@@ -152,10 +162,13 @@
                       </div>  
 
                         <br> 
-						<div class="texto-blog">
+						<div class="texto-blog limitado">
                             
                         <?php  print_r($post[1]["excerpt"]["rendered"]);?>
                         </div>
+                        <br>
+                        <a href="<?php print_r($post[1]["link"]);?>">  <p>Leer mas</p>  </a> 
+
 
                       </div>
 					</div>
@@ -168,17 +181,26 @@
                      </div>  
 
                     	<br> 
-					<div class="texto-blog">
+					<div class="texto-blog limitado">
                             
                     	<?php print_r($post[2]["excerpt"]["rendered"]);?>
                     </div>
+                    <br>
+                      <a href="<?php print_r($post[2]["link"]);?>">  <p>Leer mas</p>  </a> 
 
                      </div>
 					</div>
 				</div>
-			</section>
+            </section>
+            
+
+
+
+
+            
             <section>
-           
+            
+
             </section>
            
         </div>
@@ -186,6 +208,26 @@
        
 
 </div>
+
+<style>
+                            .limitado{
+
+                            }
+                        </style>
+                        <script>
+     function ellipsis_box(elemento, max_chars){
+	limite_text = $(elemento).text();
+	if (true)
+	{
+	limite = limite_text.substr(0, max_chars)+" ...";
+	$(elemento).text(limite);
+	}
+	}
+	$(function()
+	{
+	ellipsis_box(".limitado", 213);
+	});
+                        </script>
 @stop
 
 

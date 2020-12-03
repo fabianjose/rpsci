@@ -89,7 +89,7 @@
                                   <img class="logo-tecnologia" src="/images/cobre.png" alt="">
                             </div>
                             <div   v-if="offer.tecnologia == 4 ">
-                                  <img class="logo-tecnologia" src="/images/radio.jpg" alt="">
+                                  <img class="logo-tecnologia" src="/images/radio.png" alt="">
                             </div>
                             
                             </div>

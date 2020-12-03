@@ -5,6 +5,10 @@
    
 <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,600;0,700;1,200&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js" ></script>
+
+
+
 <meta name="keywords" content="contrata internet, contratar internet, internet hogar,
     internet satelital, internet para hogares, internet wifi, internet banda ancha,
     internet para negocios, internet para empresas, internet empresas, internet fibra optica,

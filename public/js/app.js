@@ -3353,23 +3353,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["fields", "providers", "max_price", "min_price", "technologies", "speeds"],
   data: function data() {
@@ -3381,9 +3364,10 @@ __webpack_require__.r(__webpack_exports__);
       checked_speeds: [],
       checked_technologies: [],
       checked_providers: [],
-      value: [0, 100000],
+      value: [1, 100],
+      patron: new RegExp(/\d{1,3}(?:,\d{3})*(?:\.\d+)?/),
       formatter2: function formatter2(v) {
-        return "$".concat(('' + v).replace(/\B(?=(\d{3})+(?!\d))/g, ','));
+        return "".concat(('' + v).replace(/\B(?=(\d{3})+(?!\d))/g, ','), " Mbps");
       }
     };
   },
@@ -3397,11 +3381,12 @@ __webpack_require__.r(__webpack_exports__);
         searchKey += "&sortBy=" + this.orderBy;
         if (this.orderBySort == "desc") searchKey += "&sortByDesc=true";
       }
+      /*  if(this.value[0]&&this.value[1]!=""){
+          if(!isNaN(this.value[0])) searchKey+="&from="+parseFloat(this.value[0]);
+          if(!isNaN(this.value[1])) searchKey+="&to="+parseFloat(this.value[1]);
+      //    else return toastr.error("El campo 'Desde' es de valor numérico")
+        }*/
 
-      if (this.value[0] && this.value[1] != "") {
-        if (!isNaN(this.value[0])) searchKey += "&from=" + parseFloat(this.value[0]);
-        if (!isNaN(this.value[1])) searchKey += "&to=" + parseFloat(this.value[1]); //    else return toastr.error("El campo 'Desde' es de valor numérico")
-      }
       /* if(this.toPrice&&this.toPrice!=""){
          
          if(!isNaN(this.toPrice)) searchKey+="&to="+parseFloat(this.toPrice);
@@ -45335,434 +45320,375 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "card card-primary filter-card mb-5" }, [
-    _c(
-      "div",
-      { staticClass: "card-body d-flex flex-column align-items-center pt-4" },
-      [
-        _vm._m(0),
-        _vm._v(" "),
-        _c("br"),
-        _vm._v(" "),
-        _c("div", { staticClass: "form-horizontal my-2 col-12 flex-wrap" }, [
-          _vm._m(1),
+  return _c(
+    "div",
+    {
+      staticClass: "card card-primary filter-card mb-5 p-3",
+      staticStyle: { "box-shadow": "none" }
+    },
+    [
+      _c(
+        "div",
+        {
+          staticClass: "card-body d-flex flex-column align-items-center   pt-4",
+          staticStyle: { "box-shadow": "none" }
+        },
+        [
+          _vm._m(0),
           _vm._v(" "),
-          _c("hr", { staticStyle: { bcolor: "#f7f7f7" } }),
+          _c("br"),
           _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "collapse", attrs: { id: "collapseProveedor" } },
-            [
-              _c(
-                "div",
-                {
-                  staticClass: "card card-body",
-                  staticStyle: { "background-color": "#f7f7f7" }
-                },
-                _vm._l(_vm.providers, function(value) {
-                  return _c("div", [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.checked_providers,
-                          expression: "checked_providers"
-                        }
-                      ],
-                      attrs: { type: "checkbox" },
-                      domProps: {
-                        value: value.id,
-                        checked: Array.isArray(_vm.checked_providers)
-                          ? _vm._i(_vm.checked_providers, value.id) > -1
-                          : _vm.checked_providers
-                      },
-                      on: {
-                        change: function($event) {
-                          var $$a = _vm.checked_providers,
-                            $$el = $event.target,
-                            $$c = $$el.checked ? true : false
-                          if (Array.isArray($$a)) {
-                            var $$v = value.id,
-                              $$i = _vm._i($$a, $$v)
-                            if ($$el.checked) {
-                              $$i < 0 &&
-                                (_vm.checked_providers = $$a.concat([$$v]))
-                            } else {
-                              $$i > -1 &&
-                                (_vm.checked_providers = $$a
-                                  .slice(0, $$i)
-                                  .concat($$a.slice($$i + 1)))
-                            }
-                          } else {
-                            _vm.checked_providers = $$c
-                          }
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c(
-                      "label",
-                      {
-                        staticStyle: {
-                          "font-weight": "lighter",
-                          "font-family": "'Heebo'"
-                        }
-                      },
-                      [_vm._v(_vm._s(value.name))]
-                    )
-                  ])
-                }),
-                0
-              )
-            ]
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "form-horizontal my-2 col-12 flex-wrap" }, [
-          _vm._m(2),
-          _vm._v(" "),
-          _c("hr"),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "collapse", attrs: { id: "collapseTecnologia" } },
-            [
-              _c(
-                "div",
-                { staticClass: "card card-body" },
-                _vm._l(_vm.technologies, function(value) {
-                  return _c("div", [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.checked_technologies,
-                          expression: "checked_technologies"
-                        }
-                      ],
-                      attrs: { type: "checkbox" },
-                      domProps: {
-                        value: value.value,
-                        checked: Array.isArray(_vm.checked_technologies)
-                          ? _vm._i(_vm.checked_technologies, value.value) > -1
-                          : _vm.checked_technologies
-                      },
-                      on: {
-                        change: function($event) {
-                          var $$a = _vm.checked_technologies,
-                            $$el = $event.target,
-                            $$c = $$el.checked ? true : false
-                          if (Array.isArray($$a)) {
-                            var $$v = value.value,
-                              $$i = _vm._i($$a, $$v)
-                            if ($$el.checked) {
-                              $$i < 0 &&
-                                (_vm.checked_technologies = $$a.concat([$$v]))
-                            } else {
-                              $$i > -1 &&
-                                (_vm.checked_technologies = $$a
-                                  .slice(0, $$i)
-                                  .concat($$a.slice($$i + 1)))
-                            }
-                          } else {
-                            _vm.checked_technologies = $$c
-                          }
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("label", [_vm._v(_vm._s(value.value))])
-                  ])
-                }),
-                0
-              )
-            ]
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "form-horizontal my-2 col-12 flex-wrap" }, [
-          _vm._m(3),
-          _vm._v(" "),
-          _c("p"),
-          _c("hr"),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "collapse", attrs: { id: "collapseVelocidad" } },
-            [
-              _c(
-                "div",
-                { staticClass: "card card-body" },
-                _vm._l(_vm.speeds, function(value) {
-                  return _c("div", [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.checked_speeds,
-                          expression: "checked_speeds"
-                        }
-                      ],
-                      attrs: { type: "checkbox" },
-                      domProps: {
-                        value: value.value,
-                        checked: Array.isArray(_vm.checked_speeds)
-                          ? _vm._i(_vm.checked_speeds, value.value) > -1
-                          : _vm.checked_speeds
-                      },
-                      on: {
-                        change: function($event) {
-                          var $$a = _vm.checked_speeds,
-                            $$el = $event.target,
-                            $$c = $$el.checked ? true : false
-                          if (Array.isArray($$a)) {
-                            var $$v = value.value,
-                              $$i = _vm._i($$a, $$v)
-                            if ($$el.checked) {
-                              $$i < 0 &&
-                                (_vm.checked_speeds = $$a.concat([$$v]))
-                            } else {
-                              $$i > -1 &&
-                                (_vm.checked_speeds = $$a
-                                  .slice(0, $$i)
-                                  .concat($$a.slice($$i + 1)))
-                            }
-                          } else {
-                            _vm.checked_speeds = $$c
-                          }
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("label", [_vm._v(_vm._s(value.value))])
-                  ])
-                }),
-                0
-              )
-            ]
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "form-horizontal my-2 col-12 flex-wrap" }, [
-          _vm._m(4),
-          _vm._v(" "),
-          _c("p"),
-          _c("hr"),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "collapse", attrs: { id: "collapsePrecio" } },
-            [
-              _c(
-                "div",
-                { staticClass: "card card-body" },
-                [
-                  _c("div", { staticClass: "row" }, [
-                    _c("div", { staticClass: "col" }, [
-                      _c("span", [_vm._v(_vm._s(_vm.min_price) + " ")])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col" }, [
-                      _c("span", {}, [
-                        _vm._v(_vm._s(parseFloat(_vm.parserFloat)))
-                      ])
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("vue-slider", {
-                    attrs: {
-                      order: true,
-                      min: _vm.min_price,
-                      max: _vm.max_price,
-                      interval: 1,
-                      "tooltip-formatter": _vm.formatter2
-                    },
-                    model: {
-                      value: _vm.value,
-                      callback: function($$v) {
-                        _vm.value = $$v
-                      },
-                      expression: "value"
-                    }
-                  })
-                ],
-                1
-              )
-            ]
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "d-flex flex-column w-100 py-3 px-1" }, [
-          _c(
-            "div",
-            {
-              staticClass:
-                "d-flex flex-row w-100 justify-content-around flex-wrap"
-            },
-            [
-              _c("div", { staticClass: "form-group my-2 col-12 " }, [
+          _c("div", { staticClass: "form-horizontal my-2 col-12 flex-wrap" }, [
+            _vm._m(1),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "collapse", attrs: { id: "collapseProveedor" } },
+              [
                 _c(
-                  "label",
+                  "div",
                   {
-                    staticClass: "filter-card-label",
-                    attrs: { for: "orderBy" }
+                    staticClass: "card card-body",
+                    staticStyle: { "background-color": "#f7f7f7" }
                   },
-                  [_vm._v("Ordenar por:")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "select",
-                  {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.orderBy,
-                        expression: "orderBy"
-                      }
-                    ],
-                    staticClass: "custom-select ",
-                    attrs: { id: "orderBy" },
-                    on: {
-                      change: function($event) {
-                        var $$selectedVal = Array.prototype.filter
-                          .call($event.target.options, function(o) {
-                            return o.selected
-                          })
-                          .map(function(o) {
-                            var val = "_value" in o ? o._value : o.value
-                            return val
-                          })
-                        _vm.orderBy = $event.target.multiple
-                          ? $$selectedVal
-                          : $$selectedVal[0]
-                      }
-                    }
-                  },
-                  [
-                    _c(
-                      "option",
-                      {
-                        attrs: { selected: "" },
-                        domProps: { value: "tariff" }
-                      },
-                      [_vm._v("Precio")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "option",
-                      {
-                        attrs: { selected: "" },
-                        domProps: { value: "points" }
-                      },
-                      [_vm._v("Puntuación")]
-                    ),
-                    _vm._v(" "),
-                    _vm._l(_vm.compFields, function(field, k) {
-                      return field.type == "numeric"
-                        ? _c(
-                            "option",
-                            {
-                              key: k,
-                              staticClass: "text-capitalize",
-                              domProps: { value: k + 1 }
-                            },
-                            [_vm._v(_vm._s(field.name))]
-                          )
-                        : _vm._e()
-                    })
-                  ],
-                  2
-                )
-              ]),
-              _vm._v(" "),
-              _vm.orderBy
-                ? _c("div", { staticClass: "form-group my-2 col-12 " }, [
-                    _c(
-                      "label",
-                      {
-                        staticClass: "filter-card-label",
-                        attrs: { for: "sortBy" }
-                      },
-                      [_vm._v("Orden:")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "select",
-                      {
+                  _vm._l(_vm.providers, function(value) {
+                    return _c("div", [
+                      _c("input", {
                         directives: [
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.orderBySort,
-                            expression: "orderBySort"
+                            value: _vm.checked_providers,
+                            expression: "checked_providers"
                           }
                         ],
-                        staticClass: "custom-select ",
-                        attrs: { id: "sortBy" },
+                        attrs: { type: "checkbox" },
+                        domProps: {
+                          value: value.id,
+                          checked: Array.isArray(_vm.checked_providers)
+                            ? _vm._i(_vm.checked_providers, value.id) > -1
+                            : _vm.checked_providers
+                        },
                         on: {
                           change: function($event) {
-                            var $$selectedVal = Array.prototype.filter
-                              .call($event.target.options, function(o) {
-                                return o.selected
-                              })
-                              .map(function(o) {
-                                var val = "_value" in o ? o._value : o.value
-                                return val
-                              })
-                            _vm.orderBySort = $event.target.multiple
-                              ? $$selectedVal
-                              : $$selectedVal[0]
+                            var $$a = _vm.checked_providers,
+                              $$el = $event.target,
+                              $$c = $$el.checked ? true : false
+                            if (Array.isArray($$a)) {
+                              var $$v = value.id,
+                                $$i = _vm._i($$a, $$v)
+                              if ($$el.checked) {
+                                $$i < 0 &&
+                                  (_vm.checked_providers = $$a.concat([$$v]))
+                              } else {
+                                $$i > -1 &&
+                                  (_vm.checked_providers = $$a
+                                    .slice(0, $$i)
+                                    .concat($$a.slice($$i + 1)))
+                              }
+                            } else {
+                              _vm.checked_providers = $$c
+                            }
                           }
                         }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "label",
+                        {
+                          staticClass: "text-ws",
+                          staticStyle: { color: "#606060" }
+                        },
+                        [_vm._v(_vm._s(value.name))]
+                      )
+                    ])
+                  }),
+                  0
+                )
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-horizontal my-2 col-12 flex-wrap" }, [
+            _vm._m(2),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "collapse", attrs: { id: "collapseTecnologia" } },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass: "card card-body",
+                    staticStyle: { "background-color": "#f7f7f7" }
+                  },
+                  _vm._l(_vm.technologies, function(value) {
+                    return _c("div", [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.checked_technologies,
+                            expression: "checked_technologies"
+                          }
+                        ],
+                        attrs: { type: "checkbox" },
+                        domProps: {
+                          value: value.type,
+                          checked: Array.isArray(_vm.checked_technologies)
+                            ? _vm._i(_vm.checked_technologies, value.type) > -1
+                            : _vm.checked_technologies
+                        },
+                        on: {
+                          change: function($event) {
+                            var $$a = _vm.checked_technologies,
+                              $$el = $event.target,
+                              $$c = $$el.checked ? true : false
+                            if (Array.isArray($$a)) {
+                              var $$v = value.type,
+                                $$i = _vm._i($$a, $$v)
+                              if ($$el.checked) {
+                                $$i < 0 &&
+                                  (_vm.checked_technologies = $$a.concat([$$v]))
+                              } else {
+                                $$i > -1 &&
+                                  (_vm.checked_technologies = $$a
+                                    .slice(0, $$i)
+                                    .concat($$a.slice($$i + 1)))
+                              }
+                            } else {
+                              _vm.checked_technologies = $$c
+                            }
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      value.type == 0
+                        ? _c(
+                            "label",
+                            {
+                              staticClass: "text-ws",
+                              staticStyle: { color: "#606060" }
+                            },
+                            [_vm._v("Fibra")]
+                          )
+                        : _vm._e(),
+                      _vm._v(" "),
+                      value.type == 1
+                        ? _c(
+                            "label",
+                            {
+                              staticClass: "text-ws",
+                              staticStyle: { color: "#606060" }
+                            },
+                            [_vm._v("\n           Satelital")]
+                          )
+                        : _vm._e(),
+                      _vm._v(" "),
+                      value.type == 2
+                        ? _c(
+                            "label",
+                            {
+                              staticClass: "text-ws",
+                              staticStyle: { color: "#606060" }
+                            },
+                            [_vm._v("\n          FTTH")]
+                          )
+                        : _vm._e(),
+                      _vm._v(" "),
+                      value.type == 3
+                        ? _c(
+                            "label",
+                            {
+                              staticClass: "text-ws",
+                              staticStyle: { color: "#606060" }
+                            },
+                            [_vm._v("\n            Cobre")]
+                          )
+                        : _vm._e(),
+                      _vm._v(" "),
+                      value.type == 4
+                        ? _c(
+                            "label",
+                            {
+                              staticClass: "text-ws",
+                              staticStyle: { color: "#606060" }
+                            },
+                            [_vm._v("\n           Radio")]
+                          )
+                        : _vm._e()
+                    ])
+                  }),
+                  0
+                )
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-horizontal my-2 col-12 flex-wrap" }, [
+            _vm._m(3),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "collapse", attrs: { id: "collapseVelocidad" } },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass: "card card-body",
+                    staticStyle: { "background-color": "#f7f7f7" }
+                  },
+                  [
+                    _c("vue-slider", {
+                      attrs: {
+                        order: true,
+                        min: 1,
+                        max: 100,
+                        interval: 1,
+                        "tooltip-formatter": _vm.formatter2
+                      },
+                      model: {
+                        value: _vm.value,
+                        callback: function($$v) {
+                          _vm.value = $$v
+                        },
+                        expression: "value"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "row" }, [
+                      _c("div", { staticClass: "col text-left" }, [
+                        _c("span", [
+                          _vm._v(
+                            _vm._s(
+                              _vm.value[0]
+                                .toString()
+                                .replace(
+                                  /(\d)(?:(?=\d+(?=[^\d.]))(?=(?:[0-9]{3})+\b)|(?=\d+(?=\.))(?=(?:[0-9]{3})+(?=\.)))/g,
+                                  "$1,"
+                                )
+                            ) + " Mbps"
+                          )
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col text-right" }, [
+                        _c("span", [
+                          _vm._v(
+                            _vm._s(
+                              _vm.value[1]
+                                .toString()
+                                .replace(
+                                  /(\d)(?:(?=\d+(?=[^\d.]))(?=(?:[0-9]{3})+\b)|(?=\d+(?=\.))(?=(?:[0-9]{3})+(?=\.)))/g,
+                                  "$1,"
+                                )
+                            ) + " Mbps"
+                          )
+                        ])
+                      ])
+                    ])
+                  ],
+                  1
+                )
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-horizontal my-2 col-12 flex-wrap" }, [
+            _vm._m(4),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "collapse", attrs: { id: "collapsePrecio" } },
+              [
+                _vm.orderBy
+                  ? _c(
+                      "div",
+                      {
+                        staticClass: "card card-body",
+                        staticStyle: { "background-color": "#f7f7f7" }
                       },
                       [
-                        _c(
-                          "option",
-                          {
-                            attrs: { selected: "" },
-                            domProps: { value: "asc" }
-                          },
-                          [_vm._v("Ascendente")]
-                        ),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.fromPrice,
+                              expression: "fromPrice"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          staticStyle: { "border-radius": "9px" },
+                          attrs: { id: "precio_bajo", placeholder: " $ Desde" },
+                          domProps: { value: _vm.fromPrice },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.fromPrice = $event.target.value
+                            }
+                          }
+                        }),
                         _vm._v(" "),
-                        _c("option", { domProps: { value: "desc" } }, [
-                          _vm._v("Descendente")
-                        ])
+                        _c("br"),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.toPrice,
+                              expression: "toPrice"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          staticStyle: { "border-radius": "9px" },
+                          attrs: { id: "precio_bajo", placeholder: " $ Hasta" },
+                          domProps: { value: _vm.toPrice },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.toPrice = $event.target.value
+                            }
+                          }
+                        })
                       ]
                     )
-                  ])
-                : _vm._e()
-            ]
-          )
-        ])
-      ]
-    ),
-    _vm._v(" "),
-    _c("div", { staticClass: "ui-content", attrs: { "data-role": "main" } }),
-    _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "card-footer d-flex justify-content-center pb-4" },
-      [
-        _c("div", { staticClass: "col-lg-8 col-md-10 col-sm-10" }, [
-          _c("i", { staticClass: "fa fa-search icon-btn" }),
-          _vm._v(" "),
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-block btn-dark-blue ",
-              on: { click: _vm.emitFilter }
-            },
-            [_vm._v("\n          Buscar\n        ")]
-          )
-        ])
-      ]
-    )
-  ])
+                  : _vm._e()
+              ]
+            )
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "card-footer d-flex justify-content-center pb-4",
+          staticStyle: { "background-color": "#f7f7f7" }
+        },
+        [
+          _c("div", { staticClass: "col-lg-8 col-md-10 col-sm-10" }, [
+            _c("i", { staticClass: "fa fa-search icon-btn" }),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-block btn-dark-blue ",
+                on: { click: _vm.emitFilter }
+              },
+              [_vm._v("\n          Buscar\n        ")]
+            )
+          ])
+        ]
+      )
+    ]
+  )
 }
 var staticRenderFns = [
   function() {
@@ -45770,14 +45696,26 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c(
-      "h5",
-      { staticClass: "filter-card-title font-weight-bold text-center" },
+      "div",
+      {
+        staticClass: "d-flex flex-column justify-content-between",
+        staticStyle: { width: "100%" }
+      },
       [
-        _c("i", {
-          staticClass: "fas fa-filter",
-          staticStyle: { color: "#606060" }
-        }),
-        _vm._v("Filtro de búsqueda")
+        _c(
+          "h4",
+          {
+            staticClass: "filter-card-title font-weight-bold text-center",
+            staticStyle: { "align-self": "center" }
+          },
+          [
+            _c("i", {
+              staticClass: "fas fa-filter",
+              staticStyle: { color: "#606060", display: "inline-block" }
+            }),
+            _vm._v("\n        Filtro de búsqueda")
+          ]
+        )
       ]
     )
   },
@@ -47067,7 +47005,7 @@ var render = function() {
                         ? _c("div", [
                             _c("img", {
                               staticClass: "logo-tecnologia",
-                              attrs: { src: "/images/radio.jpg", alt: "" }
+                              attrs: { src: "/images/radio.png", alt: "" }
                             })
                           ])
                         : _vm._e()
@@ -47846,7 +47784,7 @@ var render = function() {
                 bullets: false,
                 autoplay: _vm.offers.length > 1 ? true : false,
                 gap: 3,
-                duration: 10000000,
+                duration: 5000,
                 "visible-slides": _vm.offers.length < 3 ? _vm.offers.length : 3,
                 "slide-ratio": 1 / 4,
                 "dragging-distance": 40,
