@@ -1,56 +1,70 @@
 <template> 
-  <div class="card card-primary filter-card mb-5">
-    <div class="card-body d-flex flex-column align-items-center pt-4">
-      <h5 class="filter-card-title font-weight-bold text-center">
-        <i class="fas fa-filter" style="color:#606060"></i>Filtro de búsqueda</h5> <br>
-<div class="form-horizontal my-2 col-12 flex-wrap" >
-  <div  type="button" data-toggle="collapse" data-target="#collapseProveedor" aria-expanded="false" aria-controls="collapseProveedor" style="display:flex;justify-content: space-between;">
-  <h4 class="btn-block" style="color:#616161; font-family:'Work Sans'; font-weight: 500;">  Proveedor   </h4> <span><i class="fas fa-angle-down" style="margin-left: auto; font-size: 33px;   color: #afaeb4;"></i></span>
-</div>
-<hr style="bcolor:#f7f7f7">
-
-
-
-<div class="collapse" id="collapseProveedor">
-  <div class="card card-body" style="background-color: #f7f7f7;">
-    <div v-for="(value) in providers">
-      <input type="checkbox" :value="value.id" v-model="checked_providers">
-       <label style="font-weight: lighter;  font-family: 'Heebo';" >{{value.name}}</label>
-    </div>
-  </div>
-</div>
-</div>
-
-<div class="form-horizontal my-2 col-12 flex-wrap">
-<div  type="button" data-toggle="collapse" data-target="#collapseTecnologia" aria-expanded="false" aria-controls="collapseTecnologia"  style="display:flex;justify-content: space-between;">
- <h4 class="btn-block" style="color:#616161; font-family:'Work Sans'; font-weight: 500;">  Tecnología   </h4> <span><i class="fas fa-angle-down" style="margin-left: auto; font-size: 33px;   color: #afaeb4;"></i></span>    
+  <div class="card card-primary filter-card mb-5 p-3" style="box-shadow: none;">
+    <div class="card-body d-flex flex-column align-items-center   pt-4" style="box-shadow: none;">
+      <div class="d-flex flex-column justify-content-between" style="width: 100%;">
+      <i class="fas fa-filter" style="color:#606060;display: inline-block;"></i>
+      <h4 class="filter-card-title font-weight-bold text-center" style="align-self: center;" >
+        Filtro de búsqueda</h4>
+     </div>
+         <br>
+      <div class="form-horizontal my-2 col-12 flex-wrap" >
+        <div  type="button" data-toggle="collapse" data-target="#collapseProveedor" aria-expanded="false" aria-controls="collapseProveedor" style="display:flex;justify-content: space-between;">
+          <h4 class="btn-block" style="color:#616161; font-family:'Work Sans'; font-weight: 500;">  Proveedor   </h4> <span><i class="fas fa-angle-down" style="margin-left: auto; font-size: 33px;   color: #afaeb4;"></i></span>
+        </div>
+        <div class="collapse" id="collapseProveedor">
+          <div class="card card-body" style="background-color: #f7f7f7;">
+            <div v-for="(value) in providers">
+              <input type="checkbox" :value="value.id" v-model="checked_providers">
+              <label class="text-ws" style="color: #606060;"  >{{value.name}}</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-horizontal my-2 col-12 flex-wrap">
+        <div  type="button" data-toggle="collapse" data-target="#collapseTecnologia" aria-expanded="false" aria-controls="collapseTecnologia"  style="display:flex;justify-content: space-between;">
+        <h4 class="btn-block" style="color:#616161; font-family:'Work Sans'; font-weight: 500;">  Tecnología   </h4> <span><i class="fas fa-angle-down" style="margin-left: auto; font-size: 33px;   color: #afaeb4;"></i></span>    
  
-</div>
-  <hr>
-<div class="collapse" id="collapseTecnologia">
-  <div class="card card-body">
-        <div v-for="(value) in technologies">
-
-       
-      <input type="checkbox" :value="value.value" v-model="checked_technologies">
-      <label>{{value.value}}</label>
-    </div>
-  </div>
-</div>
-</div>
-
-<div class="form-horizontal my-2 col-12 flex-wrap">
-  <div type="button" data-toggle="collapse" data-target="#collapseVelocidad" aria-expanded="false" aria-controls="collapseVelocidad" style="display:flex;justify-content: space-between;">
- <h4 class="btn-block" style="color:#616161; font-family:'Work Sans'; font-weight: 500;">  Velocidad   </h4> <span><i class="fas fa-angle-down" style="margin-left: auto; font-size: 33px;   color: #afaeb4;"></i></span>
-  </div>
-</p><hr>
+        </div>
+        <div class="collapse" id="collapseTecnologia">
+          <div class="card card-body" style="background-color: #f7f7f7;">
+            <div v-for="(value) in technologies">
+              <input type="checkbox" :value="value.value" v-model="checked_technologies">
+               <label class="text-ws" style="color: #606060" v-if="value.type == 0 ">Fibra</label>
+               <label class="text-ws" style="color: #606060"   v-if="value.type == 1 ">
+           Satelital</label>
+               <label class="text-ws" style="color: #606060"  v-if="value.type == 2 ">
+          FTTH</label>
+               <label class="text-ws" style="color: #606060"  v-if="value.type == 3 ">
+            Cobre</label>
+               <label class="text-ws" style="color: #606060"  v-if="value.type == 4 ">
+           Radio</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-horizontal my-2 col-12 flex-wrap">
+        <div type="button" data-toggle="collapse" data-target="#collapseVelocidad" aria-expanded="false" aria-controls="collapseVelocidad" style="display:flex;justify-content: space-between;">
+          <h4 class="btn-block" style="color:#616161; font-family:'Work Sans'; font-weight: 500;">  Velocidad   </h4> <span><i class="fas fa-angle-down" style="margin-left: auto; font-size: 33px;   color: #afaeb4;"></i></span>
+        </div>
 <div class="collapse" id="collapseVelocidad">
-  <div class="card card-body">
-        <div v-for="(value) in speeds">
-
-      <input type="checkbox" :value="value.value" v-model="checked_speeds">
-       <label>{{value.value}}</label>
-    </div>
+  <div class="card card-body" style="background-color: #f7f7f7;">
+    <vue-slider
+      v-model="value"
+      :order="true"
+      :min="1"
+      :max="100"
+      :interval="1"
+      :tooltip-formatter="formatter2"
+    > </vue-slider>
+       <div class="row">
+     <div class="col text-left">
+        <span>{{value[0].toString().replace(/(\d)(?:(?=\d+(?=[^\d.]))(?=(?:[0-9]{3})+\b)|(?=\d+(?=\.))(?=(?:[0-9]{3})+(?=\.)))/g, "$1,")}} Mbps</span>
+     </div>
+     <div class="col text-right">
+       <span  >{{value[1].toString().replace(/(\d)(?:(?=\d+(?=[^\d.]))(?=(?:[0-9]{3})+\b)|(?=\d+(?=\.))(?=(?:[0-9]{3})+(?=\.)))/g, "$1,")}} Mbps</span> 
+     </div>
+   </div>
+      
   </div>
 </div>
 </div>
@@ -60,60 +74,25 @@
  <h4 class="btn-block" style="color:#616161">  Precio   </h4> <span><i class="fas fa-angle-down" style="margin-left: auto; font-size: 33px;   color: #afaeb4;"></i></span>
 
   </div>
-</p><hr>
+</p>
 <div class="collapse" id="collapsePrecio">
-  <div class="card card-body">
-   <div class="row">
-     <div class="col">
-        <span>{{min_price}} </span>
-     </div>
-     <div class="col">
-       <span style="">{{parseFloat(parserFloat)}}</span> 
-     </div>
-   </div>
-    
-  <vue-slider
-  
-      v-model="value"
-      :order="true"
-      :min="min_price"
-      :max="max_price"
-      :interval="1"
-      :tooltip-formatter="formatter2"
-    > </vue-slider>
+  <div class="card card-body" style="background-color: #f7f7f7;">
+
+     <div class="form-group my-2 col-12 " v-if="orderBy">
+            <input class="form-control" id="precio_bajo" v-model="fromPrice" placeholder="Desde">
+            <input class="form-control" id="precio_bajo" v-model="toPrice" placeholder="Hasta">
+                
+      </div>
+ 
   </div>
 </div>
-</div>
 
 
-      <div class="d-flex flex-column w-100 py-3 px-1">
-        <div class="d-flex flex-row w-100 justify-content-around flex-wrap">
 
-          <div class="form-group my-2 col-12 ">
-            <label for="orderBy" class="filter-card-label">Ordenar por:</label>
-            <select class="custom-select " id="orderBy" v-model="orderBy">
-              <option :value="'tariff'" selected >Precio</option>
-              <option :value="'points'" selected >Puntuación</option>
-              <option v-for="(field, k) in compFields" :key="k" :value="k+1" v-if="field.type=='numeric'" class="text-capitalize">{{field.name}}</option>
-            </select>
-          </div>
-          <div class="form-group my-2 col-12 " v-if="orderBy">
-            <label for="sortBy" class="filter-card-label">Orden:</label>
-            <select class="custom-select " id="sortBy" v-model="orderBySort">
-              <option :value="'asc'" selected >Ascendente</option>
-              <option :value="'desc'" >Descendente</option>
-            </select>
-          </div>
-        </div>
-      </div>
     </div>
 
-   
-  <div data-role="main" class="ui-content">
-
-
   </div>
-    <div class="card-footer d-flex justify-content-center pb-4">
+    <div class="card-footer d-flex justify-content-center pb-4" style="background-color: #f7f7f7;">
       <div class="col-lg-8 col-md-10 col-sm-10">
         <i class="fa fa-search icon-btn"></i>
         <button @click="emitFilter" class="btn btn-block btn-dark-blue ">
@@ -122,6 +101,7 @@
       </div>
     </div>
   </div>
+</div>
 </template>
 
 <script>
@@ -138,8 +118,9 @@ export default {
       checked_speeds:[],
       checked_technologies:[],
       checked_providers:[],
-      value: [0,100000],
-      formatter2: v => `$${('' + (v)).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}`
+      value: [1,100],
+      patron:new RegExp(/\d{1,3}(?:,\d{3})*(?:\.\d+)?/),
+      formatter2: v => `${('' + (v)).replace(/\B(?=(\d{3})+(?!\d))/g, ',')} Mbps`
     }
   },
 

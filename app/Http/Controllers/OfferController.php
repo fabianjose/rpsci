@@ -354,7 +354,26 @@ class OfferController extends Controller{
     ->select("companies.name","companies.id")->distinct();
     $providers = $providers->get();
 
-    $technologies =  DB::table('fields')
+    $technologies =  DB::table('offers')
+   
+->where(function($query) use($data){
+      $query->where("offers.type", $data["offer_type"])
+      ->orWhere("offers.type", null);
+    })
+    ->where('service',$service->id)
+    ->where(function($query) use($department){
+      $query->where('departments', "like" ,'%'.$department->name.'%')
+      ->orWhere("departments",null);
+    })
+    ->where(function($query) use($municipality){
+      $query->where('municipalities', "like" ,'%'.$municipality->name.'%')
+      ->orWhere("municipalities",null);
+    })
+   ->groupBy("offers.tecnologia")
+  ->select("offers.tecnologia as type")
+    ->distinct()->get();
+/*
+
     ->join("fields_values", "fields.id", "=","fields_values.field_id")
     ->join("offers","fields_values.offer_id","=","offers.id")
     ->join("companies","offers.company",'=',"companies.id")
@@ -375,7 +394,7 @@ class OfferController extends Controller{
     })
     ->select("fields_values.value")->distinct()->get();
  
-
+*/
 
     $speeds =  DB::table('fields')
     ->join("fields_values", "fields.id", "=","fields_values.field_id")
