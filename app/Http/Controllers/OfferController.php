@@ -308,7 +308,7 @@ class OfferController extends Controller{
     ->join('fields_values as fs','fs.offer_id','offers.id')
     ->where(function($query) use($data){
       if(isset($data['mins'] ) && isset($data['maxs'] )){
-      $query->where(\DB::raw("convert(fs.value,UNSIGNED)"),">=",$data["mins"]);
+      $query->where(\DB::raw("convert(fs.value,UNSIGNED)"),">=",$data["mins"])->where("fs.field_id","=",'4');
       $query->where(\DB::raw("convert(fs.value,UNSIGNED)"),"<=",$data["maxs"]);}
     })    ->where(function($query) use($data){
       if(isset($data['providers']))
