@@ -3351,6 +3351,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["fields", "providers", "max_price", "min_price", "technologies", "speeds"],
   data: function data() {
@@ -3379,11 +3381,12 @@ __webpack_require__.r(__webpack_exports__);
         searchKey += "&sortBy=" + this.orderBy;
         if (this.orderBySort == "desc") searchKey += "&sortByDesc=true";
       }
+      /*  if(this.value[0]&&this.value[1]!=""){
+          if(!isNaN(this.value[0])) searchKey+="&from="+parseFloat(this.value[0]);
+          if(!isNaN(this.value[1])) searchKey+="&to="+parseFloat(this.value[1]);
+      //    else return toastr.error("El campo 'Desde' es de valor numérico")
+        }*/
 
-      if (this.value[0] && this.value[1] != "") {
-        if (!isNaN(this.value[0])) searchKey += "&from=" + parseFloat(this.value[0]);
-        if (!isNaN(this.value[1])) searchKey += "&to=" + parseFloat(this.value[1]); //    else return toastr.error("El campo 'Desde' es de valor numérico")
-      }
       /* if(this.toPrice&&this.toPrice!=""){
          
          if(!isNaN(this.toPrice)) searchKey+="&to="+parseFloat(this.toPrice);
@@ -45432,9 +45435,9 @@ var render = function() {
                         ],
                         attrs: { type: "checkbox" },
                         domProps: {
-                          value: value.value,
+                          value: value.type,
                           checked: Array.isArray(_vm.checked_technologies)
-                            ? _vm._i(_vm.checked_technologies, value.value) > -1
+                            ? _vm._i(_vm.checked_technologies, value.type) > -1
                             : _vm.checked_technologies
                         },
                         on: {
@@ -45443,7 +45446,7 @@ var render = function() {
                               $$el = $event.target,
                               $$c = $$el.checked ? true : false
                             if (Array.isArray($$a)) {
-                              var $$v = value.value,
+                              var $$v = value.type,
                                 $$i = _vm._i($$a, $$v)
                               if ($$el.checked) {
                                 $$i < 0 &&
@@ -45595,68 +45598,68 @@ var render = function() {
           _c("div", { staticClass: "form-horizontal my-2 col-12 flex-wrap" }, [
             _vm._m(4),
             _vm._v(" "),
-            _c("p"),
-            _vm._v(" "),
             _c(
               "div",
               { staticClass: "collapse", attrs: { id: "collapsePrecio" } },
               [
-                _c(
-                  "div",
-                  {
-                    staticClass: "card card-body",
-                    staticStyle: { "background-color": "#f7f7f7" }
-                  },
-                  [
-                    _vm.orderBy
-                      ? _c("div", { staticClass: "form-group my-2 col-12 " }, [
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.fromPrice,
-                                expression: "fromPrice"
-                              }
-                            ],
-                            staticClass: "form-control",
-                            attrs: { id: "precio_bajo", placeholder: "Desde" },
-                            domProps: { value: _vm.fromPrice },
-                            on: {
-                              input: function($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.fromPrice = $event.target.value
-                              }
+                _vm.orderBy
+                  ? _c(
+                      "div",
+                      {
+                        staticClass: "card card-body",
+                        staticStyle: { "background-color": "#f7f7f7" }
+                      },
+                      [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.fromPrice,
+                              expression: "fromPrice"
                             }
-                          }),
-                          _vm._v(" "),
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.toPrice,
-                                expression: "toPrice"
+                          ],
+                          staticClass: "form-control",
+                          staticStyle: { "border-radius": "9px" },
+                          attrs: { id: "precio_bajo", placeholder: " $ Desde" },
+                          domProps: { value: _vm.fromPrice },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
                               }
-                            ],
-                            staticClass: "form-control",
-                            attrs: { id: "precio_bajo", placeholder: "Hasta" },
-                            domProps: { value: _vm.toPrice },
-                            on: {
-                              input: function($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.toPrice = $event.target.value
-                              }
+                              _vm.fromPrice = $event.target.value
                             }
-                          })
-                        ])
-                      : _vm._e()
-                  ]
-                )
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.toPrice,
+                              expression: "toPrice"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          staticStyle: { "border-radius": "9px" },
+                          attrs: { id: "precio_bajo", placeholder: " $ Hasta" },
+                          domProps: { value: _vm.toPrice },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.toPrice = $event.target.value
+                            }
+                          }
+                        })
+                      ]
+                    )
+                  : _vm._e()
               ]
             )
           ])
@@ -47002,7 +47005,7 @@ var render = function() {
                         ? _c("div", [
                             _c("img", {
                               staticClass: "logo-tecnologia",
-                              attrs: { src: "/images/radio.jpg", alt: "" }
+                              attrs: { src: "/images/radio.png", alt: "" }
                             })
                           ])
                         : _vm._e()
