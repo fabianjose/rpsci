@@ -88,7 +88,7 @@
                             <div   v-if="offer.tecnologia == 3 ">
                                   <img class="logo-tecnologia" src="/images/cobre.png" alt="">
                             </div>
-                            <div   v-if="offer.tecnologia != 0 && offer.tecnologia != 1 && offer.tecnologia != 2 && offer.tecnologia != 3  ">
+                            <div   v-if="offer.tecnologia == 4 ">
                                   <img class="logo-tecnologia" src="/images/radio.jpg" alt="">
                             </div>
                             

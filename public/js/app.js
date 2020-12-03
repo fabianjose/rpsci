@@ -7048,6 +7048,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["pagination", "fields", "query", "lastpage", "providers", "technologies", "max_price", "min_price", "speeds"],
   data: function data() {
@@ -47061,10 +47063,7 @@ var render = function() {
                           ])
                         : _vm._e(),
                       _vm._v(" "),
-                      offer.tecnologia != 0 &&
-                      offer.tecnologia != 1 &&
-                      offer.tecnologia != 2 &&
-                      offer.tecnologia != 3
+                      offer.tecnologia == 4
                         ? _c("div", [
                             _c("img", {
                               staticClass: "logo-tecnologia",
@@ -81168,22 +81167,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue2_datepicker_index_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vue2_datepicker_index_css__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var vue_recaptcha__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-recaptcha */ "./node_modules/vue-recaptcha/dist/vue-recaptcha.es.js");
 /* harmony import */ var vue_resource__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue-resource */ "./node_modules/vue-resource/dist/vue-resource.esm.js");
-/* harmony import */ var vue_slider_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! vue-slider-component */ "./node_modules/vue-slider-component/dist/vue-slider-component.umd.min.js");
-/* harmony import */ var vue_slider_component__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(vue_slider_component__WEBPACK_IMPORTED_MODULE_12__);
-/* harmony import */ var vue_slider_component_theme_default_css__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! vue-slider-component/theme/default.css */ "./node_modules/vue-slider-component/theme/default.css");
-/* harmony import */ var vue_slider_component_theme_default_css__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(vue_slider_component_theme_default_css__WEBPACK_IMPORTED_MODULE_13__);
-/* harmony import */ var vue_loading_overlay__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vue-loading-overlay */ "./node_modules/vue-loading-overlay/dist/vue-loading.min.js");
-/* harmony import */ var vue_loading_overlay__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(vue_loading_overlay__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var vue_loading_overlay_dist_vue_loading_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vue-loading-overlay/dist/vue-loading.css */ "./node_modules/vue-loading-overlay/dist/vue-loading.css");
-/* harmony import */ var vue_loading_overlay_dist_vue_loading_css__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(vue_loading_overlay_dist_vue_loading_css__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var vueperslides__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vueperslides */ "./node_modules/vueperslides/dist/vueperslides.common.js");
-/* harmony import */ var vueperslides__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(vueperslides__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var vueperslides_dist_vueperslides_css__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! vueperslides/dist/vueperslides.css */ "./node_modules/vueperslides/dist/vueperslides.css");
-/* harmony import */ var vueperslides_dist_vueperslides_css__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(vueperslides_dist_vueperslides_css__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_10__);
-/* harmony import */ var vue2_google_maps__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! vue2-google-maps */ "./node_modules/vue2-google-maps/dist/main.js");
-/* harmony import */ var vue2_google_maps__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(vue2_google_maps__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var vue_slider_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue-slider-component */ "./node_modules/vue-slider-component/dist/vue-slider-component.umd.min.js");
+/* harmony import */ var vue_slider_component__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(vue_slider_component__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var vue_slider_component_theme_default_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vue-slider-component/theme/default.css */ "./node_modules/vue-slider-component/theme/default.css");
+/* harmony import */ var vue_slider_component_theme_default_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(vue_slider_component_theme_default_css__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var vue_loading_overlay__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vue-loading-overlay */ "./node_modules/vue-loading-overlay/dist/vue-loading.min.js");
+/* harmony import */ var vue_loading_overlay__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(vue_loading_overlay__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var vue_loading_overlay_dist_vue_loading_css__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vue-loading-overlay/dist/vue-loading.css */ "./node_modules/vue-loading-overlay/dist/vue-loading.css");
+/* harmony import */ var vue_loading_overlay_dist_vue_loading_css__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(vue_loading_overlay_dist_vue_loading_css__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var vueperslides__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! vueperslides */ "./node_modules/vueperslides/dist/vueperslides.common.js");
+/* harmony import */ var vueperslides__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(vueperslides__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var vueperslides_dist_vueperslides_css__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! vueperslides/dist/vueperslides.css */ "./node_modules/vueperslides/dist/vueperslides.css");
+/* harmony import */ var vueperslides_dist_vueperslides_css__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(vueperslides_dist_vueperslides_css__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var vue2_google_maps__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! vue2-google-maps */ "./node_modules/vue2-google-maps/dist/main.js");
+/* harmony import */ var vue2_google_maps__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(vue2_google_maps__WEBPACK_IMPORTED_MODULE_12__);
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -81203,77 +81202,77 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-vue__WEBPACK_IMPORTED_MODULE_10___default.a.component('companies-gestion', __webpack_require__(/*! ./components/companies/gestion/CompaniesGestion.vue */ "./resources/js/components/companies/gestion/CompaniesGestion.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_10___default.a.component('personal-fab', __webpack_require__(/*! ./components/items/personalFab.vue */ "./resources/js/components/items/personalFab.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_10___default.a.component('company-creation', __webpack_require__(/*! ./components/companies/creation/CreationForm.vue */ "./resources/js/components/companies/creation/CreationForm.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_10___default.a.component('company-update', __webpack_require__(/*! ./components/companies/update/updateForm.vue */ "./resources/js/components/companies/update/updateForm.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_10___default.a.component('company', __webpack_require__(/*! ./components/items/companies/company.vue */ "./resources/js/components/items/companies/company.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_10___default.a.component('detailed-company', __webpack_require__(/*! ./components/items/companies/detailedCompany.vue */ "./resources/js/components/items/companies/detailedCompany.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_10___default.a.component('c-modal', __webpack_require__(/*! ./components/items/modal/modal.vue */ "./resources/js/components/items/modal/modal.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_10___default.a.component('banners-gestion', __webpack_require__(/*! ./components/companies/gestion/BannersGestion.vue */ "./resources/js/components/companies/gestion/BannersGestion.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_10___default.a.component('company-highlight', __webpack_require__(/*! ./components/companies/creation/HighlightForm.vue */ "./resources/js/components/companies/creation/HighlightForm.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_10___default.a.component("company-select", __webpack_require__(/*! ./components/items/companies/select.vue */ "./resources/js/components/items/companies/select.vue")["default"]); // Ofertas
+vue__WEBPACK_IMPORTED_MODULE_11___default.a.component('companies-gestion', __webpack_require__(/*! ./components/companies/gestion/CompaniesGestion.vue */ "./resources/js/components/companies/gestion/CompaniesGestion.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_11___default.a.component('personal-fab', __webpack_require__(/*! ./components/items/personalFab.vue */ "./resources/js/components/items/personalFab.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_11___default.a.component('company-creation', __webpack_require__(/*! ./components/companies/creation/CreationForm.vue */ "./resources/js/components/companies/creation/CreationForm.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_11___default.a.component('company-update', __webpack_require__(/*! ./components/companies/update/updateForm.vue */ "./resources/js/components/companies/update/updateForm.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_11___default.a.component('company', __webpack_require__(/*! ./components/items/companies/company.vue */ "./resources/js/components/items/companies/company.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_11___default.a.component('detailed-company', __webpack_require__(/*! ./components/items/companies/detailedCompany.vue */ "./resources/js/components/items/companies/detailedCompany.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_11___default.a.component('c-modal', __webpack_require__(/*! ./components/items/modal/modal.vue */ "./resources/js/components/items/modal/modal.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_11___default.a.component('banners-gestion', __webpack_require__(/*! ./components/companies/gestion/BannersGestion.vue */ "./resources/js/components/companies/gestion/BannersGestion.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_11___default.a.component('company-highlight', __webpack_require__(/*! ./components/companies/creation/HighlightForm.vue */ "./resources/js/components/companies/creation/HighlightForm.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_11___default.a.component("company-select", __webpack_require__(/*! ./components/items/companies/select.vue */ "./resources/js/components/items/companies/select.vue")["default"]); // Ofertas
 
-vue__WEBPACK_IMPORTED_MODULE_10___default.a.component('offers-gestion', __webpack_require__(/*! ./components/offers/gestion/OffersGestion.vue */ "./resources/js/components/offers/gestion/OffersGestion.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_10___default.a.component('offer-creation', __webpack_require__(/*! ./components/offers/creation/CreationForm.vue */ "./resources/js/components/offers/creation/CreationForm.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_10___default.a.component('offer', __webpack_require__(/*! ./components/items/offers/offer.vue */ "./resources/js/components/items/offers/offer.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_10___default.a.component('offerItem', __webpack_require__(/*! ./components/items/offers/offerItem.vue */ "./resources/js/components/items/offers/offerItem.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_10___default.a.component('offer-details', __webpack_require__(/*! ./components/items/offers/detailedOffer.vue */ "./resources/js/components/items/offers/detailedOffer.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_10___default.a.component('offer-update', __webpack_require__(/*! ./components/offers/update/updateForm.vue */ "./resources/js/components/offers/update/updateForm.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_10___default.a.component("offer-card", __webpack_require__(/*! ./components/items/offers/offerCard.vue */ "./resources/js/components/items/offers/offerCard.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_10___default.a.component("offers-filter", __webpack_require__(/*! ./components/offers/filter */ "./resources/js/components/offers/filter/index.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_10___default.a.component("offer-consult", __webpack_require__(/*! ./components/forms/contact-modal */ "./resources/js/components/forms/contact-modal/index.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_10___default.a.component("offer-modal", __webpack_require__(/*! ./components/items/offers/offerCardDetailed.vue */ "./resources/js/components/items/offers/offerCardDetailed.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_10___default.a.component("offer-detailed", __webpack_require__(/*! ./components/offers/detailed */ "./resources/js/components/offers/detailed/index.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_10___default.a.component("offer-clone", __webpack_require__(/*! ./components/offers/cloning */ "./resources/js/components/offers/cloning/index.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_10___default.a.component("offer-zone", __webpack_require__(/*! ./components/items/zone/offerZone.vue */ "./resources/js/components/items/zone/offerZone.vue")["default"]); // Servicios
+vue__WEBPACK_IMPORTED_MODULE_11___default.a.component('offers-gestion', __webpack_require__(/*! ./components/offers/gestion/OffersGestion.vue */ "./resources/js/components/offers/gestion/OffersGestion.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_11___default.a.component('offer-creation', __webpack_require__(/*! ./components/offers/creation/CreationForm.vue */ "./resources/js/components/offers/creation/CreationForm.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_11___default.a.component('offer', __webpack_require__(/*! ./components/items/offers/offer.vue */ "./resources/js/components/items/offers/offer.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_11___default.a.component('offerItem', __webpack_require__(/*! ./components/items/offers/offerItem.vue */ "./resources/js/components/items/offers/offerItem.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_11___default.a.component('offer-details', __webpack_require__(/*! ./components/items/offers/detailedOffer.vue */ "./resources/js/components/items/offers/detailedOffer.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_11___default.a.component('offer-update', __webpack_require__(/*! ./components/offers/update/updateForm.vue */ "./resources/js/components/offers/update/updateForm.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_11___default.a.component("offer-card", __webpack_require__(/*! ./components/items/offers/offerCard.vue */ "./resources/js/components/items/offers/offerCard.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_11___default.a.component("offers-filter", __webpack_require__(/*! ./components/offers/filter */ "./resources/js/components/offers/filter/index.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_11___default.a.component("offer-consult", __webpack_require__(/*! ./components/forms/contact-modal */ "./resources/js/components/forms/contact-modal/index.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_11___default.a.component("offer-modal", __webpack_require__(/*! ./components/items/offers/offerCardDetailed.vue */ "./resources/js/components/items/offers/offerCardDetailed.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_11___default.a.component("offer-detailed", __webpack_require__(/*! ./components/offers/detailed */ "./resources/js/components/offers/detailed/index.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_11___default.a.component("offer-clone", __webpack_require__(/*! ./components/offers/cloning */ "./resources/js/components/offers/cloning/index.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_11___default.a.component("offer-zone", __webpack_require__(/*! ./components/items/zone/offerZone.vue */ "./resources/js/components/items/zone/offerZone.vue")["default"]); // Servicios
 
-vue__WEBPACK_IMPORTED_MODULE_10___default.a.component('service-creation', __webpack_require__(/*! ./components/services/creation/creationForm.vue */ "./resources/js/components/services/creation/creationForm.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_10___default.a.component('service-gestion', __webpack_require__(/*! ./components/services/gestion/gestion.vue */ "./resources/js/components/services/gestion/gestion.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_10___default.a.component('service', __webpack_require__(/*! ./components/items/services/service.vue */ "./resources/js/components/items/services/service.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_10___default.a.component('service-details', __webpack_require__(/*! ./components/items/services/detailedService.vue */ "./resources/js/components/items/services/detailedService.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_10___default.a.component('service-update', __webpack_require__(/*! ./components/services/update/updateForm.vue */ "./resources/js/components/services/update/updateForm.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_10___default.a.component('location-creation', __webpack_require__(/*! ./components/locations/creation/creationForm.vue */ "./resources/js/components/locations/creation/creationForm.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_10___default.a.component('sub-location-creation', __webpack_require__(/*! ./components/locations/creation/subCreationForm.vue */ "./resources/js/components/locations/creation/subCreationForm.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_10___default.a.component('locations-gestion', __webpack_require__(/*! ./components/locations/gestion/gestion.vue */ "./resources/js/components/locations/gestion/gestion.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_10___default.a.component('zone-item', __webpack_require__(/*! ./components/items/zone/zoneItem.vue */ "./resources/js/components/items/zone/zoneItem.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_10___default.a.component("zone-custom-selection", __webpack_require__(/*! ./components/items/zone/ZoneSelectOffer.vue */ "./resources/js/components/items/zone/ZoneSelectOffer.vue")["default"]); // Vue.component('location-details', require('./components/items/locations/detailedLocation.vue').default);
+vue__WEBPACK_IMPORTED_MODULE_11___default.a.component('service-creation', __webpack_require__(/*! ./components/services/creation/creationForm.vue */ "./resources/js/components/services/creation/creationForm.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_11___default.a.component('service-gestion', __webpack_require__(/*! ./components/services/gestion/gestion.vue */ "./resources/js/components/services/gestion/gestion.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_11___default.a.component('service', __webpack_require__(/*! ./components/items/services/service.vue */ "./resources/js/components/items/services/service.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_11___default.a.component('service-details', __webpack_require__(/*! ./components/items/services/detailedService.vue */ "./resources/js/components/items/services/detailedService.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_11___default.a.component('service-update', __webpack_require__(/*! ./components/services/update/updateForm.vue */ "./resources/js/components/services/update/updateForm.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_11___default.a.component('location-creation', __webpack_require__(/*! ./components/locations/creation/creationForm.vue */ "./resources/js/components/locations/creation/creationForm.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_11___default.a.component('sub-location-creation', __webpack_require__(/*! ./components/locations/creation/subCreationForm.vue */ "./resources/js/components/locations/creation/subCreationForm.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_11___default.a.component('locations-gestion', __webpack_require__(/*! ./components/locations/gestion/gestion.vue */ "./resources/js/components/locations/gestion/gestion.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_11___default.a.component('zone-item', __webpack_require__(/*! ./components/items/zone/zoneItem.vue */ "./resources/js/components/items/zone/zoneItem.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_11___default.a.component("zone-custom-selection", __webpack_require__(/*! ./components/items/zone/ZoneSelectOffer.vue */ "./resources/js/components/items/zone/ZoneSelectOffer.vue")["default"]); // Vue.component('location-details', require('./components/items/locations/detailedLocation.vue').default);
 // Vue.component('location-update', require('./components/locations/update/updateForm.vue').default);
 
-vue__WEBPACK_IMPORTED_MODULE_10___default.a.component('plans-creation', __webpack_require__(/*! ./components/plans/creation/creationForm.vue */ "./resources/js/components/plans/creation/creationForm.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_10___default.a.component('plans-gestion', __webpack_require__(/*! ./components/plans/gestion/plansGestion.vue */ "./resources/js/components/plans/gestion/plansGestion.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_10___default.a.component("high-plans", __webpack_require__(/*! ./components/items/offers/highPlans.vue */ "./resources/js/components/items/offers/highPlans.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_10___default.a.component('zone-select', __webpack_require__(/*! ./components/items/zone/zoneSelect.vue */ "./resources/js/components/items/zone/zoneSelect.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_10___default.a.component("contact-form", __webpack_require__(/*! ./components/forms/contact-form */ "./resources/js/components/forms/contact-form/index.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_10___default.a.component("general-contact", __webpack_require__(/*! ./components/forms/general-contact */ "./resources/js/components/forms/general-contact/index.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_10___default.a.component("search-form", __webpack_require__(/*! ./components/forms/search */ "./resources/js/components/forms/search/index.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_10___default.a.component("filter-card", __webpack_require__(/*! ./components/forms/filterOffers */ "./resources/js/components/forms/filterOffers/index.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_10___default.a.component("companies-slider", __webpack_require__(/*! ./components/companies/listSlider */ "./resources/js/components/companies/listSlider.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_10___default.a.component("filter-table", __webpack_require__(/*! ./components/items/offers-table */ "./resources/js/components/items/offers-table/index.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_10___default.a.component("contact-main", __webpack_require__(/*! ./components/contact */ "./resources/js/components/contact/index.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_10___default.a.component("config-gestion", __webpack_require__(/*! ./components/config/gestion */ "./resources/js/components/config/gestion/index.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_10___default.a.component("config-counters", __webpack_require__(/*! ./components/config/counters */ "./resources/js/components/config/counters/index.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_10___default.a.component("counter", __webpack_require__(/*! ./components/items/counters/counter.vue */ "./resources/js/components/items/counters/counter.vue")["default"]); //Vue.component('plans', require('./components/items/plans/plans.vue').default);
+vue__WEBPACK_IMPORTED_MODULE_11___default.a.component('plans-creation', __webpack_require__(/*! ./components/plans/creation/creationForm.vue */ "./resources/js/components/plans/creation/creationForm.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_11___default.a.component('plans-gestion', __webpack_require__(/*! ./components/plans/gestion/plansGestion.vue */ "./resources/js/components/plans/gestion/plansGestion.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_11___default.a.component("high-plans", __webpack_require__(/*! ./components/items/offers/highPlans.vue */ "./resources/js/components/items/offers/highPlans.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_11___default.a.component('zone-select', __webpack_require__(/*! ./components/items/zone/zoneSelect.vue */ "./resources/js/components/items/zone/zoneSelect.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_11___default.a.component("contact-form", __webpack_require__(/*! ./components/forms/contact-form */ "./resources/js/components/forms/contact-form/index.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_11___default.a.component("general-contact", __webpack_require__(/*! ./components/forms/general-contact */ "./resources/js/components/forms/general-contact/index.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_11___default.a.component("search-form", __webpack_require__(/*! ./components/forms/search */ "./resources/js/components/forms/search/index.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_11___default.a.component("filter-card", __webpack_require__(/*! ./components/forms/filterOffers */ "./resources/js/components/forms/filterOffers/index.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_11___default.a.component("companies-slider", __webpack_require__(/*! ./components/companies/listSlider */ "./resources/js/components/companies/listSlider.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_11___default.a.component("filter-table", __webpack_require__(/*! ./components/items/offers-table */ "./resources/js/components/items/offers-table/index.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_11___default.a.component("contact-main", __webpack_require__(/*! ./components/contact */ "./resources/js/components/contact/index.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_11___default.a.component("config-gestion", __webpack_require__(/*! ./components/config/gestion */ "./resources/js/components/config/gestion/index.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_11___default.a.component("config-counters", __webpack_require__(/*! ./components/config/counters */ "./resources/js/components/config/counters/index.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_11___default.a.component("counter", __webpack_require__(/*! ./components/items/counters/counter.vue */ "./resources/js/components/items/counters/counter.vue")["default"]); //Vue.component('plans', require('./components/items/plans/plans.vue').default);
 //Vue.component('plans-details', require('./components/items/services/detailedService.vue').default);
 //Vue.component('plans-update', require('./components/services/update/updateForm.vue').default);
 // Libreria de autocompletado
 
 
-vue__WEBPACK_IMPORTED_MODULE_10___default.a.component('autocomplete-vue', autocomplete_vue__WEBPACK_IMPORTED_MODULE_0___default.a); // Datepicker para las fechas;
+vue__WEBPACK_IMPORTED_MODULE_11___default.a.component('autocomplete-vue', autocomplete_vue__WEBPACK_IMPORTED_MODULE_0___default.a); // Datepicker para las fechas;
 
 
 
-vue__WEBPACK_IMPORTED_MODULE_10___default.a.component('datetimepicker', vue2_datepicker__WEBPACK_IMPORTED_MODULE_1__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_11___default.a.component('datetimepicker', vue2_datepicker__WEBPACK_IMPORTED_MODULE_1__["default"]);
 
-vue__WEBPACK_IMPORTED_MODULE_10___default.a.component('vue-recaptcha', vue_recaptcha__WEBPACK_IMPORTED_MODULE_3__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_11___default.a.component('vue-recaptcha', vue_recaptcha__WEBPACK_IMPORTED_MODULE_3__["default"]);
 
-vue__WEBPACK_IMPORTED_MODULE_10___default.a.use(vue_resource__WEBPACK_IMPORTED_MODULE_4__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_11___default.a.use(vue_resource__WEBPACK_IMPORTED_MODULE_4__["default"]);
 
  //Loader usado
 
 
 
-vue__WEBPACK_IMPORTED_MODULE_10___default.a.use(vue_loading_overlay__WEBPACK_IMPORTED_MODULE_6___default.a, {
+vue__WEBPACK_IMPORTED_MODULE_11___default.a.use(vue_loading_overlay__WEBPACK_IMPORTED_MODULE_7___default.a, {
   loader: "spinner",
   color: "#20adf4",
   isFullPage: true,
@@ -81285,12 +81284,12 @@ vue__WEBPACK_IMPORTED_MODULE_10___default.a.use(vue_loading_overlay__WEBPACK_IMP
 
 
 
-vue__WEBPACK_IMPORTED_MODULE_10___default.a.component('vueper-slides', vueperslides__WEBPACK_IMPORTED_MODULE_8__["VueperSlides"]);
-vue__WEBPACK_IMPORTED_MODULE_10___default.a.component('vueper-slide', vueperslides__WEBPACK_IMPORTED_MODULE_8__["VueperSlide"]);
+vue__WEBPACK_IMPORTED_MODULE_11___default.a.component('vueper-slides', vueperslides__WEBPACK_IMPORTED_MODULE_9__["VueperSlides"]);
+vue__WEBPACK_IMPORTED_MODULE_11___default.a.component('vueper-slide', vueperslides__WEBPACK_IMPORTED_MODULE_9__["VueperSlide"]);
 
 
-vue__WEBPACK_IMPORTED_MODULE_10___default.a.component('vue-slider', vue_slider_component__WEBPACK_IMPORTED_MODULE_12___default.a);
-vue__WEBPACK_IMPORTED_MODULE_10___default.a.use(vue2_google_maps__WEBPACK_IMPORTED_MODULE_11__, {
+vue__WEBPACK_IMPORTED_MODULE_11___default.a.component('vue-slider', vue_slider_component__WEBPACK_IMPORTED_MODULE_5___default.a);
+vue__WEBPACK_IMPORTED_MODULE_11___default.a.use(vue2_google_maps__WEBPACK_IMPORTED_MODULE_12__, {
   load: {
     key: "AIzaSyBL0ZT5AWyMHUGkuGVuSbqHwZx_3dr6MU0",
     libraries: 'places' // This is required if you use the Autocomplete plugin
@@ -81306,7 +81305,7 @@ var jwtToken = document.head.querySelector('meta[name="jwt-token"]');
 
 if (jwtToken) {
   console.log("header setting", 'Bearer ' + jwtToken.content);
-  vue__WEBPACK_IMPORTED_MODULE_10___default.a.http.headers.common['Authorization'] = 'Bearer ' + jwtToken.content;
+  vue__WEBPACK_IMPORTED_MODULE_11___default.a.http.headers.common['Authorization'] = 'Bearer ' + jwtToken.content;
 } else {
   console.error('JWT token not found');
 }
@@ -81318,7 +81317,7 @@ if (jwtToken) {
  */
 
 
-var app = new vue__WEBPACK_IMPORTED_MODULE_10___default.a({
+var app = new vue__WEBPACK_IMPORTED_MODULE_11___default.a({
   el: '#app',
   components: {}
 });

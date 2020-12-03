@@ -9,6 +9,8 @@
         <offer-consult v-if="currentItem&&consultMode" :offerMode="true" :offer="currentItem"></offer-consult>
         <offer-modal v-if="currentItem&&viewMode" :offer="currentItem" ></offer-modal>
     </div>
+
+    
 </template>
 
 <script>
@@ -84,4 +86,6 @@ export default {
     
 }
 </script>
+
+
 

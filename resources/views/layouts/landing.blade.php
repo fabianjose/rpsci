@@ -2,6 +2,7 @@
 @section('content')
     <meta name="description" content=""/>
     <link rel="preconnect" href="https://fonts.gstatic.com">
+   
 <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,600;0,700;1,200&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <meta name="keywords" content="contrata internet, contratar internet, internet hogar,
@@ -13,7 +14,7 @@
     telefonia ip, telefonia movil, voz sobre ip, telefonos grandStream, internexa, 
     azteca comunicaciones, HughesNet, ETB, Voip, telefonia en la nube, central virtual">
 
-
+<!-- Load Facebook SDK for JavaScript -->
 
 
     <div class="content">
@@ -220,6 +221,30 @@
         <div class="whatsapp">
             <a target="_blank"href="https://api.whatsapp.com/send?phone=573212120281&text=hola, me gustaria saber de los planes"> <img src="{{asset('/images/whatsapp.png')}}" width="67" height="67"> </a>
         </div>
-  </div>
+    <!-- Load Facebook SDK for JavaScript -->
+    <div id="fb-root"></div>
+      <script>
+        window.fbAsyncInit = function() {
+          FB.init({
+            xfbml            : true,
+            version          : 'v9.0'
+          });
+        };
+
+        (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/es_LA/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));</script>
+
+      <!-- Your Chat Plugin code -->
+      <div class="fb-customerchat"
+        attribution=setup_tool
+        page_id="173001153127662"
+  logged_in_greeting="Bienvenido, Cuentanos en que podemos ayudarte?"
+  logged_out_greeting="Bienvenido, Cuentanos en que podemos ayudarte?">
+      </div>
 
 @stop
