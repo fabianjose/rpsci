@@ -47846,7 +47846,7 @@ var render = function() {
                 bullets: false,
                 autoplay: _vm.offers.length > 1 ? true : false,
                 gap: 3,
-                duration: 10000000,
+                duration: 5000,
                 "visible-slides": _vm.offers.length < 3 ? _vm.offers.length : 3,
                 "slide-ratio": 1 / 4,
                 "dragging-distance": 40,
