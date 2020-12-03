@@ -2,8 +2,9 @@
   <div class="card card-primary filter-card mb-5 p-3" style="box-shadow: none;">
     <div class="card-body d-flex flex-column align-items-center   pt-4" style="box-shadow: none;">
       <div class="d-flex flex-column justify-content-between" style="width: 100%;">
-      <i class="fas fa-filter" style="color:#606060;display: inline-block;"></i>
-      <h4 class="filter-card-title font-weight-bold text-center" style="align-self: center;" >
+      
+      <h4  class="filter-card-title font-weight-bold text-center" style="align-self: center;" >
+        <i class="fas fa-filter" style="color:#606060;display: inline-block;">    </i>
         Filtro de búsqueda</h4>
      </div>
          <br>
