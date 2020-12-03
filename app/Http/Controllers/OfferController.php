@@ -297,16 +297,12 @@ class OfferController extends Controller{
     })
     ->join('companies','companies.id','offers.company')
     ->join('services', 'services.id','offers.service')
-    ->join('fields_values as ft','ft.offer_id','offers.id')
     ->where(function($query) use($data){
       if(isset($data['technologies']))
       foreach ($data['technologies'] as  $k => $t) {
-       if($k = 0) $query->where('ft.value',"like","%$t%")
-        ->where('ft.field_id','=','3')
-        ->where('ft.trash',0);
-        else $query->orWhere('ft.value',"like","%$t%")
-        ->where('ft.field_id','=','3')
-        ->where('ft.trash',0);
+       if($k = 0) $query->where('offers.tecnologia',"=",$t);
+        
+        else $query->orWhere('offers.tecnologia',"=",$t);
       }
     })
     ->join('fields_values as fs','fs.offer_id','offers.id')
@@ -354,9 +350,7 @@ class OfferController extends Controller{
     ->select("companies.name","companies.id")->distinct();
     $providers = $providers->get();
 
-    $technologies =  DB::table('offers')
-   
-->where(function($query) use($data){
+    $technologies =  DB::table('offers')->where(function($query) use($data){
       $query->where("offers.type", $data["offer_type"])
       ->orWhere("offers.type", null);
     })
