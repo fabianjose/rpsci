@@ -140,14 +140,20 @@ export default {
         if(!isNaN(this.value[1])) searchKey+="&to="+parseFloat(this.value[1]);
     //    else return toastr.error("El campo 'Desde' es de valor numérico")
       }*/
+ if(this.fromPrice&&this.fromPrice!=""){
+        
+        if(!isNaN(this.fromPrice)) searchKey+="&from="+parseFloat(this.fromPrice);
 
-     /* if(this.toPrice&&this.toPrice!=""){
+        else return toastr.error("El campo 'Desde' es de valor numérico")
+        
+      }
+     if(this.toPrice&&this.toPrice!=""){
         
         if(!isNaN(this.toPrice)) searchKey+="&to="+parseFloat(this.toPrice);
 
         else return toastr.error("El campo 'Hasta' es de valor numérico")
         
-      }*/
+      }
       if(this.checked_technologies.lenght != 0){
         searchKey+="&technologies="+this.checked_technologies;
       }
