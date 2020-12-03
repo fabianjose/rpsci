@@ -45557,33 +45557,11 @@ var render = function() {
                     _vm._v(" "),
                     _c("div", { staticClass: "row" }, [
                       _c("div", { staticClass: "col text-left" }, [
-                        _c("span", [
-                          _vm._v(
-                            _vm._s(
-                              _vm.value[0]
-                                .toString()
-                                .replace(
-                                  /(\d)(?:(?=\d+(?=[^\d.]))(?=(?:[0-9]{3})+\b)|(?=\d+(?=\.))(?=(?:[0-9]{3})+(?=\.)))/g,
-                                  "$1,"
-                                )
-                            ) + " Mbps"
-                          )
-                        ])
+                        _c("span", [_vm._v(_vm._s(_vm.value[0]) + " Mbps")])
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "col text-right" }, [
-                        _c("span", [
-                          _vm._v(
-                            _vm._s(
-                              _vm.value[1]
-                                .toString()
-                                .replace(
-                                  /(\d)(?:(?=\d+(?=[^\d.]))(?=(?:[0-9]{3})+\b)|(?=\d+(?=\.))(?=(?:[0-9]{3})+(?=\.)))/g,
-                                  "$1,"
-                                )
-                            ) + " Mbps"
-                          )
-                        ])
+                        _c("span", [_vm._v(_vm._s(_vm.value[1]) + " Mbps")])
                       ])
                     ])
                   ],

@@ -59,10 +59,10 @@
     > </vue-slider>
        <div class="row">
      <div class="col text-left">
-        <span>{{value[0].toString().replace(/(\d)(?:(?=\d+(?=[^\d.]))(?=(?:[0-9]{3})+\b)|(?=\d+(?=\.))(?=(?:[0-9]{3})+(?=\.)))/g, "$1,")}} Mbps</span>
+        <span>{{value[0]}} Mbps</span>
      </div>
      <div class="col text-right">
-       <span  >{{value[1].toString().replace(/(\d)(?:(?=\d+(?=[^\d.]))(?=(?:[0-9]{3})+\b)|(?=\d+(?=\.))(?=(?:[0-9]{3})+(?=\.)))/g, "$1,")}} Mbps</span> 
+       <span  >{{value[1]}} Mbps</span> 
      </div>
    </div>
       
