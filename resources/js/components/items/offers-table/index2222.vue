@@ -83,7 +83,7 @@
                                   <img class="logo-tecnologia" src="/images/satelital11.png" alt="">
                             </div>
                             <div   v-if="offer.tecnologia == 2">
-                                  <img class="logo-tecnologia" src="/images/Fibra111.png" alt="">
+                                  <img class="logo-tecnologia" src="/images/ftth.png" alt="">
                             </div>
                             <div   v-if="offer.tecnologia == 3 ">
                                   <img class="logo-tecnologia" src="/images/cobre.png" alt="">
