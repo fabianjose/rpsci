@@ -46959,7 +46959,7 @@ var render = function() {
                         ? _c("div", [
                             _c("img", {
                               staticClass: "logo-tecnologia",
-                              attrs: { src: "/images/ftth.png", alt: "" }
+                              attrs: { src: "/images/Fibra111.png", alt: "" }
                             })
                           ])
                         : _vm._e(),
@@ -47756,7 +47756,7 @@ var render = function() {
                 bullets: false,
                 autoplay: _vm.offers.length > 1 ? true : false,
                 gap: 3,
-                duration: 5000,
+                duration: 1000,
                 "visible-slides": _vm.offers.length < 3 ? _vm.offers.length : 3,
                 "slide-ratio": 1 / 4,
                 "dragging-distance": 40,
@@ -84595,8 +84595,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\RPCS_SOLUTIONS\rpsci\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\RPCS_SOLUTIONS\rpsci\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\contratainternetfinal\rpsci\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\contratainternetfinal\rpsci\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),
