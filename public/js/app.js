@@ -3357,8 +3357,8 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       orderBy: "tariff",
-      fromPrice: null,
-      toPrice: null,
+      fromPrice: this.min_price,
+      toPrice: this.max_price,
       orderBySort: "desc",
       checked_technologies: [],
       checked_providers: [],
@@ -45622,7 +45622,7 @@ var render = function() {
                           ],
                           staticClass: "form-control",
                           staticStyle: { "border-radius": "9px" },
-                          attrs: { id: "precio_bajo", placeholder: " $ Hasta" },
+                          attrs: { id: "precio_alto", placeholder: " $ Hasta" },
                           domProps: { value: _vm.toPrice },
                           on: {
                             input: function($event) {

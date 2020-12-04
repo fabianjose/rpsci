@@ -82,7 +82,7 @@
 " id="precio_bajo" v-model="fromPrice" placeholder=" $ Desde">
             <br>
             <input class="form-control" style="    border-radius: 9px;
-" id="precio_bajo" v-model="toPrice" placeholder=" $ Hasta">
+" id="precio_alto" v-model="toPrice" placeholder=" $ Hasta">
                 
       
  
@@ -114,8 +114,8 @@ export default {
   data(){
     return{
       orderBy:"tariff",
-      fromPrice:null,
-      toPrice:null,
+      fromPrice:this.min_price,
+      toPrice:this.max_price,
       orderBySort:"desc",
       checked_technologies:[],
       checked_providers:[],
