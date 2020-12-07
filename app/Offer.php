@@ -115,4 +115,34 @@ class Offer extends Model{
 
   }
 
+  public static function joinFieldsCondition($offersArray,$data){
+    foreach ($offersArray as $offer) {
+      if($offer)
+      $offer->fields_values=DB::table('fields_values')
+      ->join("fields", "fields.id", "fields_values.field_id")
+      ->where("fields_values.offer_id", $offer->id)
+      ->where("fields_values.trash", 0)
+      ->limit(2)
+      ->orderBy("fields_values.field_id","asc")
+      ->select("fields_values.value", "fields.name as field_name", "fields.unit as unit", "fields.id as field_id")
+      ->get();
+
+    }
+    if(isset($data['speeds'])){
+      $offersArrayNew=[];
+      foreach ($offersArray as $key => $offer) {
+
+        foreach ($offer->fields_values as $fs) {
+          if($fs->field_id == 4 && ($fs->value >= $data['speeds'][0] && $fs->value <= $data['speeds'][1])){
+            array_push($offersArrayNew,$offer);
+          }
+        }
+      }
+      return $offersArrayNew;
+    }
+
+    return $offersArray;
+
+  }
+
 }

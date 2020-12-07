@@ -157,14 +157,14 @@ class OfferController extends Controller{
     $offers=Offer::joinFields($offers->toArray());
 
     if (!$offers) return response()->json(["errorMessage"=>'No se encontraron ofertas disponibles'],404);
-		return response()->json($offers, 200);
+    return response()->json($offers, 200);
 
-	}
+  }
 
-	public function getOffer(Request $request,$id){
-		$offer = Offer::find($id);
-		if (!$offer) return response()->json('Oferta no encontrada',404);
-		$offer = DB::table('offers')->where('offers.id',$id)->where('offers.trash',0)
+  public function getOffer(Request $request,$id){
+    $offer = Offer::find($id);
+    if (!$offer) return response()->json('Oferta no encontrada',404);
+    $offer = DB::table('offers')->where('offers.id',$id)->where('offers.trash',0)
     ->join('companies','companies.id','offers.company')
     ->join('services', 'services.id','offers.service')
     ->select('offers.*',
@@ -180,8 +180,8 @@ class OfferController extends Controller{
       return view("pages.detailedOffer")->with(["offer"=>$offer]);
     }
     if (!$offer) return response()->json('Oferta no encontrada',404);
-		return response()->json($offer, 200);
-	}
+    return response()->json($offer, 200);
+  }
 
   public function getByLocation(Request $request){
     $data = $request->all();
@@ -245,7 +245,7 @@ class OfferController extends Controller{
     
     
     if (!$offers) return response()->json(["errorMessage"=>'No se encontraron ofertas sin destacar'],404);
-		return response()->json($offers, 200);
+    return response()->json($offers, 200);
   }//here
 
   public function searchOffers(Request $request){
@@ -260,6 +260,7 @@ class OfferController extends Controller{
     }
     if(isset($data["speeds"])){
       $data["speeds"] = explode(",",$data["speeds"]);
+      // return response()->json(["asdasdasd"=>$data["speeds"]], 200);
     }
     if(isset($data["providers"])){
       $data["providers"] = explode(",",$data["providers"]);
@@ -305,12 +306,19 @@ class OfferController extends Controller{
         else $query->orWhere('offers.tecnologia',"=",$t);
       }
     })
-    ->join('fields_values as fs','fs.offer_id','offers.id')
+    /*->join('fields_values as fs','fs.offer_id','offers.id')
     ->where(function($query) use($data){
-      if(isset($data['mins'] ) && isset($data['maxs'] )){
-      $query->where(\DB::raw("convert(fs.value,UNSIGNED)"),">=",$data["mins"])->where("fs.field_id","=",'4');
-      $query->where(\DB::raw("convert(fs.value,UNSIGNED)"),"<=",$data["maxs"]);}
-    })    ->where(function($query) use($data){
+      if(isset($data['speeds']))
+      foreach ($data['speeds'] as $k => $t) {
+        if($k == 0 )$query->where('fs.value',">=", $t)
+        ->where('fs.field_id','=','4')
+         ->where('fs.trash',0);
+        else $query->orWhere('fs.value',"<=", $t)
+        ->where('fs.field_id','=','4')
+         ->where('fs.trash',0);
+      }
+    })*/
+    ->where(function($query) use($data){
       if(isset($data['providers']))
       foreach ($data['providers'] as  $k => $t) {
        if($k = 0) $query->where('companies.id',"=","$t");
@@ -359,14 +367,13 @@ class OfferController extends Controller{
    ->groupBy("offers.tecnologia")
   ->select("offers.tecnologia as type")
     ->distinct()->get();
+/*
 
-    $speeds =  DB::table('fields')
     ->join("fields_values", "fields.id", "=","fields_values.field_id")
     ->join("offers","fields_values.offer_id","=","offers.id")
     ->join("companies","offers.company",'=',"companies.id")
     ->where('offers.trash',0)
-    ->where("fields.id",'=','4')
-    ->where("fields_values.value","<>","")
+    ->where("fields.id",'=','3')
      ->where(function($query) use($data){
       $query->where("offers.type", $data["offer_type"])
       ->orWhere("offers.type", null);
@@ -379,8 +386,36 @@ class OfferController extends Controller{
     ->where(function($query) use($municipality){
       $query->where('municipalities', "like" ,'%'.$municipality->name.'%')
       ->orWhere("municipalities",null);
-    })->select(\DB::raw('min(CONVERT(fields_values.value, UNSIGNED)) as mins,max(CONVERT(fields_values.value, UNSIGNED)) as maxs'));
- $speeds = $speeds->get()[0];
+    })
+    ->select("fields_values.value")->distinct()->get();
+ 
+*/
+
+
+    $speeds =  DB::table('fields')
+    ->join("fields_values", "fields.id", "=","fields_values.field_id")
+    ->join("offers","fields_values.offer_id","=","offers.id")
+    ->join("companies","offers.company",'=',"companies.id")
+    ->where('offers.trash',0)
+    ->where("fields.id",'=','4')
+     ->where(function($query) use($data){
+      $query->where("offers.type", $data["offer_type"])
+      ->orWhere("offers.type", null);
+    })
+    ->where('service',$service->id)
+    ->where(function($query) use($department){
+      $query->where('departments', "like" ,'%'.$department->name.'%')
+      ->orWhere("departments",null);
+    })
+    ->where(function($query) use($municipality){
+      $query->where('municipalities', "like" ,'%'.$municipality->name.'%')
+      ->orWhere("municipalities",null);
+    })
+    ->select("fields_values.value")->distinct()->get();
+    
+    $max_speed = $speeds->max("value");
+    $min_speed = $speeds->min("value");
+// dd($min_speed);
     $price = DB::table("offers")
         ->where('offers.trash',0)
       ->where(function($query) use($data){
@@ -398,6 +433,7 @@ class OfferController extends Controller{
     });
     $max_price = $price->max("tariff");
     $min_price = $price->min("tariff");
+    
 
     if (!$offers) return response()->json(["errorMessage"=>'No se encontraron ofertas disponibles'],404);
 
@@ -410,7 +446,13 @@ class OfferController extends Controller{
     }
 
     $offers=$offers->distinct()->get();
-    $offers=Offer::joinFields($offers->toArray());
+    // $offers=Offer::joinFields($offers->toArray());
+    $offers=Offer::joinFieldsCondition($offers->toArray(),$data);
+// return response()->json(["fieldsValuesasds"=>$offers], 200);
+// return response()->json(["fieldsValuesasds"=>$offers->distinct()->get()], 200);
+    /*foreach ($offers as $key => $o) {
+      return response()->json(["fieldsValuesasds"=>$o], 200);
+    }*/
 
     $fields=DB::table("fields")->where("service_id", $service->id)
     ->where("trash",0)
@@ -433,8 +475,10 @@ class OfferController extends Controller{
     $offersArray=[];
 
     foreach ($offers as $offer) {
-      $offer->tariff = round($offer->tariff);
-      array_push($offersArray,$offer);
+      if($offer && $offer->tariff){
+        $offer->tariff = round($offer->tariff);
+        array_push($offersArray,$offer);
+      }
     }
 
     $page=$request->input("page")?$request->input("page"):1;
@@ -442,8 +486,10 @@ class OfferController extends Controller{
     $paginator = new Paginator(array_slice($offersArray,(($page-1)*10),10), 10,$page);
 
     $last_page= max((int) ceil(count($offersArray) / 10), 1);
-   
+    $range_price = array($min_price,$max_price );
     if(!$request->ajax()){
+
+      // return response()->json(["fieldsValuesasds"=>$paginator[0]], 200);
       return view("pages.planComparator")->with(
         ["pagination"=> $paginator,
         "fields"=>$fields, "query"=>$query,
@@ -452,12 +498,18 @@ class OfferController extends Controller{
         "speeds" => $speeds,
         "min_price"=> $min_price,
         "max_price" => $max_price,
+        "max_speed"=> $max_speed,
+        "min_speed" => $min_speed,
         "last_page"=>$last_page]);
     }
-   
+// return "max: " . $max_speed . " min: " . $min_speed;
+
+    // return response()->json(["asdasdasd"=>$offersArray], 200);
     return response()->json(["pagination"=>$paginator,
      "fields"=>$fields,
-      "query"=>$query, 
+      "query"=>$query,
+      "max_speed"=> $max_speed,
+      "min_speed" => $min_speed,
       "last_page"=>$last_page], 200);
 
   }
@@ -570,17 +622,19 @@ class OfferController extends Controller{
 
     $offers=Offer::joinFields($offers->toArray());
 
-		if (!$offers) return response()->json(["errorMessage"=>'No se encontraron ofertas disponibles'],404);
-		return response()->json($offers, 200);
-	}
+    if (!$offers) return response()->json(["errorMessage"=>'No se encontraron ofertas disponibles'],404);
+    return response()->json($offers, 200);
+  }
 
-	public function deleteOffer($id){
-		$offer = Offer::find($id);
-		if (!$offer) return response()->json('Oferta no encontrada',404);
-		$offer->trash = 1;
+  public function deleteOffer($id){
+    $offer = Offer::find($id);
+    if (!$offer) return response()->json('Oferta no encontrada',404);
+    $offer->trash = 1;
     $offer->highlighted = 0;
     $offer->highlighted_expiration = null;
-		if (!$offer->save()) return response()->json('Error en la base de datos',500);
-		return response()->json('Oferta eliminada satisfactoriamente', 200);
+    if (!$offer->save()) return response()->json('Error en la base de datos',500);
+    return response()->json('Oferta eliminada satisfactoriamente', 200);
   }
+
+
 }

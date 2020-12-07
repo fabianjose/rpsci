@@ -1,0 +1,264 @@
+[33mcommit a604165c071c5114f1d6f8aefcdaf088ae387dce[m[33m ([m[1;36mHEAD -> [m[1;32mmaster2[m[33m)[m
+Author: simon jose aguilera gomez <simonfilth86@hotmail.com>
+Date:   Sat Dec 5 20:13:57 2020 -0400
+
+    migrando master2
+
+[33mcommit dd647d4f9d088e0b5e7b10ea01e85805d548465e[m[33m ([m[1;31morigin/master2[m[33m, [m[1;32mmaster3[m[33m)[m
+Author: fabianjose <fabian@remotepcsolutions.com>
+Date:   Thu Dec 3 19:46:09 2020 -0500
+
+    detalles otra vez de tarjetas
+
+[33mcommit 866d98f2f559100b3359fc316fec9de432f6dfc4[m
+Author: David José Márquez Batiz <djmbdv@gmail.com>
+Date:   Thu Dec 3 19:43:34 2020 -0400
+
+    Update OfferController.php
+
+[33mcommit ea90d8e568759dabfb6717155bfdf07a6d9ad21d[m
+Author: David José Márquez Batiz <djmbdv@gmail.com>
+Date:   Thu Dec 3 19:28:32 2020 -0400
+
+    no necesario
+
+[33mcommit 704a1d2736f8916a345ee6e93bb060c7422506fc[m
+Author: David José Márquez Batiz <djmbdv@gmail.com>
+Date:   Thu Dec 3 18:47:11 2020 -0400
+
+    kk
+
+[33mcommit d5fcec99b75ae1423f4fa94813ba6a103d6c821b[m
+Author: David José Márquez Batiz <djmbdv@gmail.com>
+Date:   Thu Dec 3 18:35:16 2020 -0400
+
+    oooooooooo
+
+[33mcommit 5e246eb5cd10115261abef1ecb1c37ea3b96768e[m
+Author: David José Márquez Batiz <djmbdv@gmail.com>
+Date:   Thu Dec 3 17:34:52 2020 -0400
+
+    arreglate nojoda!
+
+[33mcommit 863b4d9339b990d3a1e3b6d494b334af2b2cd4e2[m
+Author: David José Márquez Batiz <djmbdv@gmail.com>
+Date:   Thu Dec 3 17:02:30 2020 -0400
+
+    precio filtro
+
+[33mcommit 1ccb9803408aebc976ba236ffbb30293b6e337c2[m
+Merge: 733d642 b9ec63f
+Author: David José Márquez Batiz <djmbdv@gmail.com>
+Date:   Thu Dec 3 16:56:26 2020 -0400
+
+    Merge branch 'master2' of https://github.com/fabianjose/rpsci into master2
+
+[33mcommit 733d642bc2443db896d268e59fd4e4e65535b588[m
+Author: David José Márquez Batiz <djmbdv@gmail.com>
+Date:   Thu Dec 3 16:56:08 2020 -0400
+
+    velocidad
+
+[33mcommit b9ec63f51ebcf6ce15c0fb0a5da9a9f2236c0a20[m[33m ([m[1;32mb9ec63f51ebcf6ce15c0fb0a5da9a9f2236c0a20[m[33m)[m
+Author: fabian <fabian@remotepcsolutions.com>
+Date:   Thu Dec 3 15:26:18 2020 -0500
+
+    detalles visuales filtro
+
+[33mcommit 4c5512f3cfea420cfadf58212bf26b52cd899abf[m
+Merge: 78ac1f4 60c90f4
+Author: fabian <fabian@remotepcsolutions.com>
+Date:   Thu Dec 3 14:30:33 2020 -0500
+
+    Merge branch 'master2' of https://github.com/fabianjose/rpsci into master2
+
+[33mcommit 78ac1f41206bbc32b8dc40d65a5ea2aad5b4685c[m
+Author: fabian <fabian@remotepcsolutions.com>
+Date:   Thu Dec 3 14:30:29 2020 -0500
+
+    logo filtro
+
+[33mcommit 60c90f4e49e95ce36b38550a08dfa9c2ed2f3890[m
+Author: David José Márquez Batiz <djmbdv@gmail.com>
+Date:   Thu Dec 3 15:28:05 2020 -0400
+
+    kkk
+
+[33mcommit 1ea9b7871618e2eb6ffce11498d138dcab803daf[m
+Merge: f1a1882 ab96da6
+Author: fabian <fabian@remotepcsolutions.com>
+Date:   Thu Dec 3 13:35:25 2020 -0500
+
+    Merge branch 'master2' of https://github.com/fabianjose/rpsci into master2
+
+[33mcommit f1a188205b57ebbf921295e1d8a1b0251a90a9fb[m
+Author: fabian <fabian@remotepcsolutions.com>
+Date:   Thu Dec 3 13:34:52 2020 -0500
+
+    detalles blog
+
+[33mcommit ab96da6c6ed7a32e5762d21ccef7abd406ae7ae9[m
+Author: David José Márquez Batiz <djmbdv@gmail.com>
+Date:   Thu Dec 3 14:34:51 2020 -0400
+
+    cambio
+
+[33mcommit babfc384cf63bdfa38695db88ec04356e8407bc3[m
+Merge: f520835 f2267d4
+Author: David José Márquez Batiz <djmbdv@gmail.com>
+Date:   Thu Dec 3 13:41:57 2020 -0400
+
+    Merge branch 'master2' of https://github.com/fabianjose/rpsci into master2
+
+[33mcommit f520835e1ad646f18f945fdea33e7fe5d1e0683e[m
+Author: David José Márquez Batiz <djmbdv@gmail.com>
+Date:   Thu Dec 3 13:41:45 2020 -0400
+
+    hhh
+
+[33mcommit f2267d43bd1f5f9452e688ad35395d83e9735e62[m
+Author: fabian <fabian@remotepcsolutions.com>
+Date:   Thu Dec 3 11:42:14 2020 -0500
+
+    detalles visuales y script de facebook
+
+[33mcommit a9ca5315ed899583ab6de4078cad7cf568cde45c[m
+Author: fabian <fabian@remotepcsolutions.com>
+Date:   Thu Dec 3 07:55:41 2020 -0500
+
+    ultimos cambios visuales esperando por filtro
+
+[33mcommit 29f2db6e2e83dba3679ff77992260dd35fcfd2a4[m
+Author: David José Márquez Batiz <djmbdv@gmail.com>
+Date:   Wed Dec 2 14:32:51 2020 -0400
+
+    stage
+
+[33mcommit 34784529e0b3ee3f15c3ef1364315a2addb44af6[m
+Merge: 973d68b 8bf9257
+Author: David José Márquez Batiz <djmbdv@gmail.com>
+Date:   Wed Dec 2 13:35:11 2020 -0400
+
+    Merge remote-tracking branch 'origin/master2' into master2
+
+[33mcommit 973d68b5377c2625afa9f8057d72d4e595db2a58[m
+Author: David José Márquez Batiz <djmbdv@gmail.com>
+Date:   Wed Dec 2 13:29:07 2020 -0400
+
+    fsfsd
+
+[33mcommit 8bf92570efe7f4e6858858a2a02b3fc522f3a9ba[m
+Author: fabian <fabian@remotepcsolutions.com>
+Date:   Wed Dec 2 12:27:25 2020 -0500
+
+    detalles en card y en resultados de busqueda
+
+[33mcommit 5eaa039267b14ac10d848df2f6e8cb46abdb3a76[m
+Author: David José Márquez Batiz <djmbdv@gmail.com>
+Date:   Wed Dec 2 13:13:40 2020 -0400
+
+    otra
+
+[33mcommit a756d50722097647e2cd7459d4995bbe9a10d45d[m
+Author: David José Márquez Batiz <djmbdv@gmail.com>
+Date:   Wed Dec 2 13:01:55 2020 -0400
+
+    comit
+
+[33mcommit edb5de4c52fa8054e013982263e60b41f0e34202[m
+Author: fabian <fabian@remotepcsolutions.com>
+Date:   Wed Dec 2 11:32:19 2020 -0500
+
+    borrando todo los datos, detalles visuales,
+
+[33mcommit ef21ec6c24a8dc3184ea03c54c037b6c439f3579[m
+Author: fabian <fabian@remotepcsolutions.com>
+Date:   Tue Dec 1 12:36:51 2020 -0500
+
+    detalles visuales + archivo sqlo
+
+[33mcommit 5f46074a9e888d7cf939e8b55d92def2b8e69c57[m
+Author: fabian <fabian@remotepcsolutions.com>
+Date:   Tue Dec 1 12:12:39 2020 -0500
+
+    detalles visuales
+
+[33mcommit 603ff008961a79148b9c2919cce9208d7ace9d83[m
+Merge: de35796 de35796
+Author: fabian <fabian@remotepcsolutions.com>
+Date:   Mon Nov 30 16:07:14 2020 -0500
+
+    detallito
+
+[33mcommit de35796af2fd83caa6497793d6f461888610cef5[m
+Author: fabian espejo <fabianespejo@MacBook-Pro-de-fabian.local>
+Date:   Mon Nov 30 15:49:19 2020 -0500
+
+    agregando campos de titulos incluyendo base de datos, organizando vistas
+
+[33mcommit cdaa145ddf2507467ca2b29217f243abe442d303[m
+Merge: 0624d4c 6f65604
+Author: David José Márquez Batiz <djmbdv@gmail.com>
+Date:   Sat Nov 28 12:52:24 2020 -0400
+
+    Merge branch 'master2' of https://github.com/fabianjose/rpsci into master2
+
+[33mcommit 0624d4c687cd6f3394d3f20d8c1e1670b8267428[m
+Author: David José Márquez Batiz <djmbdv@gmail.com>
+Date:   Sat Nov 28 12:51:14 2020 -0400
+
+    filtro
+    
+    Co-Authored-By: fabianjose <28871429+fabianjose@users.noreply.github.com>
+
+[33mcommit 6f656043a74fd7e68bdfa327e5524e8e7ba1afc2[m
+Merge: a9cecc9 0be3d9e
+Author: fabian <fabian@remotepcsolutions.com>
+Date:   Fri Nov 27 18:53:02 2020 -0500
+
+    Merge branch 'master2' of https://github.com/fabianjose/rpsci into master2
+
+[33mcommit a9cecc9440b0e6c5aa95223a52898b36bd8f6e08[m
+Author: fabian <fabian@remotepcsolutions.com>
+Date:   Fri Nov 27 18:52:20 2020 -0500
+
+    nuevos logos
+
+[33mcommit 05424a5ec41f08dd105dec652c4e0d6157c34a8d[m
+Author: David José Márquez Batiz <djmbdv@gmail.com>
+Date:   Fri Nov 27 19:25:13 2020 -0400
+
+    v-model
+    
+    Co-Authored-By: fabianjose <28871429+fabianjose@users.noreply.github.com>
+
+[33mcommit 447863c1170a75ac9ed085772b2614adabace6fc[m
+Author: fabian <fabian@remotepcsolutions.com>
+Date:   Fri Nov 27 18:07:43 2020 -0500
+
+    mdificaciones vista movil varias resolucones
+
+[33mcommit 0be3d9e6933a5c33d79fc1505c42a171ee67bbfe[m
+Author: David José Márquez Batiz <djmbdv@gmail.com>
+Date:   Fri Nov 27 17:17:09 2020 -0400
+
+    model
+    
+    Co-Authored-By: fabianjose <28871429+fabianjose@users.noreply.github.com>
+
+[33mcommit 6db970f6f11ca91363593b2eb4e652d2b3dfadea[m
+Merge: fd85ca9 bcf64d3
+Author: fabian <fabian@remotepcsolutions.com>
+Date:   Fri Nov 27 14:34:52 2020 -0500
+
+    Merge branch 'master2' of https://github.com/fabianjose/rpsci into master2
+
+[33mcommit fd85ca993c2b9105ddd477b6eedbb244fd963557[m
+Author: fabian <fabian@remotepcsolutions.com>
+Date:   Fri Nov 27 14:34:47 2020 -0500
+
+    vista movil mejorada
+
+[33mcommit bcf64d30cd7fc7dbdef13c123c10c5d535193e09[m
+Merge: 2f54dd6 5f542d6
+Author: David José Márquez Batiz <d

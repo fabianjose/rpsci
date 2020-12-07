@@ -10,7 +10,7 @@
          <br>
       <div class="form-horizontal my-2 col-12 flex-wrap" >
         <div  type="button" data-toggle="collapse" data-target="#collapseProveedor" aria-expanded="false" aria-controls="collapseProveedor" style="display:flex;justify-content: space-between;">
-          <h4 class="btn-block" style="color:#606060; font-family:'Work Sans'; font-weight: 500;">  Proveedor   </h4> <span><i class="fas fa-angle-down" style="margin-left: auto; font-size: 33px;   color: #afaeb4;"></i></span>
+          <h4 class="btn-block" style="color:#616161; font-family:'Work Sans'; font-weight: 500;">  Proveedor   </h4> <span><i class="fas fa-angle-down" style="margin-left: auto; font-size: 33px;   color: #afaeb4;"></i></span>
         </div>
         <div class="collapse" id="collapseProveedor">
           <div class="card card-body" style="background-color: #f7f7f7;">
@@ -23,7 +23,7 @@
       </div>
       <div class="form-horizontal my-2 col-12 flex-wrap">
         <div  type="button" data-toggle="collapse" data-target="#collapseTecnologia" aria-expanded="false" aria-controls="collapseTecnologia"  style="display:flex;justify-content: space-between;">
-        <h4 class="btn-block text-ws" style="color:#606060; font-weight: 500;">  Tecnología   </h4> <span><i class="fas fa-angle-down" style="margin-left: auto; font-size: 33px;   color: #afaeb4;"></i></span>    
+        <h4 class="btn-block" style="color:#616161; font-family:'Work Sans'; font-weight: 500;">  Tecnología   </h4> <span><i class="fas fa-angle-down" style="margin-left: auto; font-size: 33px;   color: #afaeb4;"></i></span>    
  
         </div>
         <div class="collapse" id="collapseTecnologia">
@@ -52,23 +52,24 @@
     <vue-slider
       v-model="value"
       :order="true"
-      :min="speeds.mins"
-      :max="speeds.maxs"
+      :min="1"
+      :max="500"
       :interval="1"
       :tooltip-formatter="formatter2"
     > </vue-slider>
        <div class="row">
      <div class="col text-left">
-        <span>{{value[0]}} Mbps</span>
+        <span>{{value[0].toString().replace(/(\d)(?:(?=\d+(?=[^\d.]))(?=(?:[0-9]{3})+\b)|(?=\d+(?=\.))(?=(?:[0-9]{3})+(?=\.)))/g, "$1,")}} Mbps</span>
      </div>
      <div class="col text-right">
-       <span  >{{value[1]}} Mbps</span> 
+       <span  >{{value[1].toString().replace(/(\d)(?:(?=\d+(?=[^\d.]))(?=(?:[0-9]{3})+\b)|(?=\d+(?=\.))(?=(?:[0-9]{3})+(?=\.)))/g, "$1,")}} Mbps</span> 
      </div>
    </div>
       
   </div>
 </div>
 </div>
+
 <div class="form-horizontal my-2 col-12 flex-wrap" >
   <div  type="button" data-toggle="collapse" data-target="#collapsePrecio" aria-expanded="false" aria-controls="collapseExample" style="display:flex;justify-content: space-between;">
  <h4 class="btn-block" style="color:#616161">  Precio   </h4> <span><i class="fas fa-angle-down" style="margin-left: auto; font-size: 33px;   color: #afaeb4;"></i></span>
@@ -109,7 +110,7 @@
 <script>
 export default {
 
-  props:["fields","providers","max_price", "min_price","technologies","speeds"],
+  props:["fields","providers","max_price", "min_price","technologies","speeds","max_speed", "min_speed"],
 
   data(){
     return{
@@ -117,9 +118,11 @@ export default {
       fromPrice:null,
       toPrice:null,
       orderBySort:"desc",
+      checked_speeds:[],
       checked_technologies:[],
       checked_providers:[],
-      value: [this.speeds.mins,this.speeds.maxs],
+      value: [1,500],
+      // value: [this.min_speed,this.max_speed],
       patron:new RegExp(/\d{1,3}(?:,\d{3})*(?:\.\d+)?/),
       formatter2: v => `${('' + (v)).replace(/\B(?=(\d{3})+(?!\d))/g, ',')} Mbps`
     }
@@ -139,29 +142,32 @@ export default {
         if(!isNaN(this.value[1])) searchKey+="&to="+parseFloat(this.value[1]);
     //    else return toastr.error("El campo 'Desde' es de valor numérico")
       }*/
- if(this.fromPrice&&this.fromPrice!=""){
-        
-        if(!isNaN(this.fromPrice)) searchKey+="&from="+parseFloat(this.fromPrice);
 
-        else return toastr.error("El campo 'Desde' es de valor numérico")
-        
-      }
-     if(this.toPrice&&this.toPrice!=""){
+     /* if(this.toPrice&&this.toPrice!=""){
         
         if(!isNaN(this.toPrice)) searchKey+="&to="+parseFloat(this.toPrice);
 
         else return toastr.error("El campo 'Hasta' es de valor numérico")
         
-      }
+      }*/
       if(this.checked_technologies.lenght != 0){
         searchKey+="&technologies="+this.checked_technologies;
       }
-        searchKey+="&mins="+this.value[0];
-        searchKey+="&maxs="+this.value[1];
-      
+      /*if(this.checked_speeds.lenght != 0){
+        searchKey+="&speeds="+this.checked_speeds;
+      }*/
+
+      if(this.value.lenght != 0){
+        searchKey+="&speeds="+this.value;
+      }
+
       if(this.checked_technologies.lenght != 0){
         searchKey+="&providers="+this.checked_providers;
       }
+
+      // console.log(this.value);
+      // console.log(this.min_speed);
+      // console.log(this.max_speed);
       console.log(searchKey);
       this.$emit("customFiltering", searchKey);
 

@@ -3352,17 +3352,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ["fields", "providers", "max_price", "min_price", "technologies", "speeds"],
+  props: ["fields", "providers", "max_price", "min_price", "technologies", "speeds", "max_speed", "min_speed"],
   data: function data() {
     return {
       orderBy: "tariff",
       fromPrice: null,
       toPrice: null,
       orderBySort: "desc",
+      checked_speeds: [],
       checked_technologies: [],
       checked_providers: [],
-      value: [this.speeds.mins, this.speeds.maxs],
+      value: [1, 500],
+      // value: [this.min_speed,this.max_speed],
       patron: new RegExp(/\d{1,3}(?:,\d{3})*(?:\.\d+)?/),
       formatter2: function formatter2(v) {
         return "".concat(('' + v).replace(/\B(?=(\d{3})+(?!\d))/g, ','), " Mbps");
@@ -3385,25 +3388,32 @@ __webpack_require__.r(__webpack_exports__);
       //    else return toastr.error("El campo 'Desde' es de valor numérico")
         }*/
 
+      /* if(this.toPrice&&this.toPrice!=""){
+         
+         if(!isNaN(this.toPrice)) searchKey+="&to="+parseFloat(this.toPrice);
+           else return toastr.error("El campo 'Hasta' es de valor numérico")
+         
+       }*/
 
-      if (this.fromPrice && this.fromPrice != "") {
-        if (!isNaN(this.fromPrice)) searchKey += "&from=" + parseFloat(this.fromPrice);else return toastr.error("El campo 'Desde' es de valor numérico");
-      }
-
-      if (this.toPrice && this.toPrice != "") {
-        if (!isNaN(this.toPrice)) searchKey += "&to=" + parseFloat(this.toPrice);else return toastr.error("El campo 'Hasta' es de valor numérico");
-      }
 
       if (this.checked_technologies.lenght != 0) {
         searchKey += "&technologies=" + this.checked_technologies;
       }
+      /*if(this.checked_speeds.lenght != 0){
+        searchKey+="&speeds="+this.checked_speeds;
+      }*/
 
-      searchKey += "&mins=" + this.value[0];
-      searchKey += "&maxs=" + this.value[1];
+
+      if (this.value.lenght != 0) {
+        searchKey += "&speeds=" + this.value;
+      }
 
       if (this.checked_technologies.lenght != 0) {
         searchKey += "&providers=" + this.checked_providers;
-      }
+      } // console.log(this.value);
+      // console.log(this.min_speed);
+      // console.log(this.max_speed);
+
 
       console.log(searchKey);
       this.$emit("customFiltering", searchKey);
@@ -45541,8 +45551,8 @@ var render = function() {
                     _c("vue-slider", {
                       attrs: {
                         order: true,
-                        min: _vm.speeds.mins,
-                        max: _vm.speeds.maxs,
+                        min: 1,
+                        max: 500,
                         interval: 1,
                         "tooltip-formatter": _vm.formatter2
                       },
@@ -45557,11 +45567,33 @@ var render = function() {
                     _vm._v(" "),
                     _c("div", { staticClass: "row" }, [
                       _c("div", { staticClass: "col text-left" }, [
-                        _c("span", [_vm._v(_vm._s(_vm.value[0]) + " Mbps")])
+                        _c("span", [
+                          _vm._v(
+                            _vm._s(
+                              _vm.value[0]
+                                .toString()
+                                .replace(
+                                  /(\d)(?:(?=\d+(?=[^\d.]))(?=(?:[0-9]{3})+\b)|(?=\d+(?=\.))(?=(?:[0-9]{3})+(?=\.)))/g,
+                                  "$1,"
+                                )
+                            ) + " Mbps"
+                          )
+                        ])
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "col text-right" }, [
-                        _c("span", [_vm._v(_vm._s(_vm.value[1]) + " Mbps")])
+                        _c("span", [
+                          _vm._v(
+                            _vm._s(
+                              _vm.value[1]
+                                .toString()
+                                .replace(
+                                  /(\d)(?:(?=\d+(?=[^\d.]))(?=(?:[0-9]{3})+\b)|(?=\d+(?=\.))(?=(?:[0-9]{3})+(?=\.)))/g,
+                                  "$1,"
+                                )
+                            ) + " Mbps"
+                          )
+                        ])
                       ])
                     ])
                   ],
@@ -45717,7 +45749,7 @@ var staticRenderFns = [
           {
             staticClass: "btn-block",
             staticStyle: {
-              color: "#606060",
+              color: "#616161",
               "font-family": "'Work Sans'",
               "font-weight": "500"
             }
@@ -45758,8 +45790,12 @@ var staticRenderFns = [
         _c(
           "h4",
           {
-            staticClass: "btn-block text-ws",
-            staticStyle: { color: "#606060", "font-weight": "500" }
+            staticClass: "btn-block",
+            staticStyle: {
+              color: "#616161",
+              "font-family": "'Work Sans'",
+              "font-weight": "500"
+            }
           },
           [_vm._v("  Tecnología   ")]
         ),
@@ -69515,7 +69551,7 @@ var script$2 = {
     handleCellClick: function handleCellClick(evt) {
       var target = evt.target;
 
-      if (target.tagName === 'DIV') {
+      if (target.tagName.toUpperCase() === 'DIV') {
         target = target.parentNode;
       }
 
@@ -69720,7 +69756,7 @@ var script$3 = {
     handleClick: function handleClick(evt) {
       var target = evt.target;
 
-      if (target.tagName === 'DIV') {
+      if (target.tagName.toUpperCase() === 'DIV') {
         target = target.parentNode;
       }
 
@@ -69893,7 +69929,7 @@ var script$4 = {
     handleClick: function handleClick(evt) {
       var target = evt.target;
 
-      if (target.tagName === 'DIV') {
+      if (target.tagName.toUpperCase() === 'DIV') {
         target = target.parentNode;
       }
 
@@ -70264,7 +70300,7 @@ var CalendarPanel = {
         "getCellClasses": this.getDateClasses,
         "getRowClasses": this.getWeekState,
         "titleFormat": this.titleFormat,
-        "showWeekNumber": typeof showWeekNumber === 'boolean' ? this.showWeekNumber : this.type === 'week'
+        "showWeekNumber": typeof this.showWeekNumber === 'boolean' ? this.showWeekNumber : this.type === 'week'
       },
       "on": {
         "select": this.handleSelectDate,
@@ -71904,10 +71940,13 @@ var DatePicker = {
         this.emitValue(val, this.validMultipleType ? "multiple-".concat(type) : type);
       }
     },
-    handleClear: function handleClear(evt) {
-      evt.stopPropagation();
+    clear: function clear() {
       this.emitValue(this.range ? [null, null] : null);
       this.$emit('clear');
+    },
+    handleClear: function handleClear(evt) {
+      evt.stopPropagation();
+      this.clear();
     },
     handleConfirmDate: function handleConfirmDate() {
       var value = this.emitValue(this.currentValue);
@@ -71956,7 +71995,7 @@ var DatePicker = {
       this.userInput = null;
 
       if (text === '') {
-        this.handleClear();
+        this.clear();
         return;
       }
 
@@ -71990,7 +72029,8 @@ var DatePicker = {
       }
     },
     handleInputInput: function handleInputInput(evt) {
-      this.userInput = evt.target.value;
+      // slot input v-model
+      this.userInput = typeof evt === 'string' ? evt : evt.target.value;
     },
     handleInputKeydown: function handleInputKeydown(evt) {
       var keyCode = evt.keyCode; // Tab 9 or Enter 13
@@ -84595,8 +84635,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\contratainternetfinal\rpsci\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\contratainternetfinal\rpsci\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\fabianjose\Desktop\rpsci\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\fabianjose\Desktop\rpsci\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),
