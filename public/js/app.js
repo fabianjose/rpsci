@@ -4142,11 +4142,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ["items", "fields", "lastpage", "currentpage"],
+  props: ["items", "fields", "lastpage", "currentpage", "searchKey", "query"],
   data: function data() {
     return {
-      baseUrl: baseUrl
+      baseUrl: baseUrl,
+      sortBy: "",
+      sortByDesc: true
     };
   },
   mounted: function mounted() {
@@ -4159,6 +4166,15 @@ __webpack_require__.r(__webpack_exports__);
     setPage: function setPage() {
       var pageNumber = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
       this.$emit("pageSwitch", pageNumber);
+    },
+    emit: function emit(index) {
+      var kk = new URLSearchParams(this.query);
+      kk.set("sortBy", "tariff");
+      this.sortByDesc = !this.sortByDesc;
+      if (this.sortByDesc) kk.append("sortByDesc", "true");else kk["delete"]("sortByDesc");
+      console.log(kk.toString());
+      console.log(this.query);
+      this.$emit("customFiltering", kk.toString());
     },
     emitConsult: function emitConsult(index) {
       this.$emit("consultItem", index);
@@ -4184,6 +4200,12 @@ __webpack_require__.r(__webpack_exports__);
       get: function get() {
         console.log("new ", this.items);
         return this.items;
+      }
+    },
+    compQuery: {
+      get: function get() {
+        console.log("new " + this.query);
+        return this.query;
       }
     }
   }
@@ -7045,6 +7067,7 @@ __webpack_require__.r(__webpack_exports__);
       compSpeeds: this.speeds,
       compMaxPrice: this.max_price,
       compMinPrice: this.min_price,
+      compQuery: this.query,
       customFilters: null,
       pageIndex: "&page=1",
       currentItem: null,
@@ -7075,14 +7098,15 @@ __webpack_require__.r(__webpack_exports__);
 
       var filters = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.customFilters;
       //window.location.replace(baseUrl+"/offers/search"+this.query+(filters?filters:"")+this.pageIndex)
+      console.log(baseUrl + "/offers/search" + this.query + (filters ? filters : "") + this.pageIndex);
       var loader = this.$loading.show();
       this.loading = true;
-      console.log(baseUrl + "/offers/search" + this.query + (filters ? filters : "") + this.pageIndex);
       axios.get(baseUrl + "/offers/search" + this.query + (filters ? filters : "") + this.pageIndex).then(function (res) {
-        console.log("response ", res);
+        /*  console.log("response ", res)*/
         _this.compPagination = res.data.pagination;
         _this.compLastpage = res.data.last_page;
-        _this.compFields = res.data.fields; //res.query=res.data.query;
+        _this.compFields = res.data.fields;
+        _this.compQuery = res.date.query;
       })["catch"](function (err) {
         toastr.error("ha ocurrido un error al cargar los datos, vuelva a intentarlo");
       })["finally"](function () {
@@ -46858,9 +46882,27 @@ var render = function() {
             _vm._v(" "),
             _vm._m(1),
             _vm._v(" "),
-            _vm._m(2),
+            _c("div", { staticClass: "col-xl-2 col-lg-3 col-md-4 px-1" }, [
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "text-center p-2 offer-table-label w-100 text-white mx-auto bg-dark-blue rounded-pill p-1 text-wrap "
+                },
+                [
+                  _c(
+                    "p",
+                    {
+                      staticClass: "text-tabla-detalles",
+                      on: { click: _vm.emit }
+                    },
+                    [_vm._v("   Precio")]
+                  )
+                ]
+              )
+            ]),
             _vm._v(" "),
-            _vm._m(3)
+            _vm._m(2)
           ],
           2
         ),
@@ -46897,18 +46939,18 @@ var render = function() {
                         (_vm.index % 2 ? "bg-main-blue" : "bg-main-pink")
                     }),
                     _vm._v(" "),
-                    _vm._m(4, true),
+                    _vm._m(3, true),
                     _vm._v(" "),
                     offer.tipo_plan_logos == 0
-                      ? _c("div", [_vm._m(5, true)])
+                      ? _c("div", [_vm._m(4, true)])
                       : _vm._e(),
                     _vm._v(" "),
                     offer.tipo_plan_logos == 1
-                      ? _c("div", [_vm._m(6, true)])
+                      ? _c("div", [_vm._m(5, true)])
                       : _vm._e(),
                     _vm._v(" "),
                     offer.tipo_plan_logos == 2
-                      ? _c("div", [_vm._m(7, true)])
+                      ? _c("div", [_vm._m(6, true)])
                       : _vm._e(),
                     _vm._v(" "),
                     offer.tipo_plan_logos != 0 &&
@@ -46959,7 +47001,7 @@ var render = function() {
                         ? _c("div", [
                             _c("img", {
                               staticClass: "logo-tecnologia",
-                              attrs: { src: "/images/ftth.png", alt: "" }
+                              attrs: { src: "/images/Fibra111.png", alt: "" }
                             })
                           ])
                         : _vm._e(),
@@ -46995,9 +47037,45 @@ var render = function() {
                           }
                         },
                         [
-                          _vm._v(
-                            " " + _vm._s(offer.fields_values[0].value) + " "
-                          )
+                          offer.tecnologia == 0
+                            ? _c("div", [
+                                _vm._v(
+                                  "\r\n                                      Fibra\r\n                                    "
+                                )
+                              ])
+                            : _vm._e(),
+                          _vm._v(" "),
+                          offer.tecnologia == 1
+                            ? _c("div", [
+                                _vm._v(
+                                  "\r\n                                      Satelital\r\n                                    "
+                                )
+                              ])
+                            : _vm._e(),
+                          _vm._v(" "),
+                          offer.tecnologia == 2
+                            ? _c("div", [
+                                _vm._v(
+                                  "\r\n                                      FTTH\r\n                                    "
+                                )
+                              ])
+                            : _vm._e(),
+                          _vm._v(" "),
+                          offer.tecnologia == 3
+                            ? _c("div", [
+                                _vm._v(
+                                  "\r\n                                      Cobre\r\n                                    "
+                                )
+                              ])
+                            : _vm._e(),
+                          _vm._v(" "),
+                          offer.tecnologia == 4
+                            ? _c("div", [
+                                _vm._v(
+                                  "\r\n                                      Radio\r\n                                    "
+                                )
+                              ])
+                            : _vm._e()
                         ]
                       )
                     ]),
@@ -47019,9 +47097,9 @@ var render = function() {
                       "col-6 order-5   order-sm-3           'text-wrap col-2   col-xl-2 col-lg-3 text-center flex-column align-items-center justify-content-center d-xl-flex hidden-md  hidden-sm '+(!k3?'d-lg-flex':'hidden-lg')"
                   },
                   [
-                    _vm._m(8, true),
+                    _vm._m(7, true),
                     _vm._v(" "),
-                    _vm._m(9, true),
+                    _vm._m(8, true),
                     _vm._v(" "),
                     _c("h6", { staticClass: "text-lg" }, [
                       _c(
@@ -47053,7 +47131,7 @@ var render = function() {
                   },
                   [
                     _c("div", { staticClass: "hbo" }, [
-                      _vm._m(10, true),
+                      _vm._m(9, true),
                       _vm._v(" "),
                       _c(
                         "h5",
@@ -47280,21 +47358,6 @@ var staticRenderFns = [
         )
       ]
     )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-xl-2 col-lg-3 col-md-4 px-1" }, [
-      _c(
-        "div",
-        {
-          staticClass:
-            "text-center p-2 offer-table-label w-100 text-white mx-auto bg-dark-blue rounded-pill p-1 text-wrap "
-        },
-        [_c("p", { staticClass: "text-tabla-detalles" }, [_vm._v("   Precio")])]
-      )
-    ])
   },
   function() {
     var _vm = this
@@ -47756,7 +47819,7 @@ var render = function() {
                 bullets: false,
                 autoplay: _vm.offers.length > 1 ? true : false,
                 gap: 3,
-                duration: 5000,
+                duration: 1000,
                 "visible-slides": _vm.offers.length < 3 ? _vm.offers.length : 3,
                 "slide-ratio": 1 / 4,
                 "dragging-distance": 40,
@@ -52201,6 +52264,7 @@ var render = function() {
           _vm._v(" "),
           _c("filter-table", {
             attrs: {
+              query: _vm.compQuery,
               fields: _vm.compFields,
               items: _vm.compPagination.data,
               currentpage: _vm.compPagination.current_page,
@@ -52208,6 +52272,7 @@ var render = function() {
             },
             on: {
               consultItem: _vm.consultItem,
+              customFiltering: _vm.refreshData,
               viewItem: _vm.viewItem,
               pageSwitch: _vm.changePage
             }

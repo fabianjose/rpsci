@@ -382,8 +382,7 @@ class OfferController extends Controller{
       $query->where('municipalities', "like" ,'%'.$municipality->name.'%')
       ->orWhere("municipalities",null);
     })->select(\DB::raw('min(CONVERT(fields_values.value, UNSIGNED)) as mins,max(CONVERT(fields_values.value, UNSIGNED)) as maxs'));
-    $speeds = $speeds->get()[0];
-   // print_r($speeds->get());
+ $speeds = $speeds->get()[0];
     $price = DB::table("offers")
         ->where('offers.trash',0)
       ->where(function($query) use($data){
