@@ -162,7 +162,7 @@ export default {
       if(this.checked_technologies.lenght != 0){
         searchKey+="&providers="+this.checked_providers;
       }
-      console.log(searchKey);
+     console.log(searchKey);
       this.$emit("customFiltering", searchKey);
 
     },

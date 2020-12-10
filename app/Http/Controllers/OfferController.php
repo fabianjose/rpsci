@@ -308,7 +308,7 @@ class OfferController extends Controller{
     ->join('fields_values as fs','fs.offer_id','offers.id')
     ->where(function($query) use($data){
       if(isset($data['mins'] ) && isset($data['maxs'] )){
-      $query->where(\DB::raw("convert(fs.value,UNSIGNED)"),">=",$data["mins"])->where("fs.field_id","=",'4');
+      $query->where(\DB::raw("convert(fs.value,UNSIGNED)"),">=",$data["mins"])->where("fs.field_id","=",'28');
       $query->where(\DB::raw("convert(fs.value,UNSIGNED)"),"<=",$data["maxs"]);}
     })    ->where(function($query) use($data){
       if(isset($data['providers']))
@@ -343,7 +343,9 @@ class OfferController extends Controller{
     ->select("companies.name","companies.id")->distinct();
     $providers = $providers->get();
 
-    $technologies =  DB::table('offers')->where(function($query) use($data){
+    $technologies =  DB::table('offers')
+     ->whereNotNull("offers.tecnologia")
+    ->where(function($query) use($data){
       $query->where("offers.type", $data["offer_type"])
       ->orWhere("offers.type", null);
     })
@@ -356,16 +358,16 @@ class OfferController extends Controller{
       $query->where('municipalities', "like" ,'%'.$municipality->name.'%')
       ->orWhere("municipalities",null);
     })
+   
    ->groupBy("offers.tecnologia")
   ->select("offers.tecnologia as type")
     ->distinct()->get();
-
     $speeds =  DB::table('fields')
     ->join("fields_values", "fields.id", "=","fields_values.field_id")
     ->join("offers","fields_values.offer_id","=","offers.id")
     ->join("companies","offers.company",'=',"companies.id")
     ->where('offers.trash',0)
-    ->where("fields.id",'=','4')
+    ->where("fields.id",'=','28')
     ->where("fields_values.value","<>","")
      ->where(function($query) use($data){
       $query->where("offers.type", $data["offer_type"])
@@ -380,8 +382,8 @@ class OfferController extends Controller{
       $query->where('municipalities', "like" ,'%'.$municipality->name.'%')
       ->orWhere("municipalities",null);
     })->select(\DB::raw('min(CONVERT(fields_values.value, UNSIGNED)) as mins,max(CONVERT(fields_values.value, UNSIGNED)) as maxs'));
- $speeds = $speeds->get()[0];
- 
+    $speeds = $speeds->get()[0];
+   // print_r($speeds->get());
     $price = DB::table("offers")
         ->where('offers.trash',0)
       ->where(function($query) use($data){
@@ -411,8 +413,8 @@ class OfferController extends Controller{
     }
 
     $offers=$offers->distinct()->get();
-    $offers=Offer::joinFields($offers->toArray());
 
+    $offers=Offer::joinFields($offers->toArray());
     $fields=DB::table("fields")->where("service_id", $service->id)
     ->where("trash",0)
     ->orderBy("id", "asc")

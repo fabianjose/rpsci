@@ -18,19 +18,13 @@
           </div>
           
           <div class="col-xl-2 col-lg-3 col-md-4 px-1">
-            <div class="text-center p-2 offer-table-label w-100 text-white mx-auto bg-dark-blue rounded-pill p-1 text-wrap ">   <p class="text-tabla-detalles" >   Precio</p> </div>
+            <div class="text-center p-2 offer-table-label w-100 text-white mx-auto bg-dark-blue rounded-pill p-1 text-wrap ">   <p @click="emit" class="text-tabla-detalles" >   Precio</p> </div>
           </div>
 
             <div class="col-xl-2 col-lg-3 col-md-4 px-1">
             <div class="text-center p-2 offer-table-label w-100 text-white mx-auto bg-dark-blue rounded-pill p-1 text-wrap ">   <p class="text-tabla-detalles" >  </p> </div>
           </div>
         </div>
-            
-
-
-
-
-         
         <div v-for="(offer,k) in compItems" :key="k" class="d-flex w-100 justify-content-around my-1 mb-3 offer offers-pagination-item pb-3">
 
               <div class="row">
@@ -38,8 +32,6 @@
 
 
                   <div class="col-6 order-1   order-sm-1     col-xl-2 col-lg-3 col-md-4 col-sm-4  d-flex flex-column align-items-center justify-content-center">
-                    
-                    
                            <img :src="baseUrl+'/storage/'+offer.company_logo" class="img-fluid p-2 logo-mb" >
                    <br>
                
@@ -95,10 +87,23 @@
                             </div>
 
                              <h6 class="text-lg">
-                                <span style="font-family: 'Heebo';  margin-top: 4px;    font-size: 1.59rem!important;     color: rgb(91, 87, 87);"> {{offer.fields_values[0].value}} </span> 
-                                              
-                                                     
-
+                                <span style="font-family: 'Heebo';  margin-top: 4px;    font-size: 1.59rem!important;     color: rgb(91, 87, 87);"> 
+                                     <div   v-if="offer.tecnologia == 0">
+                                      Fibra
+                                    </div>
+                                    <div   v-if="offer.tecnologia == 1">
+                                      Satelital
+                                    </div>
+                                    <div   v-if="offer.tecnologia == 2">
+                                      FTTH
+                                    </div>
+                                    <div   v-if="offer.tecnologia == 3">
+                                      Cobre
+                                    </div>
+                                    <div   v-if="offer.tecnologia == 4">
+                                      Radio
+                                    </div>
+                                </span> 
                                 </h6>
                                 <div class="raya-azul">
                                   <div :class="'offer-card-separator11 '+(index%2?'bg-main-blue':'bg-main-pink')"></div>
@@ -192,12 +197,16 @@
 </template>
 
 <script>
+
+
 export default {
-    props:["items", "fields", "lastpage", "currentpage"],
+    props:["items", "fields", "lastpage", "currentpage", "searchKey","query"],
 
     data(){
         return{
             baseUrl:baseUrl,
+            sortBy:"",
+            sortByDesc:true
         }
     },
 
@@ -213,11 +222,26 @@ export default {
         this.$emit("pageSwitch", pageNumber);
       },
 
+      emit(index){
+        var  kk  = new URLSearchParams(this.query);
+        kk.set("sortBy","tariff");
+        this.sortByDesc = !this.sortByDesc;
+        if(this.sortByDesc)kk.append("sortByDesc","true");
+        else kk.delete("sortByDesc");
+        console.log(kk.toString());
+        console.log(this.query);
+
+       
+        this.$emit("customFiltering", kk.toString());
+      }
+      ,
+
       emitConsult(index){
         this.$emit("consultItem",index);
       },
 
       emitView(index){
+
         this.$emit("viewItem",index);
       }
     },
@@ -239,6 +263,12 @@ export default {
         get(){
           console.log("new ",this.items);
           return this.items
+        }
+      },
+      compQuery:{
+        get(){
+          console.log("new "  + this.query );
+          return this.query;
         }
       }
     }

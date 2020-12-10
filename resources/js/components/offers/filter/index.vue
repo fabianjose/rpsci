@@ -4,7 +4,7 @@
             <div class="filterCard col-10 col-lg-4 col-xl-3">
                 <filter-card @customFiltering="refreshData" :fields="compFields" :technologies="compTechnologies" :speeds="compSpeeds" :max_price="compMaxPrice" :min_price="compMinPrice"  :providers="compProviders" />
             </div>
-            <filter-table @consultItem="consultItem" @viewItem="viewItem" @pageSwitch="changePage" :fields="compFields" :items="compPagination.data" :currentpage="compPagination.current_page" :lastpage="compLastpage" ></filter-table>
+            <filter-table @consultItem="consultItem" :query="compQuery" @customFiltering="refreshData" @viewItem="viewItem" @pageSwitch="changePage" :fields="compFields" :items="compPagination.data" :currentpage="compPagination.current_page" :lastpage="compLastpage" ></filter-table>
         </div>
         <offer-consult v-if="currentItem&&consultMode" :offerMode="true" :offer="currentItem"></offer-consult>
         <offer-modal v-if="currentItem&&viewMode" :offer="currentItem" ></offer-modal>
@@ -27,6 +27,7 @@ export default {
             compSpeeds: this.speeds,
             compMaxPrice: this.max_price,
             compMinPrice: this.min_price,
+            compQuery:this.query,
             customFilters:null,
             pageIndex:"&page=1",
             currentItem:null,
@@ -62,20 +63,21 @@ export default {
 
         refreshData(filters=this.customFilters){
             //window.location.replace(baseUrl+"/offers/search"+this.query+(filters?filters:"")+this.pageIndex)
+            console.log(baseUrl+"/offers/search"+this.query+(filters?filters:"")+this.pageIndex)
 
             let loader = this.$loading.show();
 
             this.loading=true;
 
-            console.log(baseUrl+"/offers/search"+this.query+(filters?filters:"")+this.pageIndex)            
+                       
 
             axios.get(baseUrl+"/offers/search"+this.query+(filters?filters:"")+this.pageIndex)
             .then(res=>{
-                console.log("response ", res)
+              /*  console.log("response ", res)*/
                 this.compPagination=res.data.pagination;
                 this.compLastpage=res.data.last_page;
                 this.compFields=res.data.fields;
-                //res.query=res.data.query;
+                this.compQuery=res.date.query;
             }).catch(err=>{
                 toastr.error("ha ocurrido un error al cargar los datos, vuelva a intentarlo");
             })
