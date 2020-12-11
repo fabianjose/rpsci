@@ -7137,8 +7137,7 @@ __webpack_require__.r(__webpack_exports__);
         _this.compLastpage = res.data.last_page;
         _this.compFields = res.data.fields;
         _this.compQuery = res.date.query;
-      })["catch"](function (err) {
-        toastr.error("ha ocurrido un error al cargar los datos, vuelva a intentarlo");
+      })["catch"](function (err) {//  toastr.error("ha ocurrido un error al cargar los datos, vuelva a intentarlo");
       })["finally"](function () {
         loader.hide();
       });

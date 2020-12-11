@@ -69,8 +69,7 @@ export default {
 
             this.loading=true;
 
-                       
-
+            
             axios.get(baseUrl+"/offers/search"+this.query+(filters?filters:"")+this.pageIndex)
             .then(res=>{
               /*  console.log("response ", res)*/
@@ -79,7 +78,7 @@ export default {
                 this.compFields=res.data.fields;
                 this.compQuery=res.date.query;
             }).catch(err=>{
-                toastr.error("ha ocurrido un error al cargar los datos, vuelva a intentarlo");
+              //  toastr.error("ha ocurrido un error al cargar los datos, vuelva a intentarlo");
             })
             .finally(()=>{loader.hide()})
              
