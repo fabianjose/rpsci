@@ -34,6 +34,7 @@
             <div class="text-center p-2 offer-table-label w-100 text-white mx-auto bg-dark-blue rounded-pill p-1 text-wrap ">   <p class="text-tabla-detalles" >  </p> </div>
           </div>
         </div>
+         <br>
         <div v-for="(offer,k) in compItems" :key="k" class="d-flex w-100 justify-content-around my-1 mb-3 offer offers-pagination-item pb-3">
 
               <div class="row">
@@ -202,6 +203,9 @@
         </div>
 
       </div>
+    
+
+
     </div>
 </template>
 

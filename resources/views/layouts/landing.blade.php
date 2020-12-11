@@ -90,38 +90,38 @@
             <div id="responsive-menu" class="navbar-collapse collapse ml-auto mr-0"  style="margin-top: 37px;">
                 <ul class="navbar-nav ml-auto mr-x3 " style="margin-top: -30px; background-color:white;">
 
-                <li class="nav-item">
+                <li class="nav-item ">
                         <a class="nav-link nav-item-border" href="#planes_destacados">
-                            <h6 class="ic-main font-weight-bold">
+                            <h6 class="ic-main font-weight-bold item-menu">
                             Planes Internet
                             </h6>
                         </a>
                     </li>
-                    <li class="nav-item" >
-                        <a class="nav-link nav-item-border {{Route::current()->uri=='/'?'active':''}}" href="https://contratainternet.co/etb/">
-                            <h6 class="ic-main font-weight-bold">
+                    <li class="nav-item " >
+                        <a class="nav-link nav-item-border" href="https://contratainternet.co/etb/">
+                            <h6 class="ic-main font-weight-bold item-menu">
                                 Oferta especial del mes
                             </h6>
                         </a>
                     </li>
 
-                    <li class="nav-item">
+                    <li class="nav-item ">
                         <a class="nav-link nav-item-border" href="https://contratainternet1.speedtestcustom.com/">
-                            <h6 class="ic-main font-weight-bold">
+                            <h6 class="ic-main font-weight-bold item-menu">
                                 Prueba de Velocidad
                             </h6>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link nav-item-border {{strpos(Route::current()->uri,'nosotros')>-1?'active':''}}" href="/nosotros">
-                            <h6 class="ic-main font-weight-bold">
+                    <li class="nav-item ">
+                        <a class="nav-link nav-item-border " href="/nosotros">
+                            <h6 class="ic-main font-weight-bold item-menu">
                                 Nosotros
                             </h6>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link nav-item-border {{strpos(Route::current()->uri,'blog')>-1?'active':''}}" href="/blog">
-                            <h6 class="ic-main font-weight-bold">
+                    <li class="nav-item ">
+                        <a class="nav-link nav-item-border" href="/blog">
+                            <h6 class="ic-main font-weight-bold item-menu">
                                 Blog
                             </h6>
                         </a>
