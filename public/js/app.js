@@ -4147,6 +4147,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["items", "fields", "lastpage", "currentpage", "searchKey", "query"],
   data: function data() {
@@ -4167,9 +4176,20 @@ __webpack_require__.r(__webpack_exports__);
       var pageNumber = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
       this.$emit("pageSwitch", pageNumber);
     },
-    emit: function emit(index) {
+    emitPrice: function emitPrice(index) {
       var kk = new URLSearchParams(this.query);
       kk.set("sortBy", "tariff");
+      this.sortBy = "tariff";
+      this.sortByDesc = !this.sortByDesc;
+      if (this.sortByDesc) kk.append("sortByDesc", "true");else kk["delete"]("sortByDesc");
+      console.log(kk.toString());
+      console.log(this.query);
+      this.$emit("customFiltering", kk.toString());
+    },
+    emitSpeed: function emitSpeed(index) {
+      var kk = new URLSearchParams(this.query);
+      kk.set("sortBy", "speed");
+      this.sortBy = "speed";
       this.sortByDesc = !this.sortByDesc;
       if (this.sortByDesc) kk.append("sortByDesc", "true");else kk["delete"]("sortByDesc");
       console.log(kk.toString());
@@ -4188,6 +4208,16 @@ __webpack_require__.r(__webpack_exports__);
       get: function get() {
         console.log("new ", this.fields);
         return this.fields;
+      }
+    },
+    sortBy: {
+      get: function get() {
+        return this.sortBy;
+      }
+    },
+    sortByDesc: {
+      get: function get() {
+        return this.sortByDesc;
       }
     },
     compLastpage: {
@@ -46840,11 +46870,11 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "col-12 col-lg-8 col-xl-9" }, [
-    _c(
-      "div",
-      { staticClass: "d-flex flex-column w-100" },
-      [
+  return _c(
+    "div",
+    { staticClass: "col-12 col-lg-8 col-xl-9" },
+    [
+      _c("div", { staticClass: "d-flex flex-column w-100" }, [
         _c(
           "div",
           {
@@ -46871,9 +46901,27 @@ var render = function() {
                         "text-center p-2 offer-table-label w-100 text-white mx-auto bg-dark-blue rounded-pill  p-1 text-wrap "
                     },
                     [
-                      _c("p", { staticClass: "text-tabla-detalles" }, [
-                        _vm._v(" " + _vm._s(field.name) + " ")
-                      ])
+                      _c(
+                        "p",
+                        {
+                          staticClass: "text-tabla-detalles",
+                          on: { click: _vm.emitSpeed }
+                        },
+                        [
+                          _vm._v(
+                            " " + _vm._s(field.name) + "\r\n                "
+                          ),
+                          _vm.sortBy == "speed"
+                            ? _c("i", {
+                                class:
+                                  "fa fa-angle-" +
+                                  (_vm.sortByDesc && _vm.sortBy != ""
+                                    ? "up"
+                                    : "down")
+                              })
+                            : _vm._e()
+                        ]
+                      )
                     ]
                   )
                 ]
@@ -46894,9 +46942,22 @@ var render = function() {
                     "p",
                     {
                       staticClass: "text-tabla-detalles",
-                      on: { click: _vm.emit }
+                      on: { click: _vm.emitPrice }
                     },
-                    [_vm._v("   Precio")]
+                    [
+                      _vm._v(
+                        "   Precio\r\n              \r\n             \r\n                "
+                      ),
+                      _vm.sortBy == "tariff"
+                        ? _c("i", {
+                            class:
+                              "fa fa-angle-" +
+                              (_vm.sortByDesc && _vm.sortBy != ""
+                                ? "up"
+                                : "down")
+                          })
+                        : _vm._e()
+                    ]
                   )
                 ]
               )
@@ -46905,417 +46966,415 @@ var render = function() {
             _vm._m(2)
           ],
           2
-        ),
-        _vm._v(" "),
-        _vm._l(_vm.compItems, function(offer, k) {
-          return _c(
-            "div",
-            {
-              key: k,
-              staticClass:
-                "d-flex w-100 justify-content-around my-1 mb-3 offer offers-pagination-item pb-3"
-            },
-            [
-              _c("div", { staticClass: "row" }, [
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "col-6 order-1   order-sm-1     col-xl-2 col-lg-3 col-md-4 col-sm-4  d-flex flex-column align-items-center justify-content-center"
-                  },
-                  [
-                    _c("img", {
-                      staticClass: "img-fluid p-2 logo-mb",
-                      attrs: {
-                        src: _vm.baseUrl + "/storage/" + offer.company_logo
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("div", {
-                      class:
-                        "offer-card-separator10 " +
-                        (_vm.index % 2 ? "bg-main-blue" : "bg-main-pink")
-                    }),
-                    _vm._v(" "),
-                    _vm._m(3, true),
-                    _vm._v(" "),
-                    offer.tipo_plan_logos == 0
-                      ? _c("div", [_vm._m(4, true)])
-                      : _vm._e(),
-                    _vm._v(" "),
-                    offer.tipo_plan_logos == 1
-                      ? _c("div", [_vm._m(5, true)])
-                      : _vm._e(),
-                    _vm._v(" "),
-                    offer.tipo_plan_logos == 2
-                      ? _c("div", [_vm._m(6, true)])
-                      : _vm._e(),
-                    _vm._v(" "),
-                    offer.tipo_plan_logos != 0 &&
-                    offer.tipo_plan_logos != 1 &&
-                    offer.tipo_plan_logos != 2
+        )
+      ]),
+      _vm._v(" "),
+      _vm._l(_vm.compItems, function(offer, k) {
+        return _c(
+          "div",
+          {
+            key: k,
+            staticClass:
+              "d-flex w-100 justify-content-around my-1 mb-3 offer offers-pagination-item pb-3"
+          },
+          [
+            _c("div", { staticClass: "row" }, [
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "col-6 order-1   order-sm-1     col-xl-2 col-lg-3 col-md-4 col-sm-4  d-flex flex-column align-items-center justify-content-center"
+                },
+                [
+                  _c("img", {
+                    staticClass: "img-fluid p-2 logo-mb",
+                    attrs: {
+                      src: _vm.baseUrl + "/storage/" + offer.company_logo
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("br"),
+                  _vm._v(" "),
+                  _c("div", {
+                    class:
+                      "offer-card-separator10 " +
+                      (_vm.index % 2 ? "bg-main-blue" : "bg-main-pink")
+                  }),
+                  _vm._v(" "),
+                  _vm._m(3, true),
+                  _vm._v(" "),
+                  offer.tipo_plan_logos == 0
+                    ? _c("div", [_vm._m(4, true)])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  offer.tipo_plan_logos == 1
+                    ? _c("div", [_vm._m(5, true)])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  offer.tipo_plan_logos == 2
+                    ? _c("div", [_vm._m(6, true)])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  offer.tipo_plan_logos != 0 &&
+                  offer.tipo_plan_logos != 1 &&
+                  offer.tipo_plan_logos != 2
+                    ? _c("div", [
+                        _c("img", {
+                          staticClass: "logo-movil-planes",
+                          attrs: {
+                            src: "/images/Icono-trio.png",
+                            width: "30%",
+                            alt: ""
+                          }
+                        })
+                      ])
+                    : _vm._e()
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "col-6 order-3   order-sm-2    text-wrap col-xl-2 col-lg-3 text-center flex-column align-items-center justify-content-center bloque-3"
+                },
+                [
+                  _c("div", { staticClass: "bloque-tecnologia" }, [
+                    offer.tecnologia == 0
                       ? _c("div", [
                           _c("img", {
-                            staticClass: "logo-movil-planes",
-                            attrs: {
-                              src: "/images/Icono-trio.png",
-                              width: "30%",
-                              alt: ""
-                            }
+                            staticClass: "logo-tecnologia",
+                            staticStyle: { transform: "rotate(90deg)" },
+                            attrs: { src: "/images/Fibra1.png", alt: "" }
+                          })
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    offer.tecnologia == 1
+                      ? _c("div", [
+                          _c("img", {
+                            staticClass: "logo-tecnologia",
+                            attrs: { src: "/images/satelital11.png", alt: "" }
+                          })
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    offer.tecnologia == 2
+                      ? _c("div", [
+                          _c("img", {
+                            staticClass: "logo-tecnologia",
+                            attrs: { src: "/images/Fibra111.png", alt: "" }
+                          })
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    offer.tecnologia == 3
+                      ? _c("div", [
+                          _c("img", {
+                            staticClass: "logo-tecnologia",
+                            attrs: { src: "/images/cobre.png", alt: "" }
+                          })
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    offer.tecnologia == 4
+                      ? _c("div", [
+                          _c("img", {
+                            staticClass: "logo-tecnologia",
+                            attrs: { src: "/images/radio.png", alt: "" }
                           })
                         ])
                       : _vm._e()
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "col-6 order-3   order-sm-2    text-wrap col-xl-2 col-lg-3 text-center flex-column align-items-center justify-content-center bloque-3"
-                  },
-                  [
-                    _c("div", { staticClass: "bloque-tecnologia" }, [
-                      offer.tecnologia == 0
-                        ? _c("div", [
-                            _c("img", {
-                              staticClass: "logo-tecnologia",
-                              staticStyle: { transform: "rotate(90deg)" },
-                              attrs: { src: "/images/Fibra1.png", alt: "" }
-                            })
-                          ])
-                        : _vm._e(),
-                      _vm._v(" "),
-                      offer.tecnologia == 1
-                        ? _c("div", [
-                            _c("img", {
-                              staticClass: "logo-tecnologia",
-                              attrs: { src: "/images/satelital11.png", alt: "" }
-                            })
-                          ])
-                        : _vm._e(),
-                      _vm._v(" "),
-                      offer.tecnologia == 2
-                        ? _c("div", [
-                            _c("img", {
-                              staticClass: "logo-tecnologia",
-                              attrs: { src: "/images/Fibra111.png", alt: "" }
-                            })
-                          ])
-                        : _vm._e(),
-                      _vm._v(" "),
-                      offer.tecnologia == 3
-                        ? _c("div", [
-                            _c("img", {
-                              staticClass: "logo-tecnologia",
-                              attrs: { src: "/images/cobre.png", alt: "" }
-                            })
-                          ])
-                        : _vm._e(),
-                      _vm._v(" "),
-                      offer.tecnologia == 4
-                        ? _c("div", [
-                            _c("img", {
-                              staticClass: "logo-tecnologia",
-                              attrs: { src: "/images/radio.png", alt: "" }
-                            })
-                          ])
-                        : _vm._e()
-                    ]),
-                    _vm._v(" "),
-                    _c("h6", { staticClass: "text-lg" }, [
-                      _c(
-                        "span",
-                        {
-                          staticStyle: {
-                            "font-family": "'Heebo'",
-                            "margin-top": "4px",
-                            "font-size": "1.59rem!important",
-                            color: "rgb(91, 87, 87)"
-                          }
-                        },
-                        [
-                          offer.tecnologia == 0
-                            ? _c("div", [
-                                _vm._v(
-                                  "\r\n                                      Fibra\r\n                                    "
-                                )
-                              ])
-                            : _vm._e(),
-                          _vm._v(" "),
-                          offer.tecnologia == 1
-                            ? _c("div", [
-                                _vm._v(
-                                  "\r\n                                      Satelital\r\n                                    "
-                                )
-                              ])
-                            : _vm._e(),
-                          _vm._v(" "),
-                          offer.tecnologia == 2
-                            ? _c("div", [
-                                _vm._v(
-                                  "\r\n                                      FTTH\r\n                                    "
-                                )
-                              ])
-                            : _vm._e(),
-                          _vm._v(" "),
-                          offer.tecnologia == 3
-                            ? _c("div", [
-                                _vm._v(
-                                  "\r\n                                      Cobre\r\n                                    "
-                                )
-                              ])
-                            : _vm._e(),
-                          _vm._v(" "),
-                          offer.tecnologia == 4
-                            ? _c("div", [
-                                _vm._v(
-                                  "\r\n                                      Radio\r\n                                    "
-                                )
-                              ])
-                            : _vm._e()
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "raya-azul" }, [
-                      _c("div", {
-                        class:
-                          "offer-card-separator11 " +
-                          (_vm.index % 2 ? "bg-main-blue" : "bg-main-pink")
-                      })
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "col-6 order-5   order-sm-3           'text-wrap col-2   col-xl-2 col-lg-3 text-center flex-column align-items-center justify-content-center d-xl-flex hidden-md  hidden-sm '+(!k3?'d-lg-flex':'hidden-lg')"
-                  },
-                  [
-                    _vm._m(7, true),
-                    _vm._v(" "),
-                    _vm._m(8, true),
-                    _vm._v(" "),
-                    _c("h6", { staticClass: "text-lg" }, [
-                      _c(
-                        "span",
-                        {
-                          staticStyle: {
-                            "font-family": "'Heebo'",
-                            "font-size": "1.59rem!important",
-                            color: "rgb(91, 87, 87)"
-                          }
-                        },
-                        [
-                          _vm._v(
-                            " " +
-                              _vm._s(offer.fields_values[1].value) +
-                              "  Mbps "
-                          )
-                        ]
-                      )
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "col-6 order-2  order-sm-4         text-wrap  col-2 col-xl-2 col-lg-3 col-md-4 col-sm-4 text-center flex-column align-items-center justify-content-center d-xl-flex d-lg-flex d-md-flex  hidden-sm"
-                  },
-                  [
-                    _c("div", { staticClass: "hbo" }, [
-                      _vm._m(9, true),
-                      _vm._v(" "),
-                      _c(
-                        "h5",
-                        {
-                          staticClass: "texto-hbo",
-                          staticStyle: {
-                            "font-family": "Heebo",
-                            "font-size": "16px",
-                            color: "rgb(91, 87, 87)",
-                            "font-weight": "800"
-                          }
-                        },
-                        [_vm._v(_vm._s(offer.titulo1))]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", [
-                      _c("h6", { staticStyle: { "font-weight": "300" } }, [
-                        _vm._v(_vm._s(offer.titulo2))
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "h6",
-                        {
-                          staticStyle: {
-                            "line-height": "0px",
-                            "font-weight": "300"
-                          }
-                        },
-                        [_vm._v(_vm._s(offer.titulo3))]
-                      ),
-                      _vm._v(" "),
-                      _c("h6", { staticStyle: { "font-weight": "300" } }, [
-                        _vm._v(_vm._s(offer.titulo4))
-                      ])
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "col-6 order-4  order-sm-5         col-xl-2 col-lg-3 col-md-4 col-sm-4 py-2 text-center d-flex flex-column align-items-center justify-content-center"
-                  },
-                  [
-                    _c("div", { staticClass: "precio-movil" }, [
-                      _c(
-                        "h6",
-                        {
-                          staticClass:
-                            "text-dark-blue offer-table-price text-wrap-all precio-movil",
-                          staticStyle: {
-                            color: "rgb(91, 87, 87)",
-                            "margin-top": "30px"
-                          }
-                        },
-                        [_vm._v("$ " + _vm._s(_vm.showPrice(offer.tariff)))]
-                      )
-                    ]),
-                    _vm._v(" "),
+                  ]),
+                  _vm._v(" "),
+                  _c("h6", { staticClass: "text-lg" }, [
+                    _c(
+                      "span",
+                      {
+                        staticStyle: {
+                          "font-family": "'Heebo'",
+                          "margin-top": "4px",
+                          "font-size": "1.59rem!important",
+                          color: "rgb(91, 87, 87)"
+                        }
+                      },
+                      [
+                        offer.tecnologia == 0
+                          ? _c("div", [
+                              _vm._v(
+                                "\r\n                                      Fibra\r\n                                    "
+                              )
+                            ])
+                          : _vm._e(),
+                        _vm._v(" "),
+                        offer.tecnologia == 1
+                          ? _c("div", [
+                              _vm._v(
+                                "\r\n                                      Satelital\r\n                                    "
+                              )
+                            ])
+                          : _vm._e(),
+                        _vm._v(" "),
+                        offer.tecnologia == 2
+                          ? _c("div", [
+                              _vm._v(
+                                "\r\n                                      FTTH\r\n                                    "
+                              )
+                            ])
+                          : _vm._e(),
+                        _vm._v(" "),
+                        offer.tecnologia == 3
+                          ? _c("div", [
+                              _vm._v(
+                                "\r\n                                      Cobre\r\n                                    "
+                              )
+                            ])
+                          : _vm._e(),
+                        _vm._v(" "),
+                        offer.tecnologia == 4
+                          ? _c("div", [
+                              _vm._v(
+                                "\r\n                                      Radio\r\n                                    "
+                              )
+                            ])
+                          : _vm._e()
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "raya-azul" }, [
                     _c("div", {
-                      staticClass:
-                        "stars-container flex-row justify-content-center mb-2"
-                    }),
+                      class:
+                        "offer-card-separator11 " +
+                        (_vm.index % 2 ? "bg-main-blue" : "bg-main-pink")
+                    })
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "col-6 order-5   order-sm-3           'text-wrap col-2   col-xl-2 col-lg-3 text-center flex-column align-items-center justify-content-center d-xl-flex hidden-md  hidden-sm '+(!k3?'d-lg-flex':'hidden-lg')"
+                },
+                [
+                  _vm._m(7, true),
+                  _vm._v(" "),
+                  _vm._m(8, true),
+                  _vm._v(" "),
+                  _c("h6", { staticClass: "text-lg" }, [
+                    _c(
+                      "span",
+                      {
+                        staticStyle: {
+                          "font-family": "'Heebo'",
+                          "font-size": "1.59rem!important",
+                          color: "rgb(91, 87, 87)"
+                        }
+                      },
+                      [
+                        _vm._v(
+                          " " + _vm._s(offer.fields_values[1].value) + "  Mbps "
+                        )
+                      ]
+                    )
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "col-6 order-2  order-sm-4         text-wrap  col-2 col-xl-2 col-lg-3 col-md-4 col-sm-4 text-center flex-column align-items-center justify-content-center d-xl-flex d-lg-flex d-md-flex  hidden-sm"
+                },
+                [
+                  _c("div", { staticClass: "hbo" }, [
+                    _vm._m(9, true),
                     _vm._v(" "),
-                    _c("div", { staticClass: "d-flex flex-row" })
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
+                    _c(
+                      "h5",
+                      {
+                        staticClass: "texto-hbo",
+                        staticStyle: {
+                          "font-family": "Heebo",
+                          "font-size": "16px",
+                          color: "rgb(91, 87, 87)",
+                          "font-weight": "800"
+                        }
+                      },
+                      [_vm._v(_vm._s(offer.titulo1))]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", [
+                    _c("h6", { staticStyle: { "font-weight": "300" } }, [
+                      _vm._v(_vm._s(offer.titulo2))
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "h6",
+                      {
+                        staticStyle: {
+                          "line-height": "0px",
+                          "font-weight": "300"
+                        }
+                      },
+                      [_vm._v(_vm._s(offer.titulo3))]
+                    ),
+                    _vm._v(" "),
+                    _c("h6", { staticStyle: { "font-weight": "300" } }, [
+                      _vm._v(_vm._s(offer.titulo4))
+                    ])
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "col-6 order-4  order-sm-5         col-xl-2 col-lg-3 col-md-4 col-sm-4 py-2 text-center d-flex flex-column align-items-center justify-content-center"
+                },
+                [
+                  _c("div", { staticClass: "precio-movil" }, [
+                    _c(
+                      "h6",
+                      {
+                        staticClass:
+                          "text-dark-blue offer-table-price text-wrap-all precio-movil",
+                        staticStyle: {
+                          color: "rgb(91, 87, 87)",
+                          "margin-top": "30px"
+                        }
+                      },
+                      [_vm._v("$ " + _vm._s(_vm.showPrice(offer.tariff)))]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", {
                     staticClass:
-                      "col-6 order-6   order-sm-6         col-xl-2 col-lg-3 col-md-4 col-sm-4 py-2 text-center d-flex flex-column align-items-center justify-content-center"
-                  },
-                  [
-                    _c("div", {
-                      staticClass:
-                        "stars-container flex-row justify-content-center mb-2"
-                    }),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "d-flex flex-row" }, [
-                      _c(
-                        "button",
-                        {
-                          staticClass:
-                            "btn-adquierelo btn btn-lx btn-lg btn-main-blue rounded-pill mx-1 px-1 text-uppercase img-fluid",
-                          attrs: {
-                            type: "button",
-                            "data-toggle": "modal",
-                            "data-target": "#modalConsultOffer"
-                          },
-                          on: {
-                            click: function($event) {
-                              return _vm.emitConsult(k)
-                            }
-                          }
+                      "stars-container flex-row justify-content-center mb-2"
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "d-flex flex-row" })
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "col-6 order-6   order-sm-6         col-xl-2 col-lg-3 col-md-4 col-sm-4 py-2 text-center d-flex flex-column align-items-center justify-content-center"
+                },
+                [
+                  _c("div", {
+                    staticClass:
+                      "stars-container flex-row justify-content-center mb-2"
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "d-flex flex-row" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass:
+                          "btn-adquierelo btn btn-lx btn-lg btn-main-blue rounded-pill mx-1 px-1 text-uppercase img-fluid",
+                        attrs: {
+                          type: "button",
+                          "data-toggle": "modal",
+                          "data-target": "#modalConsultOffer"
                         },
-                        [_vm._v("ADQUIERELO")]
-                      )
-                    ])
-                  ]
-                )
-              ])
-            ]
-          )
-        }),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass:
-              "d-flex flex-row w-100 justify-content-around py-3 pt-5 align-items-center p-2"
-          },
-          [
-            _c(
-              "button",
-              {
-                staticClass:
-                  "col-2 col-md-1 col-lg-1 col-xl-1 d-flex justify-content-center align-items-center page-item rounded-pill btn btn-light",
-                attrs: { disabled: _vm.currentpage == 1 },
-                on: { click: _vm.setPage }
-              },
-              [_c("i", { staticClass: "fas fa-arrow-left" })]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass:
-                  "d-flex flex-row justify-content-center col-8 col-lg-6 col-xl-6"
-              },
-              _vm._l(_vm.compLastpage, function(item, k1) {
-                return _c(
-                  "button",
-                  {
-                    key: k1,
-                    class:
-                      "mx-2 d-flex justify-content-center align-items-center btn btn-sm py-2 text-white rounded-pill page-item" +
-                      (_vm.currentpage == item
-                        ? " bg-main-blue"
-                        : " bg-dark-blue"),
-                    attrs: { disabled: _vm.currentpage == item },
-                    on: {
-                      click: function($event) {
-                        return _vm.setPage(item)
-                      }
-                    }
-                  },
-                  [
-                    _c("span", { staticClass: "text-center pr-1" }, [
-                      _vm._v(
-                        "\r\n                " +
-                          _vm._s(item) +
-                          "\r\n              "
-                      )
-                    ])
-                  ]
-                )
-              }),
-              0
-            ),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass:
-                  "col-2 col-md-1 col-lg-1 col-xl-1 d-flex justify-content-center align-items-center page-item rounded-pill btn btn-light",
-                attrs: { disabled: _vm.currentpage == _vm.compLastpage },
-                on: {
-                  click: function($event) {
-                    return _vm.setPage(_vm.currentpage)
-                  }
-                }
-              },
-              [_c("i", { staticClass: "fas fa-arrow-right" })]
-            )
+                        on: {
+                          click: function($event) {
+                            return _vm.emitConsult(k)
+                          }
+                        }
+                      },
+                      [_vm._v("ADQUIERELO")]
+                    )
+                  ])
+                ]
+              )
+            ])
           ]
         )
-      ],
-      2
-    )
-  ])
+      }),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass:
+            "d-flex flex-row w-100 justify-content-around py-3 pt-5 align-items-center p-2"
+        },
+        [
+          _c(
+            "button",
+            {
+              staticClass:
+                "col-2 col-md-1 col-lg-1 col-xl-1 d-flex justify-content-center align-items-center page-item rounded-pill btn btn-light",
+              attrs: { disabled: _vm.currentpage == 1 },
+              on: { click: _vm.setPage }
+            },
+            [_c("i", { staticClass: "fas fa-arrow-left" })]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass:
+                "d-flex flex-row justify-content-center col-8 col-lg-6 col-xl-6"
+            },
+            _vm._l(_vm.compLastpage, function(item, k1) {
+              return _c(
+                "button",
+                {
+                  key: k1,
+                  class:
+                    "mx-2 d-flex justify-content-center align-items-center btn btn-sm py-2 text-white rounded-pill page-item" +
+                    (_vm.currentpage == item
+                      ? " bg-main-blue"
+                      : " bg-dark-blue"),
+                  attrs: { disabled: _vm.currentpage == item },
+                  on: {
+                    click: function($event) {
+                      return _vm.setPage(item)
+                    }
+                  }
+                },
+                [
+                  _c("span", { staticClass: "text-center pr-1" }, [
+                    _vm._v(
+                      "\r\n                " +
+                        _vm._s(item) +
+                        "\r\n              "
+                    )
+                  ])
+                ]
+              )
+            }),
+            0
+          ),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass:
+                "col-2 col-md-1 col-lg-1 col-xl-1 d-flex justify-content-center align-items-center page-item rounded-pill btn btn-light",
+              attrs: { disabled: _vm.currentpage == _vm.compLastpage },
+              on: {
+                click: function($event) {
+                  return _vm.setPage(_vm.currentpage)
+                }
+              }
+            },
+            [_c("i", { staticClass: "fas fa-arrow-right" })]
+          )
+        ]
+      )
+    ],
+    2
+  )
 }
 var staticRenderFns = [
   function() {
@@ -47363,16 +47422,14 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-xl-2 col-lg-3 col-md-4 px-1" }, [
-      _c(
-        "div",
-        {
-          staticClass:
-            "text-center p-2 offer-table-label w-100 text-white mx-auto bg-dark-blue rounded-pill p-1 text-wrap "
-        },
-        [_c("p", { staticClass: "text-tabla-detalles" })]
-      )
-    ])
+    return _c(
+      "div",
+      {
+        staticClass:
+          "text-center p-2 offer-table-label w-100 text-white mx-auto bg-dark-blue rounded-pill p-1 text-wrap "
+      },
+      [_c("p", { staticClass: "text-tabla-detalles" })]
+    )
   },
   function() {
     var _vm = this

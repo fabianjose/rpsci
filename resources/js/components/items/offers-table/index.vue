@@ -10,7 +10,10 @@
           </div>
           
           <div v-for="(field,k2) in compFields" :key="k2" :class="'col-xl-2 px-1 col-lg-3 col-md-4 col-sm-4 offer-benefits hidden-md hidden-xs hidden-sm '+(!k2?'d-lg-flex':'hidden-lg')">
-            <div class="text-center p-2 offer-table-label w-100 text-white mx-auto bg-dark-blue rounded-pill  p-1 text-wrap ">   <p class="text-tabla-detalles" > {{field.name}} </p>  </div>
+            <div class="text-center p-2 offer-table-label w-100 text-white mx-auto bg-dark-blue rounded-pill  p-1 text-wrap ">   <p @click="emitSpeed"  class="text-tabla-detalles" > {{field.name}}
+                <i v-if="sortBy == 'speed'" :class="'fa fa-angle-' +( (sortByDesc && sortBy !='')?'up':'down')"></i>
+           
+             </p>  </div>
           </div>
 
           <div class="col-xl-2 col-lg-3 col-md-4 co px-1 col-sm-4 hidden-xs hidden-sm">
@@ -18,10 +21,16 @@
           </div>
           
           <div class="col-xl-2 col-lg-3 col-md-4 px-1">
-            <div class="text-center p-2 offer-table-label w-100 text-white mx-auto bg-dark-blue rounded-pill p-1 text-wrap ">   <p @click="emit" class="text-tabla-detalles" >   Precio</p> </div>
+            <div class="text-center p-2 offer-table-label w-100 text-white mx-auto bg-dark-blue rounded-pill p-1 text-wrap ">   <p @click="emitPrice" class="text-tabla-detalles" >   Precio
+              
+             
+                <i v-if="sortBy == 'tariff'" :class="'fa fa-angle-' +( (sortByDesc && sortBy !='')?'up':'down')"></i>
+           
+              </p>
+             </div>
           </div>
 
-            <div class="col-xl-2 col-lg-3 col-md-4 px-1">
+           
             <div class="text-center p-2 offer-table-label w-100 text-white mx-auto bg-dark-blue rounded-pill p-1 text-wrap ">   <p class="text-tabla-detalles" >  </p> </div>
           </div>
         </div>
@@ -222,9 +231,24 @@ export default {
         this.$emit("pageSwitch", pageNumber);
       },
 
-      emit(index){
+      emitPrice(index){
         var  kk  = new URLSearchParams(this.query);
         kk.set("sortBy","tariff");
+        this.sortBy = "tariff";
+        this.sortByDesc = !this.sortByDesc;
+        if(this.sortByDesc)kk.append("sortByDesc","true");
+        else kk.delete("sortByDesc");
+        console.log(kk.toString());
+        console.log(this.query);
+
+       
+        this.$emit("customFiltering", kk.toString());
+      }
+      ,
+      emitSpeed(index){
+        var  kk  = new URLSearchParams(this.query);
+        kk.set("sortBy","speed");
+        this.sortBy = "speed";
         this.sortByDesc = !this.sortByDesc;
         if(this.sortByDesc)kk.append("sortByDesc","true");
         else kk.delete("sortByDesc");
@@ -253,6 +277,18 @@ export default {
           return this.fields
         }
       },
+      sortBy:{
+        get(){
+          return this.sortBy;
+        }
+      }
+      ,
+      sortByDesc:{
+        get(){
+          return this.sortByDesc;
+        }
+      }
+      ,
       compLastpage:{
         get(){
           console.log("new ", this.lastpage);

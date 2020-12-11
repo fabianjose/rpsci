@@ -305,7 +305,12 @@ class OfferController extends Controller{
         else $query->orWhere('offers.tecnologia',"=",$t);
       }
     })
-    ->join('fields_values as fs','fs.offer_id','offers.id')
+    ->leftJoin('fields_values as fs',function($join){
+
+        $join->on('fs.offer_id','offers.id');
+         $join->where('fs.field_id','=',"28");
+      }
+     ) 
     ->where(function($query) use($data){
       if(isset($data['mins'] ) && isset($data['maxs'] )){
       $query->where(\DB::raw("convert(fs.value,UNSIGNED)"),">=",$data["mins"])->where("fs.field_id","=",'28');
@@ -320,7 +325,8 @@ class OfferController extends Controller{
     ->select('offers.*',
     'companies.name as company_name',
     'companies.logo as company_logo',
-    'services.name as service_name'
+    'services.name as service_name',
+    'fs.value as speed'
     );
 
     $providers = DB::table('companies')
@@ -412,7 +418,7 @@ class OfferController extends Controller{
     }
 
     $offers=$offers->distinct()->get();
-
+   
     $offers=Offer::joinFields($offers->toArray());
     $fields=DB::table("fields")->where("service_id", $service->id)
     ->where("trash",0)
