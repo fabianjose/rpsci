@@ -46910,15 +46910,13 @@ var render = function() {
                           _vm._v(
                             " " + _vm._s(field.name) + "\r\n                "
                           ),
-                          _vm.sortBy == "speed"
-                            ? _c("i", {
-                                class:
-                                  "fa fa-angle-" +
-                                  (_vm.sortByDesc && _vm.sortBy != ""
-                                    ? "up"
-                                    : "down")
-                              })
-                            : _vm._e()
+                          _c("i", {
+                            class:
+                              "fa fa-angle-" +
+                              (_vm.sortByDesc && _vm.sortBy != ""
+                                ? "up"
+                                : "down")
+                          })
                         ]
                       )
                     ]
@@ -46947,15 +46945,11 @@ var render = function() {
                       _vm._v(
                         "   Precio\r\n              \r\n             \r\n                "
                       ),
-                      _vm.sortBy == "tariff"
-                        ? _c("i", {
-                            class:
-                              "fa fa-angle-" +
-                              (_vm.sortByDesc && _vm.sortBy != ""
-                                ? "up"
-                                : "down")
-                          })
-                        : _vm._e()
+                      _c("i", {
+                        class:
+                          "fa fa-angle-" +
+                          (_vm.sortByDesc && _vm.sortBy != "" ? "up" : "down")
+                      })
                     ]
                   )
                 ]
