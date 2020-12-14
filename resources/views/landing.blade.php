@@ -30,7 +30,7 @@
                 <div class="d-flex flex-column about-sub p-3" style="padding-left: 100px;
     padding-right: 100px;">
                     <div class="fila-de-botones-sobre-buscador d-flex flex-row flex-wrap justify-content-center  text-heebo" >
-                        <div class="botones-sobre-buscador col-6 col-sm-3 col-md-3 col-lg-3 p-2 my-2">
+                        <div class="botones-sobre-buscador col-6 col-sm-2 col-md-2 col-lg-2 p-2 my-2">
                             <div class="row align-items-start justify-content-center text-white">
                                 <div class="rounded-circle about-number p-1 mb-1 text-center bg-dark-blue">1</div>
                                 <p class="btn btn-1" class="col-12 col-md-8 col-lg-8 about-text  mt-1" class="texto-btn"  >
@@ -47,7 +47,7 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="botones-sobre-buscador col-6 col-sm-3 col-md-3 col-lg-3 p-2 my-2">
+                        <div class="botones-sobre-buscador col-6 col-sm-4 col-md-4 col-lg-4 p-2 my-2">
                             <div class="row align-items-start justify-content-center text-white">
                                 <div class="rounded-circle about-number p-1 mb-1 text-center bg-dark-blue">3</div>
                                 <p class="btn btn-1" class="col-12 col-md-8 col-lg-8 about-text mt-1" class="texto-btn"  >

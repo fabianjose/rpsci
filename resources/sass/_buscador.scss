@@ -4,9 +4,10 @@
 
 
 .fila-de-botones-sobre-buscador{ 
-    margin-top: -50px;
+    margin-top: 40px;
     padding-left: 177px;
     padding-right: 208px;
+    margin-bottom: -30px;
 }
 
 
@@ -14,7 +15,12 @@
 .btn-1{
     background-color: #3d3c3c63;
     color: white;
-    font-size: 11px;
+    font-size: 13px;
+    
+    
+}
+.btn-1:hover{
+    color:white;
 }
 
 .fila-iconos-buscador{
