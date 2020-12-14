@@ -3352,6 +3352,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["fields", "providers", "max_price", "min_price", "technologies", "speeds"],
   data: function data() {
@@ -3949,6 +3951,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
 //
 //
 //
@@ -45457,7 +45463,9 @@ var render = function() {
                   0
                 )
               ]
-            )
+            ),
+            _vm._v(" "),
+            _c("br")
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "form-horizontal my-2 col-12 flex-wrap" }, [
@@ -45574,7 +45582,9 @@ var render = function() {
                   0
                 )
               ]
-            )
+            ),
+            _vm._v(" "),
+            _c("br")
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "form-horizontal my-2 col-12 flex-wrap" }, [
@@ -45621,7 +45631,9 @@ var render = function() {
                   1
                 )
               ]
-            )
+            ),
+            _vm._v(" "),
+            _c("br")
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "form-horizontal my-2 col-12 flex-wrap" }, [
@@ -46961,6 +46973,8 @@ var render = function() {
           2
         )
       ]),
+      _vm._v(" "),
+      _c("br"),
       _vm._v(" "),
       _vm._l(_vm.compItems, function(offer, k) {
         return _c(
@@ -84710,8 +84724,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\RPCS_SOLUTIONS\rpsci\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\RPCS_SOLUTIONS\rpsci\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\Nueva carpeta\rpsci\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\Nueva carpeta\rpsci\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),

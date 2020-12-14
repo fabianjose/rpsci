@@ -20,6 +20,7 @@
             </div>
           </div>
         </div>
+         <br>
       </div>
       <div class="form-horizontal my-2 col-12 flex-wrap">
         <div  type="button" data-toggle="collapse" data-target="#collapseTecnologia" aria-expanded="false" aria-controls="collapseTecnologia"  style="display:flex;justify-content: space-between;">
@@ -41,7 +42,7 @@
            Radio</label>
             </div>
           </div>
-        </div>
+        </div>  <br>
       </div>
       <div class="form-horizontal my-2 col-12 flex-wrap">
         <div type="button" data-toggle="collapse" data-target="#collapseVelocidad" aria-expanded="false" aria-controls="collapseVelocidad" style="display:flex;justify-content: space-between;">
@@ -67,8 +68,9 @@
    </div>
       
   </div>
-</div>
-</div>
+</div> <br>
+
+</div> 
 <div class="form-horizontal my-2 col-12 flex-wrap" >
   <div  type="button" data-toggle="collapse" data-target="#collapsePrecio" aria-expanded="false" aria-controls="collapseExample" style="display:flex;justify-content: space-between;">
  <h4 class="btn-block" style="color:#616161">  Precio   </h4> <span><i class="fas fa-angle-down" style="margin-left: auto; font-size: 33px;   color: #afaeb4;"></i></span>
