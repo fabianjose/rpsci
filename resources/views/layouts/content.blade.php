@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="wrapper">
-  <nav class="main-header navbar navbar-expand-md navbar-white navbar-light">
+  <nav class="main-header navbar navbar-expand-md navbar-white navbar-light sticky-top">
 
     <ul class="navbar-nav">
       <li class="nav-item">

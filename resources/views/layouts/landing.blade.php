@@ -68,24 +68,7 @@
             </div>
         </div>
 
-
-<script>
-
-window.onscroll = function() {
-  var y = window.scrollY;
-  console.log(y);
-  if (y >= 350){
-  alert("aca toy");
-}
-
- // $("#nav-grande").style("fixed-top")
-};
-</script>
-
-
-
-
-        <nav class=" nav-grande  main-header navbar-light navbar navbar-expand-md mx-auto py-3 px-1 align-items-center header-posicion " style="background-color:white; height: 80px;">
+        <nav class=" nav-grande  main-header navbar-light navbar navbar-expand-md mx-auto py-3 px-1 align-items-center header-posicion sticky-top" style="background-color:white; height: 80px;">
             <ul  class="navbar-nav ml-3 ">
                 <a class="nav-item  " href="/"  style="margin-top: -22px;">
                     <img class="ic-logo" src="{{ asset('images/LOGO5COLORH258.png') }}"  alt="">
