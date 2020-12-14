@@ -1199,6 +1199,7 @@ a {
 }
 
 .lupa {
+  cursor: pointer;
   margin-top: -71px;
   margin-left: 61px;
   height: 120px;

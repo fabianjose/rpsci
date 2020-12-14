@@ -211,6 +211,12 @@
                             .limitado{
 
                             }
+                            .limitado1{
+
+}
+.limitado2{
+
+}
                         </style>
                         <script>
      function ellipsis_box(elemento, max_chars){
@@ -221,10 +227,13 @@
 	$(elemento).text(limite);
 	}
 	}
+
+
 	$(function()
 	{
 	ellipsis_box(".limitado", 213);
 	});
+    
                         </script>
 @stop
 
