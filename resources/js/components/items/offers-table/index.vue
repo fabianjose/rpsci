@@ -11,7 +11,7 @@
           
           <div v-for="(field,k2) in compFields" :key="k2" :class="'col-xl-2 px-1 col-lg-3 col-md-4 col-sm-4 offer-benefits hidden-md hidden-xs hidden-sm '+(!k2?'d-lg-flex':'hidden-lg')">
             <div class="text-center p-2 offer-table-label w-100 text-white mx-auto bg-dark-blue rounded-pill  p-1 text-wrap ">   <p @click="emitSpeed"  class="text-tabla-detalles" > {{field.name}}
-                <i  :class="'fa fa-angle-' +( (sortByDesc && sortBy !='')?'up':'down')"></i>
+                <i v-if="field.name == 'Velocidad'"  :class="'fa fa-angle-' +( (sortByDesc && sortBy !='')?'up':'down')"></i>
            
              </p>  </div>
           </div>
