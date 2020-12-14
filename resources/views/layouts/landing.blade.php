@@ -190,15 +190,84 @@
 
                 </ul>
 
+            
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12  my-2  order-1  order-sm-12 ">
                   <h5 class="footer-title-color font-weight-bold text-ws " style="text-align: center;">FORMULARIO DE CONTACTO</h5>
                   <ul class="footer-list p-2">
-                  <li><input type="text" placeholder="NOMBRE" class="form-control form-control-footer" name=""/></li>
-                   <li><input type="email" placeholder="EMAIL"  class="form-control form-control-footer" name=""/></li>
-                    <li><textarea placeholder="MENSAJE" class="form-control form-control-footer" name=""></textarea> </li>
-                     <li><button class="btn btn-footer mt-2 ">ENVIAR MENSAJE</button></li>
+                  <li><input type="text" id="nombre"  placeholder="NOMBRE" class="form-control form-control-footer" name=""/></li>
+                   <li><input id="telefono"  type="email" placeholder="EMAIL"  class="form-control form-control-footer" name=""/></li>
+                    <li><textarea id="mensaje"   placeholder="MENSAJE" class="form-control form-control-footer" name=""></textarea> </li>
+                     <li><button  type="button" value="Submit" onclick="correo();"  class="btn btn-footer mt-2 ">ENVIAR MENSAJE</button>
+      
+      <script src="https://smtpjs.com/v3/smtp.js"></script>
+      <script >
+                                                                   
+
+      function correo(){                   
+        var nombre = document.getElementById('nombre').value;
+        var num = document.getElementById('telefono').value;
+        var mensaje = document.getElementById('mensaje').value;
+       
+
+
+       
+
+
+
+        Email.send({
+        SecureToken : "06009ff8-2c43-499f-865a-b92f62e04395",
+        To : 'espejofabian@gmail.com',
+        From : "admin@internetcolombia.co",
+        Subject : "llamar al cliente ",
+        Body : " El cliente es de Contrata internet El cliente se llama: " + nombre + " el numero de telefono es:  "+ num + " y el mensaje es:  " + mensaje
+
+        }).then(
+
+
+        );
+
+          console.log('sale')
+          alert("Mensaje Enviado Correctamente")
+
+
+          
+              
+
+                }
+            
+
+
+
+/*//////////////////////////////////////////////////////////////////*/
+
+
+
+
+
+
+
+
+
+
+
+
+               </script>
+
+
+
+
+
+
+
+
+
+
+
+
+                         </li>
                   </ul>
+                  
                 </div>
               </div>
 
@@ -222,12 +291,37 @@
         </div>
  
 
+
+ 
+        <div id="fb-root"></div>
+      <!-- Your Chat Plugin code -->
+      <div class="fb-customerchat"
+        attribution=setup_tool
+        page_id="173001153127662"
+  logged_in_greeting="Bienvenido, Cuentanos en que podemos ayudarte?"
+  logged_out_greeting="Bienvenido, Cuentanos en que podemos ayudarte?">
+      </div>
+
+
         <div class="whatsapp">
             <a target="_blank"href="https://api.whatsapp.com/send?phone=573212120281&text=hola, me gustaria saber de los planes"> <img src="{{asset('/images/whatsapp.png')}}" width="67" height="67"> </a>
         </div>
+  
+  
+  
+
+
+
+
+
+
+
+  
+  
+  
     <!-- Load Facebook SDK for JavaScript -->
-    <div id="fb-root"></div>
-      <script>
+   
+      <script >
         window.fbAsyncInit = function() {
           FB.init({
             xfbml            : true,
@@ -241,14 +335,33 @@
         js = d.createElement(s); js.id = id;
         js.src = 'https://connect.facebook.net/es_LA/sdk/xfbml.customerchat.js';
         fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));</script>
+      }(document, 'script', 'facebook-jssdk'));
 
-      <!-- Your Chat Plugin code -->
-      <div class="fb-customerchat"
-        attribution=setup_tool
-        page_id="173001153127662"
-  logged_in_greeting="Bienvenido, Cuentanos en que podemos ayudarte?"
-  logged_out_greeting="Bienvenido, Cuentanos en que podemos ayudarte?">
-      </div>
+
+
+/********************************************/
+window.onscroll = function() {
+  var y = window.scrollY;
+  console.log(y);
+  if(y > 70){
+    
+  
+$("#nav-grande").addClass("fixed-top"); 
+$("#nav-grande").css({'height':'105px'});
+    
+
+  }   else {     $("#nav-grande").removeClass("fixed-top");
+    $("#nav-grande").css({'height':'66px'});
+
+   
+               
+};}
+
+
+
+      </script>
+
+   
+      
 
 @stop

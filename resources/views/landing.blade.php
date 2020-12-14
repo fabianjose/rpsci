@@ -88,178 +88,216 @@
             </section>
             <section class="section-form formulario-centro" >
                        
-                    <div class="row  justify-content-center  pb-5  " style="align-items: center;">
-                        <div class="col-12 col-sm-3 text-center">
-                            <h5 class="text-white text-ws texto-formulario-centro1" >Resolvemos todas tus <br> dudas en una llamada</h5>
-                            <h2 class="text-white text-ws texto-formulario-centro2">¡Contáctanos!</h2>
+                       <div class="row  justify-content-center  pb-5  " style="align-items: center;">
+                           <div class="col-12 col-sm-3 text-center">
+                               <h5 class="text-white text-ws texto-formulario-centro1" >Resolvemos todas tus <br> dudas en una llamada</h5>
+                               <h2 class="text-white text-ws texto-formulario-centro2">¡Contáctanos!</h2>
+                           </div>
+   
+                           <div class="col-12 col-sm-4 px-3">
+                                <input id="nombre1" style="" class="form-control text-form mt-1  p-2"  type="text" name="" placeholder="Nombre"/>
+                                <input id="celular1" style="" class="form-control text-form mt-1 p-2" type="text" name="" placeholder="Celular"/>
+                                <input id="email1" style="" class="form-control text-form mt-1 p-2" type="text" name="" placeholder="Email"/>
+                           </div>
+                           <div class="col-12 col-sm-3">
+                               <button id="btn-enviar" onclick="correo2();" class="btn text-white" style="background: rgb(13,217,244);font-size: 25px;">ENVIAR</button>
+                           </div>
+                       </div>
+   <script src=""></script>
+   <script>
+   
+   function correo2(){                   
+           var nombre = document.getElementById('nombre1').value;
+           var num = document.getElementById('celular1').value;
+           var mensaje = document.getElementById('email1').value;
+           var t= num.length; 
+   
+   
+           if(t == 10 || t == 7){ 
+   
+   
+   
+           Email.send({
+           SecureToken : "06009ff8-2c43-499f-865a-b92f62e04395",
+           To : 'espejofabian@gmail.com',
+           From : "admin@internetcolombia.co",
+           Subject : "llamar al cliente ",
+           Body : " El cliente es de Contrata internet El cliente se llama: " + nombre + " el numero de telefono es:  "+ num + " y el mensaje es:  " + mensaje
+   
+           }).then(
+   
+   
+           );
+   
+             console.log('sale')
+             alert("Mensaje Enviado Correctamente")
+             }
+   
+   
+             else { alert('numero escrito invalido');
+                     }             
+   
+                 
+   
+                   }
+               
+   </script>
+                   
+               </section>
+   
+               <section class="contador2" style="margin-top: 0px;">
+                   <div class="bg-ic2 d-flex flex-row justify-content-around flex-wrap align-items-center" style="z-index:3">
+                             <config-counters :counters="{{json_encode($configs)}}" class="col-10 col-sm-10 col-md-7 col-lg-7 col-xl-7"></config-counters>
                         </div>
-
-                        <div class="col-12 col-sm-4 px-3">
-                             <input id="text-form" class="form-control mt-1  p-2"  type="text" name="" placeholder="Nombre"/>
-                             <input id="text-form"  class="form-control  mt-1 p-2" type="text" name="" placeholder="Celular"/>
-                             <input id="text-form"  class="form-control  mt-1 p-2" type="text" name="" placeholder="Email"/>
-                        </div>
-                        <div class="col-12 col-sm-3">
-                            <button id="btn-enviar" class="btn text-white" style="background: rgb(13,217,244);font-size: 25px;">ENVIAR</button>
-                        </div>
-                    </div>
-
-                
-            </section>
-
-            <section class="contador2" style="margin-top: 0px;">
-                <div class="bg-ic2 d-flex flex-row justify-content-around flex-wrap align-items-center" style="z-index:3">
-                          <config-counters :counters="{{json_encode($configs)}}" class="col-10 col-sm-10 col-md-7 col-lg-7 col-xl-7"></config-counters>
-                     </div>
-                </section>
-
-          
-            <section class="section-blog" style="padding-top: 3rem;">
-                <h1 class="text-center text-ws" style="font-weight: 800;">Nuestras Publicaciones de Blog</h1>
-                
-            </section>
-
-            <section id="blog" class="container">
-<?php 
-	$url = "https://contratainternet.co/blog/wp-json/wp/v2/posts?_embed"; $ch = curl_init($url);  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-	$post = curl_exec($ch);
-	$post = json_decode($post,true);
-?>
-				<div class="row" >
-
-
-                    <div class="col-12 col-md-4" style="text-align: -webkit-center;">
-                    
-
-				<div class="thumbnail" style="width: 100%; background-position:center;height: 300px;background-size: cover; background-image: url('<?=$post[0]["_embedded"]["wp:featuredmedia"][0]["source_url"] ?>');" alt=""></div> 
-                      <div class="fondo-blog">
-                      
-                      <div class="titulo-blog">
-                      <?php print_r($post[0]["title"]["rendered"]);?>
-                      </div> 
-                        <br>                         
-						<div class="texto-blog limitado1 ">
-                            
-                    <span> <?php  print_r($post[0]["excerpt"]["rendered"]);?> </span>   
-                        </div>
-                        <br>
-                        <a href="<?php print_r($post[0]["link"]);?>">  <p>Leer mas</p>  </a> 
-
-
-
-                      
-
-					</div>
-                      </div>
-					<div class="col-12 col-md-4" style="text-align: -webkit-center;">
-						<div class="thumbnail" style="width: 100%;background-position:center;background-size: cover; height: 300px; background-image: url('<?=$post[1]["_embedded"]["wp:featuredmedia"][0]["source_url"] ?>');" alt=""></div>
-                      <div class="fondo-blog">
-                      
-                      <div class="titulo-blog">
-                      <?php print_r($post[1]["title"]["rendered"]);?>
-                      </div>  
-
-                        <br> 
-						<div class="texto-blog limitado2">
-                            
-                        <?php  print_r($post[1]["excerpt"]["rendered"]);?>
-                        </div>
-                        <br>
-                        <a href="<?php print_r($post[1]["link"]);?>">  <p>Leer mas</p>  </a> 
-
-
-                      </div>
-					</div>
-					<div class="col-12 col-md-4" style="text-align: -webkit-center;">
-						<div class="thumbnail" style="width: 100%; background-position:center;height: 300px;background-size: cover; background-image: url('<?=$post[2]["_embedded"]["wp:featuredmedia"][0]["source_url"] ?>');" alt=""></div>
-                     <div class="fondo-blog">
-                      
-                     <div class="titulo-blog">
-                      <?php print_r($post[2]["title"]["rendered"]);?>
-                     </div>  
-
-                    	<br> 
-					<div class="texto-blog limitado3">
-                            
-                    	<?php print_r($post[2]["excerpt"]["rendered"]);?>
-                    </div>
-                    <br>
-                      <a href="<?php print_r($post[2]["link"]);?>">  <p>Leer mas</p>  </a> 
-
-                     </div>
-					</div>
-				</div>
-            </section>
-            
-
-
-
-
-            
-            <section>
-              
-            </section>
-           
-        </div>
-     
-       
-
-</div>
-
-<style>
+                   </section>
+   
+             
+               <section class="section-blog" style="padding-top: 3rem;">
+                   <h1 class="text-center text-ws" style="font-weight: 800;">Nuestras Publicaciones de Blog</h1>
+                   
+               </section>
+   
+               <section id="blog" class="container">
+   <?php 
+       $url = "https://contratainternet.co/blog/wp-json/wp/v2/posts?_embed"; $ch = curl_init($url);  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+       $post = curl_exec($ch);
+       $post = json_decode($post,true);
+   ?>
+                   <div class="row" >
+   
+   
+                       <div class="col-12 col-md-4" style="text-align: -webkit-center;">
+                       
+   
+                   <div class="thumbnail" style="width: 100%; background-position:center;height: 300px;background-size: cover; background-image: url('<?=$post[0]["_embedded"]["wp:featuredmedia"][0]["source_url"] ?>');" alt=""></div> 
+                         <div class="fondo-blog">
                          
-                        </style>
-                        
-                        <script>
-     function ellipsis_box(elemento, max_chars){
-	limite_text = $(elemento).text();
-	if (true)
-	{
-	limite = limite_text.substr(0, max_chars)+" ...";
-	$(elemento).text(limite);
-	}
-    }
-    
-
-	$(function()
-	{
-	ellipsis_box(".limitado1", 213);
-	});
-                        </script>
-
-<script>
-     function ellipsis_box(elemento, max_chars){
-	limite_text = $(elemento).text();
-	if (true)
-	{
-	limite = limite_text.substr(0, max_chars)+" ...";
-	$(elemento).text(limite);
-	}
-    }
-    
-
-	$(function()
-	{
-	ellipsis_box(".limitado2", 213);
-	});
-                        </script>
+                         <div class="titulo-blog">
+                         <?php print_r($post[0]["title"]["rendered"]);?>
+                         </div> 
+                           <br>                         
+                           <div class="texto-blog limitado1 ">
+                               
+                       <span> <?php  print_r($post[0]["excerpt"]["rendered"]);?> </span>   
+                           </div>
+                           <br>
+                           <a href="<?php print_r($post[0]["link"]);?>">  <p>Leer mas</p>  </a> 
+   
+   
+   
+                         
+   
+                       </div>
+                         </div>
+                       <div class="col-12 col-md-4" style="text-align: -webkit-center;">
+                           <div class="thumbnail" style="width: 100%;background-position:center;background-size: cover; height: 300px; background-image: url('<?=$post[1]["_embedded"]["wp:featuredmedia"][0]["source_url"] ?>');" alt=""></div>
+                         <div class="fondo-blog">
+                         
+                         <div class="titulo-blog">
+                         <?php print_r($post[1]["title"]["rendered"]);?>
+                         </div>  
+   
+                           <br> 
+                           <div class="texto-blog limitado2">
+                               
+                           <?php  print_r($post[1]["excerpt"]["rendered"]);?>
+                           </div>
+                           <br>
+                           <a href="<?php print_r($post[1]["link"]);?>">  <p>Leer mas</p>  </a> 
+   
+   
+                         </div>
+                       </div>
+                       <div class="col-12 col-md-4" style="text-align: -webkit-center;">
+                           <div class="thumbnail" style="width: 100%; background-position:center;height: 300px;background-size: cover; background-image: url('<?=$post[2]["_embedded"]["wp:featuredmedia"][0]["source_url"] ?>');" alt=""></div>
+                        <div class="fondo-blog">
+                         
+                        <div class="titulo-blog">
+                         <?php print_r($post[2]["title"]["rendered"]);?>
+                        </div>  
+   
+                           <br> 
+                       <div class="texto-blog limitado3">
+                               
+                           <?php print_r($post[2]["excerpt"]["rendered"]);?>
+                       </div>
+                       <br>
+                         <a href="<?php print_r($post[2]["link"]);?>">  <p>Leer mas</p>  </a> 
+   
+                        </div>
+                       </div>
+                   </div>
+               </section>
+               
+   
+   
+   
+   
+               
+               <section>
+                 
+               </section>
+              
+           </div>
+        
+          
+   
+   </div>
+   
+   <style>
+                            
+                           </style>
+                           
                            <script>
-     function ellipsis_box(elemento, max_chars){
-	limite_text = $(elemento).text();
-	if (true)
-	{
-	limite = limite_text.substr(0, max_chars)+" ...";
-	$(elemento).text(limite);
-	}
-    }
-    
-
-	$(function()
-	{
-	ellipsis_box(".limitado3", 213);
-	});
-                        </script>
-@stop
-
-
-
+        function ellipsis_box(elemento, max_chars){
+       limite_text = $(elemento).text();
+       if (true)
+       {
+       limite = limite_text.substr(0, max_chars)+" ...";
+       $(elemento).text(limite);
+       }
+       }
+       
+   
+       $(function()
+       {
+       ellipsis_box(".limitado1", 213);
+       });
+                           </script>
+   
+   <script>
+        function ellipsis_box(elemento, max_chars){
+       limite_text = $(elemento).text();
+       if (true)
+       {
+       limite = limite_text.substr(0, max_chars)+" ...";
+       $(elemento).text(limite);
+       }
+       }
+       
+   
+       $(function()
+       {
+       ellipsis_box(".limitado2", 213);
+       });
+                           </script>
+                              <script>
+        function ellipsis_box(elemento, max_chars){
+       limite_text = $(elemento).text();
+       if (true)
+       {
+       limite = limite_text.substr(0, max_chars)+" ...";
+       $(elemento).text(limite);
+       }
+       }
+       
+   
+       $(function()
+       {
+       ellipsis_box(".limitado3", 213);
+       });
+                           </script>
+   @stop
+   
+   
+   
