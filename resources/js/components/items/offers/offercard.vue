@@ -88,7 +88,7 @@
         <div>
   <button @click="emitContact" data-toggle="modal" data-target="#modalConsultOffer" 
           :class="'btn  text-white offer-card-btn rounded-pill '+(index%2?'bg-main-blue':'bg-main-pink')">
-          ADQUIÉRELO
+          ADQUIÉRELO2
         </button>
         </div>
       

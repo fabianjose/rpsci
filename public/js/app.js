@@ -48312,7 +48312,7 @@ var render = function() {
               },
               on: { click: _vm.emitContact }
             },
-            [_vm._v("\n        ADQUIÉRELO\n      ")]
+            [_vm._v("\n        ADQUIÉRELO2\n      ")]
           )
         ])
       ])
@@ -84710,8 +84710,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\RPCS_SOLUTIONS\rpsci\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\RPCS_SOLUTIONS\rpsci\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\Nueva carpeta\rpsci\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\Nueva carpeta\rpsci\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),
