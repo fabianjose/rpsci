@@ -138,7 +138,7 @@
                       <?php print_r($post[0]["title"]["rendered"]);?>
                       </div> 
                         <br>                         
-						<div class="texto-blog limitado ">
+						<div class="texto-blog limitado1 ">
                             
                     <span> <?php  print_r($post[0]["excerpt"]["rendered"]);?> </span>   
                         </div>
@@ -160,7 +160,7 @@
                       </div>  
 
                         <br> 
-						<div class="texto-blog limitado">
+						<div class="texto-blog limitado2">
                             
                         <?php  print_r($post[1]["excerpt"]["rendered"]);?>
                         </div>
@@ -179,7 +179,7 @@
                      </div>  
 
                     	<br> 
-					<div class="texto-blog limitado">
+					<div class="texto-blog limitado3">
                             
                     	<?php print_r($post[2]["excerpt"]["rendered"]);?>
                     </div>
@@ -197,8 +197,7 @@
 
             
             <section>
-            
-
+              
             </section>
            
         </div>
@@ -208,16 +207,9 @@
 </div>
 
 <style>
-                            .limitado{
-
-                            }
-                            .limitado1{
-
-}
-.limitado2{
-
-}
+                         
                         </style>
+                        
                         <script>
      function ellipsis_box(elemento, max_chars){
 	limite_text = $(elemento).text();
@@ -226,14 +218,46 @@
 	limite = limite_text.substr(0, max_chars)+" ...";
 	$(elemento).text(limite);
 	}
-	}
-
+    }
+    
 
 	$(function()
 	{
-	ellipsis_box(".limitado", 213);
+	ellipsis_box(".limitado1", 213);
 	});
+                        </script>
+
+<script>
+     function ellipsis_box(elemento, max_chars){
+	limite_text = $(elemento).text();
+	if (true)
+	{
+	limite = limite_text.substr(0, max_chars)+" ...";
+	$(elemento).text(limite);
+	}
+    }
     
+
+	$(function()
+	{
+	ellipsis_box(".limitado2", 213);
+	});
+                        </script>
+                           <script>
+     function ellipsis_box(elemento, max_chars){
+	limite_text = $(elemento).text();
+	if (true)
+	{
+	limite = limite_text.substr(0, max_chars)+" ...";
+	$(elemento).text(limite);
+	}
+    }
+    
+
+	$(function()
+	{
+	ellipsis_box(".limitado3", 213);
+	});
                         </script>
 @stop
 
