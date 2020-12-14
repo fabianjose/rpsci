@@ -48306,13 +48306,14 @@ var render = function() {
               class:
                 "btn  text-white offer-card-btn rounded-pill " +
                 (_vm.index % 2 ? "bg-main-blue" : "bg-main-pink"),
+              staticStyle: { "box-shadow": "0px 0px 7px 0px black" },
               attrs: {
                 "data-toggle": "modal",
                 "data-target": "#modalConsultOffer"
               },
               on: { click: _vm.emitContact }
             },
-            [_vm._v("\n        ADQUIÉRELO2\n      ")]
+            [_vm._v("\n        ADQUIÉRELO\n      ")]
           )
         ])
       ])

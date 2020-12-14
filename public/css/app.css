@@ -1486,7 +1486,7 @@ a {
 .btn-adquierelo {
   font-family: "Heebo";
   background: #0bdcf3;
-  box-shadow: black 0px 1px 6p;
+  box-shadow: 0px 0px 7px 0px black;
 }
 
 .logo-mb {
@@ -1541,15 +1541,11 @@ a {
   }
 
   #carrusel-img-1 {
-    content: url(/images/PaginaWEBContratainternet_Mobile-03.jpg?d71e65eaead706692d6ce4368a145111);
+    content: url(/images/fondo2-movil.jpg?74ddfeb1b1c2a66c096df076782b325b);
   }
 
   #carrusel-img-2 {
-    content: url(/images/PaginaWEBContratainternet_Mobile-03.jpg?d71e65eaead706692d6ce4368a145111);
-  }
-
-  #carrusel-img-3 {
-    content: url(/images/PaginaWEBContratainternet_Mobile-03.jpg?d71e65eaead706692d6ce4368a145111);
+    content: url(/images/fondo3-movil.jpg?9b134619a594c36a679d5c894ddea3de);
   }
 
   .texto-nosotros {
@@ -1668,7 +1664,7 @@ a {
   .btn-adquierelo {
     font-family: "Heebo";
     background: #0bdcf3;
-    box-shadow: black 0px 1px 6p;
+    box-shadow: 0px 0px 7px 0px black;
     margin-top: -48px;
   }
 }
@@ -1747,7 +1743,7 @@ a {
   .btn-adquierelo {
     font-family: "Heebo";
     background: #0bdcf3;
-    box-shadow: black 0px 1px 6p;
+    box-shadow: 0px 0px 7px 0px black;
     margin-top: -48px;
   }
 }
@@ -1826,7 +1822,7 @@ a {
   .btn-adquierelo {
     font-family: "Heebo";
     background: #0bdcf3;
-    box-shadow: black 0px 1px 6p;
+    box-shadow: 0px 0px 7px 0px black;
     margin-top: -48px;
   }
 }
@@ -1905,7 +1901,7 @@ a {
   .btn-adquierelo {
     font-family: "Heebo";
     background: #0bdcf3;
-    box-shadow: black 0px 1px 6p;
+    box-shadow: 0px 0px 7px 0px black;
     margin-top: -48px;
   }
 }
@@ -1984,7 +1980,7 @@ a {
   .btn-adquierelo {
     font-family: "Heebo";
     background: #0bdcf3;
-    box-shadow: black 0px 1px 6p;
+    box-shadow: 0px 0px 7px 0px black;
     margin-top: -48px;
   }
 }
