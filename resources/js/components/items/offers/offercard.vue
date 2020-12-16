@@ -99,10 +99,14 @@
     <div class="offer-card-footer">
       <div class="col-10">
         <div>
-  <button @click="emitContact" data-toggle="modal" data-target="#modalConsultOffer" 
+  <button onclick="llamaAWhatsapp();" data-toggle="modal" data-target="#modalConsultOffer" 
           :class="'btn  text-white offer-card-btn rounded-pill '+(index%2?'bg-main-blue':'bg-main-pink')" style="box-shadow: 0px 0px 7px 0px black;">
           ADQUIÉRELO
         </button>
+        <!-- <button @click="emitContact" data-toggle="modal" data-target="#modalConsultOffer" 
+          :class="'btn  text-white offer-card-btn rounded-pill '+(index%2?'bg-main-blue':'bg-main-pink')" style="box-shadow: 0px 0px 7px 0px black;">
+          ADQUIÉRELO
+        </button>-->
         </div>
       
       </div>

@@ -4166,6 +4166,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["items", "fields", "lastpage", "currentpage", "searchKey", "query"],
   data: function data() {
@@ -4722,6 +4724,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
 //
 //
 //
@@ -47286,7 +47292,7 @@ var render = function() {
                       ? _c("div", [
                           _c("img", {
                             staticClass: "logo-tecnologia",
-                            attrs: { src: "/images/Fibra111.png", alt: "" }
+                            attrs: { src: "/images/hibrido.png", alt: "" }
                           })
                         ])
                       : _vm._e(),
@@ -47313,7 +47319,7 @@ var render = function() {
                       ? _c("div", [
                           _c("img", {
                             staticClass: "logo-tecnologia",
-                            attrs: { src: "/images/radio.png", alt: "" }
+                            attrs: { src: "/images/vozip.png", alt: "" }
                           })
                         ])
                       : _vm._e()
@@ -47509,40 +47515,7 @@ var render = function() {
                 ]
               ),
               _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "col-6 order-6   order-sm-6         col-xl-2 col-lg-3 col-md-4 col-sm-4 py-2 text-center d-flex flex-column align-items-center justify-content-center"
-                },
-                [
-                  _c("div", {
-                    staticClass:
-                      "stars-container flex-row justify-content-center mb-2"
-                  }),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "d-flex flex-row" }, [
-                    _c(
-                      "button",
-                      {
-                        staticClass:
-                          "btn-adquierelo btn btn-lx btn-lg btn-main-blue rounded-pill mx-1 px-1 text-uppercase img-fluid",
-                        attrs: {
-                          type: "button",
-                          "data-toggle": "modal",
-                          "data-target": "#modalConsultOffer"
-                        },
-                        on: {
-                          click: function($event) {
-                            return _vm.emitConsult(k)
-                          }
-                        }
-                      },
-                      [_vm._v("ADQUIÉRELO")]
-                    )
-                  ])
-                ]
-              )
+              _vm._m(11, true)
             ])
           ]
         )
@@ -47769,7 +47742,7 @@ var staticRenderFns = [
       [
         _c("img", {
           staticClass: "logo-movil-planes",
-          attrs: { src: "/images/Icono-trio.png", width: "30%", alt: "" }
+          attrs: { src: "/images/service-2.png", width: "30%", alt: "" }
         })
       ]
     )
@@ -47825,6 +47798,40 @@ var staticRenderFns = [
           },
           [_vm._v("  Beneficios")]
         )
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass:
+          "col-6 order-6   order-sm-6         col-xl-2 col-lg-3 col-md-4 col-sm-4 py-2 text-center d-flex flex-column align-items-center justify-content-center"
+      },
+      [
+        _c("div", {
+          staticClass: "stars-container flex-row justify-content-center mb-2"
+        }),
+        _vm._v(" "),
+        _c("div", { staticClass: "d-flex flex-row" }, [
+          _c(
+            "button",
+            {
+              staticClass:
+                "btn-adquierelo btn btn-lx btn-lg btn-main-blue rounded-pill mx-1 px-1 text-uppercase img-fluid",
+              attrs: {
+                type: "button",
+                "data-toggle": "modal",
+                onclick: "llamaAWhatsapp();",
+                "data-target": "#modalConsultOffer"
+              }
+            },
+            [_vm._v("ADQUIÉRELO")]
+          )
+        ])
       ]
     )
   }
@@ -48621,10 +48628,10 @@ var render = function() {
                 (_vm.index % 2 ? "bg-main-blue" : "bg-main-pink"),
               staticStyle: { "box-shadow": "0px 0px 7px 0px black" },
               attrs: {
+                onclick: "llamaAWhatsapp();",
                 "data-toggle": "modal",
                 "data-target": "#modalConsultOffer"
-              },
-              on: { click: _vm.emitContact }
+              }
             },
             [_vm._v("\n        ADQUIÉRELO\n      ")]
           )
@@ -85735,4 +85742,3 @@ module.exports = __webpack_require__(/*! C:\xampp\htdocs\Nueva carpeta\rpsci\res
 /***/ })
 
 /******/ });
-

@@ -202,7 +202,7 @@ a {
 
 .section-search {
   background: url(/images/fondo_satelite.jpg?14e35b3065fb09f40e303931427ca4d0);
-  background-repeat: round;
+  background-position: top;
 }
 
 @media (max-width: 768px) {

@@ -12,7 +12,7 @@ class ConfigsTableSeeder extends Seeder
     public function run()
     {
         DB::table('configs')->insert([
-          "label" => 'Bsquedas en Google',
+          "label" => 'Busquedas en Google',
           "value" =>  '0'
         ]);
         DB::table('configs')->insert([

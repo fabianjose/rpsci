@@ -303,7 +303,6 @@
             <a id="whatsapp" target="_blank"href="https://api.whatsapp.com/send?phone=573212120281&text=hola, me gustaria saber de los planes"> <img src="{{asset('/images/whatsapp.png')}}" width="67" height="67"> </a>
         </div>
 
-<button type="submit"  onclick="llamaAWhatsapp();"> asdasasdasdadsa</button> 
 
 
 
@@ -356,7 +355,9 @@ $("#nav-grande").css({'height':'105px'});
 
 
 function llamaAWhatsapp(){
-  $("#whatsapp").click(); 
+
+  document.getElementById('whatsapp').click();
+  //$('#whatsapp').click();
 }
 
       </script>
