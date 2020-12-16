@@ -10,7 +10,7 @@ class UsersTableSeeder extends Seeder
   public function run(){
 
     DB::table('users')->insert([
-      "username" => 'nextscale',
+      "username" => 'teledisca',
       'password'  =>  Hash::make('nextscale'),
     ]);
 

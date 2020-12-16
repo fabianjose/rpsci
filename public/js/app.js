@@ -4156,6 +4156,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["items", "fields", "lastpage", "currentpage", "searchKey", "query"],
   data: function data() {
@@ -4712,6 +4722,19 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -6389,6 +6412,91 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["offer", "services"],
   data: function data() {
@@ -6506,6 +6614,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 fd.append("company", _this2.offer.company_name);
                 fd.append("service", _this2.offer.service);
                 fd.append("benefits", _this2.offer.benefits);
+                fd.append("titulo1", _this2.offer.titulo1);
+                fd.append("titulo2", _this2.offer.titulo2);
+                fd.append("titulo3", _this2.offer.titulo3);
+                fd.append("titulo4", _this2.offer.titulo4);
+                fd.append("telefonia", _this2.offer.telefonia);
+                fd.append("tecnologia", _this2.offer.tecnologia);
+                fd.append("canales", _this2.offer.canales);
+                fd.append("tipo_plan_logos", _this2.offer.tipo_plan_logos);
                 if (_this2.offer.departments) if (JSON.parse(_this2.offer.departments) && JSON.parse(_this2.offer.departments).length) fd.append("departments", _this2.offer.departments);
                 if (_this2.offer.municipalities) if (JSON.parse(_this2.offer.municipalities) && JSON.parse(_this2.offer.municipalities).length) fd.append("municipalities", _this2.offer.municipalities);
                 fd.append("tariff", parseInt(_this2.offer.tariff));
@@ -6550,7 +6666,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   }
                 });
 
-              case 37:
+              case 45:
               case "end":
                 return _context.stop();
             }
@@ -6586,6 +6702,8 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
+//
 //
 //
 //
@@ -7502,6 +7620,103 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["offer", "services"],
   data: function data() {
@@ -7626,6 +7841,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 fd.append("company", _this2.offer.company_name);
                 fd.append("service", _this2.offer.service);
                 fd.append("benefits", _this2.offer.benefits);
+                fd.append("titulo1", _this2.offer.titulo1);
+                fd.append("titulo2", _this2.offer.titulo2);
+                fd.append("titulo3", _this2.offer.titulo3);
+                fd.append("titulo4", _this2.offer.titulo4);
+                fd.append("telefonia", _this2.offer.telefonia);
+                fd.append("tecnologia", _this2.offer.tecnologia);
+                fd.append("canales", _this2.offer.canales);
+                fd.append("tipo_plan_logos", _this2.offer.tipo_plan_logos);
                 if (_this2.offer.departments) if (JSON.parse(_this2.offer.departments) && JSON.parse(_this2.offer.departments).length) fd.append("departments", _this2.offer.departments);
                 if (_this2.offer.municipalities) if (JSON.parse(_this2.offer.municipalities) && JSON.parse(_this2.offer.municipalities).length) fd.append("municipalities", _this2.offer.municipalities);
                 fd.append("tariff", parseInt(_this2.offer.tariff));
@@ -7671,7 +7894,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   }
                 });
 
-              case 38:
+              case 46:
               case "end":
                 return _context.stop();
             }
@@ -46910,13 +47133,15 @@ var render = function() {
                           _vm._v(
                             " " + _vm._s(field.name) + "\r\n                "
                           ),
-                          _c("i", {
-                            class:
-                              "fa fa-angle-" +
-                              (_vm.sortByDesc && _vm.sortBy != ""
-                                ? "up"
-                                : "down")
-                          })
+                          field.name == "Velocidad"
+                            ? _c("i", {
+                                class:
+                                  "fa fa-angle-" +
+                                  (_vm.sortByDesc && _vm.sortBy != ""
+                                    ? "up"
+                                    : "down")
+                              })
+                            : _vm._e()
                         ]
                       )
                     ]
@@ -47008,9 +47233,14 @@ var render = function() {
                     ? _c("div", [_vm._m(6, true)])
                     : _vm._e(),
                   _vm._v(" "),
+                  offer.tipo_plan_logos == 3
+                    ? _c("div", [_vm._m(7, true)])
+                    : _vm._e(),
+                  _vm._v(" "),
                   offer.tipo_plan_logos != 0 &&
                   offer.tipo_plan_logos != 1 &&
-                  offer.tipo_plan_logos != 2
+                  offer.tipo_plan_logos != 2 &&
+                  offer.tipo_plan_logos != 3
                     ? _c("div", [
                         _c("img", {
                           staticClass: "logo-movil-planes",
@@ -47077,6 +47307,15 @@ var render = function() {
                             attrs: { src: "/images/radio.png", alt: "" }
                           })
                         ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    offer.tecnologia == 5
+                      ? _c("div", [
+                          _c("img", {
+                            staticClass: "logo-tecnologia",
+                            attrs: { src: "/images/radio.png", alt: "" }
+                          })
+                        ])
                       : _vm._e()
                   ]),
                   _vm._v(" "),
@@ -47111,7 +47350,7 @@ var render = function() {
                         offer.tecnologia == 2
                           ? _c("div", [
                               _vm._v(
-                                "\r\n                                      FTTH\r\n                                    "
+                                "\r\n                                      Híbrido\r\n                                    "
                               )
                             ])
                           : _vm._e(),
@@ -47128,6 +47367,14 @@ var render = function() {
                           ? _c("div", [
                               _vm._v(
                                 "\r\n                                      Radio\r\n                                    "
+                              )
+                            ])
+                          : _vm._e(),
+                        _vm._v(" "),
+                        offer.tecnologia == 5
+                          ? _c("div", [
+                              _vm._v(
+                                "\r\n                                      Voz Ip\r\n                                    "
                               )
                             ])
                           : _vm._e()
@@ -47152,9 +47399,9 @@ var render = function() {
                     "col-6 order-5   order-sm-3           'text-wrap col-2   col-xl-2 col-lg-3 text-center flex-column align-items-center justify-content-center d-xl-flex hidden-md  hidden-sm '+(!k3?'d-lg-flex':'hidden-lg')"
                 },
                 [
-                  _vm._m(7, true),
-                  _vm._v(" "),
                   _vm._m(8, true),
+                  _vm._v(" "),
+                  _vm._m(9, true),
                   _vm._v(" "),
                   _c("h6", { staticClass: "text-lg" }, [
                     _c(
@@ -47168,8 +47415,15 @@ var render = function() {
                       },
                       [
                         _vm._v(
-                          " " + _vm._s(offer.fields_values[1].value) + "  Mbps "
-                        )
+                          " " + _vm._s(offer.fields_values[1].value) + " "
+                        ),
+                        offer.tecnologia == 5
+                          ? _c("span", [_vm._v(" Kbps  ")])
+                          : _vm._e(),
+                        _vm._v(" "),
+                        offer.tecnologia != 5
+                          ? _c("span", [_vm._v(" Mbps ")])
+                          : _vm._e()
                       ]
                     )
                   ])
@@ -47184,7 +47438,7 @@ var render = function() {
                 },
                 [
                   _c("div", { staticClass: "hbo" }, [
-                    _vm._m(9, true),
+                    _vm._m(10, true),
                     _vm._v(" "),
                     _c(
                       "h5",
@@ -47284,7 +47538,7 @@ var render = function() {
                           }
                         }
                       },
-                      [_vm._v("ADQUIERELO")]
+                      [_vm._v("ADQUIÉRELO")]
                     )
                   ])
                 ]
@@ -47404,7 +47658,7 @@ var staticRenderFns = [
           },
           [
             _c("p", { staticClass: "text-tabla-detalles" }, [
-              _vm._v("  Descripcion ")
+              _vm._v("  Beneficios ")
             ])
           ]
         )
@@ -47480,6 +47734,24 @@ var staticRenderFns = [
         _c("img", {
           staticClass: "logo-movil-planes",
           attrs: { src: "/images/Icono-duo.png", width: "30%", alt: "" }
+        })
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "h6",
+      {
+        staticClass: "text-dark-blue pt-2",
+        staticStyle: { "text-align": "center" }
+      },
+      [
+        _c("img", {
+          staticClass: "logo-movil-planes",
+          attrs: { src: "/images/Icono-trio.png", width: "30%", alt: "" }
         })
       ]
     )
@@ -47869,7 +48141,7 @@ var render = function() {
                 bullets: false,
                 autoplay: _vm.offers.length > 1 ? true : false,
                 gap: 3,
-                duration: 1000,
+                duration: 3000,
                 "visible-slides": _vm.offers.length < 3 ? _vm.offers.length : 3,
                 "slide-ratio": 1 / 4,
                 "dragging-distance": 40,
@@ -48195,7 +48467,48 @@ var render = function() {
           (_vm.index % 2 ? "bg-main-blue" : "bg-main-pink")
       }),
       _vm._v(" "),
-      _vm._m(0),
+      _c("div", { staticClass: "row text-center" }, [
+        _c(
+          "p",
+          {
+            staticClass: "col-12 ",
+            staticStyle: { "font-family": "'Heebo'", color: "#88868b" }
+          },
+          [_vm._v("Telefonía")]
+        ),
+        _vm._v(" "),
+        _vm.offer.telefonia == 0
+          ? _c(
+              "h1",
+              {
+                staticClass: "col-12 ",
+                staticStyle: {
+                  "font-family": "'Heebo'",
+                  color: "#5b5b5f",
+                  "margin-top": "-19px",
+                  "font-weight": "800"
+                }
+              },
+              [_vm._v("N/A")]
+            )
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.offer.telefonia == 1
+          ? _c(
+              "h1",
+              {
+                staticClass: "col-12 ",
+                staticStyle: {
+                  "font-family": "'Heebo'",
+                  color: "#5b5b5f",
+                  "margin-top": "-19px",
+                  "font-weight": "800"
+                }
+              },
+              [_vm._v("ILIMITADA")]
+            )
+          : _vm._e()
+      ]),
       _vm._v(" "),
       _vm.offer.titulo1 != _vm.NULL &&
       _vm.offer.titulo2 != _vm.NULL &&
@@ -48320,37 +48633,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row text-center" }, [
-      _c(
-        "p",
-        {
-          staticClass: "col-12 ",
-          staticStyle: { "font-family": "'Heebo'", color: "#88868b" }
-        },
-        [_vm._v("Telefonia")]
-      ),
-      _vm._v(" "),
-      _c(
-        "h1",
-        {
-          staticClass: "col-12 ",
-          staticStyle: {
-            "font-family": "'Heebo'",
-            color: "#5b5b5f",
-            "margin-top": "-19px",
-            "font-weight": "800"
-          }
-        },
-        [_vm._v("ILIMITADA")]
-      )
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -50956,33 +51239,161 @@ var render = function() {
                   "div",
                   {
                     staticClass:
-                      "form-group col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6"
+                      "d-flex flex-row w-100 justify-content-around flex-wrap"
                   },
                   [
-                    _c("label", [_vm._v("Descripcion")]),
-                    _vm._v(" "),
-                    _c("textarea", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.offer.benefits,
-                          expression: "offer.benefits"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      staticStyle: { resize: "none" },
-                      attrs: { rows: "3", placeholder: "Descripcion..." },
-                      domProps: { value: _vm.offer.benefits },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "form-group col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6"
+                      },
+                      [
+                        _c("label", [_vm._v("titulo1")]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.offer.titulo1,
+                              expression: "offer.titulo1"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          domProps: { value: _vm.offer.titulo1 },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.offer,
+                                "titulo1",
+                                $event.target.value
+                              )
+                            }
                           }
-                          _vm.$set(_vm.offer, "benefits", $event.target.value)
-                        }
-                      }
-                    })
+                        })
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "form-group col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6"
+                      },
+                      [
+                        _c("label", [_vm._v("titulo2")]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.offer.titulo2,
+                              expression: "offer.titulo2"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          domProps: { value: _vm.offer.titulo2 },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.offer,
+                                "titulo2",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "d-flex flex-row w-100 justify-content-around flex-wrap"
+                  },
+                  [
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "form-group col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6"
+                      },
+                      [
+                        _c("label", [_vm._v("titulo3")]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.offer.titulo3,
+                              expression: "offer.titulo3"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          domProps: { value: _vm.offer.titulo3 },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.offer,
+                                "titulo3",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "form-group col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6"
+                      },
+                      [
+                        _c("label", [_vm._v("titulo4")]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.offer.titulo4,
+                              expression: "offer.titulo4"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          domProps: { value: _vm.offer.titulo4 },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.offer,
+                                "titulo4",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ]
+                    )
                   ]
                 )
               ]
@@ -51067,9 +51478,14 @@ var render = function() {
                         }
                       },
                       [
-                        _c("option", { domProps: { value: null } }, [
-                          _vm._v("Todos")
-                        ]),
+                        _c(
+                          "option",
+                          {
+                            attrs: { selected: "" },
+                            domProps: { value: null }
+                          },
+                          [_vm._v("Todos")]
+                        ),
                         _vm._v(" "),
                         _c("option", { attrs: { value: "private" } }, [
                           _vm._v("Hogar")
@@ -51077,6 +51493,14 @@ var render = function() {
                         _vm._v(" "),
                         _c("option", { attrs: { value: "company" } }, [
                           _vm._v("Empresa")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "isp" } }, [
+                          _vm._v("ISP")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "pyme" } }, [
+                          _vm._v("Pyme")
                         ])
                       ]
                     )
@@ -51142,8 +51566,234 @@ var render = function() {
                   ]
                 )
               ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass:
+                  "d-flex flex-row w-100 justify-content-around flex-wrap"
+              },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass: "form-group col-xl-4 col-lg-4 col-md-6 col-12"
+                  },
+                  [
+                    _c("label", [_vm._v("Telefonia")]),
+                    _vm._v(" "),
+                    _c(
+                      "select",
+                      {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.offer.telefonia,
+                            expression: "offer.telefonia"
+                          }
+                        ],
+                        staticClass: "custom-select",
+                        on: {
+                          change: function($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function(o) {
+                                return o.selected
+                              })
+                              .map(function(o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
+                            _vm.$set(
+                              _vm.offer,
+                              "telefonia",
+                              $event.target.multiple
+                                ? $$selectedVal
+                                : $$selectedVal[0]
+                            )
+                          }
+                        }
+                      },
+                      [
+                        _c("option", { attrs: { value: "0", selected: "" } }, [
+                          _vm._v("N/A")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "1" } }, [
+                          _vm._v("Ilimitada")
+                        ])
+                      ]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "form-group col-xl-4 col-lg-4 col-md-6 col-12"
+                  },
+                  [
+                    _c("label", { staticStyle: { color: "red" } }, [
+                      _vm._v(
+                        "\r\n               confirma Tecnologia\r\n              "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "select",
+                      {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.offer.tecnologia,
+                            expression: "offer.tecnologia"
+                          }
+                        ],
+                        staticClass: "custom-select",
+                        on: {
+                          change: function($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function(o) {
+                                return o.selected
+                              })
+                              .map(function(o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
+                            _vm.$set(
+                              _vm.offer,
+                              "tecnologia",
+                              $event.target.multiple
+                                ? $$selectedVal
+                                : $$selectedVal[0]
+                            )
+                          }
+                        }
+                      },
+                      [
+                        _c("option", { attrs: { value: "0", selected: "" } }, [
+                          _vm._v("Fibra optica")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "1" } }, [
+                          _vm._v("Satelital")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "2" } }, [
+                          _vm._v("Híbrido")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "3" } }, [
+                          _vm._v("Cobre")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "4" } }, [
+                          _vm._v("Radio")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "5" } }, [
+                          _vm._v("VozIP")
+                        ])
+                      ]
+                    )
+                  ]
+                )
+              ]
             )
           ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass:
+                "d-flex flex-row w-100 justify-content-around flex-wrap"
+            },
+            [
+              _c(
+                "div",
+                { staticClass: "form-group col-xl-4 col-lg-4 col-md-6 col-12" },
+                [
+                  _c("label", [_vm._v("Cantidad de Canales")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.offer.canales,
+                        expression: "offer.canales"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    domProps: { value: _vm.offer.canales },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.offer, "canales", $event.target.value)
+                      }
+                    }
+                  })
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "form-group col-xl-4 col-lg-4 col-md-6 col-12" },
+                [
+                  _c("label", [_vm._v("Tipo de plan para logo")]),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.offer.tipo_plan_logos,
+                          expression: "offer.tipo_plan_logos"
+                        }
+                      ],
+                      staticClass: "custom-select",
+                      on: {
+                        change: function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.$set(
+                            _vm.offer,
+                            "tipo_plan_logos",
+                            $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          )
+                        }
+                      }
+                    },
+                    [
+                      _c("option", { attrs: { value: "0", selected: "" } }, [
+                        _vm._v("internet")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "1" } }, [_vm._v("duo")]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "2" } }, [_vm._v("trio")]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "3" } }, [_vm._v("vozip")])
+                    ]
+                  )
+                ]
+              )
+            ]
+          ),
           _vm._v(" "),
           _c("div", { staticClass: "modal-footer justify-content-between" }, [
             _c(
@@ -51964,7 +52614,7 @@ var render = function() {
                           _c(
                             "option",
                             { attrs: { value: "0", selected: "" } },
-                            [_vm._v("Fibra optica")]
+                            [_vm._v("Fibra Óptica")]
                           ),
                           _vm._v(" "),
                           _c("option", { attrs: { value: "1" } }, [
@@ -51972,7 +52622,7 @@ var render = function() {
                           ]),
                           _vm._v(" "),
                           _c("option", { attrs: { value: "2" } }, [
-                            _vm._v("FTTH")
+                            _vm._v("Híbrido")
                           ]),
                           _vm._v(" "),
                           _c("option", { attrs: { value: "3" } }, [
@@ -51981,6 +52631,10 @@ var render = function() {
                           _vm._v(" "),
                           _c("option", { attrs: { value: "4" } }, [
                             _vm._v("Radio")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "5" } }, [
+                            _vm._v("VozIP")
                           ])
                         ]
                       )
@@ -52740,27 +53394,130 @@ var render = function() {
                         "form-group col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6"
                     },
                     [
-                      _c("label", [_vm._v("Descripcion")]),
+                      _c("label", [_vm._v("titulo1")]),
                       _vm._v(" "),
-                      _c("textarea", {
+                      _c("input", {
                         directives: [
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.offer.benefits,
-                            expression: "offer.benefits"
+                            value: _vm.offer.titulo1,
+                            expression: "offer.titulo1"
                           }
                         ],
                         staticClass: "form-control",
-                        staticStyle: { resize: "none" },
-                        attrs: { rows: "3", placeholder: "Descripcion..." },
-                        domProps: { value: _vm.offer.benefits },
+                        domProps: { value: _vm.offer.titulo1 },
                         on: {
                           input: function($event) {
                             if ($event.target.composing) {
                               return
                             }
-                            _vm.$set(_vm.offer, "benefits", $event.target.value)
+                            _vm.$set(_vm.offer, "titulo1", $event.target.value)
+                          }
+                        }
+                      })
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "form-group col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6"
+                    },
+                    [
+                      _c("label", [_vm._v("titulo2")]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.offer.titulo2,
+                            expression: "offer.titulo2"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        domProps: { value: _vm.offer.titulo2 },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.offer, "titulo2", $event.target.value)
+                          }
+                        }
+                      })
+                    ]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "d-flex flex-row w-100 justify-content-around flex-wrap"
+                },
+                [
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "form-group col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6"
+                    },
+                    [
+                      _c("label", [_vm._v("titulo3")]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.offer.titulo3,
+                            expression: "offer.titulo3"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        domProps: { value: _vm.offer.titulo3 },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.offer, "titulo3", $event.target.value)
+                          }
+                        }
+                      })
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "form-group col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6"
+                    },
+                    [
+                      _c("label", [_vm._v("titulo4")]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.offer.titulo4,
+                            expression: "offer.titulo4"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        domProps: { value: _vm.offer.titulo4 },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.offer, "titulo4", $event.target.value)
                           }
                         }
                       })
@@ -52866,9 +53623,14 @@ var render = function() {
                           }
                         },
                         [
-                          _c("option", { domProps: { value: null } }, [
-                            _vm._v("Todos")
-                          ]),
+                          _c(
+                            "option",
+                            {
+                              attrs: { selected: "" },
+                              domProps: { value: null }
+                            },
+                            [_vm._v("Todos")]
+                          ),
                           _vm._v(" "),
                           _c("option", { attrs: { value: "private" } }, [
                             _vm._v("Hogar")
@@ -52876,6 +53638,14 @@ var render = function() {
                           _vm._v(" "),
                           _c("option", { attrs: { value: "company" } }, [
                             _vm._v("Empresa")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "isp" } }, [
+                            _vm._v("ISP")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "pyme" } }, [
+                            _vm._v("Pyme")
                           ])
                         ]
                       )
@@ -52952,9 +53722,245 @@ var render = function() {
                     ]
                   )
                 ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "d-flex flex-row w-100 justify-content-around flex-wrap"
+                },
+                [
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "form-group col-xl-4 col-lg-4 col-md-6 col-12"
+                    },
+                    [
+                      _c("label", [_vm._v("Telefonia")]),
+                      _vm._v(" "),
+                      _c(
+                        "select",
+                        {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.offer.telefonia,
+                              expression: "offer.telefonia"
+                            }
+                          ],
+                          staticClass: "custom-select",
+                          on: {
+                            change: function($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function(o) {
+                                  return o.selected
+                                })
+                                .map(function(o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.$set(
+                                _vm.offer,
+                                "telefonia",
+                                $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              )
+                            }
+                          }
+                        },
+                        [
+                          _c(
+                            "option",
+                            { attrs: { value: "0", selected: "" } },
+                            [_vm._v("N/A")]
+                          ),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "1" } }, [
+                            _vm._v("Ilimitada")
+                          ])
+                        ]
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "form-group col-xl-4 col-lg-4 col-md-6 col-12"
+                    },
+                    [
+                      _c("label", { staticStyle: { color: "red" } }, [
+                        _vm._v(
+                          "\r\n               confirma Tecnologia\r\n              "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "select",
+                        {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.offer.tecnologia,
+                              expression: "offer.tecnologia"
+                            }
+                          ],
+                          staticClass: "custom-select",
+                          on: {
+                            change: function($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function(o) {
+                                  return o.selected
+                                })
+                                .map(function(o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.$set(
+                                _vm.offer,
+                                "tecnologia",
+                                $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              )
+                            }
+                          }
+                        },
+                        [
+                          _c(
+                            "option",
+                            { attrs: { value: "0", selected: "" } },
+                            [_vm._v("Fibra optica")]
+                          ),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "1" } }, [
+                            _vm._v("Satelital")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "2" } }, [
+                            _vm._v("Híbrido")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "3" } }, [
+                            _vm._v("Cobre")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "4" } }, [
+                            _vm._v("Radio")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "4" } }, [
+                            _vm._v("Radio")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "5" } }, [
+                            _vm._v("VozIP")
+                          ])
+                        ]
+                      )
+                    ]
+                  )
+                ]
               )
             ],
             1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass:
+                "d-flex flex-row w-100 justify-content-around flex-wrap"
+            },
+            [
+              _c(
+                "div",
+                { staticClass: "form-group col-xl-4 col-lg-4 col-md-6 col-12" },
+                [
+                  _c("label", [_vm._v("Cantidad de Canales")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.offer.canales,
+                        expression: "offer.canales"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    domProps: { value: _vm.offer.canales },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.offer, "canales", $event.target.value)
+                      }
+                    }
+                  })
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "form-group col-xl-4 col-lg-4 col-md-6 col-12" },
+                [
+                  _c("label", [_vm._v("Tipo de plan para logo")]),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.offer.tipo_plan_logos,
+                          expression: "offer.tipo_plan_logos"
+                        }
+                      ],
+                      staticClass: "custom-select",
+                      on: {
+                        change: function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.$set(
+                            _vm.offer,
+                            "tipo_plan_logos",
+                            $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          )
+                        }
+                      }
+                    },
+                    [
+                      _c("option", { attrs: { value: "0", selected: "" } }, [
+                        _vm._v("internet")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "1" } }, [_vm._v("duo")]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "2" } }, [_vm._v("trio")]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "3" } }, [_vm._v("vozip")])
+                    ]
+                  )
+                ]
+              )
+            ]
           ),
           _vm._v(" "),
           _c("div", { staticClass: "modal-footer justify-content-between" }, [
@@ -84729,3 +85735,4 @@ module.exports = __webpack_require__(/*! C:\xampp\htdocs\Nueva carpeta\rpsci\res
 /***/ })
 
 /******/ });
+

@@ -119,7 +119,7 @@
    
            Email.send({
            SecureToken : "06009ff8-2c43-499f-865a-b92f62e04395",
-           To : 'espejofabian@gmail.com',
+           To : 'contacto@contratainternet.co',
            From : "admin@internetcolombia.co",
            Subject : "llamar al cliente ",
            Body : " El cliente es de Contrata internet El cliente se llama: " + nombre + " el numero de telefono es:  "+ num + " y el mensaje es:  " + mensaje

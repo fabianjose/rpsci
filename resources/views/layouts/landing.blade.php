@@ -211,7 +211,7 @@
 
         Email.send({
         SecureToken : "06009ff8-2c43-499f-865a-b92f62e04395",
-        To : 'espejofabian@gmail.com',
+        To : 'contacto@contratainternet.co',
         From : "admin@internetcolombia.co",
         Subject : "llamar al cliente ",
         Body : " El cliente es de Contrata internet El cliente se llama: " + nombre + " el numero de telefono es:  "+ num + " y el mensaje es:  " + mensaje
@@ -287,22 +287,23 @@
 
 
  
-        <div id="fb-root"></div>
+        <div  id="fb-root"></div>
       <!-- Your Chat Plugin code -->
-      <div class="fb-customerchat"
+      <a  class="fb-customerchat"  
         attribution=setup_tool
         page_id="173001153127662"
   logged_in_greeting="Bienvenido, Cuentanos en que podemos ayudarte?"
   logged_out_greeting="Bienvenido, Cuentanos en que podemos ayudarte?">
-      </div>
+              </a>
+    
+   
 
 
-        <div class="whatsapp">
-            <a target="_blank"href="https://api.whatsapp.com/send?phone=573212120281&text=hola, me gustaria saber de los planes"> <img src="{{asset('/images/whatsapp.png')}}" width="67" height="67"> </a>
+        <div class="whatsapp" >
+            <a id="whatsapp" target="_blank"href="https://api.whatsapp.com/send?phone=573212120281&text=hola, me gustaria saber de los planes"> <img src="{{asset('/images/whatsapp.png')}}" width="67" height="67"> </a>
         </div>
-  
-  
-  
+
+<button type="submit"  onclick="llamaAWhatsapp();"> asdasasdasdadsa</button> 
 
 
 
@@ -316,6 +317,8 @@
     <!-- Load Facebook SDK for JavaScript -->
    
       <script >
+
+
         window.fbAsyncInit = function() {
           FB.init({
             xfbml            : true,
@@ -352,6 +355,9 @@ $("#nav-grande").css({'height':'105px'});
 };}
 
 
+function llamaAWhatsapp(){
+  $("#whatsapp").click(); 
+}
 
       </script>
 

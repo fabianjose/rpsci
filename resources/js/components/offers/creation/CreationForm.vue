@@ -134,6 +134,7 @@
                 <option value="1">duo</option>
                 <option value="2">trio</option>
                  <option value="3">vozip</option>
+                  
            
               </select>
               <label>
@@ -156,11 +157,12 @@
                confirma Tecnologia
               </label>
               <select class="custom-select" v-model="tecnologia">
-                <option value="0" selected>Fibra optica</option>
+                <option value="0" selected>Fibra Óptica</option>
                 <option value="1">Satelital</option>
-                <option value="2">FTTH</option>
+                <option value="2">Híbrido</option>
                  <option value="3">Cobre</option>
                  <option value="4">Radio</option>
+                  <option value="5">VozIP</option>
            
               </select>
             </div>

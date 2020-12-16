@@ -17,7 +17,7 @@
           </div>
 
           <div class="col-xl-2 col-lg-3 col-md-4 co px-1 col-sm-4 hidden-xs hidden-sm">
-            <div class="text-center p-2 offer-table-label w-100 text-white mx-auto bg-dark-blue rounded-pill  p-1 text-wrap "  > <p class="text-tabla-detalles" >  Descripcion </p> </div>
+            <div class="text-center p-2 offer-table-label w-100 text-white mx-auto bg-dark-blue rounded-pill  p-1 text-wrap "  > <p class="text-tabla-detalles" >  Beneficios </p> </div>
           </div>
           
           <div class="col-xl-2 col-lg-3 col-md-4 px-1">
@@ -64,8 +64,11 @@
                             <div   v-if="offer.tipo_plan_logos == 2 ">
                     <h6 class="text-dark-blue pt-2" style="text-align: center;"> <img class="logo-movil-planes" src="/images/Icono-trio.png" width="30%" alt=""> </h6> 
                             </div>
+                            <div   v-if="offer.tipo_plan_logos == 3 ">
+       <!--aca logito vozip-->             <h6 class="text-dark-blue pt-2" style="text-align: center;"> <img class="logo-movil-planes" src="/images/Icono-trio.png" width="30%" alt=""> </h6> 
+                            </div>
 
-                            <div   v-if="offer.tipo_plan_logos != 0 && offer.tipo_plan_logos != 1 && offer.tipo_plan_logos != 2">
+                            <div   v-if="offer.tipo_plan_logos != 0 && offer.tipo_plan_logos != 1 && offer.tipo_plan_logos != 2  && offer.tipo_plan_logos != 3">
                             <img class="logo-movil-planes"  src="/images/Icono-trio.png" width="30%" alt="">
                             </div>
                    
@@ -84,13 +87,17 @@
                                   <img class="logo-tecnologia" src="/images/satelital11.png" alt="">
                             </div>
                             <div   v-if="offer.tecnologia == 2">
-                                  <img class="logo-tecnologia" src="/images/Fibra111.png" alt="">
+      <!--poner aca la imagen de Hibrido -->    <img class="logo-tecnologia" src="/images/Fibra111.png" alt="">
                             </div>
                             <div   v-if="offer.tecnologia == 3 ">
                                   <img class="logo-tecnologia" src="/images/cobre.png" alt="">
                             </div>
                             <div   v-if="offer.tecnologia == 4 ">
                                   <img class="logo-tecnologia" src="/images/radio.png" alt="">
+                            </div>
+
+                               <div   v-if="offer.tecnologia == 5 ">
+  <!--poner aca la imagen de vozIP -->  <img class="logo-tecnologia" src="/images/radio.png" alt="">
                             </div>
                             
                             </div>
@@ -104,13 +111,16 @@
                                       Satelital
                                     </div>
                                     <div   v-if="offer.tecnologia == 2">
-                                      FTTH
+                                      Híbrido
                                     </div>
                                     <div   v-if="offer.tecnologia == 3">
                                       Cobre
                                     </div>
                                     <div   v-if="offer.tecnologia == 4">
                                       Radio
+                                    </div>
+                                     <div   v-if="offer.tecnologia == 5">
+                                      Voz Ip
                                     </div>
                                 </span> 
                                 </h6>
@@ -132,7 +142,7 @@
                       </div>
                     <h6 class="text-lg">
                       
-                  <span style="font-family: 'Heebo';     font-size: 1.59rem!important;      color: rgb(91, 87, 87);"> {{offer.fields_values[1].value}}  Mbps </span>
+                  <span   style="font-family: 'Heebo';     font-size: 1.59rem!important;      color: rgb(91, 87, 87);"> {{offer.fields_values[1].value}} <span v-if="offer.tecnologia == 5"> Kbps  </span> <span v-if="offer.tecnologia != 5"> Mbps </span>  </span>
                     </h6>
                   </div>
 
@@ -174,7 +184,7 @@
                     <!--  <i v-for="(starCount,k4) in 5" :key="k4" :class="(starCount>offer.points?'far':'fas')+' fa-star'"></i>-->
                     </div>
                     <div class="d-flex flex-row">
-                      <button  type="button" data-toggle="modal" @click="emitConsult(k)" data-target="#modalConsultOffer" class="btn-adquierelo btn btn-lx btn-lg btn-main-blue rounded-pill mx-1 px-1 text-uppercase img-fluid" >ADQUIERELO</button>
+                      <button  type="button" data-toggle="modal" @click="emitConsult(k)" data-target="#modalConsultOffer" class="btn-adquierelo btn btn-lx btn-lg btn-main-blue rounded-pill mx-1 px-1 text-uppercase img-fluid" >ADQUIÉRELO</button>
                       <!--
                         <button type="button" data-toggle="modal" @click="emitView(k)" data-target="#offerView" class="btn btn-sm btn-main-pink rounded-pill mx-1 hidden-xl hidden-xl-xl"><i class="fas fa-eye"></i></button>
                       -->

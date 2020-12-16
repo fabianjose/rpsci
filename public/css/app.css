@@ -5,6 +5,12 @@
   max-height: 70px;
 }
 
+.ic-logo {
+  margin-left: 33px;
+  padding-top: 27px;
+  max-height: 92%;
+}
+
 .icon-btn-sm {
   height: 47px;
   width: 47px;
@@ -41,7 +47,6 @@ a {
 
 .ic-logo {
   margin-left: 33px;
-  width: 99%;
 }
 
 .nav-btn {
@@ -115,7 +120,7 @@ a {
 @media (max-width: 767px) {
   .ic-logo {
     margin-left: 0px;
-    width: 99%;
+    margin-top: -35px;
   }
 
   .grid-header1 {
@@ -990,6 +995,7 @@ a {
   color: gray;
   /* background-image: url("images/PaginaWEBFlechas.png");
    background-size: 17px;;*/
+  border-radius: 10px;
 }
 
 .has-search .form-control-feedback {
@@ -1493,6 +1499,7 @@ a {
   font-family: "Heebo";
   background: #0bdcf3;
   box-shadow: 0px 0px 7px 0px black;
+  font-weight: bold;
 }
 
 .logo-mb {
@@ -1672,6 +1679,7 @@ a {
     background: #0bdcf3;
     box-shadow: 0px 0px 7px 0px black;
     margin-top: -48px;
+    font-weight: bold;
   }
 }
 
@@ -1751,6 +1759,7 @@ a {
     background: #0bdcf3;
     box-shadow: 0px 0px 7px 0px black;
     margin-top: -48px;
+    font-weight: bold;
   }
 }
 
@@ -1830,6 +1839,7 @@ a {
     background: #0bdcf3;
     box-shadow: 0px 0px 7px 0px black;
     margin-top: -48px;
+    font-weight: bold;
   }
 }
 
@@ -1909,6 +1919,7 @@ a {
     background: #0bdcf3;
     box-shadow: 0px 0px 7px 0px black;
     margin-top: -48px;
+    font-weight: bold;
   }
 }
 
@@ -1988,6 +1999,7 @@ a {
     background: #0bdcf3;
     box-shadow: 0px 0px 7px 0px black;
     margin-top: -48px;
+    font-weight: bold;
   }
 }
 

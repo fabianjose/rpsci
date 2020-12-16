@@ -76,13 +76,23 @@ class OfferController extends Controller{
       'company' => ['exists:companies,name', 'string'],
       'service' => ['exists:services,id'],
       'benefits' => ['string', 'min:16', 'max:124'],
+      'titulo1' => ['string', 'min:1', 'max:18'],
+      'titulo2' => ['string', 'min:1', 'max:21'],
+      'titulo3' => ['string', 'min:1', 'max:21'],
+      'titulo4' => ['string', 'min:1', 'max:21'],
+      'telefonia' => ['string', 'min:1', 'max:21'],
+      'tecnologia' => ['string', 'min:1', 'max:21'],
+      'canales' => ['string', 'min:1', 'max:21'],
+      'tipo_plan_logos' => ['string', 'min:1', 'max:21'],
+
+
       'fields_values' => ['json', 'nullable'],
       "fields_values.*"=> "json",
       "fields_values.*.value"=> "required|string|max:32|min:3",
       "fields_values.*.field_id"=> "required|exists:fields,id",
       'tariff' => ['required', 'integer', "min:0.1", "max:9999999999"],
       'points' => ['integer','min:0,max:5'],
-      'type' => [ 'nullable','in:private,company'],
+      'type' => [ 'nullable','in:private,company,pyme,isp'],
       'departments' => ['nullable', 'json'],
       'departments.*' => ["string|exists:departments,name"],
       'municipalities' => ['nullable', 'json'],
@@ -112,7 +122,16 @@ class OfferController extends Controller{
       "canales",
       "telefonia",
       "descuento",
-      "tecnologia"
+      "tecnologia",
+      "titulo1",
+      "titulo2",
+      "titulo3",
+      "titulo4",
+      'telefonia',
+      'tecnologia',
+      'canales',
+      'tipo_plan_logos',
+
     ];
 
     $service=Service::find($offer->service);

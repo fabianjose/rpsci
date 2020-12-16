@@ -46,9 +46,22 @@
 
             <div class="row text-center">
        <!--  <h6 class="col-12 offer-card-benefits text-wrap" style="font-family:heebo">{{offer.benefits}}</h6>-->
-        <p class="col-12 " style="font-family: 'Heebo';    color:#88868b">Telefonia</p>
+        <p class="col-12 " style="font-family: 'Heebo';    color:#88868b">Telefonía</p>
         <!-- <h6 class="col-12 offer-card-title">{{offer.company_name}}</h6>  ACA VA EL VALOR DE CANALES DE BASE DEDATOS -->
-        <h1 class="col-12 " style="font-family: 'Heebo';    color: #5b5b5f;     margin-top: -19px; font-weight: 800;  ">ILIMITADA</h1>
+        
+        
+               <h1   v-if="offer.telefonia==0" class="col-12 " style="font-family: 'Heebo';    color: #5b5b5f;     margin-top: -19px; font-weight: 800; text-center ">N/A</h1>
+
+
+
+       
+             <h1   v-if="offer.telefonia==1" class="col-12 " style="font-family: 'Heebo';    color: #5b5b5f;     margin-top: -19px; font-weight: 800; ">ILIMITADA</h1>
+
+        
+        
+
+
+
       </div> 
 
        <div   v-if="offer.titulo1!=NULL && offer.titulo2!=NULL && offer.titulo3!=NULL">

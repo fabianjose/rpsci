@@ -23,13 +23,46 @@
           </div>
         </div>
         <div class="d-flex flex-row w-100 justify-content-around flex-wrap">
+         <div class="d-flex flex-row w-100 justify-content-around flex-wrap">
           <div class="form-group col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-            <label>Descripcion</label>
-            <textarea class="form-control" rows="3" placeholder="Descripcion..." v-model="offer.benefits" style="resize: none;"></textarea>
+            <label>titulo1</label>
+           <!-- <textarea class="form-control" rows="3" placeholder="Descripcion..." v-model="offer.benefits" style="resize: none;"></textarea>-->
+                    <input v-model="offer.titulo1" class="form-control">            
           </div>
+
+                  <div class="form-group col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+            <label>titulo2</label>
+           <!-- <textarea class="form-control" rows="3" placeholder="Descripcion..." v-model="offer.benefits" style="resize: none;"></textarea>-->
+                    <input v-model="offer.titulo2" class="form-control">            
+            
+          </div>
+
+
+
+        </div>
+         <div class="d-flex flex-row w-100 justify-content-around flex-wrap">
+          <div class="form-group col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+            <label>titulo3</label>
+           <!-- <textarea class="form-control" rows="3" placeholder="Descripcion..." v-model="offer.benefits" style="resize: none;"></textarea>-->
+                    <input v-model="offer.titulo3" class="form-control">            
+            
+          </div>
+
+                  <div class="form-group col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+            <label>titulo4</label>
+           <!-- <textarea class="form-control" rows="3" placeholder="Descripcion..." v-model="offer.benefits" style="resize: none;"></textarea>-->
+                    <input v-model="offer.titulo4" class="form-control">            
+            
+          </div>
+
+
+
+        </div>
         </div>
 
-        <div class="d-flex flex-row w-100 justify-content-around flex-wrap">
+        
+
+         <div class="d-flex flex-row w-100 justify-content-around flex-wrap">
           <div class="form-group col-xl-4 col-lg-4 col-md-6 col-12">
             <label>Tarifa</label>
             <input v-model="offer.tariff" class="form-control">
@@ -37,9 +70,11 @@
           <div class="form-group col-xl-4 col-lg-4 col-md-6 col-12">
             <label>Tipo</label>
             <select class="custom-select" v-model="offer.type">
-              <option :value="null">Todos</option>
-              <option value="private">Hogar</option>
-              <option value="company">Empresa</option>
+               <option :value="null" selected>Todos</option>
+                <option value="private">Hogar</option>
+                <option value="company">Empresa</option>
+                <option value="isp">ISP</option>
+                <option value="pyme">Pyme</option>
               
             </select>
           </div>
@@ -55,6 +90,56 @@
             </select>
           </div>
         </div>
+
+
+
+
+        <div class="d-flex flex-row w-100 justify-content-around flex-wrap">
+          <div class="form-group col-xl-4 col-lg-4 col-md-6 col-12">
+            <label>Telefonia</label>
+         <select class="custom-select" v-model="offer.telefonia">
+                <option value="0" selected>N/A</option>
+                <option value="1">Ilimitada</option>
+              </select>
+          </div>
+        
+
+       <div class="form-group col-xl-4 col-lg-4 col-md-6 col-12">
+                 <label style="color:red">
+               confirma Tecnologia
+              </label>
+              <select class="custom-select" v-model="offer.tecnologia">
+                <option value="0" selected>Fibra optica</option>
+                <option value="1">Satelital</option>
+                <option value="2">Híbrido</option>
+                 <option value="3">Cobre</option>
+                 <option value="4">Radio</option>
+                 <option value="5">VozIP</option>
+           
+              </select>
+                </div>
+          </div>
+        </div>
+
+        
+        <div class="d-flex flex-row w-100 justify-content-around flex-wrap">
+        
+          <div class="form-group col-xl-4 col-lg-4 col-md-6 col-12">
+            <label>Cantidad de Canales</label>
+            <input class="form-control" v-model="offer.canales" >
+
+
+          </div>
+          <div class="form-group col-xl-4 col-lg-4 col-md-6 col-12">
+            <label>Tipo de plan para logo</label>
+             <select class="custom-select" v-model="offer.tipo_plan_logos">
+                <option value="0" selected>internet</option>
+                <option value="1">duo</option>
+                <option value="2">trio</option>
+                 <option value="3">vozip</option>
+           
+              </select>
+          </div>
       </div>
       <div class="modal-footer justify-content-between">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
@@ -139,6 +224,14 @@ export default {
       fd.append("company", this.offer.company_name);
       fd.append("service", this.offer.service);
       fd.append("benefits", this.offer.benefits);
+      fd.append("titulo1", this.offer.titulo1);
+      fd.append("titulo2", this.offer.titulo2);
+      fd.append("titulo3", this.offer.titulo3);
+      fd.append("titulo4", this.offer.titulo4);
+      fd.append("telefonia", this.offer.telefonia);
+      fd.append("tecnologia", this.offer.tecnologia);
+      fd.append("canales", this.offer.canales);
+      fd.append("tipo_plan_logos", this.offer.tipo_plan_logos);
 
       if(this.offer.departments) 
         if(JSON.parse(this.offer.departments)&&JSON.parse(this.offer.departments).length)
