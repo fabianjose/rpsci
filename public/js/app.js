@@ -3621,15 +3621,15 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       console.log("type ", this.offerType);
       var loader = this.$loading.show();
       var query = "?";
-      if (this.department && this.department != "") query += "department=" + this.department;else {
+      if (this.department && this.department != "") query += "department=" + encondeURLComponent(this.department);else {
         loader.hide();
         return toastr.error("rellene todos los campos");
       }
-      if (this.municipality && this.municipality != "") query += "&municipality=" + this.municipality;else {
+      if (this.municipality && this.municipality != "") query += "&municipality=" + encondeURLComponent(this.municipality);else {
         loader.hide();
         return toastr.error("rellene todos los campos");
       }
-      if (this.service && this.service != "") query += "&service=" + this.service;else {
+      if (this.service && this.service != "") query += "&service=" + encondeURLComponent(this.service);else {
         loader.hide();
         return toastr.error('rellene todos los campos');
       }
@@ -85724,8 +85724,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\Nueva carpeta\rpsci\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\Nueva carpeta\rpsci\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\RPCS_SOLUTIONS\rpsci\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\RPCS_SOLUTIONS\rpsci\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),

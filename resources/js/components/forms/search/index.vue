@@ -152,13 +152,13 @@ export default {
       
       let query="?";
       
-      if(this.department&&this.department!="") query+="department="+this.department;
+      if(this.department&&this.department!="") query+="department="+ encondeURLComponent(this.department);
       else {loader.hide();return toastr.error("rellene todos los campos");}
       
-      if(this.municipality&&this.municipality!="") query+="&municipality="+this.municipality;
+      if(this.municipality&&this.municipality!="") query+="&municipality="+encondeURLComponent(this.municipality);
       else {loader.hide();return toastr.error("rellene todos los campos");}
       
-      if(this.service&&this.service!="")  query+="&service="+this.service;
+      if(this.service&&this.service!="")  query+="&service="+encondeURLComponent(this.service);
       else {loader.hide();return toastr.error('rellene todos los campos');}
 
       query+="&offer_type="+this.offerType;
