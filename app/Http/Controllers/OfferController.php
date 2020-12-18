@@ -269,6 +269,8 @@ class OfferController extends Controller{
 
   public function searchOffers(Request $request){
     $data = $request->all();
+    DB::table('configs')
+    ->increment('value', 1, ['id' => '2']);
     $validation = Validator::make($data, [
       'service' => ['required', 'exists:services,name'],
       'department' => ['required', 'exists:departments,name'],

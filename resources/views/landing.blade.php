@@ -103,7 +103,6 @@
                                <button id="btn-enviar" onclick="correo2();" class="btn text-white" style="background: rgb(13,217,244);font-size: 25px;">ENVIAR</button>
                            </div>
                        </div>
-   <script src=""></script>
    <script>
    
    function correo2(){                   
@@ -142,7 +141,6 @@
                    }
                
    </script>
-                   
                </section>
    
                <section class="contador2" style="margin-top: 0px;">
@@ -182,11 +180,6 @@
                            </div>
                            <br>
                            <a href="<?php print_r($post[0]["link"]);?>">  <p>Leer mas</p>  </a> 
-   
-   
-   
-                         
-   
                        </div>
                          </div>
                        <div class="col-12 col-md-4" style="text-align: -webkit-center;">
@@ -243,12 +236,7 @@
           
    
    </div>
-   
-   <style>
-                            
-                           </style>
-                           
-                           <script>
+ <script>
         function ellipsis_box(elemento, max_chars){
        limite_text = $(elemento).text();
        if (true)

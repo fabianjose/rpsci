@@ -26,12 +26,10 @@ export default {
         },
 
         increaseCounter(){
-            console.log("va lue ",this.counter.value.match(/\d+/)[0])
             let counterInterval= setInterval(() => {
                 let limitVal=this.counter.value.match(/\d+/)[0];
                 this.counterValue+=limitVal*0.02
                 if(this.counterValue>=limitVal) {
-                    console.log(this.counterValue)
                     return clearInterval(counterInterval);
                 }
             }, 20);
