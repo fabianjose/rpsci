@@ -152,16 +152,16 @@ export default {
       
       let query="?";
       
-      if(this.department&&this.department!="") query+="department="+ encondeURLComponent(this.department);
+      if(this.department&&this.department!="") query+="department="+ encodeURIComponent(this.department);
       else {loader.hide();return toastr.error("rellene todos los campos");}
       
-      if(this.municipality&&this.municipality!="") query+="&municipality="+encondeURLComponent(this.municipality);
+      if(this.municipality&&this.municipality!="") query+="&municipality="+encodeURIComponent(this.municipality);
       else {loader.hide();return toastr.error("rellene todos los campos");}
       
-      if(this.service&&this.service!="")  query+="&service="+encondeURLComponent(this.service);
+      if(this.service&&this.service!="")  query+="&service="+encodeURIComponent(this.service);
       else {loader.hide();return toastr.error('rellene todos los campos');}
 
-      query+="&offer_type="+this.offerType;
+      query+="&offer_type="+encodeURIComponent(this.offerType);
       
       window.location.replace(baseUrl+"/offers/search"+query)
     },
