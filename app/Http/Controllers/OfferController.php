@@ -474,6 +474,8 @@ class OfferController extends Controller{
     $last_page= max((int) ceil(count($offersArray) / 10), 1);
    
     if(!$request->ajax()){
+
+      
       return view("pages.planComparator")->with(
         ["pagination"=> $paginator,
         "fields"=>$fields, "query"=>$query,
@@ -482,9 +484,12 @@ class OfferController extends Controller{
         "speeds" => $speeds,
         "min_price"=> $min_price,
         "max_price" => $max_price,
-        "last_page"=>$last_page]);
+          "last_page"=>$last_page,
+          "count" => count( $offersArray)]
+      );
+
     }
-   
+    
     return response()->json(["pagination"=>$paginator,
      "fields"=>$fields,
       "query"=>$query, 
