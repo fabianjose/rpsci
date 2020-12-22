@@ -72,7 +72,7 @@ export default {
             
             axios.get(baseUrl+"/offers/search"+this.query+(filters?filters:"")+this.pageIndex)
             .then(res=>{
-              /*  console.log("response ", res)*/
+                console.log("response ", res)
                 this.compPagination=res.data.pagination;
                 this.compLastpage=res.data.last_page;
                 this.compFields=res.data.fields;

@@ -608,8 +608,8 @@ class OfferController extends Controller{
 		$offer = Offer::find($id);
 		if (!$offer) return response()->json('Oferta no encontrada',404);
 		$offer->trash = 1;
-    $offer->highlighted = 0;
-    $offer->highlighted_expiration = null;
+   /* $offer->highlighted = 0;
+    $offer->highlighted_expiration = null;*/
 		if (!$offer->save()) return response()->json('Error en la base de datos',500);
 		return response()->json('Oferta eliminada satisfactoriamente', 200);
   }

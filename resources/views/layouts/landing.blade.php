@@ -44,19 +44,13 @@
         <div  class="grid-header2 w-100 py-2 px-4"  >
 
         <div class="d-flex " style="color: #606060; ">
-              <!--  <a href=""> <i class="fab fa-facebook-f i-c-main mx-2 text-white text-lg"></i>  </a> -->
-
-                
+  
                 <div class="text-center"   style="padding: 5px; font-family: 'Work Sans', sans-serif; width: 100%; font-weight: 300; ">Correo Electrónico:contacto@contratainternet.co</div>
 
               
 
             </div>
             <div class="d-flex ;" style="color: #606060; ">
-              <!--  <a href=""> <i class="fab fa-facebook-f i-c-main mx-2 text-white text-lg"></i>  </a> -->
-
-                
-
                 <div   style="width: 100%; padding: 10px; font-weight: 300; text-align: end;    font-family: 'Work Sans', sans-serif;">PBX:+57 (1) 7868510)</div>
 
                 <div    style="width: 100%; padding: 5px;    font-family: 'Work Sans', sans-serif;">
@@ -158,15 +152,9 @@
                     <li class="list-item" style="font-variant: bold; font-size: 12px;">PBX: +57 (1) 7868510</li>
              </ul>
               </div>
-
     </div>
-             
-
               <div class="col-xl-8 col-lg-8 col-md-8 col-sm-10 col-12  my-2 ">
-
-
                 <div class="row container">
-
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12  my-2  order-2  ">
                   <h5 class="footer-title-color text-left text-ws font-weight-bold" style="font-weight: bold;">SERVICIOS DISPONIBLES</h5>
                   <ul class="footer-title-color font-weight-bold text-ws mt-2 list-unstyled" style="font-size: 1.25rem;">
@@ -181,10 +169,7 @@
 
                   <li class="footer-title-color font-weight-bold text-ws" style="font-size: 1.25rem;">TELEVISIÓN
                   </li>
-
                 </ul>
-
-            
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12  my-2  order-1  order-sm-12 ">
                   <h5 class="footer-title-color font-weight-bold text-ws " style="text-align: center;">FORMULARIO DE CONTACTO</h5>
@@ -197,17 +182,10 @@
       <script src="https://smtpjs.com/v3/smtp.js"></script>
       <script >
                                                                    
-
       function correo(){                   
         var nombre = document.getElementById('nombre').value;
         var num = document.getElementById('telefono').value;
         var mensaje = document.getElementById('mensaje').value;
-       
-
-
-       
-
-
 
         Email.send({
         SecureToken : "06009ff8-2c43-499f-865a-b92f62e04395",
@@ -223,49 +201,14 @@
 
           console.log('sale')
           alert("Mensaje Enviado Correctamente")
-
-
-          
-              
-
-                }
+}
             
-
-
-
-/*//////////////////////////////////////////////////////////////////*/
-
-
-
-
-
-
-
-
-
-
-
-
-               </script>
-
-
-
-
-
-
-
-
-
-
-
+ </script>
 
                          </li>
                   </ul>
-                  
                 </div>
               </div>
-
-
               <div class="footer-movil" class="row">
                 <ul class="list-inline">
                   <li class="list-inline-item text-item-list nav-link nav-item-border  "  style="display: inline-block;"><a href="" class="text-ws ">Planes de Internet</a></li>
@@ -294,24 +237,12 @@
         page_id="173001153127662"
   logged_in_greeting="Bienvenido, Cuentanos en que podemos ayudarte?"
   logged_out_greeting="Bienvenido, Cuentanos en que podemos ayudarte?">
-              </a>
-    
-   
-
+       </a>
 
         <div class="whatsapp" >
             <a id="whatsapp" target="_blank"href="https://api.whatsapp.com/send?phone=573212120281&text=hola, me gustaria saber de los planes"> <img src="{{asset('/images/whatsapp.png')}}" width="67" height="67"> </a>
         </div>
 
-
-
-
-
-
-
-
-  
-  
   
     <!-- Load Facebook SDK for JavaScript -->
    
