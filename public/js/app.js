@@ -3019,11 +3019,11 @@ __webpack_require__.r(__webpack_exports__);
     /*verifyCaptcha(captcha){
         this.captcha=captcha;
     },
-      onCaptchaError(err){
+     onCaptchaError(err){
         console.log("error captcha ", err)
         toastr.error("error en la validación del captcha, comprueba tu conexión a internet e intenta nuevamente")
     },
-      onCaptchaExpired(err){
+     onCaptchaExpired(err){
         console.log("error captcha ", err)
         toastr.error("el captcha se expiró, intente nuevamente")
     },*/
@@ -3131,11 +3131,11 @@ __webpack_require__.r(__webpack_exports__);
     verifyCaptcha(captcha){
         this.captcha=captcha;
     },
-      onCaptchaError(err){
+     onCaptchaError(err){
         console.log("error captcha ", err)
         toastr.error("error en la validación del captcha, comprueba tu conexión a internet e intenta nuevamente")
     },
-      onCaptchaExpired(err){
+     onCaptchaExpired(err){
         console.log("error captcha ", err)
         toastr.error("el captcha se expiró, intente nuevamente")
     },*/
@@ -3621,19 +3621,19 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       console.log("type ", this.offerType);
       var loader = this.$loading.show();
       var query = "?";
-      if (this.department && this.department != "") query += "department=" + encondeURLComponent(this.department);else {
+      if (this.department && this.department != "") query += "department=" + encodeURIComponent(this.department);else {
         loader.hide();
         return toastr.error("rellene todos los campos");
       }
-      if (this.municipality && this.municipality != "") query += "&municipality=" + encondeURLComponent(this.municipality);else {
+      if (this.municipality && this.municipality != "") query += "&municipality=" + encodeURIComponent(this.municipality);else {
         loader.hide();
         return toastr.error("rellene todos los campos");
       }
-      if (this.service && this.service != "") query += "&service=" + encondeURLComponent(this.service);else {
+      if (this.service && this.service != "") query += "&service=" + encodeURIComponent(this.service);else {
         loader.hide();
         return toastr.error('rellene todos los campos');
       }
-      query += "&offer_type=" + this.offerType;
+      query += "&offer_type=" + encodeURIComponent(this.offerType);
       window.location.replace(baseUrl + "/offers/search" + query);
     }
   }
@@ -3890,14 +3890,12 @@ __webpack_require__.r(__webpack_exports__);
     increaseCounter: function increaseCounter() {
       var _this = this;
 
-      console.log("va lue ", this.counter.value.match(/\d+/)[0]);
       var counterInterval = setInterval(function () {
         var limitVal = _this.counter.value.match(/\d+/)[0];
 
         _this.counterValue += limitVal * 0.02;
 
         if (_this.counterValue >= limitVal) {
-          console.log(_this.counterValue);
           return clearInterval(counterInterval);
         }
       }, 20);
@@ -7256,7 +7254,7 @@ __webpack_require__.r(__webpack_exports__);
       var loader = this.$loading.show();
       this.loading = true;
       axios.get(baseUrl + "/offers/search" + this.query + (filters ? filters : "") + this.pageIndex).then(function (res) {
-        /*  console.log("response ", res)*/
+        console.log("response ", res);
         _this.compPagination = res.data.pagination;
         _this.compLastpage = res.data.last_page;
         _this.compFields = res.data.fields;
@@ -10308,7 +10306,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.v-captcha{\r\n    transform: scale(0.7);\r\n    -webkit-transform: scale(0.7);\r\n    transform-origin: 0 0;\r\n    -webkit-transform-origin: 0 0;\n}\n@media (max-width:350px) {\n.v-captcha{\r\n        transform: scale(0.6);\r\n        -webkit-transform: scale(0.6);\n}\n}\r\n\r\n", ""]);
+exports.push([module.i, "\n.v-captcha{\n    transform: scale(0.7);\n    -webkit-transform: scale(0.7);\n    transform-origin: 0 0;\n    -webkit-transform-origin: 0 0;\n}\n@media (max-width:350px) {\n.v-captcha{\n        transform: scale(0.6);\n        -webkit-transform: scale(0.6);\n}\n}\n\n", ""]);
 
 // exports
 
@@ -47137,7 +47135,7 @@ var render = function() {
                         },
                         [
                           _vm._v(
-                            " " + _vm._s(field.name) + "\r\n                "
+                            " " + _vm._s(field.name) + "\n                "
                           ),
                           field.name == "Velocidad"
                             ? _c("i", {
@@ -47174,7 +47172,7 @@ var render = function() {
                     },
                     [
                       _vm._v(
-                        "   Precio\r\n              \r\n             \r\n                "
+                        "   Precio\n              \n             \n                "
                       ),
                       _c("i", {
                         class:
@@ -47340,7 +47338,7 @@ var render = function() {
                         offer.tecnologia == 0
                           ? _c("div", [
                               _vm._v(
-                                "\r\n                                      Fibra\r\n                                    "
+                                "\n                                      Fibra\n                                    "
                               )
                             ])
                           : _vm._e(),
@@ -47348,7 +47346,7 @@ var render = function() {
                         offer.tecnologia == 1
                           ? _c("div", [
                               _vm._v(
-                                "\r\n                                      Satelital\r\n                                    "
+                                "\n                                      Satelital\n                                    "
                               )
                             ])
                           : _vm._e(),
@@ -47356,7 +47354,7 @@ var render = function() {
                         offer.tecnologia == 2
                           ? _c("div", [
                               _vm._v(
-                                "\r\n                                      Híbrido\r\n                                    "
+                                "\n                                      Híbrido\n                                    "
                               )
                             ])
                           : _vm._e(),
@@ -47364,7 +47362,7 @@ var render = function() {
                         offer.tecnologia == 3
                           ? _c("div", [
                               _vm._v(
-                                "\r\n                                      Cobre\r\n                                    "
+                                "\n                                      Cobre\n                                    "
                               )
                             ])
                           : _vm._e(),
@@ -47372,7 +47370,7 @@ var render = function() {
                         offer.tecnologia == 4
                           ? _c("div", [
                               _vm._v(
-                                "\r\n                                      Radio\r\n                                    "
+                                "\n                                      Radio\n                                    "
                               )
                             ])
                           : _vm._e(),
@@ -47380,7 +47378,7 @@ var render = function() {
                         offer.tecnologia == 5
                           ? _c("div", [
                               _vm._v(
-                                "\r\n                                      Voz Ip\r\n                                    "
+                                "\n                                      Voz Ip\n                                    "
                               )
                             ])
                           : _vm._e()
@@ -47565,9 +47563,7 @@ var render = function() {
                 [
                   _c("span", { staticClass: "text-center pr-1" }, [
                     _vm._v(
-                      "\r\n                " +
-                        _vm._s(item) +
-                        "\r\n              "
+                      "\n                " + _vm._s(item) + "\n              "
                     )
                   ])
                 ]
@@ -51643,7 +51639,7 @@ var render = function() {
                   [
                     _c("label", { staticStyle: { color: "red" } }, [
                       _vm._v(
-                        "\r\n               confirma Tecnologia\r\n              "
+                        "\n               confirma Tecnologia\n              "
                       )
                     ]),
                     _vm._v(" "),
@@ -53803,7 +53799,7 @@ var render = function() {
                     [
                       _c("label", { staticStyle: { color: "red" } }, [
                         _vm._v(
-                          "\r\n               confirma Tecnologia\r\n              "
+                          "\n               confirma Tecnologia\n              "
                         )
                       ]),
                       _vm._v(" "),
@@ -55455,7 +55451,7 @@ var render = function() {
                               _c("a", { staticClass: "float-right" }, [
                                 _vm._v(
                                   _vm._s(_vm.getFieldType(field.type)) +
-                                    "\r\n                              "
+                                    "\n                              "
                                 ),
                                 _c(
                                   "button",
@@ -85724,8 +85720,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\RPCS_SOLUTIONS\rpsci\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\RPCS_SOLUTIONS\rpsci\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/fabianespejo/Desktop/contratainternet final/rpsci/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/fabianespejo/Desktop/contratainternet final/rpsci/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),

@@ -1,11 +1,11 @@
 /*!
-  * Bootstrap tooltip.js v4.5.2 (https://getbootstrap.com/)
+  * Bootstrap tooltip.js v4.5.3 (https://getbootstrap.com/)
   * Copyright 2011-2020 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
 
 /*!
-  * Bootstrap util.js v4.5.2 (https://getbootstrap.com/)
+  * Bootstrap util.js v4.5.3 (https://getbootstrap.com/)
   * Copyright 2011-2020 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
@@ -53,6 +53,12 @@
  *
  * Date: 2020-05-04T22:49Z
  */
+
+/**
+  * vue-class-component v7.0.1
+  * (c) 2015-present Evan You
+  * @license MIT
+  */
 
 /**
  * @license
