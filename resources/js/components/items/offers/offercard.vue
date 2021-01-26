@@ -1,8 +1,19 @@
 <template>
+
   <div class="offer-card d-flex flex-column">
+    
     <div class="offer-card-header">
+      <div class="offer-card-header" >
+       
+         <div class="ribbon">Planes {{offer.type}}</div> 
+       
+    
       <img :src="baseUrl+'/storage/'+offer.company_logo" alt="logo" class="h-100 ">
+
+    
     </div>
+      </div>
+      
     <div :class="'offer-card-separator '+(index%2?'bg-main-blue':'bg-main-pink')"></div>
 
     <div class="offer-card-content">
@@ -21,8 +32,11 @@
         <h1 class="col-12 " style="font-family: 'Heebo';    color: #5b5b5f;    margin-top: -18px; font-weight: 800;"> 
    
                
-              {{offer.fields_values[1].value}} Mbps
-            
+              {{offer.fields_values[1].value}} 
+  <span> <span v-if="offer.company_name =='Net2Phone' || offer.company_name =='SkyNet' "> Kbps  </span> 
+   <span v-if="offer.company_name != 'Net2Phone' && offer.company_name !='SkyNet'"> Mbps </span>  </span>
+
+          
       
   </h1>
          
@@ -111,7 +125,11 @@
       
       </div>
     </div>
+
+     
   </div>
+
+  
 
 
 

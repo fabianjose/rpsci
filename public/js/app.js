@@ -3019,11 +3019,11 @@ __webpack_require__.r(__webpack_exports__);
     /*verifyCaptcha(captcha){
         this.captcha=captcha;
     },
-     onCaptchaError(err){
+      onCaptchaError(err){
         console.log("error captcha ", err)
         toastr.error("error en la validación del captcha, comprueba tu conexión a internet e intenta nuevamente")
     },
-     onCaptchaExpired(err){
+      onCaptchaExpired(err){
         console.log("error captcha ", err)
         toastr.error("el captcha se expiró, intente nuevamente")
     },*/
@@ -3131,11 +3131,11 @@ __webpack_require__.r(__webpack_exports__);
     verifyCaptcha(captcha){
         this.captcha=captcha;
     },
-     onCaptchaError(err){
+      onCaptchaError(err){
         console.log("error captcha ", err)
         toastr.error("error en la validación del captcha, comprueba tu conexión a internet e intenta nuevamente")
     },
-     onCaptchaExpired(err){
+      onCaptchaExpired(err){
         console.log("error captcha ", err)
         toastr.error("el captcha se expiró, intente nuevamente")
     },*/
@@ -4722,6 +4722,24 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -10306,7 +10324,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.v-captcha{\n    transform: scale(0.7);\n    -webkit-transform: scale(0.7);\n    transform-origin: 0 0;\n    -webkit-transform-origin: 0 0;\n}\n@media (max-width:350px) {\n.v-captcha{\n        transform: scale(0.6);\n        -webkit-transform: scale(0.6);\n}\n}\n\n", ""]);
+exports.push([module.i, "\n.v-captcha{\r\n    transform: scale(0.7);\r\n    -webkit-transform: scale(0.7);\r\n    transform-origin: 0 0;\r\n    -webkit-transform-origin: 0 0;\n}\n@media (max-width:350px) {\n.v-captcha{\r\n        transform: scale(0.6);\r\n        -webkit-transform: scale(0.6);\n}\n}\r\n\r\n", ""]);
 
 // exports
 
@@ -47135,7 +47153,7 @@ var render = function() {
                         },
                         [
                           _vm._v(
-                            " " + _vm._s(field.name) + "\n                "
+                            " " + _vm._s(field.name) + "\r\n                "
                           ),
                           field.name == "Velocidad"
                             ? _c("i", {
@@ -47172,7 +47190,7 @@ var render = function() {
                     },
                     [
                       _vm._v(
-                        "   Precio\n              \n             \n                "
+                        "   Precio\r\n              \r\n             \r\n                "
                       ),
                       _c("i", {
                         class:
@@ -47338,7 +47356,7 @@ var render = function() {
                         offer.tecnologia == 0
                           ? _c("div", [
                               _vm._v(
-                                "\n                                      Fibra\n                                    "
+                                "\r\n                                      Fibra\r\n                                    "
                               )
                             ])
                           : _vm._e(),
@@ -47346,7 +47364,7 @@ var render = function() {
                         offer.tecnologia == 1
                           ? _c("div", [
                               _vm._v(
-                                "\n                                      Satelital\n                                    "
+                                "\r\n                                      Satelital\r\n                                    "
                               )
                             ])
                           : _vm._e(),
@@ -47354,7 +47372,7 @@ var render = function() {
                         offer.tecnologia == 2
                           ? _c("div", [
                               _vm._v(
-                                "\n                                      Híbrido\n                                    "
+                                "\r\n                                      Híbrido\r\n                                    "
                               )
                             ])
                           : _vm._e(),
@@ -47362,7 +47380,7 @@ var render = function() {
                         offer.tecnologia == 3
                           ? _c("div", [
                               _vm._v(
-                                "\n                                      Cobre\n                                    "
+                                "\r\n                                      Cobre\r\n                                    "
                               )
                             ])
                           : _vm._e(),
@@ -47370,7 +47388,7 @@ var render = function() {
                         offer.tecnologia == 4
                           ? _c("div", [
                               _vm._v(
-                                "\n                                      Radio\n                                    "
+                                "\r\n                                      Radio\r\n                                    "
                               )
                             ])
                           : _vm._e(),
@@ -47378,7 +47396,7 @@ var render = function() {
                         offer.tecnologia == 5
                           ? _c("div", [
                               _vm._v(
-                                "\n                                      Voz Ip\n                                    "
+                                "\r\n                                      Voz Ip\r\n                                    "
                               )
                             ])
                           : _vm._e()
@@ -47563,7 +47581,9 @@ var render = function() {
                 [
                   _c("span", { staticClass: "text-center pr-1" }, [
                     _vm._v(
-                      "\n                " + _vm._s(item) + "\n              "
+                      "\r\n                " +
+                        _vm._s(item) +
+                        "\r\n              "
                     )
                   ])
                 ]
@@ -48361,13 +48381,19 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "offer-card d-flex flex-column" }, [
     _c("div", { staticClass: "offer-card-header" }, [
-      _c("img", {
-        staticClass: "h-100 ",
-        attrs: {
-          src: _vm.baseUrl + "/storage/" + _vm.offer.company_logo,
-          alt: "logo"
-        }
-      })
+      _c("div", { staticClass: "offer-card-header" }, [
+        _c("div", { staticClass: "ribbon" }, [
+          _vm._v("Planes " + _vm._s(_vm.offer.type))
+        ]),
+        _vm._v(" "),
+        _c("img", {
+          staticClass: "h-100 ",
+          attrs: {
+            src: _vm.baseUrl + "/storage/" + _vm.offer.company_logo,
+            alt: "logo"
+          }
+        })
+      ])
     ]),
     _vm._v(" "),
     _c("div", {
@@ -48427,8 +48453,19 @@ var render = function() {
             _vm._v(
               " \n \n             \n            " +
                 _vm._s(_vm.offer.fields_values[1].value) +
-                " Mbps\n          \n    \n"
-            )
+                " \n"
+            ),
+            _c("span", [
+              _vm.offer.company_name == "Net2Phone" ||
+              _vm.offer.company_name == "SkyNet"
+                ? _c("span", [_vm._v(" Kbps  ")])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.offer.company_name != "Net2Phone" &&
+              _vm.offer.company_name != "SkyNet"
+                ? _c("span", [_vm._v(" Mbps ")])
+                : _vm._e()
+            ])
           ]
         )
       ]),
@@ -51639,7 +51676,7 @@ var render = function() {
                   [
                     _c("label", { staticStyle: { color: "red" } }, [
                       _vm._v(
-                        "\n               confirma Tecnologia\n              "
+                        "\r\n               confirma Tecnologia\r\n              "
                       )
                     ]),
                     _vm._v(" "),
@@ -53799,7 +53836,7 @@ var render = function() {
                     [
                       _c("label", { staticStyle: { color: "red" } }, [
                         _vm._v(
-                          "\n               confirma Tecnologia\n              "
+                          "\r\n               confirma Tecnologia\r\n              "
                         )
                       ]),
                       _vm._v(" "),
@@ -55451,7 +55488,7 @@ var render = function() {
                               _c("a", { staticClass: "float-right" }, [
                                 _vm._v(
                                   _vm._s(_vm.getFieldType(field.type)) +
-                                    "\n                              "
+                                    "\r\n                              "
                                 ),
                                 _c(
                                   "button",
@@ -85720,8 +85757,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/fabianespejo/Desktop/contratainternet final/rpsci/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/fabianespejo/Desktop/contratainternet final/rpsci/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\fabianjose\Desktop\contrata internet final\rpsci\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\fabianjose\Desktop\contrata internet final\rpsci\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),
