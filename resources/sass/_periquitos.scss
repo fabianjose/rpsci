@@ -97,6 +97,32 @@
     text-align: initial;
     line-height: 100%;
 }
+
+
+
+
+@media (min-width: 1226px) {
+    
+    .ribbon {
+       
+        right: 122px;
+        top: 5px;
+        padding-top: 5px; 
+        border-radius:8px ;
+      }
+
+    .logo-tecnologia{
+        width: 77px;
+        margin-top: -16px;
+    }
+    
+    .texto-resultado-busqueda-banner{
+        line-height : 0px;     
+       
+    }
+    
+}
+
 @media (max-width:1000px){
 
     
@@ -109,8 +135,35 @@
       }
 
 }
-@media (max-width: 755px){
 
+@media (min-width: 1200px) {
+    .sin-resultados-1{
+        margin-top: 30px;
+    }
+    .sin-resultados-2{
+        margin-top: 30px;
+    }
+    .sin-resultados-3{
+        margin-top: 30px;
+    }
+    .sin-resultados-4{
+        margin-top: 30px;
+    }
+
+    .logo-tecnologia{
+        width: 77px;
+        margin-top: -31px;
+    }
+    
+    .texto-resultado-busqueda-banner{
+        line-height : 12px;     
+       
+    }
+    
+}
+
+@media (max-width: 755px){
+   
     
     .logo-tecnologia{
         width: 41px;
@@ -150,44 +203,6 @@
     
 }
 }
-
-
-
-@media (min-width: 1200px) {
-
-    .logo-tecnologia{
-        width: 77px;
-        margin-top: -31px;
-    }
-    
-    .texto-resultado-busqueda-banner{
-        line-height : 12px;     
-       
-    }
-    
-}
-@media (min-width: 1226px) {
-    
-    .ribbon {
-       
-        right: 122px;
-        top: 5px;
-        padding-top: 5px; 
-        border-radius:8px ;
-      }
-
-    .logo-tecnologia{
-        width: 77px;
-        margin-top: -16px;
-    }
-    
-    .texto-resultado-busqueda-banner{
-        line-height : 0px;     
-       
-    }
-    
-}
-
 @media (max-width: 500px){ 
     
     .ribbon {
