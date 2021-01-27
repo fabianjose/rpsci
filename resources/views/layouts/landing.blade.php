@@ -149,7 +149,7 @@
               </div>
               <ul class="list-unstyled text-ws footer-title-color mt-2">
                 <li class="list-item" style="font-variant: bold; font-size: 18px;">contacto@contratainternet.co</li>
-                    <li class="list-item" style="font-variant: bold; font-size: 12px;">PBX: +57 (1) 7868510</li>
+                    <li class="list-item" style="font-variant: bold; font-size: 18px;">PBX: +57 (1) 7868510</li>
              </ul>
               </div>
     </div>
