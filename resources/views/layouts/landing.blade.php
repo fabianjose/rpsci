@@ -22,9 +22,9 @@
 
 
     <div class="content">
-        <div  class="grid-header1 w-100 py-2 px-4" style="display:in-line" >
+      <!--  <div  class="grid-header1 w-100 py-2 px-4" style="display:in-line" >
             <div class="d-flex justify-content-end" style="color: #606060;">
-              <!--  <a href=""> <i class="fab fa-facebook-f i-c-main mx-2 text-white text-lg"></i>  </a> -->
+                <a href=""> <i class="fab fa-facebook-f i-c-main mx-2 text-white text-lg"></i>  </a> 
 
                 
                 <div class="texto-header" >Correo Electrónico: contacto@contratainternet.co</div>
@@ -38,29 +38,29 @@
                 </div>
 
             </div>
-        </div>
+        </div>-->
 
         <div  class="content2">
         <div  class="grid-header2 w-100 py-2 px-4"  >
 
-        <div class="d-flex " style="color: #606060; ">
+       <div class="d-flex " style="color: #606060; ">
   
-                <div class="text-center"   style="padding: 5px; font-family: 'Work Sans', sans-serif; width: 100%; font-weight: 300; ">Correo Electrónico:contacto@contratainternet.co</div>
+            <!--  <div class="text-center"   style="padding: 5px; font-family: 'Work Sans', sans-serif; width: 100%; font-weight: 300; ">Correo Electrónico:contacto@contratainternet.co</div> -->
 
               
 
             </div>
             <div class="d-flex ;" style="color: #606060; ">
-                <div   style="width: 100%; padding: 10px; font-weight: 300; text-align: end;    font-family: 'Work Sans', sans-serif;">PBX:+57 (1) 7868510)</div>
+               <!--    <div   style="width: 100%; padding: 10px; font-weight: 300; text-align: end;    font-family: 'Work Sans', sans-serif;">PBX:+57 (1) 7868510)</div>
 
                 <div    style="width: 100%; padding: 5px;    font-family: 'Work Sans', sans-serif;">
                   <a href="https://www.facebook.com/colombiainternet/">  <img src="/images/Iconos_redes-11.png"     height=35px;  alt=""> </span> </a> 
                   <a href="https://www.instagram.com/contratainternet.co/?hl=es-la" >  <img src="/images/Iconos_redes-12.png"     height=35px;  alt=""> </span> </i> </a>
                   <a href="https://www.instagram.com/contratainternet.co/?hl=es-la" >  <img src="/images/Iconos_redes-13.png"     height=35px;  alt=""> </span> </a>
-                </div>
+                </div> -->
 
             </div>
-        </div>
+        </div> 
 
         <nav class=" nav-grande  main-header navbar-light navbar navbar-expand-md mx-auto py-3 px-1 align-items-center header-posicion sticky-top" style="background-color:white; height: 80px;">
             <ul  class="navbar-nav ml-3 ">

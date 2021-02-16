@@ -149,12 +149,12 @@
                         </div>
                    </section>
    
-             
+             <br><br>
                <section class="section-blog" style="padding-top: 3rem;">
                    <h1 class="text-center text-ws" style="font-weight: 800;">Nuestras Publicaciones de Blog</h1>
                    
                </section>
-   
+   <br><br>
                <section id="blog" class="container">
    <?php 
        $url = "https://contratainternet.co/blog/wp-json/wp/v2/posts?_embed"; $ch = curl_init($url);  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -167,7 +167,7 @@
                        <div class="col-12 col-md-4" style="text-align: -webkit-center;">
                        
    
-                   <div class="thumbnail" style="width: 100%; background-position:center;height: 300px;background-size: cover; background-image: url('<?=$post[0]["_embedded"]["wp:featuredmedia"][0]["source_url"] ?>');" alt=""></div> 
+                   <div class="thumbnail" style="width: 100%; background-position:center;height: 300px;background-size: contain; background-image: url('<?=$post[0]["_embedded"]["wp:featuredmedia"][0]["source_url"] ?>');" alt=""></div> 
                          <div class="fondo-blog">
                          
                          <div class="titulo-blog">
@@ -183,7 +183,7 @@
                        </div>
                          </div>
                        <div class="col-12 col-md-4" style="text-align: -webkit-center;">
-                           <div class="thumbnail" style="width: 100%;background-position:center;background-size: cover; height: 300px; background-image: url('<?=$post[1]["_embedded"]["wp:featuredmedia"][0]["source_url"] ?>');" alt=""></div>
+                           <div class="thumbnail" style="width: 100%;background-position:center;background-size: contain; height: 300px; background-image: url('<?=$post[1]["_embedded"]["wp:featuredmedia"][0]["source_url"] ?>');" alt=""></div>
                          <div class="fondo-blog">
                          
                          <div class="titulo-blog">
@@ -202,7 +202,7 @@
                          </div>
                        </div>
                        <div class="col-12 col-md-4" style="text-align: -webkit-center;">
-                           <div class="thumbnail" style="width: 100%; background-position:center;height: 300px;background-size: cover; background-image: url('<?=$post[2]["_embedded"]["wp:featuredmedia"][0]["source_url"] ?>');" alt=""></div>
+                           <div class="thumbnail" style="width: 100%; background-position:center;height: 300px;background-size: contain; background-image: url('<?=$post[2]["_embedded"]["wp:featuredmedia"][0]["source_url"] ?>');" alt=""></div>
                         <div class="fondo-blog">
                          
                         <div class="titulo-blog">
