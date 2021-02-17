@@ -202,7 +202,8 @@ a {
 
 .section-search {
   background: url(/images/fondo_satelite.jpg?14e35b3065fb09f40e303931427ca4d0);
-  background-position: top;
+  /* background: no-repeat; */
+  background-size: cover;
 }
 
 @media (max-width: 768px) {
@@ -611,6 +612,7 @@ a {
 }
 
 .offer-card-header {
+  flex-flow: column;
   padding: 1.2rem;
   height: 120px;
   display: flex;
@@ -1457,6 +1459,23 @@ a {
   }
 }
 
+.ribbon {
+  width: 125px;
+  height: 32px;
+  font-size: 15px;
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+  box-shadow: 1px 2px 3px rgba(136, 136, 136, 0.25);
+  background: #00c2d6;
+  transform: rotate(0deg);
+  /* position: absolute;*/
+  right: 120px;
+  top: 10px;
+  padding-top: 5px;
+  border-radius: 8px;
+}
+
 .titulo-blog {
   font-family: "Heebo";
   font-size: 20px;
@@ -1539,6 +1558,60 @@ a {
   line-height: 100%;
 }
 
+@media (min-width: 1226px) {
+  .ribbon {
+    right: 122px;
+    top: 5px;
+    padding-top: 5px;
+    border-radius: 8px;
+  }
+
+  .logo-tecnologia {
+    width: 77px;
+    margin-top: -16px;
+  }
+
+  .texto-resultado-busqueda-banner {
+    line-height: 0px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .ribbon {
+    right: 100px;
+    top: 5px;
+    padding-top: 5px;
+    border-radius: 8px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .sin-resultados-1 {
+    margin-top: 30px;
+  }
+
+  .sin-resultados-2 {
+    margin-top: 30px;
+  }
+
+  .sin-resultados-3 {
+    margin-top: 30px;
+  }
+
+  .sin-resultados-4 {
+    margin-top: 30px;
+  }
+
+  .logo-tecnologia {
+    width: 77px;
+    margin-top: -31px;
+  }
+
+  .texto-resultado-busqueda-banner {
+    line-height: 12px;
+  }
+}
+
 @media (max-width: 755px) {
   .logo-tecnologia {
     width: 41px;
@@ -1575,35 +1648,27 @@ a {
   }
 }
 
-@media (min-width: 1200px) {
-  .logo-tecnologia {
-    width: 77px;
-    margin-top: -31px;
-  }
-
-  .texto-resultado-busqueda-banner {
-    line-height: 12px;
-  }
-}
-
-@media (min-width: 1226px) {
-  .logo-tecnologia {
-    width: 77px;
-    margin-top: -16px;
-  }
-
-  .texto-resultado-busqueda-banner {
-    line-height: 0px;
-  }
-}
-
 @media (max-width: 500px) {
+  .ribbon {
+    right: 122px;
+    top: 5px;
+    padding-top: 5px;
+    border-radius: 8px;
+  }
+
   .bloque-proveedor-precios {
     display: none !important;
   }
 }
 
 @media (max-width: 500px) and (min-width: 300px) {
+  .ribbon {
+    right: 75px;
+    top: 5px;
+    padding-top: 5px;
+    border-radius: 8px;
+  }
+
   .logo-tecnologia {
     width: 41px;
     margin-top: -31px;
@@ -1684,6 +1749,13 @@ a {
 }
 
 @media (max-width: 500px) and (min-width: 360px) {
+  .ribbon {
+    right: 115px;
+    top: 5px;
+    padding-top: 5px;
+    border-radius: 8px;
+  }
+
   .logo-tecnologia {
     width: 41px;
     margin-top: -31px;
@@ -1764,6 +1836,13 @@ a {
 }
 
 @media (max-width: 500px) and (min-width: 375px) {
+  .ribbon {
+    right: 122px;
+    top: 5px;
+    padding-top: 5px;
+    border-radius: 8px;
+  }
+
   .logo-tecnologia {
     width: 41px;
     margin-top: -31px;
@@ -1844,6 +1923,13 @@ a {
 }
 
 @media (max-width: 500px) and (min-width: 411px) {
+  .ribbon {
+    right: 135px;
+    top: 5px;
+    padding-top: 5px;
+    border-radius: 8px;
+  }
+
   .logo-tecnologia {
     width: 41px;
     margin-top: -31px;
@@ -1924,6 +2010,13 @@ a {
 }
 
 @media (max-width: 500px) and (min-width: 499px) {
+  .ribbon {
+    right: 180px;
+    top: 5px;
+    padding-top: 5px;
+    border-radius: 8px;
+  }
+
   .logo-tecnologia {
     width: 41px;
     margin-top: -31px;

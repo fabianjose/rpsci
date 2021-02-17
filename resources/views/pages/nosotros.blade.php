@@ -20,7 +20,7 @@
 
 										<h1 class="titulo-nosotros" >   
 
-											Porque contratainternet
+											¿Porque contratainternet?
 
 										</h1>
 
@@ -40,7 +40,7 @@
 									
 									<div class="col-12 col-sm-4">
 											<div>
-											<img src="{{url('images/contacta-bg.jpg')}}" class="img-fluid" >
+											<img src="{{url('images/Porque-contrataInternet.jpg')}}" class="img-fluid" >
 											</div>
 									</div>
 				</div>
@@ -51,7 +51,7 @@
 
 											<div class="col-12 col-sm-4 order-2 ">
 													<div>
-													<img src="{{url('images/contacta-bg.jpg')}}" class="img-fluid" >
+													<img src="{{url('images/mision.jpg')}}" class="img-fluid" >
 													</div>
 											</div>
 						
@@ -60,7 +60,7 @@
 
 											<h1 class="titulo-nosotros" >   
 
-												Mision
+												Misión
 
 											</h1>
 
@@ -88,7 +88,7 @@
 
 							<h1 class="titulo-nosotros">   
 
-								Vision
+								Visión
 
 							</h1>
 
@@ -109,7 +109,7 @@
 				
 							<div class="col-12 col-sm-4">
 									<div>
-									<img src="{{url('images/contacta-bg.jpg')}}" class="img-fluid" >
+									<img src="{{url('images/vision.jpg')}}" class="img-fluid" >
 									</div>
 							</div>
 					</div>

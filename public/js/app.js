@@ -4843,6 +4843,29 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['offer', 'index'],
   data: function data() {
@@ -48363,13 +48386,30 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "offer-card d-flex flex-column" }, [
     _c("div", { staticClass: "offer-card-header" }, [
-      _c("img", {
-        staticClass: "h-100 ",
-        attrs: {
-          src: _vm.baseUrl + "/storage/" + _vm.offer.company_logo,
-          alt: "logo"
-        }
-      })
+      _c("div", { staticClass: "offer-card-header" }, [
+        _c("div", { staticClass: "ribbon" }, [
+          _vm._v("Planes\n          "),
+          _vm.offer.type == "private"
+            ? _c("span", [_vm._v(" Hogar  ")])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.offer.type == "isp" ? _c("span", [_vm._v(" ISP  ")]) : _vm._e(),
+          _vm._v(" "),
+          _vm.offer.type == "company"
+            ? _c("span", [_vm._v(" Empresa  ")])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.offer.type == "pyme" ? _c("span", [_vm._v(" pyme  ")]) : _vm._e()
+        ]),
+        _vm._v(" "),
+        _c("img", {
+          staticClass: "h-100 ",
+          attrs: {
+            src: _vm.baseUrl + "/storage/" + _vm.offer.company_logo,
+            alt: "logo"
+          }
+        })
+      ])
     ]),
     _vm._v(" "),
     _c("div", {
@@ -48429,8 +48469,19 @@ var render = function() {
             _vm._v(
               " \n \n             \n            " +
                 _vm._s(_vm.offer.fields_values[1].value) +
-                " Mbps\n          \n    \n"
-            )
+                " \n"
+            ),
+            _c("span", [
+              _vm.offer.company_name == "Net2Phone" ||
+              _vm.offer.company_name == "SkyNet"
+                ? _c("span", [_vm._v(" Kbps  ")])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.offer.company_name != "Net2Phone" &&
+              _vm.offer.company_name != "SkyNet"
+                ? _c("span", [_vm._v(" Mbps ")])
+                : _vm._e()
+            ])
           ]
         )
       ]),
@@ -85722,8 +85773,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\RPCS_SOLUTIONS\rpsci\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\RPCS_SOLUTIONS\rpsci\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\fabianjose\Desktop\contrata internet final\rpsci\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\fabianjose\Desktop\contrata internet final\rpsci\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),

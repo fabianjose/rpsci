@@ -52,7 +52,8 @@
 }
 .section-search{
   background: url("./../assets/images/fondo_satelite.jpg");
-  background-position: top;
+  /* background: no-repeat; */
+  background-size: cover;
 }
 @media(max-width:768px){
 
