@@ -330,12 +330,12 @@ class OfferController extends Controller{
     ->leftJoin('fields_values as fs',function($join){
 
         $join->on('fs.offer_id','offers.id');
-         $join->where('fs.field_id','=',"28");
       }
-     ) 
+     )
+    ->join('fields', 'fields.id', 'fs.field_id')->where("fields.name","=","Velocidad") 
     ->where(function($query) use($data){
       if(isset($data['mins'] ) && isset($data['maxs'] )){
-      $query->where(\DB::raw("convert(fs.value,UNSIGNED)"),">=",$data["mins"])->where("fs.field_id","=",'28');
+      $query->where(\DB::raw("convert(fs.value,UNSIGNED)"),">=",$data["mins"])->where("fields.name","=",'Velocidad');
       $query->where(\DB::raw("convert(fs.value,UNSIGNED)"),"<=",$data["maxs"]);}
     })    ->where(function($query) use($data){
       if(isset($data['providers']))
@@ -395,7 +395,7 @@ class OfferController extends Controller{
     ->join("offers","fields_values.offer_id","=","offers.id")
     ->join("companies","offers.company",'=',"companies.id")
     ->where('offers.trash',0)
-    ->where("fields.id",'=','28')
+    ->where("fields.name",'=','Velocidad')
     ->where("fields_values.value","<>","")
      ->where(function($query) use($data){
       $query->where("offers.type", $data["offer_type"])
@@ -428,7 +428,6 @@ class OfferController extends Controller{
     });
     $max_price = $price->max("tariff");
     $min_price = $price->min("tariff");
-
     if (!$offers) return response()->json(["errorMessage"=>'No se encontraron ofertas disponibles'],404);
 
     if($request->input("from")&&is_numeric($request->input("from"))){
@@ -446,7 +445,6 @@ class OfferController extends Controller{
     ->where("trash",0)
     ->orderBy("id", "asc")
     ->get();
-
     if($request->input("sortBy")){
       $sorting="sortBy";
       $sortKey=$request->input("sortBy");

@@ -130,15 +130,9 @@
    
              console.log('sale')
              alert("Mensaje Enviado Correctamente")
-             }
-   
-   
-             else { alert('numero escrito invalido');
-                     }             
-   
-                 
-   
-                   }
+             }else{ alert('numero escrito invalido');
+               }
+                 }
                
    </script>
                </section>

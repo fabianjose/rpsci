@@ -3621,19 +3621,19 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       console.log("type ", this.offerType);
       var loader = this.$loading.show();
       var query = "?";
-      if (this.department && this.department != "") query += "department=" + encondeURLComponent(this.department);else {
+      if (this.department && this.department != "") query += "department=" + encodeURIComponent(this.department);else {
         loader.hide();
         return toastr.error("rellene todos los campos");
       }
-      if (this.municipality && this.municipality != "") query += "&municipality=" + encondeURLComponent(this.municipality);else {
+      if (this.municipality && this.municipality != "") query += "&municipality=" + encodeURIComponent(this.municipality);else {
         loader.hide();
         return toastr.error("rellene todos los campos");
       }
-      if (this.service && this.service != "") query += "&service=" + encondeURLComponent(this.service);else {
+      if (this.service && this.service != "") query += "&service=" + encodeURIComponent(this.service);else {
         loader.hide();
         return toastr.error('rellene todos los campos');
       }
-      query += "&offer_type=" + this.offerType;
+      query += "&offer_type=" + encodeURIComponent(this.offerType);
       window.location.replace(baseUrl + "/offers/search" + query);
     }
   }
@@ -3890,14 +3890,12 @@ __webpack_require__.r(__webpack_exports__);
     increaseCounter: function increaseCounter() {
       var _this = this;
 
-      console.log("va lue ", this.counter.value.match(/\d+/)[0]);
       var counterInterval = setInterval(function () {
         var limitVal = _this.counter.value.match(/\d+/)[0];
 
         _this.counterValue += limitVal * 0.02;
 
         if (_this.counterValue >= limitVal) {
-          console.log(_this.counterValue);
           return clearInterval(counterInterval);
         }
       }, 20);
@@ -7256,7 +7254,7 @@ __webpack_require__.r(__webpack_exports__);
       var loader = this.$loading.show();
       this.loading = true;
       axios.get(baseUrl + "/offers/search" + this.query + (filters ? filters : "") + this.pageIndex).then(function (res) {
-        /*  console.log("response ", res)*/
+        console.log("response ", res);
         _this.compPagination = res.data.pagination;
         _this.compLastpage = res.data.last_page;
         _this.compFields = res.data.fields;
