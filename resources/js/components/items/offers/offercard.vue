@@ -5,11 +5,12 @@
     <div class="offer-card-header">
       <div class="offer-card-header" >
        
-         <div class="ribbon">Planes
+         <div class="ribbon">
             <span v-if="offer.type =='private'"> Hogar  </span> 
             <span v-if="offer.type =='isp'"> ISP  </span> 
             <span v-if="offer.type =='company'"> Empresa  </span> 
-            <span v-if="offer.type =='pyme'"> pyme  </span> 
+            <span v-if="offer.type =='pyme'"> Pyme  </span> 
+            <span v-if="offer.type !='pyme' & offer.type !='company' & offer.type !='isp' & offer.type !='private'  "> Empresas / Hogar  </span>
              </div> 
        
     

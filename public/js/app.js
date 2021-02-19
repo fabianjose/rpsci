@@ -4866,6 +4866,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['offer', 'index'],
   data: function data() {
@@ -48388,7 +48389,6 @@ var render = function() {
     _c("div", { staticClass: "offer-card-header" }, [
       _c("div", { staticClass: "offer-card-header" }, [
         _c("div", { staticClass: "ribbon" }, [
-          _vm._v("Planes\n          "),
           _vm.offer.type == "private"
             ? _c("span", [_vm._v(" Hogar  ")])
             : _vm._e(),
@@ -48399,7 +48399,14 @@ var render = function() {
             ? _c("span", [_vm._v(" Empresa  ")])
             : _vm._e(),
           _vm._v(" "),
-          _vm.offer.type == "pyme" ? _c("span", [_vm._v(" pyme  ")]) : _vm._e()
+          _vm.offer.type == "pyme" ? _c("span", [_vm._v(" Pyme  ")]) : _vm._e(),
+          _vm._v(" "),
+          (_vm.offer.type != "pyme") &
+          (_vm.offer.type != "company") &
+          (_vm.offer.type != "isp") &
+          (_vm.offer.type != "private")
+            ? _c("span", [_vm._v(" Empresas / Hogar  ")])
+            : _vm._e()
         ]),
         _vm._v(" "),
         _c("img", {
